@@ -36,47 +36,55 @@ exports[`ProductOverviewPane component renders correctly 1`] = `
       <span
         class="definition"
       >
-        Black
+        Brown
       </span>
       <div
         class="variants"
       >
-        <span
+        <div
           class="variant"
         >
-          <button
-            class="MuiButtonBase-root Thumbnail Thumbnail--selected"
-            style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
-            tabindex="0"
-            type="button"
+          <div
+            class="Tooltip"
           >
-            <span
-              class="accessibility-text"
+            <button
+              class="MuiButtonBase-root Thumbnail"
+              style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
+              tabindex="0"
+              type="button"
             >
-              Black
-            </span>
-          </button>
-        </span>
-        <span
+              <span
+                class="accessibility-text"
+              >
+                Black
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+        <div
           class="variant"
         >
-          <a
-            aria-disabled="false"
-            class="MuiButtonBase-root Thumbnail"
-            href="#"
-            style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
-            tabindex="0"
+          <div
+            class="Tooltip"
           >
-            <span
-              class="accessibility-text"
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root Thumbnail Thumbnail--selected"
+              href="#"
+              style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
+              tabindex="0"
             >
-              Brown
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </a>
-        </span>
+              <span
+                class="accessibility-text"
+              >
+                Brown
+              </span>
+            </a>
+          </div>
+        </div>
       </div>
     </li>
     <li>
@@ -88,47 +96,59 @@ exports[`ProductOverviewPane component renders correctly 1`] = `
       <div
         class="variants variants--spaced"
       >
-        <span
+        <div
           class="variant"
         >
           <div
-            class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
+            class="Tooltip"
           >
-            <span
-              class="MuiChip-label"
+            <div
+              class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
             >
-              22cm x 42cm
-            </span>
+              <span
+                class="MuiChip-label"
+              >
+                22cm x 42cm
+              </span>
+            </div>
           </div>
-        </span>
-        <span
-          class="variant"
-        >
-          <a
-            class="MuiChip-root Chip Chip--default Chip--theme-pearl"
-            href="#"
-          >
-            <span
-              class="MuiChip-label"
-            >
-              12cm x 22cm
-            </span>
-          </a>
-        </span>
-        <span
+        </div>
+        <div
           class="variant"
         >
           <div
-            aria-disabled="true"
-            class="MuiChip-root Chip Chip--default Chip--theme-pearl Mui-disabled"
+            class="Tooltip"
           >
-            <span
-              class="MuiChip-label"
+            <a
+              class="MuiChip-root Chip Chip--default Chip--theme-pearl"
+              href="#"
             >
-              30cm x 62cm
-            </span>
+              <span
+                class="MuiChip-label"
+              >
+                12cm x 22cm
+              </span>
+            </a>
           </div>
-        </span>
+        </div>
+        <div
+          class="variant"
+        >
+          <div
+            class="Tooltip"
+          >
+            <div
+              aria-disabled="true"
+              class="MuiChip-root Chip Chip--default Chip--theme-pearl Mui-disabled"
+            >
+              <span
+                class="MuiChip-label"
+              >
+                30cm x 62cm
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
   </ul>

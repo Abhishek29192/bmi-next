@@ -4,6 +4,7 @@ import PureChip from "@bmi/chip";
 import { ClickableAction, withClickable } from "@bmi/clickable";
 import DefaultThumbnail from "@bmi/thumbnail";
 import Typography from "@bmi/typography";
+import ToolTip from "@bmi/tooltip";
 import styles from "./ProductOverviewPane.module.scss";
 
 const Chip = withClickable((props) => {
@@ -23,6 +24,7 @@ const Chip = withClickable((props) => {
 type Variant = {
   /** Not a ReactNode to support alt text */
   label: string;
+  availability?: boolean;
   isSelected?: boolean;
   action?: ClickableAction;
   thumbnail?: string;
@@ -32,6 +34,7 @@ type Attribute = {
   name: string;
   type?: "chips" | "thumbnails";
   variants: Variant[];
+  unavailableMicroCopy?: string;
   component?: React.ComponentType<any>; // TODO
 };
 
@@ -49,7 +52,8 @@ const renderThumbnailAttribute = (
   name: string,
   variants: Variant[],
   key: string,
-  component?: React.ComponentType<any> // TODO
+  component?: React.ComponentType<any>, // TODO
+  unavailableMicroCopy?: string
 ) => {
   const Thumbnail = component || DefaultThumbnail;
   const activeColor = variants.find(({ isSelected }) => isSelected);
@@ -73,23 +77,44 @@ const renderThumbnailAttribute = (
         <span className={styles["definition"]}>{activeColor.label}</span>
       )}
       <div className={styles["variants"]}>
-        {variants.map(({ label, thumbnail, action }, index) => (
-          <span className={styles["variant"]} key={`${key}-variant-${index}`}>
-            <Thumbnail
-              action={action}
-              imageSource={thumbnail}
-              altText={label}
-              color="#ffffff"
-              state={activeColor.label === label ? "selected" : "enabled"}
-            />
-          </span>
-        ))}
+        {variants.map(
+          ({ label, isSelected, thumbnail, action, availability }, index) => (
+            <div className={styles["variant"]} key={`${key}-variant-${index}`}>
+              <ToolTip
+                title={<div>{unavailableMicroCopy}</div>}
+                placement="top"
+                {...(isSelected || availability || !unavailableMicroCopy
+                  ? { open: false }
+                  : {})}
+              >
+                <div
+                  className={classnames(
+                    !isSelected &&
+                      !availability &&
+                      styles["unavailable-thumbnail"]
+                  )}
+                >
+                  <Thumbnail
+                    action={action}
+                    imageSource={thumbnail}
+                    altText={label}
+                    color="#ffffff"
+                    state={isSelected ? "selected" : "enabled"}
+                  />
+                </div>
+              </ToolTip>
+            </div>
+          )
+        )}
       </div>
     </li>
   );
 };
 
-const renderAttribute = ({ name, ...attribute }: Attribute, index: number) => {
+const renderAttribute = (
+  { name, unavailableMicroCopy, ...attribute }: Attribute,
+  index: number
+) => {
   const key = `attribute-${index}`;
 
   if (!attribute.variants.length) {
@@ -112,7 +137,8 @@ const renderAttribute = ({ name, ...attribute }: Attribute, index: number) => {
       name,
       attribute.variants,
       key,
-      attribute.component
+      attribute.component,
+      unavailableMicroCopy
     );
   }
 
@@ -122,18 +148,38 @@ const renderAttribute = ({ name, ...attribute }: Attribute, index: number) => {
       <div
         className={classnames(styles["variants"], styles["variants--spaced"])}
       >
-        {attribute.variants.map(({ label, action, isSelected }, index) => (
-          <span className={styles["variant"]} key={`${key}-variant-${index}`}>
-            <Chip
-              type="selectable"
-              isSelected={isSelected}
-              action={action}
-              disabled={!isSelected && !action}
-            >
-              {label}
-            </Chip>
-          </span>
-        ))}
+        {attribute.variants.map(
+          ({ label, action, isSelected, availability }, index) => {
+            return (
+              <div
+                className={classnames(
+                  styles["variant"],
+                  !isSelected && !availability && styles["unavailable-chip"]
+                )}
+                key={`${key}-variant-${index}`}
+              >
+                <ToolTip
+                  title={<div>{unavailableMicroCopy}</div>}
+                  placement="top"
+                  {...(isSelected || availability || !unavailableMicroCopy
+                    ? { open: false }
+                    : {})}
+                >
+                  <div>
+                    <Chip
+                      type="selectable"
+                      isSelected={isSelected}
+                      action={action}
+                      disabled={!isSelected && !action}
+                    >
+                      {label}
+                    </Chip>
+                  </div>
+                </ToolTip>
+              </div>
+            );
+          }
+        )}
       </div>
     </li>
   );

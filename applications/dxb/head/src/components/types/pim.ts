@@ -208,5 +208,7 @@ export enum FeatureCodeEnum {
   LENGTH = "length",
   WIDTH = "width",
   HEIGHT = "height",
+  SCORE_WEIGHT = "scoringweight",
+  THICKNESS = "thickness",
   VARIANT_ATTRIBUTE = "variantattribute"
 }
