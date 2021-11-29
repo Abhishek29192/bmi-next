@@ -48,6 +48,15 @@ export type Data = {
   browseProductsCTA: PageInfoData | null;
 };
 
+const formatSamples = (samples: SampleOrderElement[]) =>
+  samples
+    .map((sample) =>
+      Object.entries(sample)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join("<br>")
+    )
+    .join("<br><br>");
+
 const SampleBasketSection = ({
   data: {
     description,
@@ -141,7 +150,7 @@ const SampleBasketSection = ({
           <FormSection
             data={checkoutFormSection}
             backgroundColor="pearl"
-            additionalValues={{ samples: JSON.stringify(samples, null, "\t") }}
+            additionalValues={{ samples: formatSamples(samples) }}
             isSubmitDisabled={samples.length === 0}
             gtmOverride={{
               label: "samples ordering basket form submitted",
