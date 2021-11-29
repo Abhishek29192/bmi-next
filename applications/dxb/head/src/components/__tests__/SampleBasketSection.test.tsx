@@ -173,7 +173,7 @@ describe("SampleBasketSection with form", () => {
           title: "Complete form",
           values: {
             samples:
-              '[\n\t{\n\t\t"id": "sample-1",\n\t\t"title": "sample-1",\n\t\t"url": "http://localhost/no/sample-1-details",\n\t\t"color": "green",\n\t\t"texture": "rough"\n\t}\n]',
+              "id: sample-1<br>title: sample-1<br>url: http://localhost/no/sample-1-details<br>color: green<br>texture: rough",
             text: "Text"
           }
         },
