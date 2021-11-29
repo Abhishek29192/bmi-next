@@ -15,8 +15,7 @@ const allContentfulAssetType = {
   nodes: [
     {
       name: "CAD display name",
-      pimCode: "CAD",
-      code: "CAD"
+      pimCode: "CAD"
     }
   ]
 };

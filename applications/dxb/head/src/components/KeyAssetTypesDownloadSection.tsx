@@ -117,7 +117,7 @@ const KeyAssetTypesDownloadSection = (props: Props) => {
     <div className={styles["container"]}>
       {assetTypes.map((assetType) => {
         const mappedDocuments = documents
-          .filter((document) => document.assetType.code === assetType)
+          .filter((document) => document.assetType.pimCode === assetType)
           .map((document) => mapAssetToCommonData(document));
 
         if (!mappedDocuments.length) return null;

@@ -29,7 +29,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
   it("renders correctly", () => {
     const document1 = createContentfulDocument({
       assetType: createAssetType({
-        code: "SAT",
+        pimCode: "SAT",
         name: "Some Asset Type"
       }),
       asset: {
@@ -46,7 +46,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
 
     const document2 = createContentfulDocument({
       assetType: createAssetType({
-        code: "SAT",
+        pimCode: "SAT",
         name: "Some Asset Type"
       }),
       asset: {
@@ -63,7 +63,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
 
     const document3 = createContentfulDocument({
       assetType: createAssetType({
-        code: "AAT",
+        pimCode: "AAT",
         name: "Another Asset Type"
       }),
       asset: {
