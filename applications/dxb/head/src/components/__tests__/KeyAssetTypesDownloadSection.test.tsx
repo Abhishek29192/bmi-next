@@ -166,7 +166,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
       const pimDocument = createPimDocument();
       const expectedObj = {
         href: "http://localhost/pim-document-id",
-        name: "pim-document-id.pdf",
+        name: "pim-document-title",
         assetType: "asset-name"
       };
 

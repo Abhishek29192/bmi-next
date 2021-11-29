@@ -77,17 +77,10 @@ export const handleDownloadClick = async (
 };
 
 export const mapAssetToCommonData = (data: Data): CommonData => {
-  if (data.__typename === "PIMDocument") {
-    const { url, assetType, realFileName } = data;
-
-    return {
-      href: url,
-      name: realFileName,
-      assetType: assetType.name
-    };
-  }
-
-  if (data.__typename === "PIMLinkDocument") {
+  if (
+    data.__typename === "PIMLinkDocument" ||
+    data.__typename === "PIMDocument"
+  ) {
     const { url, assetType, title } = data;
 
     return {
