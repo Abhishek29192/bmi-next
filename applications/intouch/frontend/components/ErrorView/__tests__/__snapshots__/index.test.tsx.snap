@@ -93,6 +93,7 @@ exports[`ErrorView component renders correctly with title 1`] = `
               class="midHeaderNav"
             >
               <button
+                aria-label="aria.notifications"
                 class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
                 id="notifications-panel-toggle"
                 tabindex="0"
@@ -120,6 +121,7 @@ exports[`ErrorView component renders correctly with title 1`] = `
                 class="tabletNavButton"
               >
                 <button
+                  aria-label="aria.navigation"
                   class="MuiButtonBase-root"
                   id="tablet-navigation-panel-toggle"
                   tabindex="0"
@@ -144,6 +146,7 @@ exports[`ErrorView component renders correctly with title 1`] = `
                 class="mobileNavButton"
               >
                 <button
+                  aria-label="aria.navigation"
                   class="MuiButtonBase-root"
                   id="mobile-navigation-panel-toggle"
                   tabindex="0"
@@ -398,6 +401,7 @@ exports[`ErrorView component renders correctly without title 1`] = `
               class="midHeaderNav"
             >
               <button
+                aria-label="aria.notifications"
                 class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
                 id="notifications-panel-toggle"
                 tabindex="0"
@@ -425,6 +429,7 @@ exports[`ErrorView component renders correctly without title 1`] = `
                 class="tabletNavButton"
               >
                 <button
+                  aria-label="aria.navigation"
                   class="MuiButtonBase-root"
                   id="tablet-navigation-panel-toggle"
                   tabindex="0"
@@ -449,6 +454,7 @@ exports[`ErrorView component renders correctly without title 1`] = `
                 class="mobileNavButton"
               >
                 <button
+                  aria-label="aria.navigation"
                   class="MuiButtonBase-root"
                   id="mobile-navigation-panel-toggle"
                   tabindex="0"
