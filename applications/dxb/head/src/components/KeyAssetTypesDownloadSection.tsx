@@ -1,11 +1,12 @@
 import React from "react";
 import axios from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { GetApp, Folder } from "@material-ui/icons";
+import { GetApp } from "@material-ui/icons";
 import Button, { ButtonProps, ClickableAction } from "@bmi/button";
 import { getDownloadLink, downloadAs } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
 import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
+import Icon from "./Icon";
 
 import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
 import { Data as DocumentData } from "./Document";
@@ -132,7 +133,13 @@ const KeyAssetTypesDownloadSection = (props: Props) => {
                 action: JSON.stringify(mappedDocuments.map((item) => item.href))
               }}
               variant="text"
-              startIcon={mappedDocuments.length === 1 ? <GetApp /> : <Folder />}
+              startIcon={
+                mappedDocuments.length === 1 ? (
+                  <GetApp />
+                ) : (
+                  <Icon name="FolderZip" />
+                )
+              }
               action={
                 mappedDocuments.length === 1 && {
                   model: "download",

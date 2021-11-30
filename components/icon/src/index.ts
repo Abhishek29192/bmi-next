@@ -33,6 +33,7 @@ import CertificationPitchedRoof from "./svgs/CertificationPitchedRoof.svg";
 import FlatRoof from "./svgs/FlatRoof.svg";
 import OtherTraining from "./svgs/OtherTraining.svg";
 import PitchedRoof from "./svgs/PitchedRoof.svg";
+import FolderZip from "./svgs/FolderZip.svg";
 
 export {
   Arrow,
@@ -65,7 +66,8 @@ export {
   CertificationPitchedRoof,
   FlatRoof,
   OtherTraining,
-  PitchedRoof
+  PitchedRoof,
+  FolderZip
 };
 
 export const iconMap = {
@@ -100,7 +102,8 @@ export const iconMap = {
   CertificationPitchedRoof,
   FlatRoof,
   OtherTraining,
-  PitchedRoof
+  PitchedRoof,
+  FolderZip
 };
 
 export type IconName = keyof typeof iconMap;
