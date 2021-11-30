@@ -2,6 +2,8 @@
   "show": "Show",
   "edit": "Edit",
   "submit": "Submit",
+  "success": "Success",
+  "error": "Error",
   "sidePanel": {
     "search": {
       "label": "Search",

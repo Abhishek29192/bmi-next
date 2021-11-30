@@ -43,7 +43,7 @@ describe("Market page", () => {
 
     fireEvent.click(screen.getByText("Mapleland-1"));
 
-    expect(screen.getByTestId("detail-language")).toHaveTextContent("language");
+    expect(screen.getByTestId("detail-language")).toHaveTextContent("Language");
     expect(screen.getByTestId("value-language")).toHaveTextContent("IT");
   });
 
