@@ -53,6 +53,10 @@ $chevron-margin-left-lg: 3px;
   .navigation {
     display: none;
 
+    @media (min-width: $breakpoint-md) {
+      display: block;
+    }
+
     .nav-item {
       background-clip: padding-box;
       border: 1px solid transparent;
@@ -130,6 +134,10 @@ $chevron-margin-left-lg: 3px;
   .burger-button {
     color: $color-theme-inter;
     margin-left: 10px;
+
+    @media (min-width: $breakpoint-md) {
+      display: none;
+    }
   }
 
   .close-button {
@@ -252,6 +260,10 @@ $chevron-margin-left-lg: 3px;
     text-align: right;
     z-index: 15;
 
+    @media (min-width: $breakpoint-md) {
+      display: block;
+    }
+
     ul {
       display: flex;
       justify-content: flex-end;
@@ -316,6 +328,11 @@ $chevron-margin-left-lg: 3px;
 
     :global(.MuiContainer-root) {
       display: flex;
+
+      @media (min-device-width: $breakpoint-md) and (max-device-width: $breakpoint-xl) {
+        display: block;
+      }
+
       align-items: center;
       justify-content: space-between;
     }
@@ -328,6 +345,9 @@ $chevron-margin-left-lg: 3px;
 
     &__right {
       display: initial;
+      @media (min-width: $breakpoint-lg) {
+        display: contents;
+      }
     }
   }
 
@@ -343,11 +363,6 @@ $chevron-margin-left-lg: 3px;
       width: $logo-width;
       height: $logo-width;
     }
-
-    .burger-button {
-      display: none;
-    }
-
     .search-button {
       color: $color-white;
     }
@@ -396,17 +411,9 @@ $chevron-margin-left-lg: 3px;
         display: none;
       }
     }
-
-    .utilities-bar {
-      display: block;
-    }
   }
 
   &--medium {
-    .navigation {
-      display: block;
-    }
-
     .navigation .nav-item {
       font-size: 16px;
       padding-bottom: 32px;
@@ -442,9 +449,6 @@ $chevron-margin-left-lg: 3px;
   }
 
   &--large {
-    .navigation {
-      display: block;
-    }
     .logo {
       width: $logo-width-lg;
       height: $logo-width-lg;
