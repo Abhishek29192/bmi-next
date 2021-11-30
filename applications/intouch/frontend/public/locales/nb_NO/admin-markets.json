@@ -1,0 +1,11 @@
+{
+  "show": "Vis mer",
+  "edit": "Rediger",
+  "submit": "Send",
+  "sidePanel": {
+    "search": {
+      "label": "Søk",
+      "noResult": "Ingen objekter funnet"
+    }
+  }
+}

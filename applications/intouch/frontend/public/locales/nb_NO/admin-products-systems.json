@@ -40,7 +40,8 @@
   },
   "errors": {
     "filename_wrong_format": "Feil filtype",
-    "unauthorized": "Ikke autorisert"
+    "unauthorized": "Ikke autorisert",
+    "wrong_env": "Feil miljø"
   },
   "dryRunCompleted": "Test fullført",
   "report": {

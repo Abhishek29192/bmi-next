@@ -197,7 +197,9 @@ const gates = {
     tools: canSeeMediaLibrary,
     // Inventory (Available to Market Admins)
     inventory: isSuperOrMarketAdmin,
-    productsAdmin: isSuperOrMarketAdmin
+    productsAdmin: isSuperOrMarketAdmin,
+    accountsAdmin: isSuperOrMarketAdmin,
+    marketsAdmin: isSuperOrMarketAdmin
   },
   home: {
     CTA_PROJECT: {

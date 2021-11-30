@@ -540,6 +540,44 @@ export type ImportAccountsCompaniesFromCvsMutation = {
   >;
 };
 
+export type UpdateMarketMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateMarketInput;
+}>;
+
+export type UpdateMarketMutation = { readonly __typename?: "Mutation" } & {
+  readonly updateMarket?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateMarketPayload" } & {
+      readonly query?: SchemaTypes.Maybe<
+        { readonly __typename?: "Query" } & {
+          readonly markets?: SchemaTypes.Maybe<
+            { readonly __typename?: "MarketsConnection" } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "Market" } & Pick<
+                  SchemaTypes.Market,
+                  | "id"
+                  | "language"
+                  | "domain"
+                  | "cmsSpaceId"
+                  | "name"
+                  | "sendName"
+                  | "sendMailbox"
+                  | "doceboInstallersBranchId"
+                  | "doceboCompanyAdminBranchId"
+                  | "doceboCatalogueId"
+                  | "merchandisingUrl"
+                  | "projectsEnabled"
+                  | "locationBiasRadiusKm"
+                  | "gtag"
+                >
+              >;
+            }
+          >;
+        }
+      >;
+    }
+  >;
+};
+
 export type BulkImportMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.BulkImportInput;
 }>;
@@ -3108,6 +3146,34 @@ export type GetContentArticleContentQuery = {
                 >
               >;
             }
+        >
+      >;
+    }
+  >;
+};
+
+export type MarketsQueryVariables = SchemaTypes.Exact<{ [key: string]: never }>;
+
+export type MarketsQuery = { readonly __typename?: "Query" } & {
+  readonly markets?: SchemaTypes.Maybe<
+    { readonly __typename?: "MarketsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Market" } & Pick<
+          SchemaTypes.Market,
+          | "id"
+          | "language"
+          | "domain"
+          | "cmsSpaceId"
+          | "name"
+          | "sendName"
+          | "sendMailbox"
+          | "doceboInstallersBranchId"
+          | "doceboCompanyAdminBranchId"
+          | "doceboCatalogueId"
+          | "merchandisingUrl"
+          | "projectsEnabled"
+          | "gtag"
+          | "locationBiasRadiusKm"
         >
       >;
     }

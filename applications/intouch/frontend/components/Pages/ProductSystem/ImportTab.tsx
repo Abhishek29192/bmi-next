@@ -90,7 +90,7 @@ const ImportTab = () => {
             The format of the files must be:
           </Typography>
           <Typography variant="body1" style={{ marginBottom: "24px" }}>
-            [env]-[market]-[product/system/system_member].csv
+            [env]-[market]-[products/systems/system_member].csv
           </Typography>
           <input
             multiple

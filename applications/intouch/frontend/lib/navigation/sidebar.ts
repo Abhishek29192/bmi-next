@@ -1,4 +1,11 @@
-import { Home, Build, School, People, Business } from "@material-ui/icons";
+import {
+  Home,
+  Build,
+  School,
+  People,
+  Business,
+  Place
+} from "@material-ui/icons";
 import { Box, Design } from "@bmi/icon";
 import { Account } from "@bmi/intouch-api-types";
 import { findAccountCompany } from "../../lib/account";
@@ -58,6 +65,18 @@ export const getSidebarLinks = (account: Account, t): Link[] => {
       icon: Build,
       label: t("Tools"),
       isVisible: can(account, "navigation", "tools")
+    },
+    {
+      href: "/admin/markets",
+      icon: Place,
+      label: t("Markets"),
+      isVisible: can(account, "navigation", "marketsAdmin")
+    },
+    {
+      href: "/admin/accounts",
+      icon: People,
+      label: t("Accounts"),
+      isVisible: can(account, "navigation", "accountsAdmin")
     },
     {
       href: "/admin/products",
