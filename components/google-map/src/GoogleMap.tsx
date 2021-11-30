@@ -7,6 +7,12 @@ import GoogleApi, {
   Marker,
   MarkerOptionsWithData
 } from "@bmi/google-api";
+import {
+  Cluster,
+  ClusterStats,
+  MarkerClusterer,
+  Renderer
+} from "@googlemaps/markerclusterer";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import React, {
   MutableRefObject,
@@ -41,6 +47,42 @@ const defaultMapControls = {
   rotateControl: false,
   fullscreenControl: false
 };
+
+export class CustomMarkerRenderer implements Renderer {
+  private google: Google;
+
+  public constructor(google: Google) {
+    this.google = google;
+  }
+
+  public render(
+    { count, position }: Cluster,
+    stats: ClusterStats
+  ): google.maps.Marker {
+    const color = "#0072B0";
+
+    const svg = window.btoa(`
+  <svg fill="${color}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+    <circle cx="120" cy="120" opacity=".6" r="70" />
+    <circle cx="120" cy="120" opacity=".3" r="90" />
+    <circle cx="120" cy="120" opacity=".2" r="110" />
+  </svg>`);
+
+    return new this.google.maps.Marker({
+      position,
+      icon: {
+        url: `data:image/svg+xml;base64,${svg}`,
+        scaledSize: new this.google.maps.Size(45, 45)
+      },
+      label: {
+        text: String(count),
+        color: "rgba(255,255,255,0.9)",
+        fontSize: "12px"
+      },
+      zIndex: Number(this.google.maps.Marker.MAX_ZINDEX) + count
+    });
+  }
+}
 
 const GoogleMap = ({
   bounds,
@@ -80,7 +122,6 @@ const GoogleMap = ({
     const googleMarker =
       google &&
       new google.maps.Marker({
-        map: googleMap.current || undefined,
         icon: isActive ? activeIcon : defaultIcon,
         ...options
       });
@@ -98,11 +139,19 @@ const GoogleMap = ({
   useEffect(() => {
     if (google) {
       const options = { center, zoom, ...defaultMapControls, ...mapOptions };
-      googleMap.current =
-        mapElement.current && new google.maps.Map(mapElement.current, options);
-      googleMarkers.current = markers
-        .map(createGoogleMarker)
-        .filter(Boolean) as google.maps.Marker[];
+      if (mapElement.current) {
+        const map = new google.maps.Map(mapElement.current, options);
+        googleMap.current = mapElement.current && map;
+        googleMarkers.current = markers
+          .map(createGoogleMarker)
+          .filter(Boolean) as google.maps.Marker[];
+
+        new MarkerClusterer({
+          map: googleMap.current,
+          markers: googleMarkers.current,
+          renderer: new CustomMarkerRenderer(google as Google)
+        });
+      }
     }
   }, [google]);
 
@@ -112,6 +161,12 @@ const GoogleMap = ({
       googleMarkers.current = markers
         .map(createGoogleMarker)
         .filter(Boolean) as google.maps.Marker[];
+
+      new MarkerClusterer({
+        map: googleMap.current,
+        markers: googleMarkers.current,
+        renderer: new CustomMarkerRenderer(google as Google)
+      });
     }
   }, [markers]);
 
