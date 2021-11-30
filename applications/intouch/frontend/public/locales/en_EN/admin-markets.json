@@ -1,0 +1,11 @@
+{
+  "show": "Show",
+  "edit": "Edit",
+  "submit": "Submit",
+  "sidePanel": {
+    "search": {
+      "label": "Search",
+      "noResult": "No items found"
+    }
+  }
+}

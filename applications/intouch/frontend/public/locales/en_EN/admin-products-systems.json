@@ -40,7 +40,8 @@
   },
   "errors": {
     "filename_wrong_format": "The file has a wrong format",
-    "unauthorized": "Not authorized"
+    "unauthorized": "Not authorized",
+    "wrong_env": "Wrong environment"
   },
   "dryRunCompleted": "Dry run completed",
   "report": {
