@@ -2,6 +2,8 @@
   "show": "Vis mer",
   "edit": "Rediger",
   "submit": "Send",
+  "success": "Success",
+  "error": "Error",
   "sidePanel": {
     "search": {
       "label": "Søk",

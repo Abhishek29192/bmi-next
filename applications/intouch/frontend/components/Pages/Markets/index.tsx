@@ -1,8 +1,9 @@
 import { gql } from "@apollo/client";
 import React, { useState, useCallback, useEffect } from "react";
 import { useTranslation } from "next-i18next";
-import Checkbox from "@bmi/checkbox";
+import AlertBanner from "@bmi/alert-banner";
 import TextField from "@bmi/text-field";
+import Checkbox from "@bmi/checkbox";
 import Button from "@bmi/button";
 import Form from "@bmi/form";
 import Grid from "@bmi/grid";
@@ -29,20 +30,32 @@ type MarketList =
 type _Market = MarketList["nodes"][0];
 
 const marketKeys = [
-  { type: "text", key: "id" },
-  { type: "text", key: "language" },
-  { type: "text", key: "domain" },
-  { type: "text", key: "cmsSpaceId" },
-  { type: "text", key: "name" },
-  { type: "text", key: "sendName" },
-  { type: "text", key: "sendMailbox" },
-  { type: "text", key: "doceboInstallersBranchId" },
-  { type: "text", key: "doceboCompanyAdminBranchId" },
-  { type: "text", key: "doceboCatalogueId" },
-  { type: "text", key: "merchandisingUrl" },
-  { type: "checkbox", key: "projectsEnabled" },
-  { type: "text", key: "locationBiasRadiusKm" },
-  { type: "text", key: "gtag" }
+  { type: "text", key: "id", label: "Id" },
+  { type: "text", key: "language", label: "Language" },
+  { type: "text", key: "domain", label: "Domain" },
+  { type: "text", key: "cmsSpaceId", label: "Cms space Id" },
+  { type: "text", key: "name", label: "Name" },
+  { type: "text", key: "sendName", label: "Send name" },
+  { type: "text", key: "sendMailbox", label: "Send mailbox" },
+  {
+    type: "text",
+    key: "doceboInstallersBranchId",
+    label: "Docebo installers branch id"
+  },
+  {
+    type: "text",
+    key: "doceboCompanyAdminBranchId",
+    label: "Docebo company admin branch id"
+  },
+  { type: "number", key: "doceboCatalogueId", label: "Docebo catalogue id" },
+  { type: "text", key: "merchandisingUrl", label: "Merchandising url" },
+  { type: "checkbox", key: "projectsEnabled", label: "Projects enabled" },
+  {
+    type: "number",
+    key: "locationBiasRadiusKm",
+    label: "Location biasRadius Km"
+  },
+  { type: "text", key: "gtag", label: "Gtag" }
 ];
 
 const getValue = (t, type, value) => {
@@ -60,11 +73,22 @@ const getValue = (t, type, value) => {
   }
 };
 
+type ResultProps = {
+  severity: "error" | "warning" | "info" | "success" | null;
+  title: string | null;
+  messages?: string[] | null;
+};
+
 const MarketPage = ({ markets }: Props) => {
   const { t } = useTranslation("admin-markets");
 
   const [isEditing, setIsEditing] = useState<boolean>(false);
 
+  const [result, setResult] = useState<ResultProps>({
+    severity: null,
+    title: null,
+    messages: null
+  });
   const [items, setItems] = useState<MarketList>(markets);
   const [filteredItems, setFilteredItems] = useState<MarketList>(markets);
   const [filterState, setFilterState] = useState({
@@ -75,16 +99,29 @@ const MarketPage = ({ markets }: Props) => {
   const [selectedItem, setSelectedItem] = useState<_Market>();
 
   const [udpateMarket] = useUpdateMarketMutation({
+    onError: ({ networkError }) => {
+      setResult({
+        severity: "error",
+        title: t("error"),
+        messages: networkError?.["result"]?.errors?.map(
+          ({ message }) => message
+        )
+      });
+    },
     onCompleted: (data) => {
       setItems(data?.updateMarket?.query.markets);
+      setResult({
+        title: t("success"),
+        severity: "success"
+      });
     }
   });
 
   const onItemChange = useCallback(
-    (name, value) => {
+    (name, value, type) => {
       setSelectedItem((prev) => ({
         ...prev,
-        [name]: value
+        [name]: type === "number" ? parseInt(value) : value
       }));
     },
     [setSelectedItem]
@@ -192,14 +229,14 @@ const MarketPage = ({ markets }: Props) => {
                     </Grid>
                   </Grid>
                 </Grid>
-                {marketKeys.map(({ key, type }) =>
+                {marketKeys.map(({ key, type, label }) =>
                   type === "checkbox" ? (
                     <Grid item xs={12}>
                       <Checkbox
-                        name="published"
-                        label={t("published")}
+                        name={key}
+                        label={label}
                         checked={selectedItem[`${key}`] || ""}
-                        onChange={(value) => onItemChange(key, value)}
+                        onChange={(value) => onItemChange(key, value, type)}
                       />
                     </Grid>
                   ) : (
@@ -207,10 +244,11 @@ const MarketPage = ({ markets }: Props) => {
                       <TextField
                         fullWidth
                         name={key}
-                        label={t(key)}
+                        label={label}
+                        type={type}
                         disabled={["id"].includes(key)}
                         value={selectedItem[`${key}`] || ""}
-                        onChange={(value) => onItemChange(key, value)}
+                        onChange={(value) => onItemChange(key, value, type)}
                         {...{ "data-testid": `input-${key}` }}
                       />
                     </Grid>
@@ -222,6 +260,18 @@ const MarketPage = ({ markets }: Props) => {
                   Save
                 </Form.SubmitButton>
               </Form.ButtonWrapper>
+              {result.title ? (
+                <div style={{ marginTop: 15 }}>
+                  <AlertBanner severity={result?.severity}>
+                    <AlertBanner.Title>{result?.title}</AlertBanner.Title>
+                    <div>
+                      {result?.messages?.map((message, index) => (
+                        <div key={`error-${index}`}>{message}</div>
+                      ))}
+                    </div>
+                  </AlertBanner>
+                </div>
+              ) : null}
             </Form>
           ) : (
             <Grid {...{ testId: "market-details" }} container>
@@ -254,14 +304,14 @@ const MarketPage = ({ markets }: Props) => {
                   </Button>
                 </Grid>
               </Grid>
-              {marketKeys.map(({ key, type }) => (
+              {marketKeys.map(({ key, type, label }) => (
                 <Grid key={key} item xs={12}>
                   <Typography
                     component="h6"
                     variant="h6"
                     {...{ "data-testid": `detail-${key}` }}
                   >
-                    {t(key)}
+                    {label}
                   </Typography>
                   <Typography
                     variant="body1"
