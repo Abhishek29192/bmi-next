@@ -15,7 +15,6 @@ export const createActionLabel = (
 ): string => {
   const measurementSymbol =
     (classifications &&
-      classifications.length > 0 &&
       classifications.filter(
         ({ code }) => code === ClassificationCodeEnum.MEASUREMENTS
       )[0]?.features[0]?.featureUnit?.symbol) ||

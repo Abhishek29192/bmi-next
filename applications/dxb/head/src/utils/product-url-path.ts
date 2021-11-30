@@ -50,15 +50,16 @@ export const extractFeatureValuesByClassification = (
         (featureValues: string[], attributeCode: AttributeCode) => {
           const featureByFeatureCode: Feature =
             features[attributeCode.attrName];
-          const separator = attributeCode?.separator || "";
+          const separator = attributeCode.separator || "";
           if (
             featureByFeatureCode &&
-            featureByFeatureCode?.featureValues &&
-            featureByFeatureCode?.featureValues?.length > 0
+            featureByFeatureCode.featureValues &&
+            featureByFeatureCode.featureValues.length > 0 &&
+            featureByFeatureCode.featureValues[0]
           ) {
-            const featureValue = featureByFeatureCode?.featureValues[0]?.value;
+            const featureValue = featureByFeatureCode.featureValues[0].value;
             if (featureValue) {
-              const val = attributeCode?.fromStart
+              const val = attributeCode.fromStart
                 ? `${separator}${featureValue}`
                 : `${featureValue}${separator}`;
 

@@ -21,7 +21,7 @@ import {
 } from "./product-url-path";
 
 export interface ProductData {
-  type: string;
+  type: SchemaOrgFieldsEnum;
   variant?: VariantOption;
   baseProduct?: Product;
   classifications?: Classification[];
@@ -82,9 +82,6 @@ export const createSchemaOrgDataForPdpPage = (
   baseProduct: Product,
   variant: VariantOption
 ): Record<string, unknown> => {
-  if (!baseProduct || !variant) {
-    return {};
-  }
   const classifications: Classification[] = combineVariantClassifications(
     baseProduct,
     variant
@@ -105,18 +102,22 @@ export const createSchemaOrgDataForPdpPage = (
   );
 };
 
-export const getSchemaOrgContextData = ({ type }): Record<string, unknown> => ({
+export const getSchemaOrgContextData = ({
+  type
+}: ProductData): Record<string, unknown> => ({
   [type]: "https://schema.org"
 });
 
-export const getSchemaOrgTypeData = ({ type }): Record<string, unknown> => ({
+export const getSchemaOrgTypeData = ({
+  type
+}: ProductData): Record<string, unknown> => ({
   [type]: "Product"
 });
 
 export const getSchemaOrgAwardData = ({
   type,
   baseProduct
-}: ProductData): Record<string, unknown> => {
+}: ProductData): Record<string, string | undefined> => {
   const productAwardsAssetName: string | undefined =
     getProductAssetPropByAssetType(baseProduct, "AWARDS", "name");
   if (productAwardsAssetName) {
@@ -210,19 +211,14 @@ export const getSchemaOrgBrandLogoData = ({
     "Brand"
   )[0];
   if (productBrandCategory) {
-    const productBrandCategoryImage:
-      | string
-      | Record<string, unknown>
-      | undefined = getProductCategoryPropByCategoryType(
-      productBrandCategory,
-      "image"
-    );
-    if (
-      productBrandCategoryImage &&
-      (productBrandCategoryImage as Record<string, unknown>)?.url
-    ) {
+    const productBrandCategoryImage: Record<string, unknown> =
+      getProductCategoryPropByCategoryType(
+        productBrandCategory,
+        "image"
+      ) as Record<string, unknown>;
+    if (productBrandCategoryImage && productBrandCategoryImage.url) {
       return {
-        [type]: (productBrandCategoryImage as Record<string, unknown>)?.url
+        [type]: productBrandCategoryImage.url
       };
     }
   }
@@ -590,7 +586,7 @@ export const getSchemaOrgHasVariantData = ({
   type,
   variant
 }: ProductData): Record<string, unknown> => {
-  const hasVariant: string = variant.code;
+  const hasVariant: string | undefined = variant.code;
   if (hasVariant) {
     return {
       [type]: hasVariant
@@ -633,7 +629,7 @@ export const getSchemaOrgDescriptionData = ({
 export const getSchemaOrgUrlData = ({
   type
 }: ProductData): Record<string, unknown> => {
-  const url: string = window?.location?.href;
+  const url: string | undefined = window.location && window.location.href;
   if (url) {
     return {
       [type]: url
@@ -647,15 +643,19 @@ export const getProductAssetByAssetType = (
   product: Product,
   assetType: string
 ): Asset | undefined => {
-  return product.assets?.find((asset: Asset) => asset?.assetType === assetType);
+  return (
+    product.assets &&
+    product.assets.find((asset: Asset) => asset.assetType === assetType)
+  );
 };
 
 export const getProductImagesByAssetType = (
   product: Product | VariantOption,
   assetType: string
 ): Image[] => {
-  return product.images?.filter(
-    (image: Image) => image?.assetType === assetType
+  return (
+    product.images &&
+    product.images.filter((image: Image) => image.assetType === assetType)
   );
 };
 
@@ -672,8 +672,11 @@ export const getProductCategoriesByCategoryType = (
   product: Product,
   categoryType: string
 ): Category[] => {
-  return product.categories?.filter(
-    (category: Category) => category?.categoryType === categoryType
+  return (
+    product.categories &&
+    product.categories.filter(
+      (category: Category) => category.categoryType === categoryType
+    )
   );
 };
 
@@ -687,15 +690,15 @@ export const getProductCategoryPropByCategoryType = (
 export const getFeatureValueByType = (
   featureByClassifications: { [key in FeatureCodeEnum]?: Feature },
   type: FeatureCodeEnum
-): string => {
+): string | undefined => {
   return featureByClassifications[type]?.featureValues[0]?.value;
 };
 
 export const getFeatureUnitByType = (
   featureByClassifications: { [key in FeatureCodeEnum]?: Feature },
   type: FeatureCodeEnum
-): string => {
-  return featureByClassifications[type]?.featureUnit.symbol;
+): string | undefined => {
+  return featureByClassifications[type]?.featureUnit?.symbol;
 };
 
 export const getGalleyImages = (product: Product | VariantOption): string[] => {
@@ -726,7 +729,7 @@ export const getImagesUrls = (imagesByAssetType: Image[]): string[] => {
   );
   if (imagesByAssetTypeNullFormat && imagesByAssetTypeNullFormat.length) {
     const imagesUrlsByAssetTypeNullFormat: string[] =
-      imagesByAssetTypeNullFormat.map((image: Image) => image?.url);
+      imagesByAssetTypeNullFormat.map((image: Image) => image.url);
     return imagesUrlsByAssetTypeNullFormat;
   }
   return [];

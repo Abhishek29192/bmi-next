@@ -110,9 +110,9 @@ export type FeatureUnit = {
 };
 
 export type Classification = {
-  code: string;
+  code: ClassificationCodeEnum;
   features: Feature[];
-  name: string;
+  name: ClassificationCodeEnum;
 };
 
 export type Feature = {
@@ -198,7 +198,8 @@ export enum ClassificationCodeEnum {
   APPEARANCE_ATTRIBUTE = "appearanceAttributes",
   MEASUREMENTS = "measurements",
   GENERAL_INFORMATION = "generalInformation",
-  WEIGHT_ATTRIBUTES = "weightAttributes"
+  WEIGHT_ATTRIBUTES = "weightAttributes",
+  SCORING_WEIGHT_ATTRIBUTES = "scoringWeightAttributes"
 }
 
 export enum FeatureCodeEnum {

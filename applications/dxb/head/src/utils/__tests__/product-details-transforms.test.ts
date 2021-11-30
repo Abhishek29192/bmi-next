@@ -29,6 +29,7 @@ import {
 } from "../../__tests__/PimDocumentProductHelper";
 import createCategory from "../../__tests__/CategoryHelper";
 import {
+  ClassificationCodeEnum,
   ImageAssetTypesEnum,
   Product,
   Image
@@ -164,8 +165,8 @@ describe("product-details-transforms tests", () => {
             images: [],
             classifications: [
               createClassification({
-                name: "scoringWeight Attributes",
-                code: "scoringWeightAttributes",
+                name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
+                code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
                 features: [
                   {
                     name: "scoringweight",
@@ -175,8 +176,8 @@ describe("product-details-transforms tests", () => {
                 ]
               }),
               createClassification({
-                name: "appearanceAttributes",
-                code: "appearanceAttributes",
+                name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                 features: [
                   {
                     name: "texturefamily",
@@ -196,8 +197,8 @@ describe("product-details-transforms tests", () => {
                 ]
               }),
               createClassification({
-                name: "general Information",
-                code: "generalInformation",
+                name: ClassificationCodeEnum.GENERAL_INFORMATION,
+                code: ClassificationCodeEnum.GENERAL_INFORMATION,
                 features: [
                   {
                     name: "materials",
@@ -211,7 +212,9 @@ describe("product-details-transforms tests", () => {
           const result = mapProductClassifications(inputValue, "");
           const expectedResult = {
             "variant-code": {
-              scoringweight: { name: "scoringWeight Attributes" },
+              scoringweight: {
+                name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
+              },
               texturefamily: { name: "texturefamily", value: "n/a" },
               colour: { name: "colour", value: "n/a" },
               colourfamily: { name: "colourfamily", value: "n/a" },
@@ -229,8 +232,8 @@ describe("product-details-transforms tests", () => {
               images: [],
               classifications: [
                 createClassification({
-                  name: "scoringWeight Attributes",
-                  code: "scoringWeightAttributes",
+                  name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
+                  code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
                   features: [
                     {
                       name: "scoringweight",
@@ -240,11 +243,11 @@ describe("product-details-transforms tests", () => {
                   ]
                 }),
                 createClassification({
-                  name: "measurements",
-                  code: "measurements",
+                  name: ClassificationCodeEnum.MEASUREMENTS,
+                  code: ClassificationCodeEnum.MEASUREMENTS,
                   features: [
                     {
-                      name: "measurements",
+                      name: ClassificationCodeEnum.MEASUREMENTS,
                       code: "/measurements.length",
                       featureValues: [
                         {
@@ -254,7 +257,7 @@ describe("product-details-transforms tests", () => {
                       ]
                     },
                     {
-                      name: "measurements",
+                      name: ClassificationCodeEnum.MEASUREMENTS,
                       code: "/measurements.width",
                       featureValues: [
                         {
@@ -264,7 +267,7 @@ describe("product-details-transforms tests", () => {
                       ]
                     },
                     {
-                      name: "measurements",
+                      name: ClassificationCodeEnum.MEASUREMENTS,
                       code: "/measurements.height",
                       featureValues: [
                         {
@@ -274,7 +277,7 @@ describe("product-details-transforms tests", () => {
                       ]
                     },
                     {
-                      name: "measurements",
+                      name: ClassificationCodeEnum.MEASUREMENTS,
                       code: "/measurements.thickness",
                       featureValues: [
                         {
@@ -286,8 +289,8 @@ describe("product-details-transforms tests", () => {
                   ]
                 }),
                 createClassification({
-                  name: "appearance Attributes",
-                  code: "appearanceAttributes",
+                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                   features: [
                     {
                       name: "colour",
@@ -312,8 +315,8 @@ describe("product-details-transforms tests", () => {
                   ]
                 }),
                 createClassification({
-                  name: "general Information",
-                  code: "generalInformation",
+                  name: ClassificationCodeEnum.GENERAL_INFORMATION,
+                  code: ClassificationCodeEnum.GENERAL_INFORMATION,
                   features: [
                     {
                       name: "materials",
@@ -333,22 +336,24 @@ describe("product-details-transforms tests", () => {
           );
           const expectedResult = {
             "variant-code": {
-              scoringweight: { name: "scoringWeight Attributes" },
+              scoringweight: {
+                name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
+              },
               measurements: {
                 length: {
-                  name: "measurements",
+                  name: ClassificationCodeEnum.MEASUREMENTS,
                   value: { value: { value: "10", code: "length" } }
                 },
                 width: {
-                  name: "measurements",
+                  name: ClassificationCodeEnum.MEASUREMENTS,
                   value: { value: { value: "100", code: "width" } }
                 },
                 height: {
-                  name: "measurements",
+                  name: ClassificationCodeEnum.MEASUREMENTS,
                   value: { value: { value: "50", code: "height" } }
                 },
                 thickness: {
-                  name: "measurements",
+                  name: ClassificationCodeEnum.MEASUREMENTS,
                   value: { value: { value: "5", code: "thickness" } }
                 }
               },
@@ -392,8 +397,8 @@ describe("product-details-transforms tests", () => {
                   createVariantOption({
                     classifications: [
                       createClassification({
-                        name: "scoringWeight Attributes",
-                        code: "scoringWeightAttributes",
+                        name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
+                        code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
                         features: [
                           {
                             name: "scoringweight",
@@ -408,11 +413,11 @@ describe("product-details-transforms tests", () => {
                         ]
                       }),
                       createClassification({
-                        name: "measurements",
-                        code: "measurements",
+                        name: ClassificationCodeEnum.MEASUREMENTS,
+                        code: ClassificationCodeEnum.MEASUREMENTS,
                         features: [
                           {
-                            name: "measurements",
+                            name: ClassificationCodeEnum.MEASUREMENTS,
                             code: "/measurements.length",
                             featureValues: [
                               {
@@ -422,7 +427,7 @@ describe("product-details-transforms tests", () => {
                             ]
                           },
                           {
-                            name: "measurements",
+                            name: ClassificationCodeEnum.MEASUREMENTS,
                             code: "/measurements.width",
                             featureValues: [
                               {
@@ -432,7 +437,7 @@ describe("product-details-transforms tests", () => {
                             ]
                           },
                           {
-                            name: "measurements",
+                            name: ClassificationCodeEnum.MEASUREMENTS,
                             code: "/measurements.height",
                             featureValues: [
                               {
@@ -442,7 +447,7 @@ describe("product-details-transforms tests", () => {
                             ]
                           },
                           {
-                            name: "measurements",
+                            name: ClassificationCodeEnum.MEASUREMENTS,
                             code: "/measurements.thickness",
                             featureValues: [
                               {
@@ -454,8 +459,8 @@ describe("product-details-transforms tests", () => {
                         ]
                       }),
                       createClassification({
-                        name: "appearance Attributes",
-                        code: "appearanceAttributes",
+                        name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                        code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                         features: [
                           {
                             name: "colour",
@@ -476,7 +481,7 @@ describe("product-details-transforms tests", () => {
             });
             const expectedResult = {
               scoringweight: {
-                name: "scoringWeight Attributes",
+                name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
                 value: {
                   code: "scoringweight",
                   value: "1"
@@ -496,8 +501,8 @@ describe("product-details-transforms tests", () => {
                   createVariantOption({
                     classifications: [
                       createClassification({
-                        name: "scoringWeight Attributes",
-                        code: "scoringWeightAttributes",
+                        name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
+                        code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
                         features: [
                           {
                             name: "scoringweight",
@@ -507,11 +512,11 @@ describe("product-details-transforms tests", () => {
                         ]
                       }),
                       createClassification({
-                        name: "measurements",
-                        code: "measurements",
+                        name: ClassificationCodeEnum.MEASUREMENTS,
+                        code: ClassificationCodeEnum.MEASUREMENTS,
                         features: [
                           {
-                            name: "measurements",
+                            name: ClassificationCodeEnum.MEASUREMENTS,
                             code: "/measurements.length",
                             featureValues: [
                               {
@@ -521,7 +526,7 @@ describe("product-details-transforms tests", () => {
                             ]
                           },
                           {
-                            name: "measurements",
+                            name: ClassificationCodeEnum.MEASUREMENTS,
                             code: "/measurements.width",
                             featureValues: [
                               {
@@ -531,7 +536,7 @@ describe("product-details-transforms tests", () => {
                             ]
                           },
                           {
-                            name: "measurements",
+                            name: ClassificationCodeEnum.MEASUREMENTS,
                             code: "/measurements.height",
                             featureValues: [
                               {
@@ -541,7 +546,7 @@ describe("product-details-transforms tests", () => {
                             ]
                           },
                           {
-                            name: "measurements",
+                            name: ClassificationCodeEnum.MEASUREMENTS,
                             code: "/measurements.thickness",
                             featureValues: [
                               {
@@ -553,8 +558,8 @@ describe("product-details-transforms tests", () => {
                         ]
                       }),
                       createClassification({
-                        name: "appearance Attributes",
-                        code: "appearanceAttributes",
+                        name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                        code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                         features: [
                           {
                             name: "colour",
@@ -574,7 +579,9 @@ describe("product-details-transforms tests", () => {
               })
             });
             const expectedResult = {
-              scoringweight: { name: "scoringWeight Attributes" }
+              scoringweight: {
+                name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
+              }
             };
             const result = findUniqueVariantClassifications(inputValue, "");
             expect(result).toEqual(expectedResult);
@@ -1534,7 +1541,7 @@ describe("product-details-transforms tests", () => {
               const productClassifications = {
                 "product-code-1": {
                   texturefamily: {
-                    name: "texturefamily",
+                    name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                     value: { value: "smooth", code: "code" }
                   }
                 }
@@ -1543,8 +1550,8 @@ describe("product-details-transforms tests", () => {
                 code: "product-code-1",
                 classifications: [
                   createClassification({
-                    name: "texturefamily",
-                    code: "texturefamily"
+                    name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                    code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE
                   })
                 ]
               });
@@ -1560,7 +1567,7 @@ describe("product-details-transforms tests", () => {
                   variants: []
                 },
                 {
-                  name: "texturefamily",
+                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                   type: "chips",
                   unavailableMicroCopy: "unavaialbeMicroCopy 4",
                   variants: [
@@ -1704,7 +1711,7 @@ describe("product-details-transforms tests", () => {
               const productClassifications = {
                 "product-code-1": {
                   colourfamily: {
-                    name: "colourfamily",
+                    name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                     value: { value: "smooth", code: "code" }
                   }
                 }
@@ -1713,8 +1720,8 @@ describe("product-details-transforms tests", () => {
                 code: "product-code-1",
                 classifications: [
                   createClassification({
-                    name: "colourfamily",
-                    code: "colourfamily"
+                    name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                    code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE
                   })
                 ]
               });
@@ -2561,8 +2568,8 @@ describe("product-details-transforms tests", () => {
       it("returns merged classifications results", () => {
         const expectedResult = [
           {
-            name: "classification-name",
-            code: "classification-code",
+            name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+            code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
             features: [
               {
                 name: "classification-feature-name",
@@ -2582,8 +2589,8 @@ describe("product-details-transforms tests", () => {
             ]
           },
           {
-            name: "classification-name",
-            code: "product-code-1",
+            name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+            code: ClassificationCodeEnum.MEASUREMENTS,
             features: [
               {
                 name: "classification-feature-name",
@@ -2607,7 +2614,11 @@ describe("product-details-transforms tests", () => {
           "",
           createBaseProduct(),
           createBaseProduct({
-            classifications: [createClassification({ code: "product-code-1" })]
+            classifications: [
+              createClassification({
+                code: ClassificationCodeEnum.MEASUREMENTS
+              })
+            ]
           })
         );
         expect(result).toEqual(expectedResult);
