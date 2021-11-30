@@ -347,6 +347,8 @@ const FeedHolder = ({
             {marketContent.newsItemHeading}
           </Typography>
           <iframe
+            // TODO: Title could be specific and more descriptive
+            title={marketContent.newsItemHeading}
             src={marketContent.newsItemUrl}
             height="400px"
             width="100%"

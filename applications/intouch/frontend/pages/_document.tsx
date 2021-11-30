@@ -10,8 +10,10 @@ import {
 
 class BMIDocument extends Document {
   render() {
+    const { locale } = this.props;
+
     return (
-      <Html lang="en">
+      <Html lang={locale.split("_")[1]?.toLowerCase() || "en"}>
         <Head>
           <script
             async

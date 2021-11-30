@@ -14,6 +14,11 @@
   "Account": "Account",
   "Profile": "Profile",
   "Logout": "Logout",
+  "Notifications": "Notifications",
+  "aria": {
+    "navigation": "Navigation",
+    "notifications": "Notifications"
+  },
   "results available": "results available",
   "Company Description": "Company Description",
   "About Us": "About Us",

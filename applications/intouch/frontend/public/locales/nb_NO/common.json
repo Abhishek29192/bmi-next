@@ -14,6 +14,11 @@
   "Account": "Min konto",
   "Profile": "Profil",
   "Logout": "Logg ut",
+  "Notifications": "Varsler",
+  "aria": {
+    "navigation": "Varsler",
+    "notifications": "Navigasjon"
+  },
   "results available": "resultater tilgjengelig",
   "Company Description": "Om oss",
   "About Us": "Om oss",
