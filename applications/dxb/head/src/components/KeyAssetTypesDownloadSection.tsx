@@ -1,11 +1,12 @@
 import React from "react";
 import axios from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { GetApp, Folder } from "@material-ui/icons";
+import { GetApp } from "@material-ui/icons";
 import Button, { ButtonProps, ClickableAction } from "@bmi/button";
 import { getDownloadLink, downloadAs } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
 import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
+import Icon from "./Icon";
 
 import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
 import { Data as DocumentData } from "./Document";
@@ -77,27 +78,35 @@ export const handleDownloadClick = async (
 };
 
 export const mapAssetToCommonData = (data: Data): CommonData => {
-  if (
-    data.__typename === "PIMLinkDocument" ||
-    data.__typename === "PIMDocument"
-  ) {
+  if (data.__typename === "PIMDocument") {
+    const { url, assetType, title, extension } = data;
+
+    return {
+      href: url,
+      name: `${title}.${extension}`,
+      assetType: assetType.name
+    };
+  }
+
+  if (data.__typename === "PIMLinkDocument") {
     const { url, assetType, title } = data;
 
     return {
       href: url,
-      name: title,
+      name: `${title}.${url.split(".").pop()}`,
       assetType: assetType.name
     };
   }
 
   const {
     asset: { file },
-    assetType
+    assetType,
+    title
   } = data;
 
   return {
     href: file.url,
-    name: file.fileName,
+    name: `${title}.${file.fileName.split(".").pop()}`,
     assetType: assetType.name
   };
 };
@@ -124,7 +133,13 @@ const KeyAssetTypesDownloadSection = (props: Props) => {
                 action: JSON.stringify(mappedDocuments.map((item) => item.href))
               }}
               variant="text"
-              startIcon={mappedDocuments.length === 1 ? <GetApp /> : <Folder />}
+              startIcon={
+                mappedDocuments.length === 1 ? (
+                  <GetApp />
+                ) : (
+                  <Icon name="FolderZip" />
+                )
+              }
               action={
                 mappedDocuments.length === 1 && {
                   model: "download",

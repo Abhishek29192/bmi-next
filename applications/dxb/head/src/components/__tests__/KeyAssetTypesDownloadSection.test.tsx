@@ -26,6 +26,19 @@ MockDate.set(TEST_DATE);
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe("KeyAssetTypesDownloadSection component", () => {
+  const asset = {
+    asset: {
+      file: {
+        url: "http://doesnot-exist.com/fileName",
+        fileName: `fileName.pdf`,
+        contentType: "",
+        details: {
+          size: 89898
+        }
+      }
+    }
+  };
+
   it("renders correctly", () => {
     const document1 = createContentfulDocument({
       assetType: createAssetType({
@@ -91,9 +104,9 @@ describe("KeyAssetTypesDownloadSection component", () => {
   });
 
   describe("handleDownloadClick function", () => {
-    const document1 = createContentfulDocument();
+    const document1 = createContentfulDocument(asset);
 
-    const document2 = createContentfulDocument();
+    const document2 = createContentfulDocument(asset);
 
     const list = [
       mapAssetToCommonData(document1),
@@ -126,11 +139,11 @@ describe("KeyAssetTypesDownloadSection component", () => {
           documents: [
             {
               href: "http://doesnot-exist.com/fileName",
-              name: "fileName"
+              name: "contentful-document-title.pdf"
             },
             {
               href: "http://doesnot-exist.com/fileName",
-              name: "fileName"
+              name: "contentful-document-title.pdf"
             }
           ]
         },
@@ -166,7 +179,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
       const pimDocument = createPimDocument();
       const expectedObj = {
         href: "http://localhost/pim-document-id",
-        name: "pim-document-title",
+        name: "pim-document-title.pdf",
         assetType: "asset-name"
       };
 
@@ -176,10 +189,12 @@ describe("KeyAssetTypesDownloadSection component", () => {
     });
 
     it("if Pim Link Document", () => {
-      const pimLinkDocument = createPimLinkDocument();
+      const pimLinkDocument = createPimLinkDocument({
+        url: "http://localhost/pim-link-document-id.pdf"
+      });
       const expectedObj = {
-        href: "http://localhost/pim-link-document-id",
-        name: "pim-link-document-title",
+        href: "http://localhost/pim-link-document-id.pdf",
+        name: "pim-link-document-title.pdf",
         assetType: "asset-name"
       };
 
@@ -189,10 +204,10 @@ describe("KeyAssetTypesDownloadSection component", () => {
     });
 
     it("if Contentful Document", () => {
-      const contentfulDocument = createContentfulDocument();
+      const contentfulDocument = createContentfulDocument(asset);
       const expectedObj = {
         href: "http://doesnot-exist.com/fileName",
-        name: "fileName",
+        name: "contentful-document-title.pdf",
         assetType: "asset-name"
       };
 
