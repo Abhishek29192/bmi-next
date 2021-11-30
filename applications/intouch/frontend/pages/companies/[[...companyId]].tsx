@@ -103,6 +103,7 @@ const CompaniesPage = ({
             <CompaniesSidePanel
               companies={companiesList}
               onItemSelected={selectCompany}
+              selectedItemId={company?.id}
             />
             {company ? companyScreen : <NoCompanies />}
           </>
