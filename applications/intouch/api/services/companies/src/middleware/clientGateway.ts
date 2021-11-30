@@ -2,6 +2,21 @@ import axios from "axios";
 import { NextFunction } from "express";
 import { getGCPToken } from "../utils";
 
+export const overwriteMarketHeader = (req) => {
+  const { user = null } = req;
+  const marketClaim = `${process.env.AUTH0_NAMESPACE}/intouch_market_code`;
+
+  if (
+    user?.role !== "SUPER_ADMIN" &&
+    user?.[`${marketClaim}`] &&
+    !user?.market?.domain
+  ) {
+    return user[`${marketClaim}`];
+  }
+
+  return req.headers["x-request-market-domain"];
+};
+
 export default (req, res, next: NextFunction) => {
   const logger = req.logger("gateway:client");
 
@@ -15,10 +30,7 @@ export default (req, res, next: NextFunction) => {
 
     Super Admin doesn't have a market so for him we skip this overwrite
    */
-  if (req.user.role !== "SUPER_ADMIN" && !req?.user?.market?.domain) {
-    req.headers["x-request-market-domain"] =
-      req?.user[`${process.env.AUTH0_NAMESPACE}/intouch_market_code`];
-  }
+  req.headers["x-request-market-domain"] = overwriteMarketHeader(req);
 
   req.clientGateway = async (query: string, variables: Object) => {
     const { GATEWAY_URL } = process.env;
