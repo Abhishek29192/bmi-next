@@ -82,7 +82,7 @@ export const compileESQueryPLP = ({
     ],
     aggs: {
       ...generateAllowFiltersAggs(allowFilterBy),
-      ...getUniqueBaseProductCountCodeAggrigation(false)
+      ...getUniqueBaseProductCountCodeAggrigation()
     },
     query: {
       bool: {
@@ -96,7 +96,7 @@ export const compileESQueryPLP = ({
         ].filter(Boolean)
       }
     },
-    ...getCollapseVariantsByBaseProductCodeQuery(false)
+    ...getCollapseVariantsByBaseProductCodeQuery()
   };
 };
 
