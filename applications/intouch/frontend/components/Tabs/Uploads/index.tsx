@@ -68,7 +68,7 @@ const isEvidenceDelete = (
   return (
     evidenceCategoryType === "MISCELLANEOUS" ||
     (evidenceCategoryType === "CUSTOM" &&
-      !["REVIEW", "APPROVED"].includes(guaranteeStatus))
+      ["NEW", "REJECTED"].includes(guaranteeStatus))
   );
 };
 const getUploads = (project: GetProjectQuery["project"]) => {
@@ -135,7 +135,7 @@ const getUploads = (project: GetProjectQuery["project"]) => {
 const isCustomEvidenceAvailable = (guarantee: DeepPartial<Guarantee>) => {
   return (
     guarantee?.coverage === "SOLUTION" &&
-    !["APPROVED", "REVIEW"].includes(guarantee?.status)
+    ["NEW", "REJECTED"].includes(guarantee?.status)
   );
 };
 
