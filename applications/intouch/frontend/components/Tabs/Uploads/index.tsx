@@ -18,7 +18,6 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import {
   useAddEvidencesMutation,
   GetProjectDocument,
-  useContentfulEvidenceCategoriesLazyQuery,
   useDeleteEvidenceItemMutation
 } from "../../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
@@ -32,7 +31,7 @@ import {
 import AccessControl from "../../../lib/permissions/AccessControl";
 import { DeepPartial } from "../../../lib/utils/types";
 import styles from "./styles.module.scss";
-import { AddEvidenceDialog, EvidenceCategory } from "./AddEvidenceDialog";
+import { AddEvidenceDialog } from "./AddEvidenceDialog";
 import RequirementDialog from "./RequirementDialog";
 
 type Evidence = {
@@ -149,9 +148,6 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
 
   const [isEvidenceDialogOpen, setEvidenceDialogOpen] = useState(false);
   const [isRequirementOpen, setRequirementOpen] = useState(false);
-  const [evidenceCategories, setEvidenceCategories] = useState<
-    EvidenceCategory[]
-  >([]);
   const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
   const [modalInfo, setModalInfo] = useState<MediaGalleryState>({
     isOpen: false,
@@ -170,20 +166,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
       }
     ]
   });
-  const [getEvidenceCategory] = useContentfulEvidenceCategoriesLazyQuery({
-    fetchPolicy: "network-only",
-    onCompleted: ({ evidenceCategoryCollection }) => {
-      const result = evidenceCategoryCollection.items?.map(
-        ({ sys, name, referenceCode, minimumUploads }) => ({
-          id: sys.id,
-          name: name,
-          referenceCode: referenceCode,
-          minimumUploads: minimumUploads
-        })
-      );
-      setEvidenceCategories(result);
-    }
-  });
+
   const [deleteEvidence] = useDeleteEvidenceItemMutation({
     refetchQueries: [
       {
@@ -269,7 +252,6 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
         setGalleryItems(getGalleryItems(evidenceItems));
       }
     }
-    getEvidenceCategory();
   }, [projectId]);
 
   return (
@@ -385,7 +367,10 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
         <AddEvidenceDialog
           isOpen={isEvidenceDialogOpen}
           evidenceCategories={
-            customEvidenceAvailable ? evidenceCategories : null
+            customEvidenceAvailable
+              ? currentGuarantee.guaranteeType?.evidenceCategoriesCollection
+                  ?.items || []
+              : null
           }
           onCloseClick={() => setEvidenceDialogOpen(false)}
           onConfirmClick={evidenceDialogConfirmHandler}

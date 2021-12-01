@@ -4,20 +4,15 @@ import Dialog from "@bmi/dialog";
 import Upload from "@bmi/upload";
 import Select, { MenuItem } from "@bmi/select";
 import {
+  ContentfulEvidenceCategory,
   CustomEvidenceCategoryKey,
   EvidenceCategoryType
 } from "@bmi/intouch-api-types";
-
-export type EvidenceCategory = {
-  id: string;
-  name: string;
-  referenceCode: string;
-  minimumUploads: number;
-};
+import { DeepPartial } from "../../../lib/utils/types";
 
 type AddEvidenceDialogProps = {
   isOpen: boolean;
-  evidenceCategories?: EvidenceCategory[];
+  evidenceCategories?: DeepPartial<ContentfulEvidenceCategory>[];
   onCloseClick: () => void;
   onConfirmClick: (
     evidenceCategoryType: EvidenceCategoryType,
@@ -77,8 +72,8 @@ export const AddEvidenceDialog = ({
               <MenuItem value={"MISCELLANEOUS"} key={"MISCELLANEOUS"}>
                 {t("MISCELLANEOUS")}
               </MenuItem>
-              {evidenceCategories.map(({ id, referenceCode, name }, index) => (
-                <MenuItem value={referenceCode} key={id}>
+              {evidenceCategories.map(({ referenceCode, name }, index) => (
+                <MenuItem value={referenceCode} key={referenceCode}>
                   {name}
                 </MenuItem>
               ))}
