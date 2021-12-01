@@ -269,7 +269,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                                 class="MuiTableCell-root MuiTableCell-head"
                                 scope="col"
                               >
-                                Accoridion Title 1
+                                systemAttributes
                               </th>
                               <th
                                 class="MuiTableCell-root MuiTableCell-head"
