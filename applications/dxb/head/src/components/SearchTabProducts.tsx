@@ -37,10 +37,6 @@ export const getCount = async (searchQuery) => {
   );
 
   if (countResult && countResult.hits) {
-    if (process.env.GATSBY_GROUP_BY_VARIANT === "true") {
-      return countResult.hits.total.value;
-    }
-
     return countResult.aggregations.unique_base_products_count.value;
   }
 
@@ -119,23 +115,16 @@ const SearchTabPanelProducts = (props: Props) => {
     const results = await queryElasticSearch(esQueryObject, ES_INDEX_NAME);
 
     if (results && results.hits && results.aggregations) {
-      const newPageCount =
-        process.env.GATSBY_GROUP_BY_VARIANT === "true"
-          ? Math.ceil(results.hits.total.value / PAGE_SIZE)
-          : Math.ceil(
-              results.aggregations.unique_base_products_count.value / PAGE_SIZE
-            );
+      const newPageCount = Math.ceil(
+        results.aggregations.unique_base_products_count.value / PAGE_SIZE
+      );
 
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
       setProducts(results.hits.hits.map((hit) => hit._source));
 
       onCountChange &&
-        onCountChange(
-          process.env.GATSBY_GROUP_BY_VARIANT === "true"
-            ? results.hits.total.value
-            : results.aggregations.unique_base_products_count.value
-        );
+        onCountChange(results.aggregations.unique_base_products_count.value);
     }
 
     updateLoadingStatus(false);
