@@ -72,6 +72,12 @@
       .TabPanel,
       .TabPanelBox {
         display: initial;
+
+        &[hidden] {
+          position: initial;
+          left: 0;
+          top: 0;
+        }
       }
     }
   }
@@ -87,6 +93,12 @@
       .TabPanel,
       .TabPanelBox {
         display: initial;
+
+        &[hidden] {
+          position: initial;
+          left: 0;
+          top: 0;
+        }
       }
     }
   }
