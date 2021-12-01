@@ -37,7 +37,7 @@ export const getCount = async (searchQuery) => {
   );
 
   if (countResult && countResult.hits) {
-    return countResult.hits.total.value;
+    return countResult.aggregations.unique_base_products_count.value;
   }
 
   return 0;
@@ -114,15 +114,17 @@ const SearchTabPanelProducts = (props: Props) => {
     // TODO: Handle if no response
     const results = await queryElasticSearch(esQueryObject, ES_INDEX_NAME);
 
-    if (results && results.hits) {
-      const { hits } = results;
-      const newPageCount = Math.ceil(hits.total.value / PAGE_SIZE);
+    if (results && results.hits && results.aggregations) {
+      const newPageCount = Math.ceil(
+        results.aggregations.unique_base_products_count.value / PAGE_SIZE
+      );
 
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
-      setProducts(hits.hits.map((hit) => hit._source));
+      setProducts(results.hits.hits.map((hit) => hit._source));
 
-      onCountChange && onCountChange(hits.total.value);
+      onCountChange &&
+        onCountChange(results.aggregations.unique_base_products_count.value);
     }
 
     updateLoadingStatus(false);
