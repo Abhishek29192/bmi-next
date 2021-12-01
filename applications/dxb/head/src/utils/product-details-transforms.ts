@@ -16,6 +16,7 @@ import {
 } from "../components/types/pim";
 import { GalleryImageType } from "../templates/systemDetails/types";
 import { getPathWithCountryCode } from "./path";
+import { combineVariantClassifications } from "./filters";
 
 export const getProductUrl = (countryCode, path) =>
   getPathWithCountryCode(countryCode, path);
@@ -239,19 +240,28 @@ export const mapProductClassifications = (
     Product,
     "code" | "images" | "classifications" | "variantOptions"
   >,
-  classificationNamepace: string
+  classificationNamepace: string,
+  includeVariantScoringWeight: boolean = false
 ): ClassificationsPerProductMap => {
   const allProducts: {
     [productCode: string]: Product;
   } = {
-    [product.code]: product,
+    ...(!product.variantOptions && { [product.code]: product }),
     ...(product.variantOptions || []).reduce((variantProducts, variant) => {
       return {
         ...variantProducts,
-        [variant.code]: variant
+        [variant.code]: {
+          ...variant,
+          classifications: combineVariantClassifications(
+            product,
+            variant,
+            includeVariantScoringWeight
+          )
+        }
       };
     }, {})
   };
+
   const mainProduct = product;
 
   // Classifications
@@ -273,8 +283,8 @@ export const mapProductClassifications = (
     MATERIALS: `${classificationNamepace}/${GENERAL_INFORMATION}.${FeatureCodeEnum.MATERIALS}`
   };
 
-  return Object.entries(allProducts).reduce((carry, [productCode, product]) => {
-    (product.classifications || []).forEach((classification) => {
+  return Object.entries(allProducts).reduce((carry, [productCode, variant]) => {
+    (variant.classifications || []).forEach((classification) => {
       const { code, features } = classification;
 
       const carryProp = (
@@ -316,7 +326,7 @@ export const mapProductClassifications = (
               name,
               value: featureValues ? featureValues[0] : "n/a",
               thumbnailUrl: getColourThumbnailUrl([
-                ...(product.images || []),
+                ...(variant.images || []),
                 ...(mainProduct.images || [])
               ])
             });
@@ -327,7 +337,7 @@ export const mapProductClassifications = (
               name,
               value: featureValues ? featureValues[0] : "n/a",
               thumbnailUrl: getColourThumbnailUrl([
-                ...(product.images || []),
+                ...(variant.images || []),
                 ...(mainProduct.images || [])
               ])
             });
@@ -960,7 +970,8 @@ export const findUniqueVariantClassifications = (
 ) => {
   const classifications = mapProductClassifications(
     variant._product,
-    classificationNamespace
+    classificationNamespace,
+    true
   );
 
   const mergeClassificationsValues = (
