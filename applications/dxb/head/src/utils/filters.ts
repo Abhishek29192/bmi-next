@@ -439,8 +439,9 @@ type PlpFiltersArgs = {
 };
 
 export const combineVariantClassifications = (
-  product: Product,
-  variant: VariantOption
+  product: Product | Pick<Product, "classifications">,
+  variant: VariantOption,
+  includeVariantScoringWeight: boolean = false
 ): Classification[] => {
   const mergedClassifications: Map<string, Classification> = new Map();
 
@@ -453,8 +454,11 @@ export const combineVariantClassifications = (
 
   // process variant classifications except "scoringWeightAttributes"
   const vairantClassificationsMap = new Map(
-    (variant.classifications || [])
-      .filter(({ code }) => code !== "scoringWeightAttributes")
+    ((variant || {}).classifications || [])
+      .filter(
+        ({ code }) =>
+          includeVariantScoringWeight || code !== "scoringWeightAttributes"
+      )
       .map((classification) => [classification.code, classification])
   );
 

@@ -210,7 +210,7 @@ describe("product-details-transforms tests", () => {
           });
           const result = mapProductClassifications(inputValue, "");
           const expectedResult = {
-            "product-code": {
+            "variant-code": {
               scoringweight: { name: "scoringWeight Attributes" },
               texturefamily: { name: "texturefamily", value: "n/a" },
               colour: { name: "colour", value: "n/a" },
@@ -332,7 +332,7 @@ describe("product-details-transforms tests", () => {
             ""
           );
           const expectedResult = {
-            "product-code": {
+            "variant-code": {
               scoringweight: { name: "scoringWeight Attributes" },
               measurements: {
                 length: {
