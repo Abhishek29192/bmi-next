@@ -199,7 +199,9 @@ export enum ClassificationCodeEnum {
   MEASUREMENTS = "measurements",
   GENERAL_INFORMATION = "generalInformation",
   WEIGHT_ATTRIBUTES = "weightAttributes",
-  SCORING_WEIGHT_ATTRIBUTES = "scoringWeightAttributes"
+  SCORING_WEIGHT_ATTRIBUTES = "scoringWeightAttributes",
+  SYSTEM_ATTRIBUTES = "systemAttributes",
+  FRANCE_FLAT_SYSTEM_ATTRIBUTES = "franceFlatSystemAttributes"
 }
 
 export enum FeatureCodeEnum {

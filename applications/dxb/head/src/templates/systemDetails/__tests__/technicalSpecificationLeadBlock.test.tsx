@@ -1,13 +1,17 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import Component from "../technicalSpecificationLeadBlock";
-import { Classification, Feature } from "../../../components/types/pim";
+import {
+  Classification,
+  ClassificationCodeEnum,
+  Feature
+} from "../../../components/types/pim";
 import "@testing-library/jest-dom";
 
 const technicalSpecClassifications: Classification[] = [
   {
-    code: "systemAttributes",
-    name: "test name",
+    code: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
+    name: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
     features: [
       {
         name: "feature1",
@@ -71,8 +75,8 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
       it("With a feature units", () => {
         const classifications: Classification[] = [
           {
-            name: "class1",
-            code: "systemAttributes",
+            name: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
+            code: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
             features: [featureWithUnit]
           }
         ];
@@ -111,13 +115,13 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
       it("With more than one feature units", () => {
         const classifications: Classification[] = [
           {
-            name: "class1",
-            code: "systemAttributes",
+            name: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
+            code: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
             features: [featureWithUnit, featureWithUnit]
           },
           {
-            name: "class2",
-            code: "systemAttributes",
+            name: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
+            code: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
             features: [featureWithUnit, featureWithUnit]
           }
         ];

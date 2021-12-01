@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import RelatedProducts from "../RelatedProducts";
-import { Product } from "../types/pim";
+import { ClassificationCodeEnum, Product } from "../types/pim";
 import { createBaseProduct } from "../../__tests__/PimDocumentProductHelper";
 import createCategory from "../../__tests__/CategoryHelper";
 
@@ -139,20 +139,20 @@ describe("RelatedProducts component", () => {
         ],
         classifications: [
           {
-            code: "scoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
                 featureValues: [
                   {
                     value: "1",
-                    code: "scoringWeightAttributes"
+                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
                   }
                 ],
                 name: "Scoring Weight"
               }
             ],
-            name: "test"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ]
       }),
@@ -171,20 +171,20 @@ describe("RelatedProducts component", () => {
         ],
         classifications: [
           {
-            code: "scoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
                 featureValues: [
                   {
                     value: "4",
-                    code: "scoringWeightAttributes"
+                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
                   }
                 ],
                 name: "Scoring Weight"
               }
             ],
-            name: "test"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ]
       })
@@ -218,20 +218,20 @@ describe("RelatedProducts component", () => {
         ],
         classifications: [
           {
-            code: "scoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
                 featureValues: [
                   {
                     value: "1",
-                    code: "scoringWeightAttributes"
+                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
                   }
                 ],
                 name: "Scoring Weight"
               }
             ],
-            name: "test"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ]
       }),
@@ -250,20 +250,20 @@ describe("RelatedProducts component", () => {
         ],
         classifications: [
           {
-            code: "scoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
                 featureValues: [
                   {
                     value: "1",
-                    code: "scoringWeightAttributes"
+                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
                   }
                 ],
                 name: "Scoring Weight"
               }
             ],
-            name: "test"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ]
       })
@@ -297,20 +297,20 @@ describe("RelatedProducts component", () => {
         ],
         classifications: [
           {
-            code: "scoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
                 featureValues: [
                   {
                     value: "1",
-                    code: "scoringWeightAttributes"
+                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
                   }
                 ],
                 name: "Scoring Weight"
               }
             ],
-            name: "test"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ]
       }),
@@ -329,20 +329,20 @@ describe("RelatedProducts component", () => {
         ],
         classifications: [
           {
-            code: "scoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
                 featureValues: [
                   {
                     value: "1",
-                    code: "scoringWeightAttributes"
+                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
                   }
                 ],
                 name: "Scoring Weight"
               }
             ],
-            name: "test"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ]
       })
@@ -376,20 +376,20 @@ describe("RelatedProducts component", () => {
         ],
         classifications: [
           {
-            code: "scoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
                 featureValues: [
                   {
                     value: "1",
-                    code: "scoringWeightAttributes"
+                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
                   }
                 ],
                 name: "Scoring Weight"
               }
             ],
-            name: "test"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ]
       }),
@@ -408,20 +408,20 @@ describe("RelatedProducts component", () => {
         ],
         classifications: [
           {
-            code: "scoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
                 featureValues: [
                   {
                     value: "1",
-                    code: "scoringWeightAttributes"
+                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
                   }
                 ],
                 name: "Scoring Weight"
               }
             ],
-            name: "test"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ]
       })
