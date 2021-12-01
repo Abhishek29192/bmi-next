@@ -10,15 +10,15 @@ import {
   Product,
   VariantOption
 } from "../components/types/pim";
+import {
+  AttributeCodeMap,
+  getClassificationFeaturesByFeatureCodes
+} from "./features-from-classifications-transfroms";
 import { combineVariantClassifications } from "./filters";
 import {
   getSizeLabel,
   TransformedMeasurementValue
 } from "./product-details-transforms";
-import {
-  AttributeCodeMap,
-  getClassificationFeaturesByFeatureCodes
-} from "./product-url-path";
 
 export interface ProductData {
   type: SchemaOrgFieldsEnum;
