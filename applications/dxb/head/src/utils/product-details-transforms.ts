@@ -607,16 +607,14 @@ export const getProductAttributes = (
   const getBestMatch = (variant: string, propName: string) =>
     sortedProductClassification.filter(([_, classifications]) => {
       const value = getPropValue(classifications, propName);
-      if (value) {
-        return value === variant;
-      }
-      return false;
+      return value && value === variant;
     });
 
   const getUnavailableCTA = (variant: string, propName: string) => {
     const bestMatch = getBestMatch(variant, propName);
-    return bestMatch.length > 0
-      ? getProductUrl(countryCode, variantCodeToPathMap[bestMatch[0][0]])
+    const variantPath = variantCodeToPathMap[bestMatch[0][0]];
+    return variantPath && bestMatch.length > 0
+      ? getProductUrl(countryCode, variantPath)
       : null;
   };
 
@@ -634,13 +632,17 @@ export const getProductAttributes = (
         );
         const isSelected =
           selectedColour && code === selectedColour.value.value;
+        const path = variantCode
+          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          : getUnavailableCTA(code, FeatureCodeEnum.COLOUR);
         return {
           label: code,
           isSelected,
           thumbnail: thumbnailUrl,
           availability: checkColourAvailability(code),
           ...(!isSelected &&
-            allColours.length > 1 && {
+            allColours.length > 1 &&
+            path && {
               action: {
                 model: "routerLink",
                 linkComponent: Link,
@@ -673,21 +675,20 @@ export const getProductAttributes = (
         const isSelected =
           selectedSurfaceTreatment &&
           code === selectedSurfaceTreatment.value.code;
+        const path = variantCode
+          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          : getUnavailableCTA(code, FeatureCodeEnum.TEXTURE_FAMILY);
         return {
           label: value,
           isSelected,
           availability: !!variantCode,
           ...(!isSelected &&
+            path &&
             allSurfaceTreatments.length > 1 && {
               action: {
                 model: "routerLink",
                 linkComponent: Link,
-                to: variantCode
-                  ? getProductUrl(
-                      countryCode,
-                      variantCodeToPathMap[variantCode]
-                    )
-                  : getUnavailableCTA(code, FeatureCodeEnum.TEXTURE_FAMILY)
+                to: path
               }
             })
         };
@@ -706,21 +707,20 @@ export const getProductAttributes = (
           ClassificationCodeEnum.MEASUREMENTS
         );
         const isSelected = key === getMeasurementKey(selectedSize);
+        const path = variantCode
+          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          : getUnavailableCTA(key, ClassificationCodeEnum.MEASUREMENTS);
         return {
           label: getSizeLabel(size),
           isSelected,
           availability: !!variantCode,
           ...(!isSelected &&
+            path &&
             allSizes.length > 1 && {
               action: {
                 model: "routerLink",
                 linkComponent: Link,
-                to: variantCode
-                  ? getProductUrl(
-                      countryCode,
-                      variantCodeToPathMap[variantCode]
-                    )
-                  : getUnavailableCTA(key, ClassificationCodeEnum.MEASUREMENTS)
+                to: path
               }
             })
         };
@@ -741,21 +741,20 @@ export const getProductAttributes = (
           (selectedVariantAttribute &&
             selectedVariantAttribute.value.value === value) ||
           false;
+        const path = variantCode
+          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          : getUnavailableCTA(value, FeatureCodeEnum.VARIANT_ATTRIBUTE);
         return {
           label: value,
           isSelected,
           availability: !!variantCode,
           ...(!isSelected &&
+            path &&
             allVariantAttributes.length > 1 && {
               action: {
                 model: "routerLink",
                 linkComponent: Link,
-                to: variantCode
-                  ? getProductUrl(
-                      countryCode,
-                      variantCodeToPathMap[variantCode]
-                    )
-                  : getUnavailableCTA(value, FeatureCodeEnum.VARIANT_ATTRIBUTE)
+                to: path
               }
             })
         };
