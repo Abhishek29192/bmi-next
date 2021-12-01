@@ -83,7 +83,10 @@ const renderThumbnailAttribute = (
               <ToolTip
                 title={<div>{unavailableMicroCopy}</div>}
                 placement="top"
-                {...(isSelected || availability || !unavailableMicroCopy
+                {...(isSelected ||
+                availability ||
+                !action ||
+                !unavailableMicroCopy
                   ? { open: false }
                   : {})}
               >
@@ -91,6 +94,7 @@ const renderThumbnailAttribute = (
                   className={classnames(
                     !isSelected &&
                       !availability &&
+                      action &&
                       styles["unavailable-thumbnail"]
                   )}
                 >
@@ -154,14 +158,20 @@ const renderAttribute = (
               <div
                 className={classnames(
                   styles["variant"],
-                  !isSelected && !availability && styles["unavailable-chip"]
+                  !isSelected &&
+                    !availability &&
+                    action &&
+                    styles["unavailable-chip"]
                 )}
                 key={`${key}-variant-${index}`}
               >
                 <ToolTip
                   title={<div>{unavailableMicroCopy}</div>}
                   placement="top"
-                  {...(isSelected || availability || !unavailableMicroCopy
+                  {...(isSelected ||
+                  availability ||
+                  !action ||
+                  !unavailableMicroCopy
                     ? { open: false }
                     : {})}
                 >
