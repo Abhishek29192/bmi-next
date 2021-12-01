@@ -14,7 +14,7 @@ module.exports = merge(webpackConfiguration, {
   output: {
     ...webpackConfiguration.output,
     publicPath:
-      "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-dev/auth0"
+      "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-preprod/auth0"
   },
 
   /* Manage source maps generation process. Refer to https://webpack.js.org/configuration/devtool/#production */
