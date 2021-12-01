@@ -184,12 +184,12 @@ describe("compileElasticSearchQuery function", () => {
           },
           "unique_base_products_count": Object {
             "cardinality": Object {
-              "field": "baseProduct.code.keyword",
+              "field": "code.keyword",
             },
           },
         },
         "collapse": Object {
-          "field": "baseProduct.code.keyword",
+          "field": "code.keyword",
           "inner_hits": Object {
             "name": "all_variants",
           },
@@ -297,12 +297,12 @@ describe("compileElasticSearchQuery function", () => {
           },
           "unique_base_products_count": Object {
             "cardinality": Object {
-              "field": "baseProduct.code.keyword",
+              "field": "code.keyword",
             },
           },
         },
         "collapse": Object {
-          "field": "baseProduct.code.keyword",
+          "field": "code.keyword",
           "inner_hits": Object {
             "name": "all_variants",
           },
@@ -389,12 +389,12 @@ describe("compileElasticSearchQuery function", () => {
           },
           "unique_base_products_count": Object {
             "cardinality": Object {
-              "field": "baseProduct.code.keyword",
+              "field": "code.keyword",
             },
           },
         },
         "collapse": Object {
-          "field": "baseProduct.code.keyword",
+          "field": "code.keyword",
           "inner_hits": Object {
             "name": "all_variants",
           },
@@ -479,12 +479,12 @@ describe("compileElasticSearchQuery function", () => {
           },
           "unique_base_products_count": Object {
             "cardinality": Object {
-              "field": "baseProduct.code.keyword",
+              "field": "code.keyword",
             },
           },
         },
         "collapse": Object {
-          "field": "baseProduct.code.keyword",
+          "field": "code.keyword",
           "inner_hits": Object {
             "name": "all_variants",
           },
