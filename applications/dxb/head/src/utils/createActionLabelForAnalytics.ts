@@ -2,11 +2,10 @@ import {
   Classification,
   ClassificationCodeEnum
 } from "../components/types/pim";
-
 import {
   AttributeCodeMap,
   extractFeatureValuesByClassification
-} from "./product-url-path";
+} from "./features-from-classifications-transfroms";
 
 export const createActionLabel = (
   productName: string,
@@ -14,11 +13,9 @@ export const createActionLabel = (
   config: AttributeCodeMap
 ): string => {
   const measurementSymbol =
-    (classifications &&
-      classifications.filter(
-        ({ code }) => code === ClassificationCodeEnum.MEASUREMENTS
-      )[0]?.features[0]?.featureUnit?.symbol) ||
-    "";
+    classifications?.filter(
+      ({ code }) => code === ClassificationCodeEnum.MEASUREMENTS
+    )[0]?.features[0]?.featureUnit?.symbol || "";
   const classificationsPath = extractFeatureValuesByClassification(
     classifications,
     config

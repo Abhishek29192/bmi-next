@@ -141,7 +141,7 @@ export const getSchemaOrgBrandData = ({
   if (productBrandCategoryName) {
     return {
       [type]: {
-        ["@type"]: "Brand",
+        "@type": "Brand",
         name: productBrandCategoryName
       }
     };
@@ -319,7 +319,7 @@ export const getSchemaOrgWeightData = ({
     if (featureValue && featureUnit) {
       return {
         [type]: {
-          ["@type"]: typeValue,
+          "@type": typeValue,
           value: featureValue,
           valueReference: featureUnit
         }
@@ -327,14 +327,14 @@ export const getSchemaOrgWeightData = ({
     } else if (featureValue) {
       return {
         [type]: {
-          ["@type"]: typeValue,
+          "@type": typeValue,
           value: featureValue
         }
       };
     } else if (featureUnit) {
       return {
         [type]: {
-          ["@type"]: typeValue,
+          "@type": typeValue,
           valueReference: featureUnit
         }
       };
@@ -367,7 +367,7 @@ export const getSchemaOrgWidthData = ({
   if (featureValue && featureUnit) {
     return {
       [type]: {
-        ["@type"]: typeValue,
+        "@type": typeValue,
         value: featureValue,
         valueReference: featureUnit
       }
@@ -375,14 +375,14 @@ export const getSchemaOrgWidthData = ({
   } else if (featureValue) {
     return {
       [type]: {
-        ["@type"]: typeValue,
+        "@type": typeValue,
         value: featureValue
       }
     };
   } else if (featureUnit) {
     return {
       [type]: {
-        ["@type"]: typeValue,
+        "@type": typeValue,
         valueReference: featureUnit
       }
     };
@@ -416,7 +416,7 @@ export const getSchemaOrgHeightData = ({
   if (featureValue && featureUnit) {
     return {
       [type]: {
-        ["@type"]: typeValue,
+        "@type": typeValue,
         value: featureValue,
         valueReference: featureUnit
       }
@@ -424,14 +424,14 @@ export const getSchemaOrgHeightData = ({
   } else if (featureValue) {
     return {
       [type]: {
-        ["@type"]: typeValue,
+        "@type": typeValue,
         value: featureValue
       }
     };
   } else if (featureUnit) {
     return {
       [type]: {
-        ["@type"]: typeValue,
+        "@type": typeValue,
         valueReference: featureUnit
       }
     };

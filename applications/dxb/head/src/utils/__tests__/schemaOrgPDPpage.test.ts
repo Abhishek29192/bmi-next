@@ -86,8 +86,8 @@ describe("schemaOrgPDPpage tests", () => {
         ProductGroup: "product-code",
         name: "product-name",
         model: "product-name",
-        ["@context"]: "https://schema.org",
-        ["@type"]: "Product",
+        "@context": "https://schema.org",
+        "@type": "Product",
         description: "variant-long-desc",
         url: "http://localhost/"
       };
@@ -168,7 +168,7 @@ describe("schemaOrgPDPpage tests", () => {
       });
       const expectedResult = {
         [SchemaOrgFieldsEnum.BRAND]: {
-          ["@type"]: "Brand",
+          "@type": "Brand",
           name: "mocked-category-name"
         }
       };
@@ -642,7 +642,7 @@ describe("schemaOrgPDPpage tests", () => {
       });
       const expectedResult = {
         [SchemaOrgFieldsEnum.WEIGHT]: {
-          ["@type"]: typeValue,
+          "@type": typeValue,
           value: "mocked-value",
           valueReference: "kg"
         }
@@ -677,7 +677,7 @@ describe("schemaOrgPDPpage tests", () => {
       });
       const expectedResult = {
         [SchemaOrgFieldsEnum.WEIGHT]: {
-          ["@type"]: typeValue,
+          "@type": typeValue,
           value: "mocked-value"
         }
       };
@@ -710,7 +710,7 @@ describe("schemaOrgPDPpage tests", () => {
       });
       const expectedResult = {
         [SchemaOrgFieldsEnum.WEIGHT]: {
-          ["@type"]: typeValue,
+          "@type": typeValue,
           valueReference: "kg"
         }
       };
@@ -783,7 +783,7 @@ describe("schemaOrgPDPpage tests", () => {
       });
       const expectedResult = {
         [SchemaOrgFieldsEnum.WIDTH]: {
-          ["@type"]: typeValue,
+          "@type": typeValue,
           value: "mocked-value",
           valueReference: "mm"
         }
@@ -818,7 +818,7 @@ describe("schemaOrgPDPpage tests", () => {
       });
       const expectedResult = {
         [SchemaOrgFieldsEnum.WIDTH]: {
-          ["@type"]: typeValue,
+          "@type": typeValue,
           value: "mocked-value"
         }
       };
@@ -851,7 +851,7 @@ describe("schemaOrgPDPpage tests", () => {
       });
       const expectedResult = {
         [SchemaOrgFieldsEnum.WIDTH]: {
-          ["@type"]: typeValue,
+          "@type": typeValue,
           valueReference: "mm"
         }
       };
@@ -924,7 +924,7 @@ describe("schemaOrgPDPpage tests", () => {
       });
       const expectedResult = {
         [SchemaOrgFieldsEnum.HEIGHT]: {
-          ["@type"]: typeValue,
+          "@type": typeValue,
           value: "mocked-value",
           valueReference: "mm"
         }
@@ -959,7 +959,7 @@ describe("schemaOrgPDPpage tests", () => {
       });
       const expectedResult = {
         [SchemaOrgFieldsEnum.HEIGHT]: {
-          ["@type"]: typeValue,
+          "@type": typeValue,
           value: "mocked-value"
         }
       };
@@ -992,7 +992,7 @@ describe("schemaOrgPDPpage tests", () => {
       });
       const expectedResult = {
         [SchemaOrgFieldsEnum.HEIGHT]: {
-          ["@type"]: typeValue,
+          "@type": typeValue,
           valueReference: "mm"
         }
       };
