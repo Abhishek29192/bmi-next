@@ -1,39 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SystemGuarantee Component renders correctly 1`] = `
-<div>
-  <h1
-    class="MuiTypography-root Typography MuiTypography-h6"
-  >
-    guarantee.type.SYSTEM
-  </h1>
+<div
+  class="body"
+>
   <div
-    class="body"
+    class="body__title"
   >
-    <div
-      class="body__title"
+    <h2
+      class="MuiTypography-root Typography MuiTypography-h6"
     >
-      <h2
-        class="MuiTypography-root Typography MuiTypography-h6"
+      BMI-NO-PROD-001
+    </h2>
+  </div>
+  <div>
+    <h6
+      class="MuiTypography-root Typography MuiTypography-subtitle2"
+    />
+  </div>
+  <div>
+    <div>
+      <table
+        class="MuiTable-root Table Table--row-odd-color"
       >
-        BMI-NO-PROD-001
-      </h2>
-    </div>
-    <div>
-      <h6
-        class="MuiTypography-root Typography MuiTypography-subtitle2"
-      />
-    </div>
-    <div>
-      <div>
-        <table
-          class="MuiTable-root Table Table--row-odd-color"
-        >
-          <tbody
-            class="MuiTableBody-root"
-          />
-        </table>
-      </div>
+        <tbody
+          class="MuiTableBody-root"
+        />
+      </table>
     </div>
   </div>
 </div>

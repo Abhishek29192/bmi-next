@@ -14,21 +14,6 @@ type SystemGuaranteesProps = {
 
 export const SystemGuarantee = ({ guarantee }: SystemGuaranteesProps) => {
   const { t } = useTranslation(["common", "project-page"]);
-  return (
-    <div>
-      <Typography component="h1" variant="h6">
-        {t("project-page:guarantee.type.SYSTEM")}
-      </Typography>
-      <SystemGuaranteeCard guarantee={guarantee} />
-    </div>
-  );
-};
-
-type SystemGuaranteeCardProps = {
-  guarantee: GetProjectQuery["project"]["guarantees"]["nodes"][0];
-};
-const SystemGuaranteeCard = ({ guarantee }: SystemGuaranteeCardProps) => {
-  const { t } = useTranslation(["common", "project-page"]);
 
   const { systemBySystemBmiRef: system, signedFileStorageUrl } = guarantee;
 
