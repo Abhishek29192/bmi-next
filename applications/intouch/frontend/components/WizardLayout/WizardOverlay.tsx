@@ -16,11 +16,22 @@ type WizardOverlayProps = {
   project: GetProjectQuery["project"];
   onClose?: () => void;
   onSubmit?: (data: GuaranteeWizardData) => void;
+  isSubmit?: boolean;
 };
 
-const WizardOverlay = ({ project, onClose, onSubmit }: WizardOverlayProps) => {
+const WizardOverlay = ({
+  project,
+  onClose,
+  onSubmit,
+  isSubmit
+}: WizardOverlayProps) => {
   return (
-    <Wizard onCloseClick={onClose} onSubmitClick={onSubmit} project={project}>
+    <Wizard
+      onCloseClick={onClose}
+      onSubmitClick={onSubmit}
+      project={project}
+      isSubmit={isSubmit}
+    >
       <SelectGuarantee />
       <SelectGuaranteesTemplate />
       <SelectProductOrSystem />

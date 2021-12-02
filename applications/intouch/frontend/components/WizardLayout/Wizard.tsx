@@ -15,16 +15,22 @@ export type WizardProps = {
   project: GetProjectQuery["project"];
   onCloseClick?: () => void;
   onSubmitClick?: (data: GuaranteeWizardData) => void;
+  isSubmit?: boolean;
 };
 
 export const Wizard = ({
   children,
   project,
   onCloseClick,
-  onSubmitClick
+  onSubmitClick,
+  isSubmit
 }: WizardProps) => {
   return (
-    <WizardContextWrapper project={project} onSubmit={onSubmitClick}>
+    <WizardContextWrapper
+      project={project}
+      onSubmit={onSubmitClick}
+      isSubmit={isSubmit}
+    >
       <div className={styles.main}>
         <div className={styles.header}>
           <div className={styles.header__inner}>
