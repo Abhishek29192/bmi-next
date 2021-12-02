@@ -296,7 +296,7 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
     addSampleCta.click();
     expect(JSON.parse(localStorage.getItem("basketItems"))).toEqual(variant);
   });
-  it("add redirect url to 'Complete order' CTA", () => {
+  it("add redirect url to 'Complete order' CTA", async () => {
     render(
       <SiteContextProvider value={getMockSiteContext()}>
         <SampleOrderSection
@@ -313,7 +313,9 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
     const addSampleCta = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
-    addSampleCta.click();
+    await waitFor(() => {
+      addSampleCta.click();
+    });
     const completeOrderCta = screen.getByRole("button", {
       name: `MC: pdp.overview.completeSampleOrder`
     });
