@@ -2,6 +2,7 @@
 
 "use strict";
 
+const path = require("path");
 const { merge } = require("webpack-merge");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -13,7 +14,9 @@ module.exports = merge(webpackConfiguration, {
 
   output: {
     ...webpackConfiguration.output,
-    publicPath: "https://storage.googleapis.com/intouch-public-assets/auth0"
+    path: path.resolve(__dirname, "../dist/uat/"),
+    publicPath:
+      "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-uat/auth0"
   },
 
   /* Manage source maps generation process. Refer to https://webpack.js.org/configuration/devtool/#production */
@@ -34,6 +37,33 @@ module.exports = merge(webpackConfiguration, {
   performance: {
     maxEntrypointSize: 512000,
     maxAssetSize: 512000
+  },
+
+  module: {
+    rules: [
+      {
+        test: /.*\.html$/,
+        loader: "raw-loader"
+      },
+      {
+        test: /.*\.html$/,
+        loader: "string-replace-loader",
+        options: {
+          multiple: [
+            {
+              search: "@@non_roof_img@@",
+              replace:
+                "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-uat/auth0/images/bmi_non_roofpro_intouch.jpg"
+            },
+            {
+              search: "@@roof_imf@@",
+              replace:
+                "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-uat/auth0/images/bmi_roofpro_intouch.jpg"
+            }
+          ]
+        }
+      }
+    ]
   },
 
   /* Additional plugins configuration */

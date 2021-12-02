@@ -130,7 +130,7 @@ exports[`ProjectsHeader component render correctly 1`] = `
         <div
           class="MuiTypography-root Typography MuiTypography-body1"
         >
-          February 24, 2021
+          24 February 2021
         </div>
       </div>
       <div
@@ -144,7 +144,7 @@ exports[`ProjectsHeader component render correctly 1`] = `
         <div
           class="MuiTypography-root Typography MuiTypography-body1"
         >
-          March 30, 2022
+          30 March 2022
         </div>
       </div>
       <div

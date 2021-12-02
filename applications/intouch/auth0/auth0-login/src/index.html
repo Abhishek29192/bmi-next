@@ -592,20 +592,18 @@
         }
       };
 
-      // finally, pass them to AlpineI18n:
-      document.addEventListener("alpine-i18n:ready", function () {
-        const config = JSON.parse(
-          decodeURIComponent(escape(window.atob("@@config@@")))
-        );
-
+      const getLanguage = (config) => {
         let locale = location.hash.substr(1) || config.extraParams.market;
         // If we land to intouch.* without the market we set en as defualt;
         if (locale === "intouch") {
           locale = "no";
         }
-        window.AlpineI18n.create(locale, messages);
 
-        var language = config.extraParams.market;
+        return locale;
+      };
+
+      const setupImage = (config) => {
+        const language = getLanguage(config);
 
         // Map market / projects status
         var marketsProjectMap = {
@@ -616,10 +614,8 @@
 
         // Map projects status / image
         var marketImages = {
-          projectActive:
-            "https://storage.googleapis.com/intouch-public-assets/auth0/images/design/bmi_roofpro_intouch.f044a6.jpg",
-          projectNotActive:
-            "https://cdn.bmigroup.com/-/media/bmi-global/case-studies/a-family-home-in-deining-germany/deining_neu30_bereinigt_150ppi.jpg?rev=dc4b46606ded44a09128daba90019b40"
+          projectActive: "@@roof_imf@@",
+          projectNotActive: "@@non_roof_img@@"
         };
 
         if (document.getElementsByClassName("login-screen").length) {
@@ -627,12 +623,19 @@
             ? marketImages.projectActive
             : marketImages.projectNotActive;
 
-          console.log("image", image);
-
           document.getElementsByClassName(
             "login-screen"
           )[0].style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${image}")`;
         }
+      };
+
+      // finally, pass them to AlpineI18n:
+      document.addEventListener("alpine-i18n:ready", function () {
+        const config = JSON.parse(
+          decodeURIComponent(escape(window.atob("@@config@@")))
+        );
+
+        window.AlpineI18n.create(getLanguage(config), messages);
       });
 
       window.addEventListener("load", function () {
@@ -641,9 +644,11 @@
         // Fix to avoid label overlap
         document.getElementsByClassName("login-screen")[0].focus();
 
-        var config = JSON.parse(
+        const config = JSON.parse(
           decodeURIComponent(escape(window.atob("@@config@@")))
         );
+
+        setupImage(config);
 
         var leeway = config.internalOptions.leeway;
         if (leeway) {
@@ -668,16 +673,15 @@
           config.internalOptions
         );
 
-        var env = config.extraParams.env;
-        var language = config.extraParams.market;
+        const language = getLanguage(config);
+        const { env } = config.extraParams;
 
-        var baseUrl =
-          env === "prod"
-            ? `https://${env}.intouch.dddev.io`
-            : `https://${env}-${language}.intouch.dddev.io`;
+        const prefix = env === "prod" ? language : `${env}-${language}`;
 
-        document.getElementById("terms-link").href = `${baseUrl}/terms`;
-        document.getElementById("privacy-link").href = `${baseUrl}/privacy`;
+        document.getElementById("terms-link").href =
+          "https://" + prefix + ".intouch.bmigroup.com/terms";
+        document.getElementById("privacy-link").href =
+          "https://" + prefix + ".intouch.bmigroup.com/privacy";
 
         var webAuth = new auth0.WebAuth(params);
         var databaseConnection = "Username-Password-Authentication";
@@ -705,8 +709,6 @@
           var successMessage = document.getElementById(
             type + "-success-message"
           );
-
-          console.log("message", message, AlpineI18n.t(message));
 
           if (messages[language] && messages[language][message]) {
             errorMessage.innerHTML = AlpineI18n.t(message);
