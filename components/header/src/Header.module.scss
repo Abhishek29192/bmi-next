@@ -55,6 +55,7 @@ $chevron-margin-left-lg: 3px;
 
     @media (min-width: $breakpoint-md) {
       display: block;
+      overflow-x: scroll;
     }
 
     .nav-item {
@@ -329,25 +330,23 @@ $chevron-margin-left-lg: 3px;
     :global(.MuiContainer-root) {
       display: flex;
 
-      @media (min-device-width: $breakpoint-md) and (max-device-width: $breakpoint-xl) {
-        display: block;
-      }
-
       align-items: center;
       justify-content: space-between;
     }
 
-    &__left {
+    &-content {
       display: flex;
       align-items: flex-end;
       margin-bottom: -1px;
+      width: 100%;
     }
 
-    &__right {
-      display: initial;
-      @media (min-width: $breakpoint-lg) {
-        display: contents;
-      }
+    &-buttons {
+      display: flex;
+      align-self: stretch;
+      align-items: center;
+      margin-left: auto;
+      padding-left: 10px;
     }
   }
 
