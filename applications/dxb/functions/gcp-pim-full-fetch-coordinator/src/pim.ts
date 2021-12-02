@@ -4,6 +4,7 @@
 import { URLSearchParams } from "url";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import fetch from "node-fetch";
+import { error, info } from "./logger";
 
 const {
   PIM_CLIENT_ID,
@@ -70,8 +71,7 @@ const getAuthToken = async () => {
   );
 
   if (!response.ok) {
-    // eslint-disable-next-line no-console
-    console.error("ERROR!", response.status, response.statusText);
+    error({ status: response.status, statusText: response.statusText });
     throw new Error(response.statusText);
   }
 
@@ -99,13 +99,11 @@ export const fetchData = async (
 
   const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?currentPage=${currentPage}&approvalStatus=APPROVED`;
 
-  // eslint-disable-next-line no-console
-  console.log(`FETCH: ${fullPath}`);
+  info({ message: `FETCH: ${fullPath}` });
   const response = await fetch(fullPath, options);
 
   if (!response.ok) {
-    // eslint-disable-next-line no-console
-    console.error("ERROR!", response.status, response.statusText);
+    error({ status: response.status, statusText: response.statusText });
     throw new Error(response.statusText);
   }
 
