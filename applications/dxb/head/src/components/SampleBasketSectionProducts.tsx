@@ -15,6 +15,7 @@ import {
 import styles from "./styles/SampleBasketSectionProducts.module.scss";
 import { renderImage } from "./Image";
 import { useSiteContext } from "./Site";
+import { Classification } from "./types/pim";
 
 interface Options {
   code: string;
@@ -22,10 +23,17 @@ interface Options {
   featureUnitRequired?: boolean;
 }
 
-const getFeatures = (sample: Sample, options: Options) => {
-  const classification = sample.classifications?.filter(
+export const getFeatures = (
+  classifications: Classification[],
+  options: Options
+) => {
+  const classification = classifications.find(
     (classification) => classification.code === options.code
-  )[0];
+  );
+
+  if (!classification) {
+    return null;
+  }
 
   const features = [
     ...new Set(
@@ -40,7 +48,7 @@ const getFeatures = (sample: Sample, options: Options) => {
       classification?.features[0]?.featureUnit?.symbol) ||
     "";
 
-  return `${features.join(options.separator || " | ")} ${units}`;
+  return `${features.join(options.separator || " | ")} ${units}`.trim();
 };
 
 const SampleBasketSectionProducts = () => {
@@ -50,18 +58,16 @@ const SampleBasketSectionProducts = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  const sampleCards = basketState.products.map((product) => {
-    const image = product.images[0];
-
+  const sampleCards = basketState.products.map((sample) => {
     const media = renderImage(
       {
         type: "Descriptive",
-        altText: image.name,
-        caption: { caption: image.name },
+        altText: sample.name,
+        caption: { caption: sample.name },
         image: {
           file: {
-            fileName: image.realFileName,
-            url: image.url
+            fileName: sample.name,
+            url: sample.image
           }
         },
         focalPoint: { x: 0, y: 0 }
@@ -80,17 +86,17 @@ const SampleBasketSectionProducts = () => {
 
     const handleRemove = (event: Event) => {
       event.stopPropagation();
-      removeFromBasket(product);
+      removeFromBasket(sample);
     };
 
     return (
       <OverviewCard
         className={styles["product-wrapper"]}
-        key={product.path}
+        key={sample.path}
         media={media}
         hasChildrenWithoutMargin
         onClick={() =>
-          navigate(getPathWithCountryCode(countryCode, product.path))
+          navigate(getPathWithCountryCode(countryCode, sample.path))
         }
         footer={
           !isMobile && (
@@ -108,13 +114,15 @@ const SampleBasketSectionProducts = () => {
         <div className={styles["product"]}>
           <div className={styles["product-description"]}>
             <Typography className={styles["product-title"]}>
-              {product.name}
+              {sample.name}
             </Typography>
             <Typography className={styles["product-color"]}>
-              {getFeatures(product, { code: "appearanceAttributes" })}
+              {getFeatures(sample.classifications, {
+                code: "appearanceAttributes"
+              })}
             </Typography>
             <Typography className={styles["product-size"]}>
-              {getFeatures(product, {
+              {getFeatures(sample.classifications, {
                 code: "measurements",
                 separator: "x",
                 featureUnitRequired: true

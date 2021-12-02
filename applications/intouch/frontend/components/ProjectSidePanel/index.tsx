@@ -100,15 +100,21 @@ const ProjectSidePanelFooter = () => {
   );
 };
 
-const SidePanelFooter = () => {
+const SidePanelFooter = ({
+  projectLength,
+  guaranteeLength
+}: {
+  projectLength: number;
+  guaranteeLength: number;
+}) => {
   return (
     <div>
       <AccessControl dataModel="project" action="addProject">
         <ProjectSidePanelFooter />
       </AccessControl>
       <AccessControl dataModel="project" action="downloadReport">
-        <ProjectReport />
-        <GuaranteeReport />
+        <ProjectReport disabled={projectLength === 0} />
+        <GuaranteeReport disabled={guaranteeLength === 0} />
       </AccessControl>
     </div>
   );
@@ -154,19 +160,26 @@ export const ProjectSidePanel = ({
     filter: string
   ) => {
     const solutionGuarantee =
-      guarantees.find(
-        (node) => node.coverage === "SOLUTION" && node.status === "REVIEW"
-      ) || null;
+      guarantees.find((node) => node.coverage === "SOLUTION") || null;
 
     if (solutionGuarantee !== null) {
       if (filter === "UNASSIGNED") {
-        return solutionGuarantee.reviewerAccountId === null;
+        return (
+          solutionGuarantee.status === "SUBMITTED" &&
+          solutionGuarantee.reviewerAccountId === null
+        );
       }
       if (filter === "ASSIGNED") {
-        return solutionGuarantee.reviewerAccountId !== null;
+        return (
+          solutionGuarantee.status === "REVIEW" &&
+          solutionGuarantee.reviewerAccountId !== null
+        );
       }
       if (filter === "MY_QUEUE") {
-        return solutionGuarantee.reviewerAccountId === account.id;
+        return (
+          solutionGuarantee.status === "REVIEW" &&
+          solutionGuarantee.reviewerAccountId === account.id
+        );
       }
     }
     return false;
@@ -223,6 +236,13 @@ export const ProjectSidePanel = ({
     );
   }, [projects, searchQuery, filterSelection]);
 
+  const guaranteeLength = useMemo(() => {
+    return projects.reduce(
+      (sum, { guarantees }) => sum + guarantees?.nodes?.length || 0,
+      0
+    );
+  }, [projects]);
+
   return (
     <SidePanel
       searchLabel={t("search.inputLabel")}
@@ -231,7 +251,12 @@ export const ProjectSidePanel = ({
       onSearchFilterChange={(query: string) => {
         setSearchQuery(query);
       }}
-      renderFooter={() => <SidePanelFooter />}
+      renderFooter={() => (
+        <SidePanelFooter
+          projectLength={projects.length}
+          guaranteeLength={guaranteeLength}
+        />
+      )}
     >
       {filteredProjects.map(
         ({

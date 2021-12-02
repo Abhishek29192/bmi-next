@@ -32,6 +32,7 @@ export type Data = {
   breadcrumbs: BreadcrumbsData | null;
   inputBanner: InputBannerData | null;
   seo: SEOContentData | null;
+  path: string;
 };
 
 type Context = {
@@ -83,7 +84,7 @@ const Page = ({
     regions
   } = siteData;
 
-  const { breadcrumbs, inputBanner, seo } = pageData;
+  const { breadcrumbs, inputBanner, seo, path } = pageData;
 
   const reCaptchaKey =
     !process.env.GATSBY_PREVIEW && process.env.GATSBY_RECAPTCHA_KEY;
@@ -124,6 +125,17 @@ const Page = ({
     {}
   );
 
+  //TODO: to be improved by making noindex a page level content option from Contentful
+  //      for DE this will be simply a path list, hence the crude nature of below
+  const noindex =
+    [
+      "vielen-dank!/",
+      "teilnahmebedingungen/",
+      "services-downloads-im-ueberblick/alle-services/alle-braas-services/schneefangberechnung/",
+      "services-downloads-im-ueberblick/alle-services/alle-braas-services/windsogberechnung/windsogberechnung-tool/",
+      "concrete-tiles/" // qa test page - remove before final commit
+    ].indexOf(path) > -1;
+
   return (
     <>
       <Helmet
@@ -132,6 +144,8 @@ const Page = ({
         defer={false}
       >
         {imageUrl && <meta property="og:image" content={imageUrl} />}
+
+        {noindex && <meta name="robots" content="noindex, nofollow" />}
 
         {/* NOTE: expand viewport beyond safe area */}
         <meta
@@ -210,6 +224,13 @@ const Page = ({
             src="https://js.hscta.net/cta/current.js"
           />
         )}
+        <script lang="javascript">
+          {`
+            if(history && history.scrollRestoration && history.scrollRestoration !== 'manual') {
+              history.scrollRestoration = 'manual';
+            }
+          `}
+        </script>
       </Helmet>
 
       <SiteContextProvider value={siteContext}>
@@ -233,6 +254,7 @@ const Page = ({
                     resources?.countryNavigationIntroduction
                   }
                   regions={regions}
+                  sampleBasketLink={resources?.sampleBasketLink}
                 />
               </BmiThemeProvider>
               <BrandProvider brand={brand}>
@@ -298,5 +320,6 @@ export const query = graphql`
     seo {
       ...SEOContentFragment
     }
+    path
   }
 `;

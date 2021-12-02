@@ -45,10 +45,13 @@ export const ProjectGuarantee = ({
   const guarantee = guarantees.nodes[0];
 
   const guaranteeSubmitValidateResult = solutionGuaranteeValidate(project);
+  const showSolutionAlert =
+    !guaranteeSubmitValidateResult.isValid &&
+    ["NEW", "REJECTED"].includes(guarantee.status);
 
   return (
     <>
-      {!guaranteeSubmitValidateResult.isValid && (
+      {showSolutionAlert && (
         <SolutionGuaranteeAlert
           isNewGuarantee={guarantee.status === "NEW"}
           validationError={guaranteeSubmitValidateResult.validationError}

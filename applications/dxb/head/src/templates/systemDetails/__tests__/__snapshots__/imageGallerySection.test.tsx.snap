@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ImageGallerySection tests When ONLY master images are provided should render siingle master image 1`] = `
+exports[`ImageGallerySection tests When ONLY master images are provided should render single master image 1`] = `
 <div>
   <div
     class="ImageGallery gallery"

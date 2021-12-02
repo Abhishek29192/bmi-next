@@ -82,18 +82,22 @@ const SolutionGuaranteeCard = ({
             </Button>
           </div>
         )}
-        <div className={styles.footer__buttonContainer}>
-          <AccessControl dataModel="project" action="submitSolutionGuarantee">
-            <Button
-              onClick={onReviewClick}
-              variant="outlined"
-              startIcon={<Icon className={styles.body__logo} source={Arrow} />}
-              disabled={!canGuaranteeBeSubmitted}
-            >
-              {t("project-page:guarantee_tab.submit_solution")}
-            </Button>
-          </AccessControl>
-        </div>
+        {["NEW", "REJECTED"].includes(status) && (
+          <div className={styles.footer__buttonContainer}>
+            <AccessControl dataModel="project" action="submitSolutionGuarantee">
+              <Button
+                onClick={onReviewClick}
+                variant="outlined"
+                startIcon={
+                  <Icon className={styles.body__logo} source={Arrow} />
+                }
+                disabled={!canGuaranteeBeSubmitted}
+              >
+                {t("project-page:guarantee_tab.submit_solution")}
+              </Button>
+            </AccessControl>
+          </div>
+        )}
       </div>
       <div>
         <Table>

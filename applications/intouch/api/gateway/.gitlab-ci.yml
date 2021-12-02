@@ -14,38 +14,10 @@ build_intouch_api_gateway:
       changes:
         - applications/intouch/api/**/*
         - libraries/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
       variables:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environments/qa')"
-      changes:
-        - applications/intouch/api/**/*
-        - libraries/**/*
-        - package.json
-        - "**/package.json"
-      variables:
-        BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
-        BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod')"
-      changes:
-        - applications/intouch/api/**/*
-        - libraries/**/*
-        - package.json
-        - "**/package.json"
-      variables:
-        BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
-        BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod')"
-      changes:
-        - applications/intouch/api/**/*
-        - libraries/**/*
-        - package.json
-        - "**/package.json"
-      variables:
-        BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
-        BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - echo $BMI_KEY > gcloud-service-key-bmi.json
@@ -60,15 +32,9 @@ build_intouch_api_gateway:
     - docker push eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA
 
 deploy_intouch_api_gateway:
-  stage: deploy
+  stage: deploy_gateway
   image: google/cloud-sdk
   cache: {}
-  needs:
-    - build_intouch_api_gateway
-    - job: deploy_intouch_api_training
-      optional: true
-    - job: deploy_intouch_api_companies_dev
-      optional: true
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
       changes:
@@ -81,14 +47,8 @@ deploy_intouch_api_gateway:
     - gcloud container images add-tag eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-gateway:$CI_COMMIT_SHORT_SHA eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-gateway:latest
 
 deploy_intouch_gateway_to_cloudrun_bmi:
-  stage: deploy
+  stage: deploy_gateway
   cache: {}
-  needs:
-    - build_intouch_api_gateway
-    - job: deploy_intouch_training_to_cloudrun_bmi
-      optional: true
-    - job: deploy_intouch_companies_to_cloudrun_bmi
-      optional: true
   image: google/cloud-sdk
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
@@ -98,27 +58,6 @@ deploy_intouch_gateway_to_cloudrun_bmi:
         CLOUD_RUN: "$GCP_BMI_INTOUCH_DEV_GATEWAY"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
-      changes:
-        - applications/intouch/api/**/*
-      variables:
-        CLOUD_RUN: "$GCP_BMI_INTOUCH_QA_GATEWAY"
-        BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
-        BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
-      changes:
-        - applications/intouch/api/**/*
-      variables:
-        CLOUD_RUN: "$GCP_BMI_INTOUCH_PREPROD_GATEWAY"
-        BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
-        BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
-      changes:
-        - applications/intouch/api/**/*
-      variables:
-        CLOUD_RUN: "$GCP_BMI_INTOUCH_PROD_GATEWAY"
-        BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
-        BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
   script:
     - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts
     - echo "Deploying to $CLOUD_RUN on BMI tenant in project $BMI_PROJECT"
@@ -126,3 +65,56 @@ deploy_intouch_gateway_to_cloudrun_bmi:
     - gcloud config set project $BMI_PROJECT
     - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA --region=europe-west3 --platform=managed
     - gcloud container images add-tag eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:latest
+
+# Run only on release branch!
+release_intouch_gateway_to_cloudrun_bmi:
+  stage: deploy_gateway
+  cache: {}
+  image: google/cloud-sdk
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
+  services:
+    - name: docker:20-dind
+      alias: docker
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
+      changes:
+        - applications/intouch/api/**/*
+      variables:
+        PREVIOUS_ENV_BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
+        PREVIOUS_ENV_BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
+        CLOUD_RUN: "$GCP_BMI_INTOUCH_QA_GATEWAY"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
+      changes:
+        - applications/intouch/api/**/*
+      variables:
+        PREVIOUS_ENV_BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
+        PREVIOUS_ENV_BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
+        CLOUD_RUN: "$GCP_BMI_INTOUCH_PREPROD_GATEWAY"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
+      changes:
+        - applications/intouch/api/**/*
+      variables:
+        PREVIOUS_ENV_BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
+        PREVIOUS_ENV_BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
+        CLOUD_RUN: "$GCP_BMI_INTOUCH_PROD_GATEWAY"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
+  script:
+    - echo $PREVIOUS_ENV_BMI_KEY > gcloud-service-key.json # Promoted Google Cloud service accounts to pull image
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $PREVIOUS_ENV_BMI_PROJECT
+    - gcloud auth configure-docker
+    - docker pull eu.gcr.io/$PREVIOUS_ENV_BMI_PROJECT/intouch-api-gateway:latest
+    - docker tag eu.gcr.io/$PREVIOUS_ENV_BMI_PROJECT/intouch-api-gateway:latest eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:latest
+    - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts to promote
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $BMI_PROJECT
+    - gcloud auth configure-docker
+    - docker push eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:latest
+    - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:latest --region=europe-west3 --platform=managed

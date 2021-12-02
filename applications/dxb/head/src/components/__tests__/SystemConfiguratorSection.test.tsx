@@ -15,6 +15,7 @@ import SystemConfiguratorSection, {
   NextStepData
 } from "../SystemConfiguratorSection";
 import * as elasticSearch from "../../utils/elasticSearch";
+import { ImageAssetTypesEnum } from "../types/pim";
 import * as GTM from "../../utils/google-tag-manager";
 
 jest.mock("react-google-recaptcha-v3", () => {
@@ -179,7 +180,7 @@ const pimSystem = {
     shortDescription: "efgh description",
     images: [
       {
-        assetType: "MASTER_IMAGE",
+        assetType: ImageAssetTypesEnum.MASTER_IMAGE,
         format: "Product-Listing-Card-Large-Desktop",
         url: "testhttp",
         allowedToDownload: true,

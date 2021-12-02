@@ -46,5 +46,12 @@
   "memberRemoved": "Member succesfully removed",
   "genericError": "An error occurred. Please try again or contact your administrator.",
   "lastCompanyAdminError": "You cannot remove the last Company Admin from a Company unless it has been deactivated by BMI",
-  "report": "Download Teams List"
+  "report": "Download Teams List",
+  "userActions": {
+    "title": "User Actions",
+    "action": {
+      "activate": "Activate user",
+      "deactivate": "Deactivate user"
+    }
+  }
 }

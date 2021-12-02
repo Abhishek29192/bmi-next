@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "lib": ["ES5", "ES6", "ESNext", "DOM", "ES2019"],
+    "moduleResolution": "node",
+    "declaration": true,
+    "esModuleInterop": true,
+    "noEmit": false,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "target": "ES2019",
+    "inlineSourceMap": true,
+    "baseUrl": ".",
+    "rootDirs": ["src"],
+    "paths": {
+      "@bmi/intouch-api-types": ["../types/index.d.ts"]
+    }
+  },
+  "exclude": ["**/dist/**"]
+}

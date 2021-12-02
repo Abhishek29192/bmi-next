@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TechnologyInput should render correctly 1`] = `
+<div>
+  <div
+    class="RadioGroup"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+        >
+          <div
+            class="RadioButton"
+          >
+            <input
+              class="input"
+              id="radio-technology-PITCHED"
+              name="technology"
+              type="radio"
+              value="PITCHED"
+            />
+            <label
+              class="label"
+              for="radio-technology-PITCHED"
+            >
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root text"
+                role="button"
+                tabindex="-1"
+              >
+                <svg
+                  class="technologyIcon"
+                />
+                addProject.dialog.form.values.technology.PITCHED
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </label>
+          </div>
+          <div
+            class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+          >
+            addProject.dialog.form.hints.technology.PITCHED
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+        >
+          <div
+            class="RadioButton"
+          >
+            <input
+              class="input"
+              id="radio-technology-FLAT"
+              name="technology"
+              type="radio"
+              value="FLAT"
+            />
+            <label
+              class="label"
+              for="radio-technology-FLAT"
+            >
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root text"
+                role="button"
+                tabindex="-1"
+              >
+                <svg
+                  class="technologyIcon"
+                  viewBox="0 7 48 48"
+                />
+                addProject.dialog.form.values.technology.FLAT
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </label>
+          </div>
+          <div
+            class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+          >
+            addProject.dialog.form.hints.technology.FLAT
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TechnologyInput should render disabled 1`] = `
+<div>
+  <div
+    class="RadioGroup"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+        >
+          <div
+            class="RadioButton RadioButton--disabled"
+          >
+            <input
+              class="input"
+              disabled=""
+              id="radio-technology-PITCHED"
+              name="technology"
+              type="radio"
+              value="PITCHED"
+            />
+            <label
+              class="label"
+              for="radio-technology-PITCHED"
+            >
+              <div
+                aria-disabled="true"
+                class="MuiButtonBase-root text Mui-disabled"
+                role="button"
+                tabindex="-1"
+              >
+                <svg
+                  class="technologyIcon"
+                />
+                addProject.dialog.form.values.technology.PITCHED
+              </div>
+            </label>
+          </div>
+          <div
+            class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+          >
+            addProject.dialog.form.hints.technology.PITCHED
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+        >
+          <div
+            class="RadioButton RadioButton--disabled"
+          >
+            <input
+              class="input"
+              disabled=""
+              id="radio-technology-FLAT"
+              name="technology"
+              type="radio"
+              value="FLAT"
+            />
+            <label
+              class="label"
+              for="radio-technology-FLAT"
+            >
+              <div
+                aria-disabled="true"
+                class="MuiButtonBase-root text Mui-disabled"
+                role="button"
+                tabindex="-1"
+              >
+                <svg
+                  class="technologyIcon"
+                  viewBox="0 7 48 48"
+                />
+                addProject.dialog.form.values.technology.FLAT
+              </div>
+            </label>
+          </div>
+          <div
+            class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+          >
+            addProject.dialog.form.hints.technology.FLAT
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -22,12 +22,12 @@ const initDb = async (
   };
   const insertOne = curryContext(context, dbInsertOne);
   const market = await insertOne("market", {
-    domain: "da",
+    domain: "ee",
     language: "da"
   });
 
   const otherMarket = await insertOne("market", {
-    domain: "pt",
+    domain: "ww",
     language: "pt"
   });
 

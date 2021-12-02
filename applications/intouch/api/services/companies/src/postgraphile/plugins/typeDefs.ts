@@ -163,6 +163,20 @@ export default gql`
     signedPhotoUrl: String
   }
 
+  enum CompanyDocumentType {
+    PDF
+    JPG
+    JPEG
+    PNG
+  }
+
+  extend type CompanyDocument {
+    name: String
+    documentType: CompanyDocumentType
+    size: Int
+    signedDocumentUrl: String @requires(columns: ["document"])
+  }
+
   enum GuaranteeEventType {
     SUBMIT_SOLUTION
     ASSIGN_SOLUTION
@@ -241,6 +255,10 @@ export default gql`
     attachmentUpload: Upload
   }
 
+  extend input CompanyDocumentInput {
+    attachmentUpload: Upload
+  }
+
   input ImportedAccount {
     email: String
     firstName: String
@@ -291,5 +309,6 @@ export default gql`
     importAccountsCompaniesFromCVS(
       input: ImportAccountsCompaniesFromCSVInput!
     ): ImportAccountsCompaniesFromCSVResult
+    sendReminderToIncompleteCompanyProfile: String
   }
 `;

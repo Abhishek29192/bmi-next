@@ -9,6 +9,7 @@ module.exports = {
   collectCoverageFrom: [
     "<rootDir>/applications/dxb/functions/es-pim-products-ingest/src/**/*.{ts,tsx,js}"
   ],
+  testEnvironment: "node",
   coverageThreshold: {
     global: {
       ...sharedConfig.coverageThreshold.global,

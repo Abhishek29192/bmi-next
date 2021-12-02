@@ -15,37 +15,34 @@ export const sendMessageWithTemplate = async (
   body: any
 ) => {
   const logger = context.logger("mailer");
-  const { data } = await messageTemplate(context.clientGateway, event);
-  const {
-    messageTemplateCollection
-  }: {
-    messageTemplateCollection: {
-      items: [MessageTemplate];
-    };
-  } = data;
 
-  if (messageTemplateCollection?.items?.length) {
-    const [template] = messageTemplateCollection.items;
+  try {
+    const { data } = await messageTemplate(context.clientGateway, event);
+    const {
+      messageTemplateCollection
+    }: {
+      messageTemplateCollection: {
+        items: [MessageTemplate];
+      };
+    } = data;
 
-    for (const format of template.format || []) {
-      if (format === "NOTIFICATION") {
-        await addNotification(context, template, body);
-      } else if (format === "EMAIL") {
-        try {
+    if (messageTemplateCollection?.items?.length) {
+      const [template] = messageTemplateCollection.items;
+      for (const format of template.format || []) {
+        if (format === "NOTIFICATION") {
+          await addNotification(context, template, body);
+        } else if (format === "EMAIL") {
           await sendMail(context, template, body);
-
-          logger.info(`Email sent with templates`, {
-            event
-          });
-        } catch (console) {
-          logger.info(`Error sending email with template:`, {
-            event
-          });
         }
       }
+    } else {
+      logger.error(`Template not found for event ${event}`);
     }
-  } else {
-    logger.error("Email template not found");
+  } catch (error) {
+    logger.error(
+      `Error sending an email or a notification: for event ${event}`,
+      error.message
+    );
   }
 };
 
@@ -69,8 +66,6 @@ const sendMail = async (
   template: MessageTemplate,
   body: any
 ) => {
-  const logger = context.logger("sendMail");
-
   // If I'm sending an email I need to send it based on the market
   // if a sendMailbox is sent we use that email, otherwise we use the default email
   // for the particular market

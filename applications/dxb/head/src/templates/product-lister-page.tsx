@@ -62,6 +62,7 @@ import { Product } from "../components/types/pim";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 import { ProductFilter, removePLPFilterPrefix } from "../utils/product-filters";
+import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -74,6 +75,7 @@ type Data = PageInfoData &
     features: string[] | null;
     featuresLink: LinkData | null;
     breadcrumbs: BreadcrumbsData;
+    breadcrumbTitle: string;
     heroType:
       | "Hierarchy"
       | "Spotlight"
@@ -124,12 +126,17 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     features,
     featuresLink,
     breadcrumbs,
+    breadcrumbTitle,
     inputBanner,
     seo,
     heroType,
     featuredVideo,
     cta
   } = data.contentfulProductListerPage;
+  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
+    breadcrumbs,
+    breadcrumbTitle
+  );
   const initialProducts = data.initialProducts || [];
 
   const heroProps: HeroItem = {
@@ -370,14 +377,21 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     ({ code }) => code === pageContext.categoryCodes[0]
   )?.name;
 
-  const pageData: PageData = { breadcrumbs, inputBanner, seo };
+  const pageData: PageData = {
+    breadcrumbs: enhancedBreadcrumbs,
+    inputBanner,
+    seo,
+    path: data.contentfulProductListerPage.path
+  };
 
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   let heroLevel;
   if (heroType == "Spotlight" || heroType == "Hierarchy") {
-    heroLevel = (Math.min(breadcrumbs.filter(({ slug }) => slug).length, 3) ||
-      1) as 1 | 2 | 3;
+    heroLevel = (Math.min(
+      enhancedBreadcrumbs.filter(({ slug }) => slug).length,
+      3
+    ) || 1) as 1 | 2 | 3;
   } else {
     const levelMap = {
       "Level 1": 1,
@@ -388,7 +402,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   }
   const breadcrumbsNode = (
     <Breadcrumbs
-      data={breadcrumbs}
+      data={enhancedBreadcrumbs}
       isDarkThemed={heroType === "Spotlight" || heroLevel !== 3}
     />
   );
@@ -574,7 +588,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
             </Grid>
           </Section>
           <Section backgroundColor="alabaster" isSlim>
-            <Breadcrumbs data={breadcrumbs} />
+            <Breadcrumbs data={enhancedBreadcrumbs} />
           </Section>
         </>
       )}

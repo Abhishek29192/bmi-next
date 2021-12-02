@@ -58,5 +58,10 @@ module.exports = {
       functions: "100",
       lines: "100"
     }
+  },
+  globals: {
+    "ts-jest": {
+      isolatedModules: true
+    }
   }
 };

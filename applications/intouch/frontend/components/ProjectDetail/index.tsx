@@ -154,7 +154,9 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           title={project.name}
           technology={project.technology}
           projectCode={`${project.id}`}
-          projectStatus={getProjectStatus(project.startDate, project.endDate)}
+          projectStatus={t(
+            getProjectStatus(project.startDate, project.endDate)
+          )}
           buildingAddress={project.siteAddress}
           projectDescription={project.description}
           roofArea={project.roofArea}

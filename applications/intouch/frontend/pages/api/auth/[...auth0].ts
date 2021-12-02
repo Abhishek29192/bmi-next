@@ -9,6 +9,8 @@ import Account from "../../../lib/account";
 import { getMarketAndEnvFromReq } from "../../../lib/utils";
 import { withLoggerApi } from "../../../lib/middleware/withLogger";
 
+const { APP_ENV } = process.env;
+
 interface Request extends NextApiRequest {
   logger: any;
 }
@@ -69,7 +71,8 @@ export const getLoginOptions = (req) => {
   // url, in this wai we can redirect the user to the right market
   return {
     authorizationParams: {
-      market
+      market,
+      env: APP_ENV
     }
   };
 };
@@ -108,6 +111,11 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
 
         if (req?.query?.error_description === "email_not_verified") {
           res.writeHead(302, { Location: "/email-verification" });
+          return res.end();
+        }
+
+        if (req?.query?.error_description === "user is blocked") {
+          res.writeHead(302, { Location: "/api-error?message=user_blocked" });
           return res.end();
         }
 

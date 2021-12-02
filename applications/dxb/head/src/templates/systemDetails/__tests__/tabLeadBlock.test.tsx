@@ -1,7 +1,7 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import Component from "../tabLeadBlock";
-import dataJson from "../../../data/pim-mock-data.json";
+import createSystemDetails from "../../../test/systemDetailsMockData";
 import "@testing-library/jest-dom";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import { Classification } from "../../../components/types/pim";
@@ -9,6 +9,7 @@ import { DocumentData } from "../types";
 import { BimContent } from "../tabLeadBlock";
 
 const techSpecValue = "accordion item value 1";
+const systemDetailsMockData = createSystemDetails();
 const technicalSpecClassifications: Classification[] = [
   {
     code: "systemAttributes",
@@ -79,7 +80,7 @@ describe("TabLeadBlock tests", () => {
   it("should render", () => {
     const { container, getByText } = render(
       <Component
-        longDescription={dataJson.longDescription}
+        longDescription={systemDetailsMockData.longDescription}
         technicalSpecClassifications={technicalSpecClassifications}
       />
     );
@@ -97,7 +98,7 @@ describe("TabLeadBlock tests", () => {
   it("should render documents and downloads", () => {
     const { container } = renderWithRouter(
       <Component
-        longDescription={dataJson.longDescription}
+        longDescription={systemDetailsMockData.longDescription}
         documentsAndDownloads={documents}
       />
     );
@@ -107,7 +108,7 @@ describe("TabLeadBlock tests", () => {
   it("should not render the documents and downloads", () => {
     const { container } = renderWithRouter(
       <Component
-        longDescription={dataJson.longDescription}
+        longDescription={systemDetailsMockData.longDescription}
         documentsAndDownloads={null}
       />
     );
@@ -117,7 +118,7 @@ describe("TabLeadBlock tests", () => {
   it("should not render the documents and downloads when its empty array", () => {
     const { container } = renderWithRouter(
       <Component
-        longDescription={dataJson.longDescription}
+        longDescription={systemDetailsMockData.longDescription}
         documentsAndDownloads={[]}
       />
     );
@@ -127,7 +128,7 @@ describe("TabLeadBlock tests", () => {
   it("should render the bimIframe tab", () => {
     const { container, queryByText, queryByTestId } = renderWithRouter(
       <Component
-        longDescription={dataJson.longDescription}
+        longDescription={systemDetailsMockData.longDescription}
         bimContent={bimContent}
       />
     );
@@ -143,7 +144,7 @@ describe("TabLeadBlock tests", () => {
   it("should not render the bimIframe tab", () => {
     const { container } = renderWithRouter(
       <Component
-        longDescription={dataJson.longDescription}
+        longDescription={systemDetailsMockData.longDescription}
         bimContent={{ ...bimContent, bimIframeUrl: null }}
       />
     );
@@ -153,7 +154,7 @@ describe("TabLeadBlock tests", () => {
   it("should not render technical Specification tab", () => {
     const { container } = render(
       <Component
-        longDescription={dataJson.longDescription}
+        longDescription={systemDetailsMockData.longDescription}
         technicalSpecClassifications={[]}
       />
     );

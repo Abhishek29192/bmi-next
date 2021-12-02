@@ -20,6 +20,8 @@ export const itemSnake = (
       : 4
 });
 
+process.env.APP_ENV = "dev";
+
 describe("Bulk importer", () => {
   let context: any = {
     pgClient: {
@@ -86,6 +88,24 @@ describe("Bulk importer", () => {
       await importer.bulkImport(args, context);
     } catch (error) {
       expect(error.message).toEqual("market_not_found");
+    }
+  });
+
+  it("shouldn't import the products if wrong environment", async () => {
+    const args = {
+      input: {
+        files: Promise.resolve([
+          Promise.resolve({ filename: "prod-en-systems.csv" }),
+          Promise.resolve({ filename: "prod-en-products.csv" }),
+          Promise.resolve({ filename: "prod-en-system_member.csv" })
+        ])
+      }
+    };
+
+    try {
+      await importer.bulkImport(args, context);
+    } catch (error) {
+      expect(error.message).toEqual("wrong_env");
     }
   });
 

@@ -9,9 +9,9 @@ import {
 } from "@bmi-digital/react-pdf-maker";
 import { ContentfulGuaranteeTemplate, Guarantee } from "@bmi/intouch-api-types";
 import React from "react";
-import locales from "../locales.json";
 import Logo from "../svgs/BMI";
 import svgMap from "../util/svgMap";
+import { formatDateByLanguage } from "../util/date";
 import { Field } from "./Field";
 import { Typography } from "./Typography";
 
@@ -27,8 +27,10 @@ export const PdfDocument = ({
   signatureEncoded: string;
 }) => {
   const {
+    coverage,
     guaranteeType,
     productByProductBmiRef,
+    systemBySystemBmiRef,
     project,
     bmiReferenceId,
     startDate,
@@ -37,7 +39,6 @@ export const PdfDocument = ({
   } = guaranteeData;
 
   const address = project.siteAddress;
-  const technology = locales[languageCode][guaranteeType.technology];
 
   if (!address) {
     throw new Error("project site address can not be undefined");
@@ -46,6 +47,18 @@ export const PdfDocument = ({
   if (!company) {
     throw new Error("project company missing");
   }
+
+  const guaranteeName =
+    coverage === "PRODUCT"
+      ? productByProductBmiRef?.name
+      : systemBySystemBmiRef?.name;
+
+  const products =
+    coverage === "PRODUCT"
+      ? productByProductBmiRef?.name
+      : systemBySystemBmiRef?.systemMembersBySystemBmiRef?.nodes
+          .map((member) => member.productByProductBmiRef?.name)
+          .join(", ");
 
   return (
     <Document
@@ -64,7 +77,7 @@ export const PdfDocument = ({
         </Col>
         <Col width={360} marginTop={20}>
           <Typography variant="h1" marginBottom={2}>
-            {guaranteeType.displayName}
+            {template.titleLine1} {template.titleLine2}
           </Typography>
           <SVG width={20} height={20}>
             {svgMap[guaranteeType.technology]}
@@ -74,21 +87,23 @@ export const PdfDocument = ({
           <Img src={logoEncoded} width={20} height={90} />
         </Col>
       </Row>
+      <Row marginBottom={20}>
+        <Col width={500}>
+          <Canvas>
+            <Canvas.Rect x={0} y={0} w={500} h={140} color="#e0f3f9" />
+          </Canvas>
+          <View marginTop={-135} marginLeft={10} marginBottom={20}>
+            <Typography variant="h2">{template.headingGuarantee}:</Typography>
+            <Typography marginBottom={8}>{guaranteeName}</Typography>
 
-      <Canvas>
-        <Canvas.Rect x={0} y={0} w={500} h={130} color="#e0f3f9" />
-      </Canvas>
+            <Typography variant="h3">{template.headingScope}:</Typography>
+            <Typography marginBottom={8}>{template.guaranteeScope}</Typography>
 
-      <View marginTop={-120} marginLeft={10} marginBottom={20}>
-        <Typography variant="h2">{template.headingGuarantee}:</Typography>
-        <Typography marginBottom={10}>{project.name}</Typography>
-
-        <Typography variant="h3">{template.headingScope}:</Typography>
-        <Typography marginBottom={10}>{template.guaranteeScope}</Typography>
-
-        <Typography variant="h3">{template.headingProducts}:</Typography>
-        <Typography>{productByProductBmiRef?.name}</Typography>
-      </View>
+            <Typography variant="h3">{template.headingProducts}:</Typography>
+            <Typography>{products}</Typography>
+          </View>
+        </Col>
+      </Row>
 
       <Row>
         <Col width={250}>
@@ -115,7 +130,10 @@ export const PdfDocument = ({
             title={template.headingRoofArea}
             values={[`${project.roofArea}`]}
           />
-          <Field title={template.headingRoofType} values={[technology]} />
+          <Field
+            title={template.headingRoofType}
+            values={[template.roofType]}
+          />
         </Col>
 
         <Col width={250}>
@@ -132,7 +150,7 @@ export const PdfDocument = ({
           />
           <Field
             title={template.headingStartDate}
-            values={[new Date(startDate).toLocaleDateString()]}
+            values={[formatDateByLanguage(startDate, languageCode)]}
           />
           <Field
             title={template.headingGuaranteeId}
@@ -149,7 +167,7 @@ export const PdfDocument = ({
           />
           <Field
             title={template.headingExpiry}
-            values={[new Date(expiryDate).toLocaleDateString()]}
+            values={[formatDateByLanguage(expiryDate, languageCode)]}
           />
         </Col>
       </Row>

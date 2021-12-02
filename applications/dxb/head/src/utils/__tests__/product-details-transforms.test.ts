@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import {
   findProductBrandLogoCode,
   getMergedClassifications,
@@ -27,7 +28,11 @@ import {
   createVariantOptionWithProduct
 } from "../../__tests__/PimDocumentProductHelper";
 import createCategory from "../../__tests__/CategoryHelper";
-import { Image, Product } from "../../components/types/pim";
+import {
+  ImageAssetTypesEnum,
+  Product,
+  Image
+} from "../../components/types/pim";
 
 describe("product-details-transforms tests", () => {
   describe("getProductUrl tests", () => {
@@ -205,7 +210,7 @@ describe("product-details-transforms tests", () => {
           });
           const result = mapProductClassifications(inputValue, "");
           const expectedResult = {
-            "product-code": {
+            "variant-code": {
               scoringweight: { name: "scoringWeight Attributes" },
               texturefamily: { name: "texturefamily", value: "n/a" },
               colour: { name: "colour", value: "n/a" },
@@ -327,7 +332,7 @@ describe("product-details-transforms tests", () => {
             ""
           );
           const expectedResult = {
-            "product-code": {
+            "variant-code": {
               scoringweight: { name: "scoringWeight Attributes" },
               measurements: {
                 length: {
@@ -685,25 +690,477 @@ describe("product-details-transforms tests", () => {
   //very long function (getProductAttributes)!!
   //starting some initial tests but need to add more tests!!
   describe("getProductAttributes tests", () => {
+    const getProductAttributesWithCommonParams = (
+      productClassifications,
+      selfProduct,
+      variantCodeToPathMap
+    ) =>
+      getProductAttributes(
+        productClassifications,
+        selfProduct,
+        "no",
+        { size: "Size", variantattribute: "variantattribute" },
+        variantCodeToPathMap || { "product-code-1": "somepath" },
+        {
+          color: "unavaialbeMicroCopy",
+          size: "unavaialbeMicroCopy 2",
+          variantattribute: "unavaialbeMicroCopy 3",
+          texturefamily: "unavaialbeMicroCopy 4"
+        }
+      );
+    const action = {
+      linkComponent: Link,
+      model: "routerLink",
+      to: "/no/somepath"
+    };
     describe("when productClassifications is empty object", () => {
       it("returns minimum result", () => {
-        const result = getProductAttributes(
+        const result = getProductAttributesWithCommonParams(
           {},
           createBaseProduct(),
-          "no",
-          { size: "Size" },
-          { path: "somepath" }
+          null
         );
         const expectedResult = [
-          { name: undefined, type: "thumbnails", variants: [] },
-          { name: undefined, type: "chips", variants: [] },
-          { name: "Size", type: "chips", variants: [] }
+          {
+            name: undefined,
+            type: "thumbnails",
+            unavailableMicroCopy: "unavaialbeMicroCopy",
+            variants: []
+          },
+          {
+            name: undefined,
+            type: "chips",
+            unavailableMicroCopy: "unavaialbeMicroCopy 4",
+            variants: []
+          },
+          {
+            name: "Size",
+            type: "chips",
+            unavailableMicroCopy: "unavaialbeMicroCopy 2",
+            variants: []
+          },
+          {
+            name: "variantattribute",
+            type: "chips",
+            unavailableMicroCopy: "unavaialbeMicroCopy 3",
+            variants: []
+          }
         ];
         expect(result).toEqual(expectedResult);
       });
     });
     describe("when productClassifications is NOT empty object", () => {
       describe("And self product is a Product object", () => {
+        describe("And should return availability corretly", () => {
+          it("for colour", () => {
+            const productClassifications = {
+              "product-code-1": {
+                colour: {
+                  name: "colour",
+                  value: { value: "red" }
+                },
+                texturefamily: {
+                  name: "texturefamily",
+                  value: { value: "smooth", code: "code2" }
+                }
+              },
+              "product-code-2": {
+                colour: {
+                  name: "colour",
+                  value: { value: "black" }
+                },
+                texturefamily: {
+                  name: "texturefamily",
+                  value: { value: "unsmooth", code: "code4" }
+                }
+              },
+              "product-code-3": {
+                colour: {
+                  name: "colour",
+                  value: { value: "red" }
+                },
+                texturefamily: {
+                  name: "texturefamily",
+                  value: { value: "unsmooth", code: "code4" }
+                }
+              }
+            };
+            const selfProduct = createBaseProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(
+              productClassifications,
+              selfProduct,
+              {
+                "product-code-1": "somepath",
+                "product-code-2": "somepath",
+                "product-code-3": "somepath"
+              }
+            );
+            const expectedResult = [
+              {
+                name: "colour",
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: [
+                  {
+                    label: "black",
+                    isSelected: false,
+                    availability: false,
+                    action
+                  },
+                  { label: "red", isSelected: true, availability: true }
+                ]
+              },
+              {
+                name: "texturefamily",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: [
+                  { label: "smooth", isSelected: true, availability: true },
+                  {
+                    label: "unsmooth",
+                    isSelected: false,
+                    availability: true,
+                    action
+                  }
+                ]
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: []
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: []
+              }
+            ];
+            expect(result).toEqual(expectedResult);
+          });
+          it("for 1 hierarchy", () => {
+            const productClassifications = {
+              "product-code-1": {
+                colour: {
+                  name: "colour",
+                  value: { value: "red" }
+                },
+                measurements: {
+                  length: {
+                    name: "length",
+                    value: { value: { value: "10" }, unit: "mm" }
+                  },
+                  height: {
+                    name: "height",
+                    value: { value: { value: "20" }, unit: "mm" }
+                  },
+                  width: {
+                    name: "width",
+                    value: { value: { value: "30" }, unit: "mm" }
+                  }
+                }
+              },
+              "product-code-2": {
+                colour: {
+                  name: "colour",
+                  value: { value: "black" }
+                },
+                measurements: {
+                  length: {
+                    name: "length",
+                    value: { value: { value: "10" }, unit: "mm" }
+                  },
+                  height: {
+                    name: "height",
+                    value: { value: { value: "20" }, unit: "mm" }
+                  },
+                  width: {
+                    name: "width",
+                    value: { value: { value: "40" }, unit: "mm" }
+                  }
+                }
+              }
+            };
+            const selfProduct = createBaseProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(
+              productClassifications,
+              selfProduct,
+              {
+                "product-code-1": "somepath",
+                "product-code-2": "somepath"
+              }
+            );
+            const expectedResult = [
+              {
+                name: "colour",
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: [
+                  {
+                    label: "black",
+                    isSelected: false,
+                    availability: false,
+                    action
+                  },
+                  { label: "red", isSelected: true, availability: true }
+                ]
+              },
+              {
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: []
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: [
+                  { label: "10x20x30mm", isSelected: true, availability: true },
+                  {
+                    label: "10x20x40mm",
+                    isSelected: false,
+                    availability: false,
+                    action
+                  }
+                ]
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: []
+              }
+            ];
+            expect(result).toEqual(expectedResult);
+          });
+          it("for 2 hierarchies", () => {
+            const productClassifications = {
+              "product-code-1": {
+                colour: {
+                  name: "colour",
+                  value: { value: "red" }
+                },
+                texturefamily: {
+                  name: "texturefamily",
+                  value: { value: "smooth", code: "code4" }
+                },
+                measurements: {
+                  length: {
+                    name: "length",
+                    value: { value: { value: "10" }, unit: "mm" }
+                  },
+                  height: {
+                    name: "height",
+                    value: { value: { value: "20" }, unit: "mm" }
+                  },
+                  width: {
+                    name: "width",
+                    value: { value: { value: "30" }, unit: "mm" }
+                  }
+                }
+              },
+              "product-code-2": {
+                colour: {
+                  name: "colour",
+                  value: { value: "black" }
+                },
+                texturefamily: {
+                  name: "texturefamily",
+                  value: { value: "smooth", code: "code4" }
+                },
+                measurements: {
+                  length: {
+                    name: "length",
+                    value: { value: { value: "10" }, unit: "mm" }
+                  },
+                  height: {
+                    name: "height",
+                    value: { value: { value: "20" }, unit: "mm" }
+                  },
+                  width: {
+                    name: "width",
+                    value: { value: { value: "40" }, unit: "mm" }
+                  }
+                }
+              }
+            };
+            const selfProduct = createBaseProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(
+              productClassifications,
+              selfProduct,
+              {
+                "product-code-1": "somepath",
+                "product-code-2": "somepath"
+              }
+            );
+            const expectedResult = [
+              {
+                name: "colour",
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: [
+                  {
+                    label: "black",
+                    isSelected: false,
+                    availability: false,
+                    action
+                  },
+                  { label: "red", isSelected: true, availability: true }
+                ]
+              },
+              {
+                name: "texturefamily",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: [
+                  { label: "smooth", isSelected: true, availability: true }
+                ]
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: [
+                  { label: "10x20x30mm", isSelected: true, availability: true },
+                  {
+                    label: "10x20x40mm",
+                    isSelected: false,
+                    availability: false,
+                    action
+                  }
+                ]
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: []
+              }
+            ];
+            expect(result).toEqual(expectedResult);
+          });
+          it("for 3 hierarchies", () => {
+            const productClassifications = {
+              "product-code-1": {
+                colour: {
+                  name: "colour",
+                  value: { value: "red" }
+                },
+                texturefamily: {
+                  name: "texturefamily",
+                  value: { value: "smooth", code: "code4" }
+                },
+                measurements: {
+                  length: {
+                    name: "length",
+                    value: { value: { value: "10" }, unit: "mm" }
+                  },
+                  height: {
+                    name: "height",
+                    value: { value: { value: "20" }, unit: "mm" }
+                  },
+                  width: {
+                    name: "width",
+                    value: { value: { value: "30" }, unit: "mm" }
+                  }
+                },
+                variantattribute: {
+                  name: "variantattribute",
+                  value: { value: "14 kg Eimer" }
+                }
+              },
+              "product-code-2": {
+                colour: {
+                  name: "colour",
+                  value: { value: "black" }
+                },
+                texturefamily: {
+                  name: "texturefamily",
+                  value: { value: "smooth", code: "code4" }
+                },
+                measurements: {
+                  length: {
+                    name: "length",
+                    value: { value: { value: "10" }, unit: "mm" }
+                  },
+                  height: {
+                    name: "height",
+                    value: { value: { value: "20" }, unit: "mm" }
+                  },
+                  width: {
+                    name: "width",
+                    value: { value: { value: "30" }, unit: "mm" }
+                  }
+                },
+                variantattribute: {
+                  name: "variantattribute",
+                  value: { value: "14 kg Eimer 2" }
+                }
+              }
+            };
+            const selfProduct = createBaseProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(
+              productClassifications,
+              selfProduct,
+              {
+                "product-code-1": "somepath",
+                "product-code-2": "somepath"
+              }
+            );
+            const expectedResult = [
+              {
+                name: "colour",
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: [
+                  {
+                    label: "black",
+                    isSelected: false,
+                    availability: false,
+                    action
+                  },
+                  { label: "red", isSelected: true, availability: true }
+                ]
+              },
+              {
+                name: "texturefamily",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: [
+                  { label: "smooth", isSelected: true, availability: true }
+                ]
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: [
+                  { label: "10x20x30mm", isSelected: true, availability: true }
+                ]
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: [
+                  {
+                    label: "14 kg Eimer",
+                    isSelected: true,
+                    availability: true
+                  },
+                  {
+                    label: "14 kg Eimer 2",
+                    isSelected: false,
+                    availability: false,
+                    action
+                  }
+                ]
+              }
+            ];
+            expect(result).toEqual(expectedResult);
+          });
+        });
         describe("And color props are populated on classifications", () => {
           describe("And color is selected", () => {
             it("returns color prop as selected in result", () => {
@@ -716,21 +1173,37 @@ describe("product-details-transforms tests", () => {
                 }
               };
               const selfProduct = createBaseProduct({ code: "product-code-1" });
-              const result = getProductAttributes(
+              const result = getProductAttributesWithCommonParams(
                 productClassifications,
                 selfProduct,
-                "no",
-                { size: "Size" },
-                { path: "somepath" }
+                null
               );
               const expectedResult = [
                 {
                   name: "colour",
                   type: "thumbnails",
-                  variants: [{ label: "red", isSelected: true }]
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: [
+                    { label: "red", isSelected: true, availability: true }
+                  ]
                 },
-                { type: "chips", variants: [] },
-                { name: "Size", type: "chips", variants: [] }
+                {
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: []
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: []
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: []
+                }
               ];
               expect(result).toEqual(expectedResult);
             });
@@ -738,7 +1211,7 @@ describe("product-details-transforms tests", () => {
           describe("And color is NOT selected", () => {
             it("returns color prop result", () => {
               const productClassifications = {
-                props: {
+                "product-code-1": {
                   colour: {
                     name: "colour",
                     value: { value: "red", code: "code" }
@@ -746,24 +1219,100 @@ describe("product-details-transforms tests", () => {
                 }
               };
               const selfProduct = createBaseProduct();
-              const result = getProductAttributes(
+              const result = getProductAttributesWithCommonParams(
                 productClassifications,
                 selfProduct,
-                "no",
-                { size: "Size" },
-                { path: "somepath" }
+                null
               );
               const expectedResult = [
                 {
                   name: "colour",
                   type: "thumbnails",
-                  variants: [{ label: "red", isSelected: null }]
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: [
+                    { label: "red", isSelected: null, availability: true }
+                  ]
                 },
-                { type: "chips", variants: [] },
-                { name: "Size", type: "chips", variants: [] }
+                {
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: []
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: []
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: []
+                }
               ];
               expect(result).toEqual(expectedResult);
             });
+          });
+          it("returns sorted Product Attributes", () => {
+            const productClassifications = {
+              "product-code-1": {
+                colour: {
+                  name: "colour",
+                  value: { value: "red", code: "code" }
+                }
+              },
+              "product-code-2": {
+                colour: {
+                  name: "colour",
+                  value: { value: "black", code: "code2" }
+                }
+              }
+            };
+            const selfProduct = createBaseProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(
+              productClassifications,
+              selfProduct,
+              { "product-code-1": "somepath", "product-code-2": "somepath" }
+            );
+            const expectedResult = [
+              {
+                name: "colour",
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: [
+                  {
+                    label: "black",
+                    isSelected: false,
+                    availability: true,
+                    action
+                  },
+                  {
+                    label: "red",
+                    isSelected: true,
+                    availability: true
+                  }
+                ]
+              },
+              {
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: []
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: []
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: []
+              }
+            ];
+            expect(result).toEqual(expectedResult);
           });
         });
         describe("And measurements props are populated on classifications", () => {
@@ -788,20 +1337,39 @@ describe("product-details-transforms tests", () => {
                 }
               };
               const selfProduct = createBaseProduct({ code: "product-code-1" });
-              const result = getProductAttributes(
+              const result = getProductAttributesWithCommonParams(
                 productClassifications,
                 selfProduct,
-                "no",
-                { size: "Size" },
-                { path: "somepath" }
+                null
               );
               const expectedResult = [
-                { type: "thumbnails", variants: [] },
-                { type: "chips", variants: [] },
+                {
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: []
+                },
+                {
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: []
+                },
                 {
                   name: "Size",
                   type: "chips",
-                  variants: [{ label: "10x20x30mm", isSelected: true }]
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: [
+                    {
+                      label: "10x20x30mm",
+                      isSelected: true,
+                      availability: true
+                    }
+                  ]
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: []
                 }
               ];
               expect(result).toEqual(expectedResult);
@@ -828,24 +1396,136 @@ describe("product-details-transforms tests", () => {
                 }
               };
               const selfProduct = createBaseProduct();
-              const result = getProductAttributes(
+              const result = getProductAttributesWithCommonParams(
                 productClassifications,
                 selfProduct,
-                "no",
-                { size: "Size" },
-                { path: "somepath" }
+                null
               );
               const expectedResult = [
-                { type: "thumbnails", variants: [] },
-                { type: "chips", variants: [] },
+                {
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: []
+                },
+                {
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: []
+                },
                 {
                   name: "Size",
                   type: "chips",
-                  variants: [{ label: "10x20x30mm", isSelected: false }]
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: [
+                    {
+                      label: "10x20x30mm",
+                      isSelected: false,
+                      availability: false
+                    }
+                  ]
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: []
                 }
               ];
               expect(result).toEqual(expectedResult);
             });
+          });
+          it("returns sorted Product Attributes", () => {
+            const productClassifications = {
+              "product-code-1": {
+                measurements: {
+                  length: {
+                    name: "length",
+                    value: { value: { value: "10" }, unit: "mm" }
+                  },
+                  height: {
+                    name: "height",
+                    value: { value: { value: "10" }, unit: "mm" }
+                  }
+                }
+              },
+              "product-code-2": {
+                measurements: {
+                  length: {
+                    name: "length",
+                    value: { value: { value: "10" }, unit: "mm" }
+                  },
+                  height: {
+                    name: "height",
+                    value: { value: { value: "20" }, unit: "mm" }
+                  }
+                }
+              },
+              "product-code-3": {
+                measurements: {
+                  length: {
+                    name: "length",
+                    value: { value: { value: "5" }, unit: "mm" }
+                  },
+                  height: {
+                    name: "height",
+                    value: { value: { value: "30" }, unit: "mm" }
+                  }
+                }
+              }
+            };
+            const selfProduct = createBaseProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(
+              productClassifications,
+              selfProduct,
+              {
+                "product-code-1": "somepath",
+                "product-code-2": "somepath",
+                "product-code-3": "somepath"
+              }
+            );
+            const expectedResult = [
+              {
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: []
+              },
+              {
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: []
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: [
+                  {
+                    label: "5x30mm",
+                    isSelected: false,
+                    availability: true,
+                    action
+                  },
+                  {
+                    label: "10x10mm",
+                    isSelected: true,
+                    availability: true
+                  },
+                  {
+                    label: "10x20mm",
+                    isSelected: false,
+                    availability: true,
+                    action
+                  }
+                ]
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: []
+              }
+            ];
+            expect(result).toEqual(expectedResult);
           });
         });
         describe("And texturefamily props are populated on classifications", () => {
@@ -868,21 +1548,37 @@ describe("product-details-transforms tests", () => {
                   })
                 ]
               });
-              const result = getProductAttributes(
+              const result = getProductAttributesWithCommonParams(
                 productClassifications,
                 selfProduct,
-                "no",
-                { size: "Size" },
-                { path: "somepath" }
+                null
               );
               const expectedResult = [
-                { type: "thumbnails", variants: [] },
+                {
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: []
+                },
                 {
                   name: "texturefamily",
                   type: "chips",
-                  variants: [{ label: "smooth", isSelected: true }]
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: [
+                    { label: "smooth", isSelected: true, availability: true }
+                  ]
                 },
-                { name: "Size", type: "chips", variants: [] }
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: []
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: []
+                }
               ];
               expect(result).toEqual(expectedResult);
             });
@@ -890,32 +1586,115 @@ describe("product-details-transforms tests", () => {
           describe("And texturefamily is NOT selected", () => {
             it("returns texturefamily prop result", () => {
               const productClassifications = {
-                props: {
-                  colour: {
+                "product-code-1": {
+                  texturefamily: {
                     name: "texturefamily",
                     value: { value: "smooth", code: "code" }
                   }
                 }
               };
               const selfProduct = createBaseProduct();
-              const result = getProductAttributes(
+              const result = getProductAttributesWithCommonParams(
                 productClassifications,
                 selfProduct,
-                "no",
-                { size: "Size" },
-                { path: "somepath" }
+                null
               );
               const expectedResult = [
                 {
-                  name: "texturefamily",
                   type: "thumbnails",
-                  variants: [{ label: "smooth", isSelected: null }]
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: []
                 },
-                { type: "chips", variants: [] },
-                { name: "Size", type: "chips", variants: [] }
+                {
+                  name: "texturefamily",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: [
+                    {
+                      label: "smooth",
+                      isSelected: null,
+                      availability: true
+                    }
+                  ]
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: []
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: []
+                }
               ];
               expect(result).toEqual(expectedResult);
             });
+          });
+          it("returns sorted Product Attributes", () => {
+            const productClassifications = {
+              "product-code-1": {
+                texturefamily: {
+                  name: "texturefamily",
+                  value: { value: "unsmooth", code: "code" }
+                }
+              },
+              "product-code-2": {
+                texturefamily: {
+                  name: "texturefamily",
+                  value: { value: "smooth", code: "code2" }
+                }
+              }
+            };
+            const selfProduct = createBaseProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(
+              productClassifications,
+              selfProduct,
+              {
+                "product-code-1": "somepath",
+                "product-code-2": "somepath"
+              }
+            );
+            const expectedResult = [
+              {
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: []
+              },
+              {
+                name: "texturefamily",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: [
+                  {
+                    label: "smooth",
+                    isSelected: false,
+                    availability: true,
+                    action
+                  },
+                  {
+                    label: "unsmooth",
+                    isSelected: true,
+                    availability: true
+                  }
+                ]
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: []
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: []
+              }
+            ];
+            expect(result).toEqual(expectedResult);
           });
         });
 
@@ -939,17 +1718,34 @@ describe("product-details-transforms tests", () => {
                   })
                 ]
               });
-              const result = getProductAttributes(
+              const result = getProductAttributesWithCommonParams(
                 productClassifications,
                 selfProduct,
-                "no",
-                { size: "Size" },
-                { path: "somepath" }
+                null
               );
               const expectedResult = [
-                { type: "thumbnails", variants: [] },
-                { type: "chips", variants: [] },
-                { name: "Size", type: "chips", variants: [] }
+                {
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: []
+                },
+                {
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: []
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: []
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: []
+                }
               ];
               expect(result).toEqual(expectedResult);
             });
@@ -965,24 +1761,258 @@ describe("product-details-transforms tests", () => {
                 }
               };
               const selfProduct = createBaseProduct();
-              const result = getProductAttributes(
+              const result = getProductAttributesWithCommonParams(
                 productClassifications,
                 selfProduct,
-                "no",
-                { size: "Size" },
-                { path: "somepath" }
+                null
               );
               const expectedResult = [
                 {
                   name: "colourfamily",
                   type: "thumbnails",
-                  variants: [{ label: "smooth", isSelected: null }]
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: [
+                    { label: "smooth", isSelected: null, availability: true }
+                  ]
                 },
-                { type: "chips", variants: [] },
-                { name: "Size", type: "chips", variants: [] }
+                {
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: []
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: []
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: []
+                }
               ];
               expect(result).toEqual(expectedResult);
             });
+          });
+          it("returns sorted Product Attributes", () => {
+            const productClassifications = {
+              "product-code-1": {
+                colour: {
+                  name: "colourfamily",
+                  value: { value: "unsmooth", code: "code" }
+                }
+              },
+              "product-code-2": {
+                colour: {
+                  name: "colourfamily",
+                  value: { value: "smooth", code: "code2" }
+                }
+              }
+            };
+            const selfProduct = createBaseProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(
+              productClassifications,
+              selfProduct,
+              {
+                "product-code-1": "somepath",
+                "product-code-2": "somepath"
+              }
+            );
+            const expectedResult = [
+              {
+                name: "colourfamily",
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: [
+                  {
+                    label: "smooth",
+                    isSelected: false,
+                    availability: true,
+                    action
+                  },
+                  {
+                    label: "unsmooth",
+                    isSelected: true,
+                    availability: true
+                  }
+                ]
+              },
+              {
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: []
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: []
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: []
+              }
+            ];
+            expect(result).toEqual(expectedResult);
+          });
+        });
+
+        describe("And variantattribute props are populated on classifications", () => {
+          const productClassifications = {
+            "product-code-1": {
+              variantattribute: {
+                name: "variantattribute",
+                value: { value: "14 kg Eimer", code: "code" }
+              }
+            }
+          };
+          describe("And product variantattribute is selected", () => {
+            it("returns variantattribute prop result", () => {
+              const selfProduct = createBaseProduct({ code: "product-code-1" });
+              const result = getProductAttributesWithCommonParams(
+                productClassifications,
+                selfProduct,
+                null
+              );
+              const expectedResult = [
+                {
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: []
+                },
+                {
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: []
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: []
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: [
+                    {
+                      label: "14 kg Eimer",
+                      isSelected: true,
+                      availability: true
+                    }
+                  ]
+                }
+              ];
+              expect(result).toEqual(expectedResult);
+            });
+          });
+          describe("And product variantattribute is not selected", () => {
+            it("returns variantattribute prop result", () => {
+              const selfProduct = createBaseProduct();
+              const result = getProductAttributesWithCommonParams(
+                productClassifications,
+                selfProduct,
+                null
+              );
+              const expectedResult = [
+                {
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: []
+                },
+                {
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: []
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: []
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: [
+                    {
+                      label: "14 kg Eimer",
+                      isSelected: false,
+                      availability: true
+                    }
+                  ]
+                }
+              ];
+              expect(result).toEqual(expectedResult);
+            });
+          });
+          it("returns sorted Product Attributes", () => {
+            const productClassifications = {
+              "product-code-1": {
+                variantattribute: {
+                  name: "variantattribute",
+                  value: { value: "Glossy", code: "code" }
+                }
+              },
+              "product-code-2": {
+                variantattribute: {
+                  name: "variantattribute",
+                  value: { value: "Fine Mineral Granules", code: "code2" }
+                }
+              }
+            };
+            const selfProduct = createBaseProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(
+              productClassifications,
+              selfProduct,
+              {
+                "product-code-1": "somepath",
+                "product-code-2": "somepath"
+              }
+            );
+            const expectedResult = [
+              {
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: []
+              },
+              {
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: []
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: []
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: [
+                  {
+                    label: "Fine Mineral Granules",
+                    isSelected: false,
+                    availability: true,
+                    action
+                  },
+                  {
+                    label: "Glossy",
+                    isSelected: true,
+                    availability: true
+                  }
+                ]
+              }
+            ];
+            expect(result).toEqual(expectedResult);
           });
         });
       });
@@ -1014,7 +2044,7 @@ describe("product-details-transforms tests", () => {
           {
             realFileName:
               "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1.jpg",
-            assetType: "MASTER_IMAGE",
+            assetType: ImageAssetTypesEnum.MASTER_IMAGE,
             mime: "image/jpeg",
             url: "http://nowhere.com",
             allowedToDownload: true,
@@ -1054,7 +2084,7 @@ describe("product-details-transforms tests", () => {
           {
             realFileName:
               "Product-Color-Selector-Mobile_Zanda Arktis normalstein1.jpg",
-            assetType: "MASTER_IMAGE",
+            assetType: ImageAssetTypesEnum.MASTER_IMAGE,
             mime: "image/jpeg",
             url: "http://nowhere.com",
             allowedToDownload: true,
@@ -1081,7 +2111,7 @@ describe("product-details-transforms tests", () => {
           const inputData: Image[] = [
             {
               realFileName: "Turmalin-monestein-Turmalin-monestein.jpg",
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               mime: "image/jpeg",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h0c/h7b/8796944990238/Turmalin-monestein-Turmalin-monestein.jpg",
               allowedToDownload: true,
@@ -1093,7 +2123,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 30668,
               name: "297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h0f/h4f/8805394972702/297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-grey.jpg",
@@ -1105,7 +2135,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 56614,
               name: "Web_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h60/hb8/9003278794782/Web-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1117,7 +2147,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 58265,
               name: "Print_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h71/hbb/9003278860318/Print-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greytiff",
@@ -1129,7 +2159,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 23116,
               name: "Product-Color-Selector-Mobile_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h13/ha7/9003278270494/Product-Color-Selector-Mobile-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1141,7 +2171,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 59645,
               name: "Product-Hero-Large-Desktop_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h52/ha6/9003278204958/Product-Hero-Large-Desktop-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1153,7 +2183,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 27196,
               name: "Product-Listing-Card-Large-Desktop_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h11/haa/9003278336030/Product-Listing-Card-Large-Desktop-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1165,7 +2195,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 39516,
               name: "Product-Hero-Small-Desktop-Tablet_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h22/had/9003278401566/Product-Hero-Small-Desktop-Tablet-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1177,7 +2207,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 36171,
               name: "Product-Color-Selector-Large-Desktop_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he1/hb0/9003278532638/Product-Color-Selector-Large-Desktop-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1189,7 +2219,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 27688,
               name: "Product-Hero-Mobile_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd0/had/9003278467102/Product-Hero-Mobile-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1201,7 +2231,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 21808,
               name: "Product-Listing-Card-Mobile_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h9f/hb7/9003278729246/Product-Listing-Card-Mobile-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1213,7 +2243,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 27688,
               name: "Product-Color-Selector-Small-Desktop-Tablet_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/hb1/9003278598174/Product-Color-Selector-Small-Desktop-Tablet-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1225,7 +2255,7 @@ describe("product-details-transforms tests", () => {
             },
             {
               allowedToDownload: true,
-              assetType: "MASTER_IMAGE",
+              assetType: ImageAssetTypesEnum.MASTER_IMAGE,
               fileSize: 21312,
               name: "Product-Listing-Card-Small-Desktop-Tablet_297006251_Turmalin Ridge tile K Glazed Zeder grey",
               url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha0/hb4/9003278663710/Product-Listing-Card-Small-Desktop-Tablet-297006251-Turmalin-Ridge-tile-K-Glazed-Zeder-greyjpg",
@@ -1255,7 +2285,7 @@ describe("product-details-transforms tests", () => {
             {
               realFileName:
                 "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1.jpg",
-              assetType: "GALLERY",
+              assetType: ImageAssetTypesEnum.GALLERY,
               mime: "image/jpeg",
               url: "http://nowhere.com",
               allowedToDownload: true,
@@ -1267,7 +2297,7 @@ describe("product-details-transforms tests", () => {
             {
               realFileName:
                 "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1.jpg",
-              assetType: "GALLERY",
+              assetType: ImageAssetTypesEnum.GALLERY,
               mime: "image/jpeg",
               url: "http://nowhere.com",
               allowedToDownload: true,
@@ -1279,7 +2309,7 @@ describe("product-details-transforms tests", () => {
             {
               realFileName:
                 "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1.jpg",
-              assetType: "GALLERY",
+              assetType: ImageAssetTypesEnum.GALLERY,
               mime: "image/jpeg",
               url: "http://nowhere.com",
               allowedToDownload: true,

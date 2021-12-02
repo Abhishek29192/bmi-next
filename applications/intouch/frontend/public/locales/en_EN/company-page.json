@@ -73,23 +73,31 @@
         "name": "Registered Name",
         "registeredAddress": {
           "firstLine": "Address Line 1",
-          "secondLine": "Address Line 2",
+          "secondLine": "Address Line 2 (optional)",
           "town": "Town / City",
           "postcode": "Post Code / ZIP",
-          "region": "Region",
-          "country": "Country"
+          "region": "Region (optional)",
+          "country": "Country",
+          "coordinates": {
+            "x": "Latitude",
+            "y": "Longitude"
+          }
         },
         "tradingAddress": {
           "autocomplete": "Post code, city or street",
-          "firstLine": "Address Line 1",
-          "secondLine": "Address Line 2",
-          "town": "Town / City",
-          "postcode": "Post Code / ZIP",
-          "region": "Region",
-          "country": "Country"
+          "firstLine": "Address Line 1 (optional)",
+          "secondLine": "Address Line 2 (optional)",
+          "town": "Town / City (optional)",
+          "postcode": "Post Code / ZIP (optional)",
+          "region": "Region (optional)",
+          "country": "Country (optional)",
+          "coordinates": {
+            "x": "Latitude",
+            "y": "Longitude"
+          }
         },
         "logo": {
-          "label": "Logo",
+          "label": "Logo (optional)",
           "alt_text": "Company logo",
           "buttons": {
             "upload": "Upload new photo",
@@ -117,5 +125,34 @@
       }
     }
   },
-  "report": "Download Companies List"
+  "report": "Download Companies List",
+  "document": {
+    "title": "Company Documents",
+    "noContent": "No documents uploaded yet",
+    "addDocument": "Add Document",
+    "headers": {
+      "document": "Document",
+      "date": "Date",
+      "download": "DOWNLOAD"
+    },
+    "uploadDialog": {
+      "title": "Document Upload",
+      "buttonLabel": "Upload Files",
+      "microcopy": {
+        "drop": "Drop",
+        "browse": "Browse"
+      },
+      "instruction": "You can add files",
+      "confirmLabel": "Upload files",
+      "cancelLabel": "Cancel",
+      "fileValidationMessage": "You cannot upload  files larger than {{fileSize}}",
+      "evidence_category": "Evidence Category"
+    },
+    "confirmDialog": {
+      "title": "Company Document",
+      "body": "Delete document?",
+      "confirmLabel": "Confirm",
+      "cancelLabel": "Cancel"
+    }
+  }
 }

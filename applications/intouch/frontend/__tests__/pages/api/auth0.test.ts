@@ -1,6 +1,7 @@
 export {}; // silences --isolatedModules warning
 
 process.env.AUTH0_NAMESPACE = "AUTH0_NAMESPACE";
+process.env.APP_ENV = "uat";
 
 const mockGetAccount = jest.fn();
 const mockCreateAccount = jest.fn();
@@ -71,12 +72,13 @@ describe("Login Handler", () => {
     const options = await getLoginOptions(req);
 
     expect(options).toMatchInlineSnapshot(`
-      Object {
-        "authorizationParams": Object {
-          "market": "no",
-        },
-      }
-    `);
+Object {
+  "authorizationParams": Object {
+    "env": "uat",
+    "market": "no",
+  },
+}
+`);
   });
 
   it("should return the right login options when in uat", async () => {
@@ -87,12 +89,13 @@ describe("Login Handler", () => {
     const options = await getLoginOptions(req);
 
     expect(options).toMatchInlineSnapshot(`
-      Object {
-        "authorizationParams": Object {
-          "market": "no",
-        },
-      }
-    `);
+Object {
+  "authorizationParams": Object {
+    "env": "uat",
+    "market": "no",
+  },
+}
+`);
   });
 
   it("should return the right login options when in prod", async () => {
@@ -103,12 +106,13 @@ describe("Login Handler", () => {
     const options = await getLoginOptions(req);
 
     expect(options).toMatchInlineSnapshot(`
-      Object {
-        "authorizationParams": Object {
-          "market": "no",
-        },
-      }
-    `);
+Object {
+  "authorizationParams": Object {
+    "env": "uat",
+    "market": "no",
+  },
+}
+`);
   });
 });
 

@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
+<div
+  aria-labelledby="tab-five"
+  class="MuiGrid-root TabPanel MuiGrid-item"
+  data-testid="technicalDrawings"
+  heading="MC: pdp.leadBlock.technicalDrawings"
+  hidden=""
+  id="tabpanel-five"
+  role="tabpanel"
+>
+  <div
+    class="MuiBox-root MuiBox-root-28 TabPanelBox"
+  >
+    <div
+      class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+    >
+      <div
+        class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      >
+        <div
+          class="LeadBlockContentSection"
+        >
+          <div
+            class="ImageGallery"
+          >
+            <div
+              class="image-wrapper"
+            >
+              <img
+                alt="490189 wireløper"
+                class="main-image-wrapper main-image-wrapper--default Media Media--contain"
+                src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
+              />
+            </div>
+            <div
+              class="thumbnails"
+            >
+              <button
+                class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+                tabindex="-1"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root icon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+              <button
+                class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+                tabindex="-1"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root icon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+              <div
+                class="scroller"
+                style="margin-right: 0%;"
+              >
+                <button
+                  class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                  style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="accessibility-text"
+                  />
+                </button>
+                <button
+                  class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                  style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="accessibility-text"
+                  />
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

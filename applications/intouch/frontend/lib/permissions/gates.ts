@@ -104,6 +104,18 @@ const gates = {
       MARKET_ADMIN: true,
       INSTALLER: false,
       COMPANY_ADMIN: false
+    },
+    addDocument: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: false
+    },
+    changeStatus: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: false,
+      INSTALLER: false,
+      COMPANY_ADMIN: false
     }
   },
   project: {
@@ -185,7 +197,9 @@ const gates = {
     tools: canSeeMediaLibrary,
     // Inventory (Available to Market Admins)
     inventory: isSuperOrMarketAdmin,
-    productsAdmin: isSuperOrMarketAdmin
+    productsAdmin: isSuperOrMarketAdmin,
+    accountsAdmin: isSuperOrMarketAdmin,
+    marketsAdmin: isSuperOrMarketAdmin
   },
   home: {
     CTA_PROJECT: {

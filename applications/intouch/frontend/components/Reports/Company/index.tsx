@@ -6,6 +6,7 @@ import { exportCsv } from "../../../lib/utils/report";
 import { stringifyAddress } from "../../../lib/utils/address";
 import { useGetCompaniesReportLazyQuery } from "../../../graphql/generated/hooks";
 import { GetCompaniesReportQuery } from "../../../graphql/generated/operations";
+import { ReportProps } from "../types";
 import styles from "./styles.module.scss";
 
 const getReportData = (companies: GetCompaniesReportQuery["companies"]) => {
@@ -45,7 +46,7 @@ const getReportData = (companies: GetCompaniesReportQuery["companies"]) => {
     );
 };
 
-const CompanyReport = () => {
+const CompanyReport = ({ disabled }: ReportProps) => {
   const { t } = useTranslation("company-page");
   const [getSystemsReport] = useGetCompaniesReportLazyQuery({
     onCompleted: ({ companies }) => {
@@ -60,7 +61,9 @@ const CompanyReport = () => {
   return (
     <div>
       <Button
+        data-testid="export-button"
         variant="outlined"
+        disabled={disabled}
         onClick={getSystemsReport}
         className={styles.sidePanelFooterButton}
       >

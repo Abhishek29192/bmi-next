@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { PostGraphileOptions } from "postgraphile";
+import { TagsFilePlugin } from "postgraphile/plugins";
 import pgSimplifyInflector from "@graphile-contrib/pg-simplify-inflector";
 import FederationPlugin from "@graphile/federation";
 import config from "../config";
@@ -17,7 +18,8 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
     FederationPlugin,
     ExtendSchemaPlugin,
     RemoveNodeAndQueryFieldsPlugin,
-    StripNodeInterfacePlugin
+    StripNodeInterfacePlugin,
+    TagsFilePlugin
   ],
   handleErrors,
   additionalGraphQLContextFromRequest: async (req: Request, res: Response) => ({

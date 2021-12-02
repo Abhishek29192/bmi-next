@@ -22,7 +22,87 @@ exports[`SampleBasketSection component renders correctly 1`] = `
         </div>
         <div
           class="SampleBasketSectionProducts"
-        />
+        >
+          <button
+            class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
+            tabindex="0"
+            type="button"
+          >
+            <img
+              alt="sample-1"
+              class="product-image header-picture Media"
+              src="http://localhost:8000/image-real-file-name.jpg"
+              style="object-fit: contain; object-position: center;"
+            />
+            <div
+              class="body"
+            >
+              <h4
+                class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+              />
+              <div
+                class="children text children--without-margin"
+              >
+                <div
+                  class="product"
+                >
+                  <div
+                    class="product-description"
+                  >
+                    <p
+                      class="MuiTypography-root product-title Typography MuiTypography-body1"
+                    >
+                      sample-1
+                    </p>
+                    <p
+                      class="MuiTypography-root product-color Typography MuiTypography-body1"
+                    >
+                      green | rough
+                    </p>
+                    <p
+                      class="MuiTypography-root product-size Typography MuiTypography-body1"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="footer"
+              >
+                <button
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined product-button MuiButton-outlinedPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-4"
+                  >
+                    MC: pdp.overview.removeSample
+                    <span
+                      class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 13H5v-2h14v2z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+            </div>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
         <div
           class="complete-button"
         >
@@ -83,7 +163,87 @@ exports[`SampleBasketSection component should render form after complete button 
         </div>
         <div
           class="SampleBasketSectionProducts"
-        />
+        >
+          <button
+            class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
+            tabindex="0"
+            type="button"
+          >
+            <img
+              alt="sample-1"
+              class="product-image header-picture Media"
+              src="http://localhost:8000/image-real-file-name.jpg"
+              style="object-fit: contain; object-position: center;"
+            />
+            <div
+              class="body"
+            >
+              <h4
+                class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+              />
+              <div
+                class="children text children--without-margin"
+              >
+                <div
+                  class="product"
+                >
+                  <div
+                    class="product-description"
+                  >
+                    <p
+                      class="MuiTypography-root product-title Typography MuiTypography-body1"
+                    >
+                      sample-1
+                    </p>
+                    <p
+                      class="MuiTypography-root product-color Typography MuiTypography-body1"
+                    >
+                      green | rough
+                    </p>
+                    <p
+                      class="MuiTypography-root product-size Typography MuiTypography-body1"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="footer"
+              >
+                <button
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined product-button MuiButton-outlinedPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-24"
+                  >
+                    MC: pdp.overview.removeSample
+                    <span
+                      class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 13H5v-2h14v2z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+            </div>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -101,7 +261,86 @@ exports[`SampleBasketSection component should render form after complete button 
         >
           Complete form
         </h2>
-        Form contains no fields
+        <form
+          class="Form Form Form--rightAlignButton"
+        >
+          <div
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+            >
+              <div
+                class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+              >
+                <label
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                  data-shrink="false"
+                >
+                  Text
+                </label>
+                <div
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+                >
+                  <input
+                    aria-invalid="false"
+                    class="MuiInputBase-input MuiOutlinedInput-input"
+                    name="text"
+                    type="text"
+                    value=""
+                  />
+                  <fieldset
+                    aria-hidden="true"
+                    class="PrivateNotchedOutline-root-41 MuiOutlinedInput-notchedOutline"
+                  >
+                    <legend
+                      class="PrivateNotchedOutline-legendLabelled-43"
+                    >
+                      <span>
+                        Text
+                      </span>
+                    </legend>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ButtonWrapper"
+          >
+            <button
+              aria-action="sample-1-green | rough"
+              aria-label="samples ordering basket form submitted"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 Button MuiButton-containedPrimary"
+              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"samples ordering basket form submitted\\",\\"action\\":\\"sample-1-green | rough\\"}"
+              tabindex="0"
+              type="submit"
+            >
+              <span
+                class="MuiButton-label buttonStyles-label-24"
+              >
+                Submit
+                <span
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </form>
         <p
           class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
         >
@@ -129,6 +368,75 @@ exports[`SampleBasketSection component should render form after complete button 
           </a>
            apply.
         </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SampleBasketSection remove sample from basket when all samples are removed renders empty basket content and \`browse all products\` button 1`] = `
+<div>
+  <div
+    class="SampleBasketSection Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="RichText"
+        >
+          <p
+            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+          >
+            test rich text
+          </p>
+        </div>
+        <div
+          class="SampleBasketSectionProducts"
+        />
+        <div
+          class="RichText"
+        >
+          <p
+            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+          >
+            your basket is empty.
+          </p>
+        </div>
+        <a
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-69 MuiButton-outlined MuiButton-outlinedPrimary"
+          data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/no/zanda-brand/torvtak/\\",\\"label\\":\\"browse all products\\"}"
+          href="/no/zanda-brand/torvtak/"
+          role="button"
+          tabindex="0"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-72"
+          >
+            browse all products
+            <span
+              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </a>
       </div>
     </div>
   </div>

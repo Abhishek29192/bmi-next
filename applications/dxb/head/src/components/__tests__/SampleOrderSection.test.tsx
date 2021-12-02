@@ -2,9 +2,15 @@ import "@testing-library/jest-dom";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import SampleOrderSection from "../SampleOrderSection";
-import { BasketContextProvider } from "../../contexts/SampleBasketContext";
+import {
+  ACTION_TYPES,
+  BasketContextProvider,
+  basketReducer
+} from "../../contexts/SampleBasketContext";
 import { Data as PageInfoData } from "../PageInfo";
 import { SiteContextProvider } from "../Site";
+import { Product } from "../types/pim";
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 afterEach(() => {
   cleanup();
@@ -34,17 +40,18 @@ const variant = {
   shortDescription: null
 };
 const variant2 = { ...variant, code: "variant2" };
-const getMockSiteContext = (
-  countryCode: string = "en",
-  nodeLocale: string = "en-GB"
-) => ({
-  countryCode: countryCode,
-  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
-  node_locale: nodeLocale,
-  homePage: {
-    title: "Home page title"
-  }
-});
+
+const product: Product = {
+  code: "product",
+  documents: null,
+  isSampleOrderAllowed: null,
+  longDescription: null,
+  shortDescription: null,
+  description: null,
+  name: "product",
+  summary: null
+};
+
 describe("Functionality of sample basket", () => {
   it("'remove from basket' & 'complete sample order' cta is displayed if add to basket cta is clicked and vice versa ", async () => {
     render(
@@ -52,6 +59,7 @@ describe("Functionality of sample basket", () => {
         <SampleOrderSection
           isSampleOrderAllowed={true}
           variant={variant}
+          product={product}
           sampleBasketLinkInfo={sampleBasketLinkInfo}
         ></SampleOrderSection>
       </SiteContextProvider>,
@@ -88,6 +96,7 @@ describe("Functionality of sample basket", () => {
         isSampleOrderAllowed={true}
         variant={variant}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -98,6 +107,7 @@ describe("Functionality of sample basket", () => {
         isSampleOrderAllowed={false}
         maximumSamples={3}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -121,6 +131,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         isSampleOrderAllowed={true}
         variant={variant}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -135,6 +146,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         isSampleOrderAllowed={true}
         variant={variant2}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -167,6 +179,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         variant={variant}
         maximumSamples={maximumSamples}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -182,6 +195,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         variant={variant2}
         maximumSamples={maximumSamples}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -210,6 +224,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         isSampleOrderAllowed={true}
         variant={variant}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -224,6 +239,7 @@ describe("disable 'Add to basket' if basket is full", () => {
         isSampleOrderAllowed={true}
         variant={variant2}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -242,6 +258,7 @@ describe("disable 'Add to basket' if basket is full", () => {
       <SampleOrderSection
         isSampleOrderAllowed={false}
         sampleBasketLinkInfo={sampleBasketLinkInfo}
+        product={product}
       ></SampleOrderSection>,
       {
         wrapper: BasketContextProvider
@@ -260,12 +277,32 @@ describe("disable 'Add to basket' if basket is full", () => {
 });
 
 describe("Test Functionality of redirections by click on 'Complete order' ", () => {
+  it("do not add product is it is already in state", () => {
+    render(
+      <SampleOrderSection
+        isSampleOrderAllowed={true}
+        variant={variant}
+        product={product}
+        sampleBasketLinkInfo={sampleBasketLinkInfo}
+      ></SampleOrderSection>,
+      {
+        wrapper: BasketContextProvider
+      }
+    );
+    localStorage.setItem("basketItems", JSON.stringify(variant));
+    const addSampleCta = screen.getByRole("button", {
+      name: `MC: pdp.overview.addSample`
+    });
+    addSampleCta.click();
+    expect(JSON.parse(localStorage.getItem("basketItems"))).toEqual(variant);
+  });
   it("add redirect url to 'Complete order' CTA", () => {
     render(
       <SiteContextProvider value={getMockSiteContext()}>
         <SampleOrderSection
           isSampleOrderAllowed={true}
           variant={variant}
+          product={product}
           sampleBasketLinkInfo={sampleBasketLinkInfo}
         ></SampleOrderSection>
       </SiteContextProvider>,
@@ -289,6 +326,7 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
         <SampleOrderSection
           isSampleOrderAllowed={true}
           variant={variant}
+          product={product}
           sampleBasketLinkInfo={null}
         ></SampleOrderSection>
       </SiteContextProvider>,
@@ -299,5 +337,29 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
     expect(
       screen.queryAllByAltText(`MC: pdp.overview.completeSampleOrder`)
     ).toHaveLength(0);
+  });
+});
+
+describe("Test basket context", () => {
+  it("should handle adding existing item to basket", () => {
+    const resolvedState = basketReducer(
+      // @ts-ignore
+      { products: [variant] },
+      {
+        type: ACTION_TYPES.BASKET_ADD,
+        payload: variant
+      }
+    );
+    expect(resolvedState).toEqual({ products: [variant] });
+  });
+  it("should handle invalid action type", () => {
+    const resolvedState = basketReducer(
+      { products: [] },
+      {
+        // @ts-ignore
+        type: "test"
+      }
+    );
+    expect(resolvedState).toEqual({ products: [] });
   });
 });

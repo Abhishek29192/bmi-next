@@ -23,6 +23,7 @@ const documentsQuery = `{
     fileSize
     format
     extension
+    realFileName
     assetType {
       name
       code
@@ -150,8 +151,15 @@ const queries = [
       const { allPIMDocument, allContentfulDocument } = data;
 
       return [
-        ...allPIMDocument,
-        ...allContentfulDocument.edges.map(({ node }) => node)
+        ...allPIMDocument.map((item) => ({
+          titleAndSize: `${item.title}_${item.fileSize}`,
+          ...item
+        })),
+        ...allContentfulDocument.edges.map(({ node }) => ({
+          titleAndSize: `${node.title}_${node.asset.file.details.size}`,
+          realFileName: `${node.asset.file.fileName}`,
+          ...node
+        }))
       ];
     },
     indexName: process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS
@@ -192,13 +200,6 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `mockData`,
-        path: `${__dirname}/src/data`
       }
     },
     {

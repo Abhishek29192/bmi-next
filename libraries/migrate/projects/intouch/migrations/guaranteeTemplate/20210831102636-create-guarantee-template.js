@@ -1,6 +1,7 @@
 const { MAX_FILE_SIZES } = require("../../variables/mediaSizes/20210222125604");
 const guaranteeCoverage = require("../../variables/guaranteeCoverage/20210222125604");
 const technologies = require("../../variables/technologies/20210222125604");
+const languageCodes = require("../../variables/languageCode/20210831102636");
 
 module.exports.description = "Create content model for Guarantee Template";
 
@@ -38,20 +39,7 @@ module.exports.up = (migration) => {
     .required(true)
     .validations([
       {
-        in: [
-          "da",
-          "no",
-          "en",
-          "sv",
-          "pt",
-          "de",
-          "nl",
-          "sk",
-          "fr",
-          "pl",
-          "es",
-          "fi"
-        ]
+        in: languageCodes
       }
     ]);
 

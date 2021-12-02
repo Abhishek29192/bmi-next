@@ -178,6 +178,89 @@ export type CompanyDetailsFragmentFragment = {
     >;
   };
 
+export type CompanyDocumentFragmentFragment = {
+  readonly __typename?: "CompanyDocument";
+} & Pick<
+  SchemaTypes.CompanyDocument,
+  | "id"
+  | "document"
+  | "name"
+  | "documentType"
+  | "size"
+  | "signedDocumentUrl"
+  | "createdAt"
+  | "updatedAt"
+>;
+
+export type CompanyDocumentsFragmentFragment = {
+  readonly __typename?: "Company";
+} & {
+  readonly companyDocuments: {
+    readonly __typename?: "CompanyDocumentsConnection";
+  } & {
+    readonly nodes: ReadonlyArray<
+      { readonly __typename?: "CompanyDocument" } & Pick<
+        SchemaTypes.CompanyDocument,
+        | "id"
+        | "document"
+        | "name"
+        | "documentType"
+        | "size"
+        | "signedDocumentUrl"
+        | "createdAt"
+        | "updatedAt"
+      >
+    >;
+  };
+};
+
+export type CreateCompanyDocumentsMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.CreateCompanyDocumentsInput;
+}>;
+
+export type CreateCompanyDocumentsMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly createCompanyDocuments?: SchemaTypes.Maybe<
+    { readonly __typename?: "CreateCompanyDocumentsPayload" } & {
+      readonly companyDocuments?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          { readonly __typename?: "CompanyDocument" } & Pick<
+            SchemaTypes.CompanyDocument,
+            | "id"
+            | "document"
+            | "name"
+            | "documentType"
+            | "size"
+            | "signedDocumentUrl"
+            | "createdAt"
+            | "updatedAt"
+          >
+        >
+      >;
+    }
+  >;
+};
+
+export type DeleteCompanyDocumentMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.DeleteCompanyDocumentInput;
+}>;
+
+export type DeleteCompanyDocumentMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly deleteCompanyDocument?: SchemaTypes.Maybe<
+    { readonly __typename?: "DeleteCompanyDocumentPayload" } & {
+      readonly companyDocument?: SchemaTypes.Maybe<
+        { readonly __typename?: "CompanyDocument" } & Pick<
+          SchemaTypes.CompanyDocument,
+          "id" | "document" | "createdAt"
+        >
+      >;
+    }
+  >;
+};
+
 export type UpdateCompanyDetailsMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.UpdateCompanyInput;
 }>;
@@ -269,6 +352,23 @@ export type UpdateCompanyDetailsMutation = {
                     >
                   >;
                 }
+              >;
+            };
+            readonly companyDocuments: {
+              readonly __typename?: "CompanyDocumentsConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "CompanyDocument" } & Pick<
+                  SchemaTypes.CompanyDocument,
+                  | "id"
+                  | "document"
+                  | "name"
+                  | "documentType"
+                  | "size"
+                  | "signedDocumentUrl"
+                  | "createdAt"
+                  | "updatedAt"
+                >
               >;
             };
           }
@@ -401,7 +501,14 @@ export type ImportAccountsCompaniesFromCvsMutation = {
                   { readonly __typename?: "Address" } & Pick<
                     SchemaTypes.Address,
                     "firstLine" | "secondLine" | "town" | "country" | "postcode"
-                  >
+                  > & {
+                      readonly coordinates?: SchemaTypes.Maybe<
+                        { readonly __typename?: "Point" } & Pick<
+                          SchemaTypes.Point,
+                          "x" | "y"
+                        >
+                      >;
+                    }
                 >;
                 readonly companyMembers: {
                   readonly __typename?: "CompanyMembersConnection";
@@ -428,6 +535,44 @@ export type ImportAccountsCompaniesFromCvsMutation = {
               }
           >
         >
+      >;
+    }
+  >;
+};
+
+export type UpdateMarketMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateMarketInput;
+}>;
+
+export type UpdateMarketMutation = { readonly __typename?: "Mutation" } & {
+  readonly updateMarket?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateMarketPayload" } & {
+      readonly query?: SchemaTypes.Maybe<
+        { readonly __typename?: "Query" } & {
+          readonly markets?: SchemaTypes.Maybe<
+            { readonly __typename?: "MarketsConnection" } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "Market" } & Pick<
+                  SchemaTypes.Market,
+                  | "id"
+                  | "language"
+                  | "domain"
+                  | "cmsSpaceId"
+                  | "name"
+                  | "sendName"
+                  | "sendMailbox"
+                  | "doceboInstallersBranchId"
+                  | "doceboCompanyAdminBranchId"
+                  | "doceboCatalogueId"
+                  | "merchandisingUrl"
+                  | "projectsEnabled"
+                  | "locationBiasRadiusKm"
+                  | "gtag"
+                >
+              >;
+            }
+          >;
+        }
       >;
     }
   >;
@@ -3007,6 +3152,34 @@ export type GetContentArticleContentQuery = {
   >;
 };
 
+export type MarketsQueryVariables = SchemaTypes.Exact<{ [key: string]: never }>;
+
+export type MarketsQuery = { readonly __typename?: "Query" } & {
+  readonly markets?: SchemaTypes.Maybe<
+    { readonly __typename?: "MarketsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Market" } & Pick<
+          SchemaTypes.Market,
+          | "id"
+          | "language"
+          | "domain"
+          | "cmsSpaceId"
+          | "name"
+          | "sendName"
+          | "sendMailbox"
+          | "doceboInstallersBranchId"
+          | "doceboCompanyAdminBranchId"
+          | "doceboCatalogueId"
+          | "merchandisingUrl"
+          | "projectsEnabled"
+          | "gtag"
+          | "locationBiasRadiusKm"
+        >
+      >;
+    }
+  >;
+};
+
 export type ProductsAndSystemsQueryVariables = SchemaTypes.Exact<{
   [key: string]: never;
 }>;
@@ -3135,6 +3308,23 @@ export type CompanyPageDetailsFragmentFragment = {
         }
       >;
     };
+    readonly companyDocuments: {
+      readonly __typename?: "CompanyDocumentsConnection";
+    } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "CompanyDocument" } & Pick<
+          SchemaTypes.CompanyDocument,
+          | "id"
+          | "document"
+          | "name"
+          | "documentType"
+          | "size"
+          | "signedDocumentUrl"
+          | "createdAt"
+          | "updatedAt"
+        >
+      >;
+    };
   };
 
 export type GetCompaniesByMarketQueryVariables = SchemaTypes.Exact<{
@@ -3226,6 +3416,23 @@ export type GetCompaniesByMarketQuery = { readonly __typename?: "Query" } & {
                     >
                   >;
                 }
+              >;
+            };
+            readonly companyDocuments: {
+              readonly __typename?: "CompanyDocumentsConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "CompanyDocument" } & Pick<
+                  SchemaTypes.CompanyDocument,
+                  | "id"
+                  | "document"
+                  | "name"
+                  | "documentType"
+                  | "size"
+                  | "signedDocumentUrl"
+                  | "createdAt"
+                  | "updatedAt"
+                >
               >;
             };
           }
@@ -3333,6 +3540,23 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
                 >
               >;
             }
+          >;
+        };
+        readonly companyDocuments: {
+          readonly __typename?: "CompanyDocumentsConnection";
+        } & {
+          readonly nodes: ReadonlyArray<
+            { readonly __typename?: "CompanyDocument" } & Pick<
+              SchemaTypes.CompanyDocument,
+              | "id"
+              | "document"
+              | "name"
+              | "documentType"
+              | "size"
+              | "signedDocumentUrl"
+              | "createdAt"
+              | "updatedAt"
+            >
           >;
         };
       }
@@ -3695,6 +3919,7 @@ export type TeamMembersQuery = { readonly __typename?: "Query" } & {
             | "lastName"
             | "firstName"
             | "formattedRole"
+            | "status"
           > & {
               readonly certificationsByDoceboUserId: {
                 readonly __typename?: "CertificationsConnection";

@@ -10,7 +10,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
     type="button"
   >
     <img
-      alt="image-name"
+      alt="sample-1"
       class="product-image header-picture Media"
       src="http://localhost:8000/image-real-file-name.jpg"
       style="object-fit: contain; object-position: center;"
@@ -38,13 +38,11 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             <p
               class="MuiTypography-root product-color Typography MuiTypography-body1"
             >
-              classification-feature-feature-value-value 
+              classification-feature-feature-value-value
             </p>
             <p
               class="MuiTypography-root product-size Typography MuiTypography-body1"
-            >
-               
-            </p>
+            />
           </div>
         </div>
       </div>
@@ -91,7 +89,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
     type="button"
   >
     <img
-      alt="image-name"
+      alt="sample-2"
       class="product-image header-picture Media"
       src="http://localhost:8000/image-real-file-name.jpg"
       style="object-fit: contain; object-position: center;"
@@ -118,9 +116,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             </p>
             <p
               class="MuiTypography-root product-color Typography MuiTypography-body1"
-            >
-               
-            </p>
+            />
             <p
               class="MuiTypography-root product-size Typography MuiTypography-body1"
             >
@@ -172,7 +168,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
     type="button"
   >
     <img
-      alt="image-name"
+      alt="sample-3"
       class="product-image header-picture Media"
       src="http://localhost:8000/image-real-file-name.jpg"
       style="object-fit: contain; object-position: center;"
@@ -199,14 +195,10 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
             </p>
             <p
               class="MuiTypography-root product-color Typography MuiTypography-body1"
-            >
-               
-            </p>
+            />
             <p
               class="MuiTypography-root product-size Typography MuiTypography-body1"
-            >
-               
-            </p>
+            />
           </div>
         </div>
       </div>
@@ -220,256 +212,6 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
         >
           <span
             class="MuiButton-label buttonStyles-label-4"
-          >
-            MC: pdp.overview.removeSample
-            <span
-              class="MuiButton-endIcon MuiButton-iconSizeMedium"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 13H5v-2h14v2z"
-                />
-              </svg>
-            </span>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-    </div>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
-</div>
-`;
-
-exports[`SampleBasketSectionProducts component renders correctly for mobile 1`] = `
-<div
-  class="SampleBasketSectionProducts"
->
-  <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
-    tabindex="0"
-    type="button"
-  >
-    <img
-      alt="image-name"
-      class="product-image header-picture Media"
-      src="http://localhost:8000/image-real-file-name.jpg"
-      style="object-fit: contain; object-position: center;"
-    />
-    <div
-      class="body"
-    >
-      <h4
-        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
-      />
-      <div
-        class="children text children--without-margin"
-      >
-        <div
-          class="product"
-        >
-          <div
-            class="product-description"
-          >
-            <p
-              class="MuiTypography-root product-title Typography MuiTypography-body1"
-            >
-              sample-1
-            </p>
-            <p
-              class="MuiTypography-root product-color Typography MuiTypography-body1"
-            >
-              classification-feature-feature-value-value 
-            </p>
-            <p
-              class="MuiTypography-root product-size Typography MuiTypography-body1"
-            >
-               
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="footer"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined product-button MuiButton-outlinedPrimary"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label buttonStyles-label-24"
-          >
-            MC: pdp.overview.removeSample
-            <span
-              class="MuiButton-endIcon MuiButton-iconSizeMedium"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 13H5v-2h14v2z"
-                />
-              </svg>
-            </span>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-    </div>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
-  <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
-    tabindex="0"
-    type="button"
-  >
-    <img
-      alt="image-name"
-      class="product-image header-picture Media"
-      src="http://localhost:8000/image-real-file-name.jpg"
-      style="object-fit: contain; object-position: center;"
-    />
-    <div
-      class="body"
-    >
-      <h4
-        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
-      />
-      <div
-        class="children text children--without-margin"
-      >
-        <div
-          class="product"
-        >
-          <div
-            class="product-description"
-          >
-            <p
-              class="MuiTypography-root product-title Typography MuiTypography-body1"
-            >
-              sample-2
-            </p>
-            <p
-              class="MuiTypography-root product-color Typography MuiTypography-body1"
-            >
-               
-            </p>
-            <p
-              class="MuiTypography-root product-size Typography MuiTypography-body1"
-            >
-              10x20 mm
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="footer"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined product-button MuiButton-outlinedPrimary"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label buttonStyles-label-24"
-          >
-            MC: pdp.overview.removeSample
-            <span
-              class="MuiButton-endIcon MuiButton-iconSizeMedium"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 13H5v-2h14v2z"
-                />
-              </svg>
-            </span>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-    </div>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
-  <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
-    tabindex="0"
-    type="button"
-  >
-    <img
-      alt="image-name"
-      class="product-image header-picture Media"
-      src="http://localhost:8000/image-real-file-name.jpg"
-      style="object-fit: contain; object-position: center;"
-    />
-    <div
-      class="body"
-    >
-      <h4
-        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
-      />
-      <div
-        class="children text children--without-margin"
-      >
-        <div
-          class="product"
-        >
-          <div
-            class="product-description"
-          >
-            <p
-              class="MuiTypography-root product-title Typography MuiTypography-body1"
-            >
-              sample-3
-            </p>
-            <p
-              class="MuiTypography-root product-color Typography MuiTypography-body1"
-            >
-               
-            </p>
-            <p
-              class="MuiTypography-root product-size Typography MuiTypography-body1"
-            >
-               
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="footer"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined product-button MuiButton-outlinedPrimary"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label buttonStyles-label-24"
           >
             MC: pdp.overview.removeSample
             <span

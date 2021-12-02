@@ -28,6 +28,7 @@ export const pageQuery = gql`
         lastName
         firstName
         formattedRole
+        status
         certificationsByDoceboUserId(
           filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
         ) {
@@ -110,7 +111,8 @@ export const getServerSideProps = withPage(
         ...(await serverSideTranslations(locale, [
           "common",
           "sidebar",
-          "team-page"
+          "team-page",
+          "error-page"
         ]))
       }
     };

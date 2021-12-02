@@ -6,6 +6,7 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { DialogContent } from "@material-ui/core";
 import DialogActions from "@material-ui/core/DialogActions";
+import CloseIcon from "@material-ui/icons/Close";
 import { useTranslation } from "next-i18next";
 import { gql } from "@apollo/client";
 import { InfoPair } from "../../../InfoPair";
@@ -60,7 +61,13 @@ const SolutionGuaranteeReviewDialog = ({
   return (
     <div>
       <Dialog fullScreen open={isOpen} onClose={onCloseClick}>
-        <DialogTitle>{t("guarantee.type.SOLUTION")}</DialogTitle>
+        <div className={styles.header}>
+          <DialogTitle>{t("guarantee.type.SOLUTION")}</DialogTitle>
+          <Button variant="text" isIconButton onClick={onCloseClick}>
+            <CloseIcon color="primary" />
+          </Button>
+        </div>
+
         <DialogContent>
           <GuaranteeReview project={project} />
         </DialogContent>
@@ -87,24 +94,31 @@ const GuaranteeReview = ({ project }: GuaranteeReviewProps) => {
   const evidences = project.evidenceItems.nodes.filter(
     (evidence) => evidence.guaranteeId === guarantee.id
   );
+  const getEvidenceCategoryName = (
+    evidence: GetProjectQuery["project"]["evidenceItems"]["nodes"][0]
+  ) => {
+    return evidence.evidenceCategoryType === "CUSTOM"
+      ? evidence.customEvidenceCategory?.name
+      : evidence.evidenceCategoryType;
+  };
 
   return (
     <div className={styles.main}>
       <div className={styles.body}>
-        <Typography variant="h4" hasUnderline>
-          {t("guarantee_tab.apply_guarantee.review.receipt_title")}
+        <Typography variant="h4" style={{ marginBottom: "1rem" }} hasUnderline>
+          {t("tabs.uploads")}
         </Typography>
         {evidences && (
-          <InfoPair
-            title={t("guarantee_tab.apply_guarantee.review.receipt_subTitle")}
-          >
+          <InfoPair title="">
             {evidences.map((evidence, index) => (
-              <div key={index}>{evidence.name}</div>
+              <div key={index}>
+                {t(getEvidenceCategoryName(evidence))} : {evidence.name}
+              </div>
             ))}
           </InfoPair>
         )}
 
-        <Typography variant="h4" hasUnderline>
+        <Typography variant="h4" style={{ marginBottom: "1rem" }} hasUnderline>
           {t("building_owner.title")}
         </Typography>
         <InfoPair title={t("building_owner.contact_detail")}>

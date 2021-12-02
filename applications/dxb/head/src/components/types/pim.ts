@@ -88,7 +88,7 @@ export type ImageFormat =
 export type Image = {
   allowedToDownload: boolean;
   altText?: string | null;
-  assetType: string;
+  assetType: ImageAssetTypesEnum;
   containerId: string;
   fileSize: number;
   format?: ImageFormat | null;
@@ -187,3 +187,28 @@ export type Product = {
 export type VariantOptionWithProduct = VariantOption & {
   _product: Product;
 };
+
+export enum ImageAssetTypesEnum {
+  TECHNICAL_DRAWINGS = "TECHNICAL_DRAWINGS",
+  MASTER_IMAGE = "MASTER_IMAGE",
+  GALLERY = "GALLERY"
+}
+
+export enum ClassificationCodeEnum {
+  APPEARANCE_ATTRIBUTE = "appearanceAttributes",
+  MEASUREMENTS = "measurements",
+  GENERAL_INFORMATION = "generalInformation"
+}
+
+export enum FeatureCodeEnum {
+  COLOUR = "colour",
+  TEXTURE_FAMILY = "texturefamily",
+  COLOUR_FAMILY = "colourfamily",
+  MATERIALS = "materials",
+  LENGTH = "length",
+  WIDTH = "width",
+  HEIGHT = "height",
+  SCORE_WEIGHT = "scoringweight",
+  THICKNESS = "thickness",
+  VARIANT_ATTRIBUTE = "variantattribute"
+}

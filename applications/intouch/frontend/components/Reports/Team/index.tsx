@@ -5,6 +5,7 @@ import { gql } from "@apollo/client";
 import { exportCsv } from "../../../lib/utils/report";
 import { useGetTeamsReportLazyQuery } from "../../../graphql/generated/hooks";
 import { GetTeamsReportQuery } from "../../../graphql/generated/operations";
+import { ReportProps } from "../types";
 import styles from "./styles.module.scss";
 
 const getReportData = (teams: GetTeamsReportQuery["accounts"]) => {
@@ -14,7 +15,7 @@ const getReportData = (teams: GetTeamsReportQuery["accounts"]) => {
   });
 };
 
-const TeamReport = () => {
+const TeamReport = ({ disabled }: ReportProps) => {
   const { t } = useTranslation("team-page");
   const [getReport] = useGetTeamsReportLazyQuery({
     onCompleted: ({ accounts }) => {
@@ -30,6 +31,8 @@ const TeamReport = () => {
     <div>
       <Button
         variant="outlined"
+        data-testid="export-button"
+        disabled={disabled}
         onClick={getReport}
         className={styles.sidePanelFooterButton}
       >

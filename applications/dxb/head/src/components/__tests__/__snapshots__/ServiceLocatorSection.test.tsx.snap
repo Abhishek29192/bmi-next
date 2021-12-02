@@ -240,6 +240,118 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                   class="MuiTouchRipple-root"
                 />
               </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.flachdachsysteme
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.steildachsysteme
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.bauwerksabdichtung
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.verkehrsbauwerke
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.verarbeiter
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.topDachPartner
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.7Dachdecker
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.handler
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -496,9 +608,9 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                                 class="description"
                               >
                                 <b>
-                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.pitchedRoofRoofCoaters
+                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.flachdachsysteme | MC: findARoofer.filters.steildachsysteme | MC: findARoofer.filters.bauwerksabdichtung | MC: findARoofer.filters.verkehrsbauwerke | MC: findARoofer.filters.verarbeiter | MC: findARoofer.filters.topDachPartner | MC: findARoofer.filters.7Dachdecker | MC: findARoofer.filters.handler
                                   MC: findABranch.filters.headquarters | MC: findABranch.filters.countryOffices | MC: findABranch.filters.manufacturingAndExport | MC: findABranch.filters.technicalCentreBmiAcademy
-                                  MC: findAMerchant.filters.bmiRedlandPitchedRoofSystems | MC: findAMerchant.filters.bmiIcopalFlatRoofSystems | MC: findAMerchant.filters.depotsDeProximiteSiplast | MC: findAMerchant.filters.distributeursSiplast | MC: findAMerchant.filters.distributeursMonier
+                                  MC: findAMerchant.filters.bmiRedlandPitchedRoofSystems | MC: findAMerchant.filters.bmiIcopalFlatRoofSystems | MC: findAMerchant.filters.depotsDeProximiteSiplast | MC: findAMerchant.filters.distributeursSiplast | MC: findAMerchant.filters.distributeursMonier | MC: findAMerchant.filters.distributeursMonier
                                 </b>
                               </dd>
                             </div>

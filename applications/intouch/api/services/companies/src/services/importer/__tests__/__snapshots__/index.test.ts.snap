@@ -49,7 +49,7 @@ Array [
     Array [],
   ],
   Array [
-    "INSERT INTO address(migration_id, first_line, second_line, town, country, postcode) VALUES ('YQPQKK_NOAD_0003', 'First Line 1', '', 'Town 1', 'Norge', '') RETURNING *",
+    "INSERT INTO address(migration_id, first_line, second_line, town, country, postcode, coordinates) VALUES ('YQPQKK_NOAD_0003', 'First Line 1', '', 'Town 1', 'Norge', '', '1,2') RETURNING *",
     Array [],
   ],
   Array [
@@ -153,6 +153,7 @@ Object {
         ],
       },
       "@registeredAddress": Object {
+        "coordinates": "(1,2)",
         "country": "Norge",
         "firstLine": "First Line 1",
         "migrationId": "YQPQKK_NOAD_0003",

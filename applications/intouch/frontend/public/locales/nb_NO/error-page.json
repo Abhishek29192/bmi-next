@@ -1,0 +1,7 @@
+{
+  "title": "En feil oppsto",
+  "body": "Kontakt en administrator",
+  "user_blocked": "Brukeren er blokkert",
+  "errorAlreadyMember": "Brukeren er allerede medlem av et annet firma",
+  "errorInvitationNotFound": "Fant ingen invitarsjon"
+}

@@ -60,7 +60,7 @@ export const solutionGuaranteeGuaranteeValidate = (
       validationError: SolutionGuaranteeValidationError.NoGuarantee
     };
   }
-  if (!["NEW", "REJECTED"].includes(guarantee.status)) {
+  if (!["NEW", "REJECTED", "APPROVED"].includes(guarantee.status)) {
     return {
       isValid: false,
       validationError: SolutionGuaranteeValidationError.NotApplicable

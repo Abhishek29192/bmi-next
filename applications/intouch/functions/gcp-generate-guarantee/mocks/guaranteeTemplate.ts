@@ -35,7 +35,12 @@ export const mockTemplateEnglish = {
   headingExpiry: "Guarantee expiry date",
   footer:
     "BMI Mapleland, Suite 12W, 12th Floor, Ataturk Community Centre, Berrylands, 50350 BL, Mapleland. This Guarantee comprises the above Guarantee Particulars and\nthe below Guarantee Terms. Unless otherwise defined, capitalised terms used throughout this Guarantee will have the meanings/refer to the\ninformation given in the Guarantee Particulars above.",
-  filenamePrefix: "BMI Product Guarantee MP"
+  filenamePrefix: "BMI Product Guarantee MP",
+  titleLine1: "Product",
+  titleLine2: "Guarantee",
+  roofType: "Flat",
+  mailBody:
+    "Your BMI Product {{product}}, is now under warranty with BMI.  Please see attached document.  Regards BMI InRouch Team."
 };
 
 export const mockTemplateEsperanto = {
@@ -73,5 +78,10 @@ export const mockTemplateEsperanto = {
   headingExpiry: "Garantia limdato",
   footer:
     "Garantio konsistas el la supraj Garantiaj Informoj kaj\nla ĉi-subaj Garantiaj Kondiĉoj. Krom se alie difinita, majusklaj terminoj uzataj tra ĉi tiu Garantio havos la signifojn / rilatas al la\ninformoj donitaj en la supraj garantiaj informoj.",
-  filenamePrefix: "BMI Produktaj Garantio MP"
+  filenamePrefix: "BMI Produktaj Garantio MP",
+  titleLine1: "Produkta",
+  titleLine2: "Garantio",
+  roofType: "Plata",
+  mailBody:
+    "Via BMI-Produkto {{product}} nun garantias kun BMI. Bonvolu vidi aldonitan dokumenton. Salutas BMI-InRouch-Teamon."
 };

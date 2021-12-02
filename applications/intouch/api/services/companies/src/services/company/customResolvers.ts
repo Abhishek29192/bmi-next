@@ -101,6 +101,7 @@ export const guaranteeResolver = async ({
       guarantee(id: $id) {
         id
         status
+        coverage
         requestorAccount {
           id
           firstName
@@ -142,6 +143,18 @@ export const guaranteeResolver = async ({
           id
           name
           technology
+        }
+        systemBySystemBmiRef {
+          bmiRef
+          name
+          systemMembersBySystemBmiRef {
+            nodes {
+              productBmiRef
+              productByProductBmiRef {
+                name
+              }
+            }
+          }
         }
         startDate
         expiryDate

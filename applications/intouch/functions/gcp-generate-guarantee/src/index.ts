@@ -2,6 +2,7 @@ import { MailService } from "@sendgrid/mail";
 import { AttachmentData } from "@sendgrid/helpers/classes/attachment";
 import { Guarantee } from "@bmi/intouch-api-types";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import { replaceData } from "./util/mail";
 import GuaranteePdfGenerator from "./GuaranteePdf";
 import StorageClient from "./storage-client";
 import GatewayClient from "./GatewayClient";
@@ -22,6 +23,19 @@ export const sendGuaranteePdf = async (postEvent: any) => {
     const payload: Guarantee = JSON.parse(
       Buffer.from(postEvent.data, "base64").toString()
     );
+
+    const {
+      id,
+      project,
+      guaranteeType,
+      productByProductBmiRef,
+      systemBySystemBmiRef
+    } = payload;
+
+    const template = guaranteeType.guaranteeTemplatesCollection.items[0];
+    const product = productByProductBmiRef?.name;
+    const system = systemBySystemBmiRef?.name;
+
     const gatewayClient = await GatewayClient.create();
     const storageClient = new StorageClient();
     const guaranteePdf = new GuaranteePdfGenerator(payload);
@@ -29,7 +43,7 @@ export const sendGuaranteePdf = async (postEvent: any) => {
     const file = await guaranteePdf.create();
 
     //Write file to google cloud
-    const fileName = `guarantee/${payload.id}/${file.name}`;
+    const fileName = `guarantee/${id}/${file.name}`;
     await storageClient.uploadFile(
       GCP_PRIVATE_BUCKET_NAME,
       fileName,
@@ -37,8 +51,7 @@ export const sendGuaranteePdf = async (postEvent: any) => {
     );
 
     //Update guarantee
-    //TODO: We can't update guarantee Because we don't have token etc.
-    await gatewayClient.updateGuaranteeFileStorage(payload.id, fileName);
+    await gatewayClient.updateGuaranteeFileStorage(id, fileName);
 
     const attachment: AttachmentData = {
       content: Buffer.from(file.data).toString("base64"),
@@ -51,10 +64,13 @@ export const sendGuaranteePdf = async (postEvent: any) => {
     const replyTo = "no-reply@intouch.bmigroup.com";
     await sendgridClient.send({
       replyTo,
-      to: payload.project.buildingOwnerMail,
+      to: project.buildingOwnerMail,
       from: MAIL_FROM,
-      subject: "Guarantee PDF",
-      text: "Guarantee PDF",
+      subject: `${template.titleLine1} ${template.titleLine2}`,
+      text: replaceData(template.mailBody, {
+        product,
+        system
+      }),
       attachments: [attachment]
     });
   } catch (error) {

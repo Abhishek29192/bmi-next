@@ -23,8 +23,8 @@ export const guaranteeStatusIcons: Record<
   NOT_APPLICABLE: null,
   STARTED: <Warning style={{ color: "orange" }} />,
   READY: <Check style={{ color: "green" }} />,
-  SUBMITTED: <WatchLaterIcon style={{ color: "blue" }} />,
-  REVIEW: <WatchLaterIcon style={{ color: "blue" }} />,
+  SUBMITTED: <WatchLaterIcon style={{ color: "#009fe3" }} />,
+  REVIEW: <WatchLaterIcon style={{ color: "#009fe3" }} />,
   REJECTED: <Warning style={{ color: "red" }} />,
   APPROVED: <Check style={{ color: "green" }} />
 };

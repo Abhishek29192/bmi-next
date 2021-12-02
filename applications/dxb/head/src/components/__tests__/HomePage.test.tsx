@@ -179,7 +179,8 @@ const homepageData: HomepageData = {
   sections: null,
   inputBanner: null,
   seo: null,
-  breadcrumbs: null
+  breadcrumbs: null,
+  path: "/"
 };
 const mockNavigation: NavigationData = {
   __typename: "ContentfulNavigation",

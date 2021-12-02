@@ -11,8 +11,8 @@ import { tierBenefit } from "../contentful";
 const INSTALLER: Role = "INSTALLER";
 const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
 
-const ERROR_ALREADY_MEMBER = "The user is already a member of another company";
-const ERROR_INVITATION_NOT_FOUND = "Invitation not found";
+const ERROR_ALREADY_MEMBER = "errorAlreadyMember";
+const ERROR_INVITATION_NOT_FOUND = "errorInvitationNotFound";
 
 const { APP_ENV, FRONTEND_URL } = process.env;
 
@@ -134,7 +134,7 @@ export const updateAccount = async (
   const { GCP_PRIVATE_BUCKET_NAME, AUTH0_NAMESPACE } = process.env;
 
   const { pgClient, user, logger: Logger, storageClient } = context;
-  const { photoUpload, role, shouldRemovePhoto }: AccountPatch =
+  const { photoUpload, role, shouldRemovePhoto, status }: AccountPatch =
     args.input.patch;
 
   const logger = Logger("service:account");
@@ -198,6 +198,7 @@ export const updateAccount = async (
         });
 
         await sendMessageWithTemplate(context, "ROLE_ASSIGNED", {
+          accountId: args.input.id,
           email: result.data.$email,
           firstname: result.data.$first_name,
           role: role?.toLowerCase().replace("_", " ")
@@ -254,6 +255,32 @@ export const updateAccount = async (
       // if the current image is externally hosted (i.e. starts with https://) it is probably mock data
       if (currentPhoto && !/^http(s):\/\//.test(currentPhoto)) {
         await storageClient.deleteFile(GCP_PRIVATE_BUCKET_NAME, currentPhoto);
+      }
+    }
+
+    if (status) {
+      if (status === "SUSPENDED") {
+        await pgClient.query(
+          "delete from company_member where account_id = $1",
+          [args.input.id]
+        );
+        await pgClient.query(
+          "delete from project_member where account_id = $1",
+          [args.input.id]
+        );
+        args.input.patch.role = "INSTALLER";
+      }
+
+      const { rows: accounts } = await pgClient.query(
+        "select account.* from account where account.id = $1",
+        [args.input.id]
+      );
+
+      const auth0User = await auth0.getUserByEmail(accounts[0].email);
+      if (auth0User) {
+        await auth0.updateUser(auth0User.user_id, {
+          blocked: status === "SUSPENDED"
+        });
       }
     }
 
@@ -389,10 +416,12 @@ export const invite = async (
         });
         logger.info("Reset password email sent");
       } else {
-        await sendMessageWithTemplate(updatedContext, "NEWUSER_INVITED", {
+        await sendMessageWithTemplate(updatedContext, "MEMBER_INVITED", {
+          accountId: invetees[0].id,
           firstname: invetees[0].first_name,
           company: user.company.name,
           registerlink: `${protocol}://${targetDomain}.${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`,
+          sender: `${user.firstName} ${user.lastName}`,
           email: invetee
         });
         logger.info("Invitation email sent");
@@ -490,6 +519,7 @@ export const completeInvitation = async (
 
       const targetDomain = getTargetDomain(markets[0].domain);
       await sendMessageWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
+        accountId: user.id,
         email: user.email,
         firstname: user.firstName,
         marketUrl: `${protocol}://${targetDomain}.${FRONTEND_URL}`

@@ -2,8 +2,13 @@
 import path from "path";
 import fs from "fs";
 import mockConsole from "jest-mock-console";
+import { mockResponses } from "@bmi/fetch-mocks";
+import fetchMockJest from "fetch-mock-jest";
+
+const fetchMock = fetchMockJest.sandbox();
 
 jest.mock("dotenv", () => ({ config: jest.fn() }));
+jest.mock("node-fetch", () => fetchMock);
 
 let answer;
 let onAsk;
@@ -41,7 +46,8 @@ jest.mock("readline", () => {
   };
 });
 
-const createEntry = jest.fn();
+const publish = jest.fn();
+const createEntry = jest.fn().mockReturnValue({ publish });
 const getEnvironment = jest.fn().mockReturnValue({ createEntry });
 const getSpace = jest.fn().mockReturnValue({ getEnvironment });
 let createClient;
@@ -82,6 +88,7 @@ beforeEach(() => {
 afterEach(() => {
   process.argv = argv;
   process.env = env;
+  fetchMock.reset();
 });
 
 describe("Merchants contentful upload", () => {
@@ -130,11 +137,7 @@ describe("Merchants contentful upload", () => {
   });
 
   it(`checks for first line to be empty`, async () => {
-    process.argv = [
-      "",
-      "",
-      getMinimalPath("first-line-non-empty/merchants.tsv")
-    ];
+    process.argv = ["", "", getMinimalPath("first-line-non-empty.tsv")];
     require("../scripts/merchants");
     await expectQuestion("Continue (y/N)?");
     answer("y");
@@ -146,11 +149,7 @@ describe("Merchants contentful upload", () => {
   });
 
   it(`checks that header line matches the template`, async () => {
-    process.argv = [
-      "",
-      "",
-      getMinimalPath("incorrect-header-line/merchants.tsv")
-    ];
+    process.argv = ["", "", getMinimalPath("incorrect-header-line.tsv")];
     require("../scripts/merchants");
     await expectQuestion("Continue (y/N)?");
     answer("y");
@@ -186,24 +185,10 @@ describe("Merchants contentful upload", () => {
   });
 
   it(`handles if the file doesn't exist`, async () => {
-    process.argv = [
-      "",
-      "",
-      getMinimalPath("a-non-existent-file/merchants.tsv")
-    ];
+    process.argv = ["", "", getMinimalPath("a-non-existent-file.tsv")];
     require("../scripts/merchants");
     await expectQuestion("Continue (y/N)?");
     answer("y");
-    await done;
-    expect((console.log as jest.Mock).mock.calls).toMatchSnapshot("log");
-    expect((console.error as jest.Mock).mock.calls).toMatchSnapshot("error");
-
-    expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
-  });
-
-  it(`checks that the file must be called "merchants"`, async () => {
-    process.argv = ["", "", getMinimalPath("not-merchants.tsv")];
-    require("../scripts/merchants");
     await done;
     expect((console.log as jest.Mock).mock.calls).toMatchSnapshot("log");
     expect((console.error as jest.Mock).mock.calls).toMatchSnapshot("error");
@@ -222,6 +207,44 @@ describe("Merchants contentful upload", () => {
     expect((console.log as jest.Mock).mock.calls).toMatchSnapshot("log");
     expect((console.error as jest.Mock).mock.calls).toMatchSnapshot("error");
 
+    expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
+  });
+
+  it("geocodes address", async () => {
+    mockResponses(fetchMock, {
+      method: "GET",
+      url: `begin:https://maps.googleapis.com`,
+      body: {
+        results: [{ geometry: { location: { lat: 1, lng: 2 } } }]
+      }
+    });
+
+    process.argv = ["", "", getMinimalPath("empty-location.tsv")];
+    require("../scripts/merchants");
+    await expectQuestion("Continue (y/N)?");
+    answer("y");
+    await done;
+
+    expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
+  });
+
+  it("geocoding doesn't return results", async () => {
+    mockResponses(fetchMock, {
+      method: "GET",
+      url: `begin:https://maps.googleapis.com`,
+      body: {
+        results: [],
+        error_message: "Test error message"
+      }
+    });
+
+    process.argv = ["", "", getMinimalPath("empty-location.tsv")];
+    require("../scripts/merchants");
+    await expectQuestion("Continue (y/N)?");
+    answer("y");
+    await done;
+
+    expect((console.error as jest.Mock).mock.calls).toMatchSnapshot("error");
     expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
   });
 });

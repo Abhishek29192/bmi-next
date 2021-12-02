@@ -185,7 +185,7 @@ exports[`ProjectSidePanel component renders correctly 1`] = `
                 <svg
                   class="technologyIcon"
                 />
-                In progress
+                filters.labels.IN_PROGRESS
               </p>
             </div>
             <svg
@@ -403,7 +403,7 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
                 <svg
                   class="technologyIcon"
                 />
-                Completed
+                filters.labels.COMPLETED
               </p>
             </div>
             <svg
@@ -453,7 +453,7 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
                 <svg
                   class="technologyIcon"
                 />
-                In progress
+                filters.labels.IN_PROGRESS
               </p>
             </div>
             <svg
@@ -503,7 +503,7 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
                 <svg
                   class="technologyIcon"
                 />
-                Not started
+                filters.labels.NOT_STARTED
               </p>
             </div>
             <svg

@@ -3,9 +3,10 @@
 
 require("dotenv").config();
 const fs = require("fs");
-const path = require("path");
 const { promisify } = require("util");
 const readline = require("readline");
+const { capitalize } = require("lodash");
+const fetch = require("node-fetch");
 const contentful = require("contentful-management");
 
 const rl = readline.createInterface({
@@ -18,37 +19,126 @@ const ask = async (question) =>
 
 const readFile = promisify(fs.readFile);
 
-const SEPARATOR = "\t";
-
 const LOCALE = process.env.LOCALE;
-
+const SEPARATOR = "\t";
 const CONTENT_TYPE_ID = "roofer";
-
-const TEMPLATE_NAME = "merchants";
 
 const columns = [
   { label: "Company Name", name: "name", type: "string" },
   { label: "Latitude", name: "lat", type: "number" },
   { label: "Longitude", name: "lon", type: "number" },
+  { label: "Type of Merchant", name: "merchantType", type: "string" },
   { label: "Address", name: "address", type: "string" },
   { label: "City", name: "city", type: "string" },
   { label: "Postcode", name: "postcode", type: "string" },
   { label: "PhoneNumber", name: "phone", type: "string" },
   { label: "Email", name: "email", type: "string" },
-  { label: "Company Website", name: "website", type: "string" },
+  { label: "Website", name: "website", type: "string" },
   { label: "Summary of Company", name: "summary", type: "string" }
 ];
+
+const toTitleCase = (str) => str.replace(/\w+/g, capitalize);
 
 const columnsString = columns.map(({ label }) => label).join(", ");
 
 const parsers = {
   string: (v) => v,
-  number: (v) => parseFloat(v)
+  number: (v) => parseFloat(v.replace(",", ".").replace('"', ""))
 };
 
 const parseValue = (type, value) => parsers[type](value.trim());
 
-const upload = async (file, environment) => {
+const uploadLines = async (lines, environment) => {
+  for (const [index, dataLine] of lines) {
+    const lineNumber = index + 1;
+    if (!dataLine.trim()) {
+      console.log(`Skipping empty line: ${lineNumber}`);
+      continue;
+    }
+
+    const record = dataLine
+      .trim()
+      .split(SEPARATOR)
+      .reduce((acc, value, i) => {
+        const { name, type } = columns[i];
+        acc[name] = parseValue(type, value);
+        return acc;
+      }, {});
+
+    console.log(`Uploading line ${lineNumber}: ${record["name"]}`);
+
+    const address =
+      toTitleCase(
+        record["address"] + (record["city"] ? `, ${record["city"]}` : "")
+      ) + (record["postcode"] ? `, ${record["postcode"]}` : "");
+
+    let location =
+      typeof record["lat"] === "number" &&
+      !isNaN(record["lat"]) &&
+      typeof record["lon"] === "number" &&
+      !isNaN(record["lon"])
+        ? {
+            lat: record["lat"],
+            lon: record["lon"]
+          }
+        : undefined;
+
+    if (!location && address) {
+      const response = await fetch(
+        encodeURI(
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${record["name"]}${address}&key=${process.env.GOOGLE_GEOCODE_API_KEY}`
+        )
+      );
+      const { results, error_message } = await response.json();
+      if (results.length) {
+        const geocodedLocation = results[0]["geometry"]["location"];
+        location = {
+          lat: geocodedLocation["lat"],
+          lon: geocodedLocation["lng"]
+        };
+      } else {
+        console.error(
+          `Address "${address}" couldn't be geocoded. Error: ${error_message}.`
+        );
+      }
+    }
+
+    const fields = {
+      entryType: "Merchant",
+      name: toTitleCase(record["name"]),
+      location,
+      merchantType: [record["merchantType"]],
+      address,
+      phone: record["phone"],
+      email: record["email"],
+      website: record["website"]
+        ? record["website"].indexOf("//") > -1
+          ? record["website"]
+          : "https://" + record["website"]
+        : undefined,
+      summary: record["summary"]
+    };
+
+    const fieldsLocalised = Object.entries(fields).reduce(
+      (acc, [key, value]) => {
+        acc[key] = { [LOCALE]: value };
+        return acc;
+      },
+      {}
+    );
+
+    try {
+      const newEntry = await environment.createEntry(CONTENT_TYPE_ID, {
+        fields: fieldsLocalised
+      });
+      await newEntry.publish();
+    } catch (error) {
+      console.error(`Failed to upload line: ${lineNumber}`, error);
+    }
+  }
+};
+
+const uploadFile = async (file, environment) => {
   console.log(`Reading ${file}`);
 
   const data = await readFile(file, "utf8");
@@ -71,7 +161,7 @@ const upload = async (file, environment) => {
         "\n" +
         `Expected: ${columnsString}` +
         "\n" +
-        `Found: ${headerLineColumns}`
+        `Found:    ${headerLineColumns.join(", ")}`
     );
   }
 
@@ -79,58 +169,7 @@ const upload = async (file, environment) => {
     `Uploading ${dataLines.length} lines to columns: ${columnsString}`
   );
 
-  for (const [index, dataLine] of dataLines.entries()) {
-    if (!dataLine.trim()) {
-      console.log(`Skipping empty line: ${index + 1}`);
-      continue;
-    }
-
-    const record = dataLine.split(SEPARATOR).reduce((acc, value, i) => {
-      const { name, type } = columns[i];
-      acc[name] = parseValue(type, value);
-      return acc;
-    }, {});
-
-    const fields = {
-      entryType: "Merchant",
-      name: record["name"],
-      ...(typeof record["lat"] === "number" &&
-      !isNaN(record["lat"]) &&
-      typeof record["lon"] === "number" &&
-      !isNaN(record["lon"])
-        ? {
-            location: {
-              lat: record["lat"],
-              lon: record["lon"]
-            }
-          }
-        : {}),
-      address:
-        record["address"] +
-        (record["city"] ? `, ${record["city"]}` : "") +
-        (record["postcode"] ? `, ${record["postcode"]}` : ""),
-      phone: record["phone"],
-      email: record["email"],
-      website: record["website"],
-      summary: record["summary"]
-    };
-
-    const fieldsLocalised = Object.entries(fields).reduce(
-      (acc, [key, value]) => {
-        acc[key] = { [LOCALE]: value };
-        return acc;
-      },
-      {}
-    );
-
-    try {
-      await environment.createEntry(CONTENT_TYPE_ID, {
-        fields: fieldsLocalised
-      });
-    } catch (error) {
-      console.error(`Failed to upload line: ${index + 1}`, error);
-    }
-  }
+  await uploadLines(dataLines.entries(), environment);
 };
 
 const main = async (file) => {
@@ -139,16 +178,6 @@ const main = async (file) => {
   }
 
   console.log(`Looking in ${file}`);
-
-  const fileContentTypeId = path.basename(file, path.extname(file));
-
-  if (fileContentTypeId !== TEMPLATE_NAME) {
-    throw new Error(
-      `The file must be named the same as the template name:` +
-        "\n" +
-        `Expected: ${TEMPLATE_NAME} Found: ${fileContentTypeId}`
-    );
-  }
 
   if (
     ![
@@ -185,7 +214,7 @@ const main = async (file) => {
     return;
   }
 
-  await upload(file, environment);
+  await uploadFile(file, environment);
 
   console.log("All done");
 };

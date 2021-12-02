@@ -6,14 +6,19 @@ import getRecaptchaPrivacyContent, {
 } from "./RecaptchaContentProvider";
 import { useSiteContext } from "./Site";
 
-const RecaptchaPrivacyLinks = () => {
+type Props = {
+  className?: string;
+};
+
+const RecaptchaPrivacyLinks = (props: Props) => {
   const { countryCode } = useSiteContext();
+  const { className } = props;
 
   return useMemo(() => {
     const recaptchaContent: RecaptchaPolicyContentType =
       getRecaptchaPrivacyContent(countryCode);
     return (
-      <Typography className="RecaptchaPrivacyLinks">
+      <Typography className={className ? className : "RecaptchaPrivacyLinks"}>
         {recaptchaContent.startText}
         <AnchorLink
           action={{

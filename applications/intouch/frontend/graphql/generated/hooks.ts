@@ -263,6 +263,28 @@ export const CompanyCertificationsFragmentDoc = gql`
     certifications
   }
 `;
+export const CompanyDocumentFragmentFragmentDoc = gql`
+  fragment CompanyDocumentFragment on CompanyDocument {
+    id
+    document
+    name
+    documentType
+    size
+    signedDocumentUrl
+    createdAt
+    updatedAt
+  }
+`;
+export const CompanyDocumentsFragmentFragmentDoc = gql`
+  fragment CompanyDocumentsFragment on Company {
+    companyDocuments {
+      nodes {
+        ...CompanyDocumentFragment
+      }
+    }
+  }
+  ${CompanyDocumentFragmentFragmentDoc}
+`;
 export const CompanyPageDetailsFragmentFragmentDoc = gql`
   fragment CompanyPageDetailsFragment on Company {
     id
@@ -270,6 +292,7 @@ export const CompanyPageDetailsFragmentFragmentDoc = gql`
     ...CompanyRegisteredDetailsFragment
     ...CompanyAdminsFragment
     ...CompanyCertifications
+    ...CompanyDocumentsFragment
     status
     isProfileComplete
   }
@@ -277,6 +300,7 @@ export const CompanyPageDetailsFragmentFragmentDoc = gql`
   ${CompanyRegisteredDetailsFragmentFragmentDoc}
   ${CompanyAdminsFragmentFragmentDoc}
   ${CompanyCertificationsFragmentDoc}
+  ${CompanyDocumentsFragmentFragmentDoc}
 `;
 export const AccountPageDetailsFragmentFragmentDoc = gql`
   fragment AccountPageDetailsFragment on Account {
@@ -494,6 +518,113 @@ export type GetGlobalDataQueryResult = Apollo.QueryResult<
   OperationTypes.GetGlobalDataQuery,
   OperationTypes.GetGlobalDataQueryVariables
 >;
+export const CreateCompanyDocumentsDocument = gql`
+  mutation createCompanyDocuments($input: CreateCompanyDocumentsInput!) {
+    createCompanyDocuments(input: $input) {
+      companyDocuments {
+        ...CompanyDocumentFragment
+      }
+    }
+  }
+  ${CompanyDocumentFragmentFragmentDoc}
+`;
+export type CreateCompanyDocumentsMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateCompanyDocumentsMutation,
+  OperationTypes.CreateCompanyDocumentsMutationVariables
+>;
+
+/**
+ * __useCreateCompanyDocumentsMutation__
+ *
+ * To run a mutation, you first call `useCreateCompanyDocumentsMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateCompanyDocumentsMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createCompanyDocumentsMutation, { data, loading, error }] = useCreateCompanyDocumentsMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateCompanyDocumentsMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateCompanyDocumentsMutation,
+    OperationTypes.CreateCompanyDocumentsMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateCompanyDocumentsMutation,
+    OperationTypes.CreateCompanyDocumentsMutationVariables
+  >(CreateCompanyDocumentsDocument, options);
+}
+export type CreateCompanyDocumentsMutationHookResult = ReturnType<
+  typeof useCreateCompanyDocumentsMutation
+>;
+export type CreateCompanyDocumentsMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateCompanyDocumentsMutation>;
+export type CreateCompanyDocumentsMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateCompanyDocumentsMutation,
+  OperationTypes.CreateCompanyDocumentsMutationVariables
+>;
+export const DeleteCompanyDocumentDocument = gql`
+  mutation deleteCompanyDocument($input: DeleteCompanyDocumentInput!) {
+    deleteCompanyDocument(input: $input) {
+      companyDocument {
+        id
+        document
+        createdAt
+      }
+    }
+  }
+`;
+export type DeleteCompanyDocumentMutationFn = Apollo.MutationFunction<
+  OperationTypes.DeleteCompanyDocumentMutation,
+  OperationTypes.DeleteCompanyDocumentMutationVariables
+>;
+
+/**
+ * __useDeleteCompanyDocumentMutation__
+ *
+ * To run a mutation, you first call `useDeleteCompanyDocumentMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteCompanyDocumentMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteCompanyDocumentMutation, { data, loading, error }] = useDeleteCompanyDocumentMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useDeleteCompanyDocumentMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.DeleteCompanyDocumentMutation,
+    OperationTypes.DeleteCompanyDocumentMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.DeleteCompanyDocumentMutation,
+    OperationTypes.DeleteCompanyDocumentMutationVariables
+  >(DeleteCompanyDocumentDocument, options);
+}
+export type DeleteCompanyDocumentMutationHookResult = ReturnType<
+  typeof useDeleteCompanyDocumentMutation
+>;
+export type DeleteCompanyDocumentMutationResult =
+  Apollo.MutationResult<OperationTypes.DeleteCompanyDocumentMutation>;
+export type DeleteCompanyDocumentMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.DeleteCompanyDocumentMutation,
+  OperationTypes.DeleteCompanyDocumentMutationVariables
+>;
 export const UpdateCompanyDetailsDocument = gql`
   mutation updateCompanyDetails($input: UpdateCompanyInput!) {
     updateCompany(input: $input) {
@@ -686,6 +817,10 @@ export const ImportAccountsCompaniesFromCvsDocument = gql`
           town
           country
           postcode
+          coordinates {
+            x
+            y
+          }
         }
         companyMembers {
           nodes {
@@ -750,6 +885,75 @@ export type ImportAccountsCompaniesFromCvsMutationOptions =
     OperationTypes.ImportAccountsCompaniesFromCvsMutation,
     OperationTypes.ImportAccountsCompaniesFromCvsMutationVariables
   >;
+export const UpdateMarketDocument = gql`
+  mutation updateMarket($input: UpdateMarketInput!) {
+    updateMarket(input: $input) {
+      query {
+        markets {
+          nodes {
+            id
+            language
+            domain
+            cmsSpaceId
+            name
+            sendName
+            sendMailbox
+            doceboInstallersBranchId
+            doceboCompanyAdminBranchId
+            doceboCatalogueId
+            merchandisingUrl
+            projectsEnabled
+            locationBiasRadiusKm
+            gtag
+          }
+        }
+      }
+    }
+  }
+`;
+export type UpdateMarketMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateMarketMutation,
+  OperationTypes.UpdateMarketMutationVariables
+>;
+
+/**
+ * __useUpdateMarketMutation__
+ *
+ * To run a mutation, you first call `useUpdateMarketMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateMarketMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateMarketMutation, { data, loading, error }] = useUpdateMarketMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateMarketMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateMarketMutation,
+    OperationTypes.UpdateMarketMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateMarketMutation,
+    OperationTypes.UpdateMarketMutationVariables
+  >(UpdateMarketDocument, options);
+}
+export type UpdateMarketMutationHookResult = ReturnType<
+  typeof useUpdateMarketMutation
+>;
+export type UpdateMarketMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateMarketMutation>;
+export type UpdateMarketMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateMarketMutation,
+  OperationTypes.UpdateMarketMutationVariables
+>;
 export const BulkImportDocument = gql`
   mutation bulkImport($input: BulkImportInput!) {
     bulkImport(input: $input) {
@@ -3763,6 +3967,74 @@ export type GetContentArticleContentQueryResult = Apollo.QueryResult<
   OperationTypes.GetContentArticleContentQuery,
   OperationTypes.GetContentArticleContentQueryVariables
 >;
+export const MarketsDocument = gql`
+  query markets {
+    markets {
+      nodes {
+        id
+        language
+        domain
+        cmsSpaceId
+        name
+        sendName
+        sendMailbox
+        doceboInstallersBranchId
+        doceboCompanyAdminBranchId
+        doceboCatalogueId
+        merchandisingUrl
+        projectsEnabled
+        gtag
+        locationBiasRadiusKm
+      }
+    }
+  }
+`;
+
+/**
+ * __useMarketsQuery__
+ *
+ * To run a query within a React component, call `useMarketsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMarketsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMarketsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useMarketsQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.MarketsQuery,
+    OperationTypes.MarketsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.MarketsQuery,
+    OperationTypes.MarketsQueryVariables
+  >(MarketsDocument, options);
+}
+export function useMarketsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.MarketsQuery,
+    OperationTypes.MarketsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.MarketsQuery,
+    OperationTypes.MarketsQueryVariables
+  >(MarketsDocument, options);
+}
+export type MarketsQueryHookResult = ReturnType<typeof useMarketsQuery>;
+export type MarketsLazyQueryHookResult = ReturnType<typeof useMarketsLazyQuery>;
+export type MarketsQueryResult = Apollo.QueryResult<
+  OperationTypes.MarketsQuery,
+  OperationTypes.MarketsQueryVariables
+>;
 export const ProductsAndSystemsDocument = gql`
   query ProductsAndSystems {
     products(orderBy: NAME_ASC) {
@@ -4225,6 +4497,7 @@ export const TeamMembersDocument = gql`
         lastName
         firstName
         formattedRole
+        status
         certificationsByDoceboUserId(
           filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
         ) {

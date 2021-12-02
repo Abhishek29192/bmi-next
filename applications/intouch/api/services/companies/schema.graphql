@@ -400,6 +400,42 @@ type Query implements Node {
   ): EvidenceItemsConnection
 
   """
+  Reads and enables pagination through a set of `FindIncompleteCompanyProfile`.
+  """
+  findIncompleteCompanyProfiles(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `FindIncompleteCompanyProfile`.
+    """
+    orderBy: [FindIncompleteCompanyProfilesOrderBy!] = [NATURAL]
+  ): FindIncompleteCompanyProfilesConnection
+
+  """
   Reads and enables pagination through a set of `FindRoofer`.
   """
   findRoofers(
@@ -1830,17 +1866,17 @@ type Market implements Node {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -2161,6 +2197,7 @@ enum Language {
   PL
   ES
   FI
+  IT
 }
 
 type Point {
@@ -5315,6 +5352,17 @@ type CompanyDocument implements Node {
   Reads a single `Company` that is related to this `CompanyDocument`.
   """
   company: Company
+  name: String
+  documentType: CompanyDocumentType
+  size: Int
+  signedDocumentUrl: String
+}
+
+enum CompanyDocumentType {
+  PDF
+  JPG
+  JPEG
+  PNG
 }
 
 """
@@ -6679,6 +6727,61 @@ input AddressFilter {
   Negates the expression.
   """
   not: AddressFilter
+}
+
+"""
+A connection to a list of `FindIncompleteCompanyProfile` values.
+"""
+type FindIncompleteCompanyProfilesConnection {
+  """
+  A list of `FindIncompleteCompanyProfile` objects.
+  """
+  nodes: [FindIncompleteCompanyProfile!]!
+
+  """
+  A list of edges which contains the `FindIncompleteCompanyProfile` and cursor to aid in pagination.
+  """
+  edges: [FindIncompleteCompanyProfilesEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `FindIncompleteCompanyProfile` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type FindIncompleteCompanyProfile {
+  id: Int
+  firstName: String
+  lastName: String
+  email: String
+  marketid: Int
+}
+
+"""
+A `FindIncompleteCompanyProfile` edge in the connection.
+"""
+type FindIncompleteCompanyProfilesEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `FindIncompleteCompanyProfile` at the end of the edge.
+  """
+  node: FindIncompleteCompanyProfile!
+}
+
+"""
+Methods to use when ordering `FindIncompleteCompanyProfile`.
+"""
+enum FindIncompleteCompanyProfilesOrderBy {
+  NATURAL
 }
 
 """
@@ -8154,6 +8257,7 @@ type Mutation {
     """
     input: ImportAccountsCompaniesFromCSVInput!
   ): ImportAccountsCompaniesFromCSVResult
+  sendReminderToIncompleteCompanyProfile: String
 }
 
 """
@@ -8661,7 +8765,7 @@ The fields on `market` to look up the row to connect.
 """
 input MarketMarketDoceboCatalogueIdKeyConnect {
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -8701,7 +8805,7 @@ The fields on `market` to look up the row to delete.
 """
 input MarketMarketDoceboCatalogueIdKeyDelete {
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -8771,17 +8875,17 @@ input updateMarketOnCompanyForCompanyMarketIdFkeyPatch {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -9193,17 +9297,17 @@ input updateMarketOnAccountForAccountMarketIdFkeyPatch {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -10998,17 +11102,17 @@ input updateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -14483,17 +14587,17 @@ input updateMarketOnSystemForSystemMarketIdFkeyPatch {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -14846,17 +14950,17 @@ input updateMarketOnProductForProductMarketIdFkeyPatch {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -20080,17 +20184,17 @@ input updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -20348,7 +20452,7 @@ input MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDoceboCatalogueI
   patch: updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch!
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -20408,17 +20512,17 @@ input MarketPatch {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -20496,17 +20600,17 @@ input SystemMemberMarketIdFkeyMarketCreateInput {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -21103,7 +21207,7 @@ input MarketOnProductForProductMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate
   patch: updateMarketOnProductForProductMarketIdFkeyPatch!
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -21163,17 +21267,17 @@ input ProductMarketIdFkeyMarketCreateInput {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -21321,7 +21425,7 @@ input MarketOnSystemForSystemMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate {
   patch: updateMarketOnSystemForSystemMarketIdFkeyPatch!
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -21381,17 +21485,17 @@ input SystemMarketIdFkeyMarketCreateInput {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -22871,7 +22975,7 @@ input MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketDoceboCatalogu
   patch: updateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch!
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -22931,17 +23035,17 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -23143,6 +23247,7 @@ input CompanyDocumentCompanyIdFkeyCompanyDocumentCreateInput {
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: CompanyDocumentCompanyIdFkeyInput
+  attachmentUpload: Upload
 }
 
 """
@@ -23546,7 +23651,7 @@ input MarketOnAccountForAccountMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate
   patch: updateMarketOnAccountForAccountMarketIdFkeyPatch!
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -23606,17 +23711,17 @@ input AccountMarketIdFkeyMarketCreateInput {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -23724,7 +23829,7 @@ input MarketOnCompanyForCompanyMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate
   patch: updateMarketOnCompanyForCompanyMarketIdFkeyPatch!
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -23784,17 +23889,17 @@ input CompanyMarketIdFkeyMarketCreateInput {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -24035,6 +24140,7 @@ input CompanyDocumentInput {
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: CompanyDocumentCompanyIdFkeyInput
+  attachmentUpload: Upload
 }
 
 """
@@ -24549,17 +24655,17 @@ input MarketInput {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -26392,7 +26498,7 @@ input UpdateMarketByDoceboCatalogueIdInput {
   patch: MarketPatch!
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -27978,7 +28084,7 @@ input DeleteMarketByDoceboCatalogueIdInput {
   clientMutationId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }

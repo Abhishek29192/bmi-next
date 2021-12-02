@@ -1,6 +1,19 @@
 @import "@bmi/styles";
 
 .Tabs {
+  position: relative;
+
+  .TabPanel {
+
+    &[hidden] {
+      position: absolute;
+      top: -9999px;
+      left: -99999px;
+      width: 100%;
+      display: block;
+    }
+  }
+
   .TabPanelBox {
     background: $color-white;
     padding: 24px 0 0 0;
@@ -59,6 +72,12 @@
       .TabPanel,
       .TabPanelBox {
         display: initial;
+
+        &[hidden] {
+          position: initial;
+          left: 0;
+          top: 0;
+        }
       }
     }
   }
@@ -74,6 +93,12 @@
       .TabPanel,
       .TabPanelBox {
         display: initial;
+
+        &[hidden] {
+          position: initial;
+          left: 0;
+          top: 0;
+        }
       }
     }
   }
