@@ -110,9 +110,9 @@ export type FeatureUnit = {
 };
 
 export type Classification = {
-  code: ClassificationCodeEnum;
+  code: string;
   features: Feature[];
-  name: ClassificationCodeEnum;
+  name: string;
 };
 
 export type Feature = {
