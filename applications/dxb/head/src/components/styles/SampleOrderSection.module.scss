@@ -1,58 +1,64 @@
 @import "@bmi/styles";
 
 .SampleOrderSection {
-  margin: 18px 0px;
-  padding-top: 18px;
-  border-top: 1px solid $color-storm;
-  overflow: hidden;
-  @media (max-width: 1300px) {
-    margin-bottom: 0;
-  }
-  .sample-message {
-    display: flex;
-    margin-bottom: 12px;
-    justify-content: flex-end;
-    @media (max-width: $breakpoint-lg) {
-      justify-content: flex-start;
-      margin-bottom: 18px;
-    }
-  }
-  .buttons-container {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0 -16px;
-    padding: 0 8px;
-    box-sizing: content-box;
-
-    & button {
-      white-space: nowrap;
-      font-size: 18px;
-      flex-grow: 1;
-      margin: 8px;
-      @media (max-width: 1024px) {
-        font-size: 16px;
-      }
-    }
-    & button:nth-child(2) {
-      margin-left: 16px;
-    }
-    .complete-order {
-      margin: 8px;
-      flex-grow: 1;
-    }
+  .container {
+    margin: 18px 0px;
+    padding-top: 18px;
+    border-top: 1px solid $color-storm;
+    overflow: hidden;
     @media (max-width: 1300px) {
-      flex-direction: column;
-      margin: 0 -16px;
-      box-sizing: border-box;
-      width: auto;
-      button {
-        white-space: normal;
+      margin-bottom: 0;
+    }
+
+    .sample-message {
+      display: flex;
+      margin-bottom: 12px;
+      justify-content: flex-end;
+      @media (max-width: $breakpoint-lg) {
+        margin-bottom: 18px;
       }
-      & button:last-child {
-        margin-left: 0;
-        margin-bottom: 24px;
+    }
+
+    .buttons-container {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0 -16px;
+      padding: 0 8px;
+      box-sizing: content-box;
+
+      & button {
+        white-space: nowrap;
+        font-size: 18px;
+        flex-grow: 1;
+        margin: 8px;
+        @media (max-width: 1024px) {
+          font-size: 16px;
+        }
+      }
+
+      & button:nth-child(2) {
+        margin-left: 16px;
+      }
+
+      .complete-order {
+        margin: 8px;
+        flex-grow: 1;
+      }
+
+      @media (max-width: 1300px) {
+        flex-direction: column;
+        margin: 0 -16px;
+        box-sizing: border-box;
+        width: auto;
+        button {
+          white-space: normal;
+        }
+        & button:last-child {
+          margin-left: 0;
+          margin-bottom: 24px;
+        }
       }
     }
   }
