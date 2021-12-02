@@ -42,7 +42,7 @@
   "companyOperations": "Operasjonstype",
   "companyOperationsSuffix": "Taktype",
   "operationTypes": {
-    "FLAT": "Flatt tak",
+    "FLAT": "Flate tak",
     "PITCHED": "Skråtak",
     "SOLAR": "Solar PV tak",
     "BITUMEN": "bitumen",
