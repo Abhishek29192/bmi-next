@@ -1,0 +1,10 @@
+{
+  "accountImported": "These accounts are been imported in the local db",
+  "auth0Job": "Import job in Auth0 created",
+  "auth0JobText": "An import job it's been created in Auth0 with id:",
+  "companiesImported": "These companies are been imported in the local db",
+  "importCompleted": "Import completed",
+  "submit": "Submit",
+  "uploadFile": "Upload files",
+  "uploadFileText": "Please upload thiese files: {market}-accounts.csv, {market}-companies.csv, {market}-addresses.csv, {market}-members.csv, {market}-owners.csv"
+}
