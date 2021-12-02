@@ -24,3 +24,24 @@ export const getCollapseVariantsByBaseProductCodeQuery = () => {
     }
   };
 };
+
+export const getUniqueBaseProductCount = () => {
+  return {
+    unique_base_products_count: {
+      cardinality: {
+        field: "code.keyword"
+      }
+    }
+  };
+};
+
+export const getVariantsByBaseProductCodeQuery = () => {
+  return {
+    collapse: {
+      field: "code.keyword",
+      inner_hits: {
+        name: "all_variants"
+      }
+    }
+  };
+};
