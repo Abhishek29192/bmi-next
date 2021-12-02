@@ -592,18 +592,50 @@
         }
       };
 
+      const getLanguage = (config) => {
+        let locale = location.hash.substr(1) || config.extraParams.market;
+        // If we land to intouch.* without the market we set en as defualt;
+        if (locale === "intouch") {
+          locale = "no";
+        }
+
+        return locale;
+      };
+
+      const setupImage = (config) => {
+        const language = getLanguage(config);
+
+        // Map market / projects status
+        var marketsProjectMap = {
+          no: true, // project active
+          it: true,
+          en: false // project not active
+        };
+
+        // Map projects status / image
+        var marketImages = {
+          projectActive: "@@roof_imf@@",
+          projectNotActive: "@@non_roof_img@@"
+        };
+
+        if (document.getElementsByClassName("login-screen").length) {
+          const image = marketsProjectMap[language]
+            ? marketImages.projectActive
+            : marketImages.projectNotActive;
+
+          document.getElementsByClassName(
+            "login-screen"
+          )[0].style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${image}")`;
+        }
+      };
+
       // finally, pass them to AlpineI18n:
       document.addEventListener("alpine-i18n:ready", function () {
         const config = JSON.parse(
           decodeURIComponent(escape(window.atob("@@config@@")))
         );
 
-        let locale = location.hash.substr(1) || config.extraParams.market;
-        // If we land to intouch.* without the market we set en as defualt;
-        if (locale === "intouch") {
-          locale = "no";
-        }
-        window.AlpineI18n.create(locale, messages);
+        window.AlpineI18n.create(getLanguage(config), messages);
       });
 
       window.addEventListener("load", function () {
@@ -612,9 +644,11 @@
         // Fix to avoid label overlap
         document.getElementsByClassName("login-screen")[0].focus();
 
-        var config = JSON.parse(
+        const config = JSON.parse(
           decodeURIComponent(escape(window.atob("@@config@@")))
         );
+
+        setupImage(config);
 
         var leeway = config.internalOptions.leeway;
         if (leeway) {
@@ -639,12 +673,15 @@
           config.internalOptions
         );
 
-        var language = config.extraParams.market;
+        const language = getLanguage(config);
+        const { env } = config.extraParams;
+
+        const prefix = env === "prod" ? language : `${env}-${language}`;
 
         document.getElementById("terms-link").href =
-          "https://" + language + ".intouch.dddev.io/terms";
+          "https://" + prefix + ".intouch.bmigroup.com/terms";
         document.getElementById("privacy-link").href =
-          "https://" + language + ".intouch.dddev.io/privacy";
+          "https://" + prefix + ".intouch.bmigroup.com/privacy";
 
         var webAuth = new auth0.WebAuth(params);
         var databaseConnection = "Username-Password-Authentication";
@@ -673,10 +710,8 @@
             type + "-success-message"
           );
 
-          console.log("message", message, AlpineI18n.t(message));
-
           if (messages[language] && messages[language][message]) {
-            errorMessage.innerHTML = AlpineI18n.t(message);
+            successMessage.innerHTML = AlpineI18n.t(message);
           }
 
           successMessage.style.display = "block";
@@ -774,7 +809,6 @@
               email: email
             },
             function (err, resp) {
-              console.log("button", button);
               button.disabled = false;
               if (err) {
                 displayError(error.code, "reset-password");
