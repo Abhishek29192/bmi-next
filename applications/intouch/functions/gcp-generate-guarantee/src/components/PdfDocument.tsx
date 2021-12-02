@@ -77,7 +77,7 @@ export const PdfDocument = ({
         </Col>
         <Col width={360} marginTop={20}>
           <Typography variant="h1" marginBottom={2}>
-            {guaranteeType.displayName}
+            {template.titleLine1} {template.titleLine2}
           </Typography>
           <SVG width={20} height={20}>
             {svgMap[guaranteeType.technology]}
