@@ -19,7 +19,9 @@ export const config = {
 
 const { GRAPHQL_URL, NODE_ENV } = process.env;
 const isDev = NODE_ENV === "development";
-const isLocalGateway = GRAPHQL_URL?.indexOf("local") !== -1;
+const isLocalGateway =
+  GRAPHQL_URL?.indexOf("local") !== -1 ||
+  GRAPHQL_URL?.indexOf("127.0.0.1") !== -1;
 
 const proxyOptions: Options = {
   headers: {
