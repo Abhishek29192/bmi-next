@@ -9,6 +9,7 @@ import {
   useBasketContext
 } from "../contexts/SampleBasketContext";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import styles from "./styles/SampleOrderSection.module.scss";
 import { useSiteContext } from "./Site";
 import { getCTA } from "./Link";
@@ -49,12 +50,12 @@ const SampleOrderSection = ({
 
   const sampleMessage = () => {
     if (isBasketFull) {
-      return getMicroCopy("pdp.overview.sampleLimitReachedMessage");
+      return getMicroCopy(microCopy.PDP_OVERVIEW_SAMPLE_LIMIT_REACHED_MESSAGE);
     }
     if (isSampleOrderAllowed) {
-      return getMicroCopy("pdp.overview.canAddMoreMessage");
+      return getMicroCopy(microCopy.PDP_OVERVIEW_CAN_ADD_MORE_MESSAGE);
     }
-    return getMicroCopy("pdp.overview.canAddOtherMessage");
+    return getMicroCopy(microCopy.PDP_OVERVIEW_CAN_ADD_OTHER_MESSAGE);
   };
   const [hasSampleInTheBasket, setHasSampleInTheBasket] = useState(false);
   const [isBasketFull, setIsBasketFull] = useState(false);
@@ -93,7 +94,7 @@ const SampleOrderSection = ({
                     onClick={() => removeFromBasket(variant)}
                     variant="text"
                   >
-                    {getMicroCopy("pdp.overview.removeSample")}
+                    {getMicroCopy(microCopy.PDP_OVERVIEW_REMOVE_SAMPLE)}
                   </Button>
                 ) : !isBasketFull ? (
                   <GTMButton
@@ -102,11 +103,11 @@ const SampleOrderSection = ({
                     onClick={() => addToBasket(variant)}
                     gtm={{
                       id: "cta-click1-samples-ordering",
-                      label: getMicroCopy("pdp.overview.addSample"),
+                      label: getMicroCopy(microCopy.PDP_OVERVIEW_ADD_SAMPLE),
                       action: actionLabel
                     }}
                   >
-                    {getMicroCopy("pdp.overview.addSample")}
+                    {getMicroCopy(microCopy.PDP_OVERVIEW_ADD_SAMPLE)}
                   </GTMButton>
                 ) : undefined
               ) : undefined}
@@ -117,7 +118,7 @@ const SampleOrderSection = ({
                   variant="outlined"
                   action={cta.action}
                 >
-                  {getMicroCopy("pdp.overview.completeSampleOrder")}
+                  {getMicroCopy(microCopy.PDP_OVERVIEW_COMPLETE_SAMPLE_ORDER)}
                 </Button>
               )}
             </div>

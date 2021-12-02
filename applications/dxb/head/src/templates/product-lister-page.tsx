@@ -61,6 +61,7 @@ import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 import { ProductFilter, removePLPFilterPrefix } from "../utils/product-filters";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
+import { microCopy } from "../constants/microCopies";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -450,7 +451,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 <LeadBlock.Card theme="pearl">
                   <LeadBlock.Card.Section>
                     <LeadBlock.Card.Heading hasUnderline>
-                      {getMicroCopy("plp.keyFeatures.title")}
+                      {getMicroCopy(microCopy.PLP_KEY_FEATURES_TITLE)}
                     </LeadBlock.Card.Heading>
                     <LeadBlock.Card.Content>
                       {isFeaturesArrayExist && (
@@ -509,7 +510,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 <Grid container spacing={3}>
                   {products.length === 0 && (
                     <Typography>
-                      {getMicroCopy("plp.product.noResultsFound")}
+                      {getMicroCopy(microCopy.PLP_PRODUCT_NO_RESULTS_FOUND)}
                     </Typography>
                   )}
                   {products.flatMap((variant) => {
@@ -530,7 +531,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                     );
                     const moreOptionsAvailable =
                       variant.all_variants?.length > 1 &&
-                      getMicroCopy("plp.product.moreOptionsAvailable");
+                      getMicroCopy(
+                        microCopy.PLP_PRODUCT_MORE_OPTIONS_AVAILABLE
+                      );
 
                     return (
                       <Grid
@@ -562,11 +565,13 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                           gtm={{
                             id: "cta-click1",
                             action: productUrl,
-                            label: getMicroCopy("plp.product.viewDetails")
+                            label: getMicroCopy(
+                              microCopy.PLP_PRODUCT_VIEW_DETAILS
+                            )
                           }}
                           footer={
                             <AnchorLink iconEnd>
-                              {getMicroCopy("plp.product.viewDetails")}
+                              {getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS)}
                             </AnchorLink>
                           }
                           moreOptionsAvailable={moreOptionsAvailable}

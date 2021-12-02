@@ -4,6 +4,7 @@ import Button from "@bmi/button";
 import LeadBlock from "@bmi/lead-block";
 import Section from "@bmi/section";
 import TableOfContent from "@bmi/table-of-content";
+import { microCopy } from "../constants/microCopies";
 import { useSiteContext } from "./Site";
 import RichText, { RichTextData } from "./RichText";
 import Link, { Data as LinkData } from "./Link";
@@ -53,7 +54,7 @@ const LeadBlockSection = ({
             ) : (
               <>
                 <LeadBlock.Card.Heading hasUnderline>
-                  {getMicroCopy("page.jumpToSection")}
+                  {getMicroCopy(microCopy.PAGE_JUMP_TO_SECTION)}
                 </LeadBlock.Card.Heading>
                 <LeadBlock.Card.Content>
                   <TableOfContent.Menu />

@@ -13,6 +13,7 @@ import Typography from "@bmi/typography/src";
 import Button from "@bmi/button/src";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
+import { microCopy } from "../constants/microCopies";
 import { Data as SiteData } from "../components/Site";
 import { Data as PageInfoData } from "../components/PageInfo";
 import Page, { Data as PageData } from "../components/Page";
@@ -319,9 +320,9 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                 return (
                   <AlertBanner severity="info">
                     <AlertBanner.Title>
-                      {getMicroCopy("downloadList.info.title")}
+                      {getMicroCopy(microCopy.DOWNLOAD_LIST_INFO_TITLE)}
                     </AlertBanner.Title>
-                    {getMicroCopy("downloadList.info.message")}
+                    {getMicroCopy(microCopy.DOWNLOAD_LIST_INFO_MESSAGE)}
                   </AlertBanner>
                 );
               }}
@@ -333,10 +334,14 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                     <PerfectScrollbar className={filterStyles["scroll-bar"]}>
                       <div className={filterStyles["box"]}>
                         <Typography variant="h5">
-                          {getMicroCopy("documentLibrary.filters.title")}
+                          {getMicroCopy(
+                            microCopy.DOCUMENT_LIBRARY_FILTERS_TITLE
+                          )}
                         </Typography>
                         <Button variant="text" onClick={clearFilters}>
-                          {getMicroCopy("documentLibrary.filters.clearAll")}
+                          {getMicroCopy(
+                            microCopy.DOCUMENT_LIBRARY_FILTERS_CLEAR_ALL
+                          )}
                         </Button>
                       </div>
                       <DownloadListContext.Consumer>
@@ -394,7 +399,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                         </div>
                       </>
                     ) : (
-                      getMicroCopy("documentLibrary.noResults")
+                      getMicroCopy(microCopy.DOCUMENT_LIBRARY_NO_RESULTS)
                     )}
                   </Grid>
                 </Grid>

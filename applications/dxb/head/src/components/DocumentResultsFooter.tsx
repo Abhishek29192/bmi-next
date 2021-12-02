@@ -8,6 +8,7 @@ import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFileNamebyTitle
@@ -122,7 +123,7 @@ const DocumentResultsFooter = ({
       {onDownloadClick && !isMobile && (
         <>
           <DownloadList.Clear
-            label={getMicroCopy("downloadList.clear")}
+            label={getMicroCopy(microCopy.DOWNLOAD_LIST_CLEAR)}
             className={styles["clear-downloads"]}
           />
           <DownloadList.Button
@@ -140,7 +141,9 @@ const DocumentResultsFooter = ({
                 {...props}
               />
             )}
-            label={`${getMicroCopy("downloadList.download")} ({{count}})`}
+            label={`${getMicroCopy(
+              microCopy.DOWNLOAD_LIST_DOWNLOAD
+            )} ({{count}})`}
             onClick={async (list) => {
               const token = await executeRecaptcha();
 

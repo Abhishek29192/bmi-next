@@ -6,6 +6,7 @@ import LeadBlock from "@bmi/lead-block";
 import Typography from "@bmi/typography";
 import { useSiteContext } from "../../components/Site";
 import withGTM from "../../utils/google-tag-manager";
+import { microCopy } from "../../constants/microCopies";
 import BimIframe from "../../components/BimIframe";
 import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
 import RichText, { RichTextData } from "../../components/RichText";
@@ -64,7 +65,10 @@ const TabLeadBlock = ({
         />
       )}
     >
-      <Tabs.TabPanel heading={getMicroCopy("sdp.leadBlock.about")} index="one">
+      <Tabs.TabPanel
+        heading={getMicroCopy(microCopy.SDP_LEAD_BLOCK_ABOUT)}
+        index="one"
+      >
         <Section className={styles["section"]} backgroundColor="white">
           <AboutLeadBlock
             longDescription={longDescription}
@@ -79,7 +83,9 @@ const TabLeadBlock = ({
       </Tabs.TabPanel>
       {technicalSpecClassifications?.length && (
         <Tabs.TabPanel
-          heading={getMicroCopy("sdp.leadBlock.technicalSpecification")}
+          heading={getMicroCopy(
+            microCopy.SDP_LEAD_BLOCK_TECHNICAL_SPECIFICATION
+          )}
           index="two"
         >
           <Section className={styles["section"]} backgroundColor="white">
@@ -91,7 +97,9 @@ const TabLeadBlock = ({
       )}
       {documentsAndDownloads?.length && (
         <Tabs.TabPanel
-          heading={getMicroCopy("sdp.leadBlock.documentsAndDownloads")}
+          heading={getMicroCopy(
+            microCopy.SDP_LEAD_BLOCK_DOCUMENTS_AND_DOWNLOADS
+          )}
           index="three"
         >
           <Section className={styles["section"]} backgroundColor="white">
@@ -100,7 +108,10 @@ const TabLeadBlock = ({
         </Tabs.TabPanel>
       )}
       {Boolean(bimContent?.bimIframeUrl) && (
-        <Tabs.TabPanel heading={getMicroCopy("sdp.tabs.bim")} index="four">
+        <Tabs.TabPanel
+          heading={getMicroCopy(microCopy.SDP_TABS_BIM)}
+          index="four"
+        >
           <div className={styles["bimLeadBlock"]}>
             <Section className={styles["section"]} backgroundColor="pearl">
               <LeadBlock>

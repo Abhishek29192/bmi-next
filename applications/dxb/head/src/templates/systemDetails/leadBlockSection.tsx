@@ -19,6 +19,8 @@ import {
   SYSTEM_CONFIG_QUERY_KEY_REFERER,
   SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
 } from "../../constants/queryConstants";
+import { microCopy } from "../../constants/microCopies";
+
 import styles from "./styles/leadBlockSection.module.scss";
 
 const BlueCheckIcon = (
@@ -102,7 +104,7 @@ const LeadBlockSection = ({
   }, []);
 
   const backToYourSelectionText = getMicroCopy(
-    "sdp.leadBlock.backToYourSelection"
+    microCopy.SDP_LEAD_BLOCK_BACK_TO_YOUR_SELECTION
   );
   const backToYourSelectionBtnHref = `${prevPagePath}?referer=${referer}`;
   return (

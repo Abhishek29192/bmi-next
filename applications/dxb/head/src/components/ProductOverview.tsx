@@ -6,6 +6,7 @@ import ProductOverviewPane, {
 import ImageGallery, { Image } from "@bmi/image-gallery";
 import Thumbnail, { Props as ThumbnailProps } from "@bmi/thumbnail";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import styles from "./styles/ProductOverview.module.scss";
 import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
@@ -49,7 +50,7 @@ const ProductOverview = ({
             thumbnailComponent={(props: ThumbnailProps) => (
               <GTMThumbnail gtm={{ id: "thumbnail1" }} {...props} />
             )}
-            nobbLabel={getMicroCopy("pdp.nobb.label")}
+            nobbLabel={getMicroCopy(microCopy.PDP_NOBB_LABEL)}
             attributes={attributes || undefined}
           >
             {children}

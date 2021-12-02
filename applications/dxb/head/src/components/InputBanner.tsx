@@ -11,6 +11,7 @@ import Button, { ButtonProps } from "@bmi/button";
 import Typography from "@bmi/typography";
 import { devLog } from "../utils/devLog";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import { useSiteContext } from "./Site";
 import FormSection, { InputType as FormInputsData } from "./FormSection";
 import RichText, { RichTextData } from "./RichText";
@@ -144,10 +145,11 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
               {({ values, submitButtonDisabled }) => {
                 return (
                   <Dialog.Actions
-                    cancelLabel={getMicroCopy("dialog.cancel")}
+                    cancelLabel={getMicroCopy(microCopy.DIALOG_CANCEL)}
                     onCancelClick={() => setDialogOpen(false)}
                     confirmLabel={
-                      confirmationButtonLabel || getMicroCopy("dialog.confirm")
+                      confirmationButtonLabel ||
+                      getMicroCopy(microCopy.DIALOG_CONFIRM)
                     }
                     isConfirmButtonDisabled={submitButtonDisabled}
                     onConfirmClick={() => {
@@ -186,12 +188,14 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
         </Dialog.Content>
 
         <Dialog.Actions
-          cancelLabel={getMicroCopy("dialog.close")}
+          cancelLabel={getMicroCopy(microCopy.DIALOG_CLOSE)}
           onCancelClick={() => {
             setRetryDialogOpen(false);
           }}
           confirmLabel={
-            canRetry ? retryButtonLabel || getMicroCopy("dialog.retry") : null
+            canRetry
+              ? retryButtonLabel || getMicroCopy(microCopy.DIALOG_RETRY)
+              : null
           }
           onConfirmClick={() => {
             if (canRetry) {
@@ -207,13 +211,13 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
         onCloseClick={() => setSecondDialogOpen(false)}
       >
         <Dialog.Title hasUnderline>
-          {getMicroCopy("confirmationMessage.title")}
+          {getMicroCopy(microCopy.CONFIRMATION_MESSAGE_TITLE)}
         </Dialog.Title>
         <Dialog.Content>
-          {thankYouMessage || getMicroCopy("confirmationMessage.body")}
+          {thankYouMessage || getMicroCopy(microCopy.CONFIRMATION_MESSAGE_BODY)}
         </Dialog.Content>
         <Dialog.Actions
-          confirmLabel={getMicroCopy("dialog.close")}
+          confirmLabel={getMicroCopy(microCopy.DIALOG_CLOSE)}
           onConfirmClick={() => {
             setSecondDialogOpen(false);
           }}

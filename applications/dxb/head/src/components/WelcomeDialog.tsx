@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Dialog from "@bmi/dialog";
 import classnames from "classnames";
 import useStickyState from "../utils/sticky-state";
+import { microCopy } from "../constants/microCopies";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import BrandLogo from "./BrandLogo";
@@ -61,7 +62,7 @@ const WelcomeDialog = ({ data }: { data: Data }) => {
         </div>
       </Dialog.Content>
       <Dialog.Actions
-        confirmLabel={getMicroCopy("dialog.close")}
+        confirmLabel={getMicroCopy(microCopy.DIALOG_CLOSE)}
         onConfirmClick={closeDialog}
       />
     </Dialog>

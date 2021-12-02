@@ -38,6 +38,7 @@ import { useLocation } from "@reach/router";
 import { devLog } from "../utils/devLog";
 import withGTM from "../utils/google-tag-manager";
 import AutoCompleteCountryMap from "../countries/GoogleCountryCodeMap";
+import { microCopy } from "../constants/microCopies";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import {
@@ -454,13 +455,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         return { id: eventCategoryId, label, action };
       }
     };
-    const globalAddress = getMicroCopy("global.address");
+    const globalAddress = getMicroCopy(microCopy.GLOBAL_ADDRESS);
 
     const address: DetailProps = {
       type: "address",
       display: shouldShowIcons ? "icon" : "contentOnly",
       text: service.address,
-      label: getMicroCopy("global.address"),
+      label: getMicroCopy(microCopy.GLOBAL_ADDRESS),
       action: isAddressClickable
         ? getClickableActionFromUrl(
             undefined,
@@ -488,11 +489,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             type: "distance",
             display: shouldShowIcons ? "icon" : "label",
             text: `${Math.floor(service.distance) / 1000}km`,
-            label: getMicroCopy("findARoofer.distanceLabel")
+            label: getMicroCopy(microCopy.FIND_A_ROOFER_DISTANCE_LABEL)
           }
         : undefined;
 
-    const getDirectionsLabel = getMicroCopy("findARoofer.getDirectionsLabel");
+    const getDirectionsLabel = getMicroCopy(
+      microCopy.FIND_A_ROOFER_GET_DIRECTIONS_LABEL
+    );
     const directions: DetailProps | undefined = {
       type: "cta",
       text: getDirectionsLabel,
@@ -516,7 +519,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       label: getDirectionsLabel
     };
 
-    const globalTelephone = getMicroCopy("global.telephone");
+    const globalTelephone = getMicroCopy(microCopy.GLOBAL_TELEPHONE);
     const phone: DetailProps | undefined = service.phone
       ? {
           type: "phone",
@@ -535,7 +538,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           label: globalTelephone
         }
       : undefined;
-    const gloablEmail = getMicroCopy("global.email");
+    const gloablEmail = getMicroCopy(microCopy.GLOBAL_EMAIL);
     const email: DetailProps | undefined = service.email
       ? {
           type: "email",
@@ -554,8 +557,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           label: gloablEmail
         }
       : undefined;
-    const globalWebsite = getMicroCopy("global.website");
-    const websiteLabel = getMicroCopy("findARoofer.websiteLabel");
+    const globalWebsite = getMicroCopy(microCopy.GLOBAL_WEBSITE);
+    const websiteLabel = getMicroCopy(microCopy.FIND_A_ROOFER_WEBSITE_LABEL);
     const website: DetailProps | undefined = service.website
       ? {
           type: "website",
@@ -583,14 +586,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           type: "content",
           text: service.fax,
           textStyle: "bold",
-          label: getMicroCopy("global.fax")
+          label: getMicroCopy(microCopy.GLOBAL_FAX)
         }
       : undefined;
     const type: DetailProps | undefined =
       service.type || service.branchType || service.merchantType
         ? {
             type: "content",
-            label: getMicroCopy("findARoofer.roofTypeLabel"),
+            label: getMicroCopy(microCopy.FIND_A_ROOFER_ROOF_TYPE_LABEL),
             text: <b>{getMicroCopyForServiceType(service)}</b>
           }
         : undefined;
@@ -598,7 +601,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     const certification: DetailProps = service.certification
       ? {
           type: "roofProLevel",
-          label: getMicroCopy("findARoofer.certificationLabel"),
+          label: getMicroCopy(microCopy.FIND_A_ROOFER_CERTIFICATION_LABEL),
           level: service.certification.toLowerCase() as RoofProLevel
         }
       : undefined;
@@ -730,7 +733,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                 <Autocomplete
                   id="company-autocomplete"
                   label={getMicroCopy(`findARoofer.${nameSearchLabelKey}`)}
-                  noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
+                  noOptionsText={getMicroCopy(
+                    microCopy.FIND_A_ROOFER_NO_RESULTS_LABEL
+                  )}
                   className={styles["company-autocomplete"]}
                   onChange={(_, inputValue) => {
                     setShowResultList(true);
@@ -752,12 +757,16 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                   startAdornmentIcon="HardHatHead"
                 />
                 <Typography className={styles["and-or-label"]}>
-                  <span>{getMicroCopy("findARoofer.andOr")}</span>
+                  <span>{getMicroCopy(microCopy.FIND_A_ROOFER_AND_OR)}</span>
                 </Typography>
                 <GoogleAutocomplete
                   id="location-autocomplete"
-                  label={getMicroCopy("findARoofer.locationFieldLabel")}
-                  noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
+                  label={getMicroCopy(
+                    microCopy.FIND_A_ROOFER_LOCATION_FIELD_LABEL
+                  )}
+                  noOptionsText={getMicroCopy(
+                    microCopy.FIND_A_ROOFER_NO_RESULTS_LABEL
+                  )}
                   className={styles["location-autocomplete"]}
                   onPlaceChange={handlePlaceChange}
                   freeSolo
@@ -782,7 +791,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     });
                   }}
                 >
-                  {getMicroCopy("findARoofer.geolocationButton")}
+                  {getMicroCopy(microCopy.FIND_A_ROOFER_GEOLOCATION_BUTTON)}
                 </GeolocationButton>
               </>
             ) : undefined}
@@ -828,7 +837,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               md={12}
               lg={4}
               className={styles["tab-panel"]}
-              heading={getMicroCopy("findARoofer.listLabel")}
+              heading={getMicroCopy(microCopy.FIND_A_ROOFER_LIST_LABEL)}
               index="list"
             >
               <div className={styles["list"]}>
@@ -848,7 +857,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                           {service.address}
                           {service.certification && shouldListCertification && (
                             <div className={styles["roofpro-certification"]}>
-                              {getMicroCopy("findARoofer.certificationLabel")}:
+                              {getMicroCopy(
+                                microCopy.FIND_A_ROOFER_CERTIFICATION_LABEL
+                              )}
+                              :
                               <Logo
                                 source={
                                   iconSourceMap[
@@ -879,10 +891,12 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                       variant="h4"
                       className={styles["no-results-heading"]}
                     >
-                      {getMicroCopy("findARoofer.noResults.title")}
+                      {getMicroCopy(microCopy.FIND_A_ROOFER_NO_RESULTS_TITLE)}
                     </Typography>
                     <Typography>
-                      {getMicroCopy("findARoofer.noResults.subtitle")}
+                      {getMicroCopy(
+                        microCopy.FIND_A_ROOFER_NO_RESULTS_SUBTITLE
+                      )}
                     </Typography>
                   </div>
                 )}
@@ -893,7 +907,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             md={12}
             lg={showResultList ? 8 : 12}
             className={styles["tab-panel"]}
-            heading={getMicroCopy("findARoofer.mapLabel")}
+            heading={getMicroCopy(microCopy.FIND_A_ROOFER_MAP_LABEL)}
             index="map"
           >
             <div className={styles["map"]}>
@@ -918,7 +932,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                         <Button
                           isIconButton
                           variant="text"
-                          accessibilityLabel={getMicroCopy("global.close")}
+                          accessibilityLabel={getMicroCopy(
+                            microCopy.GLOBAL_CLOSE
+                          )}
                           onClick={clearRooferAndResetMap}
                           className={
                             styles["product-details-card__close-button"]

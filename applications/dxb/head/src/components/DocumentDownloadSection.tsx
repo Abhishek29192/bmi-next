@@ -6,6 +6,7 @@ import Table from "@bmi/table";
 import Button, { ButtonProps } from "@bmi/button";
 import Icon from "@bmi/icon";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import fileIconsMap from "../components/FileIconsMap";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
@@ -48,10 +49,12 @@ const DocumentDownloadSection = ({
           <Table.Head>
             <Table.Row>
               <Table.Cell>
-                {getMicroCopy("documentDownloadSection.documentTitle")}
+                {getMicroCopy(
+                  microCopy.DOCUMENT_DOWNLOAD_SECTION_DOCUMENT_TITLE
+                )}
               </Table.Cell>
               <Table.Cell align="right">
-                {getMicroCopy("documentDownloadSection.download")}
+                {getMicroCopy(microCopy.DOCUMENT_DOWNLOAD_SECTION_DOWNLOAD)}
               </Table.Cell>
             </Table.Row>
           </Table.Head>

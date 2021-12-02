@@ -9,6 +9,8 @@ import AnchorLink from "@bmi/anchor-link";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
+import { iconMap } from "../components/Icon";
 import {
   findMasterImageUrl,
   findProductBrandLogoCode,
@@ -20,7 +22,6 @@ import {
 import { Product, VariantOption } from "./types/pim"; // Hmmmmmm
 import styles from "./styles/RelatedProducts.module.scss";
 import { useSiteContext } from "./Site";
-import { iconMap } from "./Icon";
 
 const ProductListing = ({
   countryCode,
@@ -135,19 +136,21 @@ const ProductListing = ({
                 }}
                 gtm={{
                   id: "cta-click1",
-                  label: getMicroCopy("pdp.relatedProducts.viewDetails"),
+                  label: getMicroCopy(
+                    microCopy.PDP_RELATED_PRODUCTS_VIEW_DETAILS
+                  ),
                   action: productUrl
                 }}
                 footer={
                   <AnchorLink component="span" iconEnd>
-                    {getMicroCopy("pdp.relatedProducts.viewDetails")}
+                    {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_VIEW_DETAILS)}
                   </AnchorLink>
                 }
               >
                 {variant.externalProductCode !== null &&
                 variant.externalProductCode !== "" ? (
                   <>
-                    {getMicroCopy("pdp.nobb.label")}:{" "}
+                    {getMicroCopy(microCopy.PDP_NOBB_LABEL)}:{" "}
                     <b>{variant.externalProductCode}</b>
                   </>
                 ) : (
@@ -161,7 +164,7 @@ const ProductListing = ({
       {numberShown < allVariants.length ? (
         <div className={styles["load-more-wrapper"]}>
           <Button onClick={onLoadMore} variant="outlined" endIcon={<AddIcon />}>
-            {getMicroCopy("pdp.relatedProducts.showMore")}
+            {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_SHOW_MORE)}
           </Button>
         </div>
       ) : null}
@@ -202,7 +205,9 @@ const RelatedProducts = ({
 
   return (
     <Section backgroundColor="alabaster">
-      <Section.Title>{getMicroCopy("pdp.relatedProducts.title")}</Section.Title>
+      <Section.Title>
+        {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_TITLE)}
+      </Section.Title>
       <div className={styles["RelatedProducts"]}>
         <Tabs
           theme="secondary"

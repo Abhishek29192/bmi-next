@@ -25,6 +25,7 @@ import TextField from "@bmi/text-field";
 import { getPathWithCountryCode } from "../utils/path";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { isValidEmail } from "../utils/emailUtils";
+import { microCopy } from "../constants/microCopies";
 import HiddenInput from "./HiddenInput";
 import styles from "./styles/FormSection.module.scss";
 import { useSiteContext } from "./Site";
@@ -133,13 +134,13 @@ const Input = ({
     if (value.match(/.+@.+\..+/)) {
       return false;
     } else {
-      return getMicroCopy("errors.emailInvalid");
+      return getMicroCopy(microCopy.ERRORS_EMAIL_INVALID);
     }
   };
 
   const handleFileValidation = (file: File) => {
     if (maxSize && file.size > maxSize * 1048576) {
-      return getMicroCopy("errors.maxSize", {
+      return getMicroCopy(microCopy.ERRORS_MAX_SIZE, {
         size: getFileSizeString(maxSize * 1048576)
       });
     }
@@ -153,7 +154,9 @@ const Input = ({
           name={name}
           buttonLabel={label}
           isRequired={required}
-          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
+          fieldIsRequiredError={getMicroCopy(
+            microCopy.UPLOAD_FIELD_IS_REQUIRED
+          )}
           uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
           headers={{
             "Content-Type": "application/octet-stream"
@@ -161,11 +164,13 @@ const Input = ({
           accept={accept}
           fileValidation={handleFileValidation}
           instructions={
-            `${getMicroCopy("form.upload.supportedFormats")}: ${accept}.` +
+            `${getMicroCopy(
+              microCopy.FORM_UPLOAD_SUPPORTED_FORMATS
+            )}: ${accept}.` +
             (maxSize
-              ? ` ${getMicroCopy("form.upload.maxSize")}: ${getFileSizeString(
-                  maxSize * 1048576
-                )}`
+              ? ` ${getMicroCopy(
+                  microCopy.FORM_UPLOAD_MAX_SIZE
+                )}: ${getFileSizeString(maxSize * 1048576)}`
               : "")
           }
           mapBody={mapBody}
@@ -181,10 +186,10 @@ const Input = ({
           }}
           microcopyProvider={{
             "upload.instructions.drop": getMicroCopy(
-              "upload.instructions.drop"
+              microCopy.UPLOAD_INSTRUCTIONS_DROP
             ),
             "upload.instructions.browse": getMicroCopy(
-              "upload.instructions.browse"
+              microCopy.UPLOAD_INSTRUCTIONS_BROWSE
             )
           }}
         />
@@ -206,7 +211,9 @@ const Input = ({
       return (
         <Select
           isRequired={required}
-          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
+          fieldIsRequiredError={getMicroCopy(
+            microCopy.UPLOAD_FIELD_IS_REQUIRED
+          )}
           label={label}
           name={name}
         >
@@ -227,7 +234,9 @@ const Input = ({
           name={name}
           label={convertMarkdownLinksToAnchorLinks(label)}
           isRequired={required}
-          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
+          fieldIsRequiredError={getMicroCopy(
+            microCopy.UPLOAD_FIELD_IS_REQUIRED
+          )}
         />
       );
     case "hubspot-text":
@@ -256,7 +265,9 @@ const Input = ({
         <TextField
           name={name}
           isRequired={required}
-          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
+          fieldIsRequiredError={getMicroCopy(
+            microCopy.UPLOAD_FIELD_IS_REQUIRED
+          )}
           isTextArea={type === "textarea"}
           variant="outlined"
           label={label}
@@ -570,7 +581,7 @@ const FormSection = ({
               }
               disabled={isSubmitting || isSubmitDisabled}
             >
-              {submitText || getMicroCopy("form.submit")}
+              {submitText || getMicroCopy(microCopy.FORM_SUBMIT)}
             </Form.SubmitButton>
           </Form.ButtonWrapper>
         </Form>

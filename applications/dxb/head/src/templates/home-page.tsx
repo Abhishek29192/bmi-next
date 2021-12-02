@@ -18,6 +18,7 @@ import withGTM from "../utils/google-tag-manager";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 import { getPathWithCountryCode } from "../utils/path";
+import { microCopy } from "../constants/microCopies";
 
 type HomepageData = {
   __typename: "ContentfulHomePage";
@@ -54,7 +55,7 @@ const getHeroItemsWithContext = (
             component={Button}
             data={{ linkedPage: { path: rest["path"] } }}
           >
-            {getMicroCopy("page.linkLabel")}
+            {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
           </Link>
         );
 
@@ -109,13 +110,16 @@ const HomePage = ({ data, pageContext }: Props) => {
               <Search
                 buttonComponent={(props) => (
                   <GTMButton
-                    gtm={{ id: "search2", label: getMicroCopy("search.label") }}
+                    gtm={{
+                      id: "search2",
+                      label: getMicroCopy(microCopy.SEARCH_LABEL)
+                    }}
                     {...props}
                   />
                 )}
                 action={getPathWithCountryCode(countryCode, "search")}
-                label={getMicroCopy("search.label")}
-                placeholder={getMicroCopy("search.placeholder.hero")}
+                label={getMicroCopy(microCopy.SEARCH_LABEL)}
+                placeholder={getMicroCopy(microCopy.SEARCH_PLACEHOLDER_HERO)}
               />
             </Hero>
             {overlapCards && <OverlapCards data={overlapCards} />}

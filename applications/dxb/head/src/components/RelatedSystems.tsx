@@ -11,6 +11,7 @@ import withGTM from "../utils/google-tag-manager";
 import { System } from "../components/types/pim";
 import { getPathWithCountryCode } from "../utils/path";
 import { findMasterImageUrl } from "../utils/product-details-transforms";
+import { microCopy } from "../constants/microCopies";
 import { iconMap } from "./Icon";
 import styles from "./styles/RelatedSystems.module.scss";
 import { useSiteContext } from "./Site";
@@ -72,7 +73,7 @@ export const SystemCard = ({
         gtm={gtm}
         footer={
           <Button variant="outlined">
-            {getMicroCopy("sdp.system.readMore")}
+            {getMicroCopy(microCopy.SDP_SYSTEM_READ_MORE)}
           </Button>
         }
         isHighlighted={isHighlighted}
@@ -136,7 +137,9 @@ const SystemListing = ({
               gtm={{
                 id: "cta-click1",
                 label:
-                  system.name + " - " + getMicroCopy("sdp.system.readMore"),
+                  system.name +
+                  " - " +
+                  getMicroCopy(microCopy.SDP_SYSTEM_READ_MORE),
                 action: getSystemUrl(countryCode, system.path)
               }}
             />
@@ -146,7 +149,7 @@ const SystemListing = ({
       {numberShown < weightedSystems.length ? (
         <div className={styles["load-more-wrapper"]}>
           <Button onClick={onLoadMore} variant="outlined" endIcon={<AddIcon />}>
-            {getMicroCopy("pdp.relatedProducts.showMore")}
+            {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_SHOW_MORE)}
           </Button>
         </div>
       ) : null}
@@ -180,7 +183,8 @@ const RelatedSystems = ({
     <Section backgroundColor={sectionBackgroundColor || "alabaster"}>
       <div className={styles["RelatedSystems"]}>
         <Section.Title className={styles["title"]}>
-          {sectionTitle || getMicroCopy("sdp.recommendedSystemsTitle")}
+          {sectionTitle ||
+            getMicroCopy(microCopy.SDP_RECOMMENDED_SYSTEMS_TITLE)}
         </Section.Title>
         <SystemListing systems={systems} countryCode={countryCode} />
       </div>

@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
 import Villain, { Props as VillainProps } from "@bmi/villain";
+import { microCopy } from "../constants/microCopies";
 import { renderVideo } from "./Video";
 import { Data as PromoData } from "./Promo";
 import { useSiteContext } from "./Site";
@@ -29,7 +30,11 @@ const SyndicateSection = ({
 
   const villainsData = villains?.map((data) => {
     const callToAction = React.useMemo(() => {
-      const cta = getCTA(data, countryCode, getMicroCopy("page.linkLabel"));
+      const cta = getCTA(
+        data,
+        countryCode,
+        getMicroCopy(microCopy.PAGE_LINK_LABEL)
+      );
 
       if (data.__typename == "ContentfulPromo" && data.cta) {
         return (
@@ -42,7 +47,7 @@ const SyndicateSection = ({
       if (cta && cta.action) {
         return (
           <Button action={cta.action} variant="opaqueOutlined">
-            {getMicroCopy("page.linkLabel")}
+            {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
           </Button>
         );
       }

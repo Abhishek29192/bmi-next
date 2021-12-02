@@ -12,6 +12,7 @@ import {
   getProductUrl,
   mapClassificationValues
 } from "../utils/product-details-transforms";
+import { microCopy } from "../constants/microCopies";
 import { useSiteContext } from "./Site";
 
 // TODO: This is the transformed indexed data
@@ -28,7 +29,9 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
 
   if (products.length === 0) {
     return (
-      <Typography>{getMicroCopy("plp.product.noResultsFound")}</Typography>
+      <Typography>
+        {getMicroCopy(microCopy.PLP_PRODUCT_NO_RESULTS_FOUND)}
+      </Typography>
     );
   }
 
@@ -82,12 +85,12 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
               }}
               gtm={{
                 id: "cta-click1",
-                label: getMicroCopy("plp.product.viewDetails"),
+                label: getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS),
                 action: productUrl
               }}
               footer={
                 <AnchorLink component="span" iconEnd>
-                  {getMicroCopy("plp.product.viewDetails")}
+                  {getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS)}
                 </AnchorLink>
               }
             >

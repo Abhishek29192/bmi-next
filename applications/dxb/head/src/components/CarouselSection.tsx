@@ -12,6 +12,7 @@ import Button from "@bmi/button";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { Data as PromoData } from "../components/Promo";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
 import { Data as LinkData, getClickableActionFromUrl, getCTA } from "./Link";
@@ -83,7 +84,7 @@ const CarouselSection = ({
           slides={parseSlides(
             slides,
             countryCode,
-            getMicroCopy("page.linkLabel")
+            getMicroCopy(microCopy.PAGE_LINK_LABEL)
           )}
           rollerSectionComponent={(props: ButtonBaseProps) => (
             <GTMButton
@@ -101,7 +102,7 @@ const CarouselSection = ({
           slides={parseSlides(
             slides,
             countryCode,
-            getMicroCopy("page.linkLabel")
+            getMicroCopy(microCopy.PAGE_LINK_LABEL)
           )}
         />
       )}
