@@ -16,7 +16,7 @@ module.exports = merge(webpackConfiguration, {
     ...webpackConfiguration.output,
     path: path.resolve(__dirname, "../dist/uat/"),
     publicPath:
-      "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-uat/auth0"
+      "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-qa/auth0"
   },
 
   /* Manage source maps generation process. Refer to https://webpack.js.org/configuration/devtool/#production */
@@ -53,12 +53,12 @@ module.exports = merge(webpackConfiguration, {
             {
               search: "@@non_roof_img@@",
               replace:
-                "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-uat/auth0/images/bmi_non_roofpro_intouch.jpg"
+                "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-qa/auth0/images/bmi_non_roofpro_intouch.jpg"
             },
             {
               search: "@@roof_imf@@",
               replace:
-                "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-uat/auth0/images/bmi_roofpro_intouch.jpg"
+                "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-qa/auth0/images/bmi_roofpro_intouch.jpg"
             }
           ]
         }

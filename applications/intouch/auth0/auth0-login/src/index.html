@@ -711,7 +711,7 @@
           );
 
           if (messages[language] && messages[language][message]) {
-            errorMessage.innerHTML = AlpineI18n.t(message);
+            successMessage.innerHTML = AlpineI18n.t(message);
           }
 
           successMessage.style.display = "block";
@@ -809,7 +809,6 @@
               email: email
             },
             function (err, resp) {
-              console.log("button", button);
               button.disabled = false;
               if (err) {
                 displayError(error.code, "reset-password");
