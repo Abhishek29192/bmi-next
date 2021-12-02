@@ -40,6 +40,18 @@ const canSeeProjects = (account) => {
   return false;
 };
 
+const canSeeTeam = (account) => {
+  if (
+    [ROLES.SUPER_ADMIN, ROLES.MARKET_ADMIN, ROLES.COMPANY_ADMIN].includes(
+      account?.role
+    )
+  ) {
+    return true;
+  }
+
+  return false;
+};
+
 const canSeeMediaLibrary = (account) => {
   return (
     ["T2", "T3", "T4"].includes(findAccountTier(account)) ||
@@ -170,7 +182,8 @@ const gates = {
   },
   page: {
     projects: canSeeProjects,
-    mediaLibrary: canSeeMediaLibrary
+    mediaLibrary: canSeeMediaLibrary,
+    team: canSeeTeam
   },
   navigation: {
     // Home (Available to All authenticated users)
