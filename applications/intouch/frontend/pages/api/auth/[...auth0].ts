@@ -9,8 +9,6 @@ import Account from "../../../lib/account";
 import { getMarketAndEnvFromReq } from "../../../lib/utils";
 import { withLoggerApi } from "../../../lib/middleware/withLogger";
 
-const { APP_ENV } = process.env;
-
 interface Request extends NextApiRequest {
   logger: any;
 }
@@ -71,8 +69,7 @@ export const getLoginOptions = (req) => {
   // url, in this wai we can redirect the user to the right market
   return {
     authorizationParams: {
-      market,
-      env: APP_ENV
+      market
     }
   };
 };
