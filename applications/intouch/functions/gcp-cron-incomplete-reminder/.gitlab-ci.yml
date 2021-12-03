@@ -4,7 +4,9 @@ build_gcp-intouch-cron-incomplete-reminder:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
       changes:
         - applications/intouch/functions/gcp-cron-incomplete-reminder/**/*
-  needs: []
+  needs:
+    - job: install
+      optional: true
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:
