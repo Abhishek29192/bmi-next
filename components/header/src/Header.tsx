@@ -297,7 +297,7 @@ const Header = ({
       )}
       <div className={styles["navigation-bar"]}>
         <Container>
-          <div className={styles["navigation-bar__left"]}>
+          <div className={styles["navigation-bar-content"]}>
             <Clickable
               {...logoAction}
               className={styles["logo-link"]}
@@ -373,41 +373,42 @@ const Header = ({
                 })}
               </Tabs>
             </nav>
-          </div>
-          <div className={styles["navigation-bar__right"]}>
-            {!isBasketEmpty && (
+            <div className={styles["navigation-bar-buttons"]}>
+              {!isBasketEmpty && (
+                <Button
+                  action={basketAction}
+                  accessibilityLabel={basketLabel}
+                  className={classnames(styles["basket-button"])}
+                  variant={!sizes.length ? "text" : "contained"}
+                  isIconButton
+                >
+                  <Icon source={ShoppingCartOutlined} />
+                </Button>
+              )}
+              {!isSearchDisabled && (
+                <Button
+                  accessibilityLabel={searchLabel}
+                  className={classnames(styles["search-button"], {
+                    [styles["search-button--is-on-search-page"]!]:
+                      isOnSearchPage
+                  })}
+                  variant={!sizes.length ? "text" : "contained"}
+                  isIconButton
+                  onClick={toggleSearch}
+                >
+                  <Icon source={SearchIcon} />
+                </Button>
+              )}
               <Button
-                action={basketAction}
-                accessibilityLabel={basketLabel}
-                className={classnames(styles["basket-button"])}
-                variant={!sizes.length ? "text" : "contained"}
+                accessibilityLabel={openLabel}
+                className={styles["burger-button"]}
+                variant="text"
                 isIconButton
+                onClick={toggleMenu}
               >
-                <Icon source={ShoppingCartOutlined} />
+                <Icon source={Menu} />
               </Button>
-            )}
-            {!isSearchDisabled && (
-              <Button
-                accessibilityLabel={searchLabel}
-                className={classnames(styles["search-button"], {
-                  [styles["search-button--is-on-search-page"]!]: isOnSearchPage
-                })}
-                variant={!sizes.length ? "text" : "contained"}
-                isIconButton
-                onClick={toggleSearch}
-              >
-                <Icon source={SearchIcon} />
-              </Button>
-            )}
-            <Button
-              accessibilityLabel={openLabel}
-              className={styles["burger-button"]}
-              variant="text"
-              isIconButton
-              onClick={toggleMenu}
-            >
-              <Icon source={Menu} />
-            </Button>
+            </div>
           </div>
         </Container>
       </div>
