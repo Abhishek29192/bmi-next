@@ -26,6 +26,34 @@
     "title": "Dettagli azienda",
     "tradingAddress": "Indirizzo ufficio principale"
   },
+  "document": {
+    "addDocument": "",
+    "confirmDialog": {
+      "body": "",
+      "cancelLabel": "",
+      "confirmLabel": "",
+      "title": ""
+    },
+    "headers": {
+      "date": "",
+      "document": "",
+      "download": ""
+    },
+    "noContent": "",
+    "title": "",
+    "uploadDialog": {
+      "buttonLabel": "",
+      "cancelLabel": "",
+      "confirmLabel": "",
+      "fileValidationMessage": "",
+      "instruction": "",
+      "microcopy": {
+        "browse": "",
+        "drop": ""
+      },
+      "title": ""
+    }
+  },
   "edit_dialog": {
     "form": {
       "actions": {
@@ -54,6 +82,10 @@
         "phone": "Telefono (opzionale)",
         "publicEmail": "Indirizzo email (opzionale)",
         "registeredAddress": {
+          "coordinates": {
+            "x": "",
+            "y": ""
+          },
           "country": "Paese",
           "firstLine": "Riga 1 indirizzo",
           "postcode": "Codice postale / CAP",
@@ -65,6 +97,10 @@
         "tier": "Livello",
         "tradingAddress": {
           "autocomplete": "Via, città o codice postale / CAP",
+          "coordinates": {
+            "x": "",
+            "y": ""
+          },
           "country": "Paese",
           "firstLine": "Riga 1 indirizzo",
           "postcode": "Codice postale / CAP",

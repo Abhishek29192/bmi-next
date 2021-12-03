@@ -17,6 +17,7 @@
   },
   "lastCompanyAdminError": "Non è possibile rimuovere l'ultimo amministratore di un'Azienda a meno che non sia stata disattivata da BMI",
   "memberRemoved": "Membro rimosso con successo",
+  "report": "",
   "sidePanel": {
     "inviteLabel": "+ Invita i membri del team",
     "search": {
@@ -30,6 +31,13 @@
     "title": "Certificazione(i)",
     "type": "Tipo",
     "validity": "Validità"
+  },
+  "userActions": {
+    "action": {
+      "activate": "",
+      "deactivate": ""
+    },
+    "title": ""
   },
   "user_card": {
     "add_admin": "Assegna come amministratore dell'azienda",

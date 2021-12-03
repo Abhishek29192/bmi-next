@@ -15,6 +15,7 @@
   "MERCHANT": "Rivenditore",
   "Main office address": "Indirizzo ufficio principale",
   "No Options": "Nessuna opzione",
+  "Notifications": "",
   "Products": "Prodotti",
   "Profile": "Profilo",
   "Projects": "Progetti",
@@ -27,6 +28,10 @@
   "Team": "Team",
   "Tools": "Strumenti",
   "Training": "Formazione",
+  "aria": {
+    "navigation": "",
+    "notifications": ""
+  },
   "certificationLabels": {
     "certification": "Certificazione",
     "expiry": "Scadenza",
@@ -37,6 +42,7 @@
     "other": "Altro",
     "pitched": "Falda"
   },
+  "deactivatedCompany": "",
   "error_messages": {
     "email_format": "Indirizzo e-mail non valido",
     "phone_number_format": "Numero di telefono non valido",
@@ -58,6 +64,14 @@
     "INSTALLER": "Membro",
     "MARKET_ADMIN": "Amministratore BMI",
     "SUPER_ADMIN": "Super admin"
+  },
+  "session": {
+    "dialog": {
+      "content": "",
+      "continue": "",
+      "logout": "",
+      "title": ""
+    }
   },
   "tier": {
     "T1": "Membro",
