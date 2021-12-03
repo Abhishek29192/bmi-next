@@ -55,7 +55,7 @@ $chevron-margin-left-lg: 3px;
 
     @media (min-width: $breakpoint-md) {
       display: block;
-      overflow-x: scroll;
+      overflow-x: auto;
     }
 
     .nav-item {
