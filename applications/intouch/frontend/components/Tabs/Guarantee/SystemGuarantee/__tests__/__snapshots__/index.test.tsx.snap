@@ -18,16 +18,5 @@ exports[`SystemGuarantee Component renders correctly 1`] = `
       class="MuiTypography-root Typography MuiTypography-subtitle2"
     />
   </div>
-  <div>
-    <div>
-      <table
-        class="MuiTable-root Table Table--row-odd-color"
-      >
-        <tbody
-          class="MuiTableBody-root"
-        />
-      </table>
-    </div>
-  </div>
 </div>
 `;

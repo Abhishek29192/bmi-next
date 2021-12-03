@@ -1,10 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Table from "@bmi/table";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import Icon, { FilePDF } from "@bmi/icon";
-import { ProductRow } from "../ProductRow";
+import { ProductCard } from "../ProductCard";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
 import styles from "./styles.module.scss";
 
@@ -48,15 +47,7 @@ export const SystemGuarantee = ({ guarantee }: SystemGuaranteesProps) => {
           </Button>
         </div>
       )}
-      <div>
-        <Table>
-          <Table.Body>
-            {products.map((product) => (
-              <ProductRow key={product.id} product={product} />
-            ))}
-          </Table.Body>
-        </Table>
-      </div>
+      {products.length > 0 && <ProductCard products={products} />}
     </div>
   );
 };
