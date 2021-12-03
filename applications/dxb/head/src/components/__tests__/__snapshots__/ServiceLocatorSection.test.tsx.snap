@@ -16581,10 +16581,10 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
                 </div>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-979 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                    class="PrivateNotchedOutline-legendLabelled-981 PrivateNotchedOutline-legendNotched-982"
                   >
                     <span>
                       MC: findARoofer.companyFieldLabel
@@ -16625,16 +16625,16 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-text buttonStyles-text-6 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-983 MuiButton-text buttonStyles-text-984 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-8"
+              class="MuiButton-label buttonStyles-label-986"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-9 MuiButton-iconSizeMedium"
+                class="MuiButton-startIcon buttonStyles-startIcon-987 MuiButton-iconSizeMedium"
               >
                 <svg
                   aria-hidden="true"
@@ -16741,7 +16741,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-26 PrivateTabIndicator-colorPrimary-27 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-1004 PrivateTabIndicator-colorPrimary-1005 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -16758,7 +16758,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-25 TabPanelBox"
+            class="MuiBox-root MuiBox-root-1003 TabPanelBox"
           >
             <div
               class="map"

@@ -21,6 +21,7 @@ export const generateUrl = (urlParts: string[]) => {
     .map((part) =>
       part
         .replace(/_+/g, "-")
+        .replace(/\/+/g, "-")
         .replace(/[^.,\s\p{L}\p{Nd}-]/gu, "")
         .replace(/\.+/g, "-")
         .replace(/,+/g, "-")
