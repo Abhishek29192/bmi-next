@@ -12,7 +12,7 @@ Array [
     "BEGIN",
   ],
   Array [
-    "INSERT INTO account(market_id, status, role, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, migration_id) VALUES ('1', 'ACTIVE', 'COMPANY_ADMIN', 'companyadmin@digitaldetox.co.uk', '', 'Name 1', 'Surname 1', NULL, NULL, '', 'YQPQKK_NO_0003'), ('1', 'ACTIVE', 'INSTALLER', 'installer@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0004'), (NULL, 'ACTIVE', 'SUPER_ADMIN', 'superadmin@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0005'), ('1', 'ACTIVE', 'MARKET_ADMIN', 'marketadmin@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0006') RETURNING *",
+    "INSERT INTO account(market_id, status, role, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, migration_id) VALUES ('1', 'ACTIVE', 'COMPANY_ADMIN', 'companyadmin@digitaldetox.co.uk', '', 'Name 1', 'Surname 1', NULL, NULL, '', 'YQPQKK_NO_0003'), ('1', 'ACTIVE', 'INSTALLER', 'installer@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0004'), (NULL, 'ACTIVE', 'SUPER_ADMIN', 'superadmin@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0005'), ('1', 'ACTIVE', 'MARKET_ADMIN', 'marketadmin@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0006'), ('1', 'ACTIVE', 'INSTALLER', 'installer-1@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0007') RETURNING *",
     Array [],
   ],
   Array [
@@ -33,15 +33,15 @@ Array [
     "BEGIN",
   ],
   Array [
-    "INSERT INTO account(market_id, status, role, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, migration_id) VALUES ('1', 'ACTIVE', 'COMPANY_ADMIN', 'companyadmin@digitaldetox.co.uk', '', 'Name 1', 'Surname 1', NULL, NULL, '', 'YQPQKK_NO_0003'), ('1', 'ACTIVE', 'INSTALLER', 'installer@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0004'), (NULL, 'ACTIVE', 'SUPER_ADMIN', 'superadmin@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0005'), ('1', 'ACTIVE', 'MARKET_ADMIN', 'marketadmin@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0006') RETURNING *",
+    "INSERT INTO account(market_id, status, role, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, migration_id) VALUES ('1', 'ACTIVE', 'COMPANY_ADMIN', 'companyadmin@digitaldetox.co.uk', '', 'Name 1', 'Surname 1', NULL, NULL, '', 'YQPQKK_NO_0003'), ('1', 'ACTIVE', 'INSTALLER', 'installer@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0004'), (NULL, 'ACTIVE', 'SUPER_ADMIN', 'superadmin@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0005'), ('1', 'ACTIVE', 'MARKET_ADMIN', 'marketadmin@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0006'), ('1', 'ACTIVE', 'INSTALLER', 'installer-1@digitaldetox.co.uk', '', 'Name 123', 'Surname 123', NULL, NULL, '', 'YQPQKK_NO_0007') RETURNING *",
     Array [],
   ],
   Array [
-    "INSERT INTO company(market_id, migration_id, business_type, name, tier, status, tax_number, about_us, logo, phone, public_email, registered_address_migration_id, trading_address_migration_id, website, linked_in) VALUES ('1', 'YQPQKK_NOCO_0003', NULL, 'Company Name LTD - D', 'T4', NULL, '925637149', '', '', '', '', 'YQPQKK_NOAD_0003', '', '', '') RETURNING *",
+    "INSERT INTO company(market_id, migration_id, business_type, name, tier, status, tax_number, about_us, logo, phone, public_email, registered_address_migration_id, trading_address_migration_id, website, linked_in) VALUES ('1', 'YQPQKK_NOCO_0003', NULL, 'Company Name LTD - D', 'T4', NULL, '925637149', '', '', '', '', 'YQPQKK_NOAD_0003', '', '', ''), ('1', 'YQPQKK_NOCO_0004', NULL, 'Company Name LTD - D', 'T4', NULL, '925637149', '', '', '', '', NULL, NULL, '', '') RETURNING *",
     Array [],
   ],
   Array [
-    "INSERT INTO company_member(market_id, company_id, account_id) VALUES ('1', (SELECT id from company where migration_id= 'YQPQKK_NOCO_0003' ), (SELECT id from account where migration_id = 'YQPQKK_NO_0003'));INSERT INTO company_member(market_id, company_id, account_id) VALUES ('1', (SELECT id from company where migration_id= 'YQPQKK_NOCO_0003' ), (SELECT id from account where migration_id = 'YQPQKK_NO_0004'));",
+    "INSERT INTO company_member(market_id, company_id, account_id) VALUES ('1', (SELECT id from company where migration_id= 'YQPQKK_NOCO_0003' ), (SELECT id from account where migration_id = 'YQPQKK_NO_0003'));INSERT INTO company_member(market_id, company_id, account_id) VALUES ('1', (SELECT id from company where migration_id= 'YQPQKK_NOCO_0003' ), (SELECT id from account where migration_id = 'YQPQKK_NO_0004'));INSERT INTO company_member(market_id, company_id, account_id) VALUES ('1', (SELECT id from company where migration_id= 'YQPQKK_NOCO_0004' ), (SELECT id from account where migration_id = 'YQPQKK_NO_0007'));",
     Array [],
   ],
   Array [
@@ -53,7 +53,7 @@ Array [
     Array [],
   ],
   Array [
-    "UPDATE company SET registered_address_id = (SELECT id FROM address WHERE migration_id = 'YQPQKK_NOAD_0003') WHERE id = (SELECT id FROM company WHERE migration_id = 'YQPQKK_NOCO_0003');UPDATE company SET trading_address_id = (SELECT id FROM address WHERE migration_id = '') WHERE id = (SELECT id FROM company WHERE migration_id = 'YQPQKK_NOCO_0003');",
+    "UPDATE company SET registered_address_id = (SELECT id FROM address WHERE migration_id = 'YQPQKK_NOAD_0003') WHERE id = (SELECT id FROM company WHERE migration_id = 'YQPQKK_NOCO_0003');",
     Array [],
   ],
   Array [
@@ -111,6 +111,18 @@ Object {
       "password": "Passsword1@",
       "phone": "",
       "role": "MARKET_ADMIN",
+      "status": "ACTIVE",
+    },
+    Object {
+      "doceboId": "",
+      "doceboUsername": "",
+      "email": "installer-1@digitaldetox.co.uk",
+      "firstName": "Name 123",
+      "lastName": "Surname 123",
+      "migrationId": "YQPQKK_NO_0007",
+      "password": "Passsword1@",
+      "phone": "",
+      "role": "INSTALLER",
       "status": "ACTIVE",
     },
   ],
@@ -174,6 +186,42 @@ Object {
       "taxNumber": "925637149",
       "tier": "T4",
       "tradingAddressMigrationId": "",
+      "website": "",
+    },
+    Object {
+      "@companyMembers": Object {
+        "data": Array [
+          Object {
+            "@nodes": Object {
+              "@account": Object {
+                "docebo_id": "",
+                "docebo_username": "",
+                "email": "installer-1@digitaldetox.co.uk",
+                "first_name": "Name 123",
+                "last_name": "Surname 123",
+                "migration_id": "YQPQKK_NO_0007",
+                "password": "Passsword1@",
+                "phone": "",
+                "role": "INSTALLER",
+                "status": "ACTIVE",
+              },
+            },
+          },
+        ],
+      },
+      "@registeredAddress": undefined,
+      "@tradingAddress": undefined,
+      "aboutUs": "",
+      "linkedIn": "",
+      "logo": "",
+      "migrationId": "YQPQKK_NOCO_0004",
+      "name": "Company Name LTD - D",
+      "phone": "",
+      "publicEmail": "",
+      "registeredAddressMigrationId": "Empty",
+      "taxNumber": "925637149",
+      "tier": "T4",
+      "tradingAddressMigrationId": "empty",
       "website": "",
     },
   ],

@@ -243,8 +243,12 @@ export const importAccountsCompaniesFromCVS = async (
         company.logo,
         company.phone,
         company.public_email,
-        company.registered_address_migration_id,
-        company.trading_address_migration_id,
+        company?.registered_address_migration_id?.toLowerCase() === "empty"
+          ? null
+          : company.registered_address_migration_id,
+        company?.trading_address_migration_id?.toLowerCase() === "empty"
+          ? null
+          : company.trading_address_migration_id,
         company.website,
         company.linked_in
       ])
@@ -266,16 +270,24 @@ export const importAccountsCompaniesFromCVS = async (
 
   addressCompaniesQuery = "";
   companies.forEach((company) => {
-    addressCompaniesQuery += pgFormat(
-      `UPDATE company SET registered_address_id = (SELECT id FROM address WHERE migration_id = %L) WHERE id = (SELECT id FROM company WHERE migration_id = %L);`,
-      company.registered_address_migration_id,
-      company.migration_id
-    );
-    addressCompaniesQuery += pgFormat(
-      `UPDATE company SET trading_address_id = (SELECT id FROM address WHERE migration_id = %L) WHERE id = (SELECT id FROM company WHERE migration_id = %L);`,
-      company.trading_address_migration_id,
-      company.migration_id
-    );
+    if (
+      company?.registered_address_migration_id &&
+      company?.registered_address_migration_id?.toLowerCase() !== "empty"
+    )
+      addressCompaniesQuery += pgFormat(
+        `UPDATE company SET registered_address_id = (SELECT id FROM address WHERE migration_id = %L) WHERE id = (SELECT id FROM company WHERE migration_id = %L);`,
+        company.registered_address_migration_id,
+        company.migration_id
+      );
+    if (
+      company.trading_address_migration_id &&
+      company.trading_address_migration_id?.toLowerCase() !== "empty"
+    )
+      addressCompaniesQuery += pgFormat(
+        `UPDATE company SET trading_address_id = (SELECT id FROM address WHERE migration_id = %L) WHERE id = (SELECT id FROM company WHERE migration_id = %L);`,
+        company.trading_address_migration_id,
+        company.migration_id
+      );
   });
 
   ownersQuery = "";
