@@ -8,6 +8,7 @@ export const getAuth0Instance = async (req, res) => {
   if (req) {
     // Process exist only on server side, so In eed to be sure req exists
     const {
+      AUTH0_AUDIENCE,
       AUTH0_CLIENT_ID,
       GCP_SECRET_PROJECT,
       AUTH0_COOKIE_DOMAIN,
@@ -38,6 +39,10 @@ export const getAuth0Instance = async (req, res) => {
         clientID: AUTH0_CLIENT_ID,
         clientSecret: AUTH0_CLIENT_SECRET,
         secret: AUTH0_SECRET, // Used to signing the cookie
+        authorizationParams: {
+          audience: AUTH0_AUDIENCE,
+          scope: "openid profile email offline_access"
+        },
         session: {
           rolling: true,
           rollingDuration: parseInt(AUTH0_ROLLING_DURATION),
