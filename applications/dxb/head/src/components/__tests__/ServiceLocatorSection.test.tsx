@@ -1101,5 +1101,15 @@ describe("ServiceLocatorSection component", () => {
       expect(getAllByText(roofer1.name)).toHaveLength(1);
       expect(queryByText(roofer2.name)).toBeFalsy();
     });
+
+    it("should not render results list panel on page load if selected chips do not exist in query params", () => {
+      const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+      const text = wrapper.queryByText("MC: findARoofer.listLabel");
+      expect(
+        wrapper.container.querySelector(".tabs .tab-panel .list")
+      ).toBeFalsy();
+      expect(text).toBeFalsy();
+      expect(wrapper.container.firstChild).toMatchSnapshot();
+    });
   });
 });
