@@ -37,4 +37,19 @@ describe("ExpandableLinksTextCard component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it("renders correctly with download action model", () => {
+    const { container } = render(
+      <ExpandableLinksTextCard
+        title="Heading One"
+        links={[
+          { action: { model: "download", href: "/" }, label: "Link One" },
+          { action: { model: "download", href: "/" }, label: "Link Two" }
+        ]}
+        openButton={<Button>Open</Button>}
+        separator={1}
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
