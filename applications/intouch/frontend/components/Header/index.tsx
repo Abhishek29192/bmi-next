@@ -10,7 +10,11 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 import Drawer from "@material-ui/core/Drawer";
 import Avatar from "@material-ui/core/Avatar";
 import { gql } from "@apollo/client";
-import { findAccountTier, isSuperOrMarketAdmin } from "../../lib/account";
+import {
+  findAccountTier,
+  findAccountCompany,
+  isSuperOrMarketAdmin
+} from "../../lib/account";
 import { Link } from "../Link";
 import UserMenu from "../UserMenu";
 import { Sidebar } from "../Sidebar";
@@ -30,7 +34,6 @@ type HeaderLink = {
 
 export type HeaderProps = {
   title: string;
-  attentionHeading?: string;
   contactUsLink?: HeaderLink;
   globalExternalLink?: HeaderLink;
   notifications?: GetGlobalDataQuery["notifications"]["nodes"];
@@ -38,7 +41,6 @@ export type HeaderProps = {
 
 export const Header = ({
   title,
-  attentionHeading,
   contactUsLink,
   globalExternalLink,
   notifications: initialNotifications
@@ -55,7 +57,7 @@ export const Header = ({
   });
 
   const hasUnreadNotifications = useMemo(
-    () => notifications.some(({ read }) => !read),
+    () => (notifications || []).some(({ read }) => !read),
     [notifications]
   );
   const notificationsIconClasses = {
@@ -122,6 +124,13 @@ export const Header = ({
       ? t(`roles.${account.role}`)
       : t(`tier.${findAccountTier(account)}`);
   }, [account]);
+
+  const attentionHeading = useMemo(
+    () =>
+      findAccountCompany(account)?.status === "DEACTIVATED" &&
+      t("deactivatedCompany"),
+    [account]
+  );
 
   React.useEffect(() => {
     function handleResize() {
