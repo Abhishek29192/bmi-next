@@ -57,7 +57,7 @@ export const Header = ({
   });
 
   const hasUnreadNotifications = useMemo(
-    () => notifications.some(({ read }) => !read),
+    () => (notifications || []).some(({ read }) => !read),
     [notifications]
   );
   const notificationsIconClasses = {
