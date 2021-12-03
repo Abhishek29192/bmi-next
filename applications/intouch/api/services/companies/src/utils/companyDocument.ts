@@ -19,3 +19,15 @@ export const getDocumentType = (
 
   return companyDocumentExtensions[fileExtension];
 };
+
+export const isCompanyDocumentType = (path: string): boolean => {
+  return getDocumentType(path) !== undefined;
+};
+
+export const companyDocumentsTypeValidate = (files: string[]) => {
+  files.forEach((file) => {
+    if (!isCompanyDocumentType(file)) {
+      throw new Error(`${file} not allowed`);
+    }
+  });
+};
