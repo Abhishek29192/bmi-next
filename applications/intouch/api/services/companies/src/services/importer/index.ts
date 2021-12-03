@@ -3,7 +3,7 @@ import { QueryResult } from "pg";
 import pgFormat from "pg-format";
 import bcrypt from "bcrypt";
 import camelcaseKeys from "camelcase-keys";
-import Joi from "joi";
+import async from "async";
 import {
   accountValidater,
   companyValidater,
@@ -116,6 +116,8 @@ export const importAccountsCompaniesFromCVS = async (
   const logger = context.logger("import:account");
   const { input } = args;
 
+  const JOY_VALIDATION_BATCH_LIMIT = 25;
+
   if (!user.can("import:account:markets")) {
     throw new Error("unauthorized");
   }
@@ -151,22 +153,52 @@ export const importAccountsCompaniesFromCVS = async (
 
     if (type === "companies.csv") {
       companies = parsedFile;
-      await Joi.array().items(companyValidater).validateAsync(companies);
+      await async.eachLimit(
+        companies,
+        JOY_VALIDATION_BATCH_LIMIT,
+        async (toVal) => {
+          await companyValidater.validateAsync(toVal);
+        }
+      );
     } else if (type === "addresses.csv") {
       addresses = parsedFile;
-      await Joi.array().items(addressValidater).validateAsync(addresses);
+      await async.eachLimit(
+        addresses,
+        JOY_VALIDATION_BATCH_LIMIT,
+        async (toVal) => {
+          await addressValidater.validateAsync(toVal);
+        }
+      );
     } else if (type === "owners.csv") {
       owners = parsedFile;
-      await Joi.array().items(ownersValidater).validateAsync(owners);
+      await async.eachLimit(
+        owners,
+        JOY_VALIDATION_BATCH_LIMIT,
+        async (toVal) => {
+          await ownersValidater.validateAsync(toVal);
+        }
+      );
     } else if (type === "members.csv") {
       members = parsedFile;
-      await Joi.array().items(companyMemberValidater).validateAsync(members);
+      await async.eachLimit(
+        members,
+        JOY_VALIDATION_BATCH_LIMIT,
+        async (toVal) => {
+          await companyMemberValidater.validateAsync(toVal);
+        }
+      );
     } else if (type === "accounts.csv") {
       accounts = parsedFile.map((account) => ({
         ...account,
         email: account.email.toLowerCase()
       }));
-      await Joi.array().items(accountValidater).validateAsync(accounts);
+      await async.eachLimit(
+        accounts,
+        JOY_VALIDATION_BATCH_LIMIT,
+        async (toVal) => {
+          await accountValidater.validateAsync(toVal);
+        }
+      );
     }
   }
 
