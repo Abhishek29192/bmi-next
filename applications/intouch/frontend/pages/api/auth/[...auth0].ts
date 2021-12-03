@@ -24,7 +24,11 @@ export const afterCallback = async (
   // Set the logger again with the session attached
   NextLogger(req, res);
 
-  const apolloClient = await initializeApollo(null, { res, req, session });
+  const apolloClient = await initializeApollo(null, {
+    res,
+    req,
+    accessToken: session.accessToken
+  });
 
   const accountSrv = new Account(req.logger, apolloClient, session);
 

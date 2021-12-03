@@ -75,8 +75,30 @@ export const innerGetServerSideProps = async (
 
   const session: Session = auth0.getSession(req, res);
 
+  let accessToken = session.accessToken;
+
+  const now = Date.now();
+  console.log(now, new Date(now));
+  console.log(
+    session.accessTokenExpiresAt,
+    new Date(session.accessTokenExpiresAt * 1000)
+  );
+
+  if (now >= session.accessTokenExpiresAt * 1000) {
+    const newAccessToken = await auth0.getAccessToken(req, res, {
+      refresh: true
+    });
+    console.log("withPage: refreshing access token", newAccessToken);
+    console.log(
+      "withPage: refreshing access token",
+      newAccessToken.accessToken
+    );
+
+    accessToken = newAccessToken?.accessToken;
+  }
+
   const logger = req.logger("withPage");
-  const apolloClient = initializeApollo(null, { req, res, session });
+  const apolloClient = initializeApollo(null, { req, res, accessToken });
 
   let market = null;
   let account = null;

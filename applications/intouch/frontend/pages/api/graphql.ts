@@ -81,8 +81,25 @@ export const handler = async function (
     const auth0 = await getAuth0Instance(req, res);
     const session = await auth0.getSession(req, res);
 
+    console.log("session", session);
+
+    let accessToken = session?.accessToken;
+
+    if (Date.now() >= session?.accessTokenExpiresAt * 1000) {
+      const newAccessToken = await auth0.getAccessToken(req, res, {
+        refresh: true
+      });
+      console.log("handler: refreshing access token", newAccessToken);
+      console.log(
+        "handler: refreshing access token",
+        newAccessToken.accessToken
+      );
+
+      accessToken = newAccessToken?.accessToken;
+    }
+
     try {
-      req.headers.authorization = `Bearer ${session.accessToken}`;
+      req.headers.authorization = `Bearer ${accessToken}`;
       user = session.user;
     } catch (error) {
       // Log only if not using api key otherwise we will get tons of useless errors

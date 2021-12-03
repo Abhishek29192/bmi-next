@@ -338,41 +338,41 @@ export const importAccountsCompaniesFromCVS = async (
     client.release();
   }
 
-  const accountsToImport = [];
-  for (const account of accounts) {
-    let hash;
-    const accountToImport: any = account;
+  // const accountsToImport = [];
+  // for (const account of accounts) {
+  //   let hash;
+  //   const accountToImport: any = account;
 
-    if (accountToImport.password) {
-      const saltRounds = 10;
-      const salt = await bcrypt.genSalt(saltRounds);
-      hash = await bcrypt.hash(accountToImport.password, salt);
-    }
+  //   if (accountToImport.password) {
+  //     const saltRounds = 10;
+  //     const salt = await bcrypt.genSalt(saltRounds);
+  //     hash = await bcrypt.hash(accountToImport.password, salt);
+  //   }
 
-    accountsToImport.push({
-      email: accountToImport.email,
-      email_verified: true,
-      user_metadata: {
-        intouch_role: accountToImport.role,
-        first_name: accountToImport.first_name,
-        last_name: accountToImport.last_name,
-        market: marketDomain
-      },
-      app_metadata: {
-        terms_to_accept: true
-      },
-      ...(hash ? { password_hash: hash } : {})
-    });
-  }
+  //   accountsToImport.push({
+  //     email: accountToImport.email,
+  //     email_verified: true,
+  //     user_metadata: {
+  //       intouch_role: accountToImport.role,
+  //       first_name: accountToImport.first_name,
+  //       last_name: accountToImport.last_name,
+  //       market: marketDomain
+  //     },
+  //     app_metadata: {
+  //       terms_to_accept: true
+  //     },
+  //     ...(hash ? { password_hash: hash } : {})
+  //   });
+  // }
 
-  const auth0Job = await auth0.importUserFromJson(accountsToImport);
+  // const auth0Job = await auth0.importUserFromJson(accountsToImport);
 
   const result = {
     message: "success",
     accounts: insertedAccountsResult?.rows?.map(({ id }) => id),
     companies: insertedCompaniesResult?.rows?.map(({ id }) => id),
     dryRun: args.input.dryRun,
-    auth0Job
+    auth0Job: []
   };
 
   return result;
