@@ -114,9 +114,10 @@ const ImportAccount = () => {
                 {t(isDryRun ? "dryRunTitle" : "companiesImported")}
               </Typography>
               <div className={styles.list}>
-                {importResult?.companies?.map((company, index) => (
+                {importResult?.companies.slice(0, 50)?.map((company, index) => (
                   <Grid
                     key={`company-${index}`}
+                    style={{ marginTop: 30 }}
                     spacing={0}
                     direction="row"
                     container
@@ -132,7 +133,7 @@ const ImportAccount = () => {
                         "status",
                         "taxNumber",
                         "aboutUs",
-                        "logo",
+                        "logo.label",
                         "phone",
                         "publicEmail",
                         "registeredAddressMigrationId",
@@ -269,7 +270,7 @@ const ImportAccount = () => {
               <Typography key="accounts" variant="h5">
                 Accounts
               </Typography>
-              {importResult?.accounts.map((account, index) => (
+              {importResult?.accounts.slice(0, 50).map((account, index) => (
                 <div key={`account-${index}`} className={styles.list}>
                   {[
                     "email",
