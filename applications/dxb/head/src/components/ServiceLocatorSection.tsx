@@ -225,6 +225,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     // hence remove all querystring from user and make the url '/find-a-roofer/' again
     if (matchingRooferTypes.length === 0) {
       history.replaceState(null, null, windowLocation.pathname);
+    } else {
+      // show result list panel on page load if selected chips exist
+      setShowResultList(true);
     }
   }, [services]);
 
