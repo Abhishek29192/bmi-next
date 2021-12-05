@@ -121,7 +121,7 @@ const SidePanelFooter = ({
 };
 
 type ProjectSidePanelProps = {
-  projects: GetProjectsQuery["projects"]["nodes"];
+  projects: GetProjectsQuery["projectsByMarket"]["nodes"];
   onProjectSelected?: (projectId: number) => void;
   selectedProjectId?: number;
 };
@@ -156,7 +156,7 @@ export const ProjectSidePanel = ({
   }, [projectFilters, filterSelection]);
 
   const guaranteeFilter = (
-    guarantees: GetProjectsQuery["projects"]["nodes"][0]["guarantees"]["nodes"],
+    guarantees: GetProjectsQuery["projectsByMarket"]["nodes"][0]["guarantees"]["nodes"],
     filter: string
   ) => {
     const solutionGuarantee =

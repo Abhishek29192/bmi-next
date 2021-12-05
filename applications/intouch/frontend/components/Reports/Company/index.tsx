@@ -4,6 +4,7 @@ import Button from "@bmi/button";
 import { gql } from "@apollo/client";
 import { exportCsv } from "../../../lib/utils/report";
 import { stringifyAddress } from "../../../lib/utils/address";
+import { useMarketContext } from "../../../context/MarketContext";
 import { useGetCompaniesReportLazyQuery } from "../../../graphql/generated/hooks";
 import { GetCompaniesReportQuery } from "../../../graphql/generated/operations";
 import { ReportProps } from "../types";
@@ -48,7 +49,12 @@ const getReportData = (companies: GetCompaniesReportQuery["companies"]) => {
 
 const CompanyReport = ({ disabled }: ReportProps) => {
   const { t } = useTranslation("company-page");
+  const { market } = useMarketContext();
+
   const [getSystemsReport] = useGetCompaniesReportLazyQuery({
+    variables: {
+      marketId: market.id
+    },
     onCompleted: ({ companies }) => {
       const data = getReportData(companies);
       exportCsv(data, {
@@ -76,8 +82,8 @@ const CompanyReport = ({ disabled }: ReportProps) => {
 export default CompanyReport;
 
 export const GET_COMPANIES_REPORT = gql`
-  query GetCompaniesReport {
-    companies {
+  query GetCompaniesReport($marketId: Int!) {
+    companies(condition: { marketId: $marketId }) {
       nodes {
         referenceNumber
         name

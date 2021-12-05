@@ -7,6 +7,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import CheckBoxOutlineBlank from "@material-ui/icons/CheckBoxOutlineBlank";
 import CheckBox from "@material-ui/icons/CheckBox";
 import classnames from "classnames";
+import AccessControl from "../../../lib/permissions/AccessControl";
 import TeamMemberCertification from "./TeamMemberCertifications";
 import styles from "./styles.module.scss";
 
@@ -69,19 +70,21 @@ export const TeamMemberItem = ({
           )}
         />
       </Table.Cell>
-      <Table.Cell>
-        <Button
-          keu={`delete-btn-member-${member.accountId}`}
-          data-testid="team-member-delete"
-          variant="text"
-          isIconButton
-          onClick={() => onInternalDelete(member.accountId)}
-          disabled={deletingId === member.accountId && loading}
-          className={styles.deleteButton}
-        >
-          <DeleteIcon color="primary" />
-        </Button>
-      </Table.Cell>
+      <AccessControl dataModel="project" action="removeTeamMember">
+        <Table.Cell>
+          <Button
+            key={`delete-btn-member-${member.accountId}`}
+            data-testid="team-member-delete"
+            variant="text"
+            isIconButton
+            onClick={() => onInternalDelete(member.accountId)}
+            disabled={deletingId === member.accountId && loading}
+            className={styles.deleteButton}
+          >
+            <DeleteIcon color="primary" />
+          </Button>
+        </Table.Cell>
+      </AccessControl>
     </Table.Row>
   );
 };

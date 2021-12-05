@@ -137,6 +137,10 @@ const mutationDoceboCreateSSOUrl = gql`
   }
 `;
 
+export const isSuperAdmin = (account: Account) => {
+  if (!account) return false;
+  return [ROLES.SUPER_ADMIN].includes(account.role);
+};
 export const isSuperOrMarketAdmin = (account: Account) => {
   if (!account) return false;
   return [ROLES.SUPER_ADMIN, ROLES.MARKET_ADMIN].includes(account.role);

@@ -163,13 +163,24 @@ export const getServerSideProps = withPage(
     market,
     params
   }) => {
+    const transaltions = await serverSideTranslations(locale, [
+      "common",
+      "sidebar",
+      "footer",
+      "company-page"
+    ]);
+
     if (params.companyId) {
       const companyId = parseInt(params.companyId);
 
       if (!can(account, "company", "view", { companyId })) {
         const statusCode = ErrorStatusCode.UNAUTHORISED;
         res.statusCode = statusCode;
-        return generatePageError(statusCode, {}, { globalPageData });
+        return generatePageError(
+          statusCode,
+          {},
+          { globalPageData, ...transaltions }
+        );
       }
       const {
         props: {
@@ -198,13 +209,7 @@ export const getServerSideProps = withPage(
             ? sortArrayByField([...companies], "name")
             : [],
           companySSR: company,
-          contactDetailsCollection,
-          ...(await serverSideTranslations(locale, [
-            "common",
-            "sidebar",
-            "footer",
-            "company-page"
-          ]))
+          contactDetailsCollection
         }
       };
     }
@@ -212,7 +217,11 @@ export const getServerSideProps = withPage(
     if (!can(account, "company", "viewAll")) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
-      return generatePageError(statusCode, {}, { globalPageData });
+      return generatePageError(
+        statusCode,
+        {},
+        { globalPageData, ...transaltions }
+      );
     }
 
     const {
@@ -240,12 +249,7 @@ export const getServerSideProps = withPage(
       props: {
         companies: sortArrayByField([...companies], "name"),
         contactDetailsCollection,
-        ...(await serverSideTranslations(locale, [
-          "common",
-          "sidebar",
-          "footer",
-          "company-page"
-        ]))
+        ...transaltions
       }
     };
   }

@@ -16,6 +16,8 @@ const CompanyMemberActionCard = ({
   onAccountUpdate,
   disabled
 }: CompanyMemberActionCardProps) => {
+  if (!member) return null;
+
   const { id, status } = member;
   const { t } = useTranslation("team-page");
 

@@ -25,12 +25,12 @@ import { getServerPageGetProjects } from "../../graphql/generated/page";
 import { isSuperOrMarketAdmin } from "../../lib/account";
 
 export type ProjectsPageProps = GlobalPageProps & {
-  projects: GetProjectsQuery["projects"];
+  projects: GetProjectsQuery["projectsByMarket"];
   isPowerfulUser: boolean;
 };
 
 const sortProjects = (
-  projects: GetProjectsQuery["projects"]["nodes"],
+  projects: GetProjectsQuery["projectsByMarket"]["nodes"],
   isPowerfulUser: boolean
 ) => {
   const now = Date.now();
@@ -102,37 +102,70 @@ const Projects = ({
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, account, globalPageData, res, params }) => {
+  async ({
+    apolloClient,
+    locale,
+    account,
+    globalPageData,
+    res,
+    market,
+    params
+  }) => {
+    const translations = await serverSideTranslations(locale, [
+      "common",
+      "sidebar",
+      "footer",
+      "project-page"
+    ]);
+
     // Check if user can generally access the page
     if (!can(account, "page", "projects")) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
-      return generatePageError(statusCode, {}, { globalPageData });
+      return generatePageError(
+        statusCode,
+        {},
+        { globalPageData, ...translations }
+      );
     }
 
     // Retrieve all the projects accessible to the user
     const {
       props: {
-        data: { projects }
+        data: { projectsByMarket }
       }
-    } = await getServerPageGetProjects({}, apolloClient);
+    } = await getServerPageGetProjects(
+      {
+        variables: {
+          market: market.id
+        }
+      },
+      apolloClient
+    );
 
     const isPowerfulUser = isSuperOrMarketAdmin(account);
 
     // If trying to access a specific project, check if it's accessible
     if (params?.project && params?.project.length) {
-      const found = projects?.nodes.find(
+      const found = projectsByMarket?.nodes.find(
         ({ id }) => id === parseInt(params.project[0])
       );
 
       if (!found) {
         const statusCode = ErrorStatusCode.NOT_FOUND;
         res.statusCode = statusCode;
-        return generatePageError(statusCode, {}, { globalPageData });
+        return generatePageError(
+          statusCode,
+          {},
+          { globalPageData, ...translations }
+        );
       }
       // Otherwise, redirect to first accessible project, if any
-    } else if (projects?.nodes.length) {
-      const sortedProjects = sortProjects(projects?.nodes, isPowerfulUser);
+    } else if (projectsByMarket?.nodes.length) {
+      const sortedProjects = sortProjects(
+        projectsByMarket?.nodes,
+        isPowerfulUser
+      );
       return {
         redirect: {
           permanent: false,
@@ -143,14 +176,9 @@ export const getServerSideProps = withPage(
 
     return {
       props: {
-        projects,
+        projects: projectsByMarket,
         isPowerfulUser,
-        ...(await serverSideTranslations(locale, [
-          "common",
-          "sidebar",
-          "footer",
-          "project-page"
-        ]))
+        ...translations
       }
     };
   }
@@ -159,8 +187,8 @@ export const getServerSideProps = withPage(
 export default withPageAuthRequired(withPageError<ProjectsPageProps>(Projects));
 
 export const GET_PROJECTS = gql`
-  query GetProjects {
-    projects {
+  query GetProjects($market: Int!) {
+    projectsByMarket(market: $market) {
       nodes {
         id
         name

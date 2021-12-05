@@ -6,10 +6,13 @@ import { GetApp } from "@material-ui/icons";
 import { exportCsv } from "../../../lib/utils/report";
 import { useGetGuaranteesReportLazyQuery } from "../../../graphql/generated/hooks";
 import { GetGuaranteesReportQuery } from "../../../graphql/generated/operations";
+import { useMarketContext } from "../../../context/MarketContext";
 import { ReportProps } from "../types";
 import styles from "./styles.module.scss";
 
-const getReportData = (guarantees: GetGuaranteesReportQuery["guarantees"]) => {
+const getReportData = (
+  guarantees: GetGuaranteesReportQuery["guaranteesByMarket"]
+) => {
   return [...guarantees.nodes].map((company) => {
     const {
       __typename,
@@ -49,9 +52,14 @@ const getReportData = (guarantees: GetGuaranteesReportQuery["guarantees"]) => {
 
 const GuaranteeReport = ({ disabled }: ReportProps) => {
   const { t } = useTranslation("project-page");
+  const { market } = useMarketContext();
+
   const [getSystemsReport] = useGetGuaranteesReportLazyQuery({
-    onCompleted: ({ guarantees }) => {
-      const data = getReportData(guarantees);
+    variables: {
+      market: market.id
+    },
+    onCompleted: ({ guaranteesByMarket }) => {
+      const data = getReportData(guaranteesByMarket);
 
       exportCsv(data, {
         filename: `guarantees-${Date.now()}`,
@@ -79,8 +87,8 @@ const GuaranteeReport = ({ disabled }: ReportProps) => {
 export default GuaranteeReport;
 
 export const GET_GUARANTEES_REPORT = gql`
-  query GetGuaranteesReport {
-    guarantees {
+  query GetGuaranteesReport($market: Int!) {
+    guaranteesByMarket(market: $market) {
       nodes {
         id
         bmiReferenceId
