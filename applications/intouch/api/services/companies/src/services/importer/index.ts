@@ -39,46 +39,56 @@ export const singleImport = async (file) =>
       });
   });
 
-export const getTree = (companies, accounts, addresses, owners, members) =>
-  companies.map((company) => {
-    const accountMap = accounts.reduce(
-      (result, current) => ({
-        ...result,
-        [current.migration_id]: current
-      }),
-      {}
-    );
-    const adressMap = addresses.reduce((result, current) => {
-      let coordinates = null;
+export const getTree = (companies, accounts, addresses, owners, members) => {
+  const companyNames = {};
 
-      if (current.coordinates) {
-        const [x, y] = current.coordinates.split(",");
-        coordinates = {
-          x: parseFloat(x),
-          y: parseFloat(y)
-        };
-      }
+  const accountMap = accounts.reduce(
+    (result, current) => ({
+      ...result,
+      [current.migration_id]: current
+    }),
+    {}
+  );
 
-      return {
-        ...result,
-        [current.migration_id]: {
-          ...current,
-          ...(coordinates?.y &&
-            coordinates?.x && {
-              coordinates: `(${parseFloat(coordinates.x)},${parseFloat(
-                coordinates.y
-              )})`
-            })
-        }
+  const adressMap = addresses.reduce((result, current) => {
+    let coordinates = null;
+
+    if (current.coordinates) {
+      const [x, y] = current.coordinates.split(",");
+      coordinates = {
+        x: parseFloat(x),
+        y: parseFloat(y)
       };
-    }, {});
-    const ownersMap = owners.reduce(
-      (result, current) => ({
-        ...result,
-        [current.migration_id]: current
-      }),
-      {}
-    );
+    }
+
+    return {
+      ...result,
+      [current.migration_id]: {
+        ...current,
+        ...(coordinates?.y &&
+          coordinates?.x && {
+            coordinates: `(${parseFloat(coordinates.x)},${parseFloat(
+              coordinates.y
+            )})`
+          })
+      }
+    };
+  }, {});
+
+  const ownersMap = owners.reduce(
+    (result, current) => ({
+      ...result,
+      [current.migration_id]: current
+    }),
+    {}
+  );
+
+  return companies.map((company) => {
+    if (!companyNames[company.name]) {
+      companyNames[company.name] = true;
+    } else {
+      throw new Error(`company_duplicate_name: ${company.name}`);
+    }
 
     return camelcaseKeys({
       ...company,
@@ -104,6 +114,7 @@ export const getTree = (companies, accounts, addresses, owners, members) =>
       }
     });
   });
+};
 
 export const importAccountsCompaniesFromCVS = async (
   _query,
