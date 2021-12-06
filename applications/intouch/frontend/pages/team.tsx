@@ -8,12 +8,12 @@ import {
   generatePageError,
   withPageError
 } from "../lib/error";
+import can from "../lib/permissions/can";
 import { Layout } from "../components/Layout";
 import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
 import { sortByFirstName } from "../lib/utils/account";
 import CompanyMembers, { PageProps } from "../components/Pages/Company/Members";
 import { getServerPageTeamMembers } from "../graphql/generated/page";
-import { isSuperOrMarketAdmin } from "../lib/account";
 
 export const pageQuery = gql`
   query teamMembers($expiryDate: Datetime) {
@@ -75,7 +75,7 @@ const TeamPage = ({ globalPageData, ...props }: TeamPageProps) => {
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, account, res }) => {
+  async ({ apolloClient, locale, account, globalPageData, res }) => {
     const expiryDate = new Date();
     expiryDate.setHours(0, 0, 0, 0);
     expiryDate.setMonth(expiryDate.getMonth() - 6);
@@ -89,13 +89,10 @@ export const getServerSideProps = withPage(
       apolloClient
     );
 
-    if (
-      !isSuperOrMarketAdmin(account) &&
-      account?.companyMembers?.nodes.length === 0
-    ) {
+    if (!can(account, "page", "team")) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
-      return generatePageError(404);
+      return generatePageError(statusCode, {}, { globalPageData });
     }
 
     return {

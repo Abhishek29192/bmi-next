@@ -308,7 +308,7 @@ export const invite = async (
   const { pgClient, pgRootPool, protocol } = context;
 
   const {
-    emails,
+    emails = [],
     firstName,
     lastName,
     personalNote = ""
@@ -324,7 +324,9 @@ export const invite = async (
     throw new Error("email missing");
   }
 
-  for (const invetee of emails) {
+  const emailToSend = emails?.length > 11 ? emails?.slice(0, 10) : emails;
+
+  for (const invetee of emailToSend) {
     let auth0User = await auth0.getUserByEmail(invetee);
 
     /**
