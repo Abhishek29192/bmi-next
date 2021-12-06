@@ -3,12 +3,29 @@ import {
   CompanyPatch,
   DeleteCompanyMemberInput,
   Tier,
+  CreateCompanyInput,
   UpdateCompanyInput
 } from "@bmi/intouch-api-types";
 import { PoolClient } from "pg";
+import trimStringsDeep from "../../utils/trimStringsDeep";
 import { PostGraphileContext } from "../../types";
 import { sendMessageWithTemplate } from "../../services/mailer";
 import { tierBenefit } from "../contentful";
+
+export const createCompany = async (
+  resolve,
+  source,
+  args: { input: CreateCompanyInput },
+  context: PostGraphileContext,
+  resolveInfo
+) => {
+  return resolve(
+    source,
+    { input: trimStringsDeep(args.input) },
+    context,
+    resolveInfo
+  );
+};
 
 export const updateCompany = async (
   resolve,
