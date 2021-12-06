@@ -34,6 +34,8 @@ export const updateCompany = async (
   context: PostGraphileContext,
   resolveInfo
 ) => {
+  args.input = trimStringsDeep(args.input);
+
   const { GCP_PUBLIC_BUCKET_NAME } = process.env;
   const { pgClient, storageClient, user } = context;
   const { logoUpload, shouldRemoveLogo, tier }: CompanyPatch = args.input.patch;
