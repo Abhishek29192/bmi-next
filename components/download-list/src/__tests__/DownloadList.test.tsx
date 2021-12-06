@@ -1,6 +1,6 @@
-import React from "react";
-import { act, cleanup, fireEvent, render } from "@testing-library/react";
-import DownloadList from "../";
+import React, { useContext, useEffect } from "react";
+import { render, fireEvent, cleanup, act } from "@testing-library/react";
+import DownloadList, { DownloadListContext } from "../";
 
 afterEach(cleanup);
 
@@ -13,8 +13,7 @@ describe("DownloadList component", () => {
           ariaLabel="first checkbox"
           value={true}
         />
-        <DownloadList.Clear label="Clear" />
-        <DownloadList.Button label="Download ({{count}})" onClick={() => {}} />
+        <button>Download</button>
       </DownloadList>
     );
     expect(container.firstChild).toMatchSnapshot();
@@ -24,8 +23,13 @@ describe("DownloadList component", () => {
     const onChange = jest.fn();
     const label = "Label";
     const { findByLabelText } = render(
-      <DownloadList onChange={onChange}>
-        <DownloadList.Checkbox name="id-1" ariaLabel={label} value={true} />
+      <DownloadList maxSize={200000} onChange={onChange}>
+        <DownloadList.Checkbox
+          name="id-1"
+          ariaLabel={label}
+          fileSize={100000}
+          value={true}
+        />
 
         <DownloadList.Button label="Download ({{count}})" onClick={() => {}} />
       </DownloadList>
@@ -33,7 +37,7 @@ describe("DownloadList component", () => {
 
     fireEvent.click(await findByLabelText(label));
 
-    expect(onChange.mock.calls).toMatchSnapshot();
+    expect(onChange).toBeCalledTimes(1);
   });
 
   it("triggers an onClick event", async () => {
@@ -43,7 +47,7 @@ describe("DownloadList component", () => {
       <DownloadList initialList={{ "id-1": true }}>
         <DownloadList.Checkbox name="id-1" ariaLabel="Label" value={true} />
 
-        <DownloadList.Button label={label} onClick={onClick} />
+        <DownloadList.Button onClick={onClick} label={label} />
       </DownloadList>
     );
 
@@ -51,7 +55,7 @@ describe("DownloadList component", () => {
       fireEvent.click(await findByText(label));
     });
 
-    expect(onClick.mock.calls).toMatchSnapshot();
+    expect(onClick).toBeCalledTimes(1);
   });
 
   it("triggers an onChange event when clearing", async () => {
@@ -67,6 +71,85 @@ describe("DownloadList component", () => {
 
     fireEvent.click(await findByText(label));
 
-    expect(onChange.mock.calls).toMatchSnapshot();
+    expect(onChange).toBeCalledTimes(1);
+  });
+
+  it("triggers an onChange event when Checkbox clicked", async () => {
+    const onChange = jest.fn();
+    const label = "Checkbox";
+    const { findByText } = render(
+      <DownloadList initialList={{ "id-1": true }} onChange={onChange}>
+        <DownloadList.Checkbox
+          label={label}
+          name="id-1"
+          ariaLabel="Label"
+          value={true}
+        />
+
+        <DownloadList.Clear label="Label" />
+      </DownloadList>
+    );
+
+    fireEvent.click(await findByText(label));
+
+    expect(onChange).toBeCalledTimes(1);
+  });
+
+  it("renders DownloadListCheckbox properly without context", () => {
+    const Component = () => {
+      const { updateList, resetList, setIsLoading } =
+        useContext(DownloadListContext);
+      useEffect(() => {
+        updateList("test", "test");
+        setIsLoading(false);
+        resetList();
+      }, []);
+
+      return (
+        <DownloadList.Checkbox
+          data-testid="testID"
+          name="id-1"
+          ariaLabel="first checkbox"
+          value={true}
+        />
+      );
+    };
+
+    const { container } = render(<Component />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders DownloadListButton properly without context", () => {
+    const Component = () => {
+      const { updateList, resetList, setIsLoading } =
+        useContext(DownloadListContext);
+      useEffect(() => {
+        updateList("test", "test");
+        setIsLoading(false);
+        resetList();
+      }, []);
+
+      return <DownloadList.Button onClick={() => {}} label="label" />;
+    };
+
+    const { container } = render(<Component />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders DownloadListClear properly without context", () => {
+    const Component = () => {
+      const { updateList, resetList, setIsLoading } =
+        useContext(DownloadListContext);
+      useEffect(() => {
+        updateList("test", "test");
+        setIsLoading(false);
+        resetList();
+      }, []);
+
+      return <DownloadList.Clear label="Label" />;
+    };
+
+    const { container } = render(<Component />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
