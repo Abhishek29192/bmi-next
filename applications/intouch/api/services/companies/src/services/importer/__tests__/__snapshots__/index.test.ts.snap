@@ -37,7 +37,7 @@ Array [
     Array [],
   ],
   Array [
-    "INSERT INTO company(market_id, migration_id, business_type, name, tier, status, tax_number, about_us, logo, phone, public_email, registered_address_migration_id, trading_address_migration_id, website, linked_in) VALUES ('1', 'YQPQKK_NOCO_0003', NULL, 'Company Name LTD - D', 'T4', NULL, '925637149', '', '', '', '', 'YQPQKK_NOAD_0003', '', '', ''), ('1', 'YQPQKK_NOCO_0004', NULL, 'Company Name LTD - D', 'T4', NULL, '925637149', '', '', '', '', NULL, NULL, '', '') RETURNING *",
+    "INSERT INTO company(market_id, migration_id, business_type, name, tier, status, tax_number, about_us, logo, phone, public_email, registered_address_migration_id, trading_address_migration_id, website, linked_in) VALUES ('1', 'YQPQKK_NOCO_0003', NULL, 'Company Name LTD - 1', 'T4', NULL, '925637149', '', '', '', '', 'YQPQKK_NOAD_0003', '', '', ''), ('1', 'YQPQKK_NOCO_0004', NULL, 'Company Name LTD - D', 'T4', NULL, '925637149', '', '', '', '', NULL, NULL, '', '') RETURNING *",
     Array [],
   ],
   Array [
@@ -179,7 +179,7 @@ Object {
       "linkedIn": "",
       "logo": "",
       "migrationId": "YQPQKK_NOCO_0003",
-      "name": "Company Name LTD - D",
+      "name": "Company Name LTD - 1",
       "phone": "",
       "publicEmail": "",
       "registeredAddressMigrationId": "YQPQKK_NOAD_0003",

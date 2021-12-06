@@ -3,7 +3,7 @@ import * as importer from "..";
 const companies = [
   {
     migration_id: "YQPQKK_NOCO_0003",
-    name: "Company Name LTD - D",
+    name: "Company Name LTD - 1",
     tier: "T4",
     tax_number: "925637149",
     about_us: "",

@@ -187,7 +187,7 @@ const ImportAccount = () => {
                               "doceboUserId",
                               "doceboUsername"
                             ].map((field) =>
-                              !member.account[`${field}`] ? null : (
+                              !member.account?.[`${field}`] ? null : (
                                 <div className={styles.field}>
                                   <Typography
                                     key={`${company?.name}-${field}`}
