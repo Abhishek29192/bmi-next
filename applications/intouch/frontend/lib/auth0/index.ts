@@ -13,7 +13,7 @@ export const getAuth0Instance = async (req, res) => {
       GCP_SECRET_PROJECT,
       AUTH0_COOKIE_DOMAIN,
       AUTH0_ISSUER_BASE_URL,
-      AUTH0_ROLLING_DURATION = "60"
+      AUTH0_ROLLING_DURATION = "60" // in seconds
     } = process.env;
 
     const { host } = req.headers;

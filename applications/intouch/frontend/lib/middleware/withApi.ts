@@ -17,12 +17,6 @@ export const withApi = (handler) =>
         const newAccessToken = await auth0.getAccessToken(req, res, {
           refresh: true
         });
-        console.log("withApi: refreshing access token", newAccessToken);
-        console.log(
-          "withApi: refreshing access token",
-          newAccessToken.accessToken
-        );
-
         accessToken = newAccessToken?.accessToken;
       }
 

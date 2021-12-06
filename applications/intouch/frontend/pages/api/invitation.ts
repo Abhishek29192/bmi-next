@@ -20,9 +20,6 @@ export const handler = async (req, res) => {
     const newAccessToken = await auth0.getAccessToken(req, res, {
       refresh: true
     });
-    console.log("inv: refreshing access token", newAccessToken);
-    console.log("inv: refreshing access token", newAccessToken.accessToken);
-
     accessToken = newAccessToken?.accessToken;
   }
 

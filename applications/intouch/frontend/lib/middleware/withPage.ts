@@ -78,22 +78,11 @@ export const innerGetServerSideProps = async (
   let accessToken = session.accessToken;
 
   const now = Date.now();
-  console.log(now, new Date(now));
-  console.log(
-    session.accessTokenExpiresAt,
-    new Date(session.accessTokenExpiresAt * 1000)
-  );
 
   if (now >= session.accessTokenExpiresAt * 1000) {
     const newAccessToken = await auth0.getAccessToken(req, res, {
       refresh: true
     });
-    console.log("withPage: refreshing access token", newAccessToken);
-    console.log(
-      "withPage: refreshing access token",
-      newAccessToken.accessToken
-    );
-
     accessToken = newAccessToken?.accessToken;
   }
 

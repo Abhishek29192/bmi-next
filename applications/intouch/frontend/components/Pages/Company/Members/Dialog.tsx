@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { gql } from "@apollo/client";
+import validator from "validator";
 import { useTranslation } from "next-i18next";
+import { withStyles } from "@material-ui/core/styles";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@bmi/text-field";
 import Button from "@bmi/button";
 import Dialog from "@bmi/dialog";
@@ -26,11 +29,19 @@ type AlertStateProp = {
   message?: string;
 };
 
+const WhiteAutocomplete = withStyles({
+  inputRoot: {
+    backgroundColor: "white"
+  }
+})(Autocomplete);
+
 const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
   const { t } = useTranslation(["error-page", "team-page"]);
   const [alertState, setAlertState] = useState<AlertStateProp>({
     open: false
   });
+  const [emails, setEmails] = useState<string[]>([]);
+  const [inputValue, setInputValue] = React.useState("");
   const [inviteUsers] = useInviteMutation({
     onError: (error) => {
       setAlertState({
@@ -52,11 +63,37 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
     inviteUsers({
       variables: {
         input: {
-          emails: values.emails?.replace(/ /g, "")?.split(",") || [],
+          emails: emails || [],
           personalNote: values.personalNote
         }
       }
     });
+  };
+
+  const onInputChange = (event, newInputValue) => {
+    const options = newInputValue.split(",");
+    if (options.length > 1) {
+      setEmails(
+        emails
+          .concat(options)
+          .map((x) => x.trim())
+          .filter((x) => {
+            return x && validator.isEmail(x);
+          })
+      );
+    } else {
+      setInputValue(newInputValue);
+    }
+  };
+
+  const onChange = (event, newValue: string[]) => {
+    setEmails(
+      newValue
+        .map((x) => x.trim())
+        .filter((x) => {
+          return x && validator.isEmail(x);
+        })
+    );
   };
 
   return (
@@ -80,17 +117,35 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
         )}
         <Form className={styles.form} onSubmit={onSubmit}>
           <Form.Row>
-            <TextField
-              name="emails"
-              label={t("team-page:invitation.dialog.emails.label")}
-              helperText={t("team-page:invitation.dialog.emails.helperText")}
-              className={styles.input}
-              inputProps={{
-                ["data-testid"]: "emails"
-              }}
-              onChange={() => setAlertState({ open: false })}
-              isRequired
-              fullWidth
+            <WhiteAutocomplete
+              multiple
+              freeSolo
+              id="tags-filled"
+              options={[]}
+              value={emails}
+              inputValue={inputValue}
+              onChange={onChange}
+              onInputChange={onInputChange}
+              getOptionLabel={(option: string) => option}
+              defaultValue={[] as string[]}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  name="emails"
+                  label={t("team-page:invitation.dialog.emails.label")}
+                  helperText={t(
+                    "team-page:invitation.dialog.emails.helperText"
+                  )}
+                  className={styles.input}
+                  onChange={() => setAlertState({ open: false })}
+                  inputProps={{
+                    ["data-testid"]: "emails",
+                    ...params.inputProps
+                  }}
+                  isRequired
+                  fullWidth
+                />
+              )}
             />
             <TextField
               name="personalNote"

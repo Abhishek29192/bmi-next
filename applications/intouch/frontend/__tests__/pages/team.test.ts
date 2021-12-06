@@ -25,6 +25,7 @@ describe("Team page server side props", () => {
         query: mockApolloQuery
       },
       account: {
+        role: "COMPANY_ADMIN",
         companyMembers: {
           nodes: [
             {
@@ -33,6 +34,7 @@ describe("Team page server side props", () => {
           ]
         }
       },
+      res: {},
       locale: {}
     };
   });

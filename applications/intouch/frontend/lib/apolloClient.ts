@@ -55,25 +55,23 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
     uri: `${baseUrl}/api/graphql`
   });
 
-  const authLink = setContext(async (req, { headers }) => {
-    return {
-      headers: {
-        ...headers,
-        ...((headers?.authorization || accessToken) && {
-          authorization: `Bearer ${headers?.authorization || accessToken}`
-        }),
-        // Logging purpose
-        ...(headers?.["x-request-id"] && {
-          "x-request-id": headers?.["x-request-id"]
-        }),
-        // Logging purpose
-        ...(headers?.["x-authenticated-user-id"] && {
-          "x-authenticated-user-id": headers?.["x-authenticated-user-id"]
-        }),
-        ...(ctx.headers || {})
-      }
-    };
-  });
+  const authLink = setContext(async (req, { headers }) => ({
+    headers: {
+      ...headers,
+      ...((headers?.authorization || accessToken) && {
+        authorization: `Bearer ${headers?.authorization || accessToken}`
+      }),
+      // Logging purpose
+      ...(headers?.["x-request-id"] && {
+        "x-request-id": headers?.["x-request-id"]
+      }),
+      // Logging purpose
+      ...(headers?.["x-authenticated-user-id"] && {
+        "x-authenticated-user-id": headers?.["x-authenticated-user-id"]
+      }),
+      ...(ctx.headers || {})
+    }
+  }));
 
   const errorLink = getErrorLink(ctx);
 
