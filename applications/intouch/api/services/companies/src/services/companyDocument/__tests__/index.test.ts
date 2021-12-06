@@ -44,7 +44,8 @@ describe("Company Documents", () => {
         documents: [
           {
             companyId: 1,
-            attachmentUpload: new File([], "mock-file")
+            document: "mock-file.pdf",
+            attachmentUpload: new File([], "mock-file.pdf")
           }
         ]
       }
