@@ -6,6 +6,7 @@ import {
 } from "@bmi/intouch-api-types";
 import { FileUpload } from "graphql-upload";
 import { PoolClient } from "pg";
+import { companyDocumentsTypeValidate } from "../../utils/companyDocument";
 import { PostGraphileContext } from "../../types";
 
 export const evidenceItemsAdd = async (
@@ -23,8 +24,13 @@ export const evidenceItemsAdd = async (
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
-    if (args.input.evidences.length > 0) {
-      for (const evidence of args.input.evidences) {
+    const {
+      input: { evidences }
+    } = args;
+    if (evidences.length > 0) {
+      companyDocumentsTypeValidate(evidences.map((evidence) => evidence.name));
+
+      for (const evidence of evidences) {
         const newFileName = `evidence/${evidence.projectId}/${
           evidence.evidenceCategoryType
         }-${Date.now()}`;

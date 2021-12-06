@@ -64,6 +64,10 @@ const Upload = ({
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
+  const acceptedTypes = accept
+    ? accept.replace(/[.\s]/g, "").split(",")
+    : undefined;
+
   useEffect(() => {
     if (value && value.length > 0) {
       const defaultFiles = value.map((file) => ({
@@ -105,6 +109,11 @@ const Upload = ({
     );
     const files: UploadFile[] = dataTransferItems
       .filter((item) => item.kind === "file")
+      .filter(
+        (item) =>
+          !acceptedTypes ||
+          acceptedTypes.includes(item.type.split("/").pop() || "")
+      )
       .map((item) => ({
         file: item.getAsFile()
       }))
