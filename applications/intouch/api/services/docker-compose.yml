@@ -1,28 +1,15 @@
 version: "3.1"
 services:
-  companies-db:
+  intouch-db:
     image: postgres
-    container_name: postgres-company-db
+    container_name: intouch-db
     ports:
       - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: companies-db
     volumes:
-      - intouch_company_db:/var/lib/postgresql/data
-  training-db:
-    image: postgres
-    container_name: postgres-training-db
-    ports:
-      - "5433:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: training-db
-    volumes:
-      - intouch_training_db:/var/lib/postgresql/data
-
+      - intouch_db:/var/lib/postgresql/data
+      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
 volumes:
-  intouch_company_db: {}
-  intouch_training_db: {}
+  intouch_db: {}
