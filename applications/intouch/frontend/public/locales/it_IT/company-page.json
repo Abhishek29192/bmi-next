@@ -26,6 +26,35 @@
     "title": "Dettagli azienda",
     "tradingAddress": "Indirizzo ufficio principale"
   },
+  "document": {
+    "addDocument": "Aggiungi documento",
+    "confirmDialog": {
+      "body": "Cancellare il documento?",
+      "cancelLabel": "Annulla",
+      "confirmLabel": "Conferma",
+      "title": "Documento aziendale"
+    },
+    "headers": {
+      "date": "Data",
+      "document": "Documento",
+      "download": "SCARICA"
+    },
+    "noContent": "Ancora nessun documento caricato ",
+    "title": "Documenti dell'azienda",
+    "uploadDialog": {
+      "buttonLabel": "Caricare i file",
+      "cancelLabel": "Annulla",
+      "confirmLabel": "Caricare i file",
+      "evidence_category": "Categoria di riscontro",
+      "fileValidationMessage": "Non puoi caricare file più grandi di {{fileSize}}",
+      "instruction": "Puoi aggiungere file",
+      "microcopy": {
+        "browse": "Scorri",
+        "drop": "Abbandona"
+      },
+      "title": "Caricamento del documento"
+    }
+  },
   "edit_dialog": {
     "form": {
       "actions": {
@@ -54,6 +83,10 @@
         "phone": "Telefono (opzionale)",
         "publicEmail": "Indirizzo email (opzionale)",
         "registeredAddress": {
+          "coordinates": {
+            "x": "Latitudine",
+            "y": "Longitudine"
+          },
           "country": "Paese",
           "firstLine": "Riga 1 indirizzo",
           "postcode": "Codice postale / CAP",
@@ -65,10 +98,14 @@
         "tier": "Livello",
         "tradingAddress": {
           "autocomplete": "Via, città o codice postale / CAP",
+          "coordinates": {
+            "x": "Latitudine",
+            "y": "Longitudine"
+          },
           "country": "Paese",
           "firstLine": "Riga 1 indirizzo",
           "postcode": "Codice postale / CAP",
-          "region": "Regione",
+          "region": "Provincia / Regione",
           "secondLine": "Riga 2 indirizzo",
           "town": "Città"
         },

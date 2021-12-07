@@ -15,7 +15,8 @@
   "errorSystemsToUpdate": "Sistema da aggiornare",
   "errors": {
     "filename_wrong_format": "Formato file errato",
-    "unauthorized": "Non autorizzato"
+    "unauthorized": "Non autorizzato",
+    "wrong_env": "Ambiente di sviluppo scorretto"
   },
   "family": "Famiglia",
   "form": {
@@ -45,5 +46,6 @@
   "systemToInsert": "Questi sistemi verranno aggiunti",
   "systemToUpdate": "Questi sistemi verranno aggiornati",
   "technology": "Tecnologia",
+  "unpublished": "Inedito",
   "updatedAt": "Ultimo aggiornamento"
 }

@@ -7,6 +7,8 @@
         "helperText": "Aggiungi più membri separando ogni indirizzo email con una virgola",
         "label": "Indirizzo email del destinatario"
       },
+      "errorAlreadyMember": "L'utente è già membro di un'altra società",
+      "errorInvitationNotFound": "Invito non trovato",
       "personalNote": {
         "label": "Il tuo messaggio (opzionale)"
       },
@@ -17,6 +19,7 @@
   },
   "lastCompanyAdminError": "Non è possibile rimuovere l'ultimo amministratore di un'Azienda a meno che non sia stata disattivata da BMI",
   "memberRemoved": "Membro rimosso con successo",
+  "report": "Scarica l'elenco del team",
   "sidePanel": {
     "inviteLabel": "+ Invita i membri del team",
     "search": {
@@ -30,6 +33,13 @@
     "title": "Certificazione(i)",
     "type": "Tipo",
     "validity": "Validità"
+  },
+  "userActions": {
+    "action": {
+      "activate": "Attiva utente",
+      "deactivate": "Disattiva utente"
+    },
+    "title": "Azioni dell'utente"
   },
   "user_card": {
     "add_admin": "Assegna come amministratore dell'azienda",

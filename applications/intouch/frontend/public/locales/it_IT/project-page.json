@@ -19,7 +19,7 @@
             "country": "Paese",
             "firstLine": "Riga 1 indirizzo",
             "postcode": "Codice postale / CAP",
-            "region": "Regione",
+            "region": "Provincia / Regione",
             "secondLine": "Riga 2 indirizzo (opzionale)",
             "town": "Città"
           },
@@ -67,7 +67,7 @@
             "country": "Paese",
             "firstLine": "Riga 1 indirizzo",
             "postcode": "Codice postale / CAP",
-            "region": "Regione",
+            "region": "Provincia / Regione",
             "secondLine": "Riga 2 indirizzo (opzionale)",
             "town": "Città"
           },
@@ -140,6 +140,19 @@
       "tier": "Non fai parte di un livello che permette di ottenere garanzie"
     },
     "title": "Non puoi ancora richiedere una garanzia"
+  },
+  "guaranteeSubmitAlert": {
+    "message": {
+      "buildingOwner": "Dettagli del proprietario dell'edificio incompleti",
+      "certification": "L'installatore responsabile nominato non possiede attualmente una certificazione nella stessa tecnologia del progetto",
+      "guaranteeType": "Il tipo di garanzia non è definito",
+      "minumumEvidence": "Sono stati caricati riscontri insufficienti",
+      "notApplicable": "Garanzia non applicabile",
+      "projectDetails": "Dettagli del progetto incompleti",
+      "responsibleInstaller": "Nessun installatore responsabile è stato nominato con la certificazione necessaria",
+      "tier": "Non sei in un Tier che supporta le Garanzie"
+    },
+    "title": "Non puoi ancora presentare una garanzia"
   },
   "guarantee_tab": {
     "applyGuarantee": {
@@ -280,6 +293,7 @@
     },
     "description": "Descrizione progetto",
     "endDate": "Data finale progetto",
+    "error": "Errore nel caricamento dei dettagli del progetto",
     "guaranteeStatus": "Stato di garanzia",
     "guaranteeType": "Garanzia",
     "hints": {
@@ -346,6 +360,9 @@
       "title": "Carica riscontro"
     },
     "header": "Carica file",
-    "noContent": "Nessun file caricato"
+    "noContent": "Nessun file caricato",
+    "requirementModal": {
+      "title": "Cosa è richiesto?"
+    }
   }
 }
