@@ -11,11 +11,8 @@ export const getDownloadLink = (url: string): string => {
   const urlWithProtocol: string = url.startsWith("http")
     ? url
     : `https://${url}`;
-  try {
-    return new URL(urlWithProtocol)?.href;
-  } catch (error) {
-    throw new Error(error);
-  }
+
+  return new URL(urlWithProtocol)?.href;
 };
 
 export const downloadAs = saveAs;
