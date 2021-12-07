@@ -23,6 +23,7 @@ describe("LanguageSelection component", () => {
     const { container } = render(
       <LanguageSelection
         introduction={<p>Introduction</p>}
+        forceMobile
         languages={[
           {
             label: "Europe",
