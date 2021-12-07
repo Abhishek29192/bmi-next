@@ -8,7 +8,11 @@ import {
   UpdateGuaranteeInput,
   UpdateProjectMemberInput
 } from "@bmi/intouch-api-types";
-import { updateCompany, deleteCompanyMember } from "../../services/company";
+import {
+  createCompany,
+  updateCompany,
+  deleteCompanyMember
+} from "../../services/company";
 import { createAccount, updateAccount } from "../../services/account";
 import {
   deleteEvidenceItem,
@@ -63,6 +67,9 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
             auth0
           );
         }
+      },
+      createCompany: {
+        resolve: createCompany
       },
       updateCompany: {
         requires: {

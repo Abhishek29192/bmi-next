@@ -3,12 +3,29 @@ import {
   CompanyPatch,
   DeleteCompanyMemberInput,
   Tier,
+  CreateCompanyInput,
   UpdateCompanyInput
 } from "@bmi/intouch-api-types";
 import { PoolClient } from "pg";
+import trimStringsDeep from "../../utils/trimStringsDeep";
 import { PostGraphileContext } from "../../types";
 import { sendMessageWithTemplate } from "../../services/mailer";
 import { tierBenefit } from "../contentful";
+
+export const createCompany = async (
+  resolve,
+  source,
+  args: { input: CreateCompanyInput },
+  context: PostGraphileContext,
+  resolveInfo
+) => {
+  return resolve(
+    source,
+    { input: trimStringsDeep(args.input) },
+    context,
+    resolveInfo
+  );
+};
 
 export const updateCompany = async (
   resolve,
@@ -17,6 +34,8 @@ export const updateCompany = async (
   context: PostGraphileContext,
   resolveInfo
 ) => {
+  args.input = trimStringsDeep(args.input);
+
   const { GCP_PUBLIC_BUCKET_NAME } = process.env;
   const { pgClient, storageClient, user } = context;
   const { logoUpload, shouldRemoveLogo, tier }: CompanyPatch = args.input.patch;
