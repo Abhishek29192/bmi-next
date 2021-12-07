@@ -61,6 +61,193 @@ exports[`Table component renders correctly 1`] = `
 </div>
 `;
 
+exports[`Table component renders correctly without width 1`] = `
+<div>
+  <table
+    class="MuiTable-root Table Table--row-even-color"
+  >
+    <thead
+      class="MuiTableHead-root ColorPair ColorPair--pearl"
+    >
+      <tr
+        class="MuiTableRow-root MuiTableRow-head"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-head"
+          scope="col"
+        >
+          Head Row - Cell 1
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head"
+          scope="col"
+        >
+          Head Row - Cell 2
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      class="MuiTableBody-root"
+    >
+      <tr
+        class="MuiTableRow-root"
+      >
+        <td
+          class="MuiTableCell-root MuiTableCell-body"
+        >
+          Row 1 - Cell 1
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body"
+        >
+          Row 1 - Cell 2
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root"
+      >
+        <td
+          class="MuiTableCell-root MuiTableCell-body"
+        >
+          Row 2 - Cell 1
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body"
+        >
+          Row 2 - Cell 2
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Table component renders medium table with no border 1`] = `
+<div>
+  <table
+    class="MuiTable-root Table Table--no-border"
+  >
+    <tbody
+      class="MuiTableBody-root"
+    >
+      <tr
+        class="MuiTableRow-root"
+      >
+        <td
+          class="MuiTableCell-root MuiTableCell-body ColorPair ColorPair--pearl"
+        >
+          Head Row - Cell 1
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body"
+        >
+          Row 1 - Cell 1
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root separator"
+      >
+        <td
+          class="MuiTableCell-root MuiTableCell-body ColorPair ColorPair--pearl"
+        >
+          Head Row - Cell 2
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body"
+        >
+          Row 1 - Cell 2
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root"
+      >
+        <td
+          class="MuiTableCell-root MuiTableCell-body ColorPair ColorPair--pearl"
+        >
+          Head Row - Cell 1
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body"
+        >
+          Row 2 - Cell 1
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root separator"
+      >
+        <td
+          class="MuiTableCell-root MuiTableCell-body ColorPair ColorPair--pearl"
+        >
+          Head Row - Cell 2
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body"
+        >
+          Row 2 - Cell 2
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Table component renders small table with no border 1`] = `
+<div>
+  <div
+    class="SmallTable SmallTable--item-even-color SmallTable--no-border"
+  >
+    <dl
+      class="item"
+    >
+      <dt
+        class="title"
+      >
+        Head Row - Cell 1
+      </dt>
+      <dd
+        class="description"
+      >
+        Row 1 - Cell 1
+      </dd>
+      <dt
+        class="title"
+      >
+        Head Row - Cell 2
+      </dt>
+      <dd
+        class="description"
+      >
+        Row 1 - Cell 2
+      </dd>
+    </dl>
+    <dl
+      class="item"
+    >
+      <dt
+        class="title"
+      >
+        Head Row - Cell 1
+      </dt>
+      <dd
+        class="description"
+      >
+        Row 2 - Cell 1
+      </dd>
+      <dt
+        class="title"
+      >
+        Head Row - Cell 2
+      </dt>
+      <dd
+        class="description"
+      >
+        Row 2 - Cell 2
+      </dd>
+    </dl>
+  </div>
+</div>
+`;
+
 exports[`Table component renders table head with different ColorPair 1`] = `
 <div>
   <table
@@ -248,63 +435,14 @@ exports[`Table component renders with reduced size - list view if both normal an
 </div>
 `;
 
-exports[`Table component renders without border 1`] = `
+exports[`Table component renders without TableBody 1`] = `
 <div>
   <table
-    class="MuiTable-root Table Table--row-even-color Table--no-border"
+    class="MuiTable-root Table"
   >
-    <thead
-      class="MuiTableHead-root ColorPair ColorPair--blue-900"
-    >
-      <tr
-        class="MuiTableRow-root MuiTableRow-head"
-      >
-        <th
-          class="MuiTableCell-root MuiTableCell-head"
-          scope="col"
-        >
-          Head Row - Cell 1
-        </th>
-        <th
-          class="MuiTableCell-root MuiTableCell-head"
-          scope="col"
-        >
-          Head Row - Cell 2
-        </th>
-      </tr>
-    </thead>
     <tbody
       class="MuiTableBody-root"
-    >
-      <tr
-        class="MuiTableRow-root"
-      >
-        <td
-          class="MuiTableCell-root MuiTableCell-body"
-        >
-          Row 1 - Cell 1
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-body"
-        >
-          Row 1 - Cell 2
-        </td>
-      </tr>
-      <tr
-        class="MuiTableRow-root"
-      >
-        <td
-          class="MuiTableCell-root MuiTableCell-body"
-        >
-          Row 2 - Cell 1
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-body"
-        >
-          Row 2 - Cell 2
-        </td>
-      </tr>
-    </tbody>
+    />
   </table>
 </div>
 `;
