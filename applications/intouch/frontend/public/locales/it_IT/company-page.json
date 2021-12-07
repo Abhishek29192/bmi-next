@@ -27,31 +27,32 @@
     "tradingAddress": "Indirizzo ufficio principale"
   },
   "document": {
-    "addDocument": "",
+    "addDocument": "Aggiungi documento",
     "confirmDialog": {
-      "body": "",
-      "cancelLabel": "",
-      "confirmLabel": "",
-      "title": ""
+      "body": "Cancellare il documento?",
+      "cancelLabel": "Annulla",
+      "confirmLabel": "Conferma",
+      "title": "Documento aziendale"
     },
     "headers": {
-      "date": "",
-      "document": "",
-      "download": ""
+      "date": "Data",
+      "document": "Documento",
+      "download": "SCARICA"
     },
-    "noContent": "",
-    "title": "",
+    "noContent": "Ancora nessun documento caricato ",
+    "title": "Documenti dell'azienda",
     "uploadDialog": {
-      "buttonLabel": "",
-      "cancelLabel": "",
-      "confirmLabel": "",
-      "fileValidationMessage": "",
-      "instruction": "",
+      "buttonLabel": "Caricare i file",
+      "cancelLabel": "Annulla",
+      "confirmLabel": "Caricare i file",
+      "evidence_category": "Categoria di riscontro",
+      "fileValidationMessage": "Non puoi caricare file più grandi di {{fileSize}}",
+      "instruction": "Puoi aggiungere file",
       "microcopy": {
-        "browse": "",
-        "drop": ""
+        "browse": "Scorri",
+        "drop": "Abbandona"
       },
-      "title": ""
+      "title": "Caricamento del documento"
     }
   },
   "edit_dialog": {
@@ -83,8 +84,8 @@
         "publicEmail": "Indirizzo email (opzionale)",
         "registeredAddress": {
           "coordinates": {
-            "x": "",
-            "y": ""
+            "x": "Latitudine",
+            "y": "Longitudine"
           },
           "country": "Paese",
           "firstLine": "Riga 1 indirizzo",
@@ -98,13 +99,13 @@
         "tradingAddress": {
           "autocomplete": "Via, città o codice postale / CAP",
           "coordinates": {
-            "x": "",
-            "y": ""
+            "x": "Latitudine",
+            "y": "Longitudine"
           },
           "country": "Paese",
           "firstLine": "Riga 1 indirizzo",
           "postcode": "Codice postale / CAP",
-          "region": "Regione",
+          "region": "Provincia / Regione",
           "secondLine": "Riga 2 indirizzo",
           "town": "Città"
         },

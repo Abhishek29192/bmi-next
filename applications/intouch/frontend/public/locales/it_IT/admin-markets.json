@@ -1,13 +1,13 @@
 {
-  "edit": "",
-  "error": "",
-  "show": "",
+  "edit": "Edit",
+  "error": "Error",
+  "show": "Show",
   "sidePanel": {
     "search": {
-      "label": "",
-      "noResult": ""
+      "label": "Search",
+      "noResult": "No items found"
     }
   },
-  "submit": "",
-  "success": ""
+  "submit": "Submit",
+  "success": "Success"
 }
