@@ -1,7 +1,6 @@
 import axios from "axios";
 import { saveAs } from "file-saver";
 import JSZip from "jszip";
-import { getValidHttpUrl } from "./url-helpers";
 
 export type Asset = {
   href: string;
@@ -12,7 +11,11 @@ export const getDownloadLink = (url: string): string => {
   const urlWithProtocol: string = url.startsWith("http")
     ? url
     : `https://${url}`;
-  return getValidHttpUrl(urlWithProtocol);
+  try {
+    return new URL(urlWithProtocol)?.href;
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 export const downloadAs = saveAs;

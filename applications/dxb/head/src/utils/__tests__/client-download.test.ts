@@ -25,6 +25,9 @@ describe("client download functions", () => {
         "https://localhost:8000/someFile.pdf"
       );
     });
+    it("should fire an Error if url is wrong format", () => {
+      expect(() => getDownloadLink("")).toThrow();
+    });
   });
 
   describe("getExtension function", () => {
