@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Content Article Page should not require auth for whitelisted public pages 1`] = `
+Object {
+  "props": Object {
+    "body": Object {
+      "type": "document",
+    },
+    "title": "test page",
+  },
+}
+`;
+
+exports[`Content Article Page should show non-public pages if authenticated 1`] = `
+Object {
+  "props": Object {
+    "body": Object {
+      "type": "document",
+    },
+    "title": "test page",
+  },
+}
+`;
