@@ -29,6 +29,14 @@ jest.mock("../validate", () => ({
     .mockImplementation(() => ({ isValid: true }))
 }));
 
+jest.mock("file-type", () => {
+  return {
+    fromStream: () => ({
+      mime: "image/jpg"
+    })
+  };
+});
+
 const evidenceItemInputs = [
   {
     name: "file1.jpg",

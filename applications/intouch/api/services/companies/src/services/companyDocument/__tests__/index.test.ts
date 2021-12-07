@@ -4,6 +4,14 @@ import {
 } from "@bmi/intouch-api-types";
 import { createCompanyDocuments, deleteCompanyDocument } from "..";
 
+jest.mock("file-type", () => {
+  return {
+    fromStream: () => ({
+      mime: "application/pdf"
+    })
+  };
+});
+
 const storage = {
   uploadFileByStream: jest.fn(),
   deleteFile: jest.fn()
@@ -45,7 +53,12 @@ describe("Company Documents", () => {
           {
             companyId: 1,
             document: "mock-file.pdf",
-            attachmentUpload: new File([], "mock-file.pdf")
+            attachmentUpload: {
+              filename: "mock-file.pdf",
+              mimetype: "application/pdf",
+              encoding: "",
+              createReadStream: () => {}
+            }
           }
         ]
       }

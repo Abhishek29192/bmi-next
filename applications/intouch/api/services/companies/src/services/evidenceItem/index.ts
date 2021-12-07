@@ -6,7 +6,7 @@ import {
 } from "@bmi/intouch-api-types";
 import { FileUpload } from "graphql-upload";
 import { PoolClient } from "pg";
-import { companyDocumentsTypeValidate } from "../../utils/companyDocument";
+import { filesTypeValidate } from "../../utils/file";
 import { PostGraphileContext } from "../../types";
 
 export const evidenceItemsAdd = async (
@@ -28,7 +28,9 @@ export const evidenceItemsAdd = async (
       input: { evidences }
     } = args;
     if (evidences.length > 0) {
-      companyDocumentsTypeValidate(evidences.map((evidence) => evidence.name));
+      await filesTypeValidate(
+        evidences.map((evidence) => evidence.attachmentUpload)
+      );
 
       for (const evidence of evidences) {
         const newFileName = `evidence/${evidence.projectId}/${
