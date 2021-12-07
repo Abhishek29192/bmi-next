@@ -4888,6 +4888,7 @@ type Note implements Node {
   Reads a single `Project` that is related to this `Note`.
   """
   project: Project
+  senderName: String
 }
 
 """
@@ -4958,6 +4959,11 @@ input NoteFilter {
   Filter by the object’s `projectId` field.
   """
   projectId: IntFilter
+
+  """
+  Filter by the object’s `senderName` field.
+  """
+  senderName: StringFilter
 
   """
   Checks for all expressions in this list.
