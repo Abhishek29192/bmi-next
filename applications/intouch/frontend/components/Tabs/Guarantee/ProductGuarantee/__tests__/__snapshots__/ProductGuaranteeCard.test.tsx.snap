@@ -21,61 +21,59 @@ exports[`ProductGuaranteeCard Component renders correctly 1`] = `
     />
   </div>
   <div>
-    <div>
-      <table
-        class="MuiTable-root Table Table--row-even-color"
+    <table
+      class="MuiTable-root Table Table--row-even-color"
+    >
+      <thead
+        class="MuiTableHead-root ColorPair ColorPair--pearl"
       >
-        <thead
-          class="MuiTableHead-root ColorPair ColorPair--pearl"
+        <tr
+          class="MuiTableRow-root MuiTableRow-head"
         >
-          <tr
-            class="MuiTableRow-root MuiTableRow-head"
+          <th
+            class="MuiTableCell-root MuiTableCell-head"
+            scope="col"
           >
-            <th
-              class="MuiTableCell-root MuiTableCell-head"
-              scope="col"
-            >
-              productDetails.name
-            </th>
-            <th
-              class="MuiTableCell-root MuiTableCell-head"
-              scope="col"
-            >
-              productDetails.family
-            </th>
-            <th
-              class="MuiTableCell-root MuiTableCell-head"
-              scope="col"
-            >
-              productDetails.brand
-            </th>
-          </tr>
-        </thead>
-        <tbody
-          class="MuiTableBody-root"
+            productDetails.name
+          </th>
+          <th
+            class="MuiTableCell-root MuiTableCell-head"
+            scope="col"
+          >
+            productDetails.family
+          </th>
+          <th
+            class="MuiTableCell-root MuiTableCell-head"
+            scope="col"
+          >
+            productDetails.brand
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class="MuiTableBody-root"
+      >
+        <tr
+          class="MuiTableRow-root"
         >
-          <tr
-            class="MuiTableRow-root"
+          <td
+            class="MuiTableCell-root MuiTableCell-body"
           >
-            <td
-              class="MuiTableCell-root MuiTableCell-body"
-            >
-              product_name
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body"
-            >
-              famil
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body"
-            >
-              brand
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            product_name
+          </td>
+          <td
+            class="MuiTableCell-root MuiTableCell-body"
+          >
+            famil
+          </td>
+          <td
+            class="MuiTableCell-root MuiTableCell-body"
+          >
+            brand
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 `;
