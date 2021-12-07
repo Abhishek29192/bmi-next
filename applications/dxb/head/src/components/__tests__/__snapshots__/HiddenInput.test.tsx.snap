@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HiddenInput component renders correctly 1`] = `
+<div
+  class="MuiInputBase-root"
+>
+  <input
+    aria-invalid="false"
+    class="MuiInputBase-input"
+    name="Test"
+    type="hidden"
+    value="test"
+  />
+</div>
+`;

@@ -12,7 +12,7 @@ import Typography from "@bmi/typography";
 import { devLog } from "../utils/devLog";
 import withGTM from "../utils/google-tag-manager";
 import { useSiteContext } from "./Site";
-import FormInputs, { Data as FormInputsData } from "./FormInputs";
+import FormSection, { InputType as FormInputsData } from "./FormSection";
 import RichText, { RichTextData } from "./RichText";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 
@@ -25,7 +25,7 @@ export type Data = {
   };
   inputLabel: string;
   submitButtonLabel: string;
-  additionalInputs: FormInputsData;
+  additionalInputs: FormInputsData[];
   confirmationButtonLabel: string | null;
   thankYouMessage: string;
   allowRetry: string | null;
@@ -137,7 +137,7 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
           <Dialog.Title hasUnderline>{title}</Dialog.Title>
           <Form>
             <Dialog.Content>
-              <FormInputs data={additionalInputs} />
+              <FormSection.Inputs inputs={additionalInputs} />
             </Dialog.Content>
 
             <FormContext.Consumer>

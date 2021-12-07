@@ -29,7 +29,7 @@ export enum DataTypeEnum {
   HubSpotCta = "HubSpot CTA"
 }
 
-const isExternalUrl = (url: string): boolean => {
+export const isExternalUrl = (url: string): boolean => {
   try {
     const linkUrl = new URL(url);
     return linkUrl.host !== window.location.host;
