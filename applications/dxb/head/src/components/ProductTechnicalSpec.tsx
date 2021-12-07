@@ -6,6 +6,7 @@ import { getValidFeatures } from "../utils/product-details-transforms";
 import { Classification } from "./types/pim";
 import ProductFeaturesTable from "./ProductFeaturesTable";
 import styles from "./styles/ProductTechnicalSpec.module.scss";
+import { useSiteContext } from "./Site";
 
 type ProductTechnicalSpecProps = {
   classifications: readonly Classification[];
@@ -16,10 +17,11 @@ const ProductTechnicalSpec = ({
   classifications,
   classificationNamespace
 }: ProductTechnicalSpecProps) => {
+  const { getMicroCopy } = useSiteContext();
   if (classifications.length === 0) {
     return (
       <div className={styles["ProductTechnicalSpec"]}>
-        No technical specifications found for this product.
+        {getMicroCopy("pdp.noTechSpecMessage")}
       </div>
     );
   }
