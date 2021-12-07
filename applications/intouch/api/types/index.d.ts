@@ -12622,6 +12622,7 @@ export type Note = Node & {
   author?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Note`. */
   project?: Maybe<Project>;
+  senderName?: Maybe<Scalars["String"]>;
 };
 
 /** Input for the nested mutation of `account` in the `NoteInput` mutation. */
@@ -12704,6 +12705,8 @@ export type NoteFilter = {
   authorId?: Maybe<IntFilter>;
   /** Filter by the object’s `projectId` field. */
   projectId?: Maybe<IntFilter>;
+  /** Filter by the object’s `senderName` field. */
+  senderName?: Maybe<StringFilter>;
   /** Checks for all expressions in this list. */
   and?: Maybe<Array<NoteFilter>>;
   /** Checks for any expressions in this list. */
