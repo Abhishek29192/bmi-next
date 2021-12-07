@@ -526,6 +526,18 @@ exports[`ProductTechnicalSpec component Renders correctly when no classification
     <div
       class="ProductTechnicalSpec"
     >
+      MC: pdp.noTechSpecMessage
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ProductTechnicalSpec component Renders correctly with microcopy text when no classifications and microcopy text is provided 1`] = `
+<body>
+  <div>
+    <div
+      class="ProductTechnicalSpec"
+    >
       No technical specifications found for this product.
     </div>
   </div>

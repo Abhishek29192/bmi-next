@@ -2,6 +2,27 @@ import React from "react";
 import { render } from "@testing-library/react";
 import ProductTechnicalSpec from "../ProductTechnicalSpec";
 import { Classification } from "../types/pim";
+import { SiteContextProvider } from "../Site";
+
+const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <SiteContextProvider
+      value={{
+        node_locale: "en-UK",
+        homePage: { title: "Home Page" },
+        getMicroCopy: (path) =>
+          path === "pdp.noTechSpecMessage"
+            ? "No technical specifications found for this product."
+            : `MC: ${path}`,
+        countryCode: "uk",
+        reCaptchaKey: "1234",
+        reCaptchaNet: false
+      }}
+    >
+      {children}
+    </SiteContextProvider>
+  );
+};
 
 describe("ProductTechnicalSpec component", () => {
   describe("Renders correctly", () => {
@@ -14,6 +35,20 @@ describe("ProductTechnicalSpec component", () => {
         />
       );
       expect(wrapper.baseElement).toMatchSnapshot();
+    });
+    describe("with microcopy text", () => {
+      it("when no classifications and microcopy text is provided", () => {
+        const namespace = "bmi.classification.namespace";
+        const wrapper = render(
+          <MockSiteContext>
+            <ProductTechnicalSpec
+              classifications={[]}
+              classificationNamespace={namespace}
+            />
+          </MockSiteContext>
+        );
+        expect(wrapper.baseElement).toMatchSnapshot();
+      });
     });
 
     describe("when One classifications provided", () => {
