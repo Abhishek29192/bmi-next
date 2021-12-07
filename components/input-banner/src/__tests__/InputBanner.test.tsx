@@ -37,4 +37,50 @@ describe("InputBanner component", () => {
     await fireEvent.click(button);
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
+
+  it("handleSubmit is called if Enter pressed and email not valid", async () => {
+    const onSubmit = jest.fn();
+    const { getByRole } = render(
+      <InputBanner
+        title="Lorem ipsum"
+        description="Lorem ipsum sit dolor amet"
+        inputLabel="Label"
+        inputCallToAction="CTA"
+        onSubmit={onSubmit}
+      />
+    );
+    const input = getByRole("textbox");
+    const mockTypingEvent = {
+      target: {
+        value: "com"
+      }
+    };
+    const mockEnter = { key: "Enter", code: 13, charCode: 13 };
+    await fireEvent.change(input, mockTypingEvent);
+    await fireEvent.keyDown(input, mockEnter);
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+  });
+
+  it("onKeyDown does not trigger onSubmit if Enter not pressed", async () => {
+    const onSubmit = jest.fn();
+    const { getByRole } = render(
+      <InputBanner
+        title="Lorem ipsum"
+        description="Lorem ipsum sit dolor amet"
+        inputLabel="Label"
+        inputCallToAction="CTA"
+        onSubmit={onSubmit}
+      />
+    );
+    const input = getByRole("textbox");
+    const mockTypingEvent = {
+      target: {
+        value: "test@email.com"
+      }
+    };
+    const mockEnter = { key: "Space", code: 32, charCode: 32 };
+    await fireEvent.change(input, mockTypingEvent);
+    await fireEvent.keyDown(input, mockEnter);
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+  });
 });
