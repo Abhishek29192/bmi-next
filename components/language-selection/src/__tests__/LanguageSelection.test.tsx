@@ -23,6 +23,32 @@ describe("LanguageSelection component", () => {
     const { container } = render(
       <LanguageSelection
         introduction={<p>Introduction</p>}
+        languages={[
+          {
+            label: "Europe",
+            menu: [
+              {
+                code: "al",
+                label: "Albania",
+                icon: "path/to/al.svg"
+              },
+              {
+                code: "at",
+                label: "Österreich",
+                icon: "path/to/at.svg"
+              }
+            ]
+          }
+        ]}
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders correctly if forceMobile", () => {
+    const { container } = render(
+      <LanguageSelection
+        introduction={<p>Introduction</p>}
         forceMobile
         languages={[
           {
