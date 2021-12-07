@@ -141,11 +141,7 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
       nodes {
         id
         body
-        authorId
-        author {
-          firstName
-          lastName
-        }
+        senderName
         createdAt
       }
     }

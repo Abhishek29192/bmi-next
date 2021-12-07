@@ -905,15 +905,8 @@ export type CreateProjectMutation = { readonly __typename?: "Mutation" } & {
               readonly nodes: ReadonlyArray<
                 { readonly __typename?: "Note" } & Pick<
                   SchemaTypes.Note,
-                  "id" | "body" | "authorId" | "createdAt"
-                > & {
-                    readonly author?: SchemaTypes.Maybe<
-                      { readonly __typename?: "Account" } & Pick<
-                        SchemaTypes.Account,
-                        "firstName" | "lastName"
-                      >
-                    >;
-                  }
+                  "id" | "body" | "senderName" | "createdAt"
+                >
               >;
             };
             readonly projectMembers: {
@@ -1134,15 +1127,8 @@ export type UpdateProjectMutation = { readonly __typename?: "Mutation" } & {
               readonly nodes: ReadonlyArray<
                 { readonly __typename?: "Note" } & Pick<
                   SchemaTypes.Note,
-                  "id" | "body" | "authorId" | "createdAt"
-                > & {
-                    readonly author?: SchemaTypes.Maybe<
-                      { readonly __typename?: "Account" } & Pick<
-                        SchemaTypes.Account,
-                        "firstName" | "lastName"
-                      >
-                    >;
-                  }
+                  "id" | "body" | "senderName" | "createdAt"
+                >
               >;
             };
             readonly projectMembers: {
@@ -1534,15 +1520,8 @@ export type ProjectDetailsFragmentFragment = {
       readonly nodes: ReadonlyArray<
         { readonly __typename?: "Note" } & Pick<
           SchemaTypes.Note,
-          "id" | "body" | "authorId" | "createdAt"
-        > & {
-            readonly author?: SchemaTypes.Maybe<
-              { readonly __typename?: "Account" } & Pick<
-                SchemaTypes.Account,
-                "firstName" | "lastName"
-              >
-            >;
-          }
+          "id" | "body" | "senderName" | "createdAt"
+        >
       >;
     };
     readonly projectMembers: {
@@ -1748,15 +1727,8 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
           readonly nodes: ReadonlyArray<
             { readonly __typename?: "Note" } & Pick<
               SchemaTypes.Note,
-              "id" | "body" | "authorId" | "createdAt"
-            > & {
-                readonly author?: SchemaTypes.Maybe<
-                  { readonly __typename?: "Account" } & Pick<
-                    SchemaTypes.Account,
-                    "firstName" | "lastName"
-                  >
-                >;
-              }
+              "id" | "body" | "senderName" | "createdAt"
+            >
           >;
         };
         readonly projectMembers: {
