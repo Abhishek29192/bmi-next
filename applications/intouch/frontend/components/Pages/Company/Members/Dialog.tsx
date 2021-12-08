@@ -80,6 +80,7 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
           .filter((x) => {
             return x && validator.isEmail(x);
           })
+          .slice(0, 10)
       );
     } else {
       setInputValue(newInputValue);
@@ -93,7 +94,21 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
         .filter((x) => {
           return x && validator.isEmail(x);
         })
+        .slice(0, 10)
     );
+  };
+
+  const onBlur = () => {
+    setEmails([
+      ...emails,
+      ...inputValue
+        .split(",")
+        .map((x) => x.trim())
+        .filter((x) => {
+          return x && validator.isEmail(x);
+        })
+        .slice(0, 10)
+    ]);
   };
 
   return (
@@ -126,6 +141,7 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
               inputValue={inputValue}
               onChange={onChange}
               onInputChange={onInputChange}
+              onBlur={onBlur}
               getOptionLabel={(option: string) => option}
               defaultValue={[] as string[]}
               renderInput={(params) => (
