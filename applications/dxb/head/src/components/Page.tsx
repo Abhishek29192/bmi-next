@@ -129,11 +129,14 @@ const Page = ({
   //      for DE this will be simply a path list, hence the crude nature of below
   const noindex =
     [
-      "vielen-dank!/",
+      //DE
+      "vielen-dank/",
       "teilnahmebedingungen/",
       "services-downloads-im-ueberblick/alle-services/alle-braas-services/schneefangberechnung/",
       "services-downloads-im-ueberblick/alle-services/alle-braas-services/windsogberechnung/windsogberechnung-tool/",
-      "concrete-tiles/" // qa test page - remove before final commit
+      //FR
+      "professionnels/iaodc1artv2l5y7e/",
+      "professionnels/rgga23impm0om5rcs/"
     ].indexOf(path) > -1;
 
   return (
