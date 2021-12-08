@@ -4113,7 +4113,7 @@ export type ProductsAndSystemsQueryResult = Apollo.QueryResult<
 >;
 export const GetCompaniesByMarketDocument = gql`
   query GetCompaniesByMarket($marketId: Int!) {
-    companies(condition: { marketId: $marketId }, orderBy: NAME_ASC) {
+    companies(condition: { marketId: $marketId }) {
       nodes {
         ...CompanyPageDetailsFragment
       }
