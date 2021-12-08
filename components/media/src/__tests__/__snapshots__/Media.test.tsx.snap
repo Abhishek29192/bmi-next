@@ -1,3 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Media component renders correctly 1`] = `null`;
+exports[`Media component renders correctly 1`] = `
+<img
+  class="Media"
+/>
+`;
+
+exports[`Media component renders correctly if child is not img or YoutubeVideo 1`] = `
+<p
+  class="Media"
+>
+  text
+</p>
+`;
+
+exports[`Media component renders correctly if child youtube video 1`] = `
+<div
+  class="Media Media--contain"
+>
+  <div
+    class="YoutubeVideo"
+  >
+    <button
+      aria-label="label"
+      class="thumbnail"
+      type="button"
+    >
+      <img
+        alt="label"
+        class="preview-image"
+        src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+      />
+      <span
+        class="AlternativeContent"
+      >
+        label
+      </span>
+      <div
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8 5v14l11-7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Media component renders correctly if size is not cover 1`] = `
+<img
+  class="Media Media--contain"
+/>
+`;
+
+exports[`Media component renders correctly with className 1`] = `
+<img
+  class="test Media"
+/>
+`;
