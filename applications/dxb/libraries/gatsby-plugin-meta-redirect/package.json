@@ -1,0 +1,20 @@
+{
+  "name": "@bmi/gatsby-plugin-meta-redirect",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "engines": {
+    "node": ">=8"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin"
+  ],
+  "scripts": {
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/"
+  }
+}
