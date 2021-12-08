@@ -1,6 +1,14 @@
-"use strict";
+import { Context, Node, ResolveArgs } from "../types";
 
-const getUrlFromPath = (path) => {
+type Path = {
+  id?: string;
+  path?: string;
+  label?: string;
+  queryParams?: string;
+  slug?: string;
+}[];
+
+export const getUrlFromPath = (path: Path) => {
   const queryParams = path
     .filter(({ queryParams }) => queryParams)
     .map(({ queryParams }) => queryParams.replace("?", ""))
@@ -18,7 +26,10 @@ const getUrlFromPath = (path) => {
   return queryParams !== "" ? `${finalUrl}?${queryParams}` : finalUrl;
 };
 
-const getPath = async (page, context) => {
+const getPath = async (
+  page: Partial<Node>,
+  context: Context
+): Promise<Path> => {
   if (!page.site___NODE || !page.site___NODE.length) {
     return [];
   }
@@ -42,7 +53,7 @@ const getPath = async (page, context) => {
     return [];
   }
 
-  const __getItemFromLink = async (link) => {
+  const __getItemFromLink = async (link: Node) => {
     if (!link || !link.linkedPage___NODE) {
       return null;
     }
@@ -67,7 +78,7 @@ const getPath = async (page, context) => {
 
   const pageIdToPathMap = {};
 
-  const __helper = async (items, path) => {
+  const __helper = async (items: string[], path) => {
     if (pageIdToPathMap[page.id]) {
       return pageIdToPathMap[page.id];
     }
@@ -125,7 +136,11 @@ const getPath = async (page, context) => {
   return pageIdToPathMap[page.id] || [];
 };
 
-const resolvePath = async (source, args, context) => {
+export const resolvePath = async (
+  source: Partial<Node>,
+  args?: ResolveArgs,
+  context?: Context
+): Promise<Path> => {
   const { id, title: label, slug, parentPage___NODE } = source;
 
   if (parentPage___NODE) {
@@ -156,9 +171,4 @@ const resolvePath = async (source, args, context) => {
   }
 
   return path;
-};
-
-module.exports = {
-  resolvePath,
-  getUrlFromPath
 };

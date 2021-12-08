@@ -1,9 +1,9 @@
-"use strict";
+import { Context, Node, ResolveArgs } from "./types";
 
-module.exports = {
+export default {
   regions: {
     type: ["RegionJson"],
-    async resolve(source, args, context) {
+    async resolve(source: Node, args: ResolveArgs, context: Context) {
       return context.nodeModel.getAllNodes(
         { type: "RegionJson" },
         { connectionType: "RegionJson" }

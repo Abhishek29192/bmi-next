@@ -1,12 +1,12 @@
-"use strict";
+import { Context, Node, ResolveArgs } from "./types";
 
-const getFocalPoint = (size, position) =>
+const getFocalPoint = (size: number, position: number) =>
   parseFloat(((100 * position) / size).toFixed(0));
 
-module.exports = {
+export default {
   focalPoint: {
     type: `FocalPoint`,
-    async resolve(source, args, context) {
+    async resolve(source: Node, args: ResolveArgs, context: Context) {
       if (!source.image___NODE || !source.focalPoint___NODE) {
         return null;
       }

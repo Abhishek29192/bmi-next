@@ -412,5 +412,5 @@ exports.createSchemaCustomization = ({ actions }) => {
 };
 
 exports.createResolvers = ({ createResolvers }) => {
-  createResolvers(resolvers);
+  createResolvers(resolvers.default);
 };

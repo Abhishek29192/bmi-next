@@ -7,7 +7,7 @@ Array [
   Object {
     "id": undefined,
     "label": undefined,
-    "slug": undefined,
+    "slug": "/en/i-am-a-test/path/thingy/",
   },
 ]
 `;

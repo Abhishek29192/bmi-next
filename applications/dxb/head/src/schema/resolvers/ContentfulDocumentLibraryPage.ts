@@ -1,14 +1,13 @@
-"use strict";
-
-const {
+import {
   resolveDocumentsFromProducts,
   resolveDocumentsFromContentful
-} = require("./documents");
+} from "./documents";
+import { Context, Node, ResolveArgs } from "./types";
 
-module.exports = {
+export default {
   documents: {
     type: ["Document"],
-    async resolve(source, args, context) {
+    async resolve(source: Node, args: ResolveArgs, context: Context) {
       const assetTypes =
         source.assetTypes___NODE && source.assetTypes___NODE.length
           ? await Promise.all(
@@ -36,9 +35,9 @@ module.exports = {
       }
 
       if (source.source === "ALL") {
-        const cmsDocuments = await resolveDocumentsFromContentful(assetTypes, {
+        const cmsDocuments = (await resolveDocumentsFromContentful(assetTypes, {
           context
-        });
+        })) as Node[];
         const pimDocuments = await resolveDocumentsFromProducts(assetTypes, {
           source,
           context

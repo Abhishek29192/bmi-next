@@ -1,6 +1,10 @@
-"use strict";
+import { Context, Node, ResolveArgs } from "./types";
 
-const getTitleWithContentNodes = async (node, context, nodes = []) => {
+const getTitleWithContentNodes = async (
+  node: Node,
+  context: Context,
+  nodes: Partial<Node>[] = []
+) => {
   let nextNode;
 
   if (node.internal.type === "ContentfulTitleWithContent") {
@@ -37,10 +41,10 @@ const getTitleWithContentNodes = async (node, context, nodes = []) => {
   return nodes;
 };
 
-module.exports = {
+export default {
   noResultItems: {
     type: ["ContentfulTitleWithContent"],
-    async resolve(source, args, context) {
+    async resolve(source: Node, args: ResolveArgs, context: Context) {
       return getTitleWithContentNodes(source, context);
     }
   }

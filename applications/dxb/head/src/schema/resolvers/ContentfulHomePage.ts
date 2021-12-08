@@ -1,6 +1,6 @@
-"use strict";
+import { Context, Node, ResolveArgs } from "./types";
 
-module.exports = {
+export default {
   slug: {
     resolve() {
       return "/";
@@ -13,7 +13,7 @@ module.exports = {
   },
   brands: {
     type: ["ContentfulBrandLandingPage"],
-    async resolve(source, args, context) {
+    async resolve(source: Node, args: ResolveArgs, context: Context) {
       return context.nodeModel.getAllNodes(
         { type: "ContentfulBrandLandingPage" },
         { connectionType: "ContentfulBrandLandingPage" }

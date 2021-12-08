@@ -1,18 +1,14 @@
 // TODO: Find another place for this file.
-"use strict";
-
-const {
+import {
   generateIdFromString,
   generateDigestFromData
-} = require("../../utils/encryption");
-const {
-  getFormatFromFileName,
-  isPimLinkDocument
-} = require("./utils/documents");
+} from "../../utils/encryption";
+import { Node, Context } from "./types";
+import { getFormatFromFileName, isPimLinkDocument } from "./utils/documents";
 
-const resolveDocumentsFromProducts = async (
+export const resolveDocumentsFromProducts = async (
   assetTypes,
-  { source, context }
+  { source, context }: { source: Partial<Node>; context: Context }
 ) => {
   const pimAssetTypes = assetTypes.map(({ pimCode }) => pimCode);
   const filter = assetTypes.length
@@ -39,18 +35,18 @@ const resolveDocumentsFromProducts = async (
       }
     : {};
 
-  const products = await context.nodeModel.runQuery({
+  const products = (await context.nodeModel.runQuery({
     query: {
       filter
     },
     type: "Products"
-  });
+  })) as Node[];
 
   if (!products.length) {
     return [];
   }
 
-  const resources = await context.nodeModel.runQuery({
+  const resources = (await context.nodeModel.runQuery({
     query: {
       filter: {
         site: {
@@ -62,7 +58,7 @@ const resolveDocumentsFromProducts = async (
     },
     type: "ContentfulResources",
     firstOnly: true
-  });
+  })) as Node;
 
   const documents = products.flatMap((product) =>
     (product.assets || [])
@@ -137,7 +133,10 @@ const resolveDocumentsFromProducts = async (
   return documents || [];
 };
 
-const resolveDocumentsFromContentful = async (assetTypes, { context }) => {
+export const resolveDocumentsFromContentful = async (
+  assetTypes,
+  { context }: { context: Context }
+) => {
   const filter = assetTypes.length
     ? {
         assetType: {
@@ -156,9 +155,4 @@ const resolveDocumentsFromContentful = async (assetTypes, { context }) => {
   });
 
   return documents;
-};
-
-module.exports = {
-  resolveDocumentsFromProducts,
-  resolveDocumentsFromContentful
 };
