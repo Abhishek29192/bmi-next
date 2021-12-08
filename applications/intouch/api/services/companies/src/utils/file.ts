@@ -5,7 +5,8 @@ const validFileTypes = [
   "application/pdf",
   "image/jpeg",
   "image/jpg",
-  "image/png"
+  "image/png",
+  "image/bmp"
 ];
 
 export const filesTypeValidate = async (files: any[]) => {
