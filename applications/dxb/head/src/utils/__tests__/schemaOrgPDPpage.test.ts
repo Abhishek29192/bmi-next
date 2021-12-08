@@ -36,10 +36,7 @@ describe("schemaOrgPDPpage tests", () => {
         "@type": "Product",
         url: "/no/p/some-product-path",
         award: undefined,
-        brand: {
-          "@type": undefined,
-          name: undefined
-        },
+        brand: undefined,
         color: undefined,
         description: undefined,
         height: undefined,
@@ -831,10 +828,7 @@ describe("schemaOrgPDPpage tests", () => {
         "@context": "https://schema.org",
         "@type": "Product",
         award: undefined,
-        brand: {
-          "@type": undefined,
-          name: undefined
-        },
+        brand: undefined,
         color: undefined,
         description: "variant-long-desc",
         height: {

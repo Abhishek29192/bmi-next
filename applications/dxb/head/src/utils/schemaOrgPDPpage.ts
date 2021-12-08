@@ -34,10 +34,13 @@ export const createSchemaOrgDataForPdpPage = (
     "@context": "https://schema.org",
     "@type": "Product",
     award: getProductAssetPropByAssetType(baseProduct, "AWARDS", "name"),
-    brand: {
-      "@type": brand?.["@type"] || undefined,
-      name: brand?.name || undefined
-    },
+    brand:
+      brand && brand.name
+        ? {
+            "@type": brand["@type"],
+            name: brand.name
+          }
+        : undefined,
     // category: getCategory(baseProduct),
     color: getClassificationFeatureValue(
       classifications,
