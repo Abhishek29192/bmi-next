@@ -1,7 +1,6 @@
 // TODO: Find another place for this file.
 "use strict";
 
-const { flatMap, includes, find } = require("lodash");
 const {
   generateIdFromString,
   generateDigestFromData
@@ -65,13 +64,15 @@ const resolveDocumentsFromProducts = async (
     firstOnly: true
   });
 
-  const documents = flatMap(products, (product) =>
+  const documents = products.flatMap((product) =>
     (product.assets || [])
-      .filter((asset) => includes(pimAssetTypes, asset.assetType))
+      .filter((asset) => pimAssetTypes.includes(asset.assetType))
       .map((asset) => {
         const id = generateIdFromString(product.name + asset.name, true);
         const { url, fileSize, realFileName, mime, name } = asset;
-        const assetType = find(assetTypes, { pimCode: asset.assetType });
+        const assetType = assetTypes.find(
+          (assetType) => assetType.pimCode === asset.assetType
+        );
 
         if (!assetType || !url) {
           return;
