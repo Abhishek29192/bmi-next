@@ -17,7 +17,7 @@ export const config = {
   }
 };
 
-const { GRAPHQL_URL, NODE_ENV } = process.env;
+const { GRAPHQL_URL, NODE_ENV, GRAPHQL_PROXY_TIMEOUT = "10000" } = process.env;
 const isDev = NODE_ENV === "development";
 const isLocalGateway =
   GRAPHQL_URL?.indexOf("local") !== -1 ||
@@ -30,7 +30,7 @@ const proxyOptions: Options = {
     })
   },
   changeOrigin: true,
-  proxyTimeout: isDev ? 5000 : 3000,
+  proxyTimeout: parseInt(GRAPHQL_PROXY_TIMEOUT),
   secure: false,
   pathRewrite: {
     "^/api/graphql": ""
