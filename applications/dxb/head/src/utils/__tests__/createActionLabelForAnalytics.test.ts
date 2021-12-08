@@ -16,8 +16,8 @@ const baseProduct = createBaseProduct();
 const product = createVariantOption({
   classifications: [
     createClassification({
-      code: "appearanceAttributes",
-      name: "appearanceAttributes",
+      code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+      name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
       features: [
         createFeature({
           code: "colour",
@@ -30,8 +30,8 @@ const product = createVariantOption({
       ]
     }),
     createClassification({
-      code: "measurements",
-      name: "measurements",
+      code: ClassificationCodeEnum.MEASUREMENTS,
+      name: ClassificationCodeEnum.MEASUREMENTS,
       features: [
         createFeature({
           code: "height",
@@ -84,8 +84,8 @@ describe("test createLabel functionality", () => {
     const product = createVariantOption({
       classifications: [
         createClassification({
-          code: "measurements",
-          name: "measurements",
+          code: ClassificationCodeEnum.MEASUREMENTS,
+          name: ClassificationCodeEnum.MEASUREMENTS,
           features: [
             createFeature({
               code: "height",

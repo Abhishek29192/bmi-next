@@ -1,6 +1,7 @@
-import type {
+import {
   ApprovalStatus,
   AssetAssetType,
+  ClassificationCodeEnum,
   ImageFormat,
   ImageMime,
   Mime,
@@ -644,7 +645,7 @@ const createSystemDetails = (system?: Partial<System>): System => ({
   ],
   classifications: [
     {
-      code: "systemAttributes",
+      code: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
       features: [
         {
           code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.roofbuildup",
@@ -713,10 +714,10 @@ const createSystemDetails = (system?: Partial<System>): System => ({
           name: "Key Features"
         }
       ],
-      name: "System Attributes"
+      name: ClassificationCodeEnum.SYSTEM_ATTRIBUTES
     },
     {
-      code: "franceFlatSystemAttributes",
+      code: ClassificationCodeEnum.FRANCE_FLAT_SYSTEM_ATTRIBUTES,
       features: [
         {
           code: "bmiSystemsClassificationCatalog/1.0/franceFlatSystemAttributes.brooft3_classification",
@@ -728,10 +729,10 @@ const createSystemDetails = (system?: Partial<System>): System => ({
           name: "Brooft3 classification"
         }
       ],
-      name: "France Flat System Attributes"
+      name: ClassificationCodeEnum.FRANCE_FLAT_SYSTEM_ATTRIBUTES
     },
     {
-      code: "ScoringWeightAttributes",
+      code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
       features: [
         {
           code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
@@ -743,10 +744,10 @@ const createSystemDetails = (system?: Partial<System>): System => ({
           name: "Scoring Weight"
         }
       ],
-      name: "Scoring Weight Attributes"
+      name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
     },
     {
-      code: "Measurements",
+      code: ClassificationCodeEnum.MEASUREMENTS,
       features: [
         {
           code: "bmiSystemsClassificationCatalog/1.0/Measurements.width",
@@ -777,7 +778,7 @@ const createSystemDetails = (system?: Partial<System>): System => ({
           name: "Length NO"
         }
       ],
-      name: "Measurements"
+      name: ClassificationCodeEnum.MEASUREMENTS
     }
   ],
   code: "Test_PIM_System1",

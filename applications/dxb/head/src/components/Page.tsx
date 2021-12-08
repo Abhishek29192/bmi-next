@@ -13,6 +13,7 @@ import InputBanner, {
 } from "../components/InputBanner";
 import getJpgImage from "../utils/images";
 import { getPathWithCountryCode } from "../utils/path";
+import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import BrandProvider from "./BrandProvider";
 import {
@@ -27,6 +28,7 @@ import ErrorFallback from "./ErrorFallback";
 import { Data as SEOContentData } from "./SEOContent";
 import VisualiserProvider from "./Visualiser";
 import Calculator from "./PitchedRoofCalcualtor";
+import { Product, VariantOption } from "./types/pim";
 
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
@@ -50,6 +52,8 @@ type Props = {
   isSearchPage?: boolean;
   variantCodeToPathMap?: Record<string, string>;
   ogImageUrl?: string;
+  baseproduct?: Product;
+  variantProduct?: VariantOption;
 };
 
 const Content = ({ children }: { children: Children }) => {
@@ -66,7 +70,9 @@ const Page = ({
   siteData,
   isSearchPage,
   variantCodeToPathMap,
-  ogImageUrl
+  ogImageUrl,
+  baseproduct,
+  variantProduct
 }: Props) => {
   const {
     node_locale,
@@ -135,6 +141,11 @@ const Page = ({
       "services-downloads-im-ueberblick/alle-services/alle-braas-services/windsogberechnung/windsogberechnung-tool/",
       "concrete-tiles/" // qa test page - remove before final commit
     ].indexOf(path) > -1;
+
+  const schemaOrgActivated =
+    Boolean(process.env.GATSBY_SCHEMA_ORG_ACTIVATED) &&
+    Boolean(baseproduct) &&
+    Boolean(variantProduct);
 
   return (
     <>
@@ -231,6 +242,18 @@ const Page = ({
             }
           `}
         </script>
+
+        {schemaOrgActivated && (
+          <script type="application/ld+json">
+            {JSON.stringify(
+              createSchemaOrgDataForPdpPage(
+                baseproduct,
+                variantProduct,
+                countryCode
+              )
+            )}
+          </script>
+        )}
       </Helmet>
 
       <SiteContextProvider value={siteContext}>

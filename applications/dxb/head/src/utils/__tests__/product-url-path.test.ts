@@ -6,6 +6,10 @@ import {
 import createClassification, {
   createFeature
 } from "../../__tests__/ClassificationHelper";
+import {
+  ClassificationCodeEnum,
+  FeatureCodeEnum
+} from "../../components/types/pim";
 
 describe("product-url-path tests", () => {
   describe("generateUrl tests", () => {
@@ -156,11 +160,11 @@ describe("product-url-path tests", () => {
           createVariantOption({
             classifications: [
               createClassification({
-                code: "appearanceAttributes",
-                name: "appearanceAttributes",
+                code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                 features: [
                   createFeature({
-                    code: "colour",
+                    code: FeatureCodeEnum.COLOUR,
                     featureValues: [{ code: "RED", value: "red" }]
                   })
                 ]
@@ -180,11 +184,11 @@ describe("product-url-path tests", () => {
           createVariantOption({
             classifications: [
               createClassification({
-                code: "appearanceAttributes",
-                name: "appearanceAttributes",
+                code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                 features: [
                   createFeature({
-                    code: "texturefamily",
+                    code: FeatureCodeEnum.TEXTURE_FAMILY,
                     featureValues: [{ code: "SMOOTH", value: "smooth" }]
                   })
                 ]
@@ -204,11 +208,11 @@ describe("product-url-path tests", () => {
           createVariantOption({
             classifications: [
               createClassification({
-                code: "generalInformation",
-                name: "generalInformation",
+                code: ClassificationCodeEnum.GENERAL_INFORMATION,
+                name: ClassificationCodeEnum.GENERAL_INFORMATION,
                 features: [
                   createFeature({
-                    code: "materials",
+                    code: FeatureCodeEnum.MATERIALS,
                     featureValues: [{ code: "OVERFLATE", value: "overflate" }]
                   })
                 ]
@@ -229,15 +233,15 @@ describe("product-url-path tests", () => {
             createVariantOption({
               classifications: [
                 createClassification({
-                  code: "appearanceAttributes",
-                  name: "appearanceAttributes",
+                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                   features: [
                     createFeature({
-                      code: "colour",
+                      code: FeatureCodeEnum.COLOUR,
                       featureValues: [{ code: "RED", value: "red" }]
                     }),
                     createFeature({
-                      code: "texturefamily",
+                      code: FeatureCodeEnum.TEXTURE_FAMILY,
                       featureValues: [{ code: "SMOOTH", value: "smooth" }]
                     })
                   ]
@@ -257,21 +261,21 @@ describe("product-url-path tests", () => {
             createVariantOption({
               classifications: [
                 createClassification({
-                  code: "appearanceAttributes",
-                  name: "appearanceAttributes",
+                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                   features: [
                     createFeature({
-                      code: "colour",
+                      code: FeatureCodeEnum.COLOUR,
                       featureValues: [{ code: "RED", value: "red" }]
                     })
                   ]
                 }),
                 createClassification({
-                  code: "generalInformation",
-                  name: "generalInformation",
+                  code: ClassificationCodeEnum.GENERAL_INFORMATION,
+                  name: ClassificationCodeEnum.GENERAL_INFORMATION,
                   features: [
                     createFeature({
-                      code: "materials",
+                      code: FeatureCodeEnum.MATERIALS,
                       featureValues: [{ code: "OVERFLATE", value: "overflate" }]
                     })
                   ]
@@ -291,21 +295,21 @@ describe("product-url-path tests", () => {
             createVariantOption({
               classifications: [
                 createClassification({
-                  code: "appearanceAttributes",
-                  name: "appearanceAttributes",
+                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                   features: [
                     createFeature({
-                      code: "texturefamily",
+                      code: FeatureCodeEnum.TEXTURE_FAMILY,
                       featureValues: [{ code: "SMOOTH", value: "smooth" }]
                     })
                   ]
                 }),
                 createClassification({
-                  code: "generalInformation",
-                  name: "generalInformation",
+                  code: ClassificationCodeEnum.GENERAL_INFORMATION,
+                  name: ClassificationCodeEnum.GENERAL_INFORMATION,
                   features: [
                     createFeature({
-                      code: "materials",
+                      code: FeatureCodeEnum.MATERIALS,
                       featureValues: [{ code: "OVERFLATE", value: "overflate" }]
                     })
                   ]
@@ -328,25 +332,25 @@ describe("product-url-path tests", () => {
             createVariantOption({
               classifications: [
                 createClassification({
-                  code: "appearanceAttributes",
-                  name: "appearanceAttributes",
+                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                   features: [
                     createFeature({
-                      code: "colour",
+                      code: FeatureCodeEnum.COLOUR,
                       featureValues: [{ code: "RED", value: "red" }]
                     }),
                     createFeature({
-                      code: "texturefamily",
+                      code: FeatureCodeEnum.TEXTURE_FAMILY,
                       featureValues: [{ code: "SMOOTH", value: "smooth" }]
                     })
                   ]
                 }),
                 createClassification({
-                  code: "generalInformation",
-                  name: "generalInformation",
+                  code: ClassificationCodeEnum.GENERAL_INFORMATION,
+                  name: ClassificationCodeEnum.GENERAL_INFORMATION,
                   features: [
                     createFeature({
-                      code: "materials",
+                      code: FeatureCodeEnum.MATERIALS,
                       featureValues: [{ code: "OVERFLATE", value: "overflate" }]
                     })
                   ]
@@ -368,25 +372,25 @@ describe("product-url-path tests", () => {
             createVariantOption({
               classifications: [
                 createClassification({
-                  code: "appearanceAttributes",
-                  name: "appearanceAttributes",
+                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                   features: [
                     createFeature({
-                      code: "colour",
+                      code: FeatureCodeEnum.COLOUR,
                       featureValues: [{ code: "RED", value: "red" }]
                     }),
                     createFeature({
-                      code: "texturefamily",
+                      code: FeatureCodeEnum.TEXTURE_FAMILY,
                       featureValues: []
                     })
                   ]
                 }),
                 createClassification({
-                  code: "generalInformation",
-                  name: "generalInformation",
+                  code: ClassificationCodeEnum.GENERAL_INFORMATION,
+                  name: ClassificationCodeEnum.GENERAL_INFORMATION,
                   features: [
                     createFeature({
-                      code: "materials",
+                      code: FeatureCodeEnum.MATERIALS,
                       featureValues: [{ code: "OVERFLATE", value: "overflate" }]
                     })
                   ]
@@ -423,15 +427,15 @@ describe("product-url-path tests", () => {
             createVariantOption({
               classifications: [
                 createClassification({
-                  code: "appearanceAttributes",
-                  name: "appearanceAttributes",
+                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                   features: [
                     createFeature({
-                      code: "colour",
+                      code: FeatureCodeEnum.COLOUR,
                       featureValues: [{ code: "RED", value: "red" }]
                     }),
                     createFeature({
-                      code: "texturefamily",
+                      code: FeatureCodeEnum.TEXTURE_FAMILY,
                       featureValues: [{ code: "SMOOTH", value: "smooth" }]
                     })
                   ]
@@ -452,8 +456,8 @@ describe("product-url-path tests", () => {
           createVariantOption({
             classifications: [
               createClassification({
-                code: "appearanceAttributes",
-                name: "appearanceAttributes",
+                code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                 features: [
                   createFeature({
                     code: "variantattribute",
@@ -483,8 +487,8 @@ describe("product-url-path tests", () => {
           createVariantOption({
             classifications: [
               createClassification({
-                code: "appearanceAttributes",
-                name: "appearanceAttributes",
+                code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                 features: [
                   createFeature({
                     code: "variantattribute",
@@ -508,25 +512,25 @@ describe("product-url-path tests", () => {
         createVariantOption({
           classifications: [
             createClassification({
-              code: "appearanceAttributes",
-              name: "appearanceAttributes",
+              code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+              name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
               features: [
                 createFeature({
-                  code: "colour",
+                  code: FeatureCodeEnum.COLOUR,
                   featureValues: [{ code: "RED", value: "red" }]
                 }),
                 createFeature({
-                  code: "texturefamily",
+                  code: FeatureCodeEnum.TEXTURE_FAMILY,
                   featureValues: [{ code: "SMOOTH", value: "smooth" }]
                 })
               ]
             }),
             createClassification({
-              code: "generalInformation",
-              name: "generalInformation",
+              code: ClassificationCodeEnum.GENERAL_INFORMATION,
+              name: ClassificationCodeEnum.GENERAL_INFORMATION,
               features: [
                 createFeature({
-                  code: "materials",
+                  code: FeatureCodeEnum.MATERIALS,
                   featureValues: [{ code: "OVERFLATE", value: "over**flate" }]
                 })
               ]

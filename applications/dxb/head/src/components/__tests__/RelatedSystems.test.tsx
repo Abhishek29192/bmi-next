@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import RelatedSystems from "../RelatedSystems";
-import { System } from "../types/pim";
+import { ClassificationCodeEnum, System } from "../types/pim";
 
 describe("RelatedSystems component", () => {
   it("renders correctly with no systems", () => {
@@ -29,7 +29,7 @@ describe("RelatedSystems component", () => {
         ],
         classifications: [
           {
-            code: "ScoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
@@ -41,7 +41,7 @@ describe("RelatedSystems component", () => {
                 name: "Scoring Weight"
               }
             ],
-            name: "Scoring Weight Attributes"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ],
         code: "Test_PIM_System1",
@@ -68,7 +68,7 @@ describe("RelatedSystems component", () => {
         categories: [],
         classifications: [
           {
-            code: "ScoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
@@ -80,7 +80,7 @@ describe("RelatedSystems component", () => {
                 name: "Scoring Weight"
               }
             ],
-            name: "Scoring Weight Attributes"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ],
         code: "Test_PIM_System1",
@@ -141,7 +141,7 @@ describe("RelatedSystems component", () => {
         ],
         classifications: [
           {
-            code: "ScoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
@@ -153,7 +153,7 @@ describe("RelatedSystems component", () => {
                 name: "Scoring Weight"
               }
             ],
-            name: "Scoring Weight Attributes"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ],
         code: "Test_PIM_System1",
@@ -176,7 +176,7 @@ describe("RelatedSystems component", () => {
         ],
         classifications: [
           {
-            code: "ScoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
@@ -188,7 +188,7 @@ describe("RelatedSystems component", () => {
                 name: "Scoring Weight"
               }
             ],
-            name: "Scoring Weight Attributes"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ],
         code: "Test_PIM_System2",
@@ -221,7 +221,7 @@ describe("RelatedSystems component", () => {
         ],
         classifications: [
           {
-            code: "ScoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
@@ -233,7 +233,7 @@ describe("RelatedSystems component", () => {
                 name: "Scoring Weight"
               }
             ],
-            name: "Scoring Weight Attributes"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ],
         code: "Test_PIM_System1",
@@ -256,7 +256,7 @@ describe("RelatedSystems component", () => {
         ],
         classifications: [
           {
-            code: "ScoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
@@ -268,7 +268,7 @@ describe("RelatedSystems component", () => {
                 name: "Scoring Weight"
               }
             ],
-            name: "Scoring Weight Attributes"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ],
         code: "Test_PIM_System2",
@@ -301,7 +301,7 @@ describe("RelatedSystems component", () => {
         ],
         classifications: [
           {
-            code: "ScoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
@@ -313,7 +313,7 @@ describe("RelatedSystems component", () => {
                 name: "Scoring Weight"
               }
             ],
-            name: "Scoring Weight Attributes"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ],
         code: "Test_PIM_System1",
@@ -336,7 +336,7 @@ describe("RelatedSystems component", () => {
         ],
         classifications: [
           {
-            code: "ScoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
@@ -348,7 +348,7 @@ describe("RelatedSystems component", () => {
                 name: "Scoring Weight"
               }
             ],
-            name: "Scoring Weight Attributes"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ],
         code: "Test_PIM_System2",
@@ -381,7 +381,7 @@ describe("RelatedSystems component", () => {
         ],
         classifications: [
           {
-            code: "ScoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
@@ -393,7 +393,7 @@ describe("RelatedSystems component", () => {
                 name: "Scoring Weight"
               }
             ],
-            name: "Scoring Weight Attributes"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ],
         code: "Test_PIM_System1",
@@ -416,7 +416,7 @@ describe("RelatedSystems component", () => {
         ],
         classifications: [
           {
-            code: "ScoringWeightAttributes",
+            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
             features: [
               {
                 code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
@@ -428,7 +428,7 @@ describe("RelatedSystems component", () => {
                 name: "Scoring Weight"
               }
             ],
-            name: "Scoring Weight Attributes"
+            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
           }
         ],
         code: "Test_PIM_System2",

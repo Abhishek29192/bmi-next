@@ -12,6 +12,7 @@ import SampleBasketSection, { Data } from "../SampleBasketSection";
 import { local } from "../../utils/storage";
 import { SiteContextProvider } from "../Site";
 import * as BasketContextUtils from "../../contexts/SampleBasketContext";
+import { ClassificationCodeEnum } from "../types/pim";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
@@ -32,7 +33,7 @@ const sample: Sample = {
   name: "sample-1",
   classifications: [
     createClassification({
-      code: "appearanceAttributes",
+      code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
       features: [
         {
           code: "colour",

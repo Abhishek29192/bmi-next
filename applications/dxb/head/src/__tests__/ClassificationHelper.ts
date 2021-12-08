@@ -1,10 +1,14 @@
-import { Classification, Feature } from "../components/types/pim";
+import {
+  Classification,
+  ClassificationCodeEnum,
+  Feature
+} from "../components/types/pim";
 
 const createClassification = (
   classification?: Partial<Classification>
 ): Classification => ({
-  name: "classification-name",
-  code: "classification-code",
+  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
   features: [createFeature()],
   ...classification
 });

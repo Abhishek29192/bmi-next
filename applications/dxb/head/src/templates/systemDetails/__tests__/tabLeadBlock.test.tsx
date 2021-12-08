@@ -4,7 +4,10 @@ import Component from "../tabLeadBlock";
 import createSystemDetails from "../../../test/systemDetailsMockData";
 import "@testing-library/jest-dom";
 import { renderWithRouter } from "../../../test/renderWithRouter";
-import { Classification } from "../../../components/types/pim";
+import {
+  Classification,
+  ClassificationCodeEnum
+} from "../../../components/types/pim";
 import { DocumentData } from "../types";
 import { BimContent } from "../tabLeadBlock";
 
@@ -12,7 +15,7 @@ const techSpecValue = "accordion item value 1";
 const systemDetailsMockData = createSystemDetails();
 const technicalSpecClassifications: Classification[] = [
   {
-    code: "systemAttributes",
+    code: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
     features: [
       {
         code: "bmiSystemsClassificationCatalog/1.0/scoringWeightAttributes.roofbuildup",
@@ -24,7 +27,7 @@ const technicalSpecClassifications: Classification[] = [
         ]
       }
     ],
-    name: "Accoridion Title 1"
+    name: ClassificationCodeEnum.SYSTEM_ATTRIBUTES
   }
 ];
 const bimContent: BimContent = {

@@ -8,7 +8,11 @@ import {
 import LeadBlockSection from "../leadBlockSection";
 import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
 import "@testing-library/jest-dom";
-import { Category, Classification } from "../../../components/types/pim";
+import {
+  Category,
+  Classification,
+  ClassificationCodeEnum
+} from "../../../components/types/pim";
 import { iconMap } from "../../../components/Icon";
 
 const leadBlockSectionName = "lead Block section";
@@ -29,7 +33,7 @@ const leadBlockCategories: Category[] = [
 ];
 const leadBlockClassifications: Classification[] = [
   {
-    code: "systemAttributes",
+    code: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
     features: [
       {
         code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent",
@@ -37,15 +41,15 @@ const leadBlockClassifications: Classification[] = [
         name: "feature 1"
       }
     ],
-    name: "classification 1"
+    name: ClassificationCodeEnum.SYSTEM_ATTRIBUTES
   }
 ];
 
 const leadBlockClassificationsNoFeatures: Classification[] = [
   {
-    code: "systemAttributes",
+    code: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
     features: [],
-    name: "classification 1"
+    name: ClassificationCodeEnum.SYSTEM_ATTRIBUTES
   }
 ];
 

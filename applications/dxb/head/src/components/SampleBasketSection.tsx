@@ -10,9 +10,9 @@ import {
   SampleOrderElement,
   useBasketContext
 } from "../contexts/SampleBasketContext";
-import { extractFeatureValuesByClassification } from "../utils/product-url-path";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { getPathWithCountryCode } from "../utils/path";
+import { extractFeatureValuesByClassification } from "../utils/features-from-classifications-transfroms";
 import RichText, { RichTextData } from "./RichText";
 import SampleBasketSectionProducts from "./SampleBasketSectionProducts";
 import { useSiteContext } from "./Site";
