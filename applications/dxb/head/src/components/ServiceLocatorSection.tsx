@@ -36,6 +36,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useLocation } from "@reach/router";
 import { devLog } from "../utils/devLog";
 import withGTM from "../utils/google-tag-manager";
+import AutoCompleteCountryMap from "../countries/GoogleCountryCodeMap";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import {
@@ -745,6 +746,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                   freeSolo
                   startAdornmentIcon="LocationOn"
                   controlledValue={userPosition}
+                  googleAutocompleteOptions={{
+                    componentRestrictions: {
+                      // eslint-disable-next-line security/detect-object-injection
+                      country: AutoCompleteCountryMap[countryCode] || [
+                        countryCode
+                      ]
+                    }
+                  }}
                 />
                 <GeolocationButton
                   onPosition={({ coords }) => {
