@@ -10,709 +10,235 @@ import {
   Product,
   VariantOption
 } from "../components/types/pim";
-import {
-  AttributeCodeMap,
-  getClassificationFeaturesByFeatureCodes
-} from "./features-from-classifications-transfroms";
 import { combineVariantClassifications } from "./filters";
 import {
+  getProductUrl,
   getSizeLabel,
   TransformedMeasurementValue
 } from "./product-details-transforms";
 
-export interface ProductData {
-  type: SchemaOrgFieldsEnum;
-  variant?: VariantOption;
-  baseProduct?: Product;
-  classifications?: Classification[];
-}
-
-export enum SchemaOrgFieldsEnum {
-  CONTEXT = "@context",
-  TYPE = "@type",
-  AWARD = "award",
-  BRAND = "brand",
-  CATEGORY = "category",
-  COLOR = "color",
-  LOGO = "logo",
-  MATERIAL = "material",
-  POTENTIAL_ACTION = "potentialAction",
-  WEIGHT = "weight",
-  WIDTH = "width",
-  HEIGHT = "height",
-  SIZE = "size",
-  IMAGE = "image",
-  PRODUCT_ID = "productID",
-  PATTERN = "patternt",
-  MODEL = "model",
-  PRODUCT_GROUP = "ProductGroup",
-  HAS_VARIANT = "hasVariant",
-  NAME = "name",
-  DESCRIPTION = "description",
-  URL = "url"
-}
-
-export const schemaOrgConfigForPdpPage: SchemaOrgFieldsEnum[] = [
-  SchemaOrgFieldsEnum.CONTEXT,
-  SchemaOrgFieldsEnum.TYPE,
-  SchemaOrgFieldsEnum.AWARD,
-  SchemaOrgFieldsEnum.BRAND,
-  SchemaOrgFieldsEnum.CATEGORY,
-  SchemaOrgFieldsEnum.COLOR,
-  SchemaOrgFieldsEnum.LOGO,
-  SchemaOrgFieldsEnum.MATERIAL,
-  SchemaOrgFieldsEnum.POTENTIAL_ACTION,
-  SchemaOrgFieldsEnum.WEIGHT,
-  SchemaOrgFieldsEnum.WIDTH,
-  SchemaOrgFieldsEnum.HEIGHT,
-  SchemaOrgFieldsEnum.SIZE,
-  SchemaOrgFieldsEnum.IMAGE,
-  SchemaOrgFieldsEnum.PRODUCT_ID,
-  SchemaOrgFieldsEnum.PATTERN,
-  SchemaOrgFieldsEnum.MODEL,
-  SchemaOrgFieldsEnum.PRODUCT_GROUP,
-  SchemaOrgFieldsEnum.HAS_VARIANT,
-  SchemaOrgFieldsEnum.NAME,
-  SchemaOrgFieldsEnum.DESCRIPTION,
-  SchemaOrgFieldsEnum.URL
-];
-
+// TODO: need to extract getting the combined categories
 export const createSchemaOrgDataForPdpPage = (
-  fieldsConfig: SchemaOrgFieldsEnum[] = [],
   baseProduct: Product,
-  variant: VariantOption
-): Record<string, unknown> => {
+  variant: VariantOption,
+  countryCode: string
+) => {
   const classifications: Classification[] = combineVariantClassifications(
     baseProduct,
     variant
   );
-  return fieldsConfig.reduce(
-    (acc: Record<string, unknown>, schemaOrgKey: SchemaOrgFieldsEnum) => {
-      return {
-        ...acc,
-        ...createSchemaOrgDataFields[schemaOrgKey]({
-          baseProduct,
-          variant,
-          classifications,
-          type: schemaOrgKey
-        })
-      };
+
+  const brand = getBrand(baseProduct);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    award: getProductAssetPropByAssetType(baseProduct, "AWARDS", "name"),
+    brand: {
+      "@type": brand?.["@type"] || undefined,
+      name: brand?.name || undefined
     },
-    {}
-  );
+    // category: getCategory(baseProduct),
+    color: getClassificationFeatureValue(
+      classifications,
+      ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+      FeatureCodeEnum.COLOUR
+    ),
+    logo: brand?.logo || undefined,
+    material: getClassificationFeatureValue(
+      classifications,
+      ClassificationCodeEnum.GENERAL_INFORMATION,
+      FeatureCodeEnum.MATERIALS
+    ),
+    potentialAction: getPotentialAction(baseProduct, variant),
+    weight: getWeight(classifications),
+    width: getWidth(classifications),
+    height: getHeight(classifications),
+    size: getSize(classifications),
+    image: getImage(baseProduct, variant),
+    productID: variant.code || undefined,
+    pattern: getClassificationFeatureValue(
+      classifications,
+      ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+      FeatureCodeEnum.TEXTURE_FAMILY
+    ),
+    model: baseProduct.name || undefined,
+    name: baseProduct.name || undefined,
+    description:
+      variant.longDescription || baseProduct.description || undefined,
+    url: getProductUrl(countryCode, variant.path)
+  };
 };
 
-export const getSchemaOrgContextData = ({
-  type
-}: ProductData): Record<string, unknown> => ({
-  [type]: "https://schema.org"
-});
-
-export const getSchemaOrgTypeData = ({
-  type
-}: ProductData): Record<string, unknown> => ({
-  [type]: "Product"
-});
-
-export const getSchemaOrgAwardData = ({
-  type,
-  baseProduct
-}: ProductData): Record<string, string | undefined> => {
-  const productAwardsAssetName: string | undefined =
-    getProductAssetPropByAssetType(baseProduct, "AWARDS", "name");
-  if (productAwardsAssetName) {
-    return {
-      [type]: productAwardsAssetName
-    };
-  }
-  return {};
-};
-
-export const getSchemaOrgBrandData = ({
-  type,
-  baseProduct
-}: ProductData): Record<string, unknown> => {
-  const category: Category = getProductCategoriesByCategoryType(
-    baseProduct,
-    "Brand"
-  )[0];
-  const productBrandCategoryName: string | Record<string, unknown> | undefined =
-    getProductCategoryPropByCategoryType(category, "name");
-  if (productBrandCategoryName) {
-    return {
-      [type]: {
-        "@type": "Brand",
-        name: productBrandCategoryName
-      }
-    };
-  }
-  return {};
-};
-
-export const getSchemaOrgCategoryData = ({
-  type,
-  baseProduct
-}: ProductData): Record<string, unknown> => {
+const getBrand = (baseProduct: Product): Record<string, unknown> => {
   const categories: Category[] = getProductCategoriesByCategoryType(
     baseProduct,
-    "Category"
-  );
-  const categoriesNames: string[] = Array.from(
-    categories.reduce((acc: Set<string>, category: Category) => {
-      const name: string | Record<string, unknown> | undefined =
-        getProductCategoryPropByCategoryType(category, "name");
-      if (typeof name === "string") {
-        acc.add(name);
-      }
-      return acc;
-    }, new Set<string>())
-  );
-
-  if (categoriesNames && categoriesNames.length) {
-    return {
-      [type]: categoriesNames.length > 1 ? categoriesNames : categoriesNames[0]
-    };
-  }
-  return {};
-};
-
-export const getSchemaOrgColorData = ({
-  type,
-  classifications
-}: ProductData): Record<string, unknown> => {
-  const colorAttributeCodeMap: AttributeCodeMap = {
-    [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
-      { attrName: FeatureCodeEnum.COLOUR }
-    ]
-  };
-  const featureByClassifications: { [key in FeatureCodeEnum]?: Feature } =
-    getClassificationFeaturesByFeatureCodes(
-      classifications,
-      colorAttributeCodeMap
-    );
-  const featureValue = getFeatureValueByType(
-    featureByClassifications,
-    FeatureCodeEnum.COLOUR
-  );
-  if (featureValue) {
-    return {
-      [type]: featureValue
-    };
-  }
-  return {};
-};
-
-export const getSchemaOrgBrandLogoData = ({
-  type,
-  baseProduct
-}: ProductData): Record<string, unknown> => {
-  const productBrandCategory: Category = getProductCategoriesByCategoryType(
-    baseProduct,
     "Brand"
-  )[0];
-  if (productBrandCategory) {
-    const productBrandCategoryImage: Record<string, unknown> =
-      getProductCategoryPropByCategoryType(
-        productBrandCategory,
-        "image"
-      ) as Record<string, unknown>;
-    if (productBrandCategoryImage && productBrandCategoryImage.url) {
-      return {
-        [type]: productBrandCategoryImage.url
-      };
-    }
-  }
-
-  return {};
-};
-
-export const getSchemaOrgMaterialData = ({
-  type,
-  classifications
-}: ProductData): Record<string, unknown> => {
-  const materialsAttributeCodeMap: AttributeCodeMap = {
-    [ClassificationCodeEnum.GENERAL_INFORMATION]: [
-      { attrName: FeatureCodeEnum.MATERIALS }
-    ]
-  };
-  const featureByClassifications: { [key in FeatureCodeEnum]?: Feature } =
-    getClassificationFeaturesByFeatureCodes(
-      classifications,
-      materialsAttributeCodeMap
-    );
-  const featureValue = getFeatureValueByType(
-    featureByClassifications,
-    FeatureCodeEnum.MATERIALS
   );
-  if (featureValue) {
-    return {
-      [type]: featureValue
-    };
+  if (categories && categories.length === 0) {
+    return undefined;
   }
-  return {};
+  return {
+    "@type": "Brand",
+    name: categories[0].name,
+    logo: categories[0].image?.url
+  };
 };
 
-export const getSchemaOrgPotentialActionData = ({
-  type,
-  baseProduct,
-  variant
-}: ProductData): Record<string, unknown> => {
+// TODO: What is the desired category here?
+// const getCategory = (baseProduct: Product) => {
+//   const categories = getProductCategoriesByCategoryType(
+//     baseProduct,
+//     "Category"
+//   );
+//   return categories[0];
+// };
+
+const getPotentialAction = (baseProduct: Product, variant: VariantOption) => {
   const variantImagesUrls: string[] = getGalleyImages(variant);
   if (variantImagesUrls && variantImagesUrls.length) {
-    return {
-      [type]: variantImagesUrls
-    };
+    return variantImagesUrls;
   }
 
   const baseProductImagesUrls: string[] = getGalleyImages(baseProduct);
   if (baseProductImagesUrls && baseProductImagesUrls.length) {
-    return {
-      [type]: baseProductImagesUrls
-    };
+    return baseProductImagesUrls;
   }
 
-  return {};
+  return undefined;
 };
 
-export const getSchemaOrgWeightData = ({
-  type,
-  classifications
-}: ProductData): Record<string, unknown> => {
-  const typeValue = "QuantitativeValue";
-  const weightValuesPriorityArray: FeatureCodeEnum[] = [
-    FeatureCodeEnum.WEIGHT_PER_PRICE,
-    FeatureCodeEnum.GROSS_WEIGHT,
-    FeatureCodeEnum.NET_WEIGHT,
-    FeatureCodeEnum.WEIGHT_PER_SQM,
-    FeatureCodeEnum.WEIGHT_PER_PALLET
-  ];
-  const weightAttributeCodeMap: AttributeCodeMap = {
-    [ClassificationCodeEnum.WEIGHT_ATTRIBUTES]: [
-      { attrName: FeatureCodeEnum.WEIGHT_PER_PRICE },
-      { attrName: FeatureCodeEnum.GROSS_WEIGHT },
-      { attrName: FeatureCodeEnum.NET_WEIGHT },
-      { attrName: FeatureCodeEnum.WEIGHT_PER_SQM },
-      { attrName: FeatureCodeEnum.WEIGHT_PER_PALLET }
-    ]
-  };
-  const featureByClassifications: { [key in FeatureCodeEnum]?: Feature } =
-    getClassificationFeaturesByFeatureCodes(
-      classifications,
-      weightAttributeCodeMap
-    );
-  if (Object.keys(featureByClassifications).length) {
-    const featureClassificationPriority: {
-      [key in FeatureCodeEnum]?: Feature;
-    } = getFeatureClassificationByPriority(
-      featureByClassifications,
-      weightValuesPriorityArray
-    );
-
-    const featureValue = getFeatureValueByType(
-      featureClassificationPriority,
-      Object.keys(featureClassificationPriority)[0] as FeatureCodeEnum
-    );
-    const featureUnit = getFeatureUnitByType(
-      featureClassificationPriority,
-      Object.keys(featureClassificationPriority)[0] as FeatureCodeEnum
-    );
-    if (featureValue && featureUnit) {
-      return {
-        [type]: {
-          "@type": typeValue,
-          value: featureValue,
-          valueReference: featureUnit
-        }
-      };
-    } else if (featureValue) {
-      return {
-        [type]: {
-          "@type": typeValue,
-          value: featureValue
-        }
-      };
-    } else if (featureUnit) {
-      return {
-        [type]: {
-          "@type": typeValue,
-          valueReference: featureUnit
-        }
-      };
-    }
-  }
-  return {};
-};
-
-export const getSchemaOrgWidthData = ({
-  type,
-  classifications
-}: ProductData): Record<string, unknown> => {
-  const typeValue = "QuantitativeValue";
-  const widthAttributeCodeMap: AttributeCodeMap = {
-    [ClassificationCodeEnum.MEASUREMENTS]: [{ attrName: FeatureCodeEnum.WIDTH }]
-  };
-  const featureByClassifications: { [key in FeatureCodeEnum]?: Feature } =
-    getClassificationFeaturesByFeatureCodes(
-      classifications,
-      widthAttributeCodeMap
-    );
-  const featureValue = getFeatureValueByType(
-    featureByClassifications,
-    FeatureCodeEnum.WIDTH
-  );
-  const featureUnit = getFeatureUnitByType(
-    featureByClassifications,
-    FeatureCodeEnum.WIDTH
-  );
-  if (featureValue && featureUnit) {
-    return {
-      [type]: {
-        "@type": typeValue,
-        value: featureValue,
-        valueReference: featureUnit
-      }
-    };
-  } else if (featureValue) {
-    return {
-      [type]: {
-        "@type": typeValue,
-        value: featureValue
-      }
-    };
-  } else if (featureUnit) {
-    return {
-      [type]: {
-        "@type": typeValue,
-        valueReference: featureUnit
-      }
-    };
-  }
-  return {};
-};
-
-export const getSchemaOrgHeightData = ({
-  type,
-  classifications
-}: ProductData): Record<string, unknown> => {
-  const typeValue = "QuantitativeValue";
-  const heightAttributeCodeMap: AttributeCodeMap = {
-    [ClassificationCodeEnum.MEASUREMENTS]: [
-      { attrName: FeatureCodeEnum.HEIGHT }
-    ]
-  };
-  const featureByClassifications: { [key in FeatureCodeEnum]?: Feature } =
-    getClassificationFeaturesByFeatureCodes(
-      classifications,
-      heightAttributeCodeMap
-    );
-  const featureValue = getFeatureValueByType(
-    featureByClassifications,
-    FeatureCodeEnum.HEIGHT
-  );
-  const featureUnit = getFeatureUnitByType(
-    featureByClassifications,
-    FeatureCodeEnum.HEIGHT
-  );
-  if (featureValue && featureUnit) {
-    return {
-      [type]: {
-        "@type": typeValue,
-        value: featureValue,
-        valueReference: featureUnit
-      }
-    };
-  } else if (featureValue) {
-    return {
-      [type]: {
-        "@type": typeValue,
-        value: featureValue
-      }
-    };
-  } else if (featureUnit) {
-    return {
-      [type]: {
-        "@type": typeValue,
-        valueReference: featureUnit
-      }
-    };
-  }
-  return {};
-};
-
-export const getSchemaOrgSizeData = ({
-  type,
-  classifications
-}: ProductData): Record<string, unknown> => {
-  const mesurementsAttributeCodeMap: AttributeCodeMap = {
-    [ClassificationCodeEnum.MEASUREMENTS]: [
-      { attrName: FeatureCodeEnum.HEIGHT },
-      { attrName: FeatureCodeEnum.WIDTH },
-      { attrName: FeatureCodeEnum.LENGTH }
-    ]
-  };
-  const mesurementsFeaturesByClassifications: {
-    [key in FeatureCodeEnum]?: Feature;
-  } = getClassificationFeaturesByFeatureCodes(
+const getWeight = (classifications: Classification[]) => {
+  const [
+    weightPerPrice,
+    weightGross,
+    weightNet,
+    weightPerSQM,
+    weightPerPallet
+  ] = getClassificationFeatures(
     classifications,
-    mesurementsAttributeCodeMap
+    ClassificationCodeEnum.MEASUREMENTS,
+    [
+      FeatureCodeEnum.WEIGHT_PER_PRICE,
+      FeatureCodeEnum.GROSS_WEIGHT,
+      FeatureCodeEnum.NET_WEIGHT,
+      FeatureCodeEnum.WEIGHT_PER_SQM,
+      FeatureCodeEnum.WEIGHT_PER_PALLET
+    ]
   );
-  const transformedMeasurementValue: TransformedMeasurementValue =
-    mesurementsAdapter(mesurementsFeaturesByClassifications);
-  const sizeLabel: string = getSizeLabel(transformedMeasurementValue);
 
-  if (sizeLabel) {
-    return {
-      [type]: sizeLabel
-    };
+  const weight =
+    weightPerPrice ||
+    weightGross ||
+    weightNet ||
+    weightPerSQM ||
+    weightPerPallet;
+
+  if (!weight) {
+    return undefined;
+  }
+  return {
+    "@type": "QuantitativeValue",
+    value: weight.featureValues?.[0]?.value,
+    valueReference: weight.featureUnit?.symbol
+  };
+};
+
+const getWidth = (classifications: Classification[]) => {
+  const width = getClassificationFeature(
+    classifications,
+    ClassificationCodeEnum.MEASUREMENTS,
+    FeatureCodeEnum.WIDTH
+  );
+  if (!width) {
+    return undefined;
+  }
+  return {
+    "@type": "QuantitativeValue",
+    value: width.featureValues?.[0].value,
+    valueReference: width.featureUnit?.symbol
+  };
+};
+
+const getHeight = (classifications: Classification[]) => {
+  const height = getClassificationFeature(
+    classifications,
+    ClassificationCodeEnum.MEASUREMENTS,
+    FeatureCodeEnum.HEIGHT
+  );
+  if (!height) {
+    return undefined;
+  }
+  return {
+    "@type": "QuantitativeValue",
+    value: height.featureValues?.[0].value,
+    valueReference: height.featureUnit?.symbol
+  };
+};
+
+const getSize = (classifications: Classification[]) => {
+  const [height, width, length] = getClassificationFeatures(
+    classifications,
+    ClassificationCodeEnum.MEASUREMENTS,
+    [FeatureCodeEnum.HEIGHT, FeatureCodeEnum.WIDTH, FeatureCodeEnum.LENGTH]
+  );
+  const transformedMeasurementValue = convertToTransformedMeasurementValue(
+    [height, width, length].filter(Boolean)
+  );
+  if (
+    transformedMeasurementValue &&
+    Object.values(transformedMeasurementValue).length
+  ) {
+    return getSizeLabel(transformedMeasurementValue);
   }
 
-  const sizeAttributeCodeMap: AttributeCodeMap = {
-    [ClassificationCodeEnum.MEASUREMENTS]: [
-      { attrName: FeatureCodeEnum.VOLUME }
-    ]
-  };
-  const featureByClassifications: { [key in FeatureCodeEnum]?: Feature } =
-    getClassificationFeaturesByFeatureCodes(
-      classifications,
-      sizeAttributeCodeMap
-    );
-  const featureValue = getFeatureValueByType(
-    featureByClassifications,
+  const volume = getClassificationFeatureValue(
+    classifications,
+    ClassificationCodeEnum.MEASUREMENTS,
     FeatureCodeEnum.VOLUME
   );
-  if (featureValue) {
-    return {
-      [type]: featureValue
-    };
-  }
-  return {};
+  return volume;
 };
 
-export const getSchemaOrgImageData = ({
-  type,
-  baseProduct,
-  variant
-}: ProductData): Record<string, unknown> => {
-  const variantImagesUrls: string[] = getMasterImages(variant);
+const getImage = (baseProduct: Product, variant: VariantOption) => {
+  const variantImagesUrls = getMasterImages(variant);
   if (variantImagesUrls && variantImagesUrls.length) {
-    return {
-      [type]:
-        variantImagesUrls.length > 1 ? variantImagesUrls : variantImagesUrls[0]
-    };
+    return variantImagesUrls[0];
   }
 
-  const baseProductImagesUrls: string[] = getMasterImages(baseProduct);
-  if (baseProductImagesUrls && baseProductImagesUrls.length) {
-    return {
-      [type]:
-        baseProductImagesUrls.length > 1
-          ? baseProductImagesUrls
-          : baseProductImagesUrls[0]
-    };
-  }
-
-  return {};
+  return getMasterImages(baseProduct)[0];
 };
 
-export const getSchemaOrgProductIdData = ({
-  type,
-  variant
-}: ProductData): Record<string, unknown> => {
-  const productID: string = variant.code;
-  if (productID) {
-    return {
-      [type]: productID
-    };
-  }
-
-  return {};
-};
-
-export const getSchemaOrgPatternData = ({
-  type,
-  classifications
-}: ProductData): Record<string, unknown> => {
-  const materialsAttributeCodeMap: AttributeCodeMap = {
-    [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
-      { attrName: FeatureCodeEnum.TEXTURE_FAMILY }
-    ]
-  };
-  const featureByClassifications: { [key in FeatureCodeEnum]?: Feature } =
-    getClassificationFeaturesByFeatureCodes(
-      classifications,
-      materialsAttributeCodeMap
-    );
-  const featureValue = getFeatureValueByType(
-    featureByClassifications,
-    FeatureCodeEnum.TEXTURE_FAMILY
-  );
-  if (featureValue) {
-    return {
-      [type]: featureValue
-    };
-  }
-  return {};
-};
-
-export const getSchemaOrgModelData = ({
-  type,
-  baseProduct
-}: ProductData): Record<string, unknown> => {
-  const model: string = baseProduct.name;
-  if (model) {
-    return {
-      [type]: model
-    };
-  }
-
-  return {};
-};
-
-export const getSchemaOrgProductGroupData = ({
-  type,
-  baseProduct
-}: ProductData): Record<string, unknown> => {
-  const productGroup: string = baseProduct.code;
-  if (productGroup) {
-    return {
-      [type]: productGroup
-    };
-  }
-
-  return {};
-};
-
-export const getSchemaOrgHasVariantData = ({
-  type,
-  variant
-}: ProductData): Record<string, unknown> => {
-  const hasVariant: string | undefined = variant.code;
-  if (hasVariant) {
-    return {
-      [type]: hasVariant
-    };
-  }
-
-  return {};
-};
-
-export const getSchemaOrgNameData = ({
-  type,
-  baseProduct
-}: ProductData): Record<string, unknown> => {
-  const name: string = baseProduct.name;
-  if (name) {
-    return {
-      [type]: name
-    };
-  }
-
-  return {};
-};
-
-export const getSchemaOrgDescriptionData = ({
-  type,
-  baseProduct,
-  variant
-}: ProductData): Record<string, unknown> => {
-  const description: string =
-    variant.longDescription || baseProduct.description;
-  if (description) {
-    return {
-      [type]: description
-    };
-  }
-
-  return {};
-};
-
-export const getSchemaOrgUrlData = ({
-  type
-}: ProductData): Record<string, unknown> => {
-  const url: string | undefined = window.location && window.location.href;
-  if (url) {
-    return {
-      [type]: url
-    };
-  }
-
-  return {};
-};
-
-export const getProductAssetByAssetType = (
+const getProductAssetByAssetType = (
   product: Product,
   assetType: string
-): Asset | undefined => {
-  return (
-    product.assets &&
-    product.assets.find((asset: Asset) => asset.assetType === assetType)
-  );
-};
+): Asset | undefined =>
+  product.assets?.find((asset: Asset) => asset.assetType === assetType);
 
-export const getProductImagesByAssetType = (
+const getProductImagesByAssetType = (
   product: Product | VariantOption,
   assetType: string
 ): Image[] => {
-  return (
-    product.images &&
-    product.images.filter((image: Image) => image.assetType === assetType)
+  return product.images?.filter(
+    (image: Image) => image.assetType === assetType
   );
 };
 
-export const getProductAssetPropByAssetType = (
+const getProductAssetPropByAssetType = (
   product: Product,
   assetType: string,
   prop: string
-): string | undefined => {
-  const asset = getProductAssetByAssetType(product, assetType);
-  return asset ? asset[prop] : undefined;
-};
+) => getProductAssetByAssetType(product, assetType)?.[prop];
 
-export const getProductCategoriesByCategoryType = (
+const getProductCategoriesByCategoryType = (
   product: Product,
   categoryType: string
-): Category[] => {
-  return (
-    product.categories &&
-    product.categories.filter(
-      (category: Category) => category.categoryType === categoryType
-    )
-  );
-};
+): Category[] =>
+  product.categories?.filter(
+    (category: Category) => category.categoryType === categoryType
+  ) || [];
 
-export const getProductCategoryPropByCategoryType = (
-  category: Category,
-  prop: string
-): string | Record<string, unknown> | undefined => {
-  return category ? category[prop] : undefined;
-};
-
-export const getFeatureValueByType = (
-  featureByClassifications: { [key in FeatureCodeEnum]?: Feature },
-  type: FeatureCodeEnum
-): string | undefined => {
-  return featureByClassifications[type]?.featureValues[0]?.value;
-};
-
-export const getFeatureUnitByType = (
-  featureByClassifications: { [key in FeatureCodeEnum]?: Feature },
-  type: FeatureCodeEnum
-): string | undefined => {
-  return featureByClassifications[type]?.featureUnit?.symbol;
-};
-
-export const getGalleyImages = (product: Product | VariantOption): string[] => {
-  const imagesByAssetType: Image[] = getProductImagesByAssetType(
-    product,
-    ImageAssetTypesEnum.GALLERY
-  );
-  if (imagesByAssetType && imagesByAssetType.length) {
-    return getImagesUrls(imagesByAssetType);
-  }
-  return [];
-};
-
-export const getMasterImages = (product: Product | VariantOption): string[] => {
+const getMasterImages = (product: Product | VariantOption): string[] => {
   const imagesByAssetType: Image[] = getProductImagesByAssetType(
     product,
     ImageAssetTypesEnum.MASTER_IMAGE
@@ -723,20 +249,13 @@ export const getMasterImages = (product: Product | VariantOption): string[] => {
   return [];
 };
 
-export const getImagesUrls = (imagesByAssetType: Image[]): string[] => {
-  const imagesByAssetTypeNullFormat: Image[] = imagesByAssetType.filter(
-    (image: Image) => image.format === null
-  );
-  if (imagesByAssetTypeNullFormat && imagesByAssetTypeNullFormat.length) {
-    const imagesUrlsByAssetTypeNullFormat: string[] =
-      imagesByAssetTypeNullFormat.map((image: Image) => image.url);
-    return imagesUrlsByAssetTypeNullFormat;
-  }
-  return [];
-};
+const getImagesUrls = (imagesByAssetType: Image[]) =>
+  imagesByAssetType
+    .filter((image) => image.format === null)
+    .map((image) => image.url);
 
-export const mesurementsAdapter = (
-  mesurementsFeaturesByClassifications: { [key in FeatureCodeEnum]?: Feature }
+const convertToTransformedMeasurementValue = (
+  mesurementsFeaturesByClassifications: Feature[]
 ): TransformedMeasurementValue => {
   return Object.values(mesurementsFeaturesByClassifications).reduce(
     (
@@ -749,9 +268,9 @@ export const mesurementsAdapter = (
           name: feature.name,
           value: {
             value: {
-              value: feature.featureValues[0].value
+              value: feature.featureValues?.[0]?.value
             },
-            unit: feature.featureUnit.symbol
+            unit: feature.featureUnit?.symbol
           }
         }
       };
@@ -760,44 +279,50 @@ export const mesurementsAdapter = (
   );
 };
 
-export const getFeatureClassificationByPriority = (
-  features: { [key in FeatureCodeEnum]?: Feature },
-  order: FeatureCodeEnum[]
-): { [key in FeatureCodeEnum]?: Feature } => {
-  for (let index = 0; index < order.length; index++) {
-    const prop = order[index];
-    if (features[prop]) {
-      return { [prop]: features[prop] };
-    }
-    continue;
-  }
-  return {};
+const getClassificationFeatures = (
+  classifications: Classification[],
+  classificationCode: ClassificationCodeEnum,
+  featureCodes: FeatureCodeEnum[]
+): Feature[] => {
+  const classification: Classification = classifications.find(
+    (classification) => classification.code === classificationCode
+  );
+  return featureCodes.map((featureCode: FeatureCodeEnum) =>
+    classification?.features.find((feature: Feature) =>
+      feature.code?.endsWith(featureCode)
+    )
+  );
 };
 
-export const createSchemaOrgDataFields: Record<
-  string,
-  ({ variant, baseProduct }: ProductData) => Record<string, unknown>
-> = {
-  [SchemaOrgFieldsEnum.CONTEXT]: getSchemaOrgContextData,
-  [SchemaOrgFieldsEnum.TYPE]: getSchemaOrgTypeData,
-  [SchemaOrgFieldsEnum.AWARD]: getSchemaOrgAwardData,
-  [SchemaOrgFieldsEnum.BRAND]: getSchemaOrgBrandData,
-  [SchemaOrgFieldsEnum.CATEGORY]: getSchemaOrgCategoryData,
-  [SchemaOrgFieldsEnum.COLOR]: getSchemaOrgColorData,
-  [SchemaOrgFieldsEnum.LOGO]: getSchemaOrgBrandLogoData,
-  [SchemaOrgFieldsEnum.MATERIAL]: getSchemaOrgMaterialData,
-  [SchemaOrgFieldsEnum.POTENTIAL_ACTION]: getSchemaOrgPotentialActionData,
-  [SchemaOrgFieldsEnum.WEIGHT]: getSchemaOrgWeightData,
-  [SchemaOrgFieldsEnum.WIDTH]: getSchemaOrgWidthData,
-  [SchemaOrgFieldsEnum.HEIGHT]: getSchemaOrgHeightData,
-  [SchemaOrgFieldsEnum.SIZE]: getSchemaOrgSizeData,
-  [SchemaOrgFieldsEnum.IMAGE]: getSchemaOrgImageData,
-  [SchemaOrgFieldsEnum.PRODUCT_ID]: getSchemaOrgProductIdData,
-  [SchemaOrgFieldsEnum.PATTERN]: getSchemaOrgPatternData,
-  [SchemaOrgFieldsEnum.MODEL]: getSchemaOrgModelData,
-  [SchemaOrgFieldsEnum.PRODUCT_GROUP]: getSchemaOrgProductGroupData,
-  [SchemaOrgFieldsEnum.HAS_VARIANT]: getSchemaOrgHasVariantData,
-  [SchemaOrgFieldsEnum.NAME]: getSchemaOrgNameData,
-  [SchemaOrgFieldsEnum.DESCRIPTION]: getSchemaOrgDescriptionData,
-  [SchemaOrgFieldsEnum.URL]: getSchemaOrgUrlData
+const getClassificationFeature = (
+  classifications: Classification[],
+  classificationCode: ClassificationCodeEnum,
+  featureCode: FeatureCodeEnum
+): Feature => {
+  const classification: Classification = classifications.find(
+    (classification) => classification.code === classificationCode
+  );
+  const feature: Feature = classification?.features.find((feature: Feature) =>
+    feature.code?.endsWith(featureCode)
+  );
+  return feature;
+};
+
+const getClassificationFeatureValue = (
+  classifications: Classification[],
+  classificationCode: ClassificationCodeEnum,
+  featureCode: FeatureCodeEnum
+) =>
+  getClassificationFeature(classifications, classificationCode, featureCode)
+    ?.featureValues[0]?.value;
+
+const getGalleyImages = (product: Product | VariantOption): string[] => {
+  const imagesByAssetType: Image[] = getProductImagesByAssetType(
+    product,
+    ImageAssetTypesEnum.GALLERY
+  );
+  if (imagesByAssetType && imagesByAssetType.length) {
+    return getImagesUrls(imagesByAssetType);
+  }
+  return [];
 };

@@ -13,10 +13,7 @@ import InputBanner, {
 } from "../components/InputBanner";
 import getJpgImage from "../utils/images";
 import { getPathWithCountryCode } from "../utils/path";
-import {
-  createSchemaOrgDataForPdpPage,
-  schemaOrgConfigForPdpPage
-} from "../utils/schemaOrgPDPpage";
+import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import BrandProvider from "./BrandProvider";
 import {
@@ -250,9 +247,9 @@ const Page = ({
           <script type="application/ld+json">
             {JSON.stringify(
               createSchemaOrgDataForPdpPage(
-                schemaOrgConfigForPdpPage,
                 baseproduct,
-                variantProduct
+                variantProduct,
+                countryCode
               )
             )}
           </script>
