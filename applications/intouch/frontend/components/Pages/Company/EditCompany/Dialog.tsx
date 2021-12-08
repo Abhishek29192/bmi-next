@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 import { gql } from "@apollo/client";
 import {
@@ -29,13 +29,15 @@ export const EditCompanyDialog = ({
 }: EditCompanyDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
 
+  const [errorMessage, setErrorMessage] = useState<string>(null);
+
   const [updateCompany] = useUpdateCompanyDetailsMutation({
     onError: (error) => {
       log({
         severity: "ERROR",
         message: `There was an error updating the company: ${error.toString()}`
       });
-      // TODO: show some visual error
+      setErrorMessage(error.message);
     },
     onCompleted: ({ updateCompany: { company } }) => {
       log({
@@ -46,6 +48,9 @@ export const EditCompanyDialog = ({
       onCloseClick && onCloseClick();
     }
   });
+  useEffect(() => {
+    setErrorMessage(undefined);
+  }, [isOpen]);
 
   const onSubmit = useCallback(
     (values) => {
@@ -133,6 +138,7 @@ export const EditCompanyDialog = ({
       isOpen={isOpen}
       onCloseClick={onCloseClick}
       onSubmit={onSubmit}
+      errorMessage={errorMessage}
     />
   );
 };
