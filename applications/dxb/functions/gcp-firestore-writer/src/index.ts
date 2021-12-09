@@ -66,6 +66,7 @@ export const handleMessage: HandlerFunction = async ({ data }) => {
   );
 
   const { type, itemType, items } = message;
+  // eslint-disable-next-line security/detect-object-injection
   const collectionPath = COLLECTIONS[itemType];
 
   if (!collectionPath) {

@@ -8,6 +8,7 @@ export const Typography = ({
   ...rest
 }: TypographProps) => (
   <View {...rest}>
+    {/* eslint-disable-next-line security/detect-object-injection */}
     <Text {...textStyles[variant]}>{children}</Text>
   </View>
 );

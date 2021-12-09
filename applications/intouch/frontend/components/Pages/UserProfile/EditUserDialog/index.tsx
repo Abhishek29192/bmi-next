@@ -74,6 +74,7 @@ export const EditUserProfileDialog = ({
     (fieldName: string) => ({
       name: fieldName,
       label: t(`profile:editDialog.form.fields.${fieldName}`),
+      // eslint-disable-next-line security/detect-object-injection
       defaultValue: account[fieldName],
       fieldIsRequiredError: t("common:error_messages.required"),
       fullWidth: true

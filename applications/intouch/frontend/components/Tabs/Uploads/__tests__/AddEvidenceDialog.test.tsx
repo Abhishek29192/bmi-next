@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { EvidenceCategoryType } from "@bmi/intouch-api-types";
 import { AddEvidenceDialog } from "../AddEvidenceDialog";
 import {

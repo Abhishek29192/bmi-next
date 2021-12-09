@@ -48,6 +48,7 @@ const Autocomplete = ({
         ...params.InputProps,
         startAdornment: (
           <Icon
+            // eslint-disable-next-line security/detect-object-injection
             source={iconMap[startAdornmentIcon]}
             className={styles["start-adornment-icon"]}
           />

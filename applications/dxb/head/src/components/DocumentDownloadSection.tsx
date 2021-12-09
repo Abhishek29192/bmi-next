@@ -78,6 +78,7 @@ const DocumentDownloadSection = ({
                       variant="text"
                       startIcon={
                         <Icon
+                          // eslint-disable-next-line security/detect-object-injection
                           source={fileIconsMap[contentType]}
                           // TODO: consider responsibility of icon styles
                           style={iconStyle}

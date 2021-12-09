@@ -46,6 +46,7 @@ async function triggerCloudBuild(requests: FunctionMetadata[], source: string) {
   for (const key in requests) {
     const response = await fetch(url, {
       method: "POST",
+      // eslint-disable-next-line security/detect-object-injection
       body: JSON.stringify(requests[key]),
       headers: { "Content-Type": "application/json" }
     });

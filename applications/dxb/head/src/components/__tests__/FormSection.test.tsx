@@ -88,8 +88,6 @@ const data: Data = {
 };
 describe("FormSection component", () => {
   it("renders correctly", () => {
-    const setState = jest.fn();
-
     const wrapper = render(<FormSection data={data} backgroundColor="white" />);
 
     expect(wrapper.container.firstChild).toMatchSnapshot();

@@ -53,6 +53,7 @@ export default class StorageClient implements StorageClientType {
 
       createReadStream()
         .pipe(
+          // eslint-disable-next-line security/detect-non-literal-fs-filename
           file.createWriteStream({
             resumable: false,
             gzip: true,

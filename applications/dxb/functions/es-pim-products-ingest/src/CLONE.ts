@@ -1,6 +1,6 @@
 /* eslint-disable security/detect-object-injection */
 import { result, find } from "lodash";
-import { Product, Classification, Category, Image } from "./pim";
+import { Product, Classification, Category } from "./pim";
 
 type CategoryPath = readonly Category[];
 

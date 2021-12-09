@@ -31,8 +31,10 @@ const pluck = (err: any): { [key: string]: any } => {
       key === "code"
         ? // err.errcode is equivalent to err.code; replace it
           err.code || err.errcode
-        : err[key];
+        : // eslint-disable-next-line security/detect-object-injection
+          err[key];
     if (value != null) {
+      // eslint-disable-next-line security/detect-object-injection
       memo[key] = value;
     }
     return memo;
@@ -85,6 +87,7 @@ export default function handleErrors(
   return errors.map((error) => {
     const { message: rawMessage, locations, path, originalError } = error;
     const code = originalError ? originalError["code"] : null;
+    // eslint-disable-next-line security/detect-object-injection
     const localPluck = ERROR_MESSAGE_OVERRIDES[code] || pluck;
     const exception = localPluck(originalError || error);
 

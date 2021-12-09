@@ -93,6 +93,7 @@ const ProductListing = ({
         {allVariants.slice(0, numberShown).map((variant) => {
           const { _product: product } = variant;
           const brandLogoCode = findProductBrandLogoCode(product);
+          // eslint-disable-next-line security/detect-object-injection
           const brandLogo = iconMap[brandLogoCode];
           const productUrl = getProductUrl(countryCode, variant.path);
 

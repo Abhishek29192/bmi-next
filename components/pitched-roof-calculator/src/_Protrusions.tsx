@@ -80,6 +80,7 @@ const Input = ({
   ...rest
 }: InputProps) => {
   const copy = useContext(MicroCopyContext);
+  // eslint-disable-next-line security/detect-object-injection
   const { helperText, unit, validator } = getFieldTypes((path, placeholders) =>
     getMicroCopy(copy, "validation.errors." + path, placeholders)
   )[type];
@@ -147,6 +148,7 @@ const ProtrusionDimensions = ({
   const pushEvent = useContext(AnalyticsContext);
 
   const { fields, dimensionsIllustration: DimensionsIllustration } =
+    // eslint-disable-next-line security/detect-object-injection
     protrusionTypes[protrusionType];
 
   return (
@@ -166,6 +168,7 @@ const ProtrusionDimensions = ({
                   key={`${protrusionType}-${name}`} // make sure to reset the state everytime the protrusionType changes
                   label={name}
                   type={type}
+                  // eslint-disable-next-line security/detect-object-injection
                   defaultValue={values[name]}
                   updateField={createUpdateField(name)}
                 />

@@ -254,6 +254,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
       ["select-tile", "enter-dimensions"],
       ["enter-dimensions", "select-roof"]
     ].forEach(([current, previous]) => {
+      // eslint-disable-next-line security/detect-object-injection
       act(() => stepProps[current].backButtonOnClick());
       rerender(getComponent(selected));
       expect(renderedStep).toBe(previous);

@@ -4,7 +4,6 @@ import DBMigrate from "db-migrate";
 config();
 
 const migrate = async (context) => {
-  let result;
   const { query } = context.req;
   const { password, database, host, user, schema, port, ssl, folder } = context;
   const { ssl_client_cert, ssl_client_key, ssl_server_ca, ssl_host } = ssl;

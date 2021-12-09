@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  render,
-  fireEvent,
-  cleanup,
-  createEvent
-} from "@testing-library/react";
+import { render, fireEvent, cleanup } from "@testing-library/react";
 import BuildIcon from "test.svg";
 import ExpandableCard from "..";
 

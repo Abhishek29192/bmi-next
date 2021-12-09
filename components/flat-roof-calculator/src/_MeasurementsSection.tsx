@@ -7,7 +7,7 @@ import FormSection from "./_FormSection";
 import styles from "./FlatRoofCalculator.module.scss";
 import { FormValues } from "./types/FormValues";
 
-const isNumber = (value: string) => /^([0-9])+(\.[0-9]+)?$/.test(value);
+const isNumber = (value: string) => !Number.isNaN(Number.parseFloat(value));
 
 const numberValidator = (value) => {
   if (typeof value !== "string") {

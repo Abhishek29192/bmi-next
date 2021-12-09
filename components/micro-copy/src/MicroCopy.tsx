@@ -11,7 +11,9 @@ export const getMicroCopy = (
 ): string =>
   Object.entries(placeholders).reduce((carry, [key, value]) => {
     const toReplace = `{{${key}}}`;
+    // eslint-disable-next-line security/detect-non-literal-regexp
     return carry.replace(new RegExp(escapeStringRegexp(toReplace), "g"), value);
+    // eslint-disable-next-line security/detect-object-injection
   }, values[path] || (prefixMC ? `MC:${path}` : path));
 
 type Props = {

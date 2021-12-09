@@ -6,11 +6,7 @@ import { Data as PromoData } from "../Promo";
 import { fallbackGetMicroCopy as getMicroCopy } from "../MicroCopy";
 import Header from "../Header";
 import { Data as PageInfoData } from "../PageInfo";
-import BasketContext, {
-  Sample,
-  BasketContextProps,
-  IBasketState
-} from "../../contexts/SampleBasketContext";
+import BasketContext from "../../contexts/SampleBasketContext";
 
 beforeAll(() => {
   mockConsole();

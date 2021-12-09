@@ -13,10 +13,13 @@ const createAssetFileCountMap = (
     const fName =
       asset.realFileName ||
       `${asset.title}${asset.extension ? `.${asset.extension}` : ""}`;
+    // eslint-disable-next-line security/detect-object-injection
     return (uniqueFileMap[fName] =
+      // eslint-disable-next-line security/detect-object-injection
       typeof uniqueFileMap[fName] === "undefined"
         ? 1
-        : uniqueFileMap[fName] + 1);
+        : // eslint-disable-next-line security/detect-object-injection
+          uniqueFileMap[fName] + 1);
   });
   return { uniqueFileMap, fileIndexCount };
 };
@@ -32,7 +35,8 @@ export const generateFileNamebyTitle = (
   }
   return assetFileCountMap.uniqueFileMap[`${title}.${extension}`] === 1
     ? `${title}.${extension}`
-    : `${title}-${assetFileCountMap.fileIndexCount[index]}.${extension}`;
+    : // eslint-disable-next-line security/detect-object-injection
+      `${title}-${assetFileCountMap.fileIndexCount[index]}.${extension}`;
 };
 
 export const generateFilenameByRealFileName = (
@@ -46,6 +50,7 @@ export const generateFilenameByRealFileName = (
   return assetFileCountMap.uniqueFileMap[asset.realFileName] === 1
     ? asset.realFileName
     : `${asset.realFileName.split(".").shift()}-${
+        // eslint-disable-next-line security/detect-object-injection
         assetFileCountMap.fileIndexCount[index]
       }.${asset.extension}`;
 };

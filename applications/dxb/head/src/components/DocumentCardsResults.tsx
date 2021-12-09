@@ -37,6 +37,7 @@ const DocumentCardsResults = ({ documents, page, documentsPerPage }: Props) => {
               <GTMOverviewCard
                 title={title}
                 media={renderImage(featuredMedia) || undefined}
+                // eslint-disable-next-line security/detect-object-injection
                 brandImageSource={iconMap[brand]}
                 action={{
                   model: "download",

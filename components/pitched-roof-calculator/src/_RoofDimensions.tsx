@@ -22,6 +22,7 @@ const RoofDimensions = ({
           {items.map(({ name, type }) => (
             <Grid key={name} item xs={12} lg={3}>
               <InputTextField
+                // eslint-disable-next-line security/detect-object-injection
                 defaultValue={dimensions[name]}
                 {...{ name, type }}
               />

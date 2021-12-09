@@ -26,6 +26,7 @@ const EmailDialog = ({
     const br = "%0D%0A";
     setOpen(false);
     // @todo: Do we want to use an actual email service here?
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     window.open(
       `mailto:${email}?subject=BMI&body=${message}${br}${br}${name}${br}${br}${location.href}`
     );

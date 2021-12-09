@@ -398,6 +398,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       "Level 2": 2,
       "Level 3": 3
     };
+    // eslint-disable-next-line security/detect-object-injection
     heroLevel = levelMap[heroType] as 1 | 2 | 3;
   }
   const breadcrumbsNode = (
@@ -516,6 +517,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   {flatten(
                     products.map((variant) => {
                       const brandLogoCode = variant.brandCode;
+                      // eslint-disable-next-line security/detect-object-injection
                       const brandLogo = iconMap[brandLogoCode];
                       const mainImage = findMasterImageUrl(variant.images);
                       const product: Product = variant.baseProduct;

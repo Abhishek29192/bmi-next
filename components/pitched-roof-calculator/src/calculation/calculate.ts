@@ -12,6 +12,7 @@ const calculatePolygonArea = (vertices) => {
   // Iterate through each edge on the shape, starting with the edge between n-1 and 0
   let j = vertices.length - 1;
   for (let i = 0; i < vertices.length; i++) {
+    // eslint-disable-next-line security/detect-object-injection
     area += (vertices[j].x + vertices[i].x) * (vertices[j].y - vertices[i].y);
     j = i;
   }
@@ -76,26 +77,36 @@ export const battenCalc = (vertices, pitchSet: number[], mainTileVariant) => {
     // Loop through each edge
     for (let end = 0; end < vertices.length; end++) {
       // Check if edge has 0 gradient
+      // eslint-disable-next-line security/detect-object-injection
       if (vertices[start].y !== vertices[end].y) {
         // Gradient is not equal to zero, check that the y = batten intersects the edge
+        // eslint-disable-next-line security/detect-object-injection
         if (vertices[start].y >= topOfTile !== vertices[end].y >= topOfTile) {
           let bottomOfTileX = 0;
           let topOfTileX = 0;
           // If the edge is vertical then we know the x coordinate
+          // eslint-disable-next-line security/detect-object-injection
           if (vertices[start].x === vertices[end].x) {
+            // eslint-disable-next-line security/detect-object-injection
             bottomOfTileX = vertices[start].x;
+            // eslint-disable-next-line security/detect-object-injection
             topOfTileX = vertices[start].x;
           } else {
             // Otherwise we need to find the x coordinate - using y - y1 = m(x - x1)
             const gradient =
+              // eslint-disable-next-line security/detect-object-injection
               (vertices[end].y - vertices[start].y) /
+              // eslint-disable-next-line security/detect-object-injection
               (vertices[end].x - vertices[start].x);
             bottomOfTileX =
               (bottomOfTile -
+                // eslint-disable-next-line security/detect-object-injection
                 vertices[start].y +
+                // eslint-disable-next-line security/detect-object-injection
                 gradient * vertices[start].x) /
               gradient;
             topOfTileX =
+              // eslint-disable-next-line security/detect-object-injection
               (topOfTile - vertices[start].y + gradient * vertices[start].x) /
               gradient;
           }
@@ -103,14 +114,18 @@ export const battenCalc = (vertices, pitchSet: number[], mainTileVariant) => {
           intersections.push({
             bottomOfTileX,
             topOfTileX,
+            // eslint-disable-next-line security/detect-object-injection
             side: vertices[start].side
           });
         }
+        // eslint-disable-next-line security/detect-object-injection
       } else if (vertices[start].y === topOfTile) {
         // If the edge has 0 gradient and intersects batten then consider it's
         // intersection points as the x points we know
         intersections.push(
+          // eslint-disable-next-line security/detect-object-injection
           { x: vertices[start].x, side: vertices[start].side },
+          // eslint-disable-next-line security/detect-object-injection
           { x: vertices[end].x, side: vertices[start].side }
         );
       }
@@ -133,10 +148,14 @@ export const battenCalc = (vertices, pitchSet: number[], mainTileVariant) => {
     for (let pair = 0; pair < intersections.length; pair += 2) {
       // Find the width of this section which is covering the roof
       const width = Math.max(
+        // eslint-disable-next-line security/detect-object-injection
         intersections[pair + 1].topOfTileX - intersections[pair].bottomOfTileX,
+        // eslint-disable-next-line security/detect-object-injection
         intersections[pair + 1].topOfTileX - intersections[pair].topOfTileX,
+        // eslint-disable-next-line security/detect-object-injection
         intersections[pair + 1].bottomOfTileX - intersections[pair].topOfTileX,
         intersections[pair + 1].bottomOfTileX -
+          // eslint-disable-next-line security/detect-object-injection
           intersections[pair].bottomOfTileX
       );
       // Set the batten width and side types
@@ -144,6 +163,7 @@ export const battenCalc = (vertices, pitchSet: number[], mainTileVariant) => {
         index: i,
         distanceFromEave: battenHeight,
         width: width,
+        // eslint-disable-next-line security/detect-object-injection
         sides: [intersections[pair].side, intersections[pair + 1].side]
       });
     }

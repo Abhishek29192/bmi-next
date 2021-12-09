@@ -38,6 +38,7 @@ const EmbeddedAssetBlock = ({
 
   const { url, contentType } = file;
 
+  // eslint-disable-next-line security/detect-object-injection
   if (contentTypeMap[contentType] === "image") {
     return (
       <img

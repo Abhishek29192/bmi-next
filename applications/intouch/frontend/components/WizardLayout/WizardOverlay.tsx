@@ -1,6 +1,5 @@
 import React from "react";
 import { gql } from "@apollo/client";
-import { Project } from "@bmi/intouch-api-types";
 import { GetProjectQuery } from "../../graphql/generated/operations";
 import { Wizard } from "./Wizard";
 import {

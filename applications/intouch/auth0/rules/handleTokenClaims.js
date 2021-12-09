@@ -1,3 +1,6 @@
+"use strict";
+
+// eslint-disable-next-line no-unused-vars
 async function handleTokenClaims(user, context, callback) {
   const { namespace, appUrl, logoutUrl, appEnv } = configuration;
   const { app_metadata = {}, user_metadata = {} } = user;

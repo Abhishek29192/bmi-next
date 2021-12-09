@@ -127,6 +127,7 @@ export default function withGTM<P>(
       (propsToGtmMap.id === "children" && String(children)) ||
       (props[propsToGtmMap.id] && String(props[propsToGtmMap.id])) ||
       gtmDataset?.id;
+    // eslint-disable-next-line security/detect-object-injection
     const gtmId = idMap[id] || id;
     const gtmLabel =
       gtm?.label ||

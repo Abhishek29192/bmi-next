@@ -22,6 +22,7 @@ export const getProductUrl = (countryCode, path) =>
   getPathWithCountryCode(countryCode, path);
 
 const getProductProp = (classifications, productCode, propName) =>
+  // eslint-disable-next-line security/detect-object-injection
   classifications[productCode] ? classifications[productCode][propName] : null;
 
 // Returns an array of all the values of a certain prop
@@ -34,12 +35,14 @@ const getAllValues = (
 
   const allValuesArray = Object.entries(classifications).reduce(
     (allValues, [_, props]) => {
+      // eslint-disable-next-line security/detect-object-injection
       const propValue = props[propName];
 
       if (!propValue) {
         return allValues;
       }
 
+      // eslint-disable-next-line security/detect-object-injection
       const propIdentifier = getPropIdentifier[propName](propValue);
 
       if (alreadyFoundProps.has(propIdentifier)) {
@@ -59,7 +62,9 @@ const getAllValues = (
         return Object.keys(a).reduce((prev, _, index) => {
           // return the prev result if result has been decided.
           if (prev !== 0) return prev;
+          // eslint-disable-next-line security/detect-object-injection
           const valueA = parseInt(a[Object.keys(a)[index]]?.value.value.value);
+          // eslint-disable-next-line security/detect-object-injection
           const valueB = parseInt(b[Object.keys(b)[index]]?.value.value.value);
           if (!valueA || !valueB) return 0;
           return valueA === valueB ? 0 : valueA < valueB ? -1 : 1;
@@ -130,9 +135,12 @@ export const groupImage = (
   criteria: string
 ): { [key: string]: Image[] } => {
   return arr.reduce((acc: { [key: string]: Image[] }, currentValue: Image) => {
+    // eslint-disable-next-line security/detect-object-injection
     if (!acc[currentValue[criteria]]) {
+      // eslint-disable-next-line security/detect-object-injection
       acc[currentValue[criteria]] = [];
     }
+    // eslint-disable-next-line security/detect-object-injection
     acc[currentValue[criteria]].push(currentValue);
     return acc;
   }, {});
@@ -291,7 +299,9 @@ export const mapProductClassifications = (
         propName: string,
         value: TransformedClassificationValue | TransformedMeasurementValue
       ) => {
+        // eslint-disable-next-line security/detect-object-injection
         carry[productCode] = {
+          // eslint-disable-next-line security/detect-object-injection
           ...(carry[productCode] || {}),
           [propName]: value
         };
@@ -362,11 +372,13 @@ export const mapProductClassifications = (
               FEATURES.THICKNESS
             ].includes(code)
           ) {
+            // eslint-disable-next-line security/detect-object-injection
             const productObject = carry[productCode];
             const measurements = productObject
               ? (productObject.measurements as TransformedMeasurementValue)
               : {};
 
+            // eslint-disable-next-line security/detect-object-injection
             carry[productCode] = {
               ...productObject,
               measurements: {
@@ -409,7 +421,9 @@ const getPropIdentifier = {
 };
 
 const getPropValue = (classification, propName) => {
+  // eslint-disable-next-line security/detect-object-injection
   const prop = classification[propName];
+  // eslint-disable-next-line security/detect-object-injection
   const getter = prop && getPropIdentifier[propName];
 
   return getter ? getter(prop) : undefined;
@@ -435,6 +449,7 @@ export const getProductAttributes = (
     ];
     return sortingOrder.reduce((prev, propName) => {
       // return the prev result if result has been decided.
+      // eslint-disable-next-line security/detect-object-injection
       if (prev !== 0 || !a[propName]) return prev;
       const valueA = getPropValue(a, propName);
       const valueB = getPropValue(b, propName);
@@ -528,12 +543,14 @@ export const getProductAttributes = (
         // The root prop must match
         if (
           getPropValue(classification, masterProperty) !==
+          // eslint-disable-next-line security/detect-object-injection
           filter[masterProperty]
         ) {
           return carry;
         }
 
         // NOTE: Not matching for the main product.
+        // eslint-disable-next-line security/detect-object-injection
         if (!variantCodeToPathMap[productCode]) {
           return carry;
         }
@@ -643,7 +660,8 @@ export const getProductAttributes = (
         const isSelected =
           selectedColour && code === selectedColour.value.value;
         const path = variantCode
-          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          ? // eslint-disable-next-line security/detect-object-injection
+            getProductUrl(countryCode, variantCodeToPathMap[variantCode])
           : getUnavailableCTA(code, FeatureCodeEnum.COLOUR);
         return {
           label: code,
@@ -659,6 +677,7 @@ export const getProductAttributes = (
                 to: variantCode
                   ? getProductUrl(
                       countryCode,
+                      // eslint-disable-next-line security/detect-object-injection
                       variantCodeToPathMap[variantCode]
                     )
                   : getUnavailableCTA(code, FeatureCodeEnum.COLOUR)
@@ -686,7 +705,8 @@ export const getProductAttributes = (
           selectedSurfaceTreatment &&
           code === selectedSurfaceTreatment.value.code;
         const path = variantCode
-          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          ? // eslint-disable-next-line security/detect-object-injection
+            getProductUrl(countryCode, variantCodeToPathMap[variantCode])
           : getUnavailableCTA(code, FeatureCodeEnum.TEXTURE_FAMILY);
         return {
           label: value,
@@ -718,7 +738,8 @@ export const getProductAttributes = (
         );
         const isSelected = key === getMeasurementKey(selectedSize);
         const path = variantCode
-          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          ? // eslint-disable-next-line security/detect-object-injection
+            getProductUrl(countryCode, variantCodeToPathMap[variantCode])
           : getUnavailableCTA(key, ClassificationCodeEnum.MEASUREMENTS);
         return {
           label: getSizeLabel(size),
@@ -752,7 +773,8 @@ export const getProductAttributes = (
             selectedVariantAttribute.value.value === value) ||
           false;
         const path = variantCode
-          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          ? // eslint-disable-next-line security/detect-object-injection
+            getProductUrl(countryCode, variantCodeToPathMap[variantCode])
           : getUnavailableCTA(value, FeatureCodeEnum.VARIANT_ATTRIBUTE);
         return {
           label: value,
@@ -928,7 +950,9 @@ const findUniqueClassificationsOnVariant = (
   numberOfVariants = 1
 ): TransformedClassificationsMap => {
   return pickBy(variantClassifications, (value, code) => {
+    // eslint-disable-next-line security/detect-object-injection
     const getter = getPropIdentifier[code];
+    // eslint-disable-next-line security/detect-object-injection
     const baseValues = baseClassifications[code] || [];
     // If all the values are the same, we'll get a single value
     const allSameValue =
@@ -983,6 +1007,7 @@ export const findUniqueVariantClassifications = (
       ...Object.entries(others).reduce((agg, [code, value]) => {
         return {
           ...agg,
+          // eslint-disable-next-line security/detect-object-injection
           [code]: [...(base[code] || []), value]
         };
       }, {})

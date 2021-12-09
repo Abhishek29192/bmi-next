@@ -38,6 +38,7 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
     <>
       {products.map((variant) => {
         const brandLogoCode = variant.brandCode;
+        // eslint-disable-next-line security/detect-object-injection
         const brandLogo = iconMap[brandLogoCode];
         const mainImage = findMasterImageUrl(variant.images);
         const product = variant.baseProduct;

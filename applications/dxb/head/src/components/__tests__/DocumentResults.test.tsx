@@ -59,7 +59,7 @@ describe("DocumentResults component", () => {
   it("invalid: does not render correctly", () => {
     const format = "invalid" as Format;
     expect(() => {
-      const { container } = render(
+      render(
         <DocumentResults data={inputDataItems} format={format} page={20} />
       );
     }).toThrowError();

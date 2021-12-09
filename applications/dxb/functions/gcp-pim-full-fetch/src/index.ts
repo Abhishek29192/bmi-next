@@ -22,6 +22,7 @@ async function publishMessage(
 ) {
   info({
     message: `Publishing UPDATED ${
+      // eslint-disable-next-line security/detect-object-injection
       apiResponse[itemType].length
     } ${itemType.toUpperCase()}`
   });
@@ -29,6 +30,7 @@ async function publishMessage(
     JSON.stringify({
       type: "UPDATED",
       itemType: itemType.toUpperCase(),
+      // eslint-disable-next-line security/detect-object-injection
       items: apiResponse[itemType]
     })
   );

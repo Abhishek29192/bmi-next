@@ -8,7 +8,9 @@ import * as THREE from "three";
 let cache: { [index: string]: Promise<any> } = {};
 
 export default (url: string): Promise<THREE.Texture> => {
+  // eslint-disable-next-line security/detect-object-injection
   if (cache[url]) {
+    // eslint-disable-next-line security/detect-object-injection
     return cache[url];
   }
 
@@ -21,6 +23,7 @@ export default (url: string): Promise<THREE.Texture> => {
     });
   });
 
+  // eslint-disable-next-line security/detect-object-injection
   cache[url] = promise;
   return promise;
 };

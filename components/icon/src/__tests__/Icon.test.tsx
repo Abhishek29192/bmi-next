@@ -11,7 +11,6 @@ import Icon, {
   FilePDF,
   FilePNG,
   HardHatHead,
-  iconMap,
   LinkedIn,
   LocationOn,
   Mail,

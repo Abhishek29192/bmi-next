@@ -19,9 +19,12 @@ findInFiles.find(pattern, "./src").then((results) => {
       .sort()
   );
 
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   if (!fs.existsSync(path)) {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     fs.mkdirSync(path, { recursive: true });
   }
 
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   jsonfile.writeFileSync(`${path}/${filename}`, { keys });
 });

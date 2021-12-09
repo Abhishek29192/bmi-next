@@ -97,6 +97,7 @@ export const TrainingSidePanel = ({
               <Typography className={styles.icon}>
                 {technology && (
                   <Icon
+                    // eslint-disable-next-line security/detect-object-injection
                     source={technologyIcon[technology]}
                     className={styles.technologyIcon}
                   />

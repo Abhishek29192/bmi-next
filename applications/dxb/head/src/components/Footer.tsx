@@ -37,6 +37,7 @@ const parseNavigation = (
 
     return {
       label,
+      // eslint-disable-next-line security/detect-object-injection
       icon: iconName ? iconMap[iconName] : undefined,
       isLabelHidden,
       action: getClickableActionFromUrl(

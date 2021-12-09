@@ -94,7 +94,7 @@ const GoogleMap = ({
   ...mapOptions
 }: Props) => {
   const google = useContext<Google | null>(GoogleApi);
-  const [error, setError] = useState<Error>();
+  const [error] = useState<Error>();
   const googleMap: MutableRefObject<Map | null> = useRef<Map>(null);
   const googleMarkers: MutableRefObject<Marker[]> = useRef<Marker[]>([]);
   const markerClusterer: MutableRefObject<MarkerClusterer | null> =

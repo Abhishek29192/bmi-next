@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { renderWithUserProvider } from "../../../../../lib/tests/utils";
 import ApolloProvider from "../../../../../lib/tests/fixtures/apollo";
 import AccountContextWrapper from "../../../../../lib/tests/fixtures/account";

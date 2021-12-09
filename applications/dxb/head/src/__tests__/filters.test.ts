@@ -50,8 +50,14 @@ describe("filters tests", () => {
           { code: "a" },
           { code: "b" }
         ];
+        const output = [
+          { code: "x" },
+          { code: "y" },
+          { code: "a" },
+          { code: "b" }
+        ];
         const result = input.sort(sortAlphabeticallyBy(""));
-        expect(result).toEqual(input);
+        expect(result).toEqual(output);
       });
     });
 
@@ -63,8 +69,14 @@ describe("filters tests", () => {
           { code: "a" },
           { code: "b" }
         ];
+        const output = [
+          { code: "x" },
+          { code: "y" },
+          { code: "a" },
+          { code: "b" }
+        ];
         const result = input.sort(sortAlphabeticallyBy("doesNotExist"));
-        expect(result).toEqual(input);
+        expect(result).toEqual(output);
       });
     });
 
@@ -83,7 +95,7 @@ describe("filters tests", () => {
           { code: "y" }
         ];
         const result = input.sort(sortAlphabeticallyBy("code"));
-        expect(result).toEqual(input);
+        expect(result).toEqual(output);
       });
     });
   });

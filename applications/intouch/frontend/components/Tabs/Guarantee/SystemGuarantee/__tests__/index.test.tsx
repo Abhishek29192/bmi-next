@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { renderWithI18NProvider, screen } from "../../../../../lib/tests/utils";
+import { renderWithI18NProvider } from "../../../../../lib/tests/utils";
 import { GetProjectQuery } from "../../../../../graphql/generated/operations";
 import { SystemGuarantee } from "..";
 

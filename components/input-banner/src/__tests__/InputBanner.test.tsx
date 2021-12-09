@@ -17,7 +17,7 @@ describe("InputBanner component", () => {
 
   it("onSubmit works", async () => {
     const onSubmit = jest.fn();
-    const { getByRole, debug } = render(
+    const { getByRole } = render(
       <InputBanner
         title="Lorem ipsum"
         description="Lorem ipsum sit dolor amet"

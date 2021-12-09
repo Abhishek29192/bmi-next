@@ -13,10 +13,13 @@ const { buildModel } = require("./buildmodel");
 const writeFile = (fileName, data) => {
   const dir = "./data";
 
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   if (!fs.existsSync(dir)) {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     fs.mkdirSync(dir);
   }
   const path = `${dir}/${fileName}`;
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   fs.writeFile(path, data, function (err) {
     if (err) return console.log(err);
   });

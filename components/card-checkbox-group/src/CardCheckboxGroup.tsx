@@ -27,6 +27,7 @@ const isRadioItemElement = (
 
 const toBooleanObject = (values: string[]): Record<string, boolean> =>
   values.reduce((acc: { [value: string]: boolean }, v: string) => {
+    // eslint-disable-next-line security/detect-object-injection
     acc[v] = true;
     return acc;
   }, {});
@@ -69,6 +70,7 @@ const CardCheckboxGroup = ({
 
           const handleOnChange = () => {
             const newSelected = options.filter((option) =>
+              // eslint-disable-next-line security/detect-object-injection
               value === option ? !selectedMap[option] : selectedMap[option]
             );
 
@@ -83,6 +85,7 @@ const CardCheckboxGroup = ({
 
           result = React.cloneElement(child, {
             name,
+            // eslint-disable-next-line security/detect-object-injection
             checked: selectedMap[value],
             onChange: handleOnChange,
             className: classnames(styles["item"], className)

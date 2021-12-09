@@ -151,12 +151,15 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const [page, setPage] = useState(1);
   const initialDocuments = useMemo(
     () =>
+      // eslint-disable-next-line security/detect-object-injection
       sourceToSortMap[source](
         generateUniqueDocuments(resultsType, unsortedDocuments)
       ),
     [unsortedDocuments]
   );
+  // eslint-disable-next-line security/detect-object-injection
   const format: Format = resultTypeFormatMap[source][resultsType];
+  // eslint-disable-next-line security/detect-object-injection
   const getCount = documentCountMap[format];
   const [pageCount, setPageCount] = useState(
     Math.ceil(getCount(initialDocuments) / PAGE_SIZE)
@@ -184,6 +187,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
 
     const newResults = filterDocuments(documents, filters);
 
+    // eslint-disable-next-line security/detect-object-injection
     const getCount = documentCountMap[format];
     const newPageCount = Math.ceil(getCount(newResults) / PAGE_SIZE);
     setPageCount(newPageCount);

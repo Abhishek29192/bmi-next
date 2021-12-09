@@ -200,6 +200,7 @@ const DesktopDocumentTechnicalTableResults = ({
               <Table.Row
                 key={key}
                 className={classnames(styles["row"], {
+                  // eslint-disable-next-line security/detect-object-injection
                   [styles["row--checked"]]: !!list[key]
                 })}
               >

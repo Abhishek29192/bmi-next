@@ -50,6 +50,7 @@ export const SystemCard = ({
 }: SystemCardProps) => {
   const { getMicroCopy } = useSiteContext();
   const brandLogoCode = findSystemBrandLogoCode(system);
+  // eslint-disable-next-line security/detect-object-injection
   const brandLogo = iconMap[brandLogoCode];
   const systemUrl = getSystemUrl(countryCode, path);
   const mainImage = findMasterImageUrl(system.images || []);

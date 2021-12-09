@@ -1,4 +1,4 @@
-const isPositiveNumber = (value: string) => /^([0-9])+(\.[0-9]+)?$/.test(value);
+const isPositiveNumber = (value: string) => Number.parseFloat(value) > 0;
 
 /*
   TODO: messages to be converted to using microcopy-like replacement

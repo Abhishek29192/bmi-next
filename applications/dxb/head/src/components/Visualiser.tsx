@@ -119,6 +119,7 @@ const VisualiserProvider = ({
 
     pushToDataLayer({
       event: "dxb.button_click",
+      // eslint-disable-next-line security/detect-object-injection
       id: GtmEventsMap[type],
       label,
       action: productPath ? productPath : calculatePathFromData(params)

@@ -41,9 +41,6 @@ jest.mock("../../../lib/apolloClient", () => ({
 
 describe("Login Handler", () => {
   let req;
-  let res;
-  let auth0;
-  let logger;
 
   beforeEach(() => {
     req = {
@@ -53,13 +50,6 @@ describe("Login Handler", () => {
         returnTo: "/return-to"
       }
     };
-    res = {
-      status: () => ({
-        end: () => {}
-      })
-    };
-    auth0 = { handleLogin: jest.fn() };
-    logger = { info: jest.fn(), error: jest.fn() };
     jest.resetModules();
   });
 

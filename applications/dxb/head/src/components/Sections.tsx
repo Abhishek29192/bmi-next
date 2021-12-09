@@ -150,6 +150,7 @@ const Sections = ({
           <Component
             data={section}
             position={startIndex + index}
+            // eslint-disable-next-line security/detect-object-injection
             theme={pageTypenameToThemeMap[pageTypename] || {}}
             key={`section-${index}`}
           />

@@ -6,11 +6,14 @@ const folder: string = `${path.resolve(__dirname)}/fonts`;
 const create = () => {
   let vfs = {};
 
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   const fileNames = fs.readdirSync(folder);
   fileNames.forEach((fileName) => {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     const base64Data = fs.readFileSync(`${folder}/${fileName}`, {
       encoding: "base64"
     });
+    // eslint-disable-next-line security/detect-object-injection
     vfs[fileName] = base64Data;
   });
 

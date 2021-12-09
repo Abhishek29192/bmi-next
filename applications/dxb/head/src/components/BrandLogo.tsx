@@ -10,6 +10,7 @@ type Props = {
 };
 
 const BrandLogo = ({ brandName, className }: Props) => {
+  // eslint-disable-next-line security/detect-object-injection
   const iconLogo = iconMap[brandName];
 
   return iconLogo ? (

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useMemo, memo } from "react";
+import React, { useState, useMemo, memo } from "react";
 import { graphql } from "gatsby";
 import AnchorLink from "@bmi/anchor-link";
 import Button, { ButtonProps } from "@bmi/button";
@@ -97,6 +97,7 @@ const CardCollectionItem = ({
           : undefined
       }
       isFlat={isFlat}
+      // eslint-disable-next-line security/detect-object-injection
       brandImageSource={type !== "Text Card" ? iconMap[brandLogo] : undefined}
       clickableArea={
         link
@@ -317,6 +318,7 @@ const CardCollectionSection = ({
                     <GTMChip
                       key={`${tagTitle}-${index}`}
                       type="selectable"
+                      // eslint-disable-next-line security/detect-object-injection
                       isSelected={activeGroups[tagTitle]}
                       theme={cardType === "Story Card" ? "pearl" : "white"}
                       gtm={{
@@ -327,6 +329,7 @@ const CardCollectionSection = ({
                       onClick={() => {
                         setActiveGroups((activeGroups) => ({
                           ...activeGroups,
+                          // eslint-disable-next-line security/detect-object-injection
                           [tagTitle]: !activeGroups[tagTitle]
                         }));
                       }}

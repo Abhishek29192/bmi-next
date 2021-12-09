@@ -52,6 +52,7 @@ const parseSlides = (
 
     return {
       title,
+      // eslint-disable-next-line security/detect-object-injection
       brandIcon: brandLogo && iconMap[brandLogo],
       media: featuredVideo
         ? renderVideo(featuredVideo)

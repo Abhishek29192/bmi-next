@@ -89,6 +89,7 @@ const TechnologyInput = (props: TechnologyInputProps) => {
               disabled={disabled}
             >
               <Icon
+                // eslint-disable-next-line security/detect-object-injection
                 source={technologyIcons[value]}
                 className={styles.technologyIcon}
               />

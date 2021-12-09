@@ -1,9 +1,8 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import { graphql } from "gatsby";
 import { compact, first } from "lodash";
 import Section from "@bmi/section";
 import Grid from "@bmi/grid";
-import { useLocation } from "@reach/router";
 import Page from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {
@@ -19,11 +18,6 @@ import {
   Feature,
   Classification
 } from "../../components/types/pim";
-import { pushToDataLayer } from "../../utils/google-tag-manager";
-import {
-  SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE,
-  SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
-} from "../../constants/queryConstants";
 import { iconMap } from "../../components/Icon";
 import LeadBlockSection from "./leadBlockSection";
 import ImageGallerySection from "./imageGallerySection";
@@ -231,6 +225,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         classifications={classifications}
         cta={resources?.sdpLeadBlockCta}
         uniqueSellingPropositions={uniqueSellingPropositions}
+        // eslint-disable-next-line security/detect-object-injection
         brandLogo={iconMap[brandName]}
       />
       <Section

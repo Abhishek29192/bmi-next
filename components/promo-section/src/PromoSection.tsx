@@ -58,6 +58,7 @@ const PromoSection = ({
   isReversed,
   className
 }: Props) => {
+  // eslint-disable-next-line security/detect-object-injection
   const rows = layoutRowsMap[layout];
 
   return (

@@ -150,6 +150,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
 
       // Find first one that has some results and set it to display
       for (let tabKey in newResults) {
+        // eslint-disable-next-line security/detect-object-injection
         const config = newResults[tabKey];
         if (config.count) {
           config.hasBeenDisplayed = true;
@@ -189,6 +190,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
     setResults({
       ...results,
       [tabKey]: {
+        // eslint-disable-next-line security/detect-object-injection
         ...results[tabKey],
         hasBeenDisplayed: true
       }
@@ -199,6 +201,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
     const newResults = {
       ...results,
       [tabKey]: {
+        // eslint-disable-next-line security/detect-object-injection
         ...results[tabKey],
         count
       }
@@ -219,6 +222,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
         return (
           <Tabs.TabPanel
             key={tabKey}
+            // eslint-disable-next-line security/detect-object-injection
             heading={`${data.heading} (${results[tabKey]?.count || 0})`}
             index={tabKey}
           >
