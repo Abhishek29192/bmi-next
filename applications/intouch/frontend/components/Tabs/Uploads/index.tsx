@@ -275,6 +275,9 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
           <Accordion noInnerPadding={true}>
             {uploads &&
               [...uploads.entries()].map(([key, values], index) => {
+                const isAllEvidenceUploaded =
+                  (values?.evidences?.length || 0) >=
+                  (values?.minumumUploads || 0);
                 return (
                   <Accordion.Item
                     key={`${key}-${index}`}
@@ -289,8 +292,8 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
                       >
                         {t(key)}
                       </Typography>
-                      <div>
-                        {values?.evidences?.length < values?.minumumUploads ? (
+                      <div className={styles.requiredList}>
+                        {values?.minumumUploads > 0 && (
                           <AnchorLink
                             onClick={() => {
                               requiredHandler(values);
@@ -298,7 +301,8 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
                           >
                             {t("upload_tab.requirementModal.title")}
                           </AnchorLink>
-                        ) : (
+                        )}
+                        {isAllEvidenceUploaded && (
                           <Check style={{ color: "green" }} />
                         )}
                       </div>
