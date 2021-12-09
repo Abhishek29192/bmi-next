@@ -10,16 +10,11 @@ export enum ElasticsearchIndexes {
 
 export const deleteElasticSearchIndex = async (index: ElasticsearchIndexes) => {
   const client = await getEsClient();
-  try {
-    const response = await client.indices.delete({
-      index: `${ES_INDEX_PREFIX}${index}`
-    });
-    debug(response);
-  } catch (error) {
-    if (error["statusCode"] !== 404) {
-      throw error;
-    }
-  }
+  const response = await client.indices.delete({
+    index: `${ES_INDEX_PREFIX}${index}`,
+    ignore_unavailable: true
+  });
+  debug(response);
 
   info({ message: `Successfully deleted index: ${ES_INDEX_PREFIX}${index}` });
 };

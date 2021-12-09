@@ -41,22 +41,6 @@ describe("deleteElasticSearchIndex", () => {
   });
 
   it("should error if deleting index throws error", async () => {
-    esDelete.mockRejectedValue(Error("Expected error"));
-
-    try {
-      await deleteElasticSearchIndex(ElasticsearchIndexes.Products);
-      expect(false).toEqual("An error should have been thrown");
-    } catch (error) {
-      expect(error.message).toEqual("Expected error");
-    }
-
-    expect(getEsClient).toHaveBeenCalled();
-    expect(esDelete).toHaveBeenCalledWith({
-      index: `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`
-    });
-  });
-
-  it("should return if index does not exist", async () => {
     esDelete.mockRejectedValue(
       new ResponseError({
         body: {
@@ -64,19 +48,19 @@ describe("deleteElasticSearchIndex", () => {
             root_cause: [
               {
                 type: "index_not_found_exception",
-                reason: "no such index",
+                reason: "no such index [dxb_test_products]",
                 "resource.type": "index_or_alias",
-                "resource.id": "iot_log",
-                index_uuid: "na",
-                index: "iot_log"
+                "resource.id": "dxb_test_products",
+                index_uuid: "_na_",
+                index: "dxb_test_products"
               }
             ],
             type: "index_not_found_exception",
-            reason: "no such index",
+            reason: "no such index [dxb_test_products]",
             "resource.type": "index_or_alias",
-            "resource.id": "iot_log",
-            index_uuid: "na",
-            index: "iot_log"
+            "resource.id": "dxb_test_products",
+            index_uuid: "_na_",
+            index: "dxb_test_products"
           },
           status: 404
         },
@@ -87,11 +71,17 @@ describe("deleteElasticSearchIndex", () => {
       })
     );
 
-    await deleteElasticSearchIndex(ElasticsearchIndexes.Products);
+    try {
+      await deleteElasticSearchIndex(ElasticsearchIndexes.Products);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect(error.message).toEqual("index_not_found_exception");
+    }
 
     expect(getEsClient).toHaveBeenCalled();
     expect(esDelete).toHaveBeenCalledWith({
-      index: `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`
+      index: `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`,
+      ignore_unavailable: true
     });
   });
 
@@ -100,7 +90,8 @@ describe("deleteElasticSearchIndex", () => {
 
     expect(getEsClient).toHaveBeenCalled();
     expect(esDelete).toHaveBeenCalledWith({
-      index: `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`
+      index: `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`,
+      ignore_unavailable: true
     });
   });
 
@@ -109,7 +100,8 @@ describe("deleteElasticSearchIndex", () => {
 
     expect(getEsClient).toHaveBeenCalled();
     expect(esDelete).toHaveBeenCalledWith({
-      index: `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Systems}`
+      index: `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Systems}`,
+      ignore_unavailable: true
     });
   });
 });
