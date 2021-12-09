@@ -140,69 +140,9 @@ describe("schemaOrgPDPpage tests", () => {
             ]
           },
           {
-            code: ClassificationCodeEnum.MEASUREMENTS,
-            name: ClassificationCodeEnum.MEASUREMENTS,
+            code: ClassificationCodeEnum.WEIGHT_ATTRIBUTES,
+            name: ClassificationCodeEnum.WEIGHT_ATTRIBUTES,
             features: [
-              {
-                name: FeatureCodeEnum.WIDTH,
-                code: FeatureCodeEnum.WIDTH,
-                featureValues: [
-                  {
-                    value: "variant-width-value",
-                    code: "variant-width-code"
-                  }
-                ],
-                featureUnit: {
-                  name: "variant-width-feature-unit-name",
-                  unitType: "variant-width-feature-unit-unit-type",
-                  symbol: "variant-width-feature-unit-symbol"
-                }
-              },
-              {
-                name: FeatureCodeEnum.HEIGHT,
-                code: FeatureCodeEnum.HEIGHT,
-                featureValues: [
-                  {
-                    value: "variant-height-value",
-                    code: "variant-height-code"
-                  }
-                ],
-                featureUnit: {
-                  name: "variant-height-feature-unit-name",
-                  unitType: "variant-height-feature-unit-unit-type",
-                  symbol: "variant-height-feature-unit-symbol"
-                }
-              },
-              {
-                name: FeatureCodeEnum.LENGTH,
-                code: FeatureCodeEnum.LENGTH,
-                featureValues: [
-                  {
-                    value: "variant-length-value",
-                    code: "variant-length-code"
-                  }
-                ],
-                featureUnit: {
-                  name: "variant-length-feature-unit-name",
-                  unitType: "variant-length-feature-unit-unit-type",
-                  symbol: "variant-length-feature-unit-symbol"
-                }
-              },
-              {
-                name: FeatureCodeEnum.VOLUME,
-                code: FeatureCodeEnum.VOLUME,
-                featureValues: [
-                  {
-                    value: "variant-volume-value",
-                    code: "variant-volume-code"
-                  }
-                ],
-                featureUnit: {
-                  name: "variant-volume-feature-unit-name",
-                  unitType: "variant-volume-feature-unit-unit-type",
-                  symbol: "variant-volume-feature-unit-symbol"
-                }
-              },
               {
                 name: FeatureCodeEnum.WEIGHT_PER_PRICE,
                 code: FeatureCodeEnum.WEIGHT_PER_PRICE,
@@ -279,6 +219,87 @@ describe("schemaOrgPDPpage tests", () => {
                 }
               }
             ]
+          },
+          {
+            code: ClassificationCodeEnum.MEASUREMENTS,
+            name: ClassificationCodeEnum.MEASUREMENTS,
+            features: [
+              {
+                name: FeatureCodeEnum.THICKNESS,
+                code: FeatureCodeEnum.THICKNESS,
+                featureValues: [
+                  {
+                    value: "variant-thickness-value",
+                    code: "variant-thickness-code"
+                  }
+                ],
+                featureUnit: {
+                  name: "variant-thickness-feature-unit-name",
+                  unitType: "variant-thickness-feature-unit-unit-type",
+                  symbol: "variant-thickness-feature-unit-symbol"
+                }
+              },
+              {
+                name: FeatureCodeEnum.WIDTH,
+                code: FeatureCodeEnum.WIDTH,
+                featureValues: [
+                  {
+                    value: "variant-width-value",
+                    code: "variant-width-code"
+                  }
+                ],
+                featureUnit: {
+                  name: "variant-width-feature-unit-name",
+                  unitType: "variant-width-feature-unit-unit-type",
+                  symbol: "variant-width-feature-unit-symbol"
+                }
+              },
+              {
+                name: FeatureCodeEnum.HEIGHT,
+                code: FeatureCodeEnum.HEIGHT,
+                featureValues: [
+                  {
+                    value: "variant-height-value",
+                    code: "variant-height-code"
+                  }
+                ],
+                featureUnit: {
+                  name: "variant-height-feature-unit-name",
+                  unitType: "variant-height-feature-unit-unit-type",
+                  symbol: "variant-height-feature-unit-symbol"
+                }
+              },
+              {
+                name: FeatureCodeEnum.LENGTH,
+                code: FeatureCodeEnum.LENGTH,
+                featureValues: [
+                  {
+                    value: "variant-length-value",
+                    code: "variant-length-code"
+                  }
+                ],
+                featureUnit: {
+                  name: "variant-length-feature-unit-name",
+                  unitType: "variant-length-feature-unit-unit-type",
+                  symbol: "variant-length-feature-unit-symbol"
+                }
+              },
+              {
+                name: FeatureCodeEnum.VOLUME,
+                code: FeatureCodeEnum.VOLUME,
+                featureValues: [
+                  {
+                    value: "variant-volume-value",
+                    code: "variant-volume-code"
+                  }
+                ],
+                featureUnit: {
+                  name: "variant-volume-feature-unit-name",
+                  unitType: "variant-volume-feature-unit-unit-type",
+                  symbol: "variant-volume-feature-unit-symbol"
+                }
+              }
+            ]
           }
         ],
         images: [
@@ -351,7 +372,7 @@ describe("schemaOrgPDPpage tests", () => {
           "variant-image-url-gallery-2"
         ],
         productID: "variant-code",
-        size: "variant-height-valuevariant-height-feature-unit-symbol x variant-width-valuevariant-width-feature-unit-symbol x variant-length-valuevariant-length-feature-unit-symbol",
+        size: "variant-length-valuevariant-length-feature-unit-symbol x variant-thickness-valuevariant-thickness-feature-unit-symbol x variant-width-valuevariant-width-feature-unit-symbol x variant-height-valuevariant-height-feature-unit-symbol",
         url: "/no/p/some-product-path",
         weight: {
           "@type": "QuantitativeValue",
@@ -428,69 +449,9 @@ describe("schemaOrgPDPpage tests", () => {
             ]
           },
           {
-            code: ClassificationCodeEnum.MEASUREMENTS,
-            name: ClassificationCodeEnum.MEASUREMENTS,
+            code: ClassificationCodeEnum.WEIGHT_ATTRIBUTES,
+            name: ClassificationCodeEnum.WEIGHT_ATTRIBUTES,
             features: [
-              {
-                name: FeatureCodeEnum.WIDTH,
-                code: FeatureCodeEnum.WIDTH,
-                featureValues: [
-                  {
-                    value: "variant-width-value",
-                    code: "variant-width-code"
-                  }
-                ],
-                featureUnit: {
-                  name: "variant-width-feature-unit-name",
-                  unitType: "variant-width-feature-unit-unit-type",
-                  symbol: "variant-width-feature-unit-symbol"
-                }
-              },
-              {
-                name: FeatureCodeEnum.HEIGHT,
-                code: FeatureCodeEnum.HEIGHT,
-                featureValues: [
-                  {
-                    value: "variant-height-value",
-                    code: "variant-height-code"
-                  }
-                ],
-                featureUnit: {
-                  name: "variant-height-feature-unit-name",
-                  unitType: "variant-height-feature-unit-unit-type",
-                  symbol: "variant-height-feature-unit-symbol"
-                }
-              },
-              {
-                name: FeatureCodeEnum.LENGTH,
-                code: FeatureCodeEnum.LENGTH,
-                featureValues: [
-                  {
-                    value: "variant-length-value",
-                    code: "variant-length-code"
-                  }
-                ],
-                featureUnit: {
-                  name: "variant-length-feature-unit-name",
-                  unitType: "variant-length-feature-unit-unit-type",
-                  symbol: "variant-length-feature-unit-symbol"
-                }
-              },
-              {
-                name: FeatureCodeEnum.VOLUME,
-                code: FeatureCodeEnum.VOLUME,
-                featureValues: [
-                  {
-                    value: "variant-volume-value",
-                    code: "variant-volume-code"
-                  }
-                ],
-                featureUnit: {
-                  name: "variant-volume-feature-unit-name",
-                  unitType: "variant-volume-feature-unit-unit-type",
-                  symbol: "variant-volume-feature-unit-symbol"
-                }
-              },
               {
                 name: FeatureCodeEnum.WEIGHT_PER_PRICE,
                 code: FeatureCodeEnum.WEIGHT_PER_PRICE,
@@ -564,6 +525,72 @@ describe("schemaOrgPDPpage tests", () => {
                   name: "variant-weight-per-pallet-feature-unit-name",
                   unitType: "variant-weight-per-pallet-feature-unit-unit-type",
                   symbol: "variant-weight-per-pallet-feature-unit-symbol"
+                }
+              }
+            ]
+          },
+          {
+            code: ClassificationCodeEnum.MEASUREMENTS,
+            name: ClassificationCodeEnum.MEASUREMENTS,
+            features: [
+              {
+                name: FeatureCodeEnum.WIDTH,
+                code: FeatureCodeEnum.WIDTH,
+                featureValues: [
+                  {
+                    value: "variant-width-value",
+                    code: "variant-width-code"
+                  }
+                ],
+                featureUnit: {
+                  name: "variant-width-feature-unit-name",
+                  unitType: "variant-width-feature-unit-unit-type",
+                  symbol: "variant-width-feature-unit-symbol"
+                }
+              },
+              {
+                name: FeatureCodeEnum.HEIGHT,
+                code: FeatureCodeEnum.HEIGHT,
+                featureValues: [
+                  {
+                    value: "variant-height-value",
+                    code: "variant-height-code"
+                  }
+                ],
+                featureUnit: {
+                  name: "variant-height-feature-unit-name",
+                  unitType: "variant-height-feature-unit-unit-type",
+                  symbol: "variant-height-feature-unit-symbol"
+                }
+              },
+              {
+                name: FeatureCodeEnum.LENGTH,
+                code: FeatureCodeEnum.LENGTH,
+                featureValues: [
+                  {
+                    value: "variant-length-value",
+                    code: "variant-length-code"
+                  }
+                ],
+                featureUnit: {
+                  name: "variant-length-feature-unit-name",
+                  unitType: "variant-length-feature-unit-unit-type",
+                  symbol: "variant-length-feature-unit-symbol"
+                }
+              },
+              {
+                name: FeatureCodeEnum.VOLUME,
+                code: FeatureCodeEnum.VOLUME,
+                featureValues: [
+                  {
+                    value: "variant-volume-value",
+                    code: "variant-volume-code"
+                  }
+                ],
+                featureUnit: {
+                  name: "variant-volume-feature-unit-name",
+                  unitType: "variant-volume-feature-unit-unit-type",
+                  symbol: "variant-volume-feature-unit-symbol"
                 }
               }
             ]
@@ -663,7 +690,7 @@ describe("schemaOrgPDPpage tests", () => {
           "variant-image-url-gallery-2"
         ],
         productID: "variant-code",
-        size: "variant-height-valuevariant-height-feature-unit-symbol x variant-width-valuevariant-width-feature-unit-symbol x variant-length-valuevariant-length-feature-unit-symbol",
+        size: "variant-length-valuevariant-length-feature-unit-symbol x variant-width-valuevariant-width-feature-unit-symbol x variant-height-valuevariant-height-feature-unit-symbol",
         url: "/no/p/some-product-path",
         weight: {
           "@type": "QuantitativeValue",
@@ -741,6 +768,42 @@ describe("schemaOrgPDPpage tests", () => {
             ]
           },
           {
+            code: ClassificationCodeEnum.WEIGHT_ATTRIBUTES,
+            name: ClassificationCodeEnum.WEIGHT_ATTRIBUTES,
+            features: [
+              {
+                name: FeatureCodeEnum.WEIGHT_PER_PRICE,
+                code: FeatureCodeEnum.WEIGHT_PER_PRICE,
+                featureValues: undefined,
+                featureUnit: undefined
+              },
+              {
+                name: FeatureCodeEnum.NET_WEIGHT,
+                code: FeatureCodeEnum.NET_WEIGHT,
+                featureValues: undefined,
+                featureUnit: undefined
+              },
+              {
+                name: FeatureCodeEnum.GROSS_WEIGHT,
+                code: FeatureCodeEnum.GROSS_WEIGHT,
+                featureValues: undefined,
+                featureUnit: undefined
+              },
+              {
+                name: FeatureCodeEnum.WEIGHT_PER_SQM,
+                code: FeatureCodeEnum.WEIGHT_PER_SQM,
+                featureValues: undefined,
+                featureUnit: undefined
+              },
+              {
+                name: FeatureCodeEnum.WEIGHT_PER_PALLET,
+                code: FeatureCodeEnum.WEIGHT_PER_PALLET,
+                featureValues: undefined,
+                featureUnit: undefined
+              }
+            ]
+          },
+          {
             code: ClassificationCodeEnum.MEASUREMENTS,
             name: ClassificationCodeEnum.MEASUREMENTS,
             features: [
@@ -774,36 +837,6 @@ describe("schemaOrgPDPpage tests", () => {
               {
                 name: FeatureCodeEnum.VOLUME,
                 code: FeatureCodeEnum.VOLUME,
-                featureValues: undefined,
-                featureUnit: undefined
-              },
-              {
-                name: FeatureCodeEnum.WEIGHT_PER_PRICE,
-                code: FeatureCodeEnum.WEIGHT_PER_PRICE,
-                featureValues: undefined,
-                featureUnit: undefined
-              },
-              {
-                name: FeatureCodeEnum.NET_WEIGHT,
-                code: FeatureCodeEnum.NET_WEIGHT,
-                featureValues: undefined,
-                featureUnit: undefined
-              },
-              {
-                name: FeatureCodeEnum.GROSS_WEIGHT,
-                code: FeatureCodeEnum.GROSS_WEIGHT,
-                featureValues: undefined,
-                featureUnit: undefined
-              },
-              {
-                name: FeatureCodeEnum.WEIGHT_PER_SQM,
-                code: FeatureCodeEnum.WEIGHT_PER_SQM,
-                featureValues: undefined,
-                featureUnit: undefined
-              },
-              {
-                name: FeatureCodeEnum.WEIGHT_PER_PALLET,
-                code: FeatureCodeEnum.WEIGHT_PER_PALLET,
                 featureValues: undefined,
                 featureUnit: undefined
               }
