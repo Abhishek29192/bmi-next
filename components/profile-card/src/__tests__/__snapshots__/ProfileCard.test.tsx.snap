@@ -63,6 +63,94 @@ exports[`ProfileCard component renders an element if the image source is a compo
 </div>
 `;
 
+exports[`ProfileCard component renders correctly ProfileRow if icon undefined 1`] = `
+<div>
+  <div
+    class="ProfileCard"
+  >
+    <div
+      class="head"
+    >
+      <div
+        class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+      >
+        <h1>
+          Something here
+        </h1>
+      </div>
+    </div>
+    <div
+      class="body"
+    >
+      <div>
+        <strong
+          class="MuiTypography-root Typography MuiTypography-h5"
+        >
+          Richard Stallman
+        </strong>
+        <p
+          class="MuiTypography-root title Typography MuiTypography-body2"
+        >
+          Code Wizard
+        </p>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <span
+        class="row"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+          href="/"
+        >
+          <span>
+            Profile line with link
+          </span>
+        </a>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProfileCard component renders correctly if does not have children 1`] = `
+<div>
+  <div
+    class="ProfileCard"
+  >
+    <div
+      class="head"
+    >
+      <div
+        class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+      >
+        <h1>
+          Something here
+        </h1>
+      </div>
+    </div>
+    <div
+      class="body"
+    >
+      <div>
+        <strong
+          class="MuiTypography-root Typography MuiTypography-h5"
+        >
+          Richard Stallman
+        </strong>
+        <p
+          class="MuiTypography-root title Typography MuiTypography-body2"
+        >
+          Code Wizard
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ProfileCard component renders correctly with an image 1`] = `
 <div
   class="ProfileCard"

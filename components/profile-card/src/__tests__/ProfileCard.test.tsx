@@ -63,4 +63,31 @@ describe("ProfileCard component", () => {
     );
     expect(container).toMatchSnapshot();
   });
+
+  it("renders correctly if does not have children", () => {
+    const { container } = render(
+      <ProfileCard
+        imageSource={<h1>Something here</h1>}
+        body={<ProfileCard.Body name="Richard Stallman" title="Code Wizard" />}
+      ></ProfileCard>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly ProfileRow if icon undefined", () => {
+    const { container } = render(
+      <ProfileCard
+        imageSource={<h1>Something here</h1>}
+        body={<ProfileCard.Body name="Richard Stallman" title="Code Wizard" />}
+      >
+        <ProfileCard.Row
+          action={{ model: "htmlLink", href: "/" }}
+          icon={undefined}
+        >
+          Profile line with link
+        </ProfileCard.Row>
+      </ProfileCard>
+    );
+    expect(container).toMatchSnapshot();
+  });
 });
