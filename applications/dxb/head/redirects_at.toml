@@ -1,11 +1,4 @@
 
-# Redirect root to /at.
-[[redirects]]
-  from = "/"
-  to = "/at"
-  status = 301
-  force = true
-
 [[redirects]]
   from = "/at/downloads/leistungserklärung"
   to = "/at/downloads/leistungserklaerungen/"
@@ -2135,3 +2128,12 @@
   to = "/at/kontakt/"
   status = 301
   force = true
+
+
+# Redirect root to /at.
+[[redirects]]
+  from = "/"
+  to = "/at"
+  status = 301
+  force = true
+  
