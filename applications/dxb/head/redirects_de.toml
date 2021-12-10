@@ -1131,17 +1131,17 @@
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-turmalin"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Turmalin"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Turmalin%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-topas-13v"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_13V"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_13V%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-topas-11v"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_11V"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_11V%22%5D%7D%5D"
  force=true
 
 [[redirects]]
@@ -1191,17 +1191,17 @@
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-opal-standard-segmentschnitt-flach"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Opal_Standard_Segmentschnitt_flach"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Opal_Standard_Segmentschnitt_flach%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-opal-standard-rundschnitt"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Opal_Standard_Rundschnitt"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Opal_Standard_Rundschnitt%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-opal-standard-geradschnitt-kantig-abgerundet"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Opal_Standard_Geradschnitt_kantig_abgerundet"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Opal_Standard_Geradschnitt_kantig_abgerundet%22%5D%7D%5D"
  force=true
 
 [[redirects]]
@@ -1211,62 +1211,62 @@
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-opal-berliner-biber-18-38"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Opal_Berliner_Biber_18_38"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Opal_Berliner_Biber_18_38%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-opal-berliner-biber-15-5-38"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Opal_Berliner_Biber_15_5_38"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Opal_Berliner_Biber_15_5_38%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-harzer-pfanne-f"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Harzer_Pfanne_F_plus"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Harzer_Pfanne_F_plus%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-harzer-pfanne-7"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Harzer_Pfanne_7"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Harzer_Pfanne_7%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-harzer-pfanne"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Harzer_Pfanne"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Harzer_Pfanne%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-granat-13v"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Granat_13V"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Granat_13V%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-granat-11v"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Granat_11V"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Granat_11V%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-frankfurter-pfanne"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Frankfurter_Pfanne"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Frankfurter_Pfanne%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-doppel-s-aerlox"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Doppel-S_Aerlox"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Doppel-S_Aerlox%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-doppel-s"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Doppel-S"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Doppel-S%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-achat-14-geradschnitt"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Achat_14_Geradschnitt"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Achat_14_Geradschnitt%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/systemkomponenten/braas-achat-12v"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Achat_12V"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Achat_12V%22%5D%7D%5D"
  force=true
 
 [[redirects]]
@@ -1881,7 +1881,7 @@
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/produkte/braas-achat-12v"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Achat_12V"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Achat_12V%22%5D%7D%5D"
  force=true
 
 [[redirects]]
@@ -1931,57 +1931,57 @@
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/metallplatten/schwarz"
- to="/de/alle-metallplatten/?filters=%5B%7B"name"%3A"appearanceAttributes.colourfamily"%2C"value"%3A%5B"BLACK"%5D%7D%5D"
+ to="/de/alle-metallplatten/?filters=%5B%7B%22name%22%3A%22appearanceAttributes.colourfamily%22%2C%22value%22%3A%5B%22BLACK%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/metallplatten/rot"
- to="/de/alle-metallplatten/?filters=%5B%7B"name"%3A"appearanceAttributes.colourfamily"%2C"value"%3A%5B"RED"%5D%7D%5D"
+ to="/de/alle-metallplatten/?filters=%5B%7B%22name%22%3A%22appearanceAttributes.colourfamily%22%2C%22value%22%3A%5B%22RED%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/metallplatten/hochglanz"
- to="/de/alle-metallplatten/?filters=%5B%7B"name"%3A"appearanceAttributes.texturefamily"%2C"value"%3A%5B"GLOSSY"%5D%7D%5D"
+ to="/de/alle-metallplatten/?filters=%5B%7B%22name%22%3A%22appearanceAttributes.texturefamily%22%2C%22value%22%3A%5B%22GLOSSY%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/metallplatten/grau"
- to="/de/alle-metallplatten/?filters=%5B%7B"name"%3A"appearanceAttributes.colourfamily"%2C"value"%3A%5B"GREY"%5D%7D%5D"
+ to="/de/alle-metallplatten/?filters=%5B%7B%22name%22%3A%22appearanceAttributes.colourfamily%22%2C%22value%22%3A%5B%22GREY%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/metallplatten/granulierte-oberfl%C3%A4che"
- to="/de/alle-metallplatten/?filters=%5B%7B"name"%3A"appearanceAttributes.texturefamily"%2C"value"%3A%5B"GRANULAR_FINISH"%5D%7D%5D"
+ to="/de/alle-metallplatten/?filters=%5B%7B%22name%22%3A%22appearanceAttributes.texturefamily%22%2C%22value%22%3A%5B%22GRANULAR_FINISH%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/metallplatten/gr%C3%BCn"
- to="/de/alle-metallplatten/?filters=%5B%7B"name"%3A"appearanceAttributes.colourfamily"%2C"value"%3A%5B"GREEN"%5D%7D%5D"
+ to="/de/alle-metallplatten/?filters=%5B%7B%22name%22%3A%22appearanceAttributes.colourfamily%22%2C%22value%22%3A%5B%22GREEN%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/metallplatten/braun"
- to="/de/alle-metallplatten/?filters=%5B%7B"name"%3A"appearanceAttributes.colourfamily"%2C"value"%3A%5B"BROWN"%5D%7D%5D"
+ to="/de/alle-metallplatten/?filters=%5B%7B%22name%22%3A%22appearanceAttributes.colourfamily%22%2C%22value%22%3A%5B%22BROWN%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/metallplatten/braas-aerodek-unique"
- to="/de/alle-metallplatten/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_AeroDek_Unique"%5D%7D%5D"
+ to="/de/alle-metallplatten/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_AeroDek_Unique%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/metallplatten/braas-aerodek-tradition"
- to="/de/alle-metallplatten/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_AeroDek_Tradition"%5D%7D%5D"
+ to="/de/alle-metallplatten/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_AeroDek_Tradition%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/metallplatten/braas-aerodek-robust"
- to="/de/alle-metallplatten/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_AeroDek_Robust"%5D%7D%5D"
+ to="/de/alle-metallplatten/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_AeroDek_Robust%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/metallplatten/braas-aerodek-quadro"
- to="/de/alle-metallplatten/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_AeroDek_Quadro"%5D%7D%5D"
+ to="/de/alle-metallplatten/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_AeroDek_Quadro%22%5D%7D%5D"
  force=true
 
 [[redirects]]
@@ -1996,7 +1996,7 @@
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/daemmung/stahl-verzinkt"
- to="/de/alle-daemmprodukte/?filters=%5B%7B"name"%3A"generalInformation.materials"%2C"value"%3A%5B"GALVANIZED_STEEL"%5D%7D%5D"
+ to="/de/alle-daemmprodukte/?filters=%5B%7B%22name%22%3A%22generalInformation.materials%22%2C%22value%22%3A%5B%22GALVANIZED_STEEL%22%5D%7D%5D"
  force=true
 
 [[redirects]]
@@ -2011,7 +2011,7 @@
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/daemmung/pur-pir"
- to="/de/alle-daemmprodukte/?filters=%5B%7B"name"%3A"generalInformation.materials"%2C"value"%3A%5B"PUR_PIR"%5D%7D%5D"
+ to="/de/alle-daemmprodukte/?filters=%5B%7B%22name%22%3A%22generalInformation.materials%22%2C%22value%22%3A%5B%22PUR_PIR%22%5D%7D%5D"
  force=true
 
 [[redirects]]
@@ -2021,7 +2021,7 @@
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/daemmung/kleber-klebeb%C3%A4nder-dichtmassen"
- to="/de/alle-daemmprodukte/?filters=%5B%7B"name"%3A"PITCHEDROOF_INSULATION"%2C"value"%3A%5B"PITCHEDROOF_INSULATION_ACCESSORIES"%5D%7D%5D"
+ to="/de/alle-daemmprodukte/?filters=%5B%7B%22name%22%3A%22PITCHEDROOF_INSULATION%22%2C%22value%22%3A%5B%22PITCHEDROOF_INSULATION_ACCESSORIES%22%5D%7D%5D"
  force=true
 
 [[redirects]]
@@ -2081,102 +2081,102 @@
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-turmalin"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Turmalin"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Turmalin%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-topas-13v"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_13V"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_13V%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-topas-11v"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_11V"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_11V%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-smaragd"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Smaragd"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Smaragd%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-saphir"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Saphir"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Saphir%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-rubin-9v"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Rubin_9V"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Rubin_9V%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-rubin-13v"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Rubin_13V"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Rubin_13V%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-rubin-11v-hz"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Rubin_11V_HZ"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Rubin_11V_HZ%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-rubin-11v-ha"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Rubin_11V_HA"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Rubin_11V_HA%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-opal-turmbiber"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Opal_Turmbiber"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Opal_Turmbiber%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-opal-standard-segmentschnitt-flach"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Opal_Standard_Segmentschnitt_flach"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Opal_Standard_Segmentschnitt_flach%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-opal-standard-rundschnitt"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Opal_Standard_Rundschnitt"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Opal_Standard_Rundschnitt%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-opal-standard-geradschnitt-kantig-abgerundet"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Opal_Standard_Geradschnitt_kantig_abgerundet"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Opal_Standard_Geradschnitt_kantig_abgerundet%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-opal-kirchenbiber"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Opal_Kirchenbiber"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Opal_Kirchenbiber%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-opal-berliner-biber-18-38"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Opal_Berliner_Biber_18_38"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Opal_Berliner_Biber_18_38%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-opal-berliner-biber-15-5-38"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Opal_Berliner_Biber_15_5_38"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Opal_Berliner_Biber_15_5_38%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-granat-13v"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Granat_13V"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Granat_13V%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-granat-11v"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Granat_11V"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Granat_11V%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-achat-14-geradschnitt"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Achat_14_Geradschnitt"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Achat_14_Geradschnitt%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-achat-12v"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Topas_15V"%2C"Braas_Achat_12V"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Topas_15V%22%2C%22Braas_Achat_12V%22%5D%7D%5D"
  force=true
 
 [[redirects]]
@@ -2196,17 +2196,17 @@
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/star-seidenmatt"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"appearanceAttributes.texturefamily"%2C"value"%3A%5B"STAR_SEIDENMATT"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22appearanceAttributes.texturefamily%22%2C%22value%22%3A%5B%22STAR_SEIDENMATT%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/star-matt"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"appearanceAttributes.texturefamily"%2C"value"%3A%5B"STAR_MATT"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22appearanceAttributes.texturefamily%22%2C%22value%22%3A%5B%22STAR_MATT%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/seidenmatt"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"appearanceAttributes.texturefamily"%2C"value"%3A%5B"SATIN_FINISH"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22appearanceAttributes.texturefamily%22%2C%22value%22%3A%5B%22SATIN_FINISH%22%5D%7D%5D"
  force=true
 
 [[redirects]]
@@ -2221,17 +2221,17 @@
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/protegon-seidenmatt"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"appearanceAttributes.texturefamily"%2C"value"%3A%5B"PROTEGON_SIDENMATT"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22appearanceAttributes.texturefamily%22%2C%22value%22%3A%5B%22PROTEGON_SIDENMATT%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/protegon-matt"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"appearanceAttributes.texturefamily"%2C"value"%3A%5B"PROTEGON_MATT"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22appearanceAttributes.texturefamily%22%2C%22value%22%3A%5B%22PROTEGON_MATT%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/matt"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"CONCRETE"%2C"value"%3A%5B"UNIVERSAL_CONCRETE_ACCESSORIES"%5D%7D%2C%7B"name"%3A"appearanceAttributes.texturefamily"%2C"value"%3A%5B"MATT"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22CONCRETE%22%2C%22value%22%3A%5B%22UNIVERSAL_CONCRETE_ACCESSORIES%22%5D%7D%2C%7B%22name%22%3A%22appearanceAttributes.texturefamily%22%2C%22value%22%3A%5B%22MATT%22%5D%7D%5D"
  force=true
 
 [[redirects]]
@@ -2241,7 +2241,7 @@
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/classic-novo-matt"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"appearanceAttributes.texturefamily"%2C"value"%3A%5B"CLASSIC_NOVO_MATT"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22appearanceAttributes.texturefamily%22%2C%22value%22%3A%5B%22CLASSIC_NOVO_MATT%22%5D%7D%5D"
  force=true
 
 [[redirects]]
@@ -2251,42 +2251,42 @@
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/braas-tegalit"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Tegalit"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Tegalit%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/braas-taunus-pfanne"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Taunus_Pfanne"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Taunus_Pfanne%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/braas-harzer-pfanne-f"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Harzer_Pfanne_F_plus"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Harzer_Pfanne_F_plus%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/braas-harzer-pfanne-7"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Harzer_Pfanne_7"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Harzer_Pfanne_7%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/braas-harzer-pfanne"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Harzer_Pfanne"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Harzer_Pfanne%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/braas-frankfurter-pfanne"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Frankfurter_Pfanne"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Frankfurter_Pfanne%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/braas-doppel-s-aerlox"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Doppel-S_Aerlox"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Doppel-S_Aerlox%22%5D%7D%5D"
  force=true
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/braas-doppel-s"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"ProductFamily"%2C"value"%3A%5B"Braas_Doppel-S"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Doppel-S%22%5D%7D%5D"
  force=true
 
 [[redirects]]
@@ -2296,7 +2296,7 @@
 
 [[redirects]]
  from="/de/produkte-systemloesungen/steildachsysteme/dachsteine-produkte/begehung"
- to="/de/alle-steildachprodukte/?filters=%5B%7B"name"%3A"PITCHEDROOF_COMPONENTS"%2C"value"%3A%5B"SAFETY"%5D%7D%5D"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22PITCHEDROOF_COMPONENTS%22%2C%22value%22%3A%5B%22SAFETY%22%5D%7D%5D"
  force=true
 
 [[redirects]]
@@ -14817,8 +14817,8 @@
 
 # Redirect root to /de.
 [[redirects]]
-  from = "/"
-  to = "/de"
+  from="/
+  to="/de
   status = 302
   force = true
   
