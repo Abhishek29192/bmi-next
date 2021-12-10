@@ -1,15 +1,15 @@
 import React from "react";
-import { render, cleanup } from "@testing-library/react";
-import Component from "../tabLeadBlock";
+import { cleanup, render } from "@testing-library/react";
+import Component, { BimContent } from "../tabLeadBlock";
 import createSystemDetails from "../../../test/systemDetailsMockData";
 import "@testing-library/jest-dom";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import {
   Classification,
-  ClassificationCodeEnum
+  ClassificationCodeEnum,
+  FileContentTypeEnum
 } from "../../../components/types/pim";
 import { DocumentData } from "../types";
-import { BimContent } from "../tabLeadBlock";
 
 const techSpecValue = "accordion item value 1";
 const systemDetailsMockData = createSystemDetails();
@@ -51,7 +51,7 @@ const documents: DocumentData[] = [
       file: {
         fileName: "1344416763.pdf",
         url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf",
-        contentType: "application/pdf",
+        contentType: FileContentTypeEnum.APPLICATION_PDF,
         details: {
           size: 270539
         }

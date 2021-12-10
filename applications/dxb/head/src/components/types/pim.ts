@@ -222,3 +222,16 @@ export enum FeatureCodeEnum {
   WEIGHT_PER_PALLET = "weightperpallet",
   VOLUME = "volume"
 }
+
+export enum FileContentTypeEnum {
+  IMAGE_JPG = "image/jpg",
+  IMAGE_JPEG = "image/jpeg",
+  IMAGE_PNG = "image/png",
+  IMAGE_WEBP = "image/webp",
+  IMAGE_GIF = "image/gif",
+  IMAGE_SVG_XML = "image/svg+xml",
+  APPLICATION_PDF = "application/pdf",
+  APPLICATION_ZIP = "application/zip",
+  FILE_NOT_AN_IMAGE = "file/not-an-image",
+  APPLICATION_OCTET_STREAM = "application/octet-stream"
+}
