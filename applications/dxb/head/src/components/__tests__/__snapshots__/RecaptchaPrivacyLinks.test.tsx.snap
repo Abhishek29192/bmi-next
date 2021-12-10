@@ -1,5 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`RecaptchaPrivacyLinks component When 'at' country code is provided renders German Recaptcha policy text and urls 1`] = `
+<p
+  class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+>
+  Diese Website ist durch reCAPTCHA geschützt und es gelten die 
+  <a
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+    href="https://policies.google.com/privacy?hl=de-at"
+    rel="noreferrer noopener"
+    target="_blank"
+  >
+    <span>
+      Datenschutzbestimmungen
+    </span>
+  </a>
+   und 
+  <a
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+    href="https://policies.google.com/terms?hl=de-at"
+    rel="noreferrer noopener"
+    target="_blank"
+  >
+    <span>
+      Nutzungsbedingungen
+    </span>
+  </a>
+   von Google.
+</p>
+`;
+
 exports[`RecaptchaPrivacyLinks component When 'de' country code is provided renders German Recaptcha policy text and urls 1`] = `
 <p
   class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"

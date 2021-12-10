@@ -563,7 +563,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-no-sourcemaps"
     },
-    `gatsby-plugin-meta-redirect` // make sure to put last in the array
+    `@bmi/gatsby-plugin-meta-redirect` // make sure to put last in the array
   ],
   flags: {
     DEV_SSR: false,

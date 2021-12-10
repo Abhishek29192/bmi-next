@@ -219,6 +219,44 @@ describe("RecaptchaPrivacyLinks component", () => {
     });
   });
 
+  describe("When 'at' country code is provided", () => {
+    it("renders German Recaptcha policy text and urls", async () => {
+      const { container, findByText, getByText } = render(
+        <SiteContextProvider
+          value={{
+            node_locale: "en-UK",
+            homePage: { title: "Home Page" },
+            getMicroCopy: (path) => path,
+            countryCode: "at",
+            reCaptchaKey: "1234",
+            reCaptchaNet: false
+          }}
+        >
+          <RecaptchaPrivacyLinks />
+        </SiteContextProvider>
+      );
+      await findByText((content) =>
+        content.startsWith(
+          "Diese Website ist durch reCAPTCHA geschützt und es gelten die "
+        )
+      );
+
+      expect(
+        (
+          getByText("Datenschutzbestimmungen")
+            .parentElement as HTMLAnchorElement
+        ).href
+      ).toEqual("https://policies.google.com/privacy?hl=de-at");
+
+      expect(
+        (getByText("Nutzungsbedingungen").parentElement as HTMLAnchorElement)
+          .href
+      ).toEqual("https://policies.google.com/terms?hl=de-at");
+
+      expect(container.firstChild).toMatchSnapshot();
+    });
+  });
+
   describe("When custom styles added", () => {
     it("renders with custom style", async () => {
       const { container, findByText, getByText } = render(

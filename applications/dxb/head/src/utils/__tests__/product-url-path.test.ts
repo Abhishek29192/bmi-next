@@ -34,7 +34,7 @@ describe("product-url-path tests", () => {
         describe("with special characters and multiple spaces", () => {
           it("removes ALL special characters as well as all occuranes of spaces with single '-'", () => {
             const result = generateUrl([
-              `±!£$%    ^&*()+~_\`¡€#¢    ∞§¶•–≠«‘“{}\`   ∑®†¥¨^¬˚∆˙©∂≈√∫~≤≥÷≠`
+              `±!£$%    ^&*()+~_\`¡€#¢    ∞§¶•–≠«‘“{}\`   ∑®†¥¨^¬˚∆˙©∂≈√∫~≤≥÷≠/`
             ]);
             expect(result).toEqual("-");
           });
@@ -42,7 +42,7 @@ describe("product-url-path tests", () => {
         describe("with special characters, '_' and multiple spaces", () => {
           it("removes ALL special characters as well as all occuranes of '_' and spaces with single '-'", () => {
             const result = generateUrl([
-              `±!£$%    ^&*()+~_\`______¡€#¢    ∞§¶•–≠«___‘“{}\`   ∑®†¥¨^¬˚∆˙©∂______≈√∫~≤≥÷≠`
+              `±!£$%    ^&*()+~_\`______¡€#¢    ∞§¶•–≠«___‘“{}\`   ∑®†¥¨^¬˚∆˙©∂______≈√∫~≤≥÷≠/`
             ]);
             expect(result).toEqual("-");
           });
@@ -54,6 +54,28 @@ describe("product-url-path tests", () => {
             ]);
             expect(result).toEqual(
               "thickness-140mm-width1-5m-thickness-200mm-wid-th2-5m"
+            );
+          });
+        });
+        describe("with `/` in any attributes text", () => {
+          it("replaces `/` with `-` ", () => {
+            const result = generateUrl([
+              `Firstanfang/endstein glatt Protector`,
+              `Reduzierung NW 100/70`,
+              `Glasfaservlies 120g/m²`
+            ]);
+            expect(result).toEqual(
+              "firstanfang-endstein-glatt-protector-reduzierung-nw-100-70-glasfaservlies-120g-m"
+            );
+          });
+          it("replaces repeated occurances of `/` with single `-` ", () => {
+            const result = generateUrl([
+              `Firstanfang//endstein glatt Protector`,
+              `Reduzierung NW 100//70`,
+              `Glasfaservlies 120g////m²`
+            ]);
+            expect(result).toEqual(
+              "firstanfang-endstein-glatt-protector-reduzierung-nw-100-70-glasfaservlies-120g-m"
             );
           });
         });

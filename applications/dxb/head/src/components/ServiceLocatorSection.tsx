@@ -36,6 +36,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useLocation } from "@reach/router";
 import { devLog } from "../utils/devLog";
 import withGTM from "../utils/google-tag-manager";
+import AutoCompleteCountryMap from "../countries/GoogleCountryCodeMap";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import {
@@ -225,6 +226,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     // hence remove all querystring from user and make the url '/find-a-roofer/' again
     if (matchingRooferTypes.length === 0) {
       history.replaceState(null, null, windowLocation.pathname);
+    } else {
+      // show result list panel on page load if selected chips exist
+      setShowResultList(true);
     }
   }, [services]);
 
@@ -742,6 +746,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                   freeSolo
                   startAdornmentIcon="LocationOn"
                   controlledValue={userPosition}
+                  googleAutocompleteOptions={{
+                    componentRestrictions: {
+                      // eslint-disable-next-line security/detect-object-injection
+                      country: AutoCompleteCountryMap[countryCode] || [
+                        countryCode
+                      ]
+                    }
+                  }}
                 />
                 <GeolocationButton
                   onPosition={({ coords }) => {

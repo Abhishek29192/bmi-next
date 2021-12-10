@@ -349,7 +349,7 @@ const FormSection = ({
       );
 
       setIsSubmitting(false);
-      onSuccess();
+      onSuccess && onSuccess();
       if (successRedirect) {
         navigate(
           successRedirect.url ||

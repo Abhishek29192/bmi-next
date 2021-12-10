@@ -97,6 +97,8 @@ const GoogleMap = ({
   const [error, setError] = useState<Error>();
   const googleMap: MutableRefObject<Map | null> = useRef<Map>(null);
   const googleMarkers: MutableRefObject<Marker[]> = useRef<Marker[]>([]);
+  const markerClusterer: MutableRefObject<MarkerClusterer | null> =
+    useRef<MarkerClusterer>(null);
   const mapElement = useRef<HTMLDivElement>(null);
 
   const createGoogleMarker = ({
@@ -146,7 +148,7 @@ const GoogleMap = ({
           .map(createGoogleMarker)
           .filter(Boolean) as google.maps.Marker[];
 
-        new MarkerClusterer({
+        markerClusterer.current = new MarkerClusterer({
           map: googleMap.current,
           markers: googleMarkers.current,
           renderer: new CustomMarkerRenderer(google as Google)
@@ -162,11 +164,17 @@ const GoogleMap = ({
         .map(createGoogleMarker)
         .filter(Boolean) as google.maps.Marker[];
 
-      new MarkerClusterer({
-        map: googleMap.current,
-        markers: googleMarkers.current,
-        renderer: new CustomMarkerRenderer(google as Google)
-      });
+      if (markerClusterer.current && markerClusterer.current.setMap) {
+        markerClusterer.current.setMap(null);
+        markerClusterer.current = new MarkerClusterer({
+          map: googleMap.current,
+          markers: googleMarkers.current,
+          renderer:
+            googleMarkers.current.length > 1
+              ? new CustomMarkerRenderer(google as Google)
+              : undefined
+        });
+      }
     }
   }, [markers]);
 
