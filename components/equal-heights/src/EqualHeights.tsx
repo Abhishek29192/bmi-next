@@ -30,14 +30,13 @@ const EqualHeights = ({ children }: { children: React.ReactNode }) => {
 
   const setHeights = useCallback(() => {
     const offsetHeights = Object.values(refs.current)
-      .map((ref) => {
-        return ref.current?.clientHeight;
-      })
+      .map((ref) => ref.current.clientHeight)
       .filter(Boolean);
 
     const newEqualHeight: number | "auto" = offsetHeights.length
       ? Math.max(...offsetHeights)
       : "auto";
+
     if (newEqualHeight !== equalHeight) {
       setEqualHeight(newEqualHeight);
     }

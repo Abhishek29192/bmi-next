@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EqualHeights component renders correctly 1`] = `
+exports[`EqualHeights component renders correctly should set equal height auto to added elements 1`] = `
 <div
   class="EqualHeights"
 >
@@ -46,7 +46,108 @@ exports[`EqualHeights component renders correctly 1`] = `
           </div>
         </div>
       </div>
+      <button />
     </div>
+  </div>
+</div>
+`;
+
+exports[`EqualHeights component renders correctly should set equal height to added elements 1`] = `
+<div
+  class="EqualHeights"
+>
+  <div
+    class=""
+  >
+    <div
+      style="display: flex; flex-wrap: wrap;"
+    >
+      <div>
+        <div
+          style="background: rgb(238, 238, 238); padding: 10px; margin: 5px; height: 196px;"
+        >
+          <div>
+            not much text
+          </div>
+        </div>
+        <div
+          style="background: rgb(238, 238, 238); padding: 10px; margin: 5px; height: 196px;"
+        >
+          <div>
+            Tempor do labore 
+            <br />
+             proident aute commodo
+            <br />
+            enim quis duis.
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          style="background: rgb(238, 238, 238); padding: 10px; margin: 5px; height: 196px;"
+        >
+          <div>
+            something
+          </div>
+        </div>
+        <div
+          style="background: rgb(238, 238, 238); padding: 10px; margin: 5px; height: 196px;"
+        >
+          <div>
+            another
+          </div>
+        </div>
+      </div>
+      <button />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EqualHeights component test EqualHeights.Consumer without Provider should call addRef method from default context 1`] = `
+<div
+  class="content-box"
+>
+  <div
+    style="display: flex; flex-wrap: wrap;"
+  >
+    <div>
+      <div
+        style="background: rgb(238, 238, 238); padding: 10px; margin: 5px; height: auto;"
+      >
+        <div>
+          not much text
+        </div>
+      </div>
+      <div
+        style="background: rgb(238, 238, 238); padding: 10px; margin: 5px; height: auto;"
+      >
+        <div>
+          Tempor do labore 
+          <br />
+           proident aute commodo
+          <br />
+          enim quis duis.
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        style="background: rgb(238, 238, 238); padding: 10px; margin: 5px; height: auto;"
+      >
+        <div>
+          something
+        </div>
+      </div>
+      <div
+        style="background: rgb(238, 238, 238); padding: 10px; margin: 5px; height: auto;"
+      >
+        <div>
+          another
+        </div>
+      </div>
+    </div>
+    <button />
   </div>
 </div>
 `;
