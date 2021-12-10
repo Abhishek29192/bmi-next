@@ -538,7 +538,7 @@ export const completeInvitation = async (
       `Added reletion with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
     );
 
-    const { shortDescription = "" } = await tierBenefit(
+    const { shortDescription = "", name = "" } = await tierBenefit(
       context.clientGateway,
       invitations[0].tier
     );
@@ -548,7 +548,7 @@ export const completeInvitation = async (
       accountId: user.id,
       firstname: user.firstName,
       company: invitations[0].name,
-      tier: invitations[0].tier,
+      tier: name || invitations[0].tier,
       tierBenefitsShortDescription: shortDescription
     });
 
