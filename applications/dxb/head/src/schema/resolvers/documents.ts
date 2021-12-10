@@ -130,7 +130,7 @@ export const resolveDocumentsFromProducts = async (
       .filter(Boolean)
   );
 
-  return documents || [];
+  return documents;
 };
 
 export const resolveDocumentsFromContentful = async (
