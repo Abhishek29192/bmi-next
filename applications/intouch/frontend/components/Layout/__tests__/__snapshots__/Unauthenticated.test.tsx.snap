@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorView component renders correctly when error 1`] = `
+<div>
+  <div
+    class="appContainerPublic"
+  >
+    <div
+      class="appMainPublic"
+    >
+      <div
+        class="logoContainerPublic"
+      >
+        <svg
+          class="logo"
+        />
+      </div>
+      <div
+        class="appContentPublic appError"
+      >
+        body
+      </div>
+      <div
+        class="footer"
+      >
+        <svg
+          style="width: 50px;"
+        />
+        <nav
+          class="footerNav"
+        >
+          <a
+            href="/footer/link/relativePath"
+          >
+            Footer link title
+          </a>
+        </nav>
+        <svg
+          style="width: 120px;"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ErrorView component renders correctly without title 1`] = `
+<div>
+  <div
+    class="appContainerPublic"
+  >
+    <div
+      class="appMainPublic"
+    >
+      <div
+        class="logoContainerPublic"
+      >
+        <svg
+          class="logo"
+        />
+      </div>
+      <div
+        class="appContentPublic"
+      >
+        body
+      </div>
+      <div
+        class="footer"
+      >
+        <svg
+          style="width: 50px;"
+        />
+        <nav
+          class="footerNav"
+        >
+          <a
+            href="/footer/link/relativePath"
+          >
+            Footer link title
+          </a>
+        </nav>
+        <svg
+          style="width: 120px;"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

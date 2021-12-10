@@ -47,12 +47,13 @@ export function withPageError<P extends Record<string, any>>(
 
     if (_pageError) {
       const { statusCode, title } = _pageError;
-      const { globalPageData } = componentProps;
+      const { globalPageData, message } = componentProps;
 
       return (
         <ErrorView
           statusCode={statusCode}
           title={title}
+          message={message}
           globalPageData={globalPageData}
         />
       );

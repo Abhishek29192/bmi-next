@@ -3,5 +3,6 @@
   "body": "Kontakt en administrator",
   "user_blocked": "Brukeren er blokkert",
   "errorAlreadyMember": "Brukeren er allerede medlem av et annet firma",
-  "errorInvitationNotFound": "Fant ingen invitarsjon"
+  "errorInvitationNotFound": "Fant ingen invitarsjon",
+  "auth_error": "Du har nå lov til å utføre denne operasjonen"
 }

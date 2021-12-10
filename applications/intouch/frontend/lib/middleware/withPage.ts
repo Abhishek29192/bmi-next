@@ -153,9 +153,28 @@ export const innerGetServerSideProps = async (
 
     globalPageData = data;
   } catch (error) {
-    logger.error("Generic error", error);
+    logger.error(
+      "Generic error",
+      error?.networkError?.result?.message || error
+    );
 
-    throw error;
+    if (error.networkError.result.message === "Jwt issuer is not configured") {
+      return {
+        redirect: {
+          permanent: false,
+          destination: `/api/auth/logout`
+        }
+      };
+    }
+
+    if (ctx?.resolvedUrl?.indexOf("/api-error") === -1) {
+      return {
+        redirect: {
+          permanent: false,
+          destination: `/api-error?message=${error.networkError.result.message}`
+        }
+      };
+    }
   }
 
   return merge(

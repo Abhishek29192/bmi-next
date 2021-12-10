@@ -332,4 +332,42 @@ describe("Middleware withPage", () => {
       })
     );
   });
+
+  it("should redirect to login if auth error", async () => {
+    mockQuery.mockRejectedValueOnce({
+      networkError: { result: { message: "Jwt issuer is not configured" } }
+    });
+
+    let result = await innerGetServerSideProps(
+      getServerSideProps,
+      auth0Mock,
+      ctx
+    );
+
+    expect(result).toEqual({
+      redirect: {
+        permanent: false,
+        destination: "/api/auth/logout"
+      }
+    });
+  });
+
+  it("should redirect to api error page if generic error", async () => {
+    mockQuery.mockRejectedValueOnce({
+      networkError: { result: { message: "generic_error" } }
+    });
+
+    let result = await innerGetServerSideProps(
+      getServerSideProps,
+      auth0Mock,
+      ctx
+    );
+
+    expect(result).toEqual({
+      redirect: {
+        permanent: false,
+        destination: "/api-error?message=generic_error"
+      }
+    });
+  });
 });
