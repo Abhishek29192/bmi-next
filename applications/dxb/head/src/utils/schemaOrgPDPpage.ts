@@ -100,12 +100,18 @@ const getBrand = (baseProduct: Product): Record<string, unknown> => {
 const getPotentialAction = (baseProduct: Product, variant: VariantOption) => {
   const variantImagesUrls: string[] = getGalleyImages(variant);
   if (variantImagesUrls && variantImagesUrls.length) {
-    return variantImagesUrls;
+    return {
+      "@type": "Action",
+      image: variantImagesUrls
+    };
   }
 
   const baseProductImagesUrls: string[] = getGalleyImages(baseProduct);
   if (baseProductImagesUrls && baseProductImagesUrls.length) {
-    return baseProductImagesUrls;
+    return {
+      "@type": "Action",
+      image: baseProductImagesUrls
+    };
   }
 
   return undefined;
