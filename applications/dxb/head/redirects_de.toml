@@ -14817,8 +14817,8 @@
 
 # Redirect root to /de.
 [[redirects]]
-  from="/
-  to="/de
+  from="/"
+  to="/de"
   status = 302
   force = true
   
