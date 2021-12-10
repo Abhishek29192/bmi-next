@@ -60,6 +60,13 @@ const { PORT = 4000 } = process.env;
 
     await server.start();
     server.applyMiddleware({ app });
+
+    app.get("/health", (req, res) =>
+      res.send({
+        status: "up"
+      })
+    );
+
     app.use((err, req, res, next) => {
       // TODO: better error handling and logging
       return res.status(err.status).send({
