@@ -411,6 +411,9 @@ export const pageQuery = graphql`
         categoryType
         code
         parentCategoryCode
+        image {
+          url
+        }
       }
       classifications {
         name
