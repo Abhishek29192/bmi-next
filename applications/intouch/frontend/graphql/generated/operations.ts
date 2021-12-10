@@ -3888,6 +3888,7 @@ export type TeamMembersQuery = { readonly __typename?: "Query" } & {
             | "email"
             | "phone"
             | "photo"
+            | "signedPhotoUrl"
             | "lastName"
             | "firstName"
             | "formattedRole"
