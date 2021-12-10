@@ -4490,6 +4490,7 @@ export const TeamMembersDocument = gql`
         email
         phone
         photo
+        signedPhotoUrl
         lastName
         firstName
         formattedRole

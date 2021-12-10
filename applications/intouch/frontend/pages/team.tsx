@@ -25,6 +25,7 @@ export const pageQuery = gql`
         email
         phone
         photo
+        signedPhotoUrl
         lastName
         firstName
         formattedRole
