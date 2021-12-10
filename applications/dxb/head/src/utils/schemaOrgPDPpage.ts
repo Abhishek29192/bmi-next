@@ -120,7 +120,7 @@ const getWeight = (classifications: Classification[]) => {
     weightPerPallet
   ] = getClassificationFeatures(
     classifications,
-    ClassificationCodeEnum.MEASUREMENTS,
+    ClassificationCodeEnum.WEIGHT_ATTRIBUTES,
     [
       FeatureCodeEnum.WEIGHT_PER_PRICE,
       FeatureCodeEnum.GROSS_WEIGHT,
@@ -180,13 +180,18 @@ const getHeight = (classifications: Classification[]) => {
 };
 
 const getSize = (classifications: Classification[]) => {
-  const [height, width, length] = getClassificationFeatures(
+  const [length, thickness, width, height] = getClassificationFeatures(
     classifications,
     ClassificationCodeEnum.MEASUREMENTS,
-    [FeatureCodeEnum.HEIGHT, FeatureCodeEnum.WIDTH, FeatureCodeEnum.LENGTH]
+    [
+      FeatureCodeEnum.LENGTH,
+      FeatureCodeEnum.THICKNESS,
+      FeatureCodeEnum.WIDTH,
+      FeatureCodeEnum.HEIGHT
+    ]
   );
   const transformedMeasurementValue = convertToTransformedMeasurementValue(
-    [height, width, length].filter(Boolean)
+    [length, thickness, width, height].filter(Boolean)
   );
   if (
     transformedMeasurementValue &&
