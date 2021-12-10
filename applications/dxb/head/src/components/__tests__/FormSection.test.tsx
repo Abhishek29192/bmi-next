@@ -3,7 +3,7 @@ import React from "react";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import axios from "axios";
 import * as Gatsby from "gatsby";
-import FormSection, { Data, widthType } from "../FormSection";
+import FormSection, { Data, InputWidthType } from "../FormSection";
 import { DataTypeEnum } from "../Link";
 import { SiteContextProvider } from "../Site";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
@@ -191,7 +191,7 @@ describe("FormSection component", () => {
           name: "email",
           required: true,
           type: "email",
-          width: "full" as widthType
+          width: "full" as InputWidthType
         }
       ]
     };
@@ -215,7 +215,7 @@ describe("FormSection component", () => {
           name: "email",
           required: true,
           type: "email",
-          width: "half" as widthType
+          width: "half" as InputWidthType
         }
       ]
     };

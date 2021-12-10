@@ -57,7 +57,7 @@ const InputTypes = [
   "upload"
 ];
 
-export type widthType = "full" | "half";
+export type InputWidthType = "full" | "half";
 
 export type InputType = {
   label: string;
@@ -65,7 +65,7 @@ export type InputType = {
   options?: string;
   required?: boolean;
   type: typeof InputTypes[number];
-  width?: widthType;
+  width?: InputWidthType;
   accept?: string;
   maxSize?: number;
   token?: string;
