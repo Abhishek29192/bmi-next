@@ -3,7 +3,8 @@ import {
   actAs,
   curryContext,
   insertOne as dbInsertOne,
-  RLS_ERROR
+  RLS_ERROR,
+  CONSTRAINT_ERROR
 } from "../test-utils/db";
 
 let pool;
@@ -250,6 +251,27 @@ describe("Company", () => {
         );
       } catch (error) {
         expect(error.message).toEqual(RLS_ERROR("company_member"));
+      } finally {
+        await client.query("ROLLBACK");
+        client.release();
+      }
+    });
+    it("shouldn't be able to create a company with the same name in a market", async () => {
+      const client = await pool.connect();
+      await client.query("BEGIN");
+
+      try {
+        const { company, market } = await initDb(pool, client, "COMPANY_ADMIN");
+
+        await client.query(
+          "INSERT INTO company (market_id, name) VALUES ($1, $2)",
+          [market.id, company.name]
+        );
+      } catch (error) {
+        expect([
+          CONSTRAINT_ERROR("company_market_id_name_key"),
+          CONSTRAINT_ERROR("company_name_key")
+        ]).toContain(error.message);
       } finally {
         await client.query("ROLLBACK");
         client.release();

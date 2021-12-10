@@ -130,3 +130,5 @@ export const PERMISSION_DENIED = (table) =>
   `permission denied for table ${table}`;
 export const RLS_ERROR = (table) =>
   `new row violates row-level security policy for table "${table}"`;
+export const CONSTRAINT_ERROR = (constraint) =>
+  `duplicate key value violates unique constraint "${constraint}"`;

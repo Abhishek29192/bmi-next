@@ -154,5 +154,8 @@
       "confirmLabel": "Confirm",
       "cancelLabel": "Cancel"
     }
-  }
+  },
+  "errorCompanyNameUniqueViolation": "Company with the same name already exists",
+  "errorCompanyReferenceUniqueViolation": "Company with the reference number already exists",
+  "errorUniqueViolation": "Unique violation problem"
 }

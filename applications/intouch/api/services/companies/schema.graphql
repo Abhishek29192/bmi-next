@@ -936,7 +936,7 @@ type Query implements Node {
   address(id: Int!): Address
   certification(id: Int!): Certification
   company(id: Int!): Company
-  companyByName(name: String!): Company
+  companyByMarketIdAndName(marketId: Int!, name: String!): Company
   companyByReferenceNumber(referenceNumber: Int!): Company
   companyDocument(id: Int!): CompanyDocument
   companyMember(id: Int!): CompanyMember
@@ -3225,8 +3225,6 @@ enum CompaniesOrderBy {
   REGISTERED_ADDRESS_ID_DESC
   TRADING_ADDRESS_ID_ASC
   TRADING_ADDRESS_ID_DESC
-  NAME_ASC
-  NAME_DESC
   REFERENCE_NUMBER_ASC
   REFERENCE_NUMBER_DESC
   PRIMARY_KEY_ASC
@@ -3258,11 +3256,6 @@ input CompanyCondition {
   tradingAddressId: Int
 
   """
-  Checks for equality with the object’s `name` field.
-  """
-  name: String
-
-  """
   Checks for equality with the object’s `referenceNumber` field.
   """
   referenceNumber: Int
@@ -3291,11 +3284,6 @@ input CompanyFilter {
   Filter by the object’s `tradingAddressId` field.
   """
   tradingAddressId: IntFilter
-
-  """
-  Filter by the object’s `name` field.
-  """
-  name: StringFilter
 
   """
   Filter by the object’s `referenceNumber` field.
@@ -7352,11 +7340,11 @@ type Mutation {
   """
   Updates a single `Company` using a unique key and a patch.
   """
-  updateCompanyByName(
+  updateCompanyByMarketIdAndName(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCompanyByNameInput!
+    input: UpdateCompanyByMarketIdAndNameInput!
   ): UpdateCompanyPayload
 
   """
@@ -7822,11 +7810,11 @@ type Mutation {
   """
   Deletes a single `Company` using a unique key.
   """
-  deleteCompanyByName(
+  deleteCompanyByMarketIdAndName(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteCompanyByNameInput!
+    input: DeleteCompanyByMarketIdAndNameInput!
   ): DeleteCompanyPayload
 
   """
@@ -8391,7 +8379,7 @@ input CompanyRegisteredAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: [CompanyCompanyNameKeyConnect!]
+  connectByMarketIdAndName: [CompanyCompanyMarketIdNameKeyConnect!]
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -8411,7 +8399,7 @@ input CompanyRegisteredAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: [CompanyCompanyNameKeyDelete!]
+  deleteByMarketIdAndName: [CompanyCompanyMarketIdNameKeyDelete!]
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -8431,7 +8419,7 @@ input CompanyRegisteredAddressIdFkeyInverseInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: [CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyNameKeyUpdate!]
+  updateByMarketIdAndName: [CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyMarketIdNameKeyUpdate!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -8457,7 +8445,12 @@ input CompanyCompanyPkeyConnect {
 """
 The fields on `company` to look up the row to connect.
 """
-input CompanyCompanyNameKeyConnect {
+input CompanyCompanyMarketIdNameKeyConnect {
+  """
+  fk
+  """
+  marketId: Int!
+
   """
   The registered name of the Company
   """
@@ -8497,7 +8490,12 @@ input CompanyCompanyPkeyDelete {
 """
 The fields on `company` to look up the row to delete.
 """
-input CompanyCompanyNameKeyDelete {
+input CompanyCompanyMarketIdNameKeyDelete {
+  """
+  fk
+  """
+  marketId: Int!
+
   """
   The registered name of the Company
   """
@@ -9368,7 +9366,7 @@ input CompanyMarketIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: [CompanyCompanyNameKeyConnect!]
+  connectByMarketIdAndName: [CompanyCompanyMarketIdNameKeyConnect!]
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -9388,7 +9386,7 @@ input CompanyMarketIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: [CompanyCompanyNameKeyDelete!]
+  deleteByMarketIdAndName: [CompanyCompanyMarketIdNameKeyDelete!]
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -9408,7 +9406,7 @@ input CompanyMarketIdFkeyInverseInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: [CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyNameKeyUpdate!]
+  updateByMarketIdAndName: [CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyMarketIdNameKeyUpdate!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -9741,7 +9739,7 @@ input CompanyTradingAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: [CompanyCompanyNameKeyConnect!]
+  connectByMarketIdAndName: [CompanyCompanyMarketIdNameKeyConnect!]
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -9761,7 +9759,7 @@ input CompanyTradingAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: [CompanyCompanyNameKeyDelete!]
+  deleteByMarketIdAndName: [CompanyCompanyMarketIdNameKeyDelete!]
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -9781,7 +9779,7 @@ input CompanyTradingAddressIdFkeyInverseInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: [CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyNameKeyUpdate!]
+  updateByMarketIdAndName: [CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyMarketIdNameKeyUpdate!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -10253,7 +10251,7 @@ input ProjectCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: CompanyCompanyNameKeyConnect
+  connectByMarketIdAndName: CompanyCompanyMarketIdNameKeyConnect
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -10273,7 +10271,7 @@ input ProjectCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: CompanyCompanyNameKeyDelete
+  deleteByMarketIdAndName: CompanyCompanyMarketIdNameKeyDelete
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -10293,7 +10291,7 @@ input ProjectCompanyIdFkeyInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyNameKeyUpdate
+  updateByMarketIdAndName: CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -10593,7 +10591,7 @@ input CompanyDocumentCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: CompanyCompanyNameKeyConnect
+  connectByMarketIdAndName: CompanyCompanyMarketIdNameKeyConnect
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -10613,7 +10611,7 @@ input CompanyDocumentCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: CompanyCompanyNameKeyDelete
+  deleteByMarketIdAndName: CompanyCompanyMarketIdNameKeyDelete
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -10633,7 +10631,7 @@ input CompanyDocumentCompanyIdFkeyInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyNameKeyUpdate
+  updateByMarketIdAndName: CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -11829,7 +11827,7 @@ input CompanyMemberCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: CompanyCompanyNameKeyConnect
+  connectByMarketIdAndName: CompanyCompanyMarketIdNameKeyConnect
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -11849,7 +11847,7 @@ input CompanyMemberCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: CompanyCompanyNameKeyDelete
+  deleteByMarketIdAndName: CompanyCompanyMarketIdNameKeyDelete
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -11869,7 +11867,7 @@ input CompanyMemberCompanyIdFkeyInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyNameKeyUpdate
+  updateByMarketIdAndName: CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -12169,7 +12167,7 @@ input CompanyOperationCompanyFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: CompanyCompanyNameKeyConnect
+  connectByMarketIdAndName: CompanyCompanyMarketIdNameKeyConnect
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -12189,7 +12187,7 @@ input CompanyOperationCompanyFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: CompanyCompanyNameKeyDelete
+  deleteByMarketIdAndName: CompanyCompanyMarketIdNameKeyDelete
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -12209,7 +12207,7 @@ input CompanyOperationCompanyFkeyInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyNameKeyUpdate
+  updateByMarketIdAndName: CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyMarketIdNameKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -15832,7 +15830,7 @@ input InvitationCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: CompanyCompanyNameKeyConnect
+  connectByMarketIdAndName: CompanyCompanyMarketIdNameKeyConnect
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -15852,7 +15850,7 @@ input InvitationCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: CompanyCompanyNameKeyDelete
+  deleteByMarketIdAndName: CompanyCompanyMarketIdNameKeyDelete
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -15872,7 +15870,7 @@ input InvitationCompanyIdFkeyInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyNameKeyUpdate
+  updateByMarketIdAndName: CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -18443,11 +18441,16 @@ input ProjectCompanyIdFkeyProjectCreateInput {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnInvitationForInvitationCompanyIdFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -22487,11 +22490,16 @@ input CompanyOnInvitationForInvitationCompanyIdFkeyNodeIdUpdate {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -22588,11 +22596,16 @@ input CompanyOperationCompanyFkeyCompanyOperationCreateInput {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -23157,11 +23170,16 @@ input CompanyMemberCompanyIdFkeyCompanyMemberCreateInput {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -23259,11 +23277,16 @@ input CompanyDocumentCompanyIdFkeyCompanyDocumentCreateInput {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnProjectForProjectCompanyIdFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -23474,11 +23497,16 @@ input CompanyTradingAddressIdFkeyAddressCreateInput {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -23590,11 +23618,16 @@ input CompanyRegisteredAddressIdFkeyAddressCreateInput {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnCompanyForCompanyMarketIdFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -23946,11 +23979,16 @@ input CompanyMarketIdFkeyMarketCreateInput {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -25783,9 +25821,9 @@ input UpdateCompanyInput {
 }
 
 """
-All input for the `updateCompanyByName` mutation.
+All input for the `updateCompanyByMarketIdAndName` mutation.
 """
-input UpdateCompanyByNameInput {
+input UpdateCompanyByMarketIdAndNameInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -25796,6 +25834,11 @@ input UpdateCompanyByNameInput {
   An object where the defined keys will be set on the `Company` being updated.
   """
   patch: CompanyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -27472,14 +27515,19 @@ input DeleteCompanyInput {
 }
 
 """
-All input for the `deleteCompanyByName` mutation.
+All input for the `deleteCompanyByMarketIdAndName` mutation.
 """
-input DeleteCompanyByNameInput {
+input DeleteCompanyByMarketIdAndNameInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
   """
   clientMutationId: String
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
