@@ -35,32 +35,29 @@ const Thumbnails = ({
       return;
     }
     setIsTransitioning(true);
-
     setScrollerPosition((scrollerPosition) => {
       if (direction === "right") {
         return scrollerPosition + Math.min(100, Math.abs(scrollerPosition));
       }
-
-      const thumbnailsElement = thumbnailsRef.current;
-      const wrapperWidth = thumbnailsElement?.parentElement?.offsetWidth || 0;
+      const parentElement = thumbnailsRef.current!.parentElement;
+      const wrapperWidth = parentElement!.offsetWidth || 0;
       const scrollerPositionPixels =
         (wrapperWidth * Math.abs(scrollerPosition)) / 100;
       const offset = thumbnailsWidth - (wrapperWidth + scrollerPositionPixels);
       const nextMargin = Math.min(100, (offset * 100) / wrapperWidth);
-
       return scrollerPosition - nextMargin;
     });
   };
 
   const calculateLeftRightVisibility = () => {
-    if (!thumbnailsRef.current) {
+    const parentElement =
+      thumbnailsRef.current && thumbnailsRef.current.parentElement;
+    if (!parentElement) {
       return;
     }
-
-    const thumbnailsElement = thumbnailsRef.current;
+    const wrapperWidth = parentElement!.offsetWidth || 0;
     const isRightArrowVisible = scrollerPosition < 0;
-    const isLeftArrowVisible = thumbnailsElement.offsetWidth < thumbnailsWidth;
-
+    const isLeftArrowVisible = wrapperWidth < thumbnailsWidth || false;
     setVisibleArrows({
       left: isLeftArrowVisible,
       right: isRightArrowVisible
