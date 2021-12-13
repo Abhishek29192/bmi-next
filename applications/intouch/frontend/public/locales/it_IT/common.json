@@ -1,12 +1,83 @@
 {
-  "Home": "Home",
-  "Projects": "Progetti",
-  "Training": "Addestramento",
-  "Team": "Team",
+  "ARCHITECT": "Architetto",
+  "About Us": "A proposito di noi",
+  "Account": "il mio account",
+  "CONTRACTOR": "Impresa",
+  "CORP_DEVELOPER": "Promotore immobiliare",
+  "Companies": "Aziende",
   "Company": "Azienda",
-  "Toolkit": "Toolkit",
+  "Company Description": "Descrizione aziendale",
+  "Download": "Scarica",
   "Edit": "Modifica",
-  "Pitched": "A Capanna",
-  "Flat": "Piano",
-  "Other": "Altro"
+  "Home": "Home",
+  "Inventory": "Inventario",
+  "Logout": "Esci",
+  "MERCHANT": "Rivenditore",
+  "Main office address": "Indirizzo ufficio principale",
+  "No Options": "Nessuna opzione",
+  "Notifications": "Notifiche",
+  "Products": "Prodotti",
+  "Profile": "Profilo",
+  "Projects": "Progetti",
+  "Registered Address": "Indirizzo registrato",
+  "Registered Details": "Dettagli registrati",
+  "Registered Name": "Nome registrato",
+  "SavePdf": "Salva in PDF",
+  "Search": "Ricerca",
+  "Show me": "Mostra",
+  "Team": "Team",
+  "Tools": "Strumenti",
+  "Training": "Formazione",
+  "aria": {
+    "navigation": "Navigazione",
+    "notifications": "Notifiche"
+  },
+  "certificationLabels": {
+    "certification": "Certificazione",
+    "expiry": "Scadenza",
+    "type": "Tipo"
+  },
+  "certifications": {
+    "flat": "Piano",
+    "other": "Altro",
+    "pitched": "Falda"
+  },
+  "deactivatedCompany": "Azienda disattivata",
+  "error_messages": {
+    "email_format": "Indirizzo e-mail non valido",
+    "phone_number_format": "Numero di telefono non valido",
+    "required": "Obbligatorio",
+    "url_format": "URL non valido"
+  },
+  "fallback": {
+    "noResults": "Nessun risultato trovato",
+    "notAdded": "Non aggiunto"
+  },
+  "notifications": {
+    "earlier": "Prima",
+    "older": "Più vecchio di 2 mesi",
+    "today": "Oggi"
+  },
+  "results available": "Risultati disponibili",
+  "roles": {
+    "COMPANY_ADMIN": "Amministratore dell'azienda",
+    "INSTALLER": "Membro",
+    "MARKET_ADMIN": "Amministratore BMI",
+    "SUPER_ADMIN": "Super admin"
+  },
+  "session": {
+    "dialog": {
+      "content": "Questa sessione scadrà a breve causa inattività e sarai automaticamente disconnesso.",
+      "continue": "Mantenere la sessione",
+      "logout": "Logout",
+      "title": "La tua sessione scadrà dopo {{counter}}"
+    }
+  },
+  "tier": {
+    "T1": "Membro",
+    "T2": "Partner",
+    "T3": "Expert",
+    "T4": "Elite"
+  },
+  "visitWebsite": "Visita il sito web"
 }

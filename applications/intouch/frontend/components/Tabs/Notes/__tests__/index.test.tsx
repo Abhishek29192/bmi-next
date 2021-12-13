@@ -29,11 +29,7 @@ describe("NoteTab Components", () => {
         {
           id: 1,
           body: "Note body",
-          authorId: 1,
-          author: {
-            firstName: "firstName",
-            lastName: "lastName"
-          },
+          senderName: "firstName lastName",
           createdAt: "01/01/01"
         }
       ];
@@ -49,28 +45,19 @@ describe("NoteTab Components", () => {
         {
           id: 1,
           body: "Note body",
-          author: {
-            firstName: "firstName",
-            lastName: "lastName"
-          },
+          senderName: "firstName lastName",
           createdAt: "01/01/01"
         },
         {
           id: 2,
           body: "Note body",
-          author: {
-            firstName: "firstName",
-            lastName: "lastName"
-          },
+          senderName: "firstName lastName",
           createdAt: "01/01/01"
         },
         {
           id: 3,
           body: "Note body",
-          author: {
-            firstName: "firstName",
-            lastName: "lastName"
-          },
+          senderName: "firstName lastName",
           createdAt: "01/01/01"
         }
       ];

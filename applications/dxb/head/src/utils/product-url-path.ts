@@ -5,15 +5,8 @@ import {
   ClassificationCodeEnum,
   FeatureCodeEnum
 } from "../components/types/pim";
+import { extractFeatureValuesByClassification } from "./features-from-classifications-transfroms";
 import { combineVariantClassifications } from "./filters";
-
-export type AttributeCodeMap = {
-  [key in ClassificationCodeEnum]?: {
-    attrName: string;
-    separator?: string;
-    fromStart?: boolean;
-  }[];
-};
 
 export const generateUrl = (urlParts: string[]) => {
   return urlParts
@@ -30,40 +23,6 @@ export const generateUrl = (urlParts: string[]) => {
     .replace(/\s+/g, "-")
     .replace(/--+/g, "-")
     .toLowerCase();
-};
-
-export const extractFeatureValuesByClassification = (
-  classifications: Classification[],
-  attributeCodeMap: AttributeCodeMap
-): string[] => {
-  return classifications.reduce((urlFromClassifications, classification) => {
-    const featuresCodes = attributeCodeMap[classification.code];
-    if (featuresCodes) {
-      const urlParamsFromClassificationFeatures = featuresCodes.reduce(
-        (urlFromFeatures, featuresCode) => {
-          const featureByFeatureCode = classification.features.find((feature) =>
-            feature.code.toLocaleLowerCase().endsWith(featuresCode.attrName)
-          );
-          const separator = featuresCode.separator || "";
-          if (
-            featureByFeatureCode &&
-            featureByFeatureCode.featureValues &&
-            featureByFeatureCode.featureValues.length > 0
-          ) {
-            const featureValue = featureByFeatureCode.featureValues[0].value;
-            const val = featuresCode.fromStart
-              ? `${separator}${featureValue}`
-              : `${featureValue}${separator}`;
-            urlFromFeatures.push(val);
-          }
-          return separator ? [urlFromFeatures.join("")] : urlFromFeatures;
-        },
-        []
-      );
-      urlFromClassifications.push(...urlParamsFromClassificationFeatures);
-    }
-    return urlFromClassifications;
-  }, []);
 };
 
 const generateVariantAttributeUrl = (

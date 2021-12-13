@@ -13,7 +13,7 @@
 
 [[redirects]]
   from = "/at/private-bauherren/aktionen/dachfoerderung"
-  to = "/at/services/dachfoerderung-und-aktionen/dachforderung/"
+  to = "/at/services/dachfoerderung-und-aktionen/dachfoerderung/"
   status = 301
   force = true
 
@@ -1621,7 +1621,7 @@
 
 [[redirects]]
   from = "/at/produkte-und-systemloesungen/produkte/bramac/luminex-uni-max"
-  to = "/at/p/luminex-uni-max-braun-4180304661"
+  to = "/at/produkte/steildach/steildach-zubehoer/"
   status = 301
   force = true
 

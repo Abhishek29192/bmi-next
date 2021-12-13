@@ -308,7 +308,7 @@ export const invite = async (
   const { pgClient, pgRootPool, protocol } = context;
 
   const {
-    emails,
+    emails = [],
     firstName,
     lastName,
     personalNote = ""
@@ -324,7 +324,9 @@ export const invite = async (
     throw new Error("email missing");
   }
 
-  for (const invetee of emails) {
+  const emailToSend = emails?.length > 11 ? emails?.slice(0, 10) : emails;
+
+  for (const invetee of emailToSend) {
     let auth0User = await auth0.getUserByEmail(invetee);
 
     /**
@@ -536,7 +538,7 @@ export const completeInvitation = async (
       `Added reletion with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
     );
 
-    const { shortDescription = "" } = await tierBenefit(
+    const { shortDescription = "", name = "" } = await tierBenefit(
       context.clientGateway,
       invitations[0].tier
     );
@@ -546,7 +548,7 @@ export const completeInvitation = async (
       accountId: user.id,
       firstname: user.firstName,
       company: invitations[0].name,
-      tier: invitations[0].tier,
+      tier: name || invitations[0].tier,
       tierBenefitsShortDescription: shortDescription
     });
 

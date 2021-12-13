@@ -13,7 +13,8 @@ export const WizardFooter = () => {
     submit,
     isNextStepAvailable,
     isBackStepAvailable,
-    isLastStep
+    isLastStep,
+    isSubmit
   } = useWizardContext();
 
   return (
@@ -38,7 +39,7 @@ export const WizardFooter = () => {
             {t("guarantee_tab.apply_guarantee.wizard.footer.next")}
           </Button>
         ) : (
-          <Button size="large" onClick={submit}>
+          <Button size="large" onClick={submit} disabled={isSubmit}>
             {t("guarantee_tab.apply_guarantee.wizard.footer.submit")}
           </Button>
         )}

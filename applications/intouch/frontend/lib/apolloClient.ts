@@ -47,7 +47,7 @@ const getBaseUrl = (req) => {
 };
 
 const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
-  const { req, session } = ctx;
+  const { req, accessToken } = ctx;
   const baseUrl = getBaseUrl(req);
   const isBrowser = typeof window !== "undefined";
 
@@ -58,10 +58,8 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
   const authLink = setContext(async (req, { headers }) => ({
     headers: {
       ...headers,
-      ...((headers?.authorization || session?.accessToken) && {
-        authorization: `Bearer ${
-          headers?.authorization || session?.accessToken
-        }`
+      ...((headers?.authorization || accessToken) && {
+        authorization: `Bearer ${headers?.authorization || accessToken}`
       }),
       // Logging purpose
       ...(headers?.["x-request-id"] && {

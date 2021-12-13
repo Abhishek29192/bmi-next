@@ -205,6 +205,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       siteData={contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
       ogImageUrl={selfProduct?.images?.[0].url}
+      baseproduct={product}
+      variantProduct={selfProduct}
     >
       {({ siteContext: { getMicroCopy } }) => {
         const attributeUnavailableMicroCopy: UnavailableMicroCopies = [
@@ -409,6 +411,9 @@ export const pageQuery = graphql`
         categoryType
         code
         parentCategoryCode
+        image {
+          url
+        }
       }
       classifications {
         name

@@ -5,6 +5,7 @@ import {
 } from "@bmi/intouch-api-types";
 import { FileUpload } from "graphql-upload";
 import { PoolClient } from "pg";
+import { filesTypeValidate } from "../../utils/file";
 import { PostGraphileContext } from "../../types";
 
 export const createCompanyDocuments = async (
@@ -31,6 +32,10 @@ export const createCompanyDocuments = async (
     }
 
     if (args.input.documents.length > 0) {
+      await filesTypeValidate(
+        args.input.documents.map((doc) => doc.attachmentUpload)
+      );
+
       for (const document of args.input.documents) {
         const uploadedFile: FileUpload = await document.attachmentUpload;
 

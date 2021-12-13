@@ -3,7 +3,7 @@ import * as importer from "..";
 const companies = [
   {
     migration_id: "YQPQKK_NOCO_0003",
-    name: "Company Name LTD - D",
+    name: "Company Name LTD - 1",
     tier: "T4",
     tax_number: "925637149",
     about_us: "",
@@ -12,6 +12,20 @@ const companies = [
     public_email: "",
     registered_address_migration_id: "YQPQKK_NOAD_0003",
     trading_address_migration_id: "",
+    website: "",
+    linked_in: ""
+  },
+  {
+    migration_id: "YQPQKK_NOCO_0004",
+    name: "Company Name LTD - D",
+    tier: "T4",
+    tax_number: "925637149",
+    about_us: "",
+    logo: "",
+    phone: "",
+    public_email: "",
+    registered_address_migration_id: "Empty",
+    trading_address_migration_id: "empty",
     website: "",
     linked_in: ""
   }
@@ -64,6 +78,18 @@ const accounts = [
     docebo_username: "",
     password: "Passsword1@",
     status: "ACTIVE"
+  },
+  {
+    migration_id: "YQPQKK_NO_0007",
+    email: "installer-1@digitaldetox.co.uk",
+    role: "INSTALLER",
+    first_name: "Name 123",
+    last_name: "Surname 123",
+    phone: "",
+    docebo_id: "",
+    docebo_username: "",
+    password: "Passsword1@",
+    status: "ACTIVE"
   }
 ];
 const addresses = [
@@ -94,6 +120,10 @@ const members = [
   {
     company_migration_id: "YQPQKK_NOCO_0003",
     account_migration_id: "YQPQKK_NO_0004"
+  },
+  {
+    company_migration_id: "YQPQKK_NOCO_0004",
+    account_migration_id: "YQPQKK_NO_0007"
   }
 ];
 

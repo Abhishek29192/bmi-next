@@ -50,6 +50,8 @@ deploy_intouch_gateway_to_cloudrun_bmi:
   stage: deploy_gateway
   cache: {}
   image: google/cloud-sdk
+  needs:
+    - build_intouch_api_gateway
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:

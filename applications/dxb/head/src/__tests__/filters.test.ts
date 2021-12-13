@@ -22,7 +22,7 @@ import {
   combineVariantClassifications,
   getCategoryCodesFilterFromDocuments
 } from "../utils/filters";
-import { Product } from "../components/types/pim";
+import { Product, ClassificationCodeEnum } from "../components/types/pim";
 import createPimDocument from "./PimDocumentHelper";
 import createPimLinkDocument from "./PimLinkDocumentHelper";
 import createContentfuldocument from "./ContentfulDocumentHelper";
@@ -640,8 +640,8 @@ describe("filters tests", () => {
             product: createProduct({
               classifications: [
                 createClassification({
-                  name: "appearance Attributes",
-                  code: "appearanceAttributes",
+                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                   features: [
                     {
                       name: "classification-feature-name",
@@ -708,8 +708,8 @@ describe("filters tests", () => {
 
           baseProduct.classifications = [
             createClassification({
-              name: "appearance Attributes",
-              code: "appearanceAttributes",
+              name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+              code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
               features: [
                 {
                   name: "classification-feature-name",
@@ -746,8 +746,8 @@ describe("filters tests", () => {
 
           baseProduct.classifications = [
             createClassification({
-              name: "appearance Attributes",
-              code: "generalInformation",
+              name: ClassificationCodeEnum.GENERAL_INFORMATION,
+              code: ClassificationCodeEnum.GENERAL_INFORMATION,
               features: [
                 {
                   name: "classification-feature-name",
@@ -784,8 +784,8 @@ describe("filters tests", () => {
 
           baseProduct.classifications = [
             createClassification({
-              name: "appearance Attributes",
-              code: "appearanceAttributes",
+              name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+              code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
               features: [
                 {
                   name: "classification-feature-name",
@@ -1148,8 +1148,8 @@ describe("filters tests", () => {
           createVariantOption({
             classifications: [
               createClassification({
-                code: "variant-class-1",
-                name: "variant-class-1",
+                code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                 features: [
                   createFeature({
                     code: "variant-feature-1",
@@ -1167,8 +1167,8 @@ describe("filters tests", () => {
         );
         expect(result).toEqual([
           {
-            name: "variant-class-1",
-            code: "variant-class-1",
+            name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+            code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
             features: [
               {
                 name: "classification-feature-name",
@@ -1196,8 +1196,8 @@ describe("filters tests", () => {
           createBaseProduct({
             classifications: [
               createClassification({
-                code: "base-class-1",
-                name: "base-class-1",
+                code: ClassificationCodeEnum.MEASUREMENTS,
+                name: ClassificationCodeEnum.MEASUREMENTS,
                 features: [
                   createFeature({
                     code: "base-feature-1",
@@ -1216,8 +1216,8 @@ describe("filters tests", () => {
         );
         expect(result).toEqual([
           {
-            name: "base-class-1",
-            code: "base-class-1",
+            name: ClassificationCodeEnum.MEASUREMENTS,
+            code: ClassificationCodeEnum.MEASUREMENTS,
             features: [
               {
                 name: "classification-feature-name",
@@ -1246,8 +1246,8 @@ describe("filters tests", () => {
             createBaseProduct({
               classifications: [
                 createClassification({
-                  code: "base-class-1",
-                  name: "base-class-1",
+                  code: ClassificationCodeEnum.MEASUREMENTS,
+                  name: ClassificationCodeEnum.MEASUREMENTS,
                   features: [
                     createFeature({
                       code: "base-feature-1",
@@ -1265,8 +1265,8 @@ describe("filters tests", () => {
             createVariantOption({
               classifications: [
                 createClassification({
-                  code: "variant-class-1",
-                  name: "variant-class-1",
+                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                   features: [
                     createFeature({
                       code: "variant-feature-1",
@@ -1284,8 +1284,8 @@ describe("filters tests", () => {
           );
           expect(result).toEqual([
             {
-              name: "variant-class-1",
-              code: "variant-class-1",
+              name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+              code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
               features: [
                 {
                   name: "classification-feature-name",
@@ -1305,8 +1305,8 @@ describe("filters tests", () => {
               ]
             },
             {
-              name: "base-class-1",
-              code: "base-class-1",
+              name: ClassificationCodeEnum.MEASUREMENTS,
+              code: ClassificationCodeEnum.MEASUREMENTS,
               features: [
                 {
                   name: "classification-feature-name",
@@ -1334,8 +1334,8 @@ describe("filters tests", () => {
             createBaseProduct({
               classifications: [
                 createClassification({
-                  code: "class-1",
-                  name: "class-1",
+                  code: ClassificationCodeEnum.GENERAL_INFORMATION,
+                  name: ClassificationCodeEnum.GENERAL_INFORMATION,
                   features: [
                     createFeature({
                       code: "feature-1",
@@ -1353,8 +1353,8 @@ describe("filters tests", () => {
             createVariantOption({
               classifications: [
                 createClassification({
-                  code: "class-1",
-                  name: "class-1",
+                  code: ClassificationCodeEnum.GENERAL_INFORMATION,
+                  name: ClassificationCodeEnum.GENERAL_INFORMATION,
                   features: [
                     createFeature({
                       code: "feature-1",
@@ -1373,8 +1373,8 @@ describe("filters tests", () => {
 
           expect(result).toEqual([
             {
-              name: "class-1",
-              code: "class-1",
+              name: ClassificationCodeEnum.GENERAL_INFORMATION,
+              code: ClassificationCodeEnum.GENERAL_INFORMATION,
               features: [
                 {
                   name: "classification-feature-name",
@@ -1402,8 +1402,8 @@ describe("filters tests", () => {
             createBaseProduct({
               classifications: [
                 createClassification({
-                  code: "scoringWeightAttributes",
-                  name: "scoringWeightAttributes",
+                  code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
+                  name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
                   features: [
                     createFeature({
                       code: "scoringWeightAttributes.scoringweight",
@@ -1425,8 +1425,8 @@ describe("filters tests", () => {
             createVariantOption({
               classifications: [
                 createClassification({
-                  code: "scoringWeightAttributes",
-                  name: "scoringWeightAttributes",
+                  code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
+                  name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
                   features: [
                     createFeature({
                       code: "scoringWeightAttributes.scoringweight",
@@ -1448,8 +1448,8 @@ describe("filters tests", () => {
           );
           expect(result).toEqual([
             {
-              name: "scoringWeightAttributes",
-              code: "scoringWeightAttributes",
+              name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
+              code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
               features: [
                 {
                   name: "classification-feature-name",
@@ -1468,8 +1468,8 @@ describe("filters tests", () => {
             createBaseProduct({
               classifications: [
                 createClassification({
-                  code: "class-1",
-                  name: "class-1",
+                  code: ClassificationCodeEnum.GENERAL_INFORMATION,
+                  name: ClassificationCodeEnum.GENERAL_INFORMATION,
                   features: [
                     createFeature({
                       code: "feature-1",
@@ -1487,8 +1487,8 @@ describe("filters tests", () => {
             createVariantOption({
               classifications: [
                 createClassification({
-                  code: "class-1",
-                  name: "class-1",
+                  code: ClassificationCodeEnum.GENERAL_INFORMATION,
+                  name: ClassificationCodeEnum.GENERAL_INFORMATION,
                   features: []
                 })
               ]
@@ -1497,8 +1497,8 @@ describe("filters tests", () => {
 
           expect(result).toEqual([
             {
-              name: "class-1",
-              code: "class-1",
+              name: ClassificationCodeEnum.GENERAL_INFORMATION,
+              code: ClassificationCodeEnum.GENERAL_INFORMATION,
               features: [
                 {
                   name: "classification-feature-name",
@@ -1933,7 +1933,7 @@ describe("filters tests", () => {
           const baseProduct = createBaseProduct();
           baseProduct.classifications = [
             createClassification({
-              code: "measurements.length",
+              code: ClassificationCodeEnum.MEASUREMENTS,
               features: [
                 createFeature({
                   code: "measurements.length",
@@ -1947,7 +1947,7 @@ describe("filters tests", () => {
           const baseProduct2 = createBaseProduct();
           baseProduct2.classifications = [
             createClassification({
-              code: "measurements.length",
+              code: ClassificationCodeEnum.MEASUREMENTS,
               features: [
                 createFeature({
                   code: "measurements.length",
@@ -2008,7 +2008,7 @@ describe("filters tests", () => {
             const baseProduct = createBaseProduct();
             baseProduct.classifications = [
               createClassification({
-                code: "measurements.length",
+                code: ClassificationCodeEnum.GENERAL_INFORMATION,
                 features: [
                   createFeature({
                     code: "measurements.length",
@@ -2018,7 +2018,7 @@ describe("filters tests", () => {
                 ]
               }),
               createClassification({
-                code: "measurements.width",
+                code: ClassificationCodeEnum.MEASUREMENTS,
                 features: [
                   createFeature({
                     code: "measurements.width",
@@ -2032,7 +2032,7 @@ describe("filters tests", () => {
             const baseProduct2 = createBaseProduct();
             baseProduct2.classifications = [
               createClassification({
-                code: "measurements.length",
+                code: ClassificationCodeEnum.GENERAL_INFORMATION,
                 features: [
                   createFeature({
                     code: "measurements.length",
@@ -2042,7 +2042,7 @@ describe("filters tests", () => {
                 ]
               }),
               createClassification({
-                code: "measurements.width",
+                code: ClassificationCodeEnum.MEASUREMENTS,
                 features: [
                   createFeature({
                     code: "measurements.width",
@@ -2053,13 +2053,13 @@ describe("filters tests", () => {
               })
             ];
 
-            expect(
-              getPlpFilters({
-                pimClassificationNamespace: "",
-                products: [baseProduct, baseProduct2],
-                allowedFilters: ["measurements.length", "measurements.width"]
-              })
-            ).toStrictEqual([
+            const result = getPlpFilters({
+              pimClassificationNamespace: "",
+              products: [baseProduct, baseProduct2],
+              allowedFilters: ["measurements.length", "measurements.width"]
+            });
+
+            const expectedResult = [
               {
                 name: "measurements.length",
                 label: "length",
@@ -2089,7 +2089,9 @@ describe("filters tests", () => {
                 ],
                 value: []
               }
-            ]);
+            ];
+
+            expect(result).toStrictEqual(expectedResult);
           });
         });
         describe("and some classification names are invalid", () => {
@@ -2097,7 +2099,7 @@ describe("filters tests", () => {
             const baseProduct = createBaseProduct();
             baseProduct.classifications = [
               createClassification({
-                code: "measurements.length",
+                code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                 features: [
                   createFeature({
                     code: "measurements.length",
@@ -2107,7 +2109,7 @@ describe("filters tests", () => {
                 ]
               }),
               createClassification({
-                code: "measurements.width",
+                code: ClassificationCodeEnum.MEASUREMENTS,
                 features: [
                   createFeature({
                     code: "measurements.width",
@@ -2121,7 +2123,7 @@ describe("filters tests", () => {
             const baseProduct2 = createBaseProduct();
             baseProduct2.classifications = [
               createClassification({
-                code: "measurements.length",
+                code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                 features: [
                   createFeature({
                     code: "measurements.length",
@@ -2131,7 +2133,7 @@ describe("filters tests", () => {
                 ]
               }),
               createClassification({
-                code: "measurements.width",
+                code: ClassificationCodeEnum.MEASUREMENTS,
                 features: [
                   createFeature({
                     code: "measurements.width",
@@ -2191,7 +2193,7 @@ describe("filters tests", () => {
             const baseProduct = createBaseProduct();
             baseProduct.classifications = [
               createClassification({
-                code: "measurements.length",
+                code: ClassificationCodeEnum.MEASUREMENTS,
                 features: [
                   createFeature({
                     code: "measurements.length",
@@ -2200,7 +2202,7 @@ describe("filters tests", () => {
                 ]
               }),
               createClassification({
-                code: "measurements.width",
+                code: ClassificationCodeEnum.MEASUREMENTS,
                 features: [
                   createFeature({
                     code: "measurements.width",
@@ -2213,7 +2215,7 @@ describe("filters tests", () => {
             const baseProduct2 = createBaseProduct();
             baseProduct2.classifications = [
               createClassification({
-                code: "measurements.length",
+                code: ClassificationCodeEnum.MEASUREMENTS,
                 features: [
                   createFeature({
                     code: "measurements.length",
@@ -2222,7 +2224,7 @@ describe("filters tests", () => {
                 ]
               }),
               createClassification({
-                code: "measurements.width",
+                code: ClassificationCodeEnum.MEASUREMENTS,
                 features: [
                   createFeature({
                     code: "measurements.width",
@@ -2281,7 +2283,7 @@ describe("filters tests", () => {
             ];
             baseProduct.classifications = [
               createClassification({
-                code: "measurements.length",
+                code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                 features: [
                   createFeature({
                     code: "measurements.length",
@@ -2291,7 +2293,7 @@ describe("filters tests", () => {
                 ]
               }),
               createClassification({
-                code: "measurements.width",
+                code: ClassificationCodeEnum.MEASUREMENTS,
                 features: [
                   createFeature({
                     code: "measurements.width",
@@ -2332,7 +2334,7 @@ describe("filters tests", () => {
             ];
             baseProduct2.classifications = [
               createClassification({
-                code: "measurements.length",
+                code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
                 features: [
                   createFeature({
                     code: "measurements.length",
@@ -2342,7 +2344,7 @@ describe("filters tests", () => {
                 ]
               }),
               createClassification({
-                code: "measurements.width",
+                code: ClassificationCodeEnum.MEASUREMENTS,
                 features: [
                   createFeature({
                     code: "measurements.width",

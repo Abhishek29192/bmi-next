@@ -12,6 +12,7 @@ import createClassification, {
   createFeature
 } from "../../__tests__/ClassificationHelper";
 import { SiteContextProvider } from "../Site";
+import { ClassificationCodeEnum } from "../types/pim";
 
 const getSiteContext = () => ({
   countryCode: "en",
@@ -28,7 +29,11 @@ const samples: Sample[] = [
     code: "sample-1",
     image: createImage().url,
     path: "sample-1-details",
-    classifications: [createClassification({ code: "appearanceAttributes" })]
+    classifications: [
+      createClassification({
+        code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE
+      })
+    ]
   },
   {
     name: "sample-2",
@@ -37,7 +42,7 @@ const samples: Sample[] = [
     image: createImage().url,
     classifications: [
       createClassification({
-        code: "measurements",
+        code: ClassificationCodeEnum.MEASUREMENTS,
         features: [
           createFeature({
             featureValues: [{ value: "10" }],

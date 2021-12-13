@@ -29,22 +29,30 @@ jest.mock("../validate", () => ({
     .mockImplementation(() => ({ isValid: true }))
 }));
 
+jest.mock("file-type", () => {
+  return {
+    fromStream: () => ({
+      mime: "image/jpg"
+    })
+  };
+});
+
 const evidenceItemInputs = [
   {
-    name: "file1",
-    attachment: "file1",
+    name: "file1.jpg",
+    attachment: "file1.jpg",
     attachmentUpload: {
-      filename: "file1",
-      mimetype: "image",
+      filename: "file1.jpg",
+      mimetype: "image/jpg",
       encoding: "",
       createReadStream: () => {}
     }
   },
   {
-    name: "file2",
-    attachment: "file2",
+    name: "file2.pdf",
+    attachment: "file2.pdf",
     attachmentUpload: {
-      filename: "file2",
+      filename: "file2.pdf",
       mimetype: "application/pdf",
       encoding: "",
       createReadStream: () => {}

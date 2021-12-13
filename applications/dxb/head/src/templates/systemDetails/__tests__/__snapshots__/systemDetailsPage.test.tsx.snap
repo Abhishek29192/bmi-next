@@ -9295,7 +9295,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                                 <h6
                                   class="MuiTypography-root Typography MuiTypography-h6"
                                 >
-                                  France Flat System Attributes
+                                  franceFlatSystemAttributes
                                 </h6>
                               </div>
                               <div
@@ -9384,7 +9384,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                                 <h6
                                   class="MuiTypography-root Typography MuiTypography-h6"
                                 >
-                                  Measurements
+                                  measurements
                                 </h6>
                               </div>
                               <div
@@ -9487,7 +9487,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                                 <h6
                                   class="MuiTypography-root Typography MuiTypography-h6"
                                 >
-                                  System Attributes
+                                  systemAttributes
                                 </h6>
                               </div>
                               <div
@@ -15251,7 +15251,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 <h6
                                   class="MuiTypography-root Typography MuiTypography-h6"
                                 >
-                                  France Flat System Attributes
+                                  franceFlatSystemAttributes
                                 </h6>
                               </div>
                               <div
@@ -15340,7 +15340,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 <h6
                                   class="MuiTypography-root Typography MuiTypography-h6"
                                 >
-                                  Measurements
+                                  measurements
                                 </h6>
                               </div>
                               <div
@@ -15443,7 +15443,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 <h6
                                   class="MuiTypography-root Typography MuiTypography-h6"
                                 >
-                                  System Attributes
+                                  systemAttributes
                                 </h6>
                               </div>
                               <div
@@ -21297,7 +21297,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 <h6
                                   class="MuiTypography-root Typography MuiTypography-h6"
                                 >
-                                  France Flat System Attributes
+                                  franceFlatSystemAttributes
                                 </h6>
                               </div>
                               <div
@@ -21386,7 +21386,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 <h6
                                   class="MuiTypography-root Typography MuiTypography-h6"
                                 >
-                                  Measurements
+                                  measurements
                                 </h6>
                               </div>
                               <div
@@ -21489,7 +21489,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 <h6
                                   class="MuiTypography-root Typography MuiTypography-h6"
                                 >
-                                  System Attributes
+                                  systemAttributes
                                 </h6>
                               </div>
                               <div
@@ -27374,7 +27374,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                                 <h6
                                   class="MuiTypography-root Typography MuiTypography-h6"
                                 >
-                                  France Flat System Attributes
+                                  franceFlatSystemAttributes
                                 </h6>
                               </div>
                               <div
@@ -27463,7 +27463,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                                 <h6
                                   class="MuiTypography-root Typography MuiTypography-h6"
                                 >
-                                  Measurements
+                                  measurements
                                 </h6>
                               </div>
                               <div
@@ -27566,7 +27566,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                                 <h6
                                   class="MuiTypography-root Typography MuiTypography-h6"
                                 >
-                                  System Attributes
+                                  systemAttributes
                                 </h6>
                               </div>
                               <div

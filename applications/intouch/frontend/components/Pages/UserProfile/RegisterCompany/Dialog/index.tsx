@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 import { gql } from "@apollo/client";
 import {
@@ -22,14 +22,20 @@ export const RegisterCompanyDialog = ({
   onCloseClick
 }: RegisterCompanyDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
+  const [errorMessage, setErrorMessage] = useState<string>(undefined);
+
+  useEffect(() => {
+    setErrorMessage(undefined);
+  }, [isOpen]);
 
   const [registerCompany] = useCreateCompanyMutation({
     onError: (error) => {
       log({
         severity: "ERROR",
-        message: `There was an error creating a company: ${error.toString()}`
+        message: `There was an error creating a company: ${error}`
       });
-      // TODO: show some visual error
+
+      setErrorMessage(error.message);
     },
     onCompleted: ({ createCompany: { company } }) => {
       log({
@@ -47,7 +53,7 @@ export const RegisterCompanyDialog = ({
         severity: "ERROR",
         message: `There was an error updating the company: ${error.toString()}`
       });
-      // TODO: show some visual error
+      setErrorMessage(error.message);
     },
     onCompleted: ({ updateCompany: { company } }) => {
       log({
@@ -71,41 +77,42 @@ export const RegisterCompanyDialog = ({
 
       // creates company without addresses & logo,
       // which are created in 2nd step
-      const {
-        data: {
-          createCompany: {
-            company: { id: newCompanyId }
-          }
-        }
-      } = await registerCompany({
+      const { data } = await registerCompany({
         variables: { input: newCompanyDetails }
       });
 
-      const addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput =
-        { create: values.registeredAddress };
+      if (data) {
+        const {
+          createCompany: {
+            company: { id: newCompanyId }
+          }
+        } = data;
+        const addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput =
+          { create: values.registeredAddress };
 
-      const addressToTradingAddressId: CompanyTradingAddressIdFkeyInput = {
-        create: values.tradingAddress
-      };
+        const addressToTradingAddressId: CompanyTradingAddressIdFkeyInput = {
+          create: values.tradingAddress
+        };
 
-      // add addresses & logo successively
-      updateCompany({
-        variables: {
-          input: {
-            id: newCompanyId,
-            patch: {
-              logoUpload,
-              shouldRemoveLogo,
-              addressToRegisteredAddressId,
-              addressToTradingAddressId
+        // add addresses & logo successively
+        updateCompany({
+          variables: {
+            input: {
+              id: newCompanyId,
+              patch: {
+                logoUpload,
+                shouldRemoveLogo,
+                addressToRegisteredAddressId,
+                addressToTradingAddressId
+              }
             }
           }
-        }
-      });
+        });
 
-      // TODO: update page state without reloading
-      window.location.reload();
-      onCloseClick();
+        // TODO: update page state without reloading
+        window.location.reload();
+        onCloseClick();
+      }
     },
     [registerCompany, updateCompany]
   );
@@ -116,6 +123,7 @@ export const RegisterCompanyDialog = ({
       isOpen={isOpen}
       onSubmit={onSubmit}
       onCloseClick={onCloseClick}
+      errorMessage={errorMessage}
     />
   );
 };

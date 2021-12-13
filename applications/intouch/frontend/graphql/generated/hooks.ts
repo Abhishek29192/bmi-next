@@ -141,11 +141,7 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
       nodes {
         id
         body
-        authorId
-        author {
-          firstName
-          lastName
-        }
+        senderName
         createdAt
       }
     }
@@ -4117,7 +4113,7 @@ export type ProductsAndSystemsQueryResult = Apollo.QueryResult<
 >;
 export const GetCompaniesByMarketDocument = gql`
   query GetCompaniesByMarket($marketId: Int!) {
-    companies(condition: { marketId: $marketId }, orderBy: NAME_ASC) {
+    companies(condition: { marketId: $marketId }) {
       nodes {
         ...CompanyPageDetailsFragment
       }
@@ -4494,6 +4490,7 @@ export const TeamMembersDocument = gql`
         email
         phone
         photo
+        signedPhotoUrl
         lastName
         firstName
         formattedRole

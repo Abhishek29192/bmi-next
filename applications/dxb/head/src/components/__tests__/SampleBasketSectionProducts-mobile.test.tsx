@@ -7,21 +7,8 @@ import {
   createSample,
   Sample
 } from "../../contexts/SampleBasketContext";
-import { createVariantOption } from "../../__tests__/PimDocumentProductHelper";
 import createImage from "../../__tests__/ImageHelper";
-import createClassification, {
-  createFeature
-} from "../../__tests__/ClassificationHelper";
 import { Product, VariantOption } from "../types/pim";
-
-const getSiteContext = () => ({
-  countryCode: "en",
-  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
-  node_locale: "en-GB",
-  homePage: {
-    title: "Home page title"
-  }
-});
 
 const product: Product = {
   code: "product",

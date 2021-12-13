@@ -9,8 +9,6 @@ import Account from "../../../lib/account";
 import { getMarketAndEnvFromReq } from "../../../lib/utils";
 import { withLoggerApi } from "../../../lib/middleware/withLogger";
 
-const { APP_ENV } = process.env;
-
 interface Request extends NextApiRequest {
   logger: any;
 }
@@ -26,7 +24,11 @@ export const afterCallback = async (
   // Set the logger again with the session attached
   NextLogger(req, res);
 
-  const apolloClient = await initializeApollo(null, { res, req, session });
+  const apolloClient = await initializeApollo(null, {
+    res,
+    req,
+    accessToken: session.accessToken
+  });
 
   const accountSrv = new Account(req.logger, apolloClient, session);
 
@@ -71,8 +73,7 @@ export const getLoginOptions = (req) => {
   // url, in this wai we can redirect the user to the right market
   return {
     authorizationParams: {
-      market,
-      env: APP_ENV
+      market
     }
   };
 };

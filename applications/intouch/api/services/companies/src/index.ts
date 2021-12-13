@@ -42,6 +42,12 @@ async function main() {
   // Init postgraphile
   app.use(postgraphile());
 
+  app.get("/health", (req, res) =>
+    res.send({
+      status: "up"
+    })
+  );
+
   app.use((err, req, res, next) => {
     const logger = req.logger("index");
     logger.error(err.stack);

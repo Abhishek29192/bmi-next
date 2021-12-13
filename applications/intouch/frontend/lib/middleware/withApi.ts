@@ -10,7 +10,21 @@ export const withApi = (handler) =>
 
     return auth0.withApiAuthRequired(async (req, res) => {
       const session: Session = auth0.getSession(req, res);
-      const apolloClient = await initializeApollo(null, { req, res, session });
+
+      let accessToken = session.accessToken;
+
+      if (Date.now() >= session.accessTokenExpiresAt * 1000) {
+        const newAccessToken = await auth0.getAccessToken(req, res, {
+          refresh: true
+        });
+        accessToken = newAccessToken?.accessToken;
+      }
+
+      const apolloClient = await initializeApollo(null, {
+        req,
+        res,
+        accessToken
+      });
 
       const {
         data: { accountByEmail }

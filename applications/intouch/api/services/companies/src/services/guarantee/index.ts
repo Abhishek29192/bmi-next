@@ -11,6 +11,7 @@ import {
 import { PoolClient } from "pg";
 import StorageClient from "../storage-client";
 import { PostGraphileContext } from "../../types";
+import { filesTypeValidate } from "../../utils/file";
 import { sendMessageWithTemplate } from "../mailer";
 import { EventMessage, tierBenefit } from "../contentful";
 import { solutionGuaranteeSubmitValidate } from "./validate";
@@ -276,6 +277,10 @@ const uploadEvidence = async (
   const evidenceCategoryType: EvidenceCategoryType = "PROOF_OF_PURCHASE";
 
   if (evidenceItemInput?.create?.length > 0) {
+    await filesTypeValidate(
+      evidenceItemInput.create.map((evidence) => evidence.attachmentUpload)
+    );
+
     const storageClient = new StorageClient();
     for (const evidence of evidenceItemInput.create) {
       const uploadedFile: FileUpload = await evidence.attachmentUpload;

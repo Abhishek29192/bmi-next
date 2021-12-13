@@ -157,14 +157,9 @@ export default class DoceboClient {
   }
 
   async updateUser(input: IUserUpdateInput) {
-    const select_orgchart = input.select_orgchart
-      ? { [`${input.select_orgchart.branch_id}`]: 1 }
-      : {};
     const body = {
-      ...input,
-      select_orgchart: select_orgchart
+      ...input
     };
-
     const { userid, ...rest } = body;
 
     try {

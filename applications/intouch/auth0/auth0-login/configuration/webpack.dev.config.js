@@ -59,6 +59,10 @@ module.exports = merge(webpackConfiguration, {
               search: "@@roof_imf@@",
               replace:
                 "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-dev/auth0/images/bmi_roofpro_intouch.jpg"
+            },
+            {
+              search: /@@base_url@@/g,
+              replace: "https://dev-{market}.intouch.bmigroup.com"
             }
           ]
         }

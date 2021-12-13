@@ -1,10 +1,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Table from "@bmi/table";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import Icon, { FilePDF } from "@bmi/icon";
 import { ProjectDetailsProductFragmentFragment } from "../../../../graphql/generated/operations";
+import { ProductCard } from "../ProductCard";
 import styles from "./styles.module.scss";
 
 type ProductGuaranteeCardProps = {
@@ -12,11 +12,11 @@ type ProductGuaranteeCardProps = {
   guaranteeFileUrl?: String;
 };
 const ProductGuaranteeCard = ({
-  product: { name, description, family, brand },
+  product,
   guaranteeFileUrl
 }: ProductGuaranteeCardProps) => {
   const { t } = useTranslation(["common", "project-page"]);
-
+  const { name, description } = product;
   return (
     <div className={styles.productCard}>
       <div className={styles.productCard__title}>
@@ -27,24 +27,7 @@ const ProductGuaranteeCard = ({
       <div className={styles.productCard__description}>
         <Typography variant="subtitle2">{description}</Typography>
       </div>
-      <div>
-        <Table>
-          <Table.Head>
-            <Table.Row>
-              <Table.Cell>{t("project-page:productDetails.name")}</Table.Cell>
-              <Table.Cell>{t("project-page:productDetails.family")}</Table.Cell>
-              <Table.Cell>{t("project-page:productDetails.brand")}</Table.Cell>
-            </Table.Row>
-          </Table.Head>
-          <Table.Body>
-            <Table.Row>
-              <Table.Cell>{name}</Table.Cell>
-              <Table.Cell>{family}</Table.Cell>
-              <Table.Cell>{brand}</Table.Cell>
-            </Table.Row>
-          </Table.Body>
-        </Table>
-      </div>
+      <ProductCard products={[product]} />
       {guaranteeFileUrl && (
         <div
           className={styles.productCard__footer}

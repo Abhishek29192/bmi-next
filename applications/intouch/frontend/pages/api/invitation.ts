@@ -13,7 +13,17 @@ export const config = {
 export const handler = async (req, res) => {
   const auth0 = await getAuth0Instance(req, res);
   const session = auth0.getSession(req, res);
-  const apolloClient = await initializeApollo(null, { req, res, session });
+
+  let accessToken = session?.accessToken;
+
+  if (Date.now() >= session?.accessTokenExpiresAt * 1000) {
+    const newAccessToken = await auth0.getAccessToken(req, res, {
+      refresh: true
+    });
+    accessToken = newAccessToken?.accessToken;
+  }
+
+  const apolloClient = await initializeApollo(null, { req, res, accessToken });
   const accountSrv = new Account(req.logger, apolloClient, session);
 
   const logger = req.logger("api:invitation");

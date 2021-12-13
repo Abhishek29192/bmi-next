@@ -65,7 +65,7 @@
     ></script>
   </head>
   <body>
-    <div class="login-screen" x-data="{step: 'login'}">
+    <div id="login-screen" class="login-screen" x-data="{step: 'login'}">
       <form onsubmit="return false;" method="post">
         <div class="login-box" x-show="step == 'login'">
           <h1 class="underlined-heading" x-text="$t('signup_welcome')">
@@ -358,7 +358,7 @@
               <span x-text="$t('i_agree_to')">I agree to BMI's</span>
               <a
                 id="terms-link"
-                href="https://en.intouch.dddev.io/terms"
+                href="#"
                 target="_blank"
                 x-text="$t('terms_and_conditions')"
                 >Terms & Conditions</a
@@ -366,7 +366,7 @@
               <span x-text="$t('and')">and</span>
               <a
                 id="privacy-link"
-                href="https://en.intouch.dddev.io/privacy"
+                href="#"
                 target="_blank"
                 x-text="$t('privacy_policy')"
                 >Privacy Policy</a
@@ -590,20 +590,59 @@
           PasswordStrengthError:
             "Bruk et passord med minst 8 tegn og innehold minst 3 av følgende 4 typer tegn: små bokstaver (az), store bokstaver (AZ), tall (dvs. 0-9), spesialtegn ( f.eks.@#$%^&*)"
         }
+        ,
+        it: {
+          intouch_title: "InTouch - Accesso/Registrazione",
+          signup_welcome: "Benvenuto",
+          intouch_role: "Seleziona il tuo tipo di registrazione",
+          installer: "Installatore",
+          company: "Azienda",
+          first_name: "Nome",
+          last_name: "Cognome",
+          enter_email: "Indirizzo e-mail",
+          enter_password: "Password",
+          sign_up: "Iscriviti",
+          already_registered: "Già registrato",
+          login_welcome: "Benvenuto",
+          log_in: "Log In",
+          forgot_password: "Hai dimenticato la password?",
+          not_registered: "Non sei registrato?",
+          new_password: "Richiedi una nuova password",
+          new_password_text:
+            "Inserisci il tuo indirizzo email e ti invieremo un link per resettare la password",
+          reset_password: "Resetta la password",
+          back_to_login: "Torna a Log In",
+          reset_password_success: "Controlla la tua casella di posta",
+          email_missing: "Per favore inserisci la tua email",
+          generic_error:
+            "Controlla le tue credenziali, se il problema persiste contattaci",
+          name_surname_missing: "Nome e cognome mancanti",
+          email_password_missing: "Email e password mancanti",
+          registration_tooltip:
+            "Selezionare account aziendale solo se si è sicuri che l'azienda non è registrata InTouch.  Gli Account individuali avranno accesso alla formazione e possono diventare membri di aziende registrate.",
+          i_agree_to: "Accetto i",
+          terms_and_conditions: "Termini e Condizioni",
+          and: "e",
+          privacy_policy: "Politica sulla privacy",
+          terms_missing: "Si prega di accettare i termini e le condizioni",
+          success: "Successo",
+          PasswordStrengthError:
+            "Si prega di utilizzare una password di almeno 8 caratteri e che contenga almeno 3 dei seguenti 4 tipi di caratteri: lettere minuscole (a-z), lettere maiuscole (A-Z), numeri (es. 0-9), caratteri speciali (es. !@#$%^&*)"
+        }
       };
 
-      const getLanguage = (config) => {
-        let locale = location.hash.substr(1) || config.extraParams.market;
+      const getMarket = (config) => {
+        let market = location.hash.substr(1) || config.extraParams.market;
         // If we land to intouch.* without the market we set en as defualt;
-        if (locale === "intouch") {
-          locale = "no";
+        if (market === "intouch") {
+          market = "no";
         }
 
-        return locale;
+        return market;
       };
 
       const setupImage = (config) => {
-        const language = getLanguage(config);
+        const market = getMarket(config);
 
         // Map market / projects status
         var marketsProjectMap = {
@@ -619,7 +658,7 @@
         };
 
         if (document.getElementsByClassName("login-screen").length) {
-          const image = marketsProjectMap[language]
+          const image = marketsProjectMap[market]
             ? marketImages.projectActive
             : marketImages.projectNotActive;
 
@@ -635,11 +674,30 @@
           decodeURIComponent(escape(window.atob("@@config@@")))
         );
 
-        window.AlpineI18n.create(getLanguage(config), messages);
+        window.AlpineI18n.create(getMarket(config), messages);
       });
 
       window.addEventListener("load", function () {
         Alpine.start();
+
+        window.setTimeout(() => {
+          document
+            .querySelectorAll(".mdc-text-field__input:-webkit-autofill")
+            .forEach((el) => {
+              const textField = el.parentNode;
+
+              const label = textField.querySelector(".mdc-floating-label");
+              if (label) {
+                label.classList.add("mdc-floating-label--float-above");
+              }
+              const outline = textField.querySelector(".mdc-notched-outline");
+              outline.classList.add("mdc-notched-outline--notched");
+
+              if (textField.MDCTextField) {
+                textField.MDCTextField.foundation_.notchOutline(true);
+              }
+            });
+        }, 300);
 
         // Fix to avoid label overlap
         document.getElementsByClassName("login-screen")[0].focus();
@@ -673,15 +731,15 @@
           config.internalOptions
         );
 
-        const language = getLanguage(config);
+        const market = getMarket(config);
         const { env } = config.extraParams;
 
-        const prefix = env === "prod" ? language : `${env}-${language}`;
+        const prefix = env === "prod" ? market : `${env}-${market}`;
 
         document.getElementById("terms-link").href =
-          "https://" + prefix + ".intouch.bmigroup.com/terms";
+          "@@base_url@@/terms".replace("{market}", market);
         document.getElementById("privacy-link").href =
-          "https://" + prefix + ".intouch.bmigroup.com/privacy";
+          "@@base_url@@/privacy".replace("{market}", market);
 
         var webAuth = new auth0.WebAuth(params);
         var databaseConnection = "Username-Password-Authentication";
@@ -693,7 +751,7 @@
           captcha.reload();
           var errorMessage = document.getElementById(type + "-error-message");
 
-          if (messages[language] && messages[language][error]) {
+          if (messages[market] && messages[market][error]) {
             errorMessage.innerHTML = AlpineI18n.t(error);
           } else {
             errorMessage.innerHTML = AlpineI18n.t("generic_error");
@@ -710,7 +768,7 @@
             type + "-success-message"
           );
 
-          if (messages[language] && messages[language][message]) {
+          if (messages[market] && messages[market][message]) {
             successMessage.innerHTML = AlpineI18n.t(message);
           }
 

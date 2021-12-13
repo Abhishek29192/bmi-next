@@ -33,8 +33,8 @@ You can create redirects using the [`createRedirect`](https://www.gatsbyjs.org/d
 An example:
 
 ```js
-createRedirect({ fromPath: '/old-url', toPath: '/new-url', isPermanent: true });
-createRedirect({ fromPath: '/url', toPath: '/zn-CH/url', Language: 'zn' });
+createRedirect({ fromPath: "/old-url", toPath: "/new-url", isPermanent: true });
+createRedirect({ fromPath: "/url", toPath: "/zn-CH/url", Language: "zn" });
 ```
 
 That will generate the following html files:

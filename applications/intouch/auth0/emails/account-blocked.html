@@ -12,7 +12,15 @@ is_your_ip = "Hvis det er din IP-adresse" %} {% assign click_here = "klikk her"
 %} {% assign unblock_account_message = "for å oppheve blokkeringen av kontoen
 din. Se ellers bort fra denne e-posten." %} {% assign thanks = "Takk!" %} {%
 assign warning_message = "Hvis du ikke sendte denne forespørselen, vennligst
-kontakt oss ved å svare på denne e-posten." %} {% endif %}
+kontakt oss ved å svare på denne e-posten." %} {% if language == "it" %} {%
+assign blocked_access = "Tentativo di accesso bloccato" %} {% assign
+suspicious_activity_detect = "Abbiamo rilevato attività sospette dall'ip:" %} {%
+assign from = "da" %} {% assign is_your_ip = "Se questo è il tuo indirizzo IP"
+%} {% assign click_here = "clicca qui" %} {% assign unblock_account_message =
+"per sbloccare il tuo account. Altrimenti ignora questa e-mail." %} {% assign
+thanks = "Grazie!" %} {% assign warning_message = "Se non hai effettuato questa
+richiesta, ti preghiamo di contattarci rispondendo a questa mail." %} {% endif
+%}
 
 <html>
   <head>

@@ -1,5 +1,5 @@
-import { UpdateCompanyInput } from "@bmi/intouch-api-types";
-import { deleteCompanyMember, updateCompany } from "..";
+import { CreateCompanyInput, UpdateCompanyInput } from "@bmi/intouch-api-types";
+import { createCompany, deleteCompanyMember, updateCompany } from "..";
 import { sendMessageWithTemplate } from "../../../services/mailer";
 
 jest.mock("../../../services/mailer", () => ({
@@ -121,6 +121,38 @@ describe("Company", () => {
           ],
         ]
       `);
+    });
+  });
+
+  describe("createCompany", () => {
+    it("should trim input", async () => {
+      const resolve = jest.fn();
+      const source = {};
+      const resolveInfo = {};
+      const args: { input: CreateCompanyInput } = {
+        input: {
+          name: "  Company name  ",
+          businessType: "MERCHANT",
+          status: "NEW",
+          taxNumber: "2"
+        }
+      };
+
+      await createCompany(resolve, source, args, context, resolveInfo);
+
+      expect(resolve).toHaveBeenCalledWith(
+        {},
+        {
+          input: {
+            name: "Company name",
+            businessType: "MERCHANT",
+            status: "NEW",
+            taxNumber: "2"
+          }
+        },
+        context,
+        {}
+      );
     });
   });
 
