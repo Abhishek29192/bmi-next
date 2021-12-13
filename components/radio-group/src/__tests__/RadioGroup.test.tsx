@@ -1,52 +1,36 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import RadioButton from "@bmi/radio-button";
 import RadioGroup from "../";
 
 describe("RadioGroup component", () => {
   it("renders correctly", () => {
     const { container } = render(
       <RadioGroup name="deckType">
-        <RadioGroup.Item value="Combustible (timber/plywood)">
-          Combustible (timber/plywood)
-        </RadioGroup.Item>
-        <RadioGroup.Item value="Non-combustible (metal/concrete)">
-          Non-combustible (metal/concrete)
-        </RadioGroup.Item>
+        <RadioButton value="label">
+          <span>Combustible (timber/plywood)</span>
+        </RadioButton>
+        <div>Non-combustible (metal/concrete)</div>
       </RadioGroup>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("selects initialValue", () => {
-    const { container } = render(
-      <RadioGroup name="deckType" initialValue="Combustible (timber/plywood)">
-        <RadioGroup.Item value="Combustible (timber/plywood)">
-          Combustible (timber/plywood)
-        </RadioGroup.Item>
-        <RadioGroup.Item value="Non-combustible (metal/concrete)">
-          Non-combustible (metal/concrete)
-        </RadioGroup.Item>
-      </RadioGroup>
-    );
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
-  it("calls onChange", () => {
+  it("execute onChange correctly", () => {
     const handleOnChange = jest.fn();
-
     const { container } = render(
       <RadioGroup name="deckType" onChange={handleOnChange}>
-        <RadioGroup.Item value="Combustible (timber/plywood)">
-          Combustible (timber/plywood)
-        </RadioGroup.Item>
-        <RadioGroup.Item value="Non-combustible (metal/concrete)">
-          Non-combustible (metal/concrete)
-        </RadioGroup.Item>
+        <RadioButton value="label">
+          <span>Combustible (timber/plywood)</span>
+        </RadioButton>
+        <RadioButton value="label">
+          <span>Non-combustible (metal/concrete)</span>
+        </RadioButton>
       </RadioGroup>
     );
 
-    container.querySelectorAll("label")[1].click();
+    container.querySelectorAll("label")[0].click();
 
-    expect(handleOnChange).toMatchSnapshot();
+    expect(handleOnChange).toBeCalledTimes(1);
   });
 });
