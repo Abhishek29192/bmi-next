@@ -367,10 +367,10 @@ describe("schemaOrgPDPpage tests", () => {
         model: "product-name",
         name: "product-name",
         pattern: "variant-texture-family-value",
-        potentialAction: [
-          "variant-image-url-gallery-1",
-          "variant-image-url-gallery-2"
-        ],
+        potentialAction: {
+          "@type": "Action",
+          image: ["variant-image-url-gallery-1", "variant-image-url-gallery-2"]
+        },
         productID: "variant-code",
         size: "variant-length-valuevariant-length-feature-unit-symbol x variant-thickness-valuevariant-thickness-feature-unit-symbol x variant-width-valuevariant-width-feature-unit-symbol x variant-height-valuevariant-height-feature-unit-symbol",
         url: "/no/p/some-product-path",
@@ -685,10 +685,10 @@ describe("schemaOrgPDPpage tests", () => {
         model: "product-name",
         name: "product-name",
         pattern: "variant-texture-family-value",
-        potentialAction: [
-          "variant-image-url-gallery-1",
-          "variant-image-url-gallery-2"
-        ],
+        potentialAction: {
+          "@type": "Action",
+          image: ["variant-image-url-gallery-1", "variant-image-url-gallery-2"]
+        },
         productID: "variant-code",
         size: "variant-length-valuevariant-length-feature-unit-symbol x variant-width-valuevariant-width-feature-unit-symbol x variant-height-valuevariant-height-feature-unit-symbol",
         url: "/no/p/some-product-path",
