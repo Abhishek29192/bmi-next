@@ -9,8 +9,7 @@ module.exports = {
   collectCoverageFrom: ["<rootDir>/components/tabs/src/**/*.{ts,tsx,js}"],
   coverageThreshold: {
     global: {
-      ...sharedConfig.coverageThreshold.global,
-      branches: "71"
+      ...sharedConfig.coverageThreshold.global
     }
   }
 };
