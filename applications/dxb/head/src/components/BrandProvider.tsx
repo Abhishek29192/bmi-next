@@ -35,13 +35,29 @@ export const getBrandClassName = (brand?: string): string => {
   return BRANDS_CLASSES[`${brand}`] || "";
 };
 
+type NoBrandProps = {
+  children: React.ReactNode;
+};
+
 type BrandProviderProps = {
   children: React.ReactNode;
   brand?: string;
 };
 
+const NoBrandComponent = ({ children }: NoBrandProps) => {
+  return (
+    <div className={""} data-testid="brand-colors-provider">
+      {children}
+    </div>
+  );
+};
+
 const BrandProvider = ({ brand, children }: BrandProviderProps) => {
+  if (!brand) {
+    return <NoBrandComponent>{children}</NoBrandComponent>;
+  }
   const ref = useRef<HTMLDivElement | null>(null);
+
   const [interColor, setInterColor] = useState<string | null>(null);
   const [focusColor, setFocusColor] = useState<string | undefined>();
 
@@ -89,7 +105,7 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
       </BrandClassNameContext.Provider>
     </div>
   ) : (
-    <BmiThemeProvider>{children}</BmiThemeProvider>
+    <NoBrandComponent>{children}</NoBrandComponent>
   );
 };
 

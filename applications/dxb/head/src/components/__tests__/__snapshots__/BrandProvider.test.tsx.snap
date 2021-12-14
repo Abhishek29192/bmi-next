@@ -18,4 +18,20 @@ exports[`BrandProvider renders with brand 1`] = `
 </div>
 `;
 
-exports[`BrandProvider renders without BrandProvider 1`] = `Test`;
+exports[`BrandProvider renders without BrandProvider 1`] = `
+<div
+  class=""
+  data-testid="brand-colors-provider"
+>
+  Test
+</div>
+`;
+
+exports[`BrandProvider renders without brand 1`] = `
+<div
+  class=""
+  data-testid="brand-colors-provider"
+>
+  Without brand
+</div>
+`;

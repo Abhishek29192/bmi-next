@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from "react";
-import { createTheme, ThemeProvider, useTheme } from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Container from "@bmi/container";
 import ColorPair, { Colors, darkThemes } from "@bmi/color-pair";
@@ -103,18 +103,7 @@ const ContainedVillain = ({
   const defaultTheme = useTheme();
   const hasDarkBg = useIsDarkBg(theme);
 
-  const customBreakpointsTheme = createTheme({
-    ...defaultTheme,
-    breakpoints: {
-      values: {
-        ...defaultTheme.breakpoints.values,
-        sm: parseFloat(styles["breakpoint-sm"]!)
-      }
-    }
-  });
-  const matches: boolean = useMediaQuery(
-    customBreakpointsTheme.breakpoints.up("sm")
-  );
+  const matches: boolean = useMediaQuery(defaultTheme.breakpoints.up("sm"));
   const direction = matches ? "row-reverse" : "column-reverse";
 
   return (
@@ -125,52 +114,46 @@ const ContainedVillain = ({
         isReversed && styles["Villain--reversed"]
       )}
     >
-      <ThemeProvider theme={customBreakpointsTheme}>
-        <Grid
-          container
-          spacing={3}
-          direction={isReversed ? direction : undefined}
-          className={styles["grid"]}
-        >
-          <Grid item xs={12} sm={4}>
-            <ColorPair theme={theme} className={styles["content"]}>
-              <Typography
-                variant="h4"
-                component="h3"
-                className={styles["title"]}
-              >
-                {title}
-              </Typography>
-              <div className={styles["text"]}>{children}</div>
-              {React.isValidElement(cta) &&
-                React.cloneElement(cta, {
-                  className: classnames(styles["cta"], cta.props.className),
-                  hasDarkBackground: hasDarkBg
-                })}
-            </ColorPair>
-          </Grid>
-          <Grid item xs={12} sm={8}>
-            {imageSource ? (
-              <div
-                style={
-                  typeof imageSource === "string"
-                    ? { backgroundImage: `url(${imageSource})` }
-                    : {}
-                }
-                className={styles["image"]}
-              >
-                {typeof imageSource !== "string" && imageSource}
-              </div>
-            ) : null}
-            {media ? (
-              // NOTE: This is necessary to maintain `imageSource`.
-              <div className={styles["image"]}>
-                <Media className={styles["media"]}>{media}</Media>
-              </div>
-            ) : null}
-          </Grid>
+      <Grid
+        container
+        spacing={3}
+        direction={isReversed ? direction : undefined}
+        className={styles["grid"]}
+      >
+        <Grid item xs={12} sm={4}>
+          <ColorPair theme={theme} className={styles["content"]}>
+            <Typography variant="h4" component="h3" className={styles["title"]}>
+              {title}
+            </Typography>
+            <div className={styles["text"]}>{children}</div>
+            {React.isValidElement(cta) &&
+              React.cloneElement(cta, {
+                className: classnames(styles["cta"], cta.props.className),
+                hasDarkBackground: hasDarkBg
+              })}
+          </ColorPair>
         </Grid>
-      </ThemeProvider>
+        <Grid item xs={12} sm={8}>
+          {imageSource ? (
+            <div
+              style={
+                typeof imageSource === "string"
+                  ? { backgroundImage: `url(${imageSource})` }
+                  : {}
+              }
+              className={styles["image"]}
+            >
+              {typeof imageSource !== "string" && imageSource}
+            </div>
+          ) : null}
+          {media ? (
+            // NOTE: This is necessary to maintain `imageSource`.
+            <div className={styles["image"]}>
+              <Media className={styles["media"]}>{media}</Media>
+            </div>
+          ) : null}
+        </Grid>
+      </Grid>
     </div>
   );
 };

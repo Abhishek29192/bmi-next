@@ -133,7 +133,7 @@ exports[`Contact us page renders correctly 1`] = `
               class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -162,7 +162,7 @@ exports[`Contact us page renders correctly 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -191,7 +191,7 @@ exports[`Contact us page renders correctly 1`] = `
                 </a>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
               >
                 <a
                   aria-disabled="false"
@@ -267,7 +267,7 @@ exports[`Contact us page renders correctly 1`] = `
                   role="tablist"
                 />
                 <span
-                  class="PrivateTabIndicator-root-61 PrivateTabIndicator-colorSecondary-63 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-21 PrivateTabIndicator-colorSecondary-23 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>

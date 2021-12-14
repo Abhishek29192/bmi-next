@@ -1,4 +1,12 @@
 // This disable gatsby local
 {
-  "extends": "../../../.eslintrc.js"
+  "extends": "../../../.eslintrc.js",
+  "overrides": [
+    {
+      "files": ["**/gatsby-ssr.js", "**/gatsby-browser.js"],
+      "parserOptions": {
+        "sourceType": "module"
+      }
+    }
+  ]
 }

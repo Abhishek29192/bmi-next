@@ -154,7 +154,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -183,7 +183,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -212,7 +212,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -702,10 +702,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
                   class="ColorPair ColorPair--pearl"
@@ -777,14 +777,14 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-12"
                 style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-3"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
                   >
                     <a
                       aria-disabled="false"
@@ -1242,7 +1242,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -1271,7 +1271,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -1300,7 +1300,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -1790,10 +1790,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
                   class="ColorPair ColorPair--pearl"
@@ -1870,14 +1870,14 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-12"
                 style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-3"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
                   >
                     <a
                       aria-disabled="false"
@@ -2323,7 +2323,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -2349,7 +2349,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -2375,7 +2375,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -2810,10 +2810,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
                   class="ColorPair ColorPair--pearl"
@@ -2890,7 +2890,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-3"
               >
                 <div
                   class="scrollbar-container ps"
@@ -3108,14 +3108,14 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </div>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-9"
                 style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-4"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-4"
                   >
                     <a
                       aria-disabled="false"
@@ -3549,7 +3549,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -3575,7 +3575,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -3601,7 +3601,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -4036,10 +4036,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
                   class="ColorPair ColorPair--pearl"
@@ -4116,7 +4116,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-3"
               >
                 <div
                   class="scrollbar-container ps"
@@ -4328,14 +4328,14 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </div>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-9"
                 style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-4"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-4"
                   >
                     <a
                       aria-disabled="false"
@@ -4781,7 +4781,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -4810,7 +4810,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -4839,7 +4839,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -5308,10 +5308,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
                   class="ColorPair ColorPair--pearl"
@@ -5388,7 +5388,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-3"
               >
                 <div
                   class="scrollbar-container ps"
@@ -5615,14 +5615,14 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </div>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-9"
                 style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-4"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-4"
                   >
                     <a
                       aria-disabled="false"
@@ -6080,7 +6080,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -6109,7 +6109,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -6138,7 +6138,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -6628,10 +6628,10 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
               class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
                   class="ColorPair ColorPair--pearl"
@@ -6703,7 +6703,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-12"
                 style="padding-top: 60px;"
               >
                 <div
@@ -7109,7 +7109,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -7138,7 +7138,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -7167,7 +7167,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -7497,80 +7497,156 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       </div>
     </header>
     <div
-      class="SpotlightHero"
+      class=""
+      data-testid="brand-colors-provider"
     >
       <div
-        class="image"
+        class="SpotlightHero"
       >
         <div
-          class="header"
+          class="image"
         >
+          <div
+            class="header"
+          >
+            <div
+              class="Container"
+            >
+              <div
+                class="MuiContainer-root header-container MuiContainer-maxWidthXl"
+              >
+                <div
+                  class="breadcrumbs"
+                >
+                  <nav
+                    aria-label="breadcrumbs"
+                    class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs Breadcrumbs--dark-themed MuiTypography-body1 MuiTypography-colorTextSecondary"
+                  >
+                    <ol
+                      class="MuiBreadcrumbs-ol"
+                    >
+                      <li
+                        class="MuiBreadcrumbs-li"
+                      >
+                        <a
+                          aria-disabled="false"
+                          class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg button link MuiButton-textPrimary"
+                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk\\",\\"label\\":\\"Home page title\\"}"
+                          href="/uk"
+                          role="button"
+                          tabindex="0"
+                        >
+                          <span
+                            class="MuiButton-label buttonStyles-label"
+                          >
+                            <span
+                              class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root icon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              class="label"
+                            >
+                              Home page title
+                            </span>
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </a>
+                      </li>
+                    </ol>
+                  </nav>
+                </div>
+                <h1
+                  class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+                >
+                  i am a title
+                </h1>
+              </div>
+            </div>
+          </div>
           <div
             class="Container"
           >
             <div
-              class="MuiContainer-root header-container MuiContainer-maxWidthXl"
+              class="MuiContainer-root MuiContainer-maxWidthXl"
             >
               <div
-                class="breadcrumbs"
+                class="content"
               >
-                <nav
-                  aria-label="breadcrumbs"
-                  class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs Breadcrumbs--dark-themed MuiTypography-body1 MuiTypography-colorTextSecondary"
-                >
-                  <ol
-                    class="MuiBreadcrumbs-ol"
-                  >
-                    <li
-                      class="MuiBreadcrumbs-li"
-                    >
-                      <a
-                        aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg button link MuiButton-textPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk\\",\\"label\\":\\"Home page title\\"}"
-                        href="/uk"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <span
-                          class="MuiButton-label buttonStyles-label"
-                        >
-                          <span
-                            class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root icon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            class="label"
-                          >
-                            Home page title
-                          </span>
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </a>
-                    </li>
-                  </ol>
-                </nav>
+                <div
+                  class="text"
+                />
               </div>
-              <h1
-                class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+            </div>
+          </div>
+          <div
+            class="overlay overlay--blue"
+          >
+            <div
+              class="gatsby-image-wrapper gatsby-image-wrapper-constrained Media"
+              data-gatsby-image-wrapper=""
+              style="overflow: hidden; display: inline-block;"
+            >
+              <div
+                style="max-width: 948px; display: block;"
               >
-                i am a title
-              </h1>
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  role="presentation"
+                  src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                  style="max-width: 100%; display: block; position: static;"
+                />
+              </div>
+              <div
+                aria-hidden="true"
+                data-placeholder-image=""
+                style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+              />
+              <picture>
+                <source
+                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                  sizes="(min-width: 948px) 948px, 100vw"
+                  type="image/webp"
+                />
+                <img
+                  alt="Lorem ipsum"
+                  data-gatsby-image-ssr=""
+                  data-main-image=""
+                  data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                  data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                  decoding="async"
+                  draggable="false"
+                  layout="in-place"
+                  loading="lazy"
+                  sizes="(min-width: 948px) 948px, 100vw"
+                  style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                />
+              </picture>
+              <noscript />
+              <script
+                type="module"
+              >
+                const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+              </script>
             </div>
           </div>
         </div>
+      </div>
+      <div
+        class="Section Section--white"
+      >
         <div
           class="Container"
         >
@@ -7578,134 +7654,63 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="content"
+              class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="text"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
-            </div>
-          </div>
-        </div>
-        <div
-          class="overlay overlay--blue"
-        >
-          <div
-            class="gatsby-image-wrapper gatsby-image-wrapper-constrained Media"
-            data-gatsby-image-wrapper=""
-            style="overflow: hidden; display: inline-block;"
-          >
-            <div
-              style="max-width: 948px; display: block;"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                role="presentation"
-                src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                style="max-width: 100%; display: block; position: static;"
-              />
-            </div>
-            <div
-              aria-hidden="true"
-              data-placeholder-image=""
-              style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-            />
-            <picture>
-              <source
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                sizes="(min-width: 948px) 948px, 100vw"
-                type="image/webp"
-              />
-              <img
-                alt="Lorem ipsum"
-                data-gatsby-image-ssr=""
-                data-main-image=""
-                data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                decoding="async"
-                draggable="false"
-                layout="in-place"
-                loading="lazy"
-                sizes="(min-width: 948px) 948px, 100vw"
-                style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-              />
-            </picture>
-            <noscript />
-            <script
-              type="module"
-            >
-              const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-            </script>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="Section Section--white"
-    >
-      <div
-        class="Container"
-      >
-        <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
-        >
-          <div
-            class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
-          >
-            <div
-              class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
-            />
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
-            >
               <div
-                class="ColorPair ColorPair--pearl"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
-                  class="PostItCard"
+                  class="ColorPair ColorPair--pearl"
                 >
                   <div
-                    class="section"
+                    class="PostItCard"
                   >
-                    <h4
-                      class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-                    >
-                      MC: plp.keyFeatures.title
-                    </h4>
                     <div
-                      class="content"
+                      class="section"
                     >
-                      <ul
-                        class="IconList"
+                      <h4
+                        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
                       >
-                        <li
-                          class="ListItem ListItem--isCompact"
+                        MC: plp.keyFeatures.title
+                      </h4>
+                      <div
+                        class="content"
+                      >
+                        <ul
+                          class="IconList"
                         >
-                          <div
-                            class="icon"
+                          <li
+                            class="ListItem ListItem--isCompact"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
+                            <div
+                              class="icon"
                             >
-                              <path
-                                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                              />
-                            </svg>
-                          </div>
-                          <div
-                            class="content"
-                          >
-                            <p
-                              class="MuiTypography-root title Typography MuiTypography-body1"
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                                />
+                              </svg>
+                            </div>
+                            <div
+                              class="content"
                             >
-                              test
-                            </p>
-                          </div>
-                        </li>
-                      </ul>
+                              <p
+                                class="MuiTypography-root title Typography MuiTypography-body1"
+                              >
+                                test
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -7714,147 +7719,147 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="Section Section--pearl Section--overflow-visible"
-    >
       <div
-        class="Container"
+        class="Section Section--pearl Section--overflow-visible"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="Container"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
-              style="padding-top: 60px;"
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-12"
+                style="padding-top: 60px;"
               >
-                <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                <div
+                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
-                  MC: plp.product.noResultsFound
-                </p>
-              </div>
-              <div
-                class="ResultsPagination"
-              >
-                <nav
-                  aria-label="pagination navigation"
-                  class="MuiPagination-root pagination"
-                >
-                  <ul
-                    class="MuiPagination-ul"
+                  <p
+                    class="MuiTypography-root Typography MuiTypography-body1"
                   >
-                    <li>
-                      <button
-                        aria-label="Go to previous page"
-                        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary MuiPaginationItem-disabled MuiButtonBase-disabled"
-                        disabled=""
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiPaginationItem-icon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                    MC: plp.product.noResultsFound
+                  </p>
+                </div>
+                <div
+                  class="ResultsPagination"
+                >
+                  <nav
+                    aria-label="pagination navigation"
+                    class="MuiPagination-root pagination"
+                  >
+                    <ul
+                      class="MuiPagination-ul"
+                    >
+                      <li>
+                        <button
+                          aria-label="Go to previous page"
+                          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary MuiPaginationItem-disabled MuiButtonBase-disabled"
+                          disabled=""
+                          tabindex="-1"
+                          type="button"
                         >
-                          <path
-                            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                          />
-                        </svg>
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        aria-label="Go to next page"
-                        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary MuiPaginationItem-disabled MuiButtonBase-disabled"
-                        disabled=""
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiPaginationItem-icon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiPaginationItem-icon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                            />
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          aria-label="Go to next page"
+                          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary MuiPaginationItem-disabled MuiButtonBase-disabled"
+                          disabled=""
+                          tabindex="-1"
+                          type="button"
                         >
-                          <path
-                            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                          />
-                        </svg>
-                      </button>
-                    </li>
-                  </ul>
-                </nav>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiPaginationItem-icon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                            />
+                          </svg>
+                        </button>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="Section Section--alabaster Section--slim"
-    >
       <div
-        class="Container"
+        class="Section Section--alabaster Section--slim"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="Container"
         >
-          <nav
-            aria-label="breadcrumbs"
-            class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary"
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
           >
-            <ol
-              class="MuiBreadcrumbs-ol"
+            <nav
+              aria-label="breadcrumbs"
+              class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary"
             >
-              <li
-                class="MuiBreadcrumbs-li"
+              <ol
+                class="MuiBreadcrumbs-ol"
               >
-                <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk\\",\\"label\\":\\"Home page title\\"}"
-                  href="/uk"
-                  role="button"
-                  tabindex="0"
+                <li
+                  class="MuiBreadcrumbs-li"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label"
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk\\",\\"label\\":\\"Home page title\\"}"
+                    href="/uk"
+                    role="button"
+                    tabindex="0"
                   >
                     <span
-                      class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
+                      class="MuiButton-label buttonStyles-label"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root icon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
+                      <span
+                        class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
                       >
-                        <path
-                          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                        />
-                      </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root icon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="label"
+                      >
+                        Home page title
+                      </span>
                     </span>
                     <span
-                      class="label"
-                    >
-                      Home page title
-                    </span>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-            </ol>
-          </nav>
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
+              </ol>
+            </nav>
+          </div>
         </div>
       </div>
     </div>
@@ -8133,7 +8138,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -8162,7 +8167,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -8191,7 +8196,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -8660,10 +8665,10 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
               class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
                   class="ColorPair ColorPair--pearl"
@@ -8740,14 +8745,14 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-12"
                 style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-3"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
                   >
                     <a
                       aria-disabled="false"
@@ -9205,7 +9210,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -9234,7 +9239,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -9263,7 +9268,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -9732,10 +9737,10 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
               class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
                   class="ColorPair ColorPair--pearl"
@@ -9812,14 +9817,14 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-12"
                 style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-3"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
                   >
                     <a
                       aria-disabled="false"
@@ -10277,7 +10282,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -10306,7 +10311,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -10335,7 +10340,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -10804,10 +10809,10 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
               class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
                   class="ColorPair ColorPair--pearl"
@@ -10879,14 +10884,14 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-12"
                 style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-3"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
                   >
                     <a
                       aria-disabled="false"
@@ -11344,7 +11349,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -11373,7 +11378,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -11402,7 +11407,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -11871,10 +11876,10 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
               class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
                   class="ColorPair ColorPair--pearl"
@@ -11951,14 +11956,14 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-12"
                 style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-3"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
                   >
                     <a
                       aria-disabled="false"
@@ -12404,7 +12409,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -12430,7 +12435,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -12456,7 +12461,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -12891,10 +12896,10 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
               class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
                   class="ColorPair ColorPair--pearl"
@@ -12971,7 +12976,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-3"
               >
                 <div
                   class="scrollbar-container ps"
@@ -13189,14 +13194,14 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 </div>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-9"
                 style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-4"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-4"
                   >
                     <a
                       aria-disabled="false"
@@ -13630,7 +13635,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -13656,7 +13661,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -13682,7 +13687,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -14117,10 +14122,10 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
               class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
                   class="ColorPair ColorPair--pearl"
@@ -14197,7 +14202,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-3"
               >
                 <div
                   class="scrollbar-container ps"
@@ -14409,14 +14414,14 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 </div>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-9"
                 style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-4"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-4"
                   >
                     <a
                       aria-disabled="false"
@@ -14862,7 +14867,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -14891,7 +14896,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -14920,7 +14925,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -15389,10 +15394,10 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
               class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
                   class="ColorPair ColorPair--pearl"
@@ -15469,7 +15474,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-3"
               >
                 <div
                   class="scrollbar-container ps"
@@ -15696,14 +15701,14 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 </div>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-9"
                 style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-4"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-4"
                   >
                     <a
                       aria-disabled="false"
@@ -16161,7 +16166,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -16190,7 +16195,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -16219,7 +16224,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -16688,10 +16693,10 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
               class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
                   class="ColorPair ColorPair--pearl"
@@ -16763,7 +16768,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-12"
                 style="padding-top: 60px;"
               >
                 <div
@@ -17169,7 +17174,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -17198,7 +17203,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -17227,7 +17232,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -17557,20 +17562,302 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
       </div>
     </header>
     <div
-      class="Hero Hero--lvl-1"
+      class=""
+      data-testid="brand-colors-provider"
     >
       <div
-        class="Container"
+        class="Hero Hero--lvl-1"
       >
         <div
-          class="MuiContainer-root container MuiContainer-maxWidthXl"
+          class="Container"
         >
           <div
-            class="wrapper"
+            class="MuiContainer-root container MuiContainer-maxWidthXl"
+          >
+            <div
+              class="wrapper"
+            >
+              <nav
+                aria-label="breadcrumbs"
+                class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs Breadcrumbs--dark-themed MuiTypography-body1 MuiTypography-colorTextSecondary"
+              >
+                <ol
+                  class="MuiBreadcrumbs-ol"
+                >
+                  <li
+                    class="MuiBreadcrumbs-li"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg button link MuiButton-textPrimary"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk\\",\\"label\\":\\"Home page title\\"}"
+                      href="/uk"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label"
+                      >
+                        <span
+                          class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root icon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="label"
+                        >
+                          Home page title
+                        </span>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </li>
+                </ol>
+              </nav>
+              <div
+                class="content"
+              >
+                <h1
+                  class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+                >
+                  i am a title
+                </h1>
+                <div
+                  class="text"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="gatsby-image-wrapper gatsby-image-wrapper-constrained image Media"
+          data-gatsby-image-wrapper=""
+          style="overflow: hidden; display: inline-block;"
+        >
+          <div
+            style="max-width: 948px; display: block;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+              style="max-width: 100%; display: block; position: static;"
+            />
+          </div>
+          <div
+            aria-hidden="true"
+            data-placeholder-image=""
+            style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+          />
+          <picture>
+            <source
+              data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+              sizes="(min-width: 948px) 948px, 100vw"
+              type="image/webp"
+            />
+            <img
+              alt="Lorem ipsum"
+              data-gatsby-image-ssr=""
+              data-main-image=""
+              data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+              data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+              decoding="async"
+              draggable="false"
+              loading="lazy"
+              sizes="(min-width: 948px) 948px, 100vw"
+              style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+            />
+          </picture>
+          <noscript />
+          <script
+            type="module"
+          >
+            const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+          </script>
+        </div>
+      </div>
+      <div
+        class="Section Section--white"
+      >
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <div
+              class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+              />
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+              >
+                <div
+                  class="ColorPair ColorPair--pearl"
+                >
+                  <div
+                    class="PostItCard"
+                  >
+                    <div
+                      class="section"
+                    >
+                      <h4
+                        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                      >
+                        MC: plp.keyFeatures.title
+                      </h4>
+                      <div
+                        class="content"
+                      >
+                        <ul
+                          class="IconList"
+                        >
+                          <li
+                            class="ListItem ListItem--isCompact"
+                          >
+                            <div
+                              class="icon"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                                />
+                              </svg>
+                            </div>
+                            <div
+                              class="content"
+                            >
+                              <p
+                                class="MuiTypography-root title Typography MuiTypography-body1"
+                              >
+                                test
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="Section Section--pearl Section--overflow-visible"
+      >
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <div
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-12"
+                style="padding-top: 60px;"
+              >
+                <div
+                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                >
+                  <p
+                    class="MuiTypography-root Typography MuiTypography-body1"
+                  >
+                    MC: plp.product.noResultsFound
+                  </p>
+                </div>
+                <div
+                  class="ResultsPagination"
+                >
+                  <nav
+                    aria-label="pagination navigation"
+                    class="MuiPagination-root pagination"
+                  >
+                    <ul
+                      class="MuiPagination-ul"
+                    >
+                      <li>
+                        <button
+                          aria-label="Go to previous page"
+                          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary MuiPaginationItem-disabled MuiButtonBase-disabled"
+                          disabled=""
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiPaginationItem-icon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                            />
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          aria-label="Go to next page"
+                          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary MuiPaginationItem-disabled MuiButtonBase-disabled"
+                          disabled=""
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiPaginationItem-icon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                            />
+                          </svg>
+                        </button>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="Section Section--alabaster Section--slim"
+      >
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs Breadcrumbs--dark-themed MuiTypography-body1 MuiTypography-colorTextSecondary"
+              class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary"
             >
               <ol
                 class="MuiBreadcrumbs-ol"
@@ -17580,7 +17867,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg button link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk\\",\\"label\\":\\"Home page title\\"}"
                     href="/uk"
                     role="button"
@@ -17616,284 +17903,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 </li>
               </ol>
             </nav>
-            <div
-              class="content"
-            >
-              <h1
-                class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
-              >
-                i am a title
-              </h1>
-              <div
-                class="text"
-              />
-            </div>
           </div>
-        </div>
-      </div>
-      <div
-        class="gatsby-image-wrapper gatsby-image-wrapper-constrained image Media"
-        data-gatsby-image-wrapper=""
-        style="overflow: hidden; display: inline-block;"
-      >
-        <div
-          style="max-width: 948px; display: block;"
-        >
-          <img
-            alt=""
-            aria-hidden="true"
-            role="presentation"
-            src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-            style="max-width: 100%; display: block; position: static;"
-          />
-        </div>
-        <div
-          aria-hidden="true"
-          data-placeholder-image=""
-          style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-        />
-        <picture>
-          <source
-            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-            sizes="(min-width: 948px) 948px, 100vw"
-            type="image/webp"
-          />
-          <img
-            alt="Lorem ipsum"
-            data-gatsby-image-ssr=""
-            data-main-image=""
-            data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-            decoding="async"
-            draggable="false"
-            loading="lazy"
-            sizes="(min-width: 948px) 948px, 100vw"
-            style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-          />
-        </picture>
-        <noscript />
-        <script
-          type="module"
-        >
-          const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-        </script>
-      </div>
-    </div>
-    <div
-      class="Section Section--white"
-    >
-      <div
-        class="Container"
-      >
-        <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
-        >
-          <div
-            class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
-          >
-            <div
-              class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
-            />
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
-            >
-              <div
-                class="ColorPair ColorPair--pearl"
-              >
-                <div
-                  class="PostItCard"
-                >
-                  <div
-                    class="section"
-                  >
-                    <h4
-                      class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-                    >
-                      MC: plp.keyFeatures.title
-                    </h4>
-                    <div
-                      class="content"
-                    >
-                      <ul
-                        class="IconList"
-                      >
-                        <li
-                          class="ListItem ListItem--isCompact"
-                        >
-                          <div
-                            class="icon"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                              />
-                            </svg>
-                          </div>
-                          <div
-                            class="content"
-                          >
-                            <p
-                              class="MuiTypography-root title Typography MuiTypography-body1"
-                            >
-                              test
-                            </p>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="Section Section--pearl Section--overflow-visible"
-    >
-      <div
-        class="Container"
-      >
-        <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
-        >
-          <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
-          >
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
-              style="padding-top: 60px;"
-            >
-              <div
-                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
-              >
-                <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
-                >
-                  MC: plp.product.noResultsFound
-                </p>
-              </div>
-              <div
-                class="ResultsPagination"
-              >
-                <nav
-                  aria-label="pagination navigation"
-                  class="MuiPagination-root pagination"
-                >
-                  <ul
-                    class="MuiPagination-ul"
-                  >
-                    <li>
-                      <button
-                        aria-label="Go to previous page"
-                        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary MuiPaginationItem-disabled MuiButtonBase-disabled"
-                        disabled=""
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiPaginationItem-icon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                          />
-                        </svg>
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        aria-label="Go to next page"
-                        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary MuiPaginationItem-disabled MuiButtonBase-disabled"
-                        disabled=""
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiPaginationItem-icon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                          />
-                        </svg>
-                      </button>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="Section Section--alabaster Section--slim"
-    >
-      <div
-        class="Container"
-      >
-        <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
-        >
-          <nav
-            aria-label="breadcrumbs"
-            class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary"
-          >
-            <ol
-              class="MuiBreadcrumbs-ol"
-            >
-              <li
-                class="MuiBreadcrumbs-li"
-              >
-                <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk\\",\\"label\\":\\"Home page title\\"}"
-                  href="/uk"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiButton-label buttonStyles-label"
-                  >
-                    <span
-                      class="MuiButton-startIcon buttonStyles-startIcon MuiButton-iconSizeMedium"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root icon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="label"
-                    >
-                      Home page title
-                    </span>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-            </ol>
-          </nav>
         </div>
       </div>
     </div>
@@ -18172,7 +18182,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -18201,7 +18211,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -18230,7 +18240,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-2"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                   >
                     <a
                       aria-disabled="false"
@@ -18695,10 +18705,10 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
               class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
               />
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
               >
                 <div
                   class="ColorPair ColorPair--pearl"
@@ -18775,14 +18785,14 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-12"
                 style="padding-top: 60px;"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-3"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
                   >
                     <a
                       aria-disabled="false"

@@ -34,7 +34,12 @@ describe("BrandProvider", () => {
     expect(view.container.firstChild).toMatchSnapshot();
   });
 
-  it("adds brand className only when correct brand is provided", () => {
+  it("renders without brand", () => {
+    const view = render(<BrandProvider>Without brand</BrandProvider>);
+    expect(view.container.firstChild).toMatchSnapshot();
+  });
+
+  it("adds brand className only when brand is provided", () => {
     const { rerender } = render(<BrandProvider>Without brand</BrandProvider>);
     expect(screen.getByTestId("brand-colors-provider")).not.toHaveClass();
 
