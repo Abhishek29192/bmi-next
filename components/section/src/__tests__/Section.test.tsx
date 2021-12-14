@@ -49,4 +49,11 @@ describe("Section component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it("renders as with spacing none", () => {
+    const { container } = render(
+      <Section spacing="none">Hey, I like to over flow.</Section>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

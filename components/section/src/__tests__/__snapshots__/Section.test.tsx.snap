@@ -64,6 +64,22 @@ exports[`Section component renders as with overflow visible 1`] = `
 </div>
 `;
 
+exports[`Section component renders as with spacing none 1`] = `
+<div
+  class="Section Section--no-spacing"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      Hey, I like to over flow.
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Section component renders correctly 1`] = `
 <div
   class="Section"
