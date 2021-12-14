@@ -413,7 +413,23 @@ Array [
 ]
 `;
 
+exports[`SlideControls component triggers a onNextClick event and onChange 1`] = `
+Array [
+  Array [
+    1,
+  ],
+]
+`;
+
 exports[`SlideControls component triggers a onPrevClick event 1`] = `
+Array [
+  Array [
+    1,
+  ],
+]
+`;
+
+exports[`SlideControls component triggers a onPrevClick event and onChange 1`] = `
 Array [
   Array [
     1,

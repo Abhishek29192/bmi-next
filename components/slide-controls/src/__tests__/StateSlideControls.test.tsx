@@ -66,6 +66,26 @@ describe("SlideControls component", () => {
 
     expect(onPrevClick.mock.calls).toMatchSnapshot();
   });
+
+  it("triggers a onPrevClick event and onChange", () => {
+    const onPrevClick = jest.fn();
+    const onChange = jest.fn();
+    const previousLabel = "previous";
+    const { getByLabelText } = render(
+      <SlideControls
+        onChange={onChange}
+        current={1}
+        total={5}
+        previousLabel={previousLabel}
+        onPrevClick={onPrevClick}
+      />
+    );
+
+    fireEvent.click(getByLabelText(previousLabel));
+
+    expect(onChange.mock.calls).toMatchSnapshot();
+  });
+
   it("triggers a onNextClick event", () => {
     const onNextClick = jest.fn();
     const nextLabel = "next";
@@ -81,5 +101,24 @@ describe("SlideControls component", () => {
     fireEvent.click(getByLabelText(nextLabel));
 
     expect(onNextClick.mock.calls).toMatchSnapshot();
+  });
+
+  it("triggers a onNextClick event and onChange", () => {
+    const onChange = jest.fn();
+    const onNextClick = jest.fn();
+    const nextLabel = "next";
+    const { getByLabelText } = render(
+      <SlideControls
+        onChange={onChange}
+        current={1}
+        total={5}
+        nextLabel={nextLabel}
+        onNextClick={onNextClick}
+      />
+    );
+
+    fireEvent.click(getByLabelText(nextLabel));
+
+    expect(onChange.mock.calls).toMatchSnapshot();
   });
 });
