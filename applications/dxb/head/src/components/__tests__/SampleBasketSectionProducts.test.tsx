@@ -7,12 +7,12 @@ import {
   BasketContextProvider,
   Sample
 } from "../../contexts/SampleBasketContext";
-import { createVariantOption } from "../../__tests__/PimDocumentProductHelper";
 import createImage from "../../__tests__/ImageHelper";
 import createClassification, {
   createFeature
 } from "../../__tests__/ClassificationHelper";
 import { SiteContextProvider } from "../Site";
+import { ClassificationCodeEnum } from "../types/pim";
 
 const getSiteContext = () => ({
   countryCode: "en",
@@ -26,41 +26,41 @@ const getSiteContext = () => ({
 const samples: Sample[] = [
   {
     name: "sample-1",
-    ...createVariantOption({
-      code: "sample-1",
-      images: [createImage()],
-      path: "sample-1-details",
-      classifications: [createClassification({ code: "appearanceAttributes" })]
-    })
+    code: "sample-1",
+    image: createImage().url,
+    path: "sample-1-details",
+    classifications: [
+      createClassification({
+        code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE
+      })
+    ]
   },
   {
     name: "sample-2",
-    ...createVariantOption({
-      code: "sample-2",
-      images: [createImage()],
-      classifications: [
-        createClassification({
-          code: "measurements",
-          features: [
-            createFeature({
-              featureValues: [{ value: "10" }],
-              featureUnit: { symbol: "mm", name: "mm", unitType: "size" }
-            }),
-            createFeature({ featureValues: [{ value: "20" }] })
-          ]
-        })
-      ]
-    })
+    code: "sample-2",
+    path: "sample-2-details",
+    image: createImage().url,
+    classifications: [
+      createClassification({
+        code: ClassificationCodeEnum.MEASUREMENTS,
+        features: [
+          createFeature({
+            featureValues: [{ value: "10" }],
+            featureUnit: { symbol: "mm", name: "mm", unitType: "size" }
+          }),
+          createFeature({ featureValues: [{ value: "20" }] })
+        ]
+      })
+    ]
   },
   {
     name: "sample-3",
-    ...createVariantOption({
-      code: "sample-3",
-      images: [createImage()]
-    })
+    code: "sample-3",
+    path: "sample-3-details",
+    image: createImage().url,
+    classifications: []
   }
 ];
-
 describe("SampleBasketSectionProducts component", () => {
   beforeAll(() => {
     jest.spyOn(local, "getItem").mockReturnValue(JSON.stringify(samples));
@@ -101,18 +101,5 @@ describe("SampleBasketSectionProducts component", () => {
     fireEvent.click(screen.queryByText("sample-1"));
 
     expect(Gatsby.navigate).toBeCalledWith("/en/sample-1-details");
-  });
-
-  it("renders correctly for mobile", () => {
-    jest.mock("@material-ui/core", () => ({
-      useMediaQuery: jest.fn().mockRejectedValue(true)
-    }));
-
-    const { container } = render(
-      <BasketContextProvider>
-        <SampleBasketSectionProducts />
-      </BasketContextProvider>
-    );
-    expect(container.firstChild).toMatchSnapshot();
   });
 });

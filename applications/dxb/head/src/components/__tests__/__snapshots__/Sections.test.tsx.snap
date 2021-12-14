@@ -3313,8 +3313,10 @@ HTMLCollection [
               class="ButtonWrapper"
             >
               <button
+                aria-action="Form section"
+                aria-label="children"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-6 MuiButton-contained buttonStyles-contained-8 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
-                data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"Submit\\",\\"action\\":\\"Form section\\"}"
+                data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Form section\\"}"
                 disabled=""
                 tabindex="-1"
                 type="submit"

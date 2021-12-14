@@ -71,8 +71,6 @@ describe("Project", () => {
   });
 
   describe("DB permissions", () => {
-    describe("Super Admin", () => {});
-
     describe("Company admin", () => {
       it("should be able to add a project", async () => {
         const { account, company } = await setupData("COMPANY_ADMIN");

@@ -1,10 +1,19 @@
 async function handleTokenClaims(user, context, callback) {
+  const { namespace, appUrl, logoutUrl, appEnv } = configuration;
   const { app_metadata = {}, user_metadata = {} } = user;
-  const { namespace, appUrl, logoutUrl } = configuration;
+
+  // namespace: https://intouch
+  // appUrl: intouch.bmigroup.com
+  // logout : https://qa-intouch.eu.auth0.com/v2/logout
+
+  const prefix =
+    appEnv === "prod"
+      ? user_metadata.market
+      : `${appEnv}-${user_metadata.market}`;
 
   if (!user.email_verified) {
     context.redirect = {
-      url: `${logoutUrl}?client_id=${context.clientID}&returnTo=https://${user_metadata.market}.${appUrl}/email-verification`
+      url: `${logoutUrl}?client_id=${context.clientID}&returnTo=https://${prefix}.${appUrl}/email-verification`
     };
     return callback(null, user, context);
   }

@@ -16,11 +16,11 @@ const setupCompanyOpTest = async (client, accountRole) => {
   };
   const insertOne = curryContext(context, dbInsertOne);
   const market = await insertOne("market", {
-    domain: "da",
+    domain: "aa",
     language: "da"
   });
   const otherMarket = await insertOne("market", {
-    domain: "sk",
+    domain: "dd",
     language: "sk"
   });
   const account = await insertOne("account", {

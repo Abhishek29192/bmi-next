@@ -1,8 +1,8 @@
 import { Filter } from "@bmi/filters";
 import { devLog } from "../utils/devLog";
 import {
-  getCollapseVariantsByBaseProductCodeQuery,
-  getUniqueBaseProductCountCodeAggrigation
+  getVariantsByBaseProductCodeQuery,
+  getUniqueBaseProductCount
 } from "./elasticSearchCommonQuery";
 
 const ES_AGGREGATION_NAMES = {
@@ -176,7 +176,7 @@ export const compileElasticSearchQuery = (
           field: "colourfamilyCode.keyword"
         }
       },
-      ...getUniqueBaseProductCountCodeAggrigation()
+      ...getUniqueBaseProductCount()
     },
     // TODO: Join in a bool if multiple categories with multiple values
     // TODO: Still not sure how to handle this exactly
@@ -221,7 +221,7 @@ export const compileElasticSearchQuery = (
         ].filter(Boolean)
       }
     },
-    ...getCollapseVariantsByBaseProductCodeQuery()
+    ...getVariantsByBaseProductCodeQuery()
   };
 };
 
@@ -230,8 +230,79 @@ export const compileElasticSearchQuery = (
 // only interested in the query - pagination, aggregates, and sorting don't affect total count
 export const getCountQuery = (fullQuery) => ({
   size: 0,
-  query: fullQuery.query
+  query: fullQuery.query,
+  aggs: fullQuery.aggs
 });
+
+export const getDocumentQueryObject = (
+  queryString,
+  pageSize,
+  page = 0,
+  filters = []
+) => {
+  // Filters in the query
+  // TODO: this acts like it handles many filters but actually handles one. refactor
+  const filtersQuery = filters
+    .filter(({ value }) => value.length)
+    .map((filter) => {
+      const termQuery = (value) => ({
+        term: {
+          ["assetType.pimCode.keyword"]: value
+        }
+      });
+      const query =
+        filter.value.length === 1
+          ? termQuery(filter.value[0])
+          : {
+              bool: {
+                should: filter.value.map(termQuery)
+              }
+            };
+
+      return query;
+    });
+
+  const queryElements = [
+    {
+      query_string: {
+        query: `*${queryString}*`,
+        type: "cross_fields",
+        fields: ["title"]
+      }
+    },
+    ...filtersQuery
+  ];
+
+  return {
+    size: pageSize,
+    from: page * pageSize,
+    sort: [{ "assetType.name.keyword": "asc", "title.keyword": "asc" }],
+    aggs: {
+      assetTypes: {
+        terms: {
+          size: "100",
+          field: "assetType.pimCode.keyword"
+        }
+      },
+      total: {
+        cardinality: {
+          field: "titleAndSize.keyword"
+        }
+      }
+    },
+    query:
+      queryElements.length === 1
+        ? queryElements[0]
+        : {
+            bool: {
+              must: queryElements
+            }
+          },
+    collapse: {
+      field: "titleAndSize.keyword"
+    }
+  };
+};
 
 export const queryElasticSearch = async (query = {}, indexName: string) => {
   const url = `${process.env.GATSBY_ES_ENDPOINT}/${indexName}/_search`;

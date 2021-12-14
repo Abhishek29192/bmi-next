@@ -14,6 +14,12 @@
   "Account": "Min konto",
   "Profile": "Profil",
   "Logout": "Logg ut",
+  "Notifications": "Varsler",
+  "aria": {
+    "navigation": "Varsler",
+    "notifications": "Navigasjon"
+  },
+  "deactivatedCompany": "Selskapet deaktivert",
   "results available": "resultater tilgjengelig",
   "Company Description": "Om oss",
   "About Us": "Om oss",
@@ -49,11 +55,11 @@
     "noResults": "Ingen resultater funnet"
   },
   "Download": "Last ned",
-  "SavePdf": "Lagre som PDF",
+  "SavePdf": "Last ned PDF",
   "visitWebsite": "Besøk nettsiden",
   "certifications": {
     "pitched": "Skråtak",
-    "flat": "Flatt tak",
+    "flat": "Flate tak",
     "other": "Annet"
   },
   "certificationLabels": {

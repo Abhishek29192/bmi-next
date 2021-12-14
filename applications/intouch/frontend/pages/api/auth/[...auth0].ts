@@ -24,7 +24,11 @@ export const afterCallback = async (
   // Set the logger again with the session attached
   NextLogger(req, res);
 
-  const apolloClient = await initializeApollo(null, { res, req, session });
+  const apolloClient = await initializeApollo(null, {
+    res,
+    req,
+    accessToken: session.accessToken
+  });
 
   const accountSrv = new Account(req.logger, apolloClient, session);
 
@@ -108,6 +112,11 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
 
         if (req?.query?.error_description === "email_not_verified") {
           res.writeHead(302, { Location: "/email-verification" });
+          return res.end();
+        }
+
+        if (req?.query?.error_description === "user is blocked") {
+          res.writeHead(302, { Location: "/api-error?message=user_blocked" });
           return res.end();
         }
 

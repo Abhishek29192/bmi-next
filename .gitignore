@@ -64,3 +64,11 @@ tsconfig.tsbuildinfo
 
 # Rest Client secrets
 http-client.private.env.json
+
+.idea/
+*.ipr
+*.iws
+*.iml
+
+target/
+package-lock.json

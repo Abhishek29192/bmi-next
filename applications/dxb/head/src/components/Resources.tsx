@@ -35,6 +35,7 @@ export type Data = {
   countryNavigationIntroduction?: RichTextData | null;
   maximumSamples: number | null;
   sampleBasketLink: PageInfoData | null;
+  keyAssetTypes: string[] | null;
 };
 
 export const query = graphql`
@@ -46,6 +47,7 @@ export const query = graphql`
       ...TitleWithContentFragment
     }
     pdpCardsTitle
+    keyAssetTypes
     maximumSamples
     sampleBasketLink {
       ... on ContentfulSimplePage {

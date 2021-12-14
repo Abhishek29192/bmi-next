@@ -16,6 +16,11 @@
         tags: {
           omit: "create"
         }
+      },
+      migrations: {
+        tags: {
+          omit: "read,update,create,delete,all,many"
+        }
       }
     },
     procedure: {

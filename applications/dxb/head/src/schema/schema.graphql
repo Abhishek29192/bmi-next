@@ -112,6 +112,9 @@ interface ContentfulPage implements Node {
   "The breadcrumb items for this page, devoid of any prefix."
   breadcrumbs: JSON
 
+  "The breadcrumb title options"
+  breadcrumbTitle: String
+
   "The brand logo for this page."
   brandLogo: String
 
@@ -176,6 +179,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
 
   "The breadcrumb items for this page, devoid of any prefix."
   breadcrumbs: JSON
+
+  "The breadcrumb title options"
+  breadcrumbTitle: String
 
   "The brand logo for this page."
   brandLogo: String
@@ -252,6 +258,9 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "The breadcrumb items for this page, devoid of any prefix."
   breadcrumbs: JSON
+
+  "The breadcrumb title options"
+  breadcrumbTitle: String
 
   "This field will always return null."
   brandLogo: String
@@ -362,6 +371,9 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 
   "The breadcrumb items for this page, devoid of any prefix."
   breadcrumbs: JSON
+
+  "The breadcrumb title options"
+  breadcrumbTitle: String
 
   "This field will always return null."
   brandLogo: String
@@ -591,6 +603,15 @@ type ContentfulSampleBasketSection implements Node {
   "The checkout form section"
   checkoutFormSection: ContentfulFormSection
     @link(from: "checkoutFormSection___NODE")
+
+  "The text to display when basket is empty."
+  emptyBasketMessage: ContentfulRichText
+
+  "Browse products CTA Label."
+  browseProductsCTALabel: String
+
+  "The browse Products CTA link to page."
+  browseProductsCTA: LinkedPage @link(from: "browseProductsCTA___NODE")
 }
 
 """
@@ -729,6 +750,9 @@ Represents a section of downloadable document assets.
 type ContentfulServiceLocatorSection implements Node {
   "Type of services to be displayed (Roofer, Branch, or Merchant)"
   type: String
+
+  "Flag to show/hide result list on page load"
+  showDefaultResultList: Boolean
 
   "The title for this section."
   title: String
@@ -982,6 +1006,9 @@ type ContentfulResources implements Node {
 
   "Sample Basket Link"
   sampleBasketLink: ContentfulSimplePage @link(from: "sampleBasketLink___NODE")
+
+  "Key Asset Types"
+  keyAssetTypes: [String]
 }
 
 """
@@ -1308,11 +1335,17 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   "The url for this page, devoid of any prefix."
   slug: String!
 
+  "The PIM categories this page is attached to."
+  categoryCodes: [String!]
+
   "The full path for this page, devoid of any prefix."
   path: String!
 
   "The breadcrumb items for this page, devoid of any prefix."
   breadcrumbs: JSON
+
+  "The breadcrumb title options"
+  breadcrumbTitle: String
 
   "The brand logo for this page (unused)."
   brandLogo: String
@@ -1349,6 +1382,9 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
 
   "The product codes specified for this page."
   pimCodes: [String]
+
+  "Allow Filter By"
+  allowFilterBy: [String!]
 
   "The parent page of this page."
   parentPage: LinkedPage @link(from: "parentPage___NODE")
@@ -1555,6 +1591,9 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
 
   "The breadcrumb items for this page, devoid of any prefix."
   breadcrumbs: JSON
+
+  "The breadcrumb title options"
+  breadcrumbTitle: String
 
   "The short description for this page."
   subtitle: String

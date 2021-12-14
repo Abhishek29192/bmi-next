@@ -31,6 +31,11 @@ const resolveDocumentsFromProducts = async (
                 in: source.pimCodes
               }
             }
+          : {}),
+        ...(source.categoryCodes && source.categoryCodes.length
+          ? {
+              categories: { elemMatch: { code: { in: source.categoryCodes } } }
+            }
           : {})
       }
     : {};

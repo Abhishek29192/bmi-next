@@ -79,15 +79,18 @@ export default class GuaranteePdfGenerator {
 
     const guaranteePdf = await this.getGuaranteePdf(guaranteeType, template);
 
-    const maintanance = await this.getPdfFromUrl(
-      template.maintenanceTemplate.url
-    );
-    const termAndCondition = await this.getPdfFromUrl(template.terms.url);
-    const data = await this.mergePdf(
-      guaranteePdf,
-      maintanance,
-      termAndCondition
-    );
+    const pdfs = [guaranteePdf];
+    if (template.maintenanceTemplate?.url) {
+      const maintenance = await this.getPdfFromUrl(
+        template.maintenanceTemplate.url
+      );
+      pdfs.push(maintenance);
+    }
+    if (template.terms?.url) {
+      const terms = await this.getPdfFromUrl(template.terms.url);
+      pdfs.push(terms);
+    }
+    const data = await this.mergePdf(...pdfs);
 
     return {
       name: `${template.filenamePrefix} ${id}.pdf`,

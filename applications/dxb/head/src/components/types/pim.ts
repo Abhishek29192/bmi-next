@@ -88,7 +88,7 @@ export type ImageFormat =
 export type Image = {
   allowedToDownload: boolean;
   altText?: string | null;
-  assetType: string;
+  assetType: ImageAssetTypesEnum;
   containerId: string;
   fileSize: number;
   format?: ImageFormat | null;
@@ -187,3 +187,38 @@ export type Product = {
 export type VariantOptionWithProduct = VariantOption & {
   _product: Product;
 };
+
+export enum ImageAssetTypesEnum {
+  TECHNICAL_DRAWINGS = "TECHNICAL_DRAWINGS",
+  MASTER_IMAGE = "MASTER_IMAGE",
+  GALLERY = "GALLERY"
+}
+
+export enum ClassificationCodeEnum {
+  APPEARANCE_ATTRIBUTE = "appearanceAttributes",
+  MEASUREMENTS = "measurements",
+  GENERAL_INFORMATION = "generalInformation",
+  WEIGHT_ATTRIBUTES = "weightAttributes",
+  SCORING_WEIGHT_ATTRIBUTES = "scoringWeightAttributes",
+  SYSTEM_ATTRIBUTES = "systemAttributes",
+  FRANCE_FLAT_SYSTEM_ATTRIBUTES = "franceFlatSystemAttributes"
+}
+
+export enum FeatureCodeEnum {
+  COLOUR = "colour",
+  TEXTURE_FAMILY = "texturefamily",
+  COLOUR_FAMILY = "colourfamily",
+  MATERIALS = "materials",
+  LENGTH = "length",
+  WIDTH = "width",
+  HEIGHT = "height",
+  SCORE_WEIGHT = "scoringweight",
+  THICKNESS = "thickness",
+  VARIANT_ATTRIBUTE = "variantattribute",
+  NET_WEIGHT = "netweight",
+  GROSS_WEIGHT = "grossweight",
+  WEIGHT_PER_PRICE = "weightperpiece",
+  WEIGHT_PER_SQM = "weightpersqm",
+  WEIGHT_PER_PALLET = "weightperpallet",
+  VOLUME = "volume"
+}

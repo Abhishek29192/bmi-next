@@ -33,6 +33,13 @@ async function main() {
   app.use(parseUserInfo);
   app.use("*", docebo);
   app.use(postgraphile());
+
+  app.get("/health", (req, res) =>
+    res.send({
+      status: "up"
+    })
+  );
+
   app.listen(PORT, () => {
     // eslint-disable-next-line no-console
     console.log(`🚀 Training service started at http://localhost:${PORT}`);

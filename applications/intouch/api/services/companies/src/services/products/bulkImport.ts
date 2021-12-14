@@ -56,9 +56,9 @@ const getSystems = async (market: string, pgClient: any) => {
 
 export const bulkImport = async (args, context: PostGraphileContext) => {
   const { pgClient, user } = context;
+  const { APP_ENV } = process.env;
   const { input } = args;
   const logger = context.logger("product:import");
-
   const files = await input.files;
 
   let products = [];
@@ -85,6 +85,10 @@ export const bulkImport = async (args, context: PostGraphileContext) => {
 
     if (!env || !marketCode || !table) {
       throw new Error("filename_wrong_format");
+    }
+
+    if (env !== APP_ENV) {
+      throw new Error(`wrong_env`);
     }
 
     if (

@@ -5,6 +5,7 @@ import GoogleMap from "../";
 import Map from "./__mocks__/Map";
 
 jest.mock("./__mocks__/Map");
+jest.mock("@googlemaps/markerclusterer");
 
 describe("GoogleMap component", () => {
   beforeEach(() => {

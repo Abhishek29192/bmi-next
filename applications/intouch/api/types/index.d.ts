@@ -398,11 +398,11 @@ export type AccountMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -1831,8 +1831,6 @@ export type CompaniesOrderBy =
   | "REGISTERED_ADDRESS_ID_DESC"
   | "TRADING_ADDRESS_ID_ASC"
   | "TRADING_ADDRESS_ID_DESC"
-  | "NAME_ASC"
-  | "NAME_DESC"
   | "REFERENCE_NUMBER_ASC"
   | "REFERENCE_NUMBER_DESC"
   | "PRIMARY_KEY_ASC"
@@ -1976,13 +1974,17 @@ export type CompanyProjectsArgs = {
 };
 
 /** The fields on `company` to look up the row to connect. */
-export type CompanyCompanyNameKeyConnect = {
+export type CompanyCompanyMarketIdNameKeyConnect = {
+  /** fk */
+  marketId: Scalars["Int"];
   /** The registered name of the Company */
   name: Scalars["String"];
 };
 
 /** The fields on `company` to look up the row to delete. */
-export type CompanyCompanyNameKeyDelete = {
+export type CompanyCompanyMarketIdNameKeyDelete = {
+  /** fk */
+  marketId: Scalars["Int"];
   /** The registered name of the Company */
   name: Scalars["String"];
 };
@@ -2021,8 +2023,6 @@ export type CompanyCondition = {
   registeredAddressId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `tradingAddressId` field. */
   tradingAddressId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `name` field. */
-  name?: Maybe<Scalars["String"]>;
   /** Checks for equality with the object’s `referenceNumber` field. */
   referenceNumber?: Maybe<Scalars["Int"]>;
 };
@@ -2042,6 +2042,10 @@ export type CompanyDocument = Node & {
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Company` that is related to this `CompanyDocument`. */
   company?: Maybe<Company>;
+  name?: Maybe<Scalars["String"]>;
+  documentType?: Maybe<CompanyDocumentType>;
+  size?: Maybe<Scalars["Int"]>;
+  signedDocumentUrl?: Maybe<Scalars["String"]>;
 };
 
 /** The fields on `companyDocument` to look up the row to connect. */
@@ -2065,6 +2069,7 @@ export type CompanyDocumentCompanyIdFkeyCompanyDocumentCreateInput = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
+  attachmentUpload?: Maybe<Scalars["Upload"]>;
 };
 
 /** Input for the nested mutation of `company` in the `CompanyDocumentInput` mutation. */
@@ -2072,7 +2077,7 @@ export type CompanyDocumentCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<CompanyCompanyPkeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  connectByName?: Maybe<CompanyCompanyNameKeyConnect>;
+  connectByMarketIdAndName?: Maybe<CompanyCompanyMarketIdNameKeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
@@ -2080,7 +2085,7 @@ export type CompanyDocumentCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<CompanyCompanyPkeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  deleteByName?: Maybe<CompanyCompanyNameKeyDelete>;
+  deleteByMarketIdAndName?: Maybe<CompanyCompanyMarketIdNameKeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
@@ -2088,7 +2093,7 @@ export type CompanyDocumentCompanyIdFkeyInput = {
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyPkeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
-  updateByName?: Maybe<CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyNameKeyUpdate>;
+  updateByMarketIdAndName?: Maybe<CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
@@ -2155,6 +2160,7 @@ export type CompanyDocumentInput = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
+  attachmentUpload?: Maybe<Scalars["Upload"]>;
 };
 
 /** The globally unique `ID` look up for the row to connect. */
@@ -2200,6 +2206,8 @@ export type CompanyDocumentPatch = {
   companyToCompanyId?: Maybe<CompanyDocumentCompanyIdFkeyInput>;
 };
 
+export type CompanyDocumentType = "PDF" | "JPG" | "JPEG" | "PNG";
+
 /** A connection to a list of `CompanyDocument` values. */
 export type CompanyDocumentsConnection = {
   __typename?: "CompanyDocumentsConnection";
@@ -2242,8 +2250,6 @@ export type CompanyFilter = {
   registeredAddressId?: Maybe<IntFilter>;
   /** Filter by the object’s `tradingAddressId` field. */
   tradingAddressId?: Maybe<IntFilter>;
-  /** Filter by the object’s `name` field. */
-  name?: Maybe<StringFilter>;
   /** Filter by the object’s `referenceNumber` field. */
   referenceNumber?: Maybe<IntFilter>;
   /** Checks for all expressions in this list. */
@@ -2291,7 +2297,7 @@ export type CompanyMarketIdFkeyInverseInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<Array<CompanyCompanyPkeyConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  connectByName?: Maybe<Array<CompanyCompanyNameKeyConnect>>;
+  connectByMarketIdAndName?: Maybe<Array<CompanyCompanyMarketIdNameKeyConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<
     Array<CompanyCompanyReferenceNumberKeyConnect>
@@ -2301,7 +2307,7 @@ export type CompanyMarketIdFkeyInverseInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<Array<CompanyCompanyPkeyDelete>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  deleteByName?: Maybe<Array<CompanyCompanyNameKeyDelete>>;
+  deleteByMarketIdAndName?: Maybe<Array<CompanyCompanyMarketIdNameKeyDelete>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<
     Array<CompanyCompanyReferenceNumberKeyDelete>
@@ -2313,8 +2319,8 @@ export type CompanyMarketIdFkeyInverseInput = {
     Array<CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyPkeyUpdate>
   >;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
-  updateByName?: Maybe<
-    Array<CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyNameKeyUpdate>
+  updateByMarketIdAndName?: Maybe<
+    Array<CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyMarketIdNameKeyUpdate>
   >;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<
@@ -2342,11 +2348,11 @@ export type CompanyMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -2490,7 +2496,7 @@ export type CompanyMemberCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<CompanyCompanyPkeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  connectByName?: Maybe<CompanyCompanyNameKeyConnect>;
+  connectByMarketIdAndName?: Maybe<CompanyCompanyMarketIdNameKeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
@@ -2498,7 +2504,7 @@ export type CompanyMemberCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<CompanyCompanyPkeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  deleteByName?: Maybe<CompanyCompanyNameKeyDelete>;
+  deleteByMarketIdAndName?: Maybe<CompanyCompanyMarketIdNameKeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
@@ -2506,7 +2512,7 @@ export type CompanyMemberCompanyIdFkeyInput = {
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyPkeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
-  updateByName?: Maybe<CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyNameKeyUpdate>;
+  updateByMarketIdAndName?: Maybe<CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
@@ -2728,11 +2734,11 @@ export type CompanyMemberMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -2934,10 +2940,12 @@ export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyNodeIdUpdate 
   };
 
 /** The fields on `company` to look up the row to update. */
-export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyNameKeyUpdate =
+export type CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate =
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch;
+    /** fk */
+    marketId: Scalars["Int"];
     /** The registered name of the Company */
     name: Scalars["String"];
   };
@@ -2969,12 +2977,15 @@ export type CompanyOnCompanyForCompanyMarketIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `company` to look up the row to update. */
-export type CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyNameKeyUpdate = {
-  /** An object where the defined keys will be set on the `company` being updated. */
-  patch: UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch;
-  /** The registered name of the Company */
-  name: Scalars["String"];
-};
+export type CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyMarketIdNameKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch;
+    /** fk */
+    marketId: Scalars["Int"];
+    /** The registered name of the Company */
+    name: Scalars["String"];
+  };
 
 /** The fields on `company` to look up the row to update. */
 export type CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyPkeyUpdate = {
@@ -3002,10 +3013,12 @@ export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `company` to look up the row to update. */
-export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyNameKeyUpdate =
+export type CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyMarketIdNameKeyUpdate =
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch;
+    /** fk */
+    marketId: Scalars["Int"];
     /** The registered name of the Company */
     name: Scalars["String"];
   };
@@ -3037,10 +3050,12 @@ export type CompanyOnCompanyForCompanyTradingAddressIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `company` to look up the row to update. */
-export type CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyNameKeyUpdate =
+export type CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyMarketIdNameKeyUpdate =
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch;
+    /** fk */
+    marketId: Scalars["Int"];
     /** The registered name of the Company */
     name: Scalars["String"];
   };
@@ -3072,10 +3087,12 @@ export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `company` to look up the row to update. */
-export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyNameKeyUpdate =
+export type CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate =
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch;
+    /** fk */
+    marketId: Scalars["Int"];
     /** The registered name of the Company */
     name: Scalars["String"];
   };
@@ -3108,10 +3125,12 @@ export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyNodeIdUpdate 
   };
 
 /** The fields on `company` to look up the row to update. */
-export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyNameKeyUpdate =
+export type CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyMarketIdNameKeyUpdate =
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch;
+    /** fk */
+    marketId: Scalars["Int"];
     /** The registered name of the Company */
     name: Scalars["String"];
   };
@@ -3143,10 +3162,12 @@ export type CompanyOnInvitationForInvitationCompanyIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `company` to look up the row to update. */
-export type CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyNameKeyUpdate =
+export type CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate =
   {
     /** An object where the defined keys will be set on the `company` being updated. */
     patch: UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch;
+    /** fk */
+    marketId: Scalars["Int"];
     /** The registered name of the Company */
     name: Scalars["String"];
   };
@@ -3178,12 +3199,15 @@ export type CompanyOnProjectForProjectCompanyIdFkeyNodeIdUpdate = {
 };
 
 /** The fields on `company` to look up the row to update. */
-export type CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyNameKeyUpdate = {
-  /** An object where the defined keys will be set on the `company` being updated. */
-  patch: UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch;
-  /** The registered name of the Company */
-  name: Scalars["String"];
-};
+export type CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch;
+    /** fk */
+    marketId: Scalars["Int"];
+    /** The registered name of the Company */
+    name: Scalars["String"];
+  };
 
 /** The fields on `company` to look up the row to update. */
 export type CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyPkeyUpdate = {
@@ -3235,7 +3259,7 @@ export type CompanyOperationCompanyFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<CompanyCompanyPkeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  connectByName?: Maybe<CompanyCompanyNameKeyConnect>;
+  connectByMarketIdAndName?: Maybe<CompanyCompanyMarketIdNameKeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
@@ -3243,7 +3267,7 @@ export type CompanyOperationCompanyFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<CompanyCompanyPkeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  deleteByName?: Maybe<CompanyCompanyNameKeyDelete>;
+  deleteByMarketIdAndName?: Maybe<CompanyCompanyMarketIdNameKeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
@@ -3251,7 +3275,7 @@ export type CompanyOperationCompanyFkeyInput = {
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyPkeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
-  updateByName?: Maybe<CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyNameKeyUpdate>;
+  updateByMarketIdAndName?: Maybe<CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyMarketIdNameKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyReferenceNumberKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
@@ -3526,7 +3550,7 @@ export type CompanyRegisteredAddressIdFkeyInverseInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<Array<CompanyCompanyPkeyConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  connectByName?: Maybe<Array<CompanyCompanyNameKeyConnect>>;
+  connectByMarketIdAndName?: Maybe<Array<CompanyCompanyMarketIdNameKeyConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<
     Array<CompanyCompanyReferenceNumberKeyConnect>
@@ -3536,7 +3560,7 @@ export type CompanyRegisteredAddressIdFkeyInverseInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<Array<CompanyCompanyPkeyDelete>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  deleteByName?: Maybe<Array<CompanyCompanyNameKeyDelete>>;
+  deleteByMarketIdAndName?: Maybe<Array<CompanyCompanyMarketIdNameKeyDelete>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<
     Array<CompanyCompanyReferenceNumberKeyDelete>
@@ -3548,8 +3572,8 @@ export type CompanyRegisteredAddressIdFkeyInverseInput = {
     Array<CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyPkeyUpdate>
   >;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
-  updateByName?: Maybe<
-    Array<CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyNameKeyUpdate>
+  updateByMarketIdAndName?: Maybe<
+    Array<CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyMarketIdNameKeyUpdate>
   >;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<
@@ -3616,7 +3640,7 @@ export type CompanyTradingAddressIdFkeyInverseInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<Array<CompanyCompanyPkeyConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  connectByName?: Maybe<Array<CompanyCompanyNameKeyConnect>>;
+  connectByMarketIdAndName?: Maybe<Array<CompanyCompanyMarketIdNameKeyConnect>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<
     Array<CompanyCompanyReferenceNumberKeyConnect>
@@ -3626,7 +3650,7 @@ export type CompanyTradingAddressIdFkeyInverseInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<Array<CompanyCompanyPkeyDelete>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  deleteByName?: Maybe<Array<CompanyCompanyNameKeyDelete>>;
+  deleteByMarketIdAndName?: Maybe<Array<CompanyCompanyMarketIdNameKeyDelete>>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<
     Array<CompanyCompanyReferenceNumberKeyDelete>
@@ -3638,8 +3662,8 @@ export type CompanyTradingAddressIdFkeyInverseInput = {
     Array<CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyPkeyUpdate>
   >;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
-  updateByName?: Maybe<
-    Array<CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyNameKeyUpdate>
+  updateByMarketIdAndName?: Maybe<
+    Array<CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyMarketIdNameKeyUpdate>
   >;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<
@@ -5949,13 +5973,15 @@ export type DeleteCertificationPayloadCertificationEdgeArgs = {
   orderBy?: Maybe<Array<CertificationsOrderBy>>;
 };
 
-/** All input for the `deleteCompanyByName` mutation. */
-export type DeleteCompanyByNameInput = {
+/** All input for the `deleteCompanyByMarketIdAndName` mutation. */
+export type DeleteCompanyByMarketIdAndNameInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** fk */
+  marketId: Scalars["Int"];
   /** The registered name of the Company */
   name: Scalars["String"];
 };
@@ -6707,7 +6733,7 @@ export type DeleteMarketByDoceboCatalogueIdInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId: Scalars["Int"];
 };
 
@@ -7748,6 +7774,40 @@ export type EvidenceItemsOrderBy =
   | "GUARANTEE_ID_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
+
+export type FindIncompleteCompanyProfile = {
+  __typename?: "FindIncompleteCompanyProfile";
+  id?: Maybe<Scalars["Int"]>;
+  firstName?: Maybe<Scalars["String"]>;
+  lastName?: Maybe<Scalars["String"]>;
+  email?: Maybe<Scalars["String"]>;
+  marketid?: Maybe<Scalars["Int"]>;
+};
+
+/** A connection to a list of `FindIncompleteCompanyProfile` values. */
+export type FindIncompleteCompanyProfilesConnection = {
+  __typename?: "FindIncompleteCompanyProfilesConnection";
+  /** A list of `FindIncompleteCompanyProfile` objects. */
+  nodes: Array<FindIncompleteCompanyProfile>;
+  /** A list of edges which contains the `FindIncompleteCompanyProfile` and cursor to aid in pagination. */
+  edges: Array<FindIncompleteCompanyProfilesEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `FindIncompleteCompanyProfile` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `FindIncompleteCompanyProfile` edge in the connection. */
+export type FindIncompleteCompanyProfilesEdge = {
+  __typename?: "FindIncompleteCompanyProfilesEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `FindIncompleteCompanyProfile` at the end of the edge. */
+  node: FindIncompleteCompanyProfile;
+};
+
+/** Methods to use when ordering `FindIncompleteCompanyProfile`. */
+export type FindIncompleteCompanyProfilesOrderBy = "NATURAL";
 
 export type FindRoofer = {
   __typename?: "FindRoofer";
@@ -9781,7 +9841,7 @@ export type InvitationCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<CompanyCompanyPkeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  connectByName?: Maybe<CompanyCompanyNameKeyConnect>;
+  connectByMarketIdAndName?: Maybe<CompanyCompanyMarketIdNameKeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
@@ -9789,7 +9849,7 @@ export type InvitationCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<CompanyCompanyPkeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  deleteByName?: Maybe<CompanyCompanyNameKeyDelete>;
+  deleteByMarketIdAndName?: Maybe<CompanyCompanyMarketIdNameKeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
@@ -9797,7 +9857,7 @@ export type InvitationCompanyIdFkeyInput = {
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyPkeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
-  updateByName?: Maybe<CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyNameKeyUpdate>;
+  updateByMarketIdAndName?: Maybe<CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
@@ -10117,7 +10177,8 @@ export type Language =
   | "FR"
   | "PL"
   | "ES"
-  | "FI";
+  | "FI"
+  | "IT";
 
 /** All input for the `linkAccountToCompany` mutation. */
 export type LinkAccountToCompanyInput = {
@@ -10198,11 +10259,11 @@ export type Market = Node & {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -10580,11 +10641,11 @@ export type MarketInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -10608,13 +10669,13 @@ export type MarketInput = {
 
 /** The fields on `market` to look up the row to connect. */
 export type MarketMarketDoceboCatalogueIdKeyConnect = {
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId: Scalars["Int"];
 };
 
 /** The fields on `market` to look up the row to delete. */
 export type MarketMarketDoceboCatalogueIdKeyDelete = {
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId: Scalars["Int"];
 };
 
@@ -10667,7 +10728,7 @@ export type MarketOnAccountForAccountMarketIdFkeyUsingMarketDoceboCatalogueIdKey
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnAccountForAccountMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10700,7 +10761,7 @@ export type MarketOnCompanyForCompanyMarketIdFkeyUsingMarketDoceboCatalogueIdKey
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10733,7 +10794,7 @@ export type MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketDoceboCa
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10768,7 +10829,7 @@ export type MarketOnProductForProductMarketIdFkeyUsingMarketDoceboCatalogueIdKey
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnProductForProductMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10801,7 +10862,7 @@ export type MarketOnSystemForSystemMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUp
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnSystemForSystemMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10834,7 +10895,7 @@ export type MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDoceboCata
   {
     /** An object where the defined keys will be set on the `market` being updated. */
     patch: UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch;
-    /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
     doceboCatalogueId: Scalars["Int"];
   };
 
@@ -10872,11 +10933,11 @@ export type MarketPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -11414,7 +11475,7 @@ export type Mutation = {
   /** Deletes a single `Company` using a unique key. */
   deleteCompany?: Maybe<DeleteCompanyPayload>;
   /** Deletes a single `Company` using a unique key. */
-  deleteCompanyByName?: Maybe<DeleteCompanyPayload>;
+  deleteCompanyByMarketIdAndName?: Maybe<DeleteCompanyPayload>;
   /** Deletes a single `Company` using its globally unique id. */
   deleteCompanyByNodeId?: Maybe<DeleteCompanyPayload>;
   /** Deletes a single `Company` using a unique key. */
@@ -11534,6 +11595,7 @@ export type Mutation = {
   publishMessage?: Maybe<Publish>;
   resetPassword?: Maybe<Scalars["String"]>;
   resetPasswordImportedUsers?: Maybe<ResetPasswordImportedUsersResult>;
+  sendReminderToIncompleteCompanyProfile?: Maybe<Scalars["String"]>;
   /** Updates a single `Account` using a unique key and a patch. */
   updateAccount?: Maybe<UpdateAccountPayload>;
   /** Updates a single `Account` using a unique key and a patch. */
@@ -11553,7 +11615,7 @@ export type Mutation = {
   /** Updates a single `Company` using a unique key and a patch. */
   updateCompany?: Maybe<UpdateCompanyPayload>;
   /** Updates a single `Company` using a unique key and a patch. */
-  updateCompanyByName?: Maybe<UpdateCompanyPayload>;
+  updateCompanyByMarketIdAndName?: Maybe<UpdateCompanyPayload>;
   /** Updates a single `Company` using its globally unique id and a patch. */
   updateCompanyByNodeId?: Maybe<UpdateCompanyPayload>;
   /** Updates a single `Company` using a unique key and a patch. */
@@ -11895,8 +11957,8 @@ export type MutationDeleteCompanyArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteCompanyByNameArgs = {
-  input: DeleteCompanyByNameInput;
+export type MutationDeleteCompanyByMarketIdAndNameArgs = {
+  input: DeleteCompanyByMarketIdAndNameInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -12262,8 +12324,8 @@ export type MutationUpdateCompanyArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateCompanyByNameArgs = {
-  input: UpdateCompanyByNameInput;
+export type MutationUpdateCompanyByMarketIdAndNameArgs = {
+  input: UpdateCompanyByMarketIdAndNameInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -12578,6 +12640,7 @@ export type Note = Node & {
   author?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Note`. */
   project?: Maybe<Project>;
+  senderName?: Maybe<Scalars["String"]>;
 };
 
 /** Input for the nested mutation of `account` in the `NoteInput` mutation. */
@@ -12660,6 +12723,8 @@ export type NoteFilter = {
   authorId?: Maybe<IntFilter>;
   /** Filter by the object’s `projectId` field. */
   projectId?: Maybe<IntFilter>;
+  /** Filter by the object’s `senderName` field. */
+  senderName?: Maybe<StringFilter>;
   /** Checks for all expressions in this list. */
   and?: Maybe<Array<NoteFilter>>;
   /** Checks for any expressions in this list. */
@@ -13486,11 +13551,11 @@ export type ProductMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -13935,7 +14000,7 @@ export type ProjectCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectById?: Maybe<CompanyCompanyPkeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  connectByName?: Maybe<CompanyCompanyNameKeyConnect>;
+  connectByMarketIdAndName?: Maybe<CompanyCompanyMarketIdNameKeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   connectByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyConnect>;
   /** The primary key(s) for `company` for the far side of the relationship. */
@@ -13943,7 +14008,7 @@ export type ProjectCompanyIdFkeyInput = {
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteById?: Maybe<CompanyCompanyPkeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
-  deleteByName?: Maybe<CompanyCompanyNameKeyDelete>;
+  deleteByMarketIdAndName?: Maybe<CompanyCompanyMarketIdNameKeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
   deleteByReferenceNumber?: Maybe<CompanyCompanyReferenceNumberKeyDelete>;
   /** The primary key(s) for `company` for the far side of the relationship. */
@@ -13951,7 +14016,7 @@ export type ProjectCompanyIdFkeyInput = {
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateById?: Maybe<CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyPkeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
-  updateByName?: Maybe<CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyNameKeyUpdate>;
+  updateByMarketIdAndName?: Maybe<CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
   updateByReferenceNumber?: Maybe<CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate>;
   /** The primary key(s) and patch data for `company` for the far side of the relationship. */
@@ -14859,7 +14924,7 @@ export type Query = Node & {
   /** Reads and enables pagination through a set of `Company`. */
   companies?: Maybe<CompaniesConnection>;
   company?: Maybe<Company>;
-  companyByName?: Maybe<Company>;
+  companyByMarketIdAndName?: Maybe<Company>;
   /** Reads a single `Company` using its globally unique `ID`. */
   companyByNodeId?: Maybe<Company>;
   companyByReferenceNumber?: Maybe<Company>;
@@ -14934,6 +14999,8 @@ export type Query = Node & {
   evidenceItemByNodeId?: Maybe<EvidenceItem>;
   /** Reads and enables pagination through a set of `EvidenceItem`. */
   evidenceItems?: Maybe<EvidenceItemsConnection>;
+  /** Reads and enables pagination through a set of `FindIncompleteCompanyProfile`. */
+  findIncompleteCompanyProfiles?: Maybe<FindIncompleteCompanyProfilesConnection>;
   /** Reads and enables pagination through a set of `FindRoofer`. */
   findRoofers?: Maybe<FindRoofersConnection>;
   guarantee?: Maybe<Guarantee>;
@@ -15189,7 +15256,8 @@ export type QueryCompanyArgs = {
 };
 
 /** The root query type which gives access points into the data universe. */
-export type QueryCompanyByNameArgs = {
+export type QueryCompanyByMarketIdAndNameArgs = {
+  marketId: Scalars["Int"];
   name: Scalars["String"];
 };
 
@@ -15526,6 +15594,16 @@ export type QueryEvidenceItemsArgs = {
   orderBy?: Maybe<Array<EvidenceItemsOrderBy>>;
   condition?: Maybe<EvidenceItemCondition>;
   filter?: Maybe<EvidenceItemFilter>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryFindIncompleteCompanyProfilesArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<FindIncompleteCompanyProfilesOrderBy>>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -16354,11 +16432,11 @@ export type SystemMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -16558,11 +16636,11 @@ export type SystemMemberMarketIdFkeyMarketCreateInput = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -17752,8 +17830,8 @@ export type UpdateCertificationPayloadCertificationEdgeArgs = {
   orderBy?: Maybe<Array<CertificationsOrderBy>>;
 };
 
-/** All input for the `updateCompanyByName` mutation. */
-export type UpdateCompanyByNameInput = {
+/** All input for the `updateCompanyByMarketIdAndName` mutation. */
+export type UpdateCompanyByMarketIdAndNameInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -17761,6 +17839,8 @@ export type UpdateCompanyByNameInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** An object where the defined keys will be set on the `Company` being updated. */
   patch: CompanyPatch;
+  /** fk */
+  marketId: Scalars["Int"];
   /** The registered name of the Company */
   name: Scalars["String"];
 };
@@ -18571,7 +18651,7 @@ export type UpdateMarketByDoceboCatalogueIdInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** An object where the defined keys will be set on the `Market` being updated. */
   patch: MarketPatch;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId: Scalars["Int"];
 };
 
@@ -20697,11 +20777,11 @@ export type UpdateMarketOnAccountForAccountMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -20739,11 +20819,11 @@ export type UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -20781,11 +20861,11 @@ export type UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -20823,11 +20903,11 @@ export type UpdateMarketOnProductForProductMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -20865,11 +20945,11 @@ export type UpdateMarketOnSystemForSystemMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
@@ -20907,11 +20987,11 @@ export type UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch = {
   sendName?: Maybe<Scalars["String"]>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
-  /** The default branch in Docebo that installers go into */
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboInstallersBranchId?: Maybe<Scalars["String"]>;
-  /** The branch in Docebo that company admins go into */
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
   doceboCompanyAdminBranchId?: Maybe<Scalars["String"]>;
-  /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;

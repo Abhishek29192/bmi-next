@@ -531,7 +531,7 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+            class="MuiGrid-root card MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
             data-testid="system-attributes-card"
           >
             <div

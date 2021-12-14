@@ -1,15 +1,16 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import AboutLeadBlock from "../aboutLeadBlock";
-import dataJson from "../../../data/pim-mock-data.json";
+import createSystemDetails from "../../../test/systemDetailsMockData";
 import "@testing-library/jest-dom";
 import { Asset, Feature } from "../../../components/types/pim";
 import { Data as TitleWithContentData } from "../../../components/TitleWithContent";
 
-const guaranteesAndWarranties: Asset[] = dataJson.assets.filter(
+const systemDetailsMockData = createSystemDetails();
+const guaranteesAndWarranties: Asset[] = systemDetailsMockData.assets.filter(
   ({ assetType }) => assetType === "WARRANTIES"
 ) as Asset[];
-const awardsAndCertificates: Asset[] = dataJson.assets.filter(
+const awardsAndCertificates: Asset[] = systemDetailsMockData.assets.filter(
   ({ assetType }) => assetType === "AWARDS"
 ) as Asset[];
 
@@ -26,7 +27,7 @@ const keyFeatures: Feature = {
   name: "Key Features"
 };
 
-const systemBenefits = dataJson.systemBenefits;
+const systemBenefits = systemDetailsMockData.systemBenefits;
 
 const specification: Asset = {
   allowedToDownload: true,
@@ -101,7 +102,7 @@ describe("AboutLeadBlock tests", () => {
     it("if no guaranteesAndWarranties assets", () => {
       const { container, queryByText } = render(
         <AboutLeadBlock
-          longDescription={dataJson.longDescription}
+          longDescription={systemDetailsMockData.longDescription}
           guaranteesAndWarranties={[]}
           awardsAndCertificates={awardsAndCertificates}
           keyFeatures={keyFeatures}
@@ -119,7 +120,7 @@ describe("AboutLeadBlock tests", () => {
     it("if no awardsAndCertificates assets", () => {
       const { container, queryByText } = render(
         <AboutLeadBlock
-          longDescription={dataJson.longDescription}
+          longDescription={systemDetailsMockData.longDescription}
           guaranteesAndWarranties={guaranteesAndWarranties}
           awardsAndCertificates={[]}
           keyFeatures={keyFeatures}
@@ -137,7 +138,7 @@ describe("AboutLeadBlock tests", () => {
     it("if no keyFeatures", () => {
       const { container, queryByText } = render(
         <AboutLeadBlock
-          longDescription={dataJson.longDescription}
+          longDescription={systemDetailsMockData.longDescription}
           guaranteesAndWarranties={guaranteesAndWarranties}
           awardsAndCertificates={awardsAndCertificates}
           keyFeatures={null}
@@ -154,7 +155,7 @@ describe("AboutLeadBlock tests", () => {
     it("if no systemBenefits", () => {
       const { container, queryByText } = render(
         <AboutLeadBlock
-          longDescription={dataJson.longDescription}
+          longDescription={systemDetailsMockData.longDescription}
           guaranteesAndWarranties={guaranteesAndWarranties}
           awardsAndCertificates={awardsAndCertificates}
           specification={null}
@@ -171,7 +172,7 @@ describe("AboutLeadBlock tests", () => {
     it("if no keyFeatures and systemBenefits", () => {
       const { container, queryByTestId } = render(
         <AboutLeadBlock
-          longDescription={dataJson.longDescription}
+          longDescription={systemDetailsMockData.longDescription}
           guaranteesAndWarranties={guaranteesAndWarranties}
           awardsAndCertificates={awardsAndCertificates}
           keyFeatures={null}
@@ -189,7 +190,7 @@ describe("AboutLeadBlock tests", () => {
     it("if no siderbar, keyFeatures and systemBenefits", () => {
       const { container, queryByTestId } = render(
         <AboutLeadBlock
-          longDescription={dataJson.longDescription}
+          longDescription={systemDetailsMockData.longDescription}
           guaranteesAndWarranties={[]}
           awardsAndCertificates={[]}
           keyFeatures={null}
@@ -204,7 +205,7 @@ describe("AboutLeadBlock tests", () => {
     it("if no specification asset", () => {
       const { container, queryByText } = render(
         <AboutLeadBlock
-          longDescription={dataJson.longDescription}
+          longDescription={systemDetailsMockData.longDescription}
           guaranteesAndWarranties={guaranteesAndWarranties}
           awardsAndCertificates={awardsAndCertificates}
           keyFeatures={null}
@@ -228,7 +229,7 @@ describe("AboutLeadBlock tests", () => {
     it("Button should open new tab", () => {
       const { container } = render(
         <AboutLeadBlock
-          longDescription={dataJson.longDescription}
+          longDescription={systemDetailsMockData.longDescription}
           guaranteesAndWarranties={guaranteesAndWarranties}
           awardsAndCertificates={awardsAndCertificates}
           keyFeatures={keyFeatures}

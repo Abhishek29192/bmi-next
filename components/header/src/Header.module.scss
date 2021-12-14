@@ -53,6 +53,11 @@ $chevron-margin-left-lg: 3px;
   .navigation {
     display: none;
 
+    @media (min-width: $breakpoint-md) {
+      display: block;
+      overflow-x: auto;
+    }
+
     .nav-item {
       background-clip: padding-box;
       border: 1px solid transparent;
@@ -122,9 +127,18 @@ $chevron-margin-left-lg: 3px;
     }
   }
 
+  .basket-button {
+    color: $color-theme-inter;
+    margin-right: 10px;
+  }
+
   .burger-button {
     color: $color-theme-inter;
     margin-left: 10px;
+
+    @media (min-width: $breakpoint-md) {
+      display: none;
+    }
   }
 
   .close-button {
@@ -247,6 +261,10 @@ $chevron-margin-left-lg: 3px;
     text-align: right;
     z-index: 15;
 
+    @media (min-width: $breakpoint-md) {
+      display: block;
+    }
+
     ul {
       display: flex;
       justify-content: flex-end;
@@ -260,7 +278,7 @@ $chevron-margin-left-lg: 3px;
         text-decoration: none;
       }
 
-      &+.nav-item::before {
+      & + .nav-item::before {
         content: "";
         display: block;
         background-color: $color-storm;
@@ -311,18 +329,24 @@ $chevron-margin-left-lg: 3px;
 
     :global(.MuiContainer-root) {
       display: flex;
+
       align-items: center;
       justify-content: space-between;
     }
 
-    &__left {
+    &-content {
       display: flex;
       align-items: flex-end;
       margin-bottom: -1px;
+      width: 100%;
     }
 
-    &__right {
-      display: initial;
+    &-buttons {
+      display: flex;
+      align-self: stretch;
+      align-items: center;
+      margin-left: auto;
+      padding-left: 10px;
     }
   }
 
@@ -338,16 +362,11 @@ $chevron-margin-left-lg: 3px;
       width: $logo-width;
       height: $logo-width;
     }
-
-    .navigation {
-      display: block;
-    }
-
-    .burger-button {
-      display: none;
-    }
-
     .search-button {
+      color: $color-white;
+    }
+
+    .basket-button {
       color: $color-white;
     }
 
@@ -379,8 +398,6 @@ $chevron-margin-left-lg: 3px;
 
     .search-drawer {
       position: inherit;
-      right: 20px;
-      width: 566px;
     }
 
     .language-drawer {
@@ -392,10 +409,6 @@ $chevron-margin-left-lg: 3px;
       .back-navigation {
         display: none;
       }
-    }
-
-    .utilities-bar {
-      display: block;
     }
   }
 
@@ -426,6 +439,11 @@ $chevron-margin-left-lg: 3px;
 
     .language-drawer {
       height: calc(100vh - 56px); // Nav height lg
+    }
+    .search-drawer {
+      position: inherit;
+      right: 20px;
+      width: 566px;
     }
   }
 
@@ -464,7 +482,8 @@ $chevron-margin-left-lg: 3px;
   logo-width-lg: $logo-width-lg + $logo-margin;
   button-spacing-sm: $button-padding-sides * 2;
   button-spacing-md: $button-padding-sides * 2 + $chevron-width;
-  button-spacing-lg: $button-padding-left-lg + $button-padding-right-lg + $chevron-width-lg + $chevron-margin-left-lg;
+  button-spacing-lg: $button-padding-left-lg + $button-padding-right-lg +
+    $chevron-width-lg + $chevron-margin-left-lg;
   search-icon-width: 48px;
   container-padding: 24px * 2;
 }

@@ -11,8 +11,9 @@ import {
 import { PoolClient } from "pg";
 import StorageClient from "../storage-client";
 import { PostGraphileContext } from "../../types";
+import { filesTypeValidate } from "../../utils/file";
 import { sendMessageWithTemplate } from "../mailer";
-import { tierBenefit } from "../contentful";
+import { EventMessage, tierBenefit } from "../contentful";
 import { solutionGuaranteeSubmitValidate } from "./validate";
 
 export const createGuarantee = async (
@@ -30,8 +31,13 @@ export const createGuarantee = async (
 
   try {
     const { guarantee } = args.input;
-    const { projectId, coverage, evidenceItemsUsingId, productBmiRef } =
-      guarantee;
+    const {
+      projectId,
+      coverage,
+      evidenceItemsUsingId,
+      productBmiRef,
+      systemBmiRef
+    } = guarantee;
 
     guarantee.requestorAccountId = +user.id;
     guarantee.bmiReferenceId = `${crypto.randomBytes(10).toString("hex")}`;
@@ -44,11 +50,14 @@ export const createGuarantee = async (
       guarantee.startDate = new Date();
       guarantee.expiryDate = new Date();
 
-      const max = await getProductMaximumValidityYears(productBmiRef, pgClient);
+      const max =
+        coverage === "PRODUCT"
+          ? await getProductMaximumValidityYears(productBmiRef, pgClient)
+          : await getSystemMaximumValidityYears(systemBmiRef, pgClient);
       guarantee.expiryDate.setFullYear(
         guarantee.expiryDate.getFullYear() + max
       );
-      await sendMail(context, projectId);
+      await sendMail(context, projectId, "REQUEST_APPROVED");
     }
 
     return await resolve(source, args, context, resolveInfo);
@@ -145,12 +154,14 @@ export const updateGuarantee = async (
       patch.expiryDate.setFullYear(
         patch.expiryDate.getFullYear() + max - guaranteeValidityOffsetYears
       );
+      sendMail(context, projectId, "REQUEST_APPROVED");
     }
 
     if (guaranteeEventType === "REJECT_SOLUTION" && status === "REVIEW") {
       //TODO: The Requestor receives a message telling them that their request has been rejected.
       patch.reviewerAccountId = null;
       patch.status = "REJECTED";
+      sendMail(context, projectId, "REQUEST_REJECTED");
     }
     return await resolve(source, args, context, resolveInfo);
   } catch (e) {
@@ -226,19 +237,17 @@ const getProjectCompanyDetail = async (
   return rows[0];
 };
 
-const sendMail = async (context: PostGraphileContext, projectId: number) => {
-  const { pgClient, user } = context;
+const sendMail = async (
+  context: PostGraphileContext,
+  projectId: number,
+  event: EventMessage
+) => {
+  const { pgClient } = context;
 
   const projectCompanyDetail = await getProjectCompanyDetail(
     projectId,
     pgClient
   );
-  await sendMessageWithTemplate(context, "REQUEST_APPROVED", {
-    email: user.email,
-    firstname: user.firstName,
-    role: user.role,
-    project: `${projectCompanyDetail.name}`
-  });
 
   //Get all company admins and send mail
   const { rows: accounts } = await pgClient.query(
@@ -250,7 +259,8 @@ const sendMail = async (context: PostGraphileContext, projectId: number) => {
 
   for (let i = 0; i < accounts?.length; i++) {
     const account = accounts[+i];
-    await sendMessageWithTemplate(context, "REQUEST_APPROVED", {
+    await sendMessageWithTemplate(context, event, {
+      accountId: account.id,
       email: account.email,
       firstname: account.first_name,
       role: account.role,
@@ -267,6 +277,10 @@ const uploadEvidence = async (
   const evidenceCategoryType: EvidenceCategoryType = "PROOF_OF_PURCHASE";
 
   if (evidenceItemInput?.create?.length > 0) {
+    await filesTypeValidate(
+      evidenceItemInput.create.map((evidence) => evidence.attachmentUpload)
+    );
+
     const storageClient = new StorageClient();
     for (const evidence of evidenceItemInput.create) {
       const uploadedFile: FileUpload = await evidence.attachmentUpload;

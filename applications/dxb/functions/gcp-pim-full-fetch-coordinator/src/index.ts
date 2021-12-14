@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+import fetch, { Response } from "node-fetch";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { deleteFirestoreCollection, FirestoreCollections } from "./firestore";
 import {
@@ -6,34 +6,58 @@ import {
   ElasticsearchIndexes
 } from "./elasticsearch";
 import { fetchData, PimTypes } from "./pim";
+import { error, info } from "./logger";
 
 const { BUILD_TRIGGER_ENDPOINT, FULL_FETCH_ENDPOINT } = process.env;
 
 const triggerFullFetchBatch = async (type: PimTypes) => {
-  // eslint-disable-next-line no-console
-  console.log(`Batching ${type}.`);
+  info({ message: `Batching ${type}.` });
+
   const response = await fetchData(type);
   const numberOfRequests = response.totalPageCount / 10;
   let lastStartPage = 0;
+  const promises: Promise<Response>[] = [];
   for (let i = 0; i < numberOfRequests; i++) {
     const numberOfPagesLeft = response.totalPageCount - lastStartPage;
     const numberOfPages = numberOfPagesLeft > 10 ? 10 : numberOfPagesLeft;
-    const systemsBatchResponse = await fetch(FULL_FETCH_ENDPOINT, {
+    info({
+      message: `Triggering fetch for pages ${lastStartPage} to ${
+        lastStartPage + numberOfPages
+      } of ${type}.`
+    });
+    const systemsBatchResponse = fetch(FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         type: type,
         startPage: lastStartPage,
         numberOfPages: numberOfPages
       })
     });
-
-    if (!systemsBatchResponse.ok) {
-      throw Error(
-        `Failed to trigger full fetch patch for ${type}: ${systemsBatchResponse.statusText}`
-      );
-    }
+    systemsBatchResponse
+      .then((response) => {
+        if (!response.ok) {
+          error({
+            message: `Failed to trigger full fetch patch for ${type}: ${response.statusText}`
+          });
+        }
+      })
+      .catch((reason) => {
+        error({ message: reason.message });
+      });
+    promises.push(systemsBatchResponse);
 
     lastStartPage += 10;
+  }
+
+  const responses = await Promise.all(promises);
+  if (
+    Math.ceil(numberOfRequests) !==
+    responses.filter((response) => response.ok).length
+  ) {
+    throw new Error(`Failed to get all of the ${type} data.`);
   }
 };
 
@@ -44,8 +68,7 @@ const triggerFullFetchBatch = async (type: PimTypes) => {
  * @param {!express:Response} res HTTP response context.
  */
 const handleRequest: HttpFunction = async (req, res) => {
-  // eslint-disable-next-line no-console
-  console.log("Clearing out data...");
+  info({ message: "Clearing out data..." });
 
   await deleteElasticSearchIndex(ElasticsearchIndexes.Products);
   await deleteElasticSearchIndex(ElasticsearchIndexes.Systems);
@@ -61,9 +84,8 @@ const handleRequest: HttpFunction = async (req, res) => {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({ foo: "bar" })
-  }).catch((error) => {
-    // eslint-disable-next-line no-console
-    console.error("Error whilst trying to trigger the build.", error);
+  }).catch((err) => {
+    error({ message: `Error whilst trying to trigger the build. ${err}` });
   });
 
   res.status(200).send("ok");

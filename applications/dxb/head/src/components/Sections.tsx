@@ -151,6 +151,7 @@ const Sections = ({
             data={section}
             position={startIndex + index}
             theme={pageTypenameToThemeMap[pageTypename] || {}}
+            key={`section-${index}`}
           />
         );
 

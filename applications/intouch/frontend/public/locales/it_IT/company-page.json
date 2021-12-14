@@ -1,8 +1,158 @@
 {
-  "Company description": "Company Description",
-  "About Us": "About Us",
-  "Registered Details": "Registered Details",
-  "Registered Name": "Registered Name",
-  "Registered Address": "Registered Address",
-  "Main office address": "Main office address"
+  "businessType": {
+    "ARCHITECT": "Architetto",
+    "CONTRACTOR": "Impresa",
+    "CORP_DEVELOPER": "Promotore immobiliare",
+    "MERCHANT": "Rivenditore"
+  },
+  "certificationsTitle": "Certificazioni BMI",
+  "companyActions": {
+    "activate": "Attiva azienda",
+    "deactivate": "Disattiva azienda"
+  },
+  "companyActionsTitle": "Azioni Azienda",
+  "companyOperations": "Tipo di operazione",
+  "companyOperationsSuffix": "Tipo di tetto",
+  "details": {
+    "aboutUs": "Descrizione aziendale",
+    "contactDetails": "Informazioni contatto",
+    "name": "Nome azienda",
+    "owner": "Titolare dell'azienda",
+    "phone": "Telefono",
+    "referenceNumber": "Numero di riferimento dell'azienda",
+    "registeredAddress": "Indirizzo registrato",
+    "registeredDetails": "Dettagli registrati",
+    "taxNumber": "Partita IVA dell'azienda",
+    "title": "Dettagli azienda",
+    "tradingAddress": "Indirizzo ufficio principale"
+  },
+  "document": {
+    "addDocument": "Aggiungi documento",
+    "confirmDialog": {
+      "body": "Cancellare il documento?",
+      "cancelLabel": "Annulla",
+      "confirmLabel": "Conferma",
+      "title": "Documento aziendale"
+    },
+    "headers": {
+      "date": "Data",
+      "document": "Documento",
+      "download": "SCARICA"
+    },
+    "noContent": "Ancora nessun documento caricato ",
+    "title": "Documenti dell'azienda",
+    "uploadDialog": {
+      "buttonLabel": "Caricare i file",
+      "cancelLabel": "Annulla",
+      "confirmLabel": "Caricare i file",
+      "evidence_category": "Categoria di riscontro",
+      "fileValidationMessage": "Non puoi caricare file più grandi di {{fileSize}}",
+      "instruction": "Puoi aggiungere file",
+      "microcopy": {
+        "browse": "Scorri",
+        "drop": "Abbandona"
+      },
+      "title": "Caricamento del documento"
+    }
+  },
+  "edit_dialog": {
+    "form": {
+      "actions": {
+        "cancel": "Annulla",
+        "submit": "Salva e chiudi"
+      },
+      "fields": {
+        "aboutUs": "Descrizione aziendale (opzionale)",
+        "businessType": "Tipo di azienda registrata",
+        "facebook": "Profilo Facebook (opzionale)",
+        "linkedIn": "Profilo LinkedIn (opzionale)",
+        "logo": {
+          "alt_text": "Logo dell’azienda",
+          "buttons": {
+            "remove": "Elimina",
+            "upload": "Carica una foto"
+          },
+          "fileSizeMessage": "Dimensione massima del file di 3 mb.",
+          "fileTypesMessage": "Puoi caricare file jpg, gif o png",
+          "label": "Logo"
+        },
+        "name": "Nome registrato",
+        "operationTypes": "Tipo di operazione",
+        "ownerEmail": "Indirizzo email (opzionale)",
+        "ownerPhone": "Telefono (opzionale)",
+        "phone": "Telefono (opzionale)",
+        "publicEmail": "Indirizzo email (opzionale)",
+        "registeredAddress": {
+          "coordinates": {
+            "x": "Latitudine",
+            "y": "Longitudine"
+          },
+          "country": "Paese",
+          "firstLine": "Riga 1 indirizzo",
+          "postcode": "Codice postale / CAP",
+          "region": "Regione",
+          "secondLine": "Riga 2 indirizzo",
+          "town": "Città"
+        },
+        "taxNumber": "Partita IVA dell'azienda",
+        "tier": "Livello",
+        "tradingAddress": {
+          "autocomplete": "Via, città o codice postale / CAP",
+          "coordinates": {
+            "x": "Latitudine",
+            "y": "Longitudine"
+          },
+          "country": "Paese",
+          "firstLine": "Riga 1 indirizzo",
+          "postcode": "Codice postale / CAP",
+          "region": "Provincia / Regione",
+          "secondLine": "Riga 2 indirizzo",
+          "town": "Città"
+        },
+        "website": "Sito web dell'azienda (opzionale)"
+      }
+    },
+    "sections": {
+      "contact_details": "Dettagli del contatto",
+      "owner_details": "Dettagli titolare dell'azienda",
+      "registered_details": "Dettagli registrati",
+      "trading_address": "Indirizzo commerciale",
+      "trading_address_description": "Fornisci il tuo indirizzo commerciale per apparire sul geolocalizzatore Trova un installatore",
+      "trading_address_fields_heading": "Informazioni di contatto"
+    },
+    "title": "Dettagli azienda"
+  },
+  "incompleteProfile": {
+    "closeAlertAccessibilityLabel": "Chiudi",
+    "fields": {
+      "aboutUs": "Descrizione",
+      "logo": "Logo",
+      "phone": "Telefono",
+      "publicEmail": "Email",
+      "tradingAddress": "Indirizzo ufficio principale"
+    },
+    "warning": "Per essere visibile nel geolocalizzatore, fornire le informazioni richieste elencate di seguito"
+  },
+  "noCompanies": "Questo mercato non ha ancora aziende",
+  "operationTypes": {
+    "BITUMEN": "Bitume",
+    "COATER": "Vernice per tetto",
+    "FLAT": "Piano",
+    "GREEN": "Tetto verde",
+    "PITCHED": "Falda",
+    "SOLAR": "Solare FV",
+    "TILE": "Tegola"
+  },
+  "register_dialog": {
+    "title": "Registra azienda"
+  },
+  "report": "Scarica l'elenco delle aziende",
+  "search": {
+    "inputLabel": "Cerca un'azienda",
+    "profileComplete": "Profilo completo",
+    "profileIncomplete": "Profilo incompleto"
+  },
+  "supportTitle": "Contatto Roofpro",
+  "titleAdmin": "Aziende",
+  "titleMember": "Azienda"
 }

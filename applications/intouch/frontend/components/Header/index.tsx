@@ -10,7 +10,11 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 import Drawer from "@material-ui/core/Drawer";
 import Avatar from "@material-ui/core/Avatar";
 import { gql } from "@apollo/client";
-import { findAccountTier, isSuperOrMarketAdmin } from "../../lib/account";
+import {
+  findAccountTier,
+  findAccountCompany,
+  isSuperOrMarketAdmin
+} from "../../lib/account";
 import { Link } from "../Link";
 import UserMenu from "../UserMenu";
 import { Sidebar } from "../Sidebar";
@@ -30,7 +34,6 @@ type HeaderLink = {
 
 export type HeaderProps = {
   title: string;
-  attentionHeading?: string;
   contactUsLink?: HeaderLink;
   globalExternalLink?: HeaderLink;
   notifications?: GetGlobalDataQuery["notifications"]["nodes"];
@@ -38,7 +41,6 @@ export type HeaderProps = {
 
 export const Header = ({
   title,
-  attentionHeading,
   contactUsLink,
   globalExternalLink,
   notifications: initialNotifications
@@ -55,7 +57,7 @@ export const Header = ({
   });
 
   const hasUnreadNotifications = useMemo(
-    () => notifications.some(({ read }) => !read),
+    () => (notifications || []).some(({ read }) => !read),
     [notifications]
   );
   const notificationsIconClasses = {
@@ -123,6 +125,13 @@ export const Header = ({
       : t(`tier.${findAccountTier(account)}`);
   }, [account]);
 
+  const attentionHeading = useMemo(
+    () =>
+      findAccountCompany(account)?.status === "DEACTIVATED" &&
+      t("deactivatedCompany"),
+    [account]
+  );
+
   React.useEffect(() => {
     function handleResize() {
       toggleDrawer("tabletnav", false);
@@ -132,56 +141,43 @@ export const Header = ({
     window.addEventListener("resize", handleResize);
   });
 
+  // TODO: extract into separate component with `isOpen, onClick` props
   const TabletNavButton = () => {
-    if (state["tabletnav"] === true) {
-      return (
-        <div className={styles.tabletNavButton}>
-          <ButtonBase
-            onClick={toggleDrawer("tabletnav", false)}
-            id="tablet-navigation-panel-toggle"
-          >
-            <Icon source={Close} fontSize="large" color="primary" />
-          </ButtonBase>
-        </div>
-      );
-    } else {
-      return (
-        <div className={styles.tabletNavButton}>
-          <ButtonBase
-            onClick={toggleDrawer("tabletnav", true)}
-            id="tablet-navigation-panel-toggle"
-          >
-            <Icon source={Menu} fontSize="large" color="primary" />
-          </ButtonBase>
-        </div>
-      );
-    }
+    const { t } = useTranslation("common");
+
+    return (
+      <div className={styles.tabletNavButton}>
+        <ButtonBase
+          onClick={toggleDrawer("tabletnav", !state["tabletnav"])}
+          id="tablet-navigation-panel-toggle"
+          aria-label={t("aria.navigation")}
+        >
+          <Icon
+            source={state["tabletnav"] === true ? Close : Menu}
+            fontSize="large"
+            color="primary"
+          />
+        </ButtonBase>
+      </div>
+    );
   };
 
   const MobileNavButton = () => {
-    if (state["mobilenav"] === true) {
-      return (
-        <div className={styles.mobileNavButton}>
-          <ButtonBase
-            onClick={toggleDrawer("mobilenav", false)}
-            id="mobile-navigation-panel-toggle"
-          >
-            <Icon source={Close} fontSize="large" color="primary" />
-          </ButtonBase>
-        </div>
-      );
-    } else {
-      return (
-        <div className={styles.mobileNavButton}>
-          <ButtonBase
-            onClick={toggleDrawer("mobilenav", true)}
-            id="mobile-navigation-panel-toggle"
-          >
-            <Icon source={Menu} fontSize="large" color="primary" />
-          </ButtonBase>
-        </div>
-      );
-    }
+    return (
+      <div className={styles.mobileNavButton}>
+        <ButtonBase
+          onClick={toggleDrawer("mobilenav", !state["mobilenav"])}
+          id="mobile-navigation-panel-toggle"
+          aria-label={t("aria.navigation")}
+        >
+          <Icon
+            source={state["mobilenav"] ? Close : Menu}
+            fontSize="large"
+            color="primary"
+          />
+        </ButtonBase>
+      </div>
+    );
   };
 
   const MobileUserMenu = () => {
@@ -243,6 +239,7 @@ export const Header = ({
               classes={notificationsIconClasses}
               onClick={toggleDrawer("notifications")}
               id="notifications-panel-toggle"
+              aria-label={t("aria.notifications")}
             >
               <Icon source={Notifications} color="primary" fontSize="large" />
             </IconButton>

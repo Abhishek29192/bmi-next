@@ -5,6 +5,7 @@
   "description": "Description",
   "family": "Family",
   "published": "Published",
+  "unpublished": "Unpublished",
   "maximumValidityYears": "Maximum validity years",
   "updatedAt": "Updated at",
   "show": "Show",
@@ -39,7 +40,8 @@
   },
   "errors": {
     "filename_wrong_format": "The file has a wrong format",
-    "unauthorized": "Not authorized"
+    "unauthorized": "Not authorized",
+    "wrong_env": "Wrong environment"
   },
   "dryRunCompleted": "Dry run completed",
   "report": {

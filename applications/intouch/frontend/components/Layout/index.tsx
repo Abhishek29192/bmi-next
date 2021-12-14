@@ -14,7 +14,6 @@ import styles from "./styles.module.scss";
 export type LayoutProps = {
   children: React.ReactNode | React.ReactNode[];
   title: string;
-  attentionHeading?: string;
   pageData?: GetGlobalDataQuery;
 };
 
@@ -61,12 +60,7 @@ const mapFooterLinks = (pageData: GetGlobalDataQuery): FooterProps["links"] => {
   );
 };
 
-export const Layout = ({
-  children,
-  title,
-  attentionHeading,
-  pageData = {}
-}: LayoutProps) => {
+export const Layout = ({ children, title, pageData = {} }: LayoutProps) => {
   const footerLinks = pageData ? mapFooterLinks(pageData) : [];
   const marketContent = pageData.marketContentCollection?.items[0];
   const notifications = pageData.notifications?.nodes;
@@ -97,7 +91,6 @@ export const Layout = ({
           <div className={styles.appMain}>
             <Header
               title={title}
-              attentionHeading={attentionHeading}
               contactUsLink={
                 marketContent?.contactUsPage && {
                   href: marketContent.contactUsPage.relativePath,

@@ -19,7 +19,8 @@ type CompaniesSidePanelProps = {
 
 export const CompaniesSidePanel = ({
   companies,
-  onItemSelected
+  onItemSelected,
+  selectedItemId
 }: CompaniesSidePanelProps) => {
   const { t } = useTranslation(["common", "company-page"]);
 
@@ -41,7 +42,7 @@ export const CompaniesSidePanel = ({
       }}
       renderFooter={() => (
         <AccessControl dataModel="company" action="downloadReport">
-          <CompanyReport />
+          <CompanyReport disabled={companies?.length === 0} />
         </AccessControl>
       )}
     >
@@ -52,6 +53,7 @@ export const CompaniesSidePanel = ({
           onClick={() => {
             onItemSelected && onItemSelected(id);
           }}
+          isSelected={selectedItemId === id}
         >
           <Typography style={{ display: "flex" }}>
             {isProfileComplete && (

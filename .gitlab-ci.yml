@@ -110,4 +110,4 @@ release:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - npx -p semantic-release@17.3.6 semantic-release
+    - yarn run semantic-release

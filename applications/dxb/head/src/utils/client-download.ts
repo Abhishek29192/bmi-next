@@ -7,8 +7,13 @@ export type Asset = {
   name: string;
 };
 
-export const getDownloadLink = (url: string) =>
-  url.startsWith("http") ? url : `https://${url}`;
+export const getDownloadLink = (url: string): string => {
+  const urlWithProtocol: string = url.startsWith("http")
+    ? url
+    : `https://${url}`;
+
+  return new URL(urlWithProtocol)?.href;
+};
 
 export const downloadAs = saveAs;
 

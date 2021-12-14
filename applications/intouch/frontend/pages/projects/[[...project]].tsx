@@ -67,19 +67,12 @@ const Projects = ({
   };
 
   return (
-    <Layout
-      title={t("common:Projects")}
-      attentionHeading={
-        activeProject.company.status === "DEACTIVATED" &&
-        t("project-page:deactivatedCompany")
-      }
-      pageData={globalPageData}
-    >
+    <Layout title={t("common:Projects")} pageData={globalPageData}>
       <div className={layoutStyles.sidePanelWrapper}>
         <ProjectSidePanel
           projects={sortedProjects}
           onProjectSelected={handleProjectSelection}
-          selectedProjectId={activeProject.id}
+          selectedProjectId={activeProject?.id}
         />
 
         <Grid

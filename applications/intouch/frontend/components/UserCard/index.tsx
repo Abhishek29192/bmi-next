@@ -78,7 +78,7 @@ export const UserCard = ({
       <div className={styles.content}>
         <Avatar
           style={{ height: "150px", width: "150px" }}
-          src={account.photo}
+          src={account.signedPhotoUrl}
         />
         <Typography variant="h5" className={styles.userName}>
           {`${account.firstName} ${account.lastName}`}

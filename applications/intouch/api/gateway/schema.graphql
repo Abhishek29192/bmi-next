@@ -855,17 +855,17 @@ input AccountMarketIdFkeyMarketCreateInput {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -3120,8 +3120,6 @@ enum CompaniesOrderBy {
   REGISTERED_ADDRESS_ID_DESC
   TRADING_ADDRESS_ID_ASC
   TRADING_ADDRESS_ID_DESC
-  NAME_ASC
-  NAME_DESC
   REFERENCE_NUMBER_ASC
   REFERENCE_NUMBER_DESC
   PRIMARY_KEY_ASC
@@ -3515,7 +3513,12 @@ type Company implements Node {
 """
 The fields on `company` to look up the row to connect.
 """
-input CompanyCompanyNameKeyConnect {
+input CompanyCompanyMarketIdNameKeyConnect {
+  """
+  fk
+  """
+  marketId: Int!
+
   """
   The registered name of the Company
   """
@@ -3525,7 +3528,12 @@ input CompanyCompanyNameKeyConnect {
 """
 The fields on `company` to look up the row to delete.
 """
-input CompanyCompanyNameKeyDelete {
+input CompanyCompanyMarketIdNameKeyDelete {
+  """
+  fk
+  """
+  marketId: Int!
+
   """
   The registered name of the Company
   """
@@ -3597,11 +3605,6 @@ input CompanyCondition {
   tradingAddressId: Int
 
   """
-  Checks for equality with the object’s `name` field.
-  """
-  name: String
-
-  """
   Checks for equality with the object’s `referenceNumber` field.
   """
   referenceNumber: Int
@@ -3637,6 +3640,10 @@ type CompanyDocument implements Node {
   Reads a single `Company` that is related to this `CompanyDocument`.
   """
   company: Company
+  name: String
+  documentType: CompanyDocumentType
+  size: Int
+  signedDocumentUrl: String
 }
 
 """
@@ -3675,6 +3682,7 @@ input CompanyDocumentCompanyIdFkeyCompanyDocumentCreateInput {
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: CompanyDocumentCompanyIdFkeyInput
+  attachmentUpload: Upload
 }
 
 """
@@ -3689,7 +3697,7 @@ input CompanyDocumentCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: CompanyCompanyNameKeyConnect
+  connectByMarketIdAndName: CompanyCompanyMarketIdNameKeyConnect
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -3709,7 +3717,7 @@ input CompanyDocumentCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: CompanyCompanyNameKeyDelete
+  deleteByMarketIdAndName: CompanyCompanyMarketIdNameKeyDelete
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -3729,7 +3737,7 @@ input CompanyDocumentCompanyIdFkeyInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyNameKeyUpdate
+  updateByMarketIdAndName: CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -3854,6 +3862,7 @@ input CompanyDocumentInput {
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: CompanyDocumentCompanyIdFkeyInput
+  attachmentUpload: Upload
 }
 
 """
@@ -3927,6 +3936,13 @@ input CompanyDocumentPatch {
   createdAt: Datetime
   updatedAt: Datetime
   companyToCompanyId: CompanyDocumentCompanyIdFkeyInput
+}
+
+enum CompanyDocumentType {
+  PDF
+  JPG
+  JPEG
+  PNG
 }
 
 """
@@ -4005,11 +4021,6 @@ input CompanyFilter {
   Filter by the object’s `tradingAddressId` field.
   """
   tradingAddressId: IntFilter
-
-  """
-  Filter by the object’s `name` field.
-  """
-  name: StringFilter
 
   """
   Filter by the object’s `referenceNumber` field.
@@ -4119,7 +4130,7 @@ input CompanyMarketIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: [CompanyCompanyNameKeyConnect!]
+  connectByMarketIdAndName: [CompanyCompanyMarketIdNameKeyConnect!]
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -4139,7 +4150,7 @@ input CompanyMarketIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: [CompanyCompanyNameKeyDelete!]
+  deleteByMarketIdAndName: [CompanyCompanyMarketIdNameKeyDelete!]
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -4159,7 +4170,7 @@ input CompanyMarketIdFkeyInverseInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: [CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyNameKeyUpdate!]
+  updateByMarketIdAndName: [CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyMarketIdNameKeyUpdate!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -4212,17 +4223,17 @@ input CompanyMarketIdFkeyMarketCreateInput {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -4494,7 +4505,7 @@ input CompanyMemberCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: CompanyCompanyNameKeyConnect
+  connectByMarketIdAndName: CompanyCompanyMarketIdNameKeyConnect
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -4514,7 +4525,7 @@ input CompanyMemberCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: CompanyCompanyNameKeyDelete
+  deleteByMarketIdAndName: CompanyCompanyMarketIdNameKeyDelete
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -4534,7 +4545,7 @@ input CompanyMemberCompanyIdFkeyInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyNameKeyUpdate
+  updateByMarketIdAndName: CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -4958,17 +4969,17 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -5316,11 +5327,16 @@ input CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyNodeIdUpdate {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -5376,11 +5392,16 @@ input CompanyOnCompanyForCompanyMarketIdFkeyNodeIdUpdate {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnCompanyForCompanyMarketIdFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnCompanyForCompanyMarketIdFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -5436,11 +5457,16 @@ input CompanyOnCompanyForCompanyRegisteredAddressIdFkeyNodeIdUpdate {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -5496,11 +5522,16 @@ input CompanyOnCompanyForCompanyTradingAddressIdFkeyNodeIdUpdate {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -5556,11 +5587,16 @@ input CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyNodeIdUpdate {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -5616,11 +5652,16 @@ input CompanyOnCompanyOperationForCompanyOperationCompanyFkeyNodeIdUpdate {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -5676,11 +5717,16 @@ input CompanyOnInvitationForInvitationCompanyIdFkeyNodeIdUpdate {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnInvitationForInvitationCompanyIdFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -5736,11 +5782,16 @@ input CompanyOnProjectForProjectCompanyIdFkeyNodeIdUpdate {
 """
 The fields on `company` to look up the row to update.
 """
-input CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyNameKeyUpdate {
+input CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate {
   """
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: updateCompanyOnProjectForProjectCompanyIdFkeyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -5840,7 +5891,7 @@ input CompanyOperationCompanyFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: CompanyCompanyNameKeyConnect
+  connectByMarketIdAndName: CompanyCompanyMarketIdNameKeyConnect
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -5860,7 +5911,7 @@ input CompanyOperationCompanyFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: CompanyCompanyNameKeyDelete
+  deleteByMarketIdAndName: CompanyCompanyMarketIdNameKeyDelete
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -5880,7 +5931,7 @@ input CompanyOperationCompanyFkeyInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyNameKeyUpdate
+  updateByMarketIdAndName: CompanyOnCompanyOperationForCompanyOperationCompanyFkeyUsingCompanyMarketIdNameKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -6408,7 +6459,7 @@ input CompanyRegisteredAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: [CompanyCompanyNameKeyConnect!]
+  connectByMarketIdAndName: [CompanyCompanyMarketIdNameKeyConnect!]
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -6428,7 +6479,7 @@ input CompanyRegisteredAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: [CompanyCompanyNameKeyDelete!]
+  deleteByMarketIdAndName: [CompanyCompanyMarketIdNameKeyDelete!]
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -6448,7 +6499,7 @@ input CompanyRegisteredAddressIdFkeyInverseInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: [CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyNameKeyUpdate!]
+  updateByMarketIdAndName: [CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyMarketIdNameKeyUpdate!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -6580,7 +6631,7 @@ input CompanyTradingAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: [CompanyCompanyNameKeyConnect!]
+  connectByMarketIdAndName: [CompanyCompanyMarketIdNameKeyConnect!]
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -6600,7 +6651,7 @@ input CompanyTradingAddressIdFkeyInverseInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: [CompanyCompanyNameKeyDelete!]
+  deleteByMarketIdAndName: [CompanyCompanyMarketIdNameKeyDelete!]
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -6620,7 +6671,7 @@ input CompanyTradingAddressIdFkeyInverseInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: [CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyNameKeyUpdate!]
+  updateByMarketIdAndName: [CompanyOnCompanyForCompanyTradingAddressIdFkeyUsingCompanyMarketIdNameKeyUpdate!]
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -10106,14 +10157,19 @@ type DeleteCertificationPayload {
 }
 
 """
-All input for the `deleteCompanyByName` mutation.
+All input for the `deleteCompanyByMarketIdAndName` mutation.
 """
-input DeleteCompanyByNameInput {
+input DeleteCompanyByMarketIdAndNameInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
   """
   clientMutationId: String
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -11255,7 +11311,7 @@ input DeleteMarketByDoceboCatalogueIdInput {
   clientMutationId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -12882,6 +12938,61 @@ enum EvidenceItemsOrderBy {
   GUARANTEE_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
+}
+
+type FindIncompleteCompanyProfile {
+  id: Int
+  firstName: String
+  lastName: String
+  email: String
+  marketid: Int
+}
+
+"""
+A connection to a list of `FindIncompleteCompanyProfile` values.
+"""
+type FindIncompleteCompanyProfilesConnection {
+  """
+  A list of `FindIncompleteCompanyProfile` objects.
+  """
+  nodes: [FindIncompleteCompanyProfile!]!
+
+  """
+  A list of edges which contains the `FindIncompleteCompanyProfile` and cursor to aid in pagination.
+  """
+  edges: [FindIncompleteCompanyProfilesEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `FindIncompleteCompanyProfile` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `FindIncompleteCompanyProfile` edge in the connection.
+"""
+type FindIncompleteCompanyProfilesEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `FindIncompleteCompanyProfile` at the end of the edge.
+  """
+  node: FindIncompleteCompanyProfile!
+}
+
+"""
+Methods to use when ordering `FindIncompleteCompanyProfile`.
+"""
+enum FindIncompleteCompanyProfilesOrderBy {
+  NATURAL
 }
 
 type FindRoofer {
@@ -15799,7 +15910,7 @@ input InvitationCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: CompanyCompanyNameKeyConnect
+  connectByMarketIdAndName: CompanyCompanyMarketIdNameKeyConnect
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -15819,7 +15930,7 @@ input InvitationCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: CompanyCompanyNameKeyDelete
+  deleteByMarketIdAndName: CompanyCompanyMarketIdNameKeyDelete
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -15839,7 +15950,7 @@ input InvitationCompanyIdFkeyInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyNameKeyUpdate
+  updateByMarketIdAndName: CompanyOnInvitationForInvitationCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -16432,6 +16543,7 @@ enum Language {
   PL
   ES
   FI
+  IT
 }
 
 """
@@ -16563,17 +16675,17 @@ type Market implements Node {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -17148,17 +17260,17 @@ input MarketInput {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -17201,7 +17313,7 @@ The fields on `market` to look up the row to connect.
 """
 input MarketMarketDoceboCatalogueIdKeyConnect {
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -17211,7 +17323,7 @@ The fields on `market` to look up the row to delete.
 """
 input MarketMarketDoceboCatalogueIdKeyDelete {
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -17301,7 +17413,7 @@ input MarketOnAccountForAccountMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate
   patch: updateMarketOnAccountForAccountMarketIdFkeyPatch!
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -17361,7 +17473,7 @@ input MarketOnCompanyForCompanyMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate
   patch: updateMarketOnCompanyForCompanyMarketIdFkeyPatch!
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -17421,7 +17533,7 @@ input MarketOnCompanyMemberForCompanyMemberMarketIdFkeyUsingMarketDoceboCatalogu
   patch: updateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch!
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -17481,7 +17593,7 @@ input MarketOnProductForProductMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate
   patch: updateMarketOnProductForProductMarketIdFkeyPatch!
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -17541,7 +17653,7 @@ input MarketOnSystemForSystemMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate {
   patch: updateMarketOnSystemForSystemMarketIdFkeyPatch!
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -17601,7 +17713,7 @@ input MarketOnSystemMemberForSystemMemberMarketIdFkeyUsingMarketDoceboCatalogueI
   patch: updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch!
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -17676,17 +17788,17 @@ input MarketPatch {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -18466,11 +18578,11 @@ type Mutation {
   """
   Deletes a single `Company` using a unique key.
   """
-  deleteCompanyByName(
+  deleteCompanyByMarketIdAndName(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteCompanyByNameInput!
+    input: DeleteCompanyByMarketIdAndNameInput!
   ): DeleteCompanyPayload
 
   """
@@ -19071,6 +19183,7 @@ type Mutation {
     """
     input: resetPasswordImportedUsersInput
   ): resetPasswordImportedUsersResult
+  sendReminderToIncompleteCompanyProfile: String
 
   """
   Updates a single `Account` using a unique key and a patch.
@@ -19165,11 +19278,11 @@ type Mutation {
   """
   Updates a single `Company` using a unique key and a patch.
   """
-  updateCompanyByName(
+  updateCompanyByMarketIdAndName(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCompanyByNameInput!
+    input: UpdateCompanyByMarketIdAndNameInput!
   ): UpdateCompanyPayload
 
   """
@@ -19780,6 +19893,7 @@ type Note implements Node {
   Reads a single `Project` that is related to this `Note`.
   """
   project: Project
+  senderName: String
 }
 
 """
@@ -19954,6 +20068,11 @@ input NoteFilter {
   Filter by the object’s `projectId` field.
   """
   projectId: IntFilter
+
+  """
+  Filter by the object’s `senderName` field.
+  """
+  senderName: StringFilter
 
   """
   Checks for all expressions in this list.
@@ -21402,17 +21521,17 @@ input ProductMarketIdFkeyMarketCreateInput {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -22340,7 +22459,7 @@ input ProjectCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  connectByName: CompanyCompanyNameKeyConnect
+  connectByMarketIdAndName: CompanyCompanyMarketIdNameKeyConnect
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -22360,7 +22479,7 @@ input ProjectCompanyIdFkeyInput {
   """
   The primary key(s) for `company` for the far side of the relationship.
   """
-  deleteByName: CompanyCompanyNameKeyDelete
+  deleteByMarketIdAndName: CompanyCompanyMarketIdNameKeyDelete
 
   """
   The primary key(s) for `company` for the far side of the relationship.
@@ -22380,7 +22499,7 @@ input ProjectCompanyIdFkeyInput {
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
-  updateByName: CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyNameKeyUpdate
+  updateByMarketIdAndName: CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate
 
   """
   The primary key(s) and patch data for `company` for the far side of the relationship.
@@ -24269,7 +24388,7 @@ type Query implements Node {
     filter: CompanyFilter
   ): CompaniesConnection
   company(id: Int!): Company
-  companyByName(name: String!): Company
+  companyByMarketIdAndName(marketId: Int!, name: String!): Company
 
   """
   Reads a single `Company` using its globally unique `ID`.
@@ -24933,6 +25052,42 @@ type Query implements Node {
     """
     filter: EvidenceItemFilter
   ): EvidenceItemsConnection
+
+  """
+  Reads and enables pagination through a set of `FindIncompleteCompanyProfile`.
+  """
+  findIncompleteCompanyProfiles(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `FindIncompleteCompanyProfile`.
+    """
+    orderBy: [FindIncompleteCompanyProfilesOrderBy!] = [NATURAL]
+  ): FindIncompleteCompanyProfilesConnection
 
   """
   Reads and enables pagination through a set of `FindRoofer`.
@@ -26513,17 +26668,17 @@ input SystemMarketIdFkeyMarketCreateInput {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -26919,17 +27074,17 @@ input SystemMemberMarketIdFkeyMarketCreateInput {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -28590,9 +28745,9 @@ type UpdateCertificationPayload {
 }
 
 """
-All input for the `updateCompanyByName` mutation.
+All input for the `updateCompanyByMarketIdAndName` mutation.
 """
-input UpdateCompanyByNameInput {
+input UpdateCompanyByMarketIdAndNameInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -28603,6 +28758,11 @@ input UpdateCompanyByNameInput {
   An object where the defined keys will be set on the `Company` being updated.
   """
   patch: CompanyPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
 
   """
   The registered name of the Company
@@ -29911,7 +30071,7 @@ input UpdateMarketByDoceboCatalogueIdInput {
   patch: MarketPatch!
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -33795,17 +33955,17 @@ input updateMarketOnAccountForAccountMarketIdFkeyPatch {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -33883,17 +34043,17 @@ input updateMarketOnCompanyForCompanyMarketIdFkeyPatch {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -33971,17 +34131,17 @@ input updateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -34059,17 +34219,17 @@ input updateMarketOnProductForProductMarketIdFkeyPatch {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -34147,17 +34307,17 @@ input updateMarketOnSystemForSystemMarketIdFkeyPatch {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -34235,17 +34395,17 @@ input updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch {
   sendMailbox: String
 
   """
-  The default branch in Docebo that installers go into
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboInstallersBranchId: String
 
   """
-  The branch in Docebo that company admins go into
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
   """
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 

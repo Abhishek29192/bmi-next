@@ -196,6 +196,18 @@ export const getProductFamilyFilterFromDocuments = (
   return getProductFamilyFilter(getProductsFromDocuments(documents));
 };
 
+export const getCategoryCodesFilterFromDocuments = (
+  documents: DocumentResultsData,
+  allowFilterBy: string[]
+): ProductFilter[] => {
+  const productsFromDocuments = getProductsFromDocuments(documents);
+  const cagegoryFilters = generateCategoryFilters(
+    productsFromDocuments.flatMap((product) => product.categories || []),
+    allowFilterBy || []
+  );
+  return cagegoryFilters.filter((filt) => filt?.options?.length > 0);
+};
+
 const getProductFamilyFilter = (
   products: readonly Pick<Product, "categories">[]
 ) => {
@@ -427,8 +439,9 @@ type PlpFiltersArgs = {
 };
 
 export const combineVariantClassifications = (
-  product: Product,
-  variant: VariantOption
+  product: Product | Pick<Product, "classifications">,
+  variant: VariantOption,
+  includeVariantScoringWeight: boolean = false
 ): Classification[] => {
   const mergedClassifications: Map<string, Classification> = new Map();
 
@@ -441,8 +454,11 @@ export const combineVariantClassifications = (
 
   // process variant classifications except "scoringWeightAttributes"
   const vairantClassificationsMap = new Map(
-    (variant.classifications || [])
-      .filter(({ code }) => code !== "scoringWeightAttributes")
+    ((variant || {}).classifications || [])
+      .filter(
+        ({ code }) =>
+          includeVariantScoringWeight || code !== "scoringWeightAttributes"
+      )
       .map((classification) => [classification.code, classification])
   );
 
@@ -633,7 +649,8 @@ export const getDocumentFilters = (
   documents: DocumentResultsData,
   source: Source,
   resultsType: ResultType,
-  classificationNamespace
+  classificationNamespace,
+  allowFilterBy: string[]
 ) => {
   // AC1 – view a page that displays PIM documents in a Simple Document table - INVALID
 
@@ -641,21 +658,23 @@ export const getDocumentFilters = (
     return [
       getBrandFilterFromDocuments(documents),
       getProductFamilyFilterFromDocuments(documents),
-      getTextureFilterFromDocuments(classificationNamespace, documents)
-    ];
+      getTextureFilterFromDocuments(classificationNamespace, documents),
+      ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
+    ].filter(Boolean);
   }
 
   // AC2 – view a page that displays documents in a Technical Document table
   if (source === "PIM" && resultsType === "Technical") {
     return [
       getBrandFilterFromDocuments(documents),
-      getProductFamilyFilterFromDocuments(documents)
-    ];
+      getProductFamilyFilterFromDocuments(documents),
+      ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
+    ].filter(Boolean);
   }
 
   // AC3 – view a page that displays documents in a Card Collection
   if (source === "CMS" && resultsType === "Card Collection") {
-    return [getBrandFilterFromDocuments(documents)];
+    return [getBrandFilterFromDocuments(documents)].filter(Boolean);
   }
 
   // AC4 – view a page that displays All documents in a Simple Document table
@@ -663,8 +682,9 @@ export const getDocumentFilters = (
     return [
       getAssetTypeFilterFromDocuments(documents),
       getBrandFilterFromDocuments(documents),
-      getProductFamilyFilterFromDocuments(documents)
-    ];
+      getProductFamilyFilterFromDocuments(documents),
+      ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
+    ].filter(Boolean);
   }
 
   // AC5 – view a page that displays CMS documents in a Simple Document table,
@@ -676,8 +696,9 @@ export const getDocumentFilters = (
       getBrandFilterFromDocuments(documents),
       // TODO: Should not be there if ONLY ONE OPTION AVAILABLE
       // TODO: Move this responsibility to Filters???
-      getAssetTypeFilterFromDocuments(documents)
-    ];
+      getAssetTypeFilterFromDocuments(documents),
+      ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
+    ].filter(Boolean);
   }
 
   return [];
@@ -722,7 +743,13 @@ export const filterDocuments = (
       if (matcher) {
         return matcher(document, filter.value);
       }
-      return false;
+      // no specific matchers matched!
+      // hence, now try and see if the ANY categories match the selected filter value!
+      return isPIMDocument(document)
+        ? (document.product.categories || []).some((cat) =>
+            filter.value.includes(cat.code)
+          )
+        : false;
     });
   });
 };

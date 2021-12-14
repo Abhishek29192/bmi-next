@@ -42,7 +42,7 @@
   "companyOperations": "Operasjonstype",
   "companyOperationsSuffix": "Taktype",
   "operationTypes": {
-    "FLAT": "Flatt tak",
+    "FLAT": "Flate tak",
     "PITCHED": "Skråtak",
     "SOLAR": "Solar PV tak",
     "BITUMEN": "bitumen",
@@ -73,23 +73,31 @@
         "name": "Registrert navn",
         "registeredAddress": {
           "firstLine": "Adresse linje 1",
-          "secondLine": "Adresse linje 2",
+          "secondLine": "Adresse linje 2 (valgfri)",
           "town": "By",
           "postcode": "Postnummer/ Sted",
-          "region": "Område",
-          "country": "Land"
+          "region": "Område (valgfri)",
+          "country": "Land",
+          "coordinates": {
+            "x": "Breddegrad",
+            "y": "Lengdegrad"
+          }
         },
         "tradingAddress": {
           "autocomplete": "Postnummer, by eller gate",
-          "firstLine": "Adresse linje 1",
-          "secondLine": "Adresse linje 2",
-          "town": "By",
-          "postcode": "Postnummer/ Sted",
-          "region": "Område",
-          "country": "Land"
+          "firstLine": "Adresse linje 1 (valgfri)",
+          "secondLine": "Adresse linje 2 (valgfri)",
+          "town": "By (valgfri)",
+          "postcode": "Postnummer/ Sted (valgfri)",
+          "region": "Område (valgfri)",
+          "country": "Land (valgfri)",
+          "coordinates": {
+            "x": "Breddegrad",
+            "y": "Lengdegrad"
+          }
         },
         "logo": {
-          "label": "Logo",
+          "label": "Logo (valgfri)",
           "alt_text": "Firma logo",
           "buttons": {
             "upload": "Last opp nytt bilde",
@@ -117,5 +125,36 @@
       }
     }
   },
-  "report": "Last ned selskapsliste"
+  "report": "Last ned selskapsliste",
+  "document": {
+    "title": "Firmadokumenter",
+    "noContent": "Ingen dokumenter lastet opp ennå",
+    "addDocument": "Legg til dokument",
+    "headers": {
+      "document": "Dokument",
+      "date": "Dato",
+      "download": "NEDLASTING"
+    },
+    "uploadDialog": {
+      "title": "Dokumentopplasting",
+      "buttonLabel": "Last opp filer",
+      "microcopy": {
+        "drop": "Miste",
+        "browse": "Bla gjennom"
+      },
+      "instruction": "Du kan legge til filer",
+      "confirmLabel": "Last opp filer",
+      "cancelLabel": "Avbryt",
+      "fileValidationMessage": "Du kan ikke laste opp filer som er større enn {{fileSize}}"
+    },
+    "confirmDialog": {
+      "title": "Firmadokument",
+      "body": "Slett dokument?",
+      "confirmLabel": "Bekrefte",
+      "cancelLabel": "Avbryt"
+    }
+  },
+  "errorCompanyNameUniqueViolation": "Firma med samme navn eksisterer allerede",
+  "errorCompanyReferenceUniqueViolation": "Firma med referansenummeret eksisterer allerede",
+  "errorUniqueViolation": "Unikt bruddproblem"
 }

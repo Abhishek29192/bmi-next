@@ -30,13 +30,36 @@ export default async (req, res, next) => {
   const dbPool = getDbPool();
 
   if (user) {
-    if (["pdf-generator-function"].includes(user?.source)) {
+    if (
+      ["pdf-generator-function", "incomplete-reminder-function"].includes(
+        user?.source
+      )
+    ) {
       // if we want to limit access per function/service
       req.trustedConnection = true;
       req.user = {
         source: user?.source,
         role: "SUPER_ADMIN"
       };
+
+      if (req.headers["x-request-market-domain"]) {
+        const {
+          rows: [market]
+        } = await dbPool.query(
+          "SELECT id, domain, send_mailbox FROM market where domain = $1",
+          [req.headers["x-request-market-domain"]]
+        );
+
+        req.user = {
+          ...req.user,
+          marketId: market?.id,
+          market: camelcaseKeys({
+            id: market?.id,
+            domain: market?.domain,
+            send_mailbox: market?.send_mailbox
+          })
+        };
+      }
     } else {
       req.user = {
         email: user[`${process.env.AUTH0_NAMESPACE}/email`],

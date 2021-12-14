@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import { result, uniqBy, groupBy, find, pickBy, sortBy, unionBy } from "lodash";
 import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
+import React from "react";
 import {
   Category,
   Classification,
@@ -8,10 +9,14 @@ import {
   Image,
   Product,
   VariantOption,
-  VariantOptionWithProduct
+  VariantOptionWithProduct,
+  ImageAssetTypesEnum,
+  ClassificationCodeEnum,
+  FeatureCodeEnum
 } from "../components/types/pim";
 import { GalleryImageType } from "../templates/systemDetails/types";
 import { getPathWithCountryCode } from "./path";
+import { combineVariantClassifications } from "./filters";
 
 export const getProductUrl = (countryCode, path) =>
   getPathWithCountryCode(countryCode, path);
@@ -20,11 +25,15 @@ const getProductProp = (classifications, productCode, propName) =>
   classifications[productCode] ? classifications[productCode][propName] : null;
 
 // Returns an array of all the values of a certain prop
-const getAllValues = (classifications, propName) => {
+const getAllValues = (
+  classifications: ClassificationsPerProductMap,
+  propName: string,
+  enableSorting: boolean = false
+) => {
   const alreadyFoundProps = new Set();
 
-  return Object.entries(classifications).reduce(
-    (allValues, [productCode, props]) => {
+  const allValuesArray = Object.entries(classifications).reduce(
+    (allValues, [_, props]) => {
       const propValue = props[propName];
 
       if (!propValue) {
@@ -38,11 +47,28 @@ const getAllValues = (classifications, propName) => {
       }
 
       alreadyFoundProps.add(propIdentifier);
-
       return [...allValues, propValue];
     },
     []
   );
+  if (enableSorting) {
+    return allValuesArray.sort((a, b) => {
+      const isMeasurements = propName === ClassificationCodeEnum.MEASUREMENTS;
+      if (isMeasurements) {
+        // sort Measurements object on the same level by string number value
+        return Object.keys(a).reduce((prev, _, index) => {
+          // return the prev result if result has been decided.
+          if (prev !== 0) return prev;
+          const valueA = parseInt(a[Object.keys(a)[index]]?.value.value.value);
+          const valueB = parseInt(b[Object.keys(b)[index]]?.value.value.value);
+          if (!valueA || !valueB) return 0;
+          return valueA === valueB ? 0 : valueA < valueB ? -1 : 1;
+        }, 0);
+      }
+      return a.value.value < b.value.value ? -1 : 1;
+    });
+  }
+  return allValuesArray;
 };
 
 // String represenatation of a measurement without unit to be used as a key
@@ -76,7 +102,7 @@ export const getSizeLabel = (
 export const findMasterImageUrl = (images): string => {
   return result<string>(
     find(images, {
-      assetType: "MASTER_IMAGE",
+      assetType: ImageAssetTypesEnum.MASTER_IMAGE,
       format: "Product-Listing-Card-Large-Desktop"
     }),
     "url"
@@ -92,20 +118,43 @@ export const findProductBrandLogoCode = (product: Product) => {
   );
 };
 
+export const transformImages = (images) => {
+  return images.map(({ mainSource, thumbnail, altText }) => ({
+    media: React.createElement("img", { src: mainSource, alt: altText }),
+    thumbnail
+  }));
+};
+
+export const groupImage = (
+  arr: Image[] = [],
+  criteria: string
+): { [key: string]: Image[] } => {
+  return arr.reduce((acc: { [key: string]: Image[] }, currentValue: Image) => {
+    if (!acc[currentValue[criteria]]) {
+      acc[currentValue[criteria]] = [];
+    }
+    acc[currentValue[criteria]].push(currentValue);
+    return acc;
+  }, {});
+};
+
 // typed this function as this is using all the same type and data in both
 // system details page and also in product details page et.
 //TODO: potentially change the type name to be more generic (SystemProductImageType => ProductImageType)
 export const mapGalleryImages = (
   images: readonly Image[]
 ): GalleryImageType[] => {
-  const imagesByFormat = Object.values(groupBy(images, "containerId"));
+  const imagesByFormat: Image[][] = Object.values(
+    groupImage([...(images || [])], "containerId")
+  );
   const masterImageSet = imagesByFormat.filter(
     // NOTE: Only use one MASTER_IMAGE between the main product and the variant.
     (_images, index, self) => {
       return (
         self.findIndex((images) =>
           images.some(
-            ({ assetType, format }) => format && assetType === "MASTER_IMAGE"
+            ({ assetType, format }) =>
+              format && assetType === ImageAssetTypesEnum.MASTER_IMAGE
           )
         ) === index
       );
@@ -114,24 +163,24 @@ export const mapGalleryImages = (
   const imageSets = [
     ...masterImageSet,
     ...imagesByFormat.filter((images) =>
-      images.some((image) => image.assetType === "GALLERY")
+      images.some((image) => image.assetType === ImageAssetTypesEnum.GALLERY)
     )
   ];
 
+  return convertImageSetToMediaFormat(imageSets);
+};
+
+export const convertImageSetToMediaFormat = (
+  imageSets: Image[][]
+): GalleryImageType[] => {
   return imageSets.map((images) => ({
-    mainSource: result<string>(
-      find(images, {
-        format: "Product-Hero-Small-Desktop-Tablet"
-      }),
-      "url"
-    ),
-    thumbnail: result<string>(
-      find(images, {
-        format: "Product-Color-Selector-Mobile"
-      }),
-      "url"
-    ),
-    altText: images[0]?.altText || images[0].name
+    mainSource: images.find(
+      (image) => image.format === "Product-Hero-Small-Desktop-Tablet"
+    )?.url,
+    thumbnail: images.find(
+      (image) => image.format === "Product-Color-Selector-Mobile"
+    )?.url,
+    altText: images[0]?.altText || images[0]?.name
   }));
 };
 
@@ -139,7 +188,7 @@ export const getColourThumbnailUrl = (images): string =>
   result(
     find(images, {
       format: "Product-Color-Selector-Mobile",
-      assetType: "MASTER_IMAGE"
+      assetType: ImageAssetTypesEnum.MASTER_IMAGE
     }),
     "url"
   );
@@ -173,8 +222,16 @@ type AllClassificationsValues = {
   [productCode: string]: TransformedClassificationsMap[];
 };
 
+export enum UnavailableMicroCopiesEnum {
+  COLOUR = "color",
+  SIZE = "size",
+  VARIANT_ATTRIBUTE = "variantattribute",
+  TEXTURE_FAMILY = "texturefamily"
+}
+
 export type VariantCodeToPathMap = { [code: string]: string };
-export type Options = { size: string };
+export type Options = { size: string; variantattribute: string };
+export type UnavailableMicroCopies = Record<UnavailableMicroCopiesEnum, string>;
 
 // Find attributes like surface finish, color, etc, from classifications
 // TODO: Try to consolidate with the "unique" approach.
@@ -183,41 +240,51 @@ export const mapProductClassifications = (
     Product,
     "code" | "images" | "classifications" | "variantOptions"
   >,
-  classificationNamepace: string
+  classificationNamepace: string,
+  includeVariantScoringWeight: boolean = false
 ): ClassificationsPerProductMap => {
   const allProducts: {
     [productCode: string]: Product;
   } = {
-    [product.code]: product,
+    ...(!product.variantOptions && { [product.code]: product }),
     ...(product.variantOptions || []).reduce((variantProducts, variant) => {
       return {
         ...variantProducts,
-        [variant.code]: variant
+        [variant.code]: {
+          ...variant,
+          classifications: combineVariantClassifications(
+            product,
+            variant,
+            includeVariantScoringWeight
+          )
+        }
       };
     }, {})
   };
+
   const mainProduct = product;
 
   // Classifications
   const SCORE_WEIGHT = "scoringWeightAttributes";
   const APPEARANCE = "appearanceAttributes";
-  const MEASUREMENTS = "measurements";
+  const MEASUREMENTS = ClassificationCodeEnum.MEASUREMENTS;
   const GENERAL_INFORMATION = "generalInformation";
 
   const FEATURES = {
-    SCORE_WEIGHT: `${classificationNamepace}/${SCORE_WEIGHT}.scoringweight`,
-    TEXTURE_FAMILY: `${classificationNamepace}/${APPEARANCE}.texturefamily`,
-    COLOUR: `${classificationNamepace}/${APPEARANCE}.colour`,
-    COLOUR_FAMILY: `${classificationNamepace}/${APPEARANCE}.colourfamily`,
-    LENGTH: `${classificationNamepace}/${MEASUREMENTS}.length`,
-    WIDTH: `${classificationNamepace}/${MEASUREMENTS}.width`,
-    HEIGHT: `${classificationNamepace}/${MEASUREMENTS}.height`,
-    THICKNESS: `${classificationNamepace}/${MEASUREMENTS}.thickness`,
-    MATERIALS: `${classificationNamepace}/${GENERAL_INFORMATION}.materials`
+    SCORE_WEIGHT: `${classificationNamepace}/${SCORE_WEIGHT}.${FeatureCodeEnum.SCORE_WEIGHT}`,
+    TEXTURE_FAMILY: `${classificationNamepace}/${APPEARANCE}.${FeatureCodeEnum.TEXTURE_FAMILY}`,
+    COLOUR: `${classificationNamepace}/${APPEARANCE}.${FeatureCodeEnum.COLOUR}`,
+    COLOUR_FAMILY: `${classificationNamepace}/${APPEARANCE}.${FeatureCodeEnum.COLOUR_FAMILY}`,
+    VARIANT_ATTRIBUTE: `${classificationNamepace}/${APPEARANCE}.${FeatureCodeEnum.VARIANT_ATTRIBUTE}`,
+    LENGTH: `${classificationNamepace}/${MEASUREMENTS}.${FeatureCodeEnum.LENGTH}`,
+    WIDTH: `${classificationNamepace}/${MEASUREMENTS}.${FeatureCodeEnum.WIDTH}`,
+    HEIGHT: `${classificationNamepace}/${MEASUREMENTS}.${FeatureCodeEnum.HEIGHT}`,
+    THICKNESS: `${classificationNamepace}/${MEASUREMENTS}.${FeatureCodeEnum.THICKNESS}`,
+    MATERIALS: `${classificationNamepace}/${GENERAL_INFORMATION}.${FeatureCodeEnum.MATERIALS}`
   };
 
-  return Object.entries(allProducts).reduce((carry, [productCode, product]) => {
-    (product.classifications || []).forEach((classification) => {
+  return Object.entries(allProducts).reduce((carry, [productCode, variant]) => {
+    (variant.classifications || []).forEach((classification) => {
       const { code, features } = classification;
 
       const carryProp = (
@@ -239,7 +306,7 @@ export const mapProductClassifications = (
           return code === FEATURES.SCORE_WEIGHT;
         });
 
-        carryProp("scoringweight", {
+        carryProp(FeatureCodeEnum.SCORE_WEIGHT, {
           name: classification.name,
           value: valueFeature ? valueFeature.featureValues[0] : "n/a"
         });
@@ -248,31 +315,38 @@ export const mapProductClassifications = (
       if (code === APPEARANCE) {
         features.forEach(({ code, name, featureValues }) => {
           if (code === FEATURES.TEXTURE_FAMILY) {
-            carryProp("texturefamily", {
+            carryProp(FeatureCodeEnum.TEXTURE_FAMILY, {
               name,
               value: featureValues ? featureValues[0] : "n/a"
             });
           }
 
           if (code === FEATURES.COLOUR) {
-            carryProp("colour", {
+            carryProp(FeatureCodeEnum.COLOUR, {
               name,
               value: featureValues ? featureValues[0] : "n/a",
               thumbnailUrl: getColourThumbnailUrl([
-                ...(product.images || []),
+                ...(variant.images || []),
                 ...(mainProduct.images || [])
               ])
             });
           }
 
           if (code === FEATURES.COLOUR_FAMILY) {
-            carryProp("colourfamily", {
+            carryProp(FeatureCodeEnum.COLOUR_FAMILY, {
               name,
               value: featureValues ? featureValues[0] : "n/a",
               thumbnailUrl: getColourThumbnailUrl([
-                ...(product.images || []),
+                ...(variant.images || []),
                 ...(mainProduct.images || [])
               ])
+            });
+          }
+
+          if (code === FEATURES.VARIANT_ATTRIBUTE) {
+            carryProp(FeatureCodeEnum.VARIANT_ATTRIBUTE, {
+              name,
+              value: featureValues ? featureValues[0] : "n/a"
             });
           }
         });
@@ -313,7 +387,7 @@ export const mapProductClassifications = (
       if (code === GENERAL_INFORMATION) {
         features.forEach(({ code, name, featureValues }) => {
           if (code === FEATURES.MATERIALS) {
-            carryProp("materials", {
+            carryProp(FeatureCodeEnum.MATERIALS, {
               name,
               value: featureValues ? featureValues[0] : "n/a"
             });
@@ -330,7 +404,8 @@ const getPropIdentifier = {
   texturefamily: (prop) => prop.value.code,
   colour: (prop) => prop.value.value, // UGH! Colour doesn't have a code!
   colourfamily: (prop) => prop.value.code,
-  measurements: (prop) => getMeasurementKey(prop)
+  measurements: (prop) => getMeasurementKey(prop),
+  variantattribute: (prop) => prop.value.value
 };
 
 const getPropValue = (classification, propName) => {
@@ -345,52 +420,101 @@ export const getProductAttributes = (
   selfProduct: Product | VariantOption,
   countryCode: string,
   options: Options,
-  variantCodeToPathMap: VariantCodeToPathMap
+  variantCodeToPathMap: VariantCodeToPathMap,
+  unavailableMicroCopies: UnavailableMicroCopies
 ): ProductOverviewPaneProps["attributes"] => {
+  const sortedProductClassification = Object.entries(
+    productClassifications
+  ).sort(([_, a], [__, b]) => {
+    const sortingOrder = [
+      FeatureCodeEnum.COLOUR,
+      FeatureCodeEnum.COLOUR_FAMILY,
+      FeatureCodeEnum.TEXTURE_FAMILY,
+      ClassificationCodeEnum.MEASUREMENTS,
+      FeatureCodeEnum.VARIANT_ATTRIBUTE
+    ];
+    return sortingOrder.reduce((prev, propName) => {
+      // return the prev result if result has been decided.
+      if (prev !== 0 || !a[propName]) return prev;
+      const valueA = getPropValue(a, propName);
+      const valueB = getPropValue(b, propName);
+      return valueA === valueB ? 0 : valueA < valueB ? -1 : 1;
+    }, 0);
+  });
+
   const selectedSurfaceTreatment = getProductProp(
     productClassifications,
     selfProduct.code,
-    "texturefamily"
+    FeatureCodeEnum.TEXTURE_FAMILY
   );
   const allSurfaceTreatments = getAllValues(
     productClassifications,
-    "texturefamily"
+    FeatureCodeEnum.TEXTURE_FAMILY,
+    true
   ).filter(Boolean);
 
   const selectedColour = getProductProp(
     productClassifications,
     selfProduct.code,
-    "colour"
+    FeatureCodeEnum.COLOUR
   );
-  const allColours = getAllValues(productClassifications, "colour").filter(
-    Boolean
-  );
+  const allColours = getAllValues(
+    productClassifications,
+    FeatureCodeEnum.COLOUR,
+    true
+  ).filter(Boolean);
 
   const selectedSize = getProductProp(
     productClassifications,
     selfProduct.code,
-    "measurements"
+    ClassificationCodeEnum.MEASUREMENTS
   );
 
-  const allSizes = getAllValues(productClassifications, "measurements").filter(
-    Boolean
+  const allSizes = getAllValues(
+    productClassifications,
+    ClassificationCodeEnum.MEASUREMENTS,
+    true
+  ).filter(Boolean);
+
+  const selectedVariantAttribute = getProductProp(
+    productClassifications,
+    selfProduct.code,
+    FeatureCodeEnum.VARIANT_ATTRIBUTE
   );
 
-  // The last attribute should be "quantity", but I can't find any products having it.
-  const propHierarchy = ["colour", "measurements", "???"];
+  const allVariantAttributes = getAllValues(
+    productClassifications,
+    FeatureCodeEnum.VARIANT_ATTRIBUTE,
+    true
+  ).filter(Boolean);
+
+  const propHierarchy = [
+    { propName: FeatureCodeEnum.COLOUR, values: allColours },
+    { propName: "colourFamily", values: allColours },
+    { propName: FeatureCodeEnum.TEXTURE_FAMILY, values: allSurfaceTreatments },
+    { propName: ClassificationCodeEnum.MEASUREMENTS, values: allSizes },
+    {
+      propName: FeatureCodeEnum.VARIANT_ATTRIBUTE,
+      values: allVariantAttributes
+    }
+  ].reduce((carry, { propName, values }) => {
+    if (values.length <= 0) return carry;
+    return [...carry, propName];
+  }, []);
+
   const getMasterProperty = (keys, hirarchy) =>
     hirarchy.filter((code) => keys.includes(code))[0];
 
-  const findProductCode = (
-    filter /*: { "texturefamily": string, "colour": string, "measurements": string } */,
-    property
-  ) => {
+  const findProductCode = (filter, property) => {
     filter = {
       colour: selectedColour ? selectedColour.value.value : undefined,
       texturefamily: selectedSurfaceTreatment
         ? selectedSurfaceTreatment.value.code
         : undefined,
       measurements: selectedSize ? getMeasurementKey(selectedSize) : undefined,
+      variantattribute: selectedVariantAttribute
+        ? selectedVariantAttribute.value.value
+        : undefined,
       ...filter
     };
 
@@ -415,15 +539,20 @@ export const getProductAttributes = (
         }
 
         const matches = Object.entries(filter).filter(([key, value]) => {
+          if (
+            !value ||
+            propHierarchy.indexOf(key) > propHierarchy.indexOf(property)
+          )
+            return false;
           return getPropValue(classification, key) === value;
-        }).length;
+        });
 
-        if (carry.matches >= matches) {
+        if (carry.matches >= matches.length) {
           return carry;
         }
 
         return {
-          matches,
+          matches: matches.length,
           classification,
           productCode
         };
@@ -439,59 +568,109 @@ export const getProductAttributes = (
       return;
     }
 
-    // If we don't find an exact match and we're not looking for the masterProperty
-    // we return undefined, we don't need to find the closest match...
-    if (
-      bestMatch.matches < Object.keys(filter).length &&
-      property !== masterProperty
-    ) {
+    if (bestMatch.matches < propHierarchy.indexOf(property)) {
       return;
     }
 
     return bestMatch.productCode;
   };
 
+  // colour availability is based on all other selected values
+  const checkColourAvailability = (value: string) => {
+    const variants = [
+      {
+        value: selectedSurfaceTreatment && selectedSurfaceTreatment.value.code,
+        propName: FeatureCodeEnum.TEXTURE_FAMILY
+      },
+      {
+        value: selectedSize && getMeasurementKey(selectedSize),
+        propName: ClassificationCodeEnum.MEASUREMENTS
+      },
+      {
+        value: selectedVariantAttribute && selectedVariantAttribute.value.value,
+        propName: FeatureCodeEnum.VARIANT_ATTRIBUTE
+      }
+    ].filter(({ value }) => !!value);
+    if (variants.length === 0) return true;
+    const allColourVariants = Object.entries(productClassifications).filter(
+      ([_, classifications]) => {
+        return getPropValue(classifications, FeatureCodeEnum.COLOUR) === value;
+      }
+    );
+    const matchColourVariants = allColourVariants.filter(
+      ([_, classifications]) => {
+        const matches = variants.reduce(
+          (prev, { value: variantValue, propName }) => {
+            if (getPropValue(classifications, propName) === variantValue) {
+              return [...prev, propName];
+            }
+            return prev;
+          },
+          []
+        );
+        return matches.length === variants.length;
+      }
+    );
+    return matchColourVariants.length > 0;
+  };
+
+  const getBestMatch = (variant: string, propName: string) =>
+    sortedProductClassification.filter(([_, classifications]) => {
+      const value = getPropValue(classifications, propName);
+      return value && value === variant;
+    });
+
+  const getUnavailableCTA = (variant: string, propName: string) => {
+    const bestMatch = getBestMatch(variant, propName);
+    const variantPath = variantCodeToPathMap[bestMatch[0][0]];
+    return variantPath && bestMatch.length > 0
+      ? getProductUrl(countryCode, variantPath)
+      : null;
+  };
+
   return [
     {
       name: allColours[0]?.name,
       type: "thumbnails",
-      variants: allColours.map((color) => {
-        // TODO: that bad deconstruct
-        const {
-          value: { value },
-          thumbnailUrl
-        } = color;
-        const code = value;
-
+      unavailableMicroCopy: unavailableMicroCopies.color,
+      variants: allColours.map(({ value: { value: code }, thumbnailUrl }) => {
         const variantCode = findProductCode(
           {
             colour: code
           },
-          "colour"
+          FeatureCodeEnum.COLOUR
         );
-
+        const isSelected =
+          selectedColour && code === selectedColour.value.value;
+        const path = variantCode
+          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          : getUnavailableCTA(code, FeatureCodeEnum.COLOUR);
         return {
-          label: value,
-          isSelected: selectedColour && code === selectedColour.value.value,
+          label: code,
+          isSelected,
           thumbnail: thumbnailUrl,
-          ...(variantCode
-            ? {
-                action: {
-                  model: "routerLink",
-                  linkComponent: Link,
-                  to: getProductUrl(
-                    countryCode,
-                    variantCodeToPathMap[variantCode]
-                  )
-                }
+          availability: checkColourAvailability(code),
+          ...(!isSelected &&
+            allColours.length > 1 &&
+            path && {
+              action: {
+                model: "routerLink",
+                linkComponent: Link,
+                to: variantCode
+                  ? getProductUrl(
+                      countryCode,
+                      variantCodeToPathMap[variantCode]
+                    )
+                  : getUnavailableCTA(code, FeatureCodeEnum.COLOUR)
               }
-            : {})
+            })
         };
       })
     },
     {
       name: allSurfaceTreatments[0]?.name,
       type: "chips",
+      unavailableMicroCopy: unavailableMicroCopies.texturefamily,
       variants: allSurfaceTreatments.map((surface) => {
         // TODO: that bad deconstruct
         const {
@@ -501,56 +680,93 @@ export const getProductAttributes = (
           {
             texturefamily: code
           },
-          "texturefamily"
+          FeatureCodeEnum.TEXTURE_FAMILY
         );
-
+        const isSelected =
+          selectedSurfaceTreatment &&
+          code === selectedSurfaceTreatment.value.code;
+        const path = variantCode
+          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          : getUnavailableCTA(code, FeatureCodeEnum.TEXTURE_FAMILY);
         return {
           label: value,
-          isSelected:
-            selectedSurfaceTreatment &&
-            code === selectedSurfaceTreatment.value.code,
-          ...(variantCode
-            ? {
-                action: {
-                  model: "routerLink",
-                  linkComponent: Link,
-                  to: getProductUrl(
-                    countryCode,
-                    variantCodeToPathMap[variantCode]
-                  )
-                }
+          isSelected,
+          availability: !!variantCode,
+          ...(!isSelected &&
+            path &&
+            allSurfaceTreatments.length > 1 && {
+              action: {
+                model: "routerLink",
+                linkComponent: Link,
+                to: path
               }
-            : {})
+            })
         };
       })
     },
     {
       name: options.size || "Size",
       type: "chips",
+      unavailableMicroCopy: unavailableMicroCopies.size,
       variants: allSizes.map((size) => {
         const key = getMeasurementKey(size);
         const variantCode = findProductCode(
           {
             measurements: key
           },
-          "measurements"
+          ClassificationCodeEnum.MEASUREMENTS
         );
-
+        const isSelected = key === getMeasurementKey(selectedSize);
+        const path = variantCode
+          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          : getUnavailableCTA(key, ClassificationCodeEnum.MEASUREMENTS);
         return {
           label: getSizeLabel(size),
-          isSelected: key === getMeasurementKey(selectedSize),
-          ...(variantCode
-            ? {
-                action: {
-                  model: "routerLink",
-                  linkComponent: Link,
-                  to: getProductUrl(
-                    countryCode,
-                    variantCodeToPathMap[variantCode]
-                  )
-                }
+          isSelected,
+          availability: !!variantCode,
+          ...(!isSelected &&
+            path &&
+            allSizes.length > 1 && {
+              action: {
+                model: "routerLink",
+                linkComponent: Link,
+                to: path
               }
-            : {})
+            })
+        };
+      })
+    },
+    {
+      name: options.variantattribute,
+      type: "chips",
+      unavailableMicroCopy: unavailableMicroCopies.variantattribute,
+      variants: allVariantAttributes.map(({ value: { value } }) => {
+        const variantCode = findProductCode(
+          {
+            variantattribute: value
+          },
+          FeatureCodeEnum.VARIANT_ATTRIBUTE
+        );
+        const isSelected =
+          (selectedVariantAttribute &&
+            selectedVariantAttribute.value.value === value) ||
+          false;
+        const path = variantCode
+          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          : getUnavailableCTA(value, FeatureCodeEnum.VARIANT_ATTRIBUTE);
+        return {
+          label: value,
+          isSelected,
+          availability: !!variantCode,
+          ...(!isSelected &&
+            path &&
+            allVariantAttributes.length > 1 && {
+              action: {
+                model: "routerLink",
+                linkComponent: Link,
+                to: path
+              }
+            })
         };
       })
     }
@@ -730,13 +946,17 @@ export const mapClassificationValues = (
 ) => {
   return Object.entries(classificationsMap)
     .map(([key, classification]) => {
-      if (["colour", "texturefamily"].includes(key)) {
+      if (
+        [FeatureCodeEnum.COLOUR, FeatureCodeEnum.TEXTURE_FAMILY].includes(
+          key as FeatureCodeEnum
+        )
+      ) {
         // TODO: Hmmmmmmm
         const value = classification.value;
         return typeof value === "object" ? value.value : value;
       }
 
-      if (key === "measurements") {
+      if (key === ClassificationCodeEnum.MEASUREMENTS) {
         return getSizeLabel(classification as TransformedMeasurementValue);
       }
     })
@@ -750,7 +970,8 @@ export const findUniqueVariantClassifications = (
 ) => {
   const classifications = mapProductClassifications(
     variant._product,
-    classificationNamespace
+    classificationNamespace,
+    true
   );
 
   const mergeClassificationsValues = (

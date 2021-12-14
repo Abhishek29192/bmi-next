@@ -3,7 +3,6 @@
   "MISCELLANEOUS": "Last opp dokumentasjon",
   "PROOF_OF_PURCHASE": "Kjøpsbevis",
   "CUSTOM": "Bevis på utførelse",
-  "deactivatedCompany": "Selskapet deaktivert",
   "search": {
     "inputLabel": "Søk etter et prosjekt"
   },
@@ -42,7 +41,7 @@
         "values": {
           "technology": {
             "PITCHED": "Skråtak",
-            "FLAT": "Flatt tak"
+            "FLAT": "Flate tak"
           }
         },
         "hints": {
@@ -146,7 +145,7 @@
       "NOT_STARTED": "Ikke påbegynt",
       "IN_PROGRESS": "Pågår",
       "COMPLETED": "Fullført",
-      "FLAT": "Flatt tak",
+      "FLAT": "Flate tak",
       "PITCHED": "Skråtak",
       "UNASSIGNED": "Ikke tilordnet",
       "ASSIGNED": "Tildelt",

@@ -1,9 +1,9 @@
-import { Image } from "../components/types/pim";
+import { Image, ImageAssetTypesEnum } from "../components/types/pim";
 
 const createImage = (image?: Partial<Image>): Image => ({
   allowedToDownload: false,
   altText: "image-alt-text",
-  assetType: "image-asset-type",
+  assetType: ImageAssetTypesEnum.MASTER_IMAGE,
   containerId: "image-container-id",
   fileSize: 10,
   format: "Product-Hero-Large-Desktop",

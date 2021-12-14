@@ -44,6 +44,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -66,6 +67,7 @@ describe("ServiceLocatorSection component", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
+        showDefaultResultList: true,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -87,6 +89,7 @@ describe("ServiceLocatorSection component", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
+        showDefaultResultList: true,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -106,6 +109,7 @@ describe("ServiceLocatorSection component", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
+        showDefaultResultList: true,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -125,6 +129,7 @@ describe("ServiceLocatorSection component", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
+        showDefaultResultList: true,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -146,6 +151,7 @@ describe("ServiceLocatorSection component", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
+        showDefaultResultList: true,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -168,6 +174,7 @@ describe("ServiceLocatorSection component", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
+        showDefaultResultList: true,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -198,6 +205,7 @@ describe("ServiceLocatorSection component", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.BRANCH_TYPE,
+        showDefaultResultList: true,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -233,6 +241,7 @@ describe("ServiceLocatorSection component", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.MERCHANT_TYPE,
+        showDefaultResultList: true,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -270,6 +279,7 @@ describe("ServiceLocatorSection component", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.BRANCH_TYPE,
+        showDefaultResultList: true,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -301,6 +311,7 @@ describe("ServiceLocatorSection component", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.MERCHANT_TYPE,
+        showDefaultResultList: true,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -332,6 +343,7 @@ describe("ServiceLocatorSection component", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.MERCHANT_TYPE,
+        showDefaultResultList: true,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -365,6 +377,7 @@ describe("ServiceLocatorSection component", () => {
         __typename: "ContentfulServiceLocatorSection",
         // @ts-expect-error
         type: "Invalid type",
+        showDefaultResultList: true,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -397,6 +410,7 @@ describe("ServiceLocatorSection component", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
+        showDefaultResultList: true,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -427,6 +441,7 @@ describe("ServiceLocatorSection component", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.ROOFER_TYPE,
+        showDefaultResultList: true,
         title: "service locator section",
         label: "Main",
         body: null,
@@ -470,6 +485,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -508,6 +524,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -545,6 +562,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -577,6 +595,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -599,6 +618,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -618,6 +638,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -638,6 +659,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -678,6 +700,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.BRANCH_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -714,6 +737,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.MERCHANT_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -750,6 +774,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -783,6 +808,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -848,6 +874,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -886,6 +913,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -918,6 +946,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -943,6 +972,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -985,6 +1015,7 @@ describe("ServiceLocatorSection component", () => {
     const data: serviceLocatorDataType = {
       __typename: "ContentfulServiceLocatorSection",
       type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
       title: "service locator section",
       label: "Main",
       body: null,
@@ -1003,5 +1034,82 @@ describe("ServiceLocatorSection component", () => {
     closeButton.click();
 
     expect(wrapper.container.firstChild).toMatchSnapshot();
+  });
+
+  describe("when showDefaultResultList is false", () => {
+    const roofer1 = {
+      id: "roofer_1",
+      name: "roofer 1",
+      type: [rooferTypes[0]]
+    };
+    const roofer2 = {
+      id: "roofer_2",
+      name: "roofer 2",
+      type: [rooferTypes[1]]
+    };
+
+    const data: serviceLocatorDataType = {
+      __typename: "ContentfulServiceLocatorSection",
+      type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: false,
+      title: "service locator section",
+      label: "Main",
+      body: null,
+      position: 1,
+      centre: null,
+      zoom: 8,
+      services: [createService(roofer1), createService(roofer2)]
+    };
+
+    it("should show result list after searched by name/company", async () => {
+      const { queryByText, container, getAllByText, getByTitle } =
+        renderWithRouter(<ServiceLocatorSection data={data} />);
+
+      expect(queryByText(roofer1.name)).toBeFalsy();
+      expect(queryByText(roofer2.name)).toBeFalsy();
+
+      const input = container.querySelector("#company-autocomplete");
+
+      fireEvent.change(input, { target: { value: roofer1.name } });
+      fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
+
+      expect(getAllByText(roofer1.name)).toHaveLength(1);
+      expect(queryByText(roofer2.name)).toBeFalsy();
+
+      const clearButton = getByTitle("Clear");
+
+      clearButton.click();
+
+      expect(queryByText(roofer1.name)).toBeTruthy();
+      expect(queryByText(roofer2.name)).toBeTruthy();
+    });
+
+    it("should show result list after filtered by chip filter", () => {
+      const { queryByText, getByRole, getAllByText } = renderWithRouter(
+        <ServiceLocatorSection data={data} />
+      );
+
+      expect(queryByText(roofer1.name)).toBeFalsy();
+      expect(queryByText(roofer2.name)).toBeFalsy();
+
+      const chipButton = getByRole("button", {
+        name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
+      });
+
+      chipButton.click();
+
+      expect(getAllByText(roofer1.name)).toHaveLength(1);
+      expect(queryByText(roofer2.name)).toBeFalsy();
+    });
+
+    it("should not render results list panel on page load if selected chips do not exist in query params", () => {
+      const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+      const text = wrapper.queryByText("MC: findARoofer.listLabel");
+      expect(
+        wrapper.container.querySelector(".tabs .tab-panel .list")
+      ).toBeFalsy();
+      expect(text).toBeFalsy();
+      expect(wrapper.container.firstChild).toMatchSnapshot();
+    });
   });
 });

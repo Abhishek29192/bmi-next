@@ -3,12 +3,11 @@
   "MISCELLANEOUS": "Supporting files",
   "PROOF_OF_PURCHASE": "Proof of purchase",
   "CUSTOM": "Custom Files",
-  "deactivatedCompany": "Company deactivated",
   "search": {
     "inputLabel": "Search for a project"
   },
   "addProject": {
-    "cta": "Add a new project",
+    "cta": "Add new project",
     "dialog": {
       "title": "Add a project",
       "sections": {
@@ -70,7 +69,7 @@
     "cta": {
       "ASSIGN_SOLUTION": "Assign to me",
       "REASSIGN_SOLUTION": "Reassign to me",
-      "UNASSIGN_SOLUTION": "Unassign to me",
+      "UNASSIGN_SOLUTION": "Unassign from me",
       "NOT_ASSIGNABLE": "Not Assignable",
       "edit": "Edit"
     },
@@ -137,7 +136,7 @@
     },
     "incompleteGuaranteeAlert": {
       "title": "Information Required",
-      "description": "To submit your guarantee please addd a certified installer and uplod required evidence."
+      "description": "To complete your application add a certified responsible installer to the project team and upload the evidence required on the Uploads tab"
     }
   },
   "filters": {
@@ -192,7 +191,7 @@
     "noContent": "No team members have been added to this project"
   },
   "upload_tab": {
-    "header": "Upload file",
+    "header": "Upload file(s)",
     "add_evidence_modal": {
       "title": "Evidence Upload",
       "button_label": "Upload Files",

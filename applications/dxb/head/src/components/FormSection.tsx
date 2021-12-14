@@ -20,7 +20,7 @@ import axios from "axios";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import withGTM from "../utils/google-tag-manager";
+import withGTM, { GTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 // TODO: FormInputs should be updated and used here.
@@ -284,17 +284,27 @@ const FormSection = ({
     source,
     hubSpotFormGuid
   },
-  backgroundColor
+  backgroundColor,
+  additionalValues,
+  isSubmitDisabled,
+  gtmOverride,
+  onSuccess
 }: {
   id?: string;
   data: Data;
   backgroundColor: "pearl" | "white";
+  additionalValues?: Record<string, string>;
+  isSubmitDisabled?: boolean;
+  gtmOverride?: Partial<GTM>;
+  onSuccess?: () => void;
 }) => {
   const { countryCode, getMicroCopy, node_locale } = useSiteContext();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
-
-  const GTMButton = withGTM<ButtonProps>(Button, { label: "children" });
+  const GTMButton = withGTM<ButtonProps>(Button, {
+    label: "aria-label",
+    action: "aria-action"
+  });
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
@@ -308,6 +318,7 @@ const FormSection = ({
     }
 
     setIsSubmitting(true);
+    Object.assign(values, additionalValues);
 
     // @todo: This needs to be less reliant on string patterns
     const recipientsFromValues = (values.recipients as string) || "";
@@ -338,6 +349,7 @@ const FormSection = ({
       );
 
       setIsSubmitting(false);
+      onSuccess && onSuccess();
       if (successRedirect) {
         navigate(
           successRedirect.url ||
@@ -461,7 +473,6 @@ const FormSection = ({
       </HubspotProvider>
     );
   }
-
   return (
     <Section backgroundColor={backgroundColor}>
       {showTitle && <Section.Title>{title}</Section.Title>}
@@ -486,15 +497,22 @@ const FormSection = ({
           </Grid>
           <Form.ButtonWrapper>
             <Form.SubmitButton
-              component={(props: ButtonProps) => (
-                <GTMButton
-                  gtm={{
-                    id: "form-button1",
-                    action: title
-                  }}
-                  {...props}
-                />
-              )}
+              component={(props: ButtonProps) => {
+                return (
+                  <GTMButton
+                    {...props}
+                    gtm={{
+                      id: "form-button1"
+                    }}
+                    aria-label={
+                      gtmOverride?.label ? gtmOverride?.label : "children"
+                    }
+                    aria-action={
+                      gtmOverride?.action ? gtmOverride?.action : title
+                    }
+                  />
+                );
+              }}
               endIcon={
                 isSubmitting ? (
                   <CircularProgress
@@ -506,7 +524,7 @@ const FormSection = ({
                   <ArrowForwardIcon />
                 )
               }
-              disabled={isSubmitting}
+              disabled={isSubmitting || isSubmitDisabled}
             >
               {submitText || getMicroCopy("form.submit")}
             </Form.SubmitButton>

@@ -163,6 +163,7 @@ export const generateCategoryFilters = (
         [categoryNameKey]: {
           name: `plpFilter.${categoryNameKey}`,
           label: "",
+          value: [],
           options: allOptions
         }
       };
@@ -237,6 +238,7 @@ export const generateFeatureFilters = (
             `${pimClassificationNamespace}/`,
             ""
           ),
+          value: [],
           options: allOptions.sort((a, b) => {
             //sort based on string or number value
             if (

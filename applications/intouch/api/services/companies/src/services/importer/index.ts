@@ -3,7 +3,7 @@ import { QueryResult } from "pg";
 import pgFormat from "pg-format";
 import bcrypt from "bcrypt";
 import camelcaseKeys from "camelcase-keys";
-import Joi from "joi";
+import async from "async";
 import {
   accountValidater,
   companyValidater,
@@ -39,29 +39,56 @@ export const singleImport = async (file) =>
       });
   });
 
-export const getTree = (companies, accounts, addresses, owners, members) =>
-  companies.map((company) => {
-    const accountMap = accounts.reduce(
-      (result, current) => ({
-        ...result,
-        [current.migration_id]: current
-      }),
-      {}
-    );
-    const adressMap = addresses.reduce(
-      (result, current) => ({
-        ...result,
-        [current.migration_id]: current
-      }),
-      {}
-    );
-    const ownersMap = owners.reduce(
-      (result, current) => ({
-        ...result,
-        [current.migration_id]: current
-      }),
-      {}
-    );
+export const getTree = (companies, accounts, addresses, owners, members) => {
+  const companyNames = {};
+
+  const accountMap = accounts.reduce(
+    (result, current) => ({
+      ...result,
+      [current.migration_id]: current
+    }),
+    {}
+  );
+
+  const adressMap = addresses.reduce((result, current) => {
+    let coordinates = null;
+
+    if (current.coordinates) {
+      const [x, y] = current.coordinates.split(",");
+      coordinates = {
+        x: parseFloat(x),
+        y: parseFloat(y)
+      };
+    }
+
+    return {
+      ...result,
+      [current.migration_id]: {
+        ...current,
+        ...(coordinates?.y &&
+          coordinates?.x && {
+            coordinates: `(${parseFloat(coordinates.x)},${parseFloat(
+              coordinates.y
+            )})`
+          })
+      }
+    };
+  }, {});
+
+  const ownersMap = owners.reduce(
+    (result, current) => ({
+      ...result,
+      [current.migration_id]: current
+    }),
+    {}
+  );
+
+  return companies.map((company) => {
+    if (!companyNames[company.name]) {
+      companyNames[company.name] = true;
+    } else {
+      throw new Error(`company_duplicate_name: ${company.name}`);
+    }
 
     return camelcaseKeys({
       ...company,
@@ -87,6 +114,7 @@ export const getTree = (companies, accounts, addresses, owners, members) =>
       }
     });
   });
+};
 
 export const importAccountsCompaniesFromCVS = async (
   _query,
@@ -98,6 +126,8 @@ export const importAccountsCompaniesFromCVS = async (
   const { pgRootPool, user } = context;
   const logger = context.logger("import:account");
   const { input } = args;
+
+  const JOY_VALIDATION_BATCH_LIMIT = 25;
 
   if (!user.can("import:account:markets")) {
     throw new Error("unauthorized");
@@ -134,22 +164,52 @@ export const importAccountsCompaniesFromCVS = async (
 
     if (type === "companies.csv") {
       companies = parsedFile;
-      await Joi.array().items(companyValidater).validateAsync(companies);
+      await async.eachLimit(
+        companies,
+        JOY_VALIDATION_BATCH_LIMIT,
+        async (toVal) => {
+          await companyValidater.validateAsync(toVal);
+        }
+      );
     } else if (type === "addresses.csv") {
       addresses = parsedFile;
-      await Joi.array().items(addressValidater).validateAsync(addresses);
+      await async.eachLimit(
+        addresses,
+        JOY_VALIDATION_BATCH_LIMIT,
+        async (toVal) => {
+          await addressValidater.validateAsync(toVal);
+        }
+      );
     } else if (type === "owners.csv") {
       owners = parsedFile;
-      await Joi.array().items(ownersValidater).validateAsync(owners);
+      await async.eachLimit(
+        owners,
+        JOY_VALIDATION_BATCH_LIMIT,
+        async (toVal) => {
+          await ownersValidater.validateAsync(toVal);
+        }
+      );
     } else if (type === "members.csv") {
       members = parsedFile;
-      await Joi.array().items(companyMemberValidater).validateAsync(members);
+      await async.eachLimit(
+        members,
+        JOY_VALIDATION_BATCH_LIMIT,
+        async (toVal) => {
+          await companyMemberValidater.validateAsync(toVal);
+        }
+      );
     } else if (type === "accounts.csv") {
       accounts = parsedFile.map((account) => ({
         ...account,
         email: account.email.toLowerCase()
       }));
-      await Joi.array().items(accountValidater).validateAsync(accounts);
+      await async.eachLimit(
+        accounts,
+        JOY_VALIDATION_BATCH_LIMIT,
+        async (toVal) => {
+          await accountValidater.validateAsync(toVal);
+        }
+      );
     }
   }
 
@@ -226,8 +286,12 @@ export const importAccountsCompaniesFromCVS = async (
         company.logo,
         company.phone,
         company.public_email,
-        company.registered_address_migration_id,
-        company.trading_address_migration_id,
+        company?.registered_address_migration_id?.toLowerCase() === "empty"
+          ? null
+          : company.registered_address_migration_id,
+        company?.trading_address_migration_id?.toLowerCase() === "empty"
+          ? null
+          : company.trading_address_migration_id,
         company.website,
         company.linked_in
       ])
@@ -235,29 +299,38 @@ export const importAccountsCompaniesFromCVS = async (
 
   if (addresses.length)
     addressQuery = pgFormat(
-      "INSERT INTO address(migration_id, first_line, second_line, town, country, postcode) VALUES %L RETURNING *",
+      "INSERT INTO address(migration_id, first_line, second_line, town, country, postcode, coordinates) VALUES %L RETURNING *",
       addresses.map((address) => [
         address.migration_id,
         address.first_line,
         address.second_line,
         address.town,
         address.country,
-        address.postcode
+        address.postcode,
+        address.coordinates || null
       ])
     );
 
   addressCompaniesQuery = "";
   companies.forEach((company) => {
-    addressCompaniesQuery += pgFormat(
-      `UPDATE company SET registered_address_id = (SELECT id FROM address WHERE migration_id = %L) WHERE id = (SELECT id FROM company WHERE migration_id = %L);`,
-      company.registered_address_migration_id,
-      company.migration_id
-    );
-    addressCompaniesQuery += pgFormat(
-      `UPDATE company SET trading_address_id = (SELECT id FROM address WHERE migration_id = %L) WHERE id = (SELECT id FROM company WHERE migration_id = %L);`,
-      company.trading_address_migration_id,
-      company.migration_id
-    );
+    if (
+      company?.registered_address_migration_id &&
+      company?.registered_address_migration_id?.toLowerCase() !== "empty"
+    )
+      addressCompaniesQuery += pgFormat(
+        `UPDATE company SET registered_address_id = (SELECT id FROM address WHERE migration_id = %L) WHERE id = (SELECT id FROM company WHERE migration_id = %L);`,
+        company.registered_address_migration_id,
+        company.migration_id
+      );
+    if (
+      company.trading_address_migration_id &&
+      company.trading_address_migration_id?.toLowerCase() !== "empty"
+    )
+      addressCompaniesQuery += pgFormat(
+        `UPDATE company SET trading_address_id = (SELECT id FROM address WHERE migration_id = %L) WHERE id = (SELECT id FROM company WHERE migration_id = %L);`,
+        company.trading_address_migration_id,
+        company.migration_id
+      );
   });
 
   ownersQuery = "";

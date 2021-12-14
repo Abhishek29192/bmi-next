@@ -43,6 +43,7 @@ import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
 import filterStyles from "../components/styles/Filters.module.scss";
 import withGTM from "../utils/google-tag-manager";
+import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 
 const PAGE_SIZE = 24;
 
@@ -58,10 +59,13 @@ const documentCountMap: Record<
 type Data = PageInfoData &
   PageData & {
     description: RichTextData | null;
+    allowFilterBy: string[] | null;
     source: Source;
     resultsType: ResultType;
     documents: DocumentResultsData;
     breadcrumbs: BreadcrumbsData;
+    categoryCodes: string[];
+    breadcrumbTitle: string;
   };
 
 type Props = {
@@ -119,13 +123,19 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     source,
     resultsType,
     breadcrumbs,
-    seo
+    breadcrumbTitle,
+    seo,
+    allowFilterBy
   } = data.contentfulDocumentLibraryPage;
-
-  const pageData: PageData = {
+  const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
     breadcrumbs,
+    breadcrumbTitle
+  );
+  const pageData: PageData = {
+    breadcrumbs: enhancedBreadcrumbs,
     inputBanner: data.contentfulDocumentLibraryPage.inputBanner,
-    seo
+    seo,
+    path: data.contentfulDocumentLibraryPage.path
   };
 
   const theme = useTheme();
@@ -159,7 +169,8 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
       initialDocuments,
       source,
       resultsType,
-      pageContext.pimClassificationCatalogueNamespace
+      pageContext.pimClassificationCatalogueNamespace,
+      allowFilterBy || []
     ).filter(Boolean)
   );
 
@@ -248,7 +259,9 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
           <Hero
             level={2}
             title={title}
-            breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
+            breadcrumbs={
+              <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
+            }
           />
           {description && (
             <Section backgroundColor="white">
@@ -348,7 +361,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
             </Section>
           </DownloadList>
           <Section backgroundColor="alabaster" isSlim>
-            <Breadcrumbs data={breadcrumbs} />
+            <Breadcrumbs data={enhancedBreadcrumbs} />
           </Section>
         </>
       )}
@@ -368,6 +381,8 @@ export const pageQuery = graphql`
         ...RichTextFragment
       }
       source
+      categoryCodes
+      allowFilterBy
       resultsType
       documents {
         ...DocumentResultsFragment

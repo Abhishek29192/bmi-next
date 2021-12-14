@@ -240,6 +240,118 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                   class="MuiTouchRipple-root"
                 />
               </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.flachdachsysteme
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.steildachsysteme
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.bauwerksabdichtung
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.verkehrsbauwerke
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.verarbeiter
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.topDachPartner
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.7Dachdecker
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.handler
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -496,9 +608,9 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                                 class="description"
                               >
                                 <b>
-                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.pitchedRoofRoofCoaters
+                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.flachdachsysteme | MC: findARoofer.filters.steildachsysteme | MC: findARoofer.filters.bauwerksabdichtung | MC: findARoofer.filters.verkehrsbauwerke | MC: findARoofer.filters.verarbeiter | MC: findARoofer.filters.topDachPartner | MC: findARoofer.filters.7Dachdecker | MC: findARoofer.filters.handler
                                   MC: findABranch.filters.headquarters | MC: findABranch.filters.countryOffices | MC: findABranch.filters.manufacturingAndExport | MC: findABranch.filters.technicalCentreBmiAcademy
-                                  MC: findAMerchant.filters.bmiRedlandPitchedRoofSystems | MC: findAMerchant.filters.bmiIcopalFlatRoofSystems | MC: findAMerchant.filters.depotsDeProximiteSiplast | MC: findAMerchant.filters.distributeursSiplast | MC: findAMerchant.filters.distributeursMonier
+                                  MC: findAMerchant.filters.bmiRedlandPitchedRoofSystems | MC: findAMerchant.filters.bmiIcopalFlatRoofSystems | MC: findAMerchant.filters.depotsDeProximiteSiplast | MC: findAMerchant.filters.distributeursSiplast | MC: findAMerchant.filters.distributeursMonier | MC: findAMerchant.filters.distributeursMonier
                                 </b>
                               </dd>
                             </div>
@@ -16381,6 +16493,290 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
     </div>
   </div>
 </body>
+`;
+
+exports[`ServiceLocatorSection component when showDefaultResultList is false should not render results list panel on page load if selected chips do not exist in query params 1`] = `
+<div
+  class="ServiceLocationSection Section Section--white"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        Main
+      </h2>
+      <div
+        class="MuiGrid-root controls MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-end"
+      >
+        <div
+          class="MuiGrid-root search MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
+        >
+          <div
+            aria-expanded="false"
+            class="MuiAutocomplete-root company-autocomplete MuiAutocomplete-hasClearIcon"
+            role="combobox"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined"
+                data-shrink="true"
+                for="company-autocomplete"
+                id="company-autocomplete-label"
+              >
+                MC: findARoofer.companyFieldLabel
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiAutocomplete-inputRoot MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiOutlinedInput-adornedStart MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+              >
+                <svg
+                  class="start-adornment-icon"
+                />
+                <input
+                  aria-autocomplete="list"
+                  aria-invalid="false"
+                  autocapitalize="none"
+                  autocomplete="off"
+                  class="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedStart MuiOutlinedInput-inputAdornedStart MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                  id="company-autocomplete"
+                  name="autocomplete-field"
+                  spellcheck="false"
+                  type="text"
+                  value=""
+                />
+                <div
+                  class="MuiAutocomplete-endAdornment"
+                >
+                  <button
+                    aria-label="Clear"
+                    class="MuiButtonBase-root MuiIconButton-root MuiAutocomplete-clearIndicator"
+                    tabindex="-1"
+                    title="Clear"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-979 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-981 PrivateNotchedOutline-legendNotched-982"
+                  >
+                    <span>
+                      MC: findARoofer.companyFieldLabel
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <p
+            class="MuiTypography-root and-or-label Typography MuiTypography-body1"
+          >
+            <span>
+              MC: findARoofer.andOr
+            </span>
+          </p>
+          <div
+            style="text-align: center;"
+          >
+            <div
+              class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+              role="progressbar"
+              style="width: 40px; height: 40px;"
+            >
+              <svg
+                class="MuiCircularProgress-svg"
+                viewBox="22 22 44 44"
+              >
+                <circle
+                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                  cx="44"
+                  cy="44"
+                  fill="none"
+                  r="20.2"
+                  stroke-width="3.6"
+                />
+              </svg>
+            </div>
+          </div>
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-983 MuiButton-text buttonStyles-text-984 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-986"
+            >
+              <span
+                class="MuiButton-startIcon buttonStyles-startIcon-987 MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z"
+                  />
+                </svg>
+              </span>
+              MC: findARoofer.geolocationButton
+            </span>
+          </button>
+        </div>
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
+        >
+          <div
+            class="filters"
+          >
+            <div
+              class="chips"
+            >
+              <h6
+                class="MuiTypography-root chips-label Typography MuiTypography-h6"
+              >
+                MC: findARoofer.filtersLabel
+              </h6>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.pitchedRoof
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  MC: findARoofer.filters.flatRoof
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
+      >
+        <div
+          class="TabsBar"
+        >
+          <div
+            class="Container"
+          >
+            <div
+              class="MuiContainer-root MuiContainer-maxWidthXl"
+            >
+              <div
+                class="MuiTabs-root"
+              >
+                <div
+                  class="MuiTabs-scroller MuiTabs-fixed"
+                  style="overflow: hidden;"
+                >
+                  <div
+                    aria-label="tabs"
+                    class="MuiTabs-flexContainer"
+                    role="tablist"
+                  >
+                    <button
+                      aria-controls="tabpanel-map"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth"
+                      id="tab-map"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="MuiTab-wrapper"
+                      >
+                        MC: findARoofer.mapLabel
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                  <span
+                    class="PrivateTabIndicator-root-1004 PrivateTabIndicator-colorPrimary-1005 MuiTabs-indicator"
+                    style="left: 0px; width: 0px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-labelledby="tab-map"
+          class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-12"
+          heading="MC: findARoofer.mapLabel"
+          hidden=""
+          id="tabpanel-map"
+          role="tabpanel"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-1003 TabPanelBox"
+          >
+            <div
+              class="map"
+            >
+              <div
+                class="GoogleMap"
+              >
+                <div
+                  class="map"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`ServiceLocatorSection component wrong query string filter 1`] = `

@@ -1,3 +1,4 @@
+import { ResponseError } from "@elastic/elasticsearch/lib/errors";
 import mockConsole from "jest-mock-console";
 import {
   deleteElasticSearchIndex,
@@ -48,6 +49,45 @@ describe("deleteElasticSearchIndex", () => {
     } catch (error) {
       expect(error.message).toEqual("Expected error");
     }
+
+    expect(getEsClient).toHaveBeenCalled();
+    expect(esDelete).toHaveBeenCalledWith({
+      index: `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`
+    });
+  });
+
+  it("should return if index does not exist", async () => {
+    esDelete.mockRejectedValue(
+      new ResponseError({
+        body: {
+          error: {
+            root_cause: [
+              {
+                type: "index_not_found_exception",
+                reason: "no such index",
+                "resource.type": "index_or_alias",
+                "resource.id": "iot_log",
+                index_uuid: "na",
+                index: "iot_log"
+              }
+            ],
+            type: "index_not_found_exception",
+            reason: "no such index",
+            "resource.type": "index_or_alias",
+            "resource.id": "iot_log",
+            index_uuid: "na",
+            index: "iot_log"
+          },
+          status: 404
+        },
+        statusCode: 404,
+        headers: {},
+        meta: {} as any,
+        warnings: null
+      })
+    );
+
+    await deleteElasticSearchIndex(ElasticsearchIndexes.Products);
 
     expect(getEsClient).toHaveBeenCalled();
     expect(esDelete).toHaveBeenCalledWith({

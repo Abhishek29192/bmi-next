@@ -40,6 +40,18 @@ const canSeeProjects = (account) => {
   return false;
 };
 
+const canSeeTeam = (account) => {
+  if (
+    [ROLES.SUPER_ADMIN, ROLES.MARKET_ADMIN, ROLES.COMPANY_ADMIN].includes(
+      account?.role
+    )
+  ) {
+    return true;
+  }
+
+  return false;
+};
+
 const canSeeMediaLibrary = (account) => {
   return (
     ["T2", "T3", "T4"].includes(findAccountTier(account)) ||
@@ -104,6 +116,18 @@ const gates = {
       MARKET_ADMIN: true,
       INSTALLER: false,
       COMPANY_ADMIN: false
+    },
+    addDocument: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: false
+    },
+    changeStatus: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: false,
+      INSTALLER: false,
+      COMPANY_ADMIN: false
     }
   },
   project: {
@@ -158,7 +182,8 @@ const gates = {
   },
   page: {
     projects: canSeeProjects,
-    mediaLibrary: canSeeMediaLibrary
+    mediaLibrary: canSeeMediaLibrary,
+    team: canSeeTeam
   },
   navigation: {
     // Home (Available to All authenticated users)
@@ -185,7 +210,9 @@ const gates = {
     tools: canSeeMediaLibrary,
     // Inventory (Available to Market Admins)
     inventory: isSuperOrMarketAdmin,
-    productsAdmin: isSuperOrMarketAdmin
+    productsAdmin: isSuperOrMarketAdmin,
+    accountsAdmin: isSuperOrMarketAdmin,
+    marketsAdmin: isSuperOrMarketAdmin
   },
   home: {
     CTA_PROJECT: {

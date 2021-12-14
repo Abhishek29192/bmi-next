@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import get from "lodash.get";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import Typography from "@bmi/typography";
@@ -113,9 +114,10 @@ const ImportAccount = () => {
                 {t(isDryRun ? "dryRunTitle" : "companiesImported")}
               </Typography>
               <div className={styles.list}>
-                {importResult?.companies?.map((company, index) => (
+                {importResult?.companies.slice(0, 50)?.map((company, index) => (
                   <Grid
                     key={`company-${index}`}
+                    style={{ marginTop: 30 }}
                     spacing={0}
                     direction="row"
                     container
@@ -131,7 +133,7 @@ const ImportAccount = () => {
                         "status",
                         "taxNumber",
                         "aboutUs",
-                        "logo",
+                        "logo.label",
                         "phone",
                         "publicEmail",
                         "registeredAddressMigrationId",
@@ -185,7 +187,7 @@ const ImportAccount = () => {
                               "doceboUserId",
                               "doceboUsername"
                             ].map((field) =>
-                              !member.account[`${field}`] ? null : (
+                              !member.account?.[`${field}`] ? null : (
                                 <div className={styles.field}>
                                   <Typography
                                     key={`${company?.name}-${field}`}
@@ -223,9 +225,14 @@ const ImportAccount = () => {
                               "secondLine",
                               "town",
                               "country",
-                              "postcode"
-                            ].map((field) =>
-                              !company?.registeredAddress[`${field}`] ? null : (
+                              "postcode",
+                              "coordinates.y",
+                              "coordinates.x"
+                            ].map((field) => {
+                              return !get(
+                                company,
+                                `registeredAddress[${field}]`
+                              ) ? null : (
                                 <div className={styles.field}>
                                   <Typography
                                     key={`${company?.name}-${field}`}
@@ -240,11 +247,14 @@ const ImportAccount = () => {
                                     key={`${company?.name}-${field}-value`}
                                     variant="body1"
                                   >
-                                    {company?.registeredAddress[`${field}`]}
+                                    {get(
+                                      company,
+                                      `registeredAddress[${field}]`
+                                    )}
                                   </Typography>
                                 </div>
-                              )
-                            )}
+                              );
+                            })}
                           </div>
                         )}
                       </div>
@@ -260,7 +270,7 @@ const ImportAccount = () => {
               <Typography key="accounts" variant="h5">
                 Accounts
               </Typography>
-              {importResult?.accounts.map((account, index) => (
+              {importResult?.accounts.slice(0, 50).map((account, index) => (
                 <div key={`account-${index}`} className={styles.list}>
                   {[
                     "email",
@@ -354,6 +364,10 @@ export const uploadAccounts = gql`
           town
           country
           postcode
+          coordinates {
+            x
+            y
+          }
         }
         companyMembers {
           nodes {

@@ -46,5 +46,12 @@
   "memberRemoved": "Medlemmet ble fjernet",
   "genericError": "En feil oppsto. Vennligst prøv igjen, eller kontakt en administrator.",
   "lastCompanyAdminError": "Du kan ikke fjerne den siste bedriftsadministratoren fra et selskap med mindre det er deaktivert av BMI",
-  "report": "Last ned lagliste"
+  "report": "Last ned lagliste",
+  "userActions": {
+    "title": "Bruker handlinger",
+    "action": {
+      "activate": "Aktiver bruker",
+      "deactivate": "Deaktiver bruker"
+    }
+  }
 }

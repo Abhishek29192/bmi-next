@@ -1007,6 +1007,49 @@ export const ssrGetContentArticleContent = {
 
   usePage: useGetContentArticleContent
 };
+export async function getServerPageMarkets(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.MarketsQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.MarketsQuery>({
+    ...options,
+    query: Operations.MarketsDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useMarkets = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.MarketsQuery,
+    OperationTypes.MarketsQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.MarketsDocument, options);
+};
+export type PageMarketsComp = React.FC<{
+  data?: OperationTypes.MarketsQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrMarkets = {
+  getServerPage: getServerPageMarkets,
+
+  usePage: useMarkets
+};
 export async function getServerPageProductsAndSystems(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.ProductsAndSystemsQueryVariables>,

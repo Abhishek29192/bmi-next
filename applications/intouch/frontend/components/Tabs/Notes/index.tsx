@@ -61,13 +61,11 @@ export const NoteTab = ({ accountId, projectId, notes }: NoteTabProps) => {
               </Table.Row>
             </Table.Head>
             <Table.Body>
-              {notes.map(({ id, body, author, createdAt }) => (
+              {notes.map(({ id, body, senderName, createdAt }) => (
                 <NoteItem
                   key={id}
                   body={body}
-                  author={[author?.firstName, author?.lastName]
-                    .filter(Boolean)
-                    .join(" ")}
+                  author={senderName}
                   createdAt={createdAt}
                 />
               ))}

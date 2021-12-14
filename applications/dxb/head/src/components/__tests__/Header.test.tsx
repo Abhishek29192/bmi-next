@@ -5,6 +5,12 @@ import { Data as LinkData, DataTypeEnum, NavigationData } from "../Link";
 import { Data as PromoData } from "../Promo";
 import { fallbackGetMicroCopy as getMicroCopy } from "../MicroCopy";
 import Header from "../Header";
+import { Data as PageInfoData } from "../PageInfo";
+import BasketContext, {
+  Sample,
+  BasketContextProps,
+  IBasketState
+} from "../../contexts/SampleBasketContext";
 
 beforeAll(() => {
   mockConsole();
@@ -217,6 +223,33 @@ const utilitiesData: NavigationData = {
   ]
 };
 
+const sampleBasketLinkInfo: PageInfoData = {
+  id: "test",
+  title: "test",
+  __typename: "ContentfulSimplePage",
+  slug: "sample-basket",
+  path: "sample-basket/",
+  subtitle: null,
+  brandLogo: null,
+  featuredMedia: null,
+  featuredVideo: null,
+  date: null,
+  tags: null
+};
+
+const sampleBasketProducts: any = {
+  basketState: {
+    products: [
+      {
+        name: "test product",
+        code: "S",
+        path: "s",
+        image: "S"
+      }
+    ]
+  }
+};
+
 describe("Header component", () => {
   it("renders correctly", () => {
     const { container } = render(
@@ -273,6 +306,27 @@ describe("Header component", () => {
 
     fireEvent.click(searchButton);
 
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("shows sample basket icon", () => {
+    const { container, getByLabelText } = render(
+      <BasketContext.Provider value={sampleBasketProducts}>
+        <Header
+          activeLabel="Main"
+          countryCode="gb"
+          navigationData={navigationData}
+          utilitiesData={utilitiesData}
+          regions={regions}
+          sampleBasketLink={sampleBasketLinkInfo}
+        />
+      </BasketContext.Provider>
+    );
+
+    const basketLabel = getMicroCopy("basket.label");
+    const basketButton = getByLabelText(basketLabel);
+
+    expect(basketButton).toBeTruthy();
     expect(container.firstChild).toMatchSnapshot();
   });
 });

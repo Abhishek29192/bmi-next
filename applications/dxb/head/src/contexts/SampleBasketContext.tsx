@@ -1,19 +1,49 @@
 import React, { useReducer, useEffect, useContext } from "react";
-import { VariantOption } from "../components/types/pim";
+import {
+  Classification,
+  Product,
+  VariantOption
+} from "../components/types/pim";
+import { combineVariantClassifications } from "../utils/filters";
+import { findMasterImageUrl } from "../utils/product-details-transforms";
 import { local } from "../utils/storage";
 //action type
 export enum ACTION_TYPES {
   BASKET_ADD,
-  BASKET_REMOVE
+  BASKET_REMOVE,
+  BASKET_CLEAR
 }
 
-export interface Sample extends VariantOption {
+export interface Sample {
   name: string;
+  code: string;
+  path: string;
+  classifications: Classification[];
+  image: string;
 }
 
-export interface IBasketAction {
+export interface SampleOrderElement {
+  id: string;
+  title: string;
+  url: string;
+  color: string;
+  texture: string;
+}
+
+export const createSample = (
+  product: Product,
+  variant: VariantOption
+): Sample => ({
+  name: product.name,
+  code: variant.code,
+  path: variant.path,
+  image: findMasterImageUrl(variant.images),
+  classifications: combineVariantClassifications(product, variant)
+});
+
+export interface BasketAction {
   type: ACTION_TYPES;
-  payload: Sample;
+  payload?: Sample;
 }
 
 export interface IBasketState {
@@ -27,7 +57,7 @@ export const initialBasketState: IBasketState = {
 
 export const basketReducer = (
   state: IBasketState,
-  action: IBasketAction
+  action: BasketAction
 ): IBasketState => {
   const { type, payload } = action;
   switch (type) {
@@ -48,6 +78,9 @@ export const basketReducer = (
         )
       };
 
+    case ACTION_TYPES.BASKET_CLEAR:
+      return initialBasketState;
+
     default:
       return state;
   }
@@ -55,7 +88,7 @@ export const basketReducer = (
 
 export interface BasketContextProps {
   basketState: IBasketState;
-  basketDispatch: React.Dispatch<IBasketAction>;
+  basketDispatch: React.Dispatch<BasketAction>;
 }
 
 export const BasketContext = React.createContext<BasketContextProps>({

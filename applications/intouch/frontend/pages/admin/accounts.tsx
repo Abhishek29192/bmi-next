@@ -3,11 +3,20 @@ import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Layout } from "../../components/Layout";
-import { withPage } from "../../lib/middleware/withPage";
-import { getServerPageProductsAndSystems } from "../../graphql/generated/page";
+import { GlobalPageProps, withPage } from "../../lib/middleware/withPage";
 import ImportAccount from "../../components/Pages/ImportAccount";
+import can from "../../lib/permissions/can";
+import {
+  ErrorStatusCode,
+  generatePageError,
+  withPageError
+} from "../../lib/error";
 
-const ImportAccountPage = ({ globalPageData }: any) => {
+type ImportAccountPageProps = GlobalPageProps & {
+  globalPageData: any;
+};
+
+const ImportAccountPage = ({ globalPageData }: ImportAccountPageProps) => {
   const { t } = useTranslation();
 
   return (
@@ -18,10 +27,12 @@ const ImportAccountPage = ({ globalPageData }: any) => {
 };
 
 export const getServerSideProps = withPage(
-  async ({ locale, account, apolloClient }) => {
-    const {
-      props: { data }
-    } = await getServerPageProductsAndSystems({}, apolloClient);
+  async ({ locale, account, globalPageData, res }) => {
+    if (!can(account, "navigation", "accountsAdmin")) {
+      const statusCode = ErrorStatusCode.UNAUTHORISED;
+      res.statusCode = statusCode;
+      return generatePageError(statusCode, {}, { globalPageData });
+    }
 
     return {
       props: {
@@ -32,12 +43,10 @@ export const getServerSideProps = withPage(
           "sidebar",
           "footer"
         ])),
-        account,
-        ssrProducts: data.products,
-        ssrSystems: data.systems
+        account
       }
     };
   }
 );
 
-export default withPageAuthRequired(ImportAccountPage);
+export default withPageAuthRequired(withPageError(ImportAccountPage));

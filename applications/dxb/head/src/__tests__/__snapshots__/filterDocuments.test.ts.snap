@@ -116,7 +116,7 @@ Array [
       ],
       "classifications": Array [
         Object {
-          "code": "classification-code",
+          "code": "appearanceAttributes",
           "features": Array [
             Object {
               "code": "classification-feature-code",
@@ -134,7 +134,7 @@ Array [
               "name": "classification-feature-name",
             },
           ],
-          "name": "classification-name",
+          "name": "appearanceAttributes",
         },
       ],
       "code": "product-code",
@@ -144,42 +144,6 @@ Array [
     "title": "pim-document-title",
     "url": "http://localhost/pim-document-id",
   },
-]
-`;
-
-exports[`getDocumentFilters tests When ALL Simple are requested Then: returns correct results 1`] = `
-Array [
-  undefined,
-  undefined,
-  undefined,
-]
-`;
-
-exports[`getDocumentFilters tests When CMS Card Collection are requested Then: returns correct results 1`] = `
-Array [
-  undefined,
-]
-`;
-
-exports[`getDocumentFilters tests When CMS Simple are requested Then: returns correct results 1`] = `
-Array [
-  undefined,
-  undefined,
-]
-`;
-
-exports[`getDocumentFilters tests When PIM Simple are requested Then: returns correct results 1`] = `
-Array [
-  undefined,
-  undefined,
-  undefined,
-]
-`;
-
-exports[`getDocumentFilters tests When PIM Technical are requested Then: returns correct results 1`] = `
-Array [
-  undefined,
-  undefined,
 ]
 `;
 

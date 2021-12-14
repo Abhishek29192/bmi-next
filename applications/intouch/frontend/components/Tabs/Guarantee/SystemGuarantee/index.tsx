@@ -1,10 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Table from "@bmi/table";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import Icon, { FilePDF } from "@bmi/icon";
-import { ProductRow } from "../ProductRow";
+import { ProductCard } from "../ProductCard";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
 import styles from "./styles.module.scss";
 
@@ -13,21 +12,6 @@ type SystemGuaranteesProps = {
 };
 
 export const SystemGuarantee = ({ guarantee }: SystemGuaranteesProps) => {
-  const { t } = useTranslation(["common", "project-page"]);
-  return (
-    <div>
-      <Typography component="h1" variant="h6">
-        {t("project-page:guarantee.type.SYSTEM")}
-      </Typography>
-      <SystemGuaranteeCard guarantee={guarantee} />
-    </div>
-  );
-};
-
-type SystemGuaranteeCardProps = {
-  guarantee: GetProjectQuery["project"]["guarantees"]["nodes"][0];
-};
-const SystemGuaranteeCard = ({ guarantee }: SystemGuaranteeCardProps) => {
   const { t } = useTranslation(["common", "project-page"]);
 
   const { systemBySystemBmiRef: system, signedFileStorageUrl } = guarantee;
@@ -63,15 +47,7 @@ const SystemGuaranteeCard = ({ guarantee }: SystemGuaranteeCardProps) => {
           </Button>
         </div>
       )}
-      <div>
-        <Table>
-          <Table.Body>
-            {products.map((product) => (
-              <ProductRow key={product.id} product={product} />
-            ))}
-          </Table.Body>
-        </Table>
-      </div>
+      {products.length > 0 && <ProductCard products={products} />}
     </div>
   );
 };

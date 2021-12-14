@@ -14,6 +14,12 @@
   "Account": "Account",
   "Profile": "Profile",
   "Logout": "Logout",
+  "Notifications": "Notifications",
+  "aria": {
+    "navigation": "Navigation",
+    "notifications": "Notifications"
+  },
+  "deactivatedCompany": "Company deactivated",
   "results available": "results available",
   "Company Description": "Company Description",
   "About Us": "About Us",
@@ -49,7 +55,7 @@
     "noResults": "No results found"
   },
   "Download": "Download",
-  "SavePdf": "Save to PDF",
+  "SavePdf": "Download PDF",
   "visitWebsite": "Visit Website",
   "certifications": {
     "pitched": "Pitched",

@@ -7,6 +7,7 @@ import Dialog from "@bmi/dialog";
 import Typography from "@bmi/typography";
 import TextField from "@bmi/text-field";
 import Select, { MenuItem } from "@bmi/select";
+import AlertBanner from "@bmi/alert-banner";
 import { useMarketContext } from "../../context/MarketContext";
 import {
   validateEmailInput,
@@ -33,6 +34,7 @@ export type SetCompanyDetailsDialogProps = {
   isOpen: boolean;
   onCloseClick: () => void;
   onSubmit: (values: { [key: string]: any }) => any;
+  errorMessage?: string;
 };
 
 export const SetCompanyDetailsDialog = ({
@@ -40,7 +42,8 @@ export const SetCompanyDetailsDialog = ({
   company,
   isOpen,
   onCloseClick,
-  onSubmit
+  onSubmit,
+  errorMessage
 }: SetCompanyDetailsDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
 
@@ -101,6 +104,14 @@ export const SetCompanyDetailsDialog = ({
       <Dialog.Title hasUnderline>{title}</Dialog.Title>
 
       <Dialog.Content className={styles.dialogContent}>
+        {errorMessage && (
+          <AlertBanner severity={"error"}>
+            <AlertBanner.Title>
+              {t(`company-page:${errorMessage}`)}
+            </AlertBanner.Title>
+          </AlertBanner>
+        )}
+
         <Form
           className={styles.form}
           onSubmit={handleSubmit}

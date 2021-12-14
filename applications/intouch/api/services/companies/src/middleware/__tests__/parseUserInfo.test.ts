@@ -173,6 +173,18 @@ describe("ParseUserInfo", () => {
       const mockCan = jest.fn();
       jest.spyOn(userInfo, "can").mockImplementationOnce(() => mockCan);
 
+      mockQuery.mockImplementationOnce(() =>
+        Promise.resolve({
+          rows: [
+            {
+              id: "market_id",
+              domain: "market_domain",
+              send_mailbox: "send_mailbox"
+            }
+          ]
+        })
+      );
+
       await userInfo.default(req, res, next);
 
       expect(req).toEqual({
@@ -185,7 +197,13 @@ describe("ParseUserInfo", () => {
         user: {
           role: "SUPER_ADMIN",
           source: "pdf-generator-function",
-          can: mockCan
+          can: mockCan,
+          marketId: "market_id",
+          market: {
+            id: "market_id",
+            domain: "market_domain",
+            sendMailbox: "send_mailbox"
+          }
         }
       });
     });

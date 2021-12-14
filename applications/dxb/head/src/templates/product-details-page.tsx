@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
@@ -16,7 +16,12 @@ import {
   mapGalleryImages,
   mapProductClassifications,
   getMergedClassifications,
-  VariantCodeToPathMap
+  VariantCodeToPathMap,
+  transformImages,
+  convertImageSetToMediaFormat,
+  groupImage,
+  UnavailableMicroCopies,
+  UnavailableMicroCopiesEnum
 } from "../utils/product-details-transforms";
 import RelatedProducts from "../components/RelatedProducts";
 import { getCTA } from "../components/Link";
@@ -24,10 +29,18 @@ import ExploreBar from "../components/ExploreBar";
 import Breadcrumbs from "../components/Breadcrumbs";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-import { Product } from "../components/types/pim";
+import {
+  ClassificationCodeEnum,
+  FeatureCodeEnum,
+  ImageAssetTypesEnum,
+  Product,
+  Image
+} from "../components/types/pim";
 import SampleOrderSection from "../components/SampleOrderSection";
+import KeyAssetTypesDownloadSection from "../components/KeyAssetTypesDownloadSection";
 import { getBimIframeUrl } from "../components/BimIframe";
-import { useBasketContext } from "../contexts/SampleBasketContext";
+import { createActionLabel } from "../utils/createActionLabelForAnalytics";
+import { combineVariantClassifications } from "../utils/filters";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -50,13 +63,6 @@ type Props = {
     };
     contentfulSite: SiteData;
   };
-};
-
-const transformImages = (images) => {
-  return images.map(({ mainSource, thumbnail, altText }) => ({
-    media: <img src={mainSource} alt={altText} />,
-    thumbnail
-  }));
 };
 
 const getDescription = (product: Product, variantCode?: string): string => {
@@ -124,7 +130,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const pageData: PageData = {
     breadcrumbs,
     inputBanner: resources.pdpInputBanner,
-    seo: null
+    seo: null,
+    path: null // won't work with PDPs currently
   };
   const { maximumSamples, sampleBasketLink } = resources;
 
@@ -147,6 +154,49 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     return false;
   };
 
+  const getTechDrawings = (
+    images: readonly Image[],
+    selfProdImages: readonly Image[]
+  ): Image[] => {
+    const imagesByFormat: Image[][] = Object.values(
+      groupImage([...(images || []), ...(selfProdImages || [])], "containerId")
+    );
+    const techDrawings: Image[][] = imagesByFormat.filter((images) => {
+      return images.some(
+        (image) =>
+          image.assetType === ImageAssetTypesEnum.TECHNICAL_DRAWINGS &&
+          !!image.format
+      );
+    });
+
+    if (!techDrawings.length) {
+      return [];
+    }
+    return transformImages(convertImageSetToMediaFormat(techDrawings));
+  };
+
+  const classificationConfig = {
+    [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
+      { attrName: FeatureCodeEnum.COLOUR },
+      {
+        attrName: FeatureCodeEnum.TEXTURE_FAMILY,
+        separator: " | ",
+        fromStart: true
+      }
+    ],
+    [ClassificationCodeEnum.MEASUREMENTS]: [
+      { attrName: FeatureCodeEnum.LENGTH, separator: "x" },
+      { attrName: FeatureCodeEnum.WIDTH, separator: "x" },
+      { attrName: FeatureCodeEnum.HEIGHT, separator: "x" }
+    ]
+  };
+
+  const filtredKeyAssetsDocuments = product.documents.filter((document) =>
+    resources.keyAssetTypes?.includes(document.assetType.pimCode)
+  );
+
+  const hasFiltredKeyAssetsDocuments = !!filtredKeyAssetsDocuments.length;
+
   return (
     <Page
       brand={brandCode}
@@ -155,9 +205,22 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       siteData={contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
       ogImageUrl={selfProduct?.images?.[0].url}
+      baseproduct={product}
+      variantProduct={selfProduct}
     >
       {({ siteContext: { getMicroCopy } }) => {
-        const { basketState } = useBasketContext();
+        const attributeUnavailableMicroCopy: UnavailableMicroCopies = [
+          UnavailableMicroCopiesEnum.COLOUR,
+          UnavailableMicroCopiesEnum.SIZE,
+          UnavailableMicroCopiesEnum.VARIANT_ATTRIBUTE,
+          UnavailableMicroCopiesEnum.TEXTURE_FAMILY
+        ].reduce(
+          (carry, key) => ({
+            ...carry,
+            [key]: getMicroCopy(`pdp.unavailable.${key}`)
+          }),
+          {} as Record<keyof UnavailableMicroCopies, string>
+        );
 
         return (
           <>
@@ -184,21 +247,37 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     selfProduct,
                     pageContext.countryCode,
                     {
-                      size: getMicroCopy("pdp.overview.size")
+                      size: getMicroCopy("pdp.overview.size"),
+                      variantattribute: getMicroCopy(
+                        "pdp.overview.variantattribute"
+                      )
                     },
-                    variantCodeToPathMap
-                  )
+                    variantCodeToPathMap,
+                    attributeUnavailableMicroCopy
+                  ),
+                  isRecapchaShown: hasFiltredKeyAssetsDocuments
                 }}
               >
                 {
                   <SampleOrderSection
                     isSampleOrderAllowed={getSampleOrderAllowed()}
-                    productName={product.name}
+                    product={product}
                     variant={getVariant(product, pageContext.variantCode)}
                     maximumSamples={maximumSamples}
                     sampleBasketLinkInfo={sampleBasketLink}
+                    actionLabel={createActionLabel(
+                      product.name,
+                      combineVariantClassifications(product, selfProduct),
+                      classificationConfig
+                    )}
                   />
                 }
+                {hasFiltredKeyAssetsDocuments && (
+                  <KeyAssetTypesDownloadSection
+                    assetTypes={resources.keyAssetTypes}
+                    documents={filtredKeyAssetsDocuments}
+                  />
+                )}
                 {resources?.pdpShareWidget && (
                   <ShareWidgetSection
                     data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
@@ -228,6 +307,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   pageContext.pimClassificationCatalogueNamespace
                 }
                 bimIframeUrl={bimIframeUrl}
+                techDrawings={getTechDrawings(
+                  product.images,
+                  selfProduct.images
+                )}
               />
             </Section>
             <RelatedProducts
@@ -328,6 +411,9 @@ export const pageQuery = graphql`
         categoryType
         code
         parentCategoryCode
+        image {
+          url
+        }
       }
       classifications {
         name

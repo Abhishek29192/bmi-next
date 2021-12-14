@@ -1,6 +1,7 @@
 import { Readable } from "stream";
 import { FetchMockStatic, MockOptions, MockResponseObject } from "fetch-mock";
 import { Request, Response as ExpressResponse } from "express";
+import { Headers } from "node-fetch";
 
 export const mockRequest = (
   method: Request["method"],

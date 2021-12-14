@@ -3,7 +3,9 @@ import {
   removeIrrelevantFilters,
   disableFiltersFromAggregations,
   compileElasticSearchQuery,
-  Aggregations
+  Aggregations,
+  getCountQuery,
+  getDocumentQueryObject
 } from "../elasticSearch";
 
 describe("removeIrrelevantFilters function", () => {
@@ -182,12 +184,12 @@ describe("compileElasticSearchQuery function", () => {
           },
           "unique_base_products_count": Object {
             "cardinality": Object {
-              "field": "baseProduct.code.keyword",
+              "field": "code.keyword",
             },
           },
         },
         "collapse": Object {
-          "field": "baseProduct.code.keyword",
+          "field": "code.keyword",
           "inner_hits": Object {
             "name": "all_variants",
           },
@@ -295,12 +297,12 @@ describe("compileElasticSearchQuery function", () => {
           },
           "unique_base_products_count": Object {
             "cardinality": Object {
-              "field": "baseProduct.code.keyword",
+              "field": "code.keyword",
             },
           },
         },
         "collapse": Object {
-          "field": "baseProduct.code.keyword",
+          "field": "code.keyword",
           "inner_hits": Object {
             "name": "all_variants",
           },
@@ -387,12 +389,12 @@ describe("compileElasticSearchQuery function", () => {
           },
           "unique_base_products_count": Object {
             "cardinality": Object {
-              "field": "baseProduct.code.keyword",
+              "field": "code.keyword",
             },
           },
         },
         "collapse": Object {
-          "field": "baseProduct.code.keyword",
+          "field": "code.keyword",
           "inner_hits": Object {
             "name": "all_variants",
           },
@@ -477,12 +479,12 @@ describe("compileElasticSearchQuery function", () => {
           },
           "unique_base_products_count": Object {
             "cardinality": Object {
-              "field": "baseProduct.code.keyword",
+              "field": "code.keyword",
             },
           },
         },
         "collapse": Object {
-          "field": "baseProduct.code.keyword",
+          "field": "code.keyword",
           "inner_hits": Object {
             "name": "all_variants",
           },
@@ -550,5 +552,184 @@ describe("compileElasticSearchQuery function", () => {
         ],
       }
     `);
+  });
+});
+
+describe("getCountQuery function", () => {
+  it("should return correct object if aggs is not undefined", () => {
+    const queryObject = {
+      size: 24,
+      from: 1 * 24,
+      sort: [{ "assetType.name.keyword": "asc", "title.keyword": "asc" }],
+      aggs: {
+        assetTypes: {
+          terms: {
+            size: "100",
+            field: "assetType.pimCode.keyword"
+          }
+        },
+        total: {
+          cardinality: {
+            field: "titleAndSize.keyword"
+          }
+        }
+      },
+      query: {
+        query_string: {
+          query: `*icopal*`,
+          type: "cross_fields",
+          fields: ["title"]
+        }
+      },
+      collapse: {
+        field: "titleAndSize.keyword"
+      }
+    };
+
+    const expectedResult = {
+      size: 0,
+      query: {
+        query_string: {
+          query: `*icopal*`,
+          type: "cross_fields",
+          fields: ["title"]
+        }
+      },
+      aggs: {
+        assetTypes: {
+          terms: {
+            size: "100",
+            field: "assetType.pimCode.keyword"
+          }
+        },
+        total: {
+          cardinality: {
+            field: "titleAndSize.keyword"
+          }
+        }
+      }
+    };
+
+    const actualResult = getCountQuery(queryObject);
+
+    expect(actualResult).toMatchObject(expectedResult);
+  });
+
+  it("should return correct object if aggs is undefined", () => {
+    const queryObject = {
+      size: 24,
+      from: 1 * 24,
+      sort: [{ "assetType.name.keyword": "asc", "title.keyword": "asc" }],
+      query: {
+        query_string: {
+          query: `*icopal*`,
+          type: "cross_fields",
+          fields: ["title"]
+        }
+      },
+      collapse: {
+        field: "titleAndSize.keyword"
+      }
+    };
+
+    const expectedResult = {
+      size: 0,
+      query: {
+        query_string: {
+          query: `*icopal*`,
+          type: "cross_fields",
+          fields: ["title"]
+        }
+      }
+    };
+
+    const actualResult = getCountQuery(queryObject);
+
+    expect(actualResult).toMatchObject(expectedResult);
+  });
+});
+
+describe("getDocumentQueryObject function", () => {
+  it("should return correct document query object", () => {
+    const expectedResult = {
+      size: 24,
+      from: 0,
+      sort: [{ "assetType.name.keyword": "asc", "title.keyword": "asc" }],
+      aggs: {
+        assetTypes: {
+          terms: {
+            size: "100",
+            field: "assetType.pimCode.keyword"
+          }
+        },
+        total: {
+          cardinality: {
+            field: "titleAndSize.keyword"
+          }
+        }
+      },
+      query: {
+        query_string: {
+          query: `*icopal*`,
+          type: "cross_fields",
+          fields: ["title"]
+        }
+      },
+      collapse: {
+        field: "titleAndSize.keyword"
+      }
+    };
+
+    const actualResult = getDocumentQueryObject("icopal", 24);
+
+    expect(actualResult).toMatchObject(expectedResult);
+  });
+
+  it("should return correct document query object with filters", () => {
+    const expectedResult = {
+      size: 24,
+      from: 0,
+      sort: [{ "assetType.name.keyword": "asc", "title.keyword": "asc" }],
+      aggs: {
+        assetTypes: {
+          terms: {
+            size: "100",
+            field: "assetType.pimCode.keyword"
+          }
+        },
+        total: {
+          cardinality: {
+            field: "titleAndSize.keyword"
+          }
+        }
+      },
+      query: {
+        bool: {
+          must: [
+            {
+              query_string: {
+                query: `*icopal*`,
+                type: "cross_fields",
+                fields: ["title"]
+              }
+            },
+            {
+              term: {
+                "assetType.pimCode.keyword": "ASSEMBLY_INSTRUCTIONS"
+              }
+            }
+          ]
+        }
+      },
+      collapse: {
+        field: "titleAndSize.keyword"
+      }
+    };
+
+    const actualResult = getDocumentQueryObject("icopal", 24, 0, [
+      { value: ["ASSEMBLY_INSTRUCTIONS"] }
+    ]);
+
+    expect(actualResult).toMatchObject(expectedResult);
   });
 });

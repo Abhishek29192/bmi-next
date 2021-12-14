@@ -8,8 +8,7 @@ test_intouch_companies:
       changes:
         - applications/intouch/api/services/companies/**/*
         - libraries/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
   variables:
     PG_HOST: postgres
     PG_USER: postgres
@@ -20,7 +19,7 @@ test_intouch_companies:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @bmi/intouch-api-service-companies migrate-db
+    - yarn workspace @bmi/intouch-api-migration-scripts run ci:up:companies
     - yarn workspace @bmi/intouch-api-service-companies coverage
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
   artifacts:
@@ -45,39 +44,10 @@ build_intouch_api_companies:
       changes:
         - applications/intouch/api/services/companies/**/*
         - libraries/**/*
-        - package.json
-        - "**/package.json"
+        - yarn.lock
       variables:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa')"
-      changes:
-        - applications/intouch/api/services/companies/**/*
-        - libraries/**/*
-        - package.json
-        - "**/package.json"
-      variables:
-        BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
-        BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod')"
-      changes:
-        - applications/intouch/api/services/companies/**/*
-        - libraries/**/*
-        - package.json
-        - "**/package.json"
-      variables:
-        BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
-        BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod')"
-      changes:
-        - applications/intouch/api/services/companies/**/*
-        - libraries/**/*
-        - package.json
-        - "**/package.json"
-      variables:
-        BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
-        BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
-
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - echo $BMI_KEY > gcloud-service-key-bmi.json
@@ -99,8 +69,6 @@ deploy_intouch_api_companies_dev:
     - build_intouch_api_companies
     - test_intouch_companies
   image: google/cloud-sdk
-  services:
-    - docker:dind
   cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
@@ -118,6 +86,7 @@ deploy_intouch_companies_to_cloudrun_bmi:
   cache: {}
   needs:
     - build_intouch_api_companies
+    - test_intouch_companies
   image: google/cloud-sdk
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
@@ -127,27 +96,9 @@ deploy_intouch_companies_to_cloudrun_bmi:
         CLOUD_RUN: "$GCP_BMI_INTOUCH_DEV_COMPANY"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
-      changes:
-        - applications/intouch/api/services/companies/**/*
-      variables:
-        CLOUD_RUN: "$GCP_BMI_INTOUCH_QA_COMPANY"
-        BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
-        BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
-      changes:
-        - applications/intouch/api/services/companies/**/*
-      variables:
-        CLOUD_RUN: "$GCP_BMI_INTOUCH_PREPROD_COMPANY"
-        BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
-        BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
-      changes:
-        - applications/intouch/api/services/companies/**/*
-      variables:
-        CLOUD_RUN: "$GCP_BMI_INTOUCH_PROD_COMPANY"
-        BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
-        BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
+  needs:
+    - job: migrate_companies_db_bmi
+      optional: true
   script:
     - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts
     - echo "Deploying to $CLOUD_RUN on BMI tenant in project $BMI_PROJECT"
@@ -155,3 +106,56 @@ deploy_intouch_companies_to_cloudrun_bmi:
     - gcloud config set project $BMI_PROJECT
     - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-api-service-companies:$CI_COMMIT_SHORT_SHA --region=europe-west3 --platform=managed
     - gcloud container images add-tag eu.gcr.io/$BMI_PROJECT/intouch-api-service-companies:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-api-service-companies:latest
+
+# Run only on release branch!
+release_intouch_companies_to_cloudrun_bmi:
+  stage: deploy
+  cache: {}
+  image: google/cloud-sdk
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
+  services:
+    - name: docker:20-dind
+      alias: docker
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
+      changes:
+        - applications/intouch/api/services/companies/**/*
+      variables:
+        PREVIOUS_ENV_BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
+        PREVIOUS_ENV_BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
+        CLOUD_RUN: "$GCP_BMI_INTOUCH_QA_COMPANY"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
+      changes:
+        - applications/intouch/api/services/companies/**/*
+      variables:
+        PREVIOUS_ENV_BMI_PROJECT: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
+        PREVIOUS_ENV_BMI_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
+        CLOUD_RUN: "$GCP_BMI_INTOUCH_PREPROD_COMPANY"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
+      changes:
+        - applications/intouch/api/services/companies/**/*
+      variables:
+        PREVIOUS_ENV_BMI_PROJECT: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
+        PREVIOUS_ENV_BMI_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
+        CLOUD_RUN: "$GCP_BMI_INTOUCH_PROD_COMPANY"
+        BMI_PROJECT: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
+        BMI_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
+  script:
+    - echo $PREVIOUS_ENV_BMI_KEY > gcloud-service-key.json # Promoted Google Cloud service accounts to pull image
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $PREVIOUS_ENV_BMI_PROJECT
+    - gcloud auth configure-docker
+    - docker pull eu.gcr.io/$PREVIOUS_ENV_BMI_PROJECT/intouch-api-service-companies:latest
+    - docker tag eu.gcr.io/$PREVIOUS_ENV_BMI_PROJECT/intouch-api-service-companies:latest eu.gcr.io/$BMI_PROJECT/intouch-api-service-companies:latest
+    - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts to promote
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $BMI_PROJECT
+    - gcloud auth configure-docker
+    - docker push eu.gcr.io/$BMI_PROJECT/intouch-api-service-companies:latest
+    - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-api-service-companies:latest --region=europe-west3 --platform=managed

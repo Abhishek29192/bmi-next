@@ -264,6 +264,9 @@ describe("handleRequest", () => {
     expect(fetchData).not.toHaveBeenCalledWith(PimTypes.Systems);
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "products",
         startPage: 0,
@@ -272,6 +275,9 @@ describe("handleRequest", () => {
     });
     expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "systems",
         startPage: 0,
@@ -300,9 +306,7 @@ describe("handleRequest", () => {
       await handleRequest(request, response);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual(
-        "Failed to trigger full fetch patch for products: Internal Server Error"
-      );
+      expect(error.message).toEqual("Failed to get all of the products data.");
     }
 
     expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
@@ -321,6 +325,9 @@ describe("handleRequest", () => {
     expect(fetchData).not.toHaveBeenCalledWith(PimTypes.Systems);
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "products",
         startPage: 0,
@@ -329,6 +336,9 @@ describe("handleRequest", () => {
     });
     expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "systems",
         startPage: 0,
@@ -379,6 +389,9 @@ describe("handleRequest", () => {
     expect(fetchData).toHaveBeenCalledWith(PimTypes.Systems);
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "products",
         startPage: 0,
@@ -387,6 +400,9 @@ describe("handleRequest", () => {
     });
     expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "systems",
         startPage: 0,
@@ -446,6 +462,9 @@ describe("handleRequest", () => {
     expect(fetchData).toHaveBeenCalledWith(PimTypes.Systems);
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "products",
         startPage: 0,
@@ -454,6 +473,9 @@ describe("handleRequest", () => {
     });
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "systems",
         startPage: 0,
@@ -494,9 +516,7 @@ describe("handleRequest", () => {
       await handleRequest(request, response);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual(
-        "Failed to trigger full fetch patch for systems: Internal Server Error"
-      );
+      expect(error.message).toEqual("Failed to get all of the systems data.");
     }
 
     expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
@@ -515,6 +535,9 @@ describe("handleRequest", () => {
     expect(fetchData).toHaveBeenCalledWith(PimTypes.Systems);
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "products",
         startPage: 0,
@@ -523,6 +546,9 @@ describe("handleRequest", () => {
     });
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "systems",
         startPage: 0,
@@ -582,6 +608,9 @@ describe("handleRequest", () => {
     expect(fetchData).toHaveBeenCalledWith(PimTypes.Systems);
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "products",
         startPage: 0,
@@ -590,6 +619,9 @@ describe("handleRequest", () => {
     });
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "systems",
         startPage: 0,
@@ -651,6 +683,9 @@ describe("handleRequest", () => {
     expect(fetchData).toHaveBeenCalledWith(PimTypes.Systems);
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "products",
         startPage: 0,
@@ -659,6 +694,9 @@ describe("handleRequest", () => {
     });
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "systems",
         startPage: 0,
@@ -719,6 +757,9 @@ describe("handleRequest", () => {
     expect(fetchData).toHaveBeenCalledWith(PimTypes.Systems);
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "products",
         startPage: 0,
@@ -727,6 +768,9 @@ describe("handleRequest", () => {
     });
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "systems",
         startPage: 0,
@@ -809,6 +853,9 @@ describe("handleRequest", () => {
     expect(fetchData).toHaveBeenCalledWith(PimTypes.Systems);
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "products",
         startPage: 0,
@@ -817,6 +864,9 @@ describe("handleRequest", () => {
     });
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "products",
         startPage: 10,
@@ -825,6 +875,9 @@ describe("handleRequest", () => {
     });
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: {
         type: "systems",
         startPage: 10,

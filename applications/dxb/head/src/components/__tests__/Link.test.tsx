@@ -12,18 +12,7 @@ import {
 } from "../Link";
 import { Data as PromoData } from "../Promo";
 import { SiteContextProvider } from "../Site";
-
-const getMockSiteContext = (
-  countryCode: string = "en",
-  nodeLocale: string = "en-GB"
-) => ({
-  countryCode: countryCode,
-  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
-  node_locale: nodeLocale,
-  homePage: {
-    title: "Home page title"
-  }
-});
+import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 describe("Link component", () => {
   process.env.GATSBY_HUBSPOT_ID = "012345";

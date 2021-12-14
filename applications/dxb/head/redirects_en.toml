@@ -62,26 +62,97 @@
   force = true
 
 [[redirects]]
-  from = "/fr-fr"
+  from = "/fr-fr*"
   to = "https://www.bmigroup.com/fr/"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/de-de"
+  from = "/de-de*"
   to = "https://www.bmigroup.com/de/"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/fr-fr/*"
-  to = "https://www.bmigroup.com/fr/"
+  from = "/se-old*"
+  to = "https://www.bmigroup.com/se/"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/de-de/*"
-  to = "https://www.bmigroup.com/de/"
+  from = "/pt-pt*"
+  to = "https://www.bmigroup.com/pt/"
   status = 301
   force = true
 
+[[redirects]]
+  from = "/pl-pl*"
+  to = "https://www.bmigroup.com/pl/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ro-ro*"
+  to = "https://www.bmigroup.com/ro/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en-za*"
+  to = "https://www.bmigroup.com/za/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en-my*"
+  to = "https://www.bmigroup.com/my/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es-es*"
+  to = "https://www.bmigroup.com/es/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fi-fi*"
+  to = "https://www.bmigroup.com/fi/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fr-be*"
+  to = "https://www.bmigroup.com/be/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lt-lt*"
+  to = "https://www.bmigroup.com/lt/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lv-lv*"
+  to = "https://www.bmigroup.com/lv/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/nb-no*"
+  to = "https://www.bmigroup.com/no/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/nl-be*"
+  to = "https://www.bmigroup.com/be/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tr-tr*"
+  to = "https://www.bmigroup.com/tr/"
+  status = 301
+  force = true

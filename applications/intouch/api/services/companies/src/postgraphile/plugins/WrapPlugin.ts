@@ -8,7 +8,11 @@ import {
   UpdateGuaranteeInput,
   UpdateProjectMemberInput
 } from "@bmi/intouch-api-types";
-import { updateCompany, deleteCompanyMember } from "../../services/company";
+import {
+  createCompany,
+  updateCompany,
+  deleteCompanyMember
+} from "../../services/company";
 import { createAccount, updateAccount } from "../../services/account";
 import {
   deleteEvidenceItem,
@@ -20,6 +24,7 @@ import { PostGraphileContext } from "../../types";
 import { updateProjectMember } from "../../services/projectMember";
 import { createNote } from "../../services/note";
 import Auth0 from "../../services/auth0";
+import * as companyDocumentMutation from "../../services/companyDocument";
 
 const WrapPlugin = makeWrapResolversPlugin((build) => {
   return {
@@ -62,6 +67,9 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
             auth0
           );
         }
+      },
+      createCompany: {
+        resolve: createCompany
       },
       updateCompany: {
         requires: {
@@ -169,7 +177,8 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
         ) {
           return createNote(resolve, source, args, context, resolveInfo);
         }
-      }
+      },
+      ...companyDocumentMutation
     }
   };
 });

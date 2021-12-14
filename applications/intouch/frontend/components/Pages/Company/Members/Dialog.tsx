@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { gql } from "@apollo/client";
+import validator from "validator";
 import { useTranslation } from "next-i18next";
+import { withStyles } from "@material-ui/core/styles";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@bmi/text-field";
 import Button from "@bmi/button";
 import Dialog from "@bmi/dialog";
@@ -26,23 +29,32 @@ type AlertStateProp = {
   message?: string;
 };
 
+const WhiteAutocomplete = withStyles({
+  inputRoot: {
+    backgroundColor: "white"
+  }
+})(Autocomplete);
+
 const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
-  const { t } = useTranslation("team-page");
+  const { t } = useTranslation(["error-page", "team-page"]);
   const [alertState, setAlertState] = useState<AlertStateProp>({
     open: false
   });
+  const [emails, setEmails] = useState<string[]>([]);
+  const [inputValue, setInputValue] = React.useState("");
   const [inviteUsers] = useInviteMutation({
-    onError: (error) =>
+    onError: (error) => {
       setAlertState({
         open: true,
         severity: "error",
-        message: error.message
-      }),
+        message: t(`error-page:${error.message}`)
+      });
+    },
     onCompleted: () =>
       setAlertState({
         open: true,
         severity: "success",
-        message: t("invitation.dialog.success")
+        message: t("team-page:invitation.dialog.success")
       })
   });
 
@@ -51,11 +63,52 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
     inviteUsers({
       variables: {
         input: {
-          emails: values.emails?.replace(/ /g, "")?.split(",") || [],
+          emails: emails || [],
           personalNote: values.personalNote
         }
       }
     });
+  };
+
+  const onInputChange = (event, newInputValue) => {
+    const options = newInputValue.split(",");
+    if (options.length > 1) {
+      setEmails(
+        emails
+          .concat(options)
+          .map((x) => x.trim())
+          .filter((x) => {
+            return x && validator.isEmail(x);
+          })
+          .slice(0, 10)
+      );
+    } else {
+      setInputValue(newInputValue);
+    }
+  };
+
+  const onChange = (event, newValue: string[]) => {
+    setEmails(
+      newValue
+        .map((x) => x.trim())
+        .filter((x) => {
+          return x && validator.isEmail(x);
+        })
+        .slice(0, 10)
+    );
+  };
+
+  const onBlur = () => {
+    setEmails([
+      ...emails,
+      ...inputValue
+        .split(",")
+        .map((x) => x.trim())
+        .filter((x) => {
+          return x && validator.isEmail(x);
+        })
+        .slice(0, 10)
+    ]);
   };
 
   return (
@@ -68,7 +121,9 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
       open={dialogOpen}
       data-testid="dialog"
     >
-      <Dialog.Title hasUnderline>{t("invitation.dialog.title")}</Dialog.Title>
+      <Dialog.Title hasUnderline>
+        {t("team-page:invitation.dialog.title")}
+      </Dialog.Title>
       <Dialog.Content>
         {alertState.open && (
           <AlertBanner severity={alertState.severity}>
@@ -77,21 +132,40 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
         )}
         <Form className={styles.form} onSubmit={onSubmit}>
           <Form.Row>
-            <TextField
-              name="emails"
-              label={t("invitation.dialog.emails.label")}
-              helperText={t("invitation.dialog.emails.helperText")}
-              className={styles.input}
-              inputProps={{
-                ["data-testid"]: "emails"
-              }}
-              onChange={() => setAlertState({ open: false })}
-              isRequired
-              fullWidth
+            <WhiteAutocomplete
+              multiple
+              freeSolo
+              id="tags-filled"
+              options={[]}
+              value={emails}
+              inputValue={inputValue}
+              onChange={onChange}
+              onInputChange={onInputChange}
+              onBlur={onBlur}
+              getOptionLabel={(option: string) => option}
+              defaultValue={[] as string[]}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  name="emails"
+                  label={t("team-page:invitation.dialog.emails.label")}
+                  helperText={t(
+                    "team-page:invitation.dialog.emails.helperText"
+                  )}
+                  className={styles.input}
+                  onChange={() => setAlertState({ open: false })}
+                  inputProps={{
+                    ["data-testid"]: "emails",
+                    ...params.inputProps
+                  }}
+                  isRequired
+                  fullWidth
+                />
+              )}
             />
             <TextField
               name="personalNote"
-              label={t("invitation.dialog.personalNote.label")}
+              label={t("team-page:invitation.dialog.personalNote.label")}
               className={styles.personalNote}
               onChange={() => setAlertState({ open: false })}
               inputProps={{
@@ -110,10 +184,10 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
               variant="outlined"
               data-testid="invite-dialog-cancel"
             >
-              {t("invitation.dialog.cancel")}
+              {t("team-page:invitation.dialog.cancel")}
             </Button>
             <Form.SubmitButton data-testid="invite-dialog-submit">
-              {t("invitation.dialog.send")}
+              {t("team-page:invitation.dialog.send")}
             </Form.SubmitButton>
           </Form.ButtonWrapper>
         </Form>

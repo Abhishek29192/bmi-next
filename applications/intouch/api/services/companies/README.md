@@ -2,7 +2,7 @@
 
 ## Install
 
-Follow the instruction in the root of the repo
+Follow the instruction in the root of the repo.
 
 ## Database
 

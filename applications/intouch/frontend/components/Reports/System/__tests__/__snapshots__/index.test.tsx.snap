@@ -4,6 +4,7 @@ exports[`SystemReport Component renders correctly 1`] = `
 <div>
   <button
     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined sidePanelFooterButton MuiButton-outlinedPrimary"
+    data-testid="export-button"
     tabindex="0"
     type="button"
   >

@@ -11,8 +11,8 @@ import { tierBenefit } from "../contentful";
 const INSTALLER: Role = "INSTALLER";
 const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
 
-const ERROR_ALREADY_MEMBER = "The user is already a member of another company";
-const ERROR_INVITATION_NOT_FOUND = "Invitation not found";
+const ERROR_ALREADY_MEMBER = "errorAlreadyMember";
+const ERROR_INVITATION_NOT_FOUND = "errorInvitationNotFound";
 
 const { APP_ENV, FRONTEND_URL } = process.env;
 
@@ -134,7 +134,7 @@ export const updateAccount = async (
   const { GCP_PRIVATE_BUCKET_NAME, AUTH0_NAMESPACE } = process.env;
 
   const { pgClient, user, logger: Logger, storageClient } = context;
-  const { photoUpload, role, shouldRemovePhoto }: AccountPatch =
+  const { photoUpload, role, shouldRemovePhoto, status }: AccountPatch =
     args.input.patch;
 
   const logger = Logger("service:account");
@@ -198,6 +198,7 @@ export const updateAccount = async (
         });
 
         await sendMessageWithTemplate(context, "ROLE_ASSIGNED", {
+          accountId: args.input.id,
           email: result.data.$email,
           firstname: result.data.$first_name,
           role: role?.toLowerCase().replace("_", " ")
@@ -257,6 +258,32 @@ export const updateAccount = async (
       }
     }
 
+    if (status) {
+      if (status === "SUSPENDED") {
+        await pgClient.query(
+          "delete from company_member where account_id = $1",
+          [args.input.id]
+        );
+        await pgClient.query(
+          "delete from project_member where account_id = $1",
+          [args.input.id]
+        );
+        args.input.patch.role = "INSTALLER";
+      }
+
+      const { rows: accounts } = await pgClient.query(
+        "select account.* from account where account.id = $1",
+        [args.input.id]
+      );
+
+      const auth0User = await auth0.getUserByEmail(accounts[0].email);
+      if (auth0User) {
+        await auth0.updateUser(auth0User.user_id, {
+          blocked: status === "SUSPENDED"
+        });
+      }
+    }
+
     return await resolve(source, args, context, resolveInfo);
   } catch (e) {
     logger.error("Error updating a user", e);
@@ -281,7 +308,7 @@ export const invite = async (
   const { pgClient, pgRootPool, protocol } = context;
 
   const {
-    emails,
+    emails = [],
     firstName,
     lastName,
     personalNote = ""
@@ -297,7 +324,9 @@ export const invite = async (
     throw new Error("email missing");
   }
 
-  for (const invetee of emails) {
+  const emailToSend = emails?.length > 11 ? emails?.slice(0, 10) : emails;
+
+  for (const invetee of emailToSend) {
     let auth0User = await auth0.getUserByEmail(invetee);
 
     /**
@@ -389,10 +418,12 @@ export const invite = async (
         });
         logger.info("Reset password email sent");
       } else {
-        await sendMessageWithTemplate(updatedContext, "NEWUSER_INVITED", {
+        await sendMessageWithTemplate(updatedContext, "MEMBER_INVITED", {
+          accountId: invetees[0].id,
           firstname: invetees[0].first_name,
           company: user.company.name,
           registerlink: `${protocol}://${targetDomain}.${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`,
+          sender: `${user.firstName} ${user.lastName}`,
           email: invetee
         });
         logger.info("Invitation email sent");
@@ -490,6 +521,7 @@ export const completeInvitation = async (
 
       const targetDomain = getTargetDomain(markets[0].domain);
       await sendMessageWithTemplate(updatedContext, "ACCOUNT_ACTIVATED", {
+        accountId: user.id,
         email: user.email,
         firstname: user.firstName,
         marketUrl: `${protocol}://${targetDomain}.${FRONTEND_URL}`
@@ -506,7 +538,7 @@ export const completeInvitation = async (
       `Added reletion with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
     );
 
-    const { shortDescription = "" } = await tierBenefit(
+    const { shortDescription = "", name = "" } = await tierBenefit(
       context.clientGateway,
       invitations[0].tier
     );
@@ -516,7 +548,7 @@ export const completeInvitation = async (
       accountId: user.id,
       firstname: user.firstName,
       company: invitations[0].name,
-      tier: invitations[0].tier,
+      tier: name || invitations[0].tier,
       tierBenefitsShortDescription: shortDescription
     });
 

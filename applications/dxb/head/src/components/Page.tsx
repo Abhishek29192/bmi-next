@@ -13,6 +13,7 @@ import InputBanner, {
 } from "../components/InputBanner";
 import getJpgImage from "../utils/images";
 import { getPathWithCountryCode } from "../utils/path";
+import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import BrandProvider from "./BrandProvider";
 import {
@@ -27,11 +28,13 @@ import ErrorFallback from "./ErrorFallback";
 import { Data as SEOContentData } from "./SEOContent";
 import VisualiserProvider from "./Visualiser";
 import Calculator from "./PitchedRoofCalcualtor";
+import { Product, VariantOption } from "./types/pim";
 
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
   inputBanner: InputBannerData | null;
   seo: SEOContentData | null;
+  path: string;
 };
 
 type Context = {
@@ -49,6 +52,8 @@ type Props = {
   isSearchPage?: boolean;
   variantCodeToPathMap?: Record<string, string>;
   ogImageUrl?: string;
+  baseproduct?: Product;
+  variantProduct?: VariantOption;
 };
 
 const Content = ({ children }: { children: Children }) => {
@@ -65,7 +70,9 @@ const Page = ({
   siteData,
   isSearchPage,
   variantCodeToPathMap,
-  ogImageUrl
+  ogImageUrl,
+  baseproduct,
+  variantProduct
 }: Props) => {
   const {
     node_locale,
@@ -83,7 +90,7 @@ const Page = ({
     regions
   } = siteData;
 
-  const { breadcrumbs, inputBanner, seo } = pageData;
+  const { breadcrumbs, inputBanner, seo, path } = pageData;
 
   const reCaptchaKey =
     !process.env.GATSBY_PREVIEW && process.env.GATSBY_RECAPTCHA_KEY;
@@ -124,6 +131,25 @@ const Page = ({
     {}
   );
 
+  //TODO: to be improved by making noindex a page level content option from Contentful
+  //      for DE this will be simply a path list, hence the crude nature of below
+  const noindex =
+    [
+      //DE
+      "vielen-dank/",
+      "teilnahmebedingungen/",
+      "services-downloads-im-ueberblick/alle-services/alle-braas-services/schneefangberechnung/",
+      "services-downloads-im-ueberblick/alle-services/alle-braas-services/windsogberechnung/windsogberechnung-tool/",
+      //FR
+      "professionnels/iaodc1artv2l5y7e/",
+      "professionnels/rgga23impm0om5rcs/"
+    ].indexOf(path) > -1;
+
+  const schemaOrgActivated =
+    Boolean(process.env.GATSBY_SCHEMA_ORG_ACTIVATED) &&
+    Boolean(baseproduct) &&
+    Boolean(variantProduct);
+
   return (
     <>
       <Helmet
@@ -132,6 +158,8 @@ const Page = ({
         defer={false}
       >
         {imageUrl && <meta property="og:image" content={imageUrl} />}
+
+        {noindex && <meta name="robots" content="noindex, nofollow" />}
 
         {/* NOTE: expand viewport beyond safe area */}
         <meta
@@ -210,6 +238,25 @@ const Page = ({
             src="https://js.hscta.net/cta/current.js"
           />
         )}
+        <script lang="javascript">
+          {`
+            if(history && history.scrollRestoration && history.scrollRestoration !== 'manual') {
+              history.scrollRestoration = 'manual';
+            }
+          `}
+        </script>
+
+        {schemaOrgActivated && (
+          <script type="application/ld+json">
+            {JSON.stringify(
+              createSchemaOrgDataForPdpPage(
+                baseproduct,
+                variantProduct,
+                countryCode
+              )
+            )}
+          </script>
+        )}
       </Helmet>
 
       <SiteContextProvider value={siteContext}>
@@ -233,6 +280,7 @@ const Page = ({
                     resources?.countryNavigationIntroduction
                   }
                   regions={regions}
+                  sampleBasketLink={resources?.sampleBasketLink}
                 />
               </BmiThemeProvider>
               <BrandProvider brand={brand}>
@@ -298,5 +346,6 @@ export const query = graphql`
     seo {
       ...SEOContentFragment
     }
+    path
   }
 `;

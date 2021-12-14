@@ -1,5 +1,6 @@
 import admin from "firebase-admin";
 import { DocumentData, Firestore, Query } from "@google-cloud/firestore";
+import { info } from "./logger";
 
 export enum FirestoreCollections {
   Categories = "root/categories",
@@ -12,25 +13,20 @@ admin.initializeApp({
 });
 
 async function deleteQueryBatch(db: Firestore, query: Query<DocumentData>) {
-  const snapshot = await query.get();
+  let snapshot = await query.get();
+  let batchSize = snapshot.size;
+  while (batchSize !== 0) {
+    // Delete documents in a batch
+    const batch = db.batch();
+    snapshot.docs.forEach((doc) => {
+      batch.delete(doc.ref);
+    });
+    await batch.commit();
 
-  const batchSize = snapshot.size;
-  if (batchSize === 0) {
-    // When there are no documents left, we are done
-    return;
+    info({ message: `Deleted a batch of ${batchSize}` });
+    snapshot = await query.get();
+    batchSize = snapshot.size;
   }
-
-  // Delete documents in a batch
-  const batch = db.batch();
-  snapshot.docs.forEach((doc) => {
-    batch.delete(doc.ref);
-  });
-  await batch.commit();
-
-  // eslint-disable-next-line no-console
-  console.log(`Deleted a batch of ${batchSize}`);
-
-  await deleteQueryBatch(db, query);
 }
 
 export async function deleteFirestoreCollection(
@@ -45,4 +41,6 @@ export async function deleteFirestoreCollection(
   const query = collectionRef.orderBy("__name__").limit(batchSize);
 
   await deleteQueryBatch(db, query);
+
+  info({ message: `Deleted all data for ${collectionPath}` });
 }

@@ -6,6 +6,7 @@ import { GetApp } from "@material-ui/icons";
 import { exportCsv } from "../../../lib/utils/report";
 import { useGetGuaranteesReportLazyQuery } from "../../../graphql/generated/hooks";
 import { GetGuaranteesReportQuery } from "../../../graphql/generated/operations";
+import { ReportProps } from "../types";
 import styles from "./styles.module.scss";
 
 const getReportData = (guarantees: GetGuaranteesReportQuery["guarantees"]) => {
@@ -46,7 +47,7 @@ const getReportData = (guarantees: GetGuaranteesReportQuery["guarantees"]) => {
   });
 };
 
-const GuaranteeReport = () => {
+const GuaranteeReport = ({ disabled }: ReportProps) => {
   const { t } = useTranslation("project-page");
   const [getSystemsReport] = useGetGuaranteesReportLazyQuery({
     onCompleted: ({ guarantees }) => {
@@ -63,6 +64,8 @@ const GuaranteeReport = () => {
     <div>
       <Button
         variant="outlined"
+        data-testid="export-button"
+        disabled={disabled}
         endIcon={<GetApp />}
         onClick={getSystemsReport}
         className={styles.sidePanelFooterButton}

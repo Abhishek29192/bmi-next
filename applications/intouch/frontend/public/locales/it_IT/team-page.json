@@ -1,44 +1,59 @@
 {
-  "sidePanel": {
-    "search": {
-      "label": "Cerca un utente",
-      "noResult": "Utente non trovato"
-    },
-    "inviteLabel": "+ Invita un utente"
-  },
-  "table": {
-    "title": "Certificazioni",
-    "type": "Tipo",
-    "certification": "Certificatione",
-    "validity": "Validità"
-  },
+  "genericError": "Si è verificato un errore. Riprova o contatta il tuo amministratore.",
   "invitation": {
     "dialog": {
-      "title": "Invita un utente",
+      "cancel": "Annulla",
       "emails": {
-        "label": "Indirizzi email",
-        "helperText": "Aggiunti piu indirizzi separati da una virgola"
+        "helperText": "Aggiungi più membri separando ogni indirizzo email con una virgola",
+        "label": "Indirizzo email del destinatario"
       },
+      "errorAlreadyMember": "L'utente è già membro di un'altra società",
+      "errorInvitationNotFound": "Invito non trovato",
       "personalNote": {
-        "label": "Messaggio (facoltativo)"
+        "label": "Il tuo messaggio (opzionale)"
       },
-      "cancel": "Cancella",
-      "send": "Invia invito",
-      "success": "L'invito è stato inviato con successo"
+      "send": "Invia e-mail",
+      "success": "L'invito è stato inviato",
+      "title": "Invita i membri"
     }
   },
-  "user_card": {
-    "add_admin": "Aggiungi amministratore",
-    "remove_admin": "Rimuovi amministratore",
-    "confirm": "Conferma",
-    "cancel": "Cancella",
-    "role_dialog": {
-      "title": "Cambia ruolo",
-      "text": "Vuoi cambiare il ruolo di questo utente?"
+  "lastCompanyAdminError": "Non è possibile rimuovere l'ultimo amministratore di un'Azienda a meno che non sia stata disattivata da BMI",
+  "memberRemoved": "Membro rimosso con successo",
+  "report": "Scarica l'elenco del team",
+  "sidePanel": {
+    "inviteLabel": "+ Invita i membri del team",
+    "search": {
+      "label": "Cerca un utente",
+      "noResult": "Membro non trovato"
+    }
+  },
+  "table": {
+    "certification": "Certificazione",
+    "noResults": "L'utente non ha certificazioni",
+    "title": "Certificazione(i)",
+    "type": "Tipo",
+    "validity": "Validità"
+  },
+  "userActions": {
+    "action": {
+      "activate": "Attiva utente",
+      "deactivate": "Disattiva utente"
     },
+    "title": "Azioni dell'utente"
+  },
+  "user_card": {
+    "add_admin": "Assegna come amministratore dell'azienda",
+    "cancel": "Annulla",
+    "confirm": "Conferma",
+    "remove": "Rimuovi dall'azienda",
+    "remove_admin": "Rimuovi come Admin dell'azienda",
     "remove_user_dialog": {
-      "title": "Rimuovi dall'azienda",
-      "text": "Vuoi rimuovere questo utente dall'azienda?"
+      "text": "Vuoi rimuovere questo membro dell'azienda?",
+      "title": "Rimuovi membro dell'azienda"
+    },
+    "role_dialog": {
+      "text": "Vuoi cambiare il ruolo?",
+      "title": "Cambia ruolo"
     }
   }
 }

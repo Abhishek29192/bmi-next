@@ -22,6 +22,7 @@ import {
   generatePageError,
   withPageError
 } from "../../lib/error";
+import { sortArrayByField } from "../../lib/utils/";
 import { GlobalPageProps, withPage } from "../../lib/middleware/withPage";
 import { Layout } from "../../components/Layout";
 import layoutStyles from "../../components/Layout/styles.module.scss";
@@ -53,7 +54,7 @@ const CompaniesPage = ({
       marketId: market.id
     },
     onCompleted: ({ companies }) => {
-      setCompaniesList(companies.nodes);
+      setCompaniesList(sortArrayByField([...companies.nodes], "name"));
     },
     onError: (error) => {
       log({
@@ -103,6 +104,7 @@ const CompaniesPage = ({
             <CompaniesSidePanel
               companies={companiesList}
               onItemSelected={selectCompany}
+              selectedItemId={company?.id}
             />
             {company ? companyScreen : <NoCompanies />}
           </>
@@ -121,6 +123,7 @@ export const COMPANY_DETAILS_FRAGMENT = gql`
     ...CompanyRegisteredDetailsFragment
     ...CompanyAdminsFragment
     ...CompanyCertifications
+    ...CompanyDocumentsFragment
     status
     isProfileComplete
   }
@@ -128,7 +131,7 @@ export const COMPANY_DETAILS_FRAGMENT = gql`
 
 export const GET_COMPANIES_BY_MARKET = gql`
   query GetCompaniesByMarket($marketId: Int!) {
-    companies(condition: { marketId: $marketId }, orderBy: NAME_ASC) {
+    companies(condition: { marketId: $marketId }) {
       nodes {
         ...CompanyPageDetailsFragment
       }
@@ -191,7 +194,9 @@ export const getServerSideProps = withPage(
       return {
         props: {
           companyId,
-          companies: isSuperOrMarketAdmin(account) ? companies : [],
+          companies: isSuperOrMarketAdmin(account)
+            ? sortArrayByField([...companies], "name")
+            : [],
           companySSR: company,
           contactDetailsCollection,
           ...(await serverSideTranslations(locale, [
@@ -233,7 +238,7 @@ export const getServerSideProps = withPage(
 
     return {
       props: {
-        companies,
+        companies: sortArrayByField([...companies], "name"),
         contactDetailsCollection,
         ...(await serverSideTranslations(locale, [
           "common",

@@ -14,6 +14,8 @@ import {
 } from "../../../graphql/generated/operations";
 import { WizardOverlay } from "../../../components/WizardLayout";
 import { GuaranteeWizardData } from "../../../components/WizardLayout/WizardContext";
+import log from "../../../lib/logger";
+
 import {
   GetProjectDocument,
   useCreateGuaranteeMutation,
@@ -40,25 +42,35 @@ export const ApplyGuaranteeDialog = ({
           }
         });
       }
-
       onCloseClick();
       setGuaranteeCoverage(guarantee.coverage);
       setModalOpen(true);
+    },
+    onError: (error) => {
+      setSubmit(false);
+      log({
+        severity: "ERROR",
+        message: `There was an error creating guarantee: ${error.toString()}`
+      });
     }
   });
   const [isModalOpen, setModalOpen] = useState(false);
   const [guaranteeCoverage, setGuaranteeCoverage] =
     useState<GuaranteeCoverage>();
 
+  const [isSubmit, setSubmit] = useState<boolean>(false);
+
   const [createGuaranteePdfMutation] = useCreateGuaranteePdfMutation();
 
-  const onSubmitHandler = ({
+  const onSubmitHandler = async ({
     guaranteeType,
     guaranteeTemplate,
     system,
     product,
     evidences
   }: GuaranteeWizardData) => {
+    setSubmit(true);
+
     const variables: CreateGuaranteeMutationVariables = {
       input: {
         guarantee: {
@@ -94,7 +106,6 @@ export const ApplyGuaranteeDialog = ({
       ]
     });
   };
-
   return (
     <div>
       <Dialog fullScreen open={isOpen} onClose={onCloseClick}>
@@ -102,6 +113,7 @@ export const ApplyGuaranteeDialog = ({
           project={project}
           onClose={onCloseClick}
           onSubmit={onSubmitHandler}
+          isSubmit={isSubmit}
         />
       </Dialog>
       <GuaranteeMessage

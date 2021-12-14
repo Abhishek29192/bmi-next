@@ -8,4 +8,4 @@ test_netlify-plugin-filter-tag-event:
         - yarn.lock
   variables:
     WORKSPACE: "@bmi/netlify-plugin-filter-tag-event"
-    ROOT_DIR: "libraries/netlify-plugin-filter-tag-event"
+    ROOT_DIR: "applications/dxb/libraries/netlify-plugin-filter-tag-event"

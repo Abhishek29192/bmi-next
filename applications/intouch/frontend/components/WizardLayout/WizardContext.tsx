@@ -31,12 +31,14 @@ export type ContextProps = {
   isBackStepAvailable: boolean;
   isLastStep: boolean;
   project?: GetProjectQuery["project"];
+  isSubmit?: boolean;
 };
 
 export type ContextWrapperProps = {
   children?: React.ReactNode;
   project: GetProjectQuery["project"];
   onSubmit?: (data: GuaranteeWizardData) => void;
+  isSubmit?: boolean;
 };
 
 export const WizardContext = createContext<ContextProps | null>(null);
@@ -45,6 +47,7 @@ export const useWizardContext = () => React.useContext(WizardContext);
 const WizardContextWrapper = ({
   project,
   onSubmit,
+  isSubmit,
   children
 }: ContextWrapperProps) => {
   const [currentStep, setCurrentStep] = useState<number>(0);
@@ -105,6 +108,7 @@ const WizardContextWrapper = ({
     }
     return currentStep < 4;
   };
+
   return (
     <WizardContext.Provider
       value={{
@@ -129,7 +133,8 @@ const WizardContextWrapper = ({
         },
         isNextStepAvailable: nextStepAvailable(),
         isBackStepAvailable: currentStep > 0,
-        isLastStep: currentStep === 4
+        isLastStep: currentStep === 4,
+        isSubmit: isSubmit
       }}
     >
       {children}

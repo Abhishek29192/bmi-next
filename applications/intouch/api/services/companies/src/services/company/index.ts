@@ -3,19 +3,52 @@ import {
   CompanyPatch,
   DeleteCompanyMemberInput,
   Tier,
+  CreateCompanyInput,
   UpdateCompanyInput
 } from "@bmi/intouch-api-types";
 import { PoolClient } from "pg";
+import trimStringsDeep from "../../utils/trimStringsDeep";
+import { PostGraphileContext } from "../../types";
 import { sendMessageWithTemplate } from "../../services/mailer";
 import { tierBenefit } from "../contentful";
+
+const UNIQUE_VIOLATION_ERROR_CODE = "23505";
+
+export const createCompany = async (
+  resolve,
+  source,
+  args: { input: CreateCompanyInput },
+  context: PostGraphileContext,
+  resolveInfo
+) => {
+  const logger = context.logger("create:company");
+  try {
+    const result = await resolve(
+      source,
+      { input: trimStringsDeep(args.input) },
+      context,
+      resolveInfo
+    );
+    return result;
+  } catch (error) {
+    logger.error(`Error creating company: ${error}`);
+
+    if (error?.code === UNIQUE_VIOLATION_ERROR_CODE) {
+      throwUniqueViolationError(error?.constraint);
+    }
+    throw error;
+  }
+};
 
 export const updateCompany = async (
   resolve,
   source,
   args: { input: UpdateCompanyInput },
-  context,
+  context: PostGraphileContext,
   resolveInfo
 ) => {
+  args.input = trimStringsDeep(args.input);
+
   const { GCP_PUBLIC_BUCKET_NAME } = process.env;
   const { pgClient, storageClient, user } = context;
   const { logoUpload, shouldRemoveLogo, tier }: CompanyPatch = args.input.patch;
@@ -23,107 +56,115 @@ export const updateCompany = async (
   if (!logoUpload && shouldRemoveLogo) {
     args.input.patch.logo = null;
   }
+  try {
+    if (logoUpload) {
+      const { GCP_PUBLIC_BUCKET_NAME } = process.env;
 
-  if (logoUpload) {
-    const { GCP_PUBLIC_BUCKET_NAME } = process.env;
+      const fileName = `companies/logos/${args.input.id}/${Date.now()}`;
 
-    const fileName = `companies/logos/${args.input.id}/${Date.now()}`;
+      const uploadedFile = await logoUpload;
 
-    const uploadedFile = await logoUpload;
-
-    await storageClient.uploadFileByStream(
-      GCP_PUBLIC_BUCKET_NAME,
-      fileName,
-      uploadedFile
-    );
-    args.input.patch.logo = storageClient.getPublicFileUrl(fileName);
-  }
-
-  // if the admin wants to remove the logo OR a new logo has been uploaded
-  if ((!logoUpload && shouldRemoveLogo) || logoUpload) {
-    const {
-      rows: [{ logo: currentLogoURL }]
-    } = await pgClient.query("select company.logo from company where id = $1", [
-      user.company.id
-    ]);
-
-    // delete the previous image if it exists & is hosted on GCP Cloud storage
-    // for now, not trying to delete externally hosted images (e.g. mock data)
-    if (currentLogoURL?.startsWith("https://storage.googleapis.com")) {
-      await storageClient.deleteFile(
+      await storageClient.uploadFileByStream(
         GCP_PUBLIC_BUCKET_NAME,
-        storageClient.getFileNameFromPublicUrl(currentLogoURL)
+        fileName,
+        uploadedFile
       );
+      args.input.patch.logo = storageClient.getPublicFileUrl(fileName);
     }
-  }
 
-  const activeCompanyTier = await getCompanyTier(args.input.id, pgClient);
+    // if the admin wants to remove the logo OR a new logo has been uploaded
+    if ((!logoUpload && shouldRemoveLogo) || logoUpload) {
+      const {
+        rows: [{ logo: currentLogoURL }]
+      } = await pgClient.query(
+        "select company.logo from company where id = $1",
+        [user.company.id]
+      );
 
-  const result = await resolve(source, args, context, resolveInfo);
-
-  const {
-    data: {
-      $name,
-      $business_type,
-      $tax_number,
-      $status,
-      $registered_address_id
+      // delete the previous image if it exists & is hosted on GCP Cloud storage
+      // for now, not trying to delete externally hosted images (e.g. mock data)
+      if (currentLogoURL?.startsWith("https://storage.googleapis.com")) {
+        await storageClient.deleteFile(
+          GCP_PUBLIC_BUCKET_NAME,
+          storageClient.getFileNameFromPublicUrl(currentLogoURL)
+        );
+      }
     }
-  } = result;
 
-  const {
-    rows: [registeredAddress]
-  } = await pgClient.query(
-    "select address.* from address where address.id = $1",
-    [$registered_address_id]
-  );
+    const activeCompanyTier = await getCompanyTier(args.input.id, pgClient);
 
-  if (
-    $status === "NEW" &&
-    // mandatory fields to activate company
-    $name &&
-    $business_type &&
-    $tax_number &&
-    ["first_line", "town", "postcode", "country"].every(
-      (line) => registeredAddress[line]
-    )
-  ) {
-    await pgClient.query("SELECT * FROM activate_company($1)", [args.input.id]);
+    const result = await resolve(source, args, context, resolveInfo);
 
-    // send email for registration
-    await sendMessageWithTemplate(context, "COMPANY_REGISTERED", {
-      email: user.email,
-      firstname: user.firstName,
-      companyname: user.company.name
-    });
-  }
+    const {
+      data: {
+        $name,
+        $business_type,
+        $tax_number,
+        $status,
+        $registered_address_id
+      }
+    } = result;
 
-  if (tier && activeCompanyTier !== tier) {
-    const { shortDescription = "" } = await tierBenefit(
-      context.clientGateway,
-      tier
-    );
-    //Get all company admins and send mail
-    const { rows: accounts } = await pgClient.query(
-      `select account.* from account 
-  join company_member on company_member.account_id =account.id 
-  where company_member.company_id=$1`,
-      [args.input.id]
+    const {
+      rows: [registeredAddress]
+    } = await pgClient.query(
+      "select address.* from address where address.id = $1",
+      [$registered_address_id]
     );
 
-    for (let i = 0; i < accounts?.length; i++) {
-      const account = accounts[+i];
-      await sendMessageWithTemplate(context, "TIER_ASSIGNED", {
-        email: account.email,
-        accountId: account.id,
-        firstname: account.first_name,
-        tier: tier,
-        tierBenefitsShortDescription: shortDescription
+    if (
+      $status === "NEW" &&
+      // mandatory fields to activate company
+      $name &&
+      $business_type &&
+      $tax_number &&
+      ["first_line", "town", "postcode", "country"].every(
+        (line) => registeredAddress[line]
+      )
+    ) {
+      await pgClient.query("SELECT * FROM activate_company($1)", [
+        args.input.id
+      ]);
+      await sendMessageWithTemplate(context, "COMPANY_REGISTERED", {
+        email: user.email,
+        accountId: user.id,
+        firstname: user.firstName,
+        company: $name
       });
     }
-  }
 
-  return result;
+    if (tier && activeCompanyTier !== tier) {
+      const { shortDescription = "", name = "" } = await tierBenefit(
+        context.clientGateway,
+        tier
+      );
+      //Get all company admins and send mail
+      const { rows: accounts } = await pgClient.query(
+        `select account.* from account 
+  join company_member on company_member.account_id =account.id 
+  where company_member.company_id=$1`,
+        [args.input.id]
+      );
+
+      for (let i = 0; i < accounts?.length; i++) {
+        const account = accounts[+i];
+        await sendMessageWithTemplate(context, "TIER_ASSIGNED", {
+          email: account.email,
+          accountId: account.id,
+          firstname: account.first_name,
+          tier: name || tier,
+          tierBenefitsShortDescription: shortDescription
+        });
+      }
+    }
+
+    return result;
+  } catch (error) {
+    if (error?.code === UNIQUE_VIOLATION_ERROR_CODE) {
+      throwUniqueViolationError(error?.constraint);
+    }
+    throw error;
+  }
 };
 
 export const deleteCompanyMember = async (
@@ -184,7 +225,8 @@ export const deleteCompanyMember = async (
 
     await sendMessageWithTemplate(context, "COMPANY_MEMBER_REMOVED", {
       account: userToRemove.email,
-      firstName: userToRemove.first_name,
+      accountId: userToRemove.id,
+      firstname: userToRemove.first_name,
       company: userToRemove.name,
       email: userToRemove.email
     });
@@ -213,4 +255,14 @@ const getCompanyTier = async (
   );
 
   return rows?.[0]?.tier;
+};
+
+const throwUniqueViolationError = (constraint: string) => {
+  if (constraint === "company_market_id_name_key") {
+    throw new Error("errorCompanyNameUniqueViolation");
+  } else if (constraint === "company_reference_number_key") {
+    throw new Error("errorCompanyReferenceUniqueViolation");
+  } else {
+    throw new Error("errorUniqueViolation");
+  }
 };

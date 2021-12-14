@@ -17,9 +17,11 @@ export const config = {
   }
 };
 
-const { GRAPHQL_URL, NODE_ENV } = process.env;
+const { GRAPHQL_URL, NODE_ENV, GRAPHQL_PROXY_TIMEOUT = "10000" } = process.env;
 const isDev = NODE_ENV === "development";
-const isLocalGateway = GRAPHQL_URL?.indexOf("local") !== -1;
+const isLocalGateway =
+  GRAPHQL_URL?.indexOf("local") !== -1 ||
+  GRAPHQL_URL?.indexOf("127.0.0.1") !== -1;
 
 const proxyOptions: Options = {
   headers: {
@@ -28,7 +30,7 @@ const proxyOptions: Options = {
     })
   },
   changeOrigin: true,
-  proxyTimeout: isDev ? 5000 : 3000,
+  proxyTimeout: parseInt(GRAPHQL_PROXY_TIMEOUT),
   secure: false,
   pathRewrite: {
     "^/api/graphql": ""
@@ -79,8 +81,17 @@ export const handler = async function (
     const auth0 = await getAuth0Instance(req, res);
     const session = await auth0.getSession(req, res);
 
+    let accessToken = session?.accessToken;
+
+    if (Date.now() >= session?.accessTokenExpiresAt * 1000) {
+      const newAccessToken = await auth0.getAccessToken(req, res, {
+        refresh: true
+      });
+      accessToken = newAccessToken?.accessToken;
+    }
+
     try {
-      req.headers.authorization = `Bearer ${session.accessToken}`;
+      req.headers.authorization = `Bearer ${accessToken}`;
       user = session.user;
     } catch (error) {
       // Log only if not using api key otherwise we will get tons of useless errors

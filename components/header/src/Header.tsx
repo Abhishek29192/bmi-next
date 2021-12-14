@@ -26,6 +26,7 @@ import {
   KeyboardArrowDown,
   Menu,
   Search as SearchIcon,
+  ShoppingCartOutlined,
   ChevronLeft
 } from "@material-ui/icons";
 import classnames from "classnames";
@@ -52,9 +53,12 @@ type HeaderProps = {
   tabComponent?: React.ComponentType<any>; // TODO
   isSearchDisabled?: boolean;
   isOnSearchPage?: boolean;
+  isBasketEmpty?: boolean;
   searchAction?: string;
   searchLabel?: string;
+  basketAction?: ClickableAction;
   searchPlaceholder?: string;
+  basketLabel?: string;
   searchTitle?: string;
   openLabel?: string;
   mainMenuTitleLabel?: string;
@@ -78,9 +82,12 @@ const Header = ({
   tabComponent: Tab = DefaultTab,
   isSearchDisabled,
   isOnSearchPage,
+  isBasketEmpty,
   searchAction,
   searchLabel = "Search",
   searchPlaceholder = "Search BMI...",
+  basketAction,
+  basketLabel = "Basket",
   searchTitle = "How can we help you today?",
   openLabel = "Open menu",
   mainMenuTitleLabel,
@@ -290,7 +297,7 @@ const Header = ({
       )}
       <div className={styles["navigation-bar"]}>
         <Container>
-          <div className={styles["navigation-bar__left"]}>
+          <div className={styles["navigation-bar-content"]}>
             <Clickable
               {...logoAction}
               className={styles["logo-link"]}
@@ -366,30 +373,42 @@ const Header = ({
                 })}
               </Tabs>
             </nav>
-          </div>
-          <div className={styles["navigation-bar__right"]}>
-            {!isSearchDisabled && (
+            <div className={styles["navigation-bar-buttons"]}>
+              {!isBasketEmpty && (
+                <Button
+                  action={basketAction}
+                  accessibilityLabel={basketLabel}
+                  className={classnames(styles["basket-button"])}
+                  variant={!sizes.length ? "text" : "contained"}
+                  isIconButton
+                >
+                  <Icon source={ShoppingCartOutlined} />
+                </Button>
+              )}
+              {!isSearchDisabled && (
+                <Button
+                  accessibilityLabel={searchLabel}
+                  className={classnames(styles["search-button"], {
+                    [styles["search-button--is-on-search-page"]!]:
+                      isOnSearchPage
+                  })}
+                  variant={!sizes.length ? "text" : "contained"}
+                  isIconButton
+                  onClick={toggleSearch}
+                >
+                  <Icon source={SearchIcon} />
+                </Button>
+              )}
               <Button
-                accessibilityLabel={searchLabel}
-                className={classnames(styles["search-button"], {
-                  [styles["search-button--is-on-search-page"]!]: isOnSearchPage
-                })}
-                variant={!sizes.length ? "text" : "contained"}
+                accessibilityLabel={openLabel}
+                className={styles["burger-button"]}
+                variant="text"
                 isIconButton
-                onClick={toggleSearch}
+                onClick={toggleMenu}
               >
-                <Icon source={SearchIcon} />
+                <Icon source={Menu} />
               </Button>
-            )}
-            <Button
-              accessibilityLabel={openLabel}
-              className={styles["burger-button"]}
-              variant="text"
-              isIconButton
-              onClick={toggleMenu}
-            >
-              <Icon source={Menu} />
-            </Button>
+            </div>
           </div>
         </Container>
       </div>

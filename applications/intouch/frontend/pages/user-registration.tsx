@@ -11,15 +11,17 @@ import Dialog from "@bmi/dialog";
 import Form from "@bmi/form";
 import { useUpdateAccountMutation } from "../graphql/generated/hooks";
 import { withPage } from "../lib/middleware/withPage";
+import { getMarketAndEnvFromReq } from "../lib/utils";
 
 const fields = ["firstName", "lastName"];
 
 type Props = {
   account: Account;
   termsToAccept: Boolean;
+  baseUrl: string;
 };
 
-const UserRegistration = ({ account, termsToAccept }: Props) => {
+const UserRegistration = ({ account, termsToAccept, baseUrl }: Props) => {
   const { t } = useTranslation("user-registration");
   const [termsAccepted, setTermsAccepted] = useState(false);
 
@@ -71,13 +73,13 @@ const UserRegistration = ({ account, termsToAccept }: Props) => {
                   label={
                     <>
                       {t("dialog.form.agree_label")}
-                      <Link href="https://www.bmigroup.com/legal/legal">
+                      <Link href={`//${baseUrl}/terms`}>
                         <a style={{ textDecoration: "underline" }}>
                           {t("dialog.form.terms_condition")}
                         </a>
                       </Link>
-                      {t("dialog.form.and")}
-                      <Link href="https://www.bmigroup.com/legal/third-party-privacy-notice">
+                      {` ${t("dialog.form.and")} `}
+                      <Link href={`//${baseUrl}/privacy`}>
                         <a style={{ textDecoration: "underline" }}>
                           {t("dialog.form.privacy_policy")}
                         </a>
@@ -99,14 +101,19 @@ const UserRegistration = ({ account, termsToAccept }: Props) => {
 };
 
 export const getServerSideProps = withPage(
-  async ({ locale, account, session }) => {
+  async ({ locale, account, session, req }) => {
+    const { AUTH0_NAMESPACE } = process.env;
+
     const termsToAccept =
-      session.user[`${process.env.AUTH0_NAMESPACE}/terms_to_accept`] || false;
+      session.user[`${AUTH0_NAMESPACE}/terms_to_accept`] || false;
+
+    const { currentHost } = getMarketAndEnvFromReq(req);
 
     return {
       props: {
         account,
         termsToAccept,
+        baseUrl: currentHost,
         ...(await serverSideTranslations(locale, [
           "common",
           "user-registration"

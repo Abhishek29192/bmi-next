@@ -60,5 +60,6 @@ export const addressValidater = Joi.object({
   town: Joi.string().empty(""),
   region: Joi.string().empty(""),
   country: Joi.string().empty(""),
-  postcode: Joi.string().empty("")
+  postcode: Joi.string().empty(""),
+  coordinates: Joi.string().empty("")
 });

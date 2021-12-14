@@ -87,9 +87,10 @@ const Homepage = ({
   });
 
   const pageTitle = getPageTitle(account);
-  // Note: Can see if a member of a company AND in T2, T3, T4
   const company = findAccountCompany(account);
-  const canSeePartnerBrandsCarousel = company && company.tier !== "T1";
+  const canSeePartnerBrandsCarousel = ["T2", "T3", "T4"].includes(
+    company?.tier
+  );
 
   const getCta = (ctaName: string) => {
     if (ctaName === "PROJECT") {
@@ -313,6 +314,7 @@ const PartnerBrand = ({
                 }
                 brandImageSource={partnerBrand.logo.url}
                 href="/partner-brands"
+                target="_blank"
                 footer={
                   <Button component={"span"} variant="outlined">
                     {t("partnerBrands.ctaLabel")}
@@ -345,13 +347,19 @@ const FeedHolder = ({
             {marketContent.newsItemHeading}
           </Typography>
           <iframe
+            // TODO: Title could be specific and more descriptive
+            title={marketContent.newsItemHeading}
             src={marketContent.newsItemUrl}
             height="400px"
             width="100%"
             frameBorder="0"
             className={styles.embed}
           />
-          <Button variant="outlined" href={marketContent.newsItemCta}>
+          <Button
+            variant="outlined"
+            href={marketContent.newsItemCta}
+            target="_blank"
+          >
             {t("linkedin.ctaLabel")}
           </Button>
         </SimpleCard>

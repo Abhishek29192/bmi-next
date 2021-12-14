@@ -6,10 +6,12 @@ It also assumes that the TSV file are tab separated and named according to the t
 
 ```
 
-Company Name 	Latitude	Longitude	Address	City	Postcode	PhoneNumber	Email 	Company Website	Summary of Company
+Company Name	Latitude	Longitude	Type of Merchant	Address	City	Postcode	PhoneNumber	Email	Website	Summary of Company
 
-Sample name	60.0000000	23.0000000	Sample address			075 0000 0000
+Sample name	60.0000000	23.0000000  Sample merchant type	Sample address			075 0000 0000
 ```
+
+Please also have a look at `example.tsv` file containing one sample merchant.
 
 Note the empty line at the beginning.
 

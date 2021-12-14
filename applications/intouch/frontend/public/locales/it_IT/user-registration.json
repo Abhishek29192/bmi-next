@@ -1,5 +1,13 @@
 {
-  "title": "Completa la registrazione",
-  "firstName": "Nome",
-  "lastName": "Cognome"
+  "dialog": {
+    "form": {
+      "agree_label": "Accetto i",
+      "and": "e",
+      "firstName": "Nome ",
+      "lastName": "Cognome",
+      "privacy_policy": "e l'informativa sulla privacy",
+      "terms_condition": "Termini e Condizioni"
+    },
+    "title": "Completa la registrazione "
+  }
 }

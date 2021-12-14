@@ -5,6 +5,7 @@
   "description": "Beskrivelse",
   "family": "Familie",
   "published": "Publisert",
+  "unpublished": "Upublisert",
   "maximumValidityYears": "Maksimal gyldighet år",
   "updatedAt": "Sist oppdatert",
   "show": "Vis mer",
@@ -39,7 +40,8 @@
   },
   "errors": {
     "filename_wrong_format": "Feil filtype",
-    "unauthorized": "Ikke autorisert"
+    "unauthorized": "Ikke autorisert",
+    "wrong_env": "Feil miljø"
   },
   "dryRunCompleted": "Test fullført",
   "report": {

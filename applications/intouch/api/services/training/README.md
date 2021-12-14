@@ -38,4 +38,4 @@ https://cloud.google.com/sql/docs/postgres/users
 
 You can use JWT technology to get an access token to access Docebo APIs.
 
-- Create a `.jwtRS256.key` file with the necessary private key(see the `.jwtRS256.key.example`). Ask the team
+- Create a `.jwtRS256.key` file with the necessary private key(see the `.jwtRS256.key.example`). Ask the team.
