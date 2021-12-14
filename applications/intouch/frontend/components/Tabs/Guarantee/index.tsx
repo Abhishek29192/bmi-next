@@ -12,11 +12,13 @@ import SolutionGuaranteeReviewDialog from "./SolutionGuaranteeReviewDialog";
 export type GuaranteeTabProps = {
   project: GetProjectQuery["project"];
   isApplyGuarantee: boolean;
+  onGuaranteeSubmitted: () => void;
 };
 
 export const GuaranteeTab = ({
   project,
-  isApplyGuarantee
+  isApplyGuarantee,
+  onGuaranteeSubmitted
 }: GuaranteeTabProps) => {
   const { t } = useTranslation("project-page");
   const [isDialogOpen, setDialogOpen] = useState(false);
@@ -63,6 +65,7 @@ export const GuaranteeTab = ({
         isOpen={isDialogOpen}
         project={project}
         onCloseClick={() => setDialogOpen(false)}
+        onGuaranteeSubmitted={onGuaranteeSubmitted}
       />
       <SolutionGuaranteeReviewDialog
         isOpen={isReviewOpen}

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { gql } from "@apollo/client";
 import Grid from "@bmi/grid";
 import Tabs from "@bmi/tabs";
@@ -41,6 +41,7 @@ import { useAccountContext } from "../../context/AccountContext";
 const ProjectDetail = ({ projectId }: { projectId: number }) => {
   const { t } = useTranslation("project-page");
   const { account } = useAccountContext();
+  const [isPolling, setIsPolling] = useState(false);
   const [updateGuarantee] = useUpdateGuaranteeMutation({
     onError: (error) => {
       log({
@@ -114,8 +115,32 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
   const {
     data: { project } = {},
     loading,
-    error
+    error,
+    startPolling,
+    stopPolling
   } = useGetProjectQuery({
+    fetchPolicy: "no-cache",
+    notifyOnNetworkStatusChange: true,
+    onCompleted: ({ project }) => {
+      const needPolling = project?.guarantees?.nodes?.reduce(
+        (result, guarantee) => {
+          if (!guarantee.signedFileStorageUrl) {
+            result = true;
+          }
+          return result;
+        },
+        false
+      );
+
+      if (!needPolling && isPolling) {
+        stopPolling();
+        setIsPolling(false);
+      }
+      if (!isPolling && needPolling) {
+        startPolling(5000);
+        setIsPolling(true);
+      }
+    },
     variables: {
       projectId: projectId
     }
@@ -131,7 +156,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
     );
   }
 
-  if (loading)
+  if (loading && !project)
     return (
       <div style={{ minHeight: "100vh" }}>{t("projectDetails.loading")}</div>
     );
@@ -145,6 +170,13 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
       can(account, "project", "nominateResponsible") &&
       ["NEW", "REJECTED"].includes(getGuaranteeStatus(project))
     );
+  };
+
+  const onGuaranteeSubmitted = () => {
+    if (!isPolling) {
+      startPolling(5000);
+      setIsPolling(true);
+    }
   };
 
   return (
@@ -206,6 +238,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
             <TabCard>
               <GuaranteeTab
                 project={project}
+                onGuaranteeSubmitted={onGuaranteeSubmitted}
                 isApplyGuarantee={isGuaranteeAppliable}
               />
             </TabCard>
