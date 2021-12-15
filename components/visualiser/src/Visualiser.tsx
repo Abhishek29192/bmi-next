@@ -275,6 +275,7 @@ const TileSectorDialog = ({
           defaultValue={defaultTileIdentifier}
           key={`material-group-${key}`}
           title={MATERIAL_NAME_MAP[key as Material]}
+          // eslint-disable-next-line security/detect-object-injection
           products={productPropsGroupedByMaterial[key]}
           onClick={onButtonClick}
         />

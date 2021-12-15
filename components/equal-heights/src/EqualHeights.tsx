@@ -60,7 +60,9 @@ const EqualHeights = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const addRef = (id: string | number) => {
+    // eslint-disable-next-line security/detect-object-injection
     refs.current[id] = refs.current[id] || { current: null };
+    // eslint-disable-next-line security/detect-object-injection
     return refs.current[id];
   };
 

@@ -1,9 +1,8 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
-import { render, fireEvent } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import { MediaGallery } from "../";
 import { GalleryItem } from "../../../lib/media/types";
-import I18nextProvider from "../../../lib/tests/fixtures/i18n";
 import { renderWithI18NProvider } from "../../../lib/tests/utils";
 
 const activeItem: GalleryItem = {

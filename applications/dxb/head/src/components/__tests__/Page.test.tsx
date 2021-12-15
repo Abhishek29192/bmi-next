@@ -1,7 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { LocationProvider } from "@reach/router";
-import regions from "../../countries/region.json";
 import { Data as SiteData } from "../Site";
 import { DataTypeEnum, NavigationData } from "../Link";
 import Page, { Data } from "../Page";

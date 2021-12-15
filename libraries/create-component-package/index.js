@@ -4,6 +4,7 @@
 const fs = require("fs");
 const { promisify } = require("util");
 
+// eslint-disable-next-line security/detect-non-literal-fs-filename
 const writeFile = promisify(fs.writeFile);
 const wsName = process.argv[2];
 const componentsDir = process.cwd() + "/components";
@@ -26,6 +27,7 @@ const componentName = wsName
 
 const componentPath = componentsDir + "/" + wsName;
 
+// eslint-disable-next-line security/detect-non-literal-fs-filename
 if (fs.existsSync(componentPath)) {
   console.error("This component folder already exists");
   process.exit(1);
@@ -102,6 +104,7 @@ const handleError = (err) => {
   }
 };
 
+// eslint-disable-next-line security/detect-non-literal-fs-filename
 fs.mkdirSync(
   `${componentPath}/src/__tests__`,
   { recursive: true },

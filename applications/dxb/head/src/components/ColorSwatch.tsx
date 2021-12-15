@@ -64,6 +64,7 @@ const ColorSwatch = ({
     <span
       className={styles["ColorSwatch"]}
       style={{
+        // eslint-disable-next-line security/detect-object-injection
         backgroundColor: COLOR_CODES[colorCode]
       }}
     />

@@ -68,6 +68,7 @@ const webpackConfig = withConfigs(
           use: ["@svgr/webpack"]
         },
         {
+          // eslint-disable-next-line security/detect-unsafe-regex
           test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
           exclude: /node_modules/,
           use: [

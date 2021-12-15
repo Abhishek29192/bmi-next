@@ -42,7 +42,8 @@ const withFormControl = <P extends {}, I extends InputValue>(
     const value =
       typeof explicitValue !== "undefined"
         ? explicitValue
-        : formContextValues[name];
+        : // eslint-disable-next-line security/detect-object-injection
+          formContextValues[name];
 
     const valueProps =
       typeof value !== "undefined" ? { value } : { defaultValue };

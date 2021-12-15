@@ -11,6 +11,7 @@ type Props = {
 };
 
 const ArrowControl = ({ direction, onClick }: Props) => {
+  // eslint-disable-next-line security/detect-object-injection
   const ArrowIcon = {
     left: ChevronLeftIcon,
     right: ChevronRightIcon

@@ -89,6 +89,7 @@ const TabsOrAccordionSection = ({ data }: { data: Data }) => {
 
   const { title, type, items, description } = data;
   const backgroundColor = type === "Tabs" ? "pearl" : "white";
+  // eslint-disable-next-line security/detect-object-injection
   const Component = componentMap[type];
 
   return (

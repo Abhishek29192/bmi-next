@@ -103,6 +103,7 @@ export const Typography = ({
 }: TypographProps) => {
   const text = (
     <Text
+      // eslint-disable-next-line security/detect-object-injection
       {...textStyles[variant]}
       alignment={center ? "center" : "left"}
       {...(hasUnderline ? {} : rest)}
@@ -145,7 +146,9 @@ const Alert = ({
   ...rest
 }: AlertProps): any => {
   const cellProps = {
+    // eslint-disable-next-line security/detect-object-injection
     color: alertStyles[type].color,
+    // eslint-disable-next-line security/detect-object-injection
     fillColor: alertStyles[type].fillColor
   };
 

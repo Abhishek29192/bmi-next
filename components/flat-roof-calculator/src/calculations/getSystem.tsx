@@ -12,6 +12,7 @@ export const getSystem = (values, tree: TreeType) => {
     const { field, paths } = current;
 
     // Check the selected value
+    // eslint-disable-next-line security/detect-object-injection
     const value = values[field];
     if (typeof value !== "string") {
       throw new Error(`Found an invalid selection ${value} for ${field}`);
@@ -24,6 +25,7 @@ export const getSystem = (values, tree: TreeType) => {
     }
 
     // Register as a necessary value to keep in the shareable link and display in the results view
+    // eslint-disable-next-line security/detect-object-injection
     params[field] = value;
     // Search the path we reached next
     current = path.target;

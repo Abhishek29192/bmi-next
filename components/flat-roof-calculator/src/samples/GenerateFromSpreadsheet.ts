@@ -79,10 +79,12 @@ const getValidatorsArray = (headerRow, columnValidators) => {
   for (const column of headerRow) {
     if (!column) break;
 
+    // eslint-disable-next-line security/detect-object-injection
     if (!columnValidators[column]) {
       throw new Error(`Validator for column ${column} wasn't found`);
     }
 
+    // eslint-disable-next-line security/detect-object-injection
     validators.push(columnValidators[column]);
   }
 
@@ -104,13 +106,16 @@ const createGetValidRow = (
     const result = shouldReturnAnArray ? [] : {};
 
     for (let i = 0; i < validators.length; i++) {
+      // eslint-disable-next-line security/detect-object-injection
       const { name, validate = (v) => v, isResult } = validators[i];
 
+      // eslint-disable-next-line security/detect-object-injection
       const value = validate(row[i]);
 
       if (shouldReturnAnArray) {
         result.push({ name, value, isResult });
       } else {
+        // eslint-disable-next-line security/detect-object-injection
         result[name] = value;
       }
     }
@@ -269,11 +274,13 @@ const getCalculators = () => {
     });
 
     for (const field of Object.keys(calculator)) {
+      // eslint-disable-next-line security/detect-object-injection
       if (row[field] && !calculator[field].includes(row.code)) {
         const selector = row.color
           ? { if: "color", is: row.color, use: row.code }
           : row.code;
 
+        // eslint-disable-next-line security/detect-object-injection
         calculator[field].push({
           buildUp: row.buildUp,
           category: row.category,

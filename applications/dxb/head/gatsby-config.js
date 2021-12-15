@@ -86,6 +86,7 @@ const queries = [
           );
 
           try {
+            // eslint-disable-next-line security/detect-non-literal-fs-filename
             const dataJSON = JSON.parse(fs.readFileSync(dataJSONPath, "utf8"));
 
             // Ignore contentfulSite as it's global data

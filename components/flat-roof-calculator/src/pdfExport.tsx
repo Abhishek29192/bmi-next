@@ -95,6 +95,7 @@ const Typography = ({
   ...rest
 }: TypographProps) => (
   <View {...rest}>
+    {/* eslint-disable-next-line security/detect-object-injection */}
     <Text {...textStyles[variant]}>{children}</Text>
     {hasUnderline ? <Underline large={variant === "h1"} /> : null}
   </View>
@@ -210,13 +211,17 @@ const InputsTable = ({
   <ResultsTable headerRows={0} {...rest}>
     {/* TODO: type the input list or take this array as a prop */}
     {["guarantee", "combustible", "insulated", "color"].map((field) =>
+      // eslint-disable-next-line security/detect-object-injection
       typeof submittedValues[field] !== undefined &&
+      // eslint-disable-next-line security/detect-object-injection
       treeFieldsDisplay[field].label /* Only display known fields */ ? (
         <ResultsTable.Row key={field}>
           <ResultsTable.Cell header>
+            {/* eslint-disable-next-line security/detect-object-injection */}
             {treeFieldsDisplay[field].label}:
           </ResultsTable.Cell>
           <ResultsTable.Cell>
+            {/* eslint-disable-next-line security/detect-object-injection */}
             {treeFieldsDisplay[field].options[submittedValues[field]].label}
           </ResultsTable.Cell>
         </ResultsTable.Row>

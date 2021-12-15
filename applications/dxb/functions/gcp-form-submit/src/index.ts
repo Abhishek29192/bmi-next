@@ -158,6 +158,7 @@ export const submit: HttpFunction = async (request, response) => {
           : [];
 
       const uploadedAssets = assets
+        // eslint-disable-next-line security/detect-object-injection
         .map(({ fields }) => fields.file[locale]?.url)
         .filter(Boolean);
 

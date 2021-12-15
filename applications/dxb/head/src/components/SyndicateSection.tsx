@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
 import Villain, { Props as VillainProps } from "@bmi/villain";
-import { ColorPairContext } from "@bmi/color-pair";
 import { renderVideo } from "./Video";
 import { Data as PromoData } from "./Promo";
 import { useSiteContext } from "./Site";
@@ -27,7 +26,6 @@ const SyndicateSection = ({
   position: number;
 }) => {
   const { countryCode, getMicroCopy } = useSiteContext();
-  const { type } = React.useContext(ColorPairContext);
 
   const villainsData = villains?.map((data) => {
     const callToAction = React.useMemo(() => {

@@ -71,6 +71,7 @@ export const LocationItem = ({
   return (
     <>
       <dt className={styles["term"]}>
+        {/* eslint-disable-next-line security/detect-object-injection */}
         <Icon source={typeToIconMap[type]} className={styles["icon"]} />
         <Typography className={styles["label"]}>{label}</Typography>
       </dt>

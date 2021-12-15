@@ -11,6 +11,7 @@ export const iconMap = {
 export type IconName = keyof typeof iconMap;
 
 const Icon = ({ name }: { name: keyof typeof iconMap }) => {
+  // eslint-disable-next-line security/detect-object-injection
   const Source = iconMap[name] || QuestionMark;
   return <IconComponent source={Source} />;
 };

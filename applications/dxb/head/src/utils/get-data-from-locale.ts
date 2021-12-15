@@ -15,5 +15,6 @@ export const getDataFromLocale = <T extends {}>(
   }
   // TODO: Ideally the return type should also be using the generic.
   // "However, it's a complicated structure. Thanks Content🤬.", (Alax Canessa)
+  // eslint-disable-next-line security/detect-object-injection
   return mapValues(fields, (value) => value[localeCode]);
 };

@@ -16,9 +16,11 @@ export const Address = ({ address }: AddressProps) => {
   return (
     <div data-testid="address">
       {["firstLine", "secondLine", "postcode", "town", "region", "country"]
+        // eslint-disable-next-line security/detect-object-injection
         .filter((addressLine) => !!address[addressLine])
         .map((addressLine) => (
           <div key={addressLine} data-testid={`addressLine-${addressLine}`}>
+            {/* eslint-disable-next-line security/detect-object-injection */}
             {address[addressLine]}
           </div>
         ))}

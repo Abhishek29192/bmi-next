@@ -47,9 +47,11 @@ export const CourseDescription = ({
             {technology && (
               <Typography className={styles.tech}>
                 <Icon
+                  // eslint-disable-next-line security/detect-object-injection
                   source={technologyIcon[technology]}
                   className={styles.technologyIcon}
                 />
+                {/* eslint-disable-next-line security/detect-object-injection */}
                 {t(technologyNames[technology])}
               </Typography>
             )}

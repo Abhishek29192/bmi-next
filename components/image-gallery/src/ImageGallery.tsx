@@ -73,7 +73,9 @@ const ImageGallery = ({
   return (
     <div className={classnames(styles["ImageGallery"], className)}>
       <div className={styles["image-wrapper"]}>
+        {/* eslint-disable-next-line security/detect-object-injection */}
         {renderMedia(images[activeImageIndex], imageSize, layout)}
+        {/* eslint-disable-next-line security/detect-object-injection */}
         {images[activeImageIndex].caption ? (
           <div className={styles["caption"]}>
             <Typography
@@ -82,7 +84,10 @@ const ImageGallery = ({
               className={styles["caption-text"]}
             >
               <Truncate lines="2">
-                {images[activeImageIndex]?.caption || ""}
+                {
+                  // eslint-disable-next-line security/detect-object-injection
+                  images[activeImageIndex]?.caption || ""
+                }
               </Truncate>
             </Typography>
           </div>

@@ -29,6 +29,7 @@ const documentResultsMap: Record<Format, React.ElementType> = {
 const DOCUMENTS_PER_PAGE = 24;
 
 const DocumentResults = ({ data, format, page }: Props) => {
+  // eslint-disable-next-line security/detect-object-injection
   const ResultsComponent = documentResultsMap[format];
   const assetTypesCount = useMemo(
     () => Object.keys(groupBy(data, "assetType.code")).length,

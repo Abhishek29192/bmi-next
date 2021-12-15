@@ -196,12 +196,6 @@ export default (
       rowX += tileWidth;
     }
 
-    // Add the sliced tile at the end of the row:
-    const amountSlicedOff =
-      v & 1 && horizontalOffset
-        ? tileWidth - offsetRowEndTileWidth
-        : tileWidth - endOfRowTileWidth;
-
     // rowZ - tileBounds.min.z + tileWidth - offsetRowEndTileWidth
 
     placementHelper.position.set(

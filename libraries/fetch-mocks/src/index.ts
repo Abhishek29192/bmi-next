@@ -1,7 +1,6 @@
 import { Readable } from "stream";
 import { FetchMockStatic, MockOptions, MockResponseObject } from "fetch-mock";
 import { Request, Response as ExpressResponse } from "express";
-import { Headers } from "node-fetch";
 
 export const mockRequest = (
   method: Request["method"],
@@ -14,6 +13,7 @@ export const mockRequest = (
     headers: headers,
     url: url,
     body: body,
+    // eslint-disable-next-line security/detect-object-injection
     header: jest.fn().mockImplementation((name: string) => headers[name])
   };
 };

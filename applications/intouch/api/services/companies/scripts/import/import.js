@@ -23,6 +23,7 @@ const today = "2021-05-12 10:19:47"; // will be imported into the 'created' colu
 // function to clean input data.
 function cleanInput(record) {
   for (const property in record) {
+    // eslint-disable-next-line security/detect-object-injection
     record[property] = record[property].replace(/'/g, "''"); // replace any single apostrophes with repeated apostrophes to make Postgres happy
   }
   return record;
@@ -210,26 +211,31 @@ const writeSql = (accounts, companies, members, addresses, owners) => {
 };
 
 const getData = async (writeSqlOut) => {
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   const accountsFileContent = await fs.readFile(
     path.resolve(__dirname + "/data/accounts.csv")
   );
   const accountsData = parse(accountsFileContent, { columns: true });
 
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   const companiesFileContent = await fs.readFile(
     path.resolve(__dirname + "/data/companies.csv")
   );
   const companiesData = parse(companiesFileContent, { columns: true });
 
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   const membersFileContent = await fs.readFile(
     path.resolve(__dirname + "/data/members.csv")
   );
   const membersData = parse(membersFileContent, { columns: true });
 
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   const addressesFileContent = await fs.readFile(
     path.resolve(__dirname + "/data/addresses.csv")
   );
   const addressesData = parse(addressesFileContent, { columns: true });
 
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   const ownersFileContent = await fs.readFile(
     path.resolve(__dirname + "/data/owners.csv")
   );

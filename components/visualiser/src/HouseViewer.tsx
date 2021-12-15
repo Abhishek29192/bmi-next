@@ -284,6 +284,7 @@ export default class HouseViewer extends Viewer<Props, State> {
     const roof = new THREE.Group();
 
     for (let i = 0; i < segs.length; i++) {
+      // eslint-disable-next-line security/detect-object-injection
       const seg = segs[i];
 
       const newRoofSeg = roofSegmentGenerator(
@@ -321,6 +322,7 @@ export default class HouseViewer extends Viewer<Props, State> {
       const ridges = roofLayout.ridges;
 
       for (let i = 0; i < ridges.length; i++) {
+        // eslint-disable-next-line security/detect-object-injection
         const ridge = ridges[i];
         let ridgeEndLength = 0;
 

@@ -242,6 +242,7 @@ async function setSettings(client, index, indexConfig) {
       index: index,
       body: { settings: settings }
     });
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     await client.indices.open({
       index: index
     });

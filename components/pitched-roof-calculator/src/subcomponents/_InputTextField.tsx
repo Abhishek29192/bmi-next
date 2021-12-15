@@ -18,6 +18,7 @@ const InputTextField = ({
   defaultValue = ""
 }: InputTextFieldProps) => {
   const copy = useContext(MicroCopyContext);
+  // eslint-disable-next-line security/detect-object-injection
   const { helperText, unit, validator } = getFieldTypes((path, placeholders) =>
     getMicroCopy(copy, "validation.errors." + path, placeholders)
   )[type];

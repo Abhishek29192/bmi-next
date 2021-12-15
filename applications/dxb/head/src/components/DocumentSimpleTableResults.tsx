@@ -88,8 +88,10 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
       }}
       variant="text"
       startIcon={
+        // eslint-disable-next-line security/detect-object-injection
         fileIconsMap[format] && (
           <Icon
+            // eslint-disable-next-line security/detect-object-injection
             source={fileIconsMap[format]}
             className={styles["download-icon"]}
           />
@@ -155,6 +157,7 @@ const DocumentSimpleTableResults = ({
               <Table.Row
                 key={`${title}-${index}`}
                 className={classnames(styles["row"], {
+                  // eslint-disable-next-line security/detect-object-injection
                   [styles["row--checked"]]: !!list[id]
                 })}
               >

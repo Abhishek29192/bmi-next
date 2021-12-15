@@ -428,9 +428,11 @@ const Results = ({
           <Typography variant="h4">Lines</Typography>
           <ul>
             {Object.keys(lines).map((l) =>
+              // eslint-disable-next-line security/detect-object-injection
               lines[l].length ? (
                 <li key={l}>
                   <b>{l}:</b>{" "}
+                  {/* eslint-disable-next-line security/detect-object-injection */}
                   {lines[l].map((v) => v.length.toFixed(2)).join(" | ")}
                 </li>
               ) : null

@@ -6,16 +6,8 @@ import { userRegistration } from "../userRegistration";
 process.env.AUTH0_NAMESPACE = "namespace";
 
 describe("User Registration Redirect", () => {
-  let req;
-  let user;
-
   beforeEach(() => {
     jest.resetAllMocks();
-    user = {
-      market: {
-        domain: "es"
-      }
-    };
   });
 
   it("should redirect to the user registration page", () => {

@@ -274,8 +274,10 @@ exports.createPages = async ({ graphql, actions }) => {
         component: path.resolve("./src/templates/_global-resources.tsx"),
         context: {
           siteId: site.id,
+          // eslint-disable-next-line security/detect-non-literal-fs-filename
           micropCopyData: fs.existsSync(path.join(__dirname, dataFilePath))
-            ? jsonfile.readFileSync(path.join(__dirname, dataFilePath))
+            ? // eslint-disable-next-line security/detect-non-literal-fs-filename
+              jsonfile.readFileSync(path.join(__dirname, dataFilePath))
             : null
         }
       });
@@ -363,6 +365,7 @@ const areValuesEqual = (a, b) => {
 
 const areDeepEqualObjects = (a, b) =>
   Object.keys(a).length === Object.keys(b).length &&
+  // eslint-disable-next-line security/detect-object-injection
   Object.keys(a).every((key) => areValuesEqual(a[key], b[key]));
 
 exports.onCreateWebpackConfig = ({ actions, stage, getConfig, rules }) => {

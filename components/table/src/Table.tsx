@@ -193,6 +193,7 @@ const MediumTable = React.forwardRef<HTMLTableElement, TableProps>(
                 )}
               >
                 <ColorPair theme={theme} markupComponent={MuiTableCell}>
+                  {/* eslint-disable-next-line security/detect-object-injection */}
                   {headerRow[i]}
                 </ColorPair>
                 <MuiTableCell>{cell}</MuiTableCell>
@@ -231,6 +232,7 @@ const SmallTable = ({
           {row.map((cell, i) => (
             <Fragment key={`${key}_${i}`}>
               {headerRow.length ? (
+                // eslint-disable-next-line security/detect-object-injection
                 <dt className={styles["title"]}>{headerRow[i]}</dt>
               ) : null}
               <ItemComponent className={styles["description"]}>

@@ -110,6 +110,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
       "Level 2": 2,
       "Level 3": 3
     };
+    // eslint-disable-next-line security/detect-object-injection
     heroLevel = levelMap[heroType] as 1 | 2 | 3;
   }
 

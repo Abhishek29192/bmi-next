@@ -103,6 +103,7 @@ const parse = (ref: string): Ref | undefined => {
   }
 
   const scheme = ref.substring(0, protoIndex);
+  // eslint-disable-next-line security/detect-object-injection
   const handler = protocolHandlers[scheme];
 
   if (!handler) {

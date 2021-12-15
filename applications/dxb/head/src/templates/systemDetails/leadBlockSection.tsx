@@ -10,7 +10,7 @@ import CheckIcon from "@material-ui/icons/Check";
 import { isEmpty } from "lodash";
 import { useLocation } from "@reach/router";
 import Link, { Data as LinkData } from "../../components/Link";
-import Image, { Data as ImageData } from "../../components/Image";
+import { Data as ImageData } from "../../components/Image";
 import withGTM from "../../utils/google-tag-manager";
 import { useSiteContext } from "../../components/Site";
 import { Category, Classification, Feature } from "../../components/types/pim";

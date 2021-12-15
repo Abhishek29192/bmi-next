@@ -235,6 +235,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   useEffect(() => {
     if (!userQueryString) {
       const isEveryChipSelected = Object.keys(activeFilters).every(
+        // eslint-disable-next-line security/detect-object-injection
         (key) => activeFilters[key] === true
       );
       if (isEveryChipSelected) {
@@ -243,6 +244,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     }
 
     const filteredChips: string[] = Object.keys(activeFilters).filter(
+      // eslint-disable-next-line security/detect-object-injection
       (key) => activeFilters[key]
     );
     if (filteredChips.length > 0) {
@@ -286,6 +288,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     // user has not selected any chip(s) to filter hence show all services
     // i.e initial load or user has de-selected ALL chips
     const allChipsUnSelected = Object.keys(activeFilters).every(
+      // eslint-disable-next-line security/detect-object-injection
       (key) => activeFilters[key] === false
     );
 
@@ -295,15 +298,19 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
     // user has selcted the filter chip the service must have type and it must match
     const isSomeChipSelected = Object.keys(activeFilters).some(
+      // eslint-disable-next-line security/detect-object-injection
       (key) => activeFilters[key] === true
     );
 
     if (isSomeChipSelected) {
       return (
+        // eslint-disable-next-line security/detect-object-injection
         (type?.length && type.some((filter) => activeFilters[filter])) ||
         (branchType?.length &&
+          // eslint-disable-next-line security/detect-object-injection
           branchType.some((filter) => activeFilters[filter])) ||
         (merchantType?.length &&
+          // eslint-disable-next-line security/detect-object-injection
           merchantType.some((filter) => activeFilters[filter]))
       );
     }
@@ -636,15 +643,20 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   };
 
   const getMicroCopyPrefix = (serviceType: EntryTypeEnum) => {
+    // eslint-disable-next-line security/detect-object-injection
     return ServiceTypesPrefixesEnum[serviceType];
   };
 
   const getMicroCopyForServiceType = (service: Service) => {
     return Object.keys(ServiceTypesEnum).reduce((acc, nextServiceType) => {
+      // eslint-disable-next-line security/detect-object-injection
       if (service[nextServiceType]) {
+        // eslint-disable-next-line security/detect-object-injection
         const currentTypeMC = service[nextServiceType]
           .map((type) => {
+            // eslint-disable-next-line security/detect-object-injection
             const serviceType = ServiceTypesEnum[nextServiceType];
+            // eslint-disable-next-line security/detect-object-injection
             const prefix = ServiceTypesPrefixesEnum[serviceType];
             return getMicroCopy(`${prefix}.filters.${camelCase(type)}`).replace(
               " roof",
@@ -786,6 +798,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                         setShowResultList(true);
                         updateActiveFilters({ name: serviceType });
                       }}
+                      // eslint-disable-next-line security/detect-object-injection
                       isSelected={activeFilters[serviceType]}
                     >
                       {getMicroCopy(

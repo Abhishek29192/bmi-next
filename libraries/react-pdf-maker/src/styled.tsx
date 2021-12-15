@@ -4,6 +4,7 @@ const calculateStyle = (style, props) => {
   const calculatedStyle = {};
 
   for (const [key, value] of Object.entries(style)) {
+    // eslint-disable-next-line security/detect-object-injection
     calculatedStyle[key] = typeof value === "function" ? value(props) : value;
   }
 

@@ -95,7 +95,7 @@ const Header = ({
   languageLabel,
   languageIntroduction
 }: HeaderProps) => {
-  const $body =
+  const body =
     typeof document !== "undefined"
       ? document.querySelector("body")
       : undefined;
@@ -111,10 +111,11 @@ const Header = ({
   const elementWidths = getElementWidths(navigation);
 
   const amendClassList = (classValue: string, method: "add" | "remove") => {
-    if (!$body) {
+    if (!body) {
       return;
     }
-    $body.classList[method](classValue);
+    // eslint-disable-next-line security/detect-object-injection
+    body.classList[method](classValue);
   };
 
   const handleChange = (_event: React.ChangeEvent<{}>, newValue: any) => {

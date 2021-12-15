@@ -18,6 +18,7 @@ const getViewMode = (value = 0) => {
     return value;
   }
 
+  // eslint-disable-next-line security/detect-object-injection
   return availableModes[value] || availableModes[0];
 };
 

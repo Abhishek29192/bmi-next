@@ -119,6 +119,7 @@ export const updateCompany = async (
       $business_type &&
       $tax_number &&
       ["first_line", "town", "postcode", "country"].every(
+        // eslint-disable-next-line security/detect-object-injection
         (line) => registeredAddress[line]
       )
     ) {

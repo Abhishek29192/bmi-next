@@ -17,6 +17,7 @@ const rl = readline.createInterface({
 const ask = async (question) =>
   new Promise((resolve) => rl.question(question, resolve));
 
+// eslint-disable-next-line security/detect-non-literal-fs-filename
 const readFile = promisify(fs.readFile);
 
 const LOCALE = process.env.LOCALE;
@@ -46,6 +47,7 @@ const parsers = {
   number: (v) => parseFloat(v.replace(",", ".").replace('"', ""))
 };
 
+// eslint-disable-next-line security/detect-object-injection
 const parseValue = (type, value) => parsers[type](value.trim());
 
 const uploadLines = async (lines, environment) => {
@@ -60,7 +62,9 @@ const uploadLines = async (lines, environment) => {
       .trim()
       .split(SEPARATOR)
       .reduce((acc, value, i) => {
+        // eslint-disable-next-line security/detect-object-injection
         const { name, type } = columns[i];
+        // eslint-disable-next-line security/detect-object-injection
         acc[name] = parseValue(type, value);
         return acc;
       }, {});
@@ -121,6 +125,7 @@ const uploadLines = async (lines, environment) => {
 
     const fieldsLocalised = Object.entries(fields).reduce(
       (acc, [key, value]) => {
+        // eslint-disable-next-line security/detect-object-injection
         acc[key] = { [LOCALE]: value };
         return acc;
       },
@@ -154,6 +159,7 @@ const uploadFile = async (file, environment) => {
 
   if (
     headerLineColumns.length !== columns.length ||
+    // eslint-disable-next-line security/detect-object-injection
     !headerLineColumns.every((label, index) => label === columns[index].label)
   ) {
     throw new Error(

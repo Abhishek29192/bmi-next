@@ -20,6 +20,7 @@ const updateDb = ({ poolConfig, data }) => {
   });
 };
 Object.entries(config).forEach(([key, value]) => {
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   fs.readFile(`data/${key}.sql`, "utf8", (err, data) => {
     if (err) {
       return console.error("Error reading sql script:", err);

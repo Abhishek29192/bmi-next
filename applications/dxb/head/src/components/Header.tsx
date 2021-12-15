@@ -112,6 +112,7 @@ const parseNavigation = (
 
       return result.concat({
         label,
+        // eslint-disable-next-line security/detect-object-injection
         icon: iconMap[iconName],
         isLabelHidden,
         action

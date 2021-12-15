@@ -454,6 +454,7 @@ export const nextStep: HttpFunction = async (request, response) => {
   if (nextStep.__typename === "SystemConfiguratorBlock") {
     const { type } = nextStep;
 
+    // eslint-disable-next-line security/detect-object-injection
     if (nextStep[nextStepMap[type]]) {
       return response.status(200).send(transformNextStepData(nextStep));
     }

@@ -67,6 +67,7 @@ export default (
       // TODO: calc correct normal at the intersect. It's always along the edge, so no need for barycentric stuff.
       // Just use normal of a for now:
       newNormals.push(
+        // eslint-disable-next-line security/detect-object-injection
         normals.array[vert1IndexX3],
         normals.array[vert1IndexX3 + 1],
         normals.array[vert1IndexX3 + 2]
@@ -89,6 +90,7 @@ export default (
   // +ve y is always assumed to be "up".
   // For each triangle, consider if it should be kept as-is, discarded, or sliced.
   for (let i = 0; i < tris.length; i += 3) {
+    // eslint-disable-next-line security/detect-object-injection
     const aIndex = tris[i];
     const bIndex = tris[i + 1];
     const cIndex = tris[i + 2];
@@ -216,6 +218,7 @@ export default (
     vertBuffer.set(verts);
 
     for (let i = 0; i < newVerts.length; i++) {
+      // eslint-disable-next-line security/detect-object-injection
       vertBuffer[verts.length + i] = newVerts[i];
     }
 
@@ -229,6 +232,7 @@ export default (
       normalBuffer.set(normals.array);
 
       for (let i = 0; i < newVerts.length; i++) {
+        // eslint-disable-next-line security/detect-object-injection
         normalBuffer[verts.length + i] = newNormals[i];
       }
 
@@ -243,6 +247,7 @@ export default (
       uvBuffer.set(uvs.array);
 
       for (let i = 0; i < newUvs.length; i++) {
+        // eslint-disable-next-line security/detect-object-injection
         uvBuffer[uvs.array.length + i] = newUvs[i];
       }
 
@@ -250,6 +255,7 @@ export default (
     }
   } else {
     for (const key in bufferGeometry.attributes) {
+      // eslint-disable-next-line security/detect-object-injection
       slicedTile.setAttribute(key, bufferGeometry.attributes[key].clone());
     }
   }

@@ -43,6 +43,7 @@ const AlertBanner = ({
 }: Props) => {
   return (
     <ColorPair
+      // eslint-disable-next-line security/detect-object-injection
       theme={seveirtyToThemeMap[severity]}
       className={classnames(styles["Alert"], {
         [styles["Alert--sticky"]!]: stickyPosition !== undefined,
@@ -71,6 +72,7 @@ const AlertTitle = ({ children }: TitleProps) => {
 
   return (
     <Typography variant="h5" className={styles["title"]}>
+      {/* eslint-disable-next-line security/detect-object-injection */}
       <Icon className={styles["icon"]} source={severityToIconMap[severity]} />
       {children}
     </Typography>

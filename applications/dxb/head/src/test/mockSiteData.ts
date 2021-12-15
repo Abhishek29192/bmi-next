@@ -1,5 +1,4 @@
 import { Data as SiteData } from "../components/Site";
-import regions from "../countries/region.json";
 
 export const createMockSiteData = (): SiteData =>
   ({

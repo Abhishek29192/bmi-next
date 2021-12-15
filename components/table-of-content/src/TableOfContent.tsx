@@ -73,6 +73,7 @@ const TableOfContent = ({ children, renderLink }: Props) => {
   const [titles, setTitles] = useState<Record<string, string>>({});
 
   const getTitleId = (title: string): string => {
+    // eslint-disable-next-line security/detect-object-injection
     if (!titles[title]) {
       setTitles((prevTitles) => ({ ...prevTitles, [title]: getId(title) }));
     }

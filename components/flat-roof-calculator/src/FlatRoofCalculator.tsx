@@ -93,8 +93,10 @@ function getDefaultValues(treeFieldsDisplay: FieldsDisplay) {
   if (typeof window !== "undefined") {
     const params = queryString(window.location.search);
 
+    // eslint-disable-next-line security/detect-object-injection
     if (params[VALUES_PARAM]) {
       try {
+        // eslint-disable-next-line security/detect-object-injection
         urlDefaults = JSON.parse(decodeURIComponent(params[VALUES_PARAM] + ""));
       } catch (error) {
         if (process.env.NODE_ENV === "development") {
@@ -107,6 +109,7 @@ function getDefaultValues(treeFieldsDisplay: FieldsDisplay) {
   const defaults = {};
 
   for (const [key, { defaultValue }] of Object.entries(treeFieldsDisplay)) {
+    // eslint-disable-next-line security/detect-object-injection
     defaults[key] = urlDefaults[key] || defaultValue;
   }
 
@@ -120,9 +123,11 @@ function getInitialResult(typeTree: any) {
   if (typeof window !== "undefined") {
     const params = queryString(window.location.search);
 
+    // eslint-disable-next-line security/detect-object-injection
     if (params[VALUES_PARAM]) {
       try {
         const values = JSON.parse(
+          // eslint-disable-next-line security/detect-object-injection
           decodeURIComponent(params[VALUES_PARAM] + "")
         );
 
