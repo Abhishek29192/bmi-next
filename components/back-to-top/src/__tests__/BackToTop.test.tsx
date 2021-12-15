@@ -1,5 +1,6 @@
+import "@testing-library/jest-dom";
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, waitFor, screen } from "@testing-library/react";
 import BackToTop from "../";
 
 describe("BackToTop component", () => {
@@ -34,5 +35,9 @@ describe("BackToTop component", () => {
     const button = getByRole("button");
     fireEvent.click(button);
     expect(container.firstChild).toMatchSnapshot();
+  });
+  it("return null when window is undefined", () => {
+    Object.defineProperty(global, "window", { value: undefined });
+    expect(BackToTop({ accessibilityLabel: "back-to-top" })).toBeNull();
   });
 });
