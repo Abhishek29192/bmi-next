@@ -82,7 +82,7 @@ describe("CalculatorModal component", () => {
   it("calls the onBackdropClick event", () => {
     const onCloseClick = jest.fn();
     const onBackdropClick = jest.fn();
-    const { container } = render(
+    render(
       <CalculatorModal
         open
         onCloseClick={onCloseClick}
