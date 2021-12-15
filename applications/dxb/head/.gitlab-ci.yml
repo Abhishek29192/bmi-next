@@ -1,7 +1,7 @@
 test_head:
   extends: .test_jest
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' || $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'pre-production') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/dxb/head/**/*
         - components/**/*
@@ -25,7 +25,7 @@ test_mr_coverage_head:
 build_head_mr:
   extends: .build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' || $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'pre-production') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/dxb/head/**/*
         - components/**/*
@@ -271,6 +271,7 @@ lighthouseci_scan_head:
     - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
       changes:
         - libraries/migrate/projects/dxb/**/*
+  cache: {}
   before_script:
     - |
       apt-get update
@@ -454,7 +455,7 @@ migrate_content_sandpit:
     # Only trigger for PROD tags
     # Gitlab CI/CD does not currently support pattern matching using a regex in
     # a variable. see https://gitlab.com/gitlab-org/gitlab/-/issues/35438
-    - if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/' 
+    - if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/'
       changes:
         - libraries/migrate/projects/dxb/**/*
 
