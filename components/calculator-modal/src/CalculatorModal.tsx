@@ -21,7 +21,7 @@ type Props = {
   ariaDescribedby?: string;
   children: Exclude<React.ReactNode, null | undefined>;
   className?: string;
-  headerCenter?: string;
+  headerCentre?: string;
   disablePortal?: boolean;
 };
 const CalculatorModal = ({
@@ -33,7 +33,7 @@ const CalculatorModal = ({
   backdropProps,
   ariaLabelledby,
   ariaDescribedby,
-  headerCenter,
+  headerCentre,
   children,
   className,
   disablePortal
@@ -69,7 +69,7 @@ const CalculatorModal = ({
                 source={logo}
                 className={classnames(styles["headerSide"], styles["logo"])}
               />
-              <div className={styles["headerCenter"]}>{headerCenter}</div>
+              <div className={styles["headerCentre"]}>{headerCentre}</div>
               <Button
                 isIconButton
                 variant="text"
