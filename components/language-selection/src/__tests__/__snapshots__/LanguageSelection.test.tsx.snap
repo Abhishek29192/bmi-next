@@ -229,3 +229,78 @@ exports[`LanguageSelection component renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`LanguageSelection component renders correctly if forceMobile 1`] = `
+<div
+  class="LanguageSelection"
+>
+  <p>
+    Introduction
+  </p>
+  <div>
+    <h6
+      class="MuiTypography-root heading Typography MuiTypography-h6"
+    >
+      Europe
+    </h6>
+    <div
+      class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
+    >
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+      >
+        <a
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-text buttonStyles-text-62 NavigationListButton link MuiButton-textPrimary"
+          href="/al"
+          tabindex="0"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-64"
+          >
+            <span
+              class="MuiButton-startIcon buttonStyles-startIcon-65 MuiButton-iconSizeMedium"
+            >
+              <img
+                class="LanguageIcon"
+                src="path/to/al.svg"
+              />
+            </span>
+            Albania
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </a>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+      >
+        <a
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-text buttonStyles-text-62 NavigationListButton link MuiButton-textPrimary"
+          href="/at"
+          tabindex="0"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-64"
+          >
+            <span
+              class="MuiButton-startIcon buttonStyles-startIcon-65 MuiButton-iconSizeMedium"
+            >
+              <img
+                class="LanguageIcon"
+                src="path/to/at.svg"
+              />
+            </span>
+            Österreich
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
