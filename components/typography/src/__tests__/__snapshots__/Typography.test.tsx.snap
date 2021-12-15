@@ -119,3 +119,27 @@ exports[`Typography component renders subtitle2 correctly 1`] = `
   Hello World
 </h6>
 `;
+
+exports[`Typography component renders typography variant correctly if variant === default 1`] = `
+<p
+  class="MuiTypography-root Typography MuiTypography-body1"
+>
+  Caption
+</p>
+`;
+
+exports[`Typography component renders typography variant correctly if variant === hero 1`] = `
+<p
+  class="MuiTypography-root Typography MuiTypography-body2"
+>
+  Caption
+</p>
+`;
+
+exports[`Typography component renders typography variant correctly if variant === lead 1`] = `
+<p
+  class="MuiTypography-root Typography MuiTypography-body2"
+>
+  Caption
+</p>
+`;
