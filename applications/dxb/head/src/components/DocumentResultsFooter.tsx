@@ -2,7 +2,6 @@ import Button, { ButtonProps } from "@bmi/button";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import Pagination from "@bmi/pagination";
 import axios from "axios";
-import { flatten } from "lodash";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { useMediaQuery } from "@material-ui/core";
@@ -10,8 +9,8 @@ import { useTheme } from "@material-ui/core/styles";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
 import createAssetFileCountMap, {
-  generateFileNamebyTitle,
-  AssetUniqueFileCountMap
+  AssetUniqueFileCountMap,
+  generateFileNamebyTitle
 } from "./DocumentFileUtils";
 import { useSiteContext } from "./Site";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
@@ -55,7 +54,7 @@ export const handleDownloadClick = async (
         "`GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT` missing in environment config"
       );
     }
-    const assets = flatten(listValues);
+    const assets = listValues.flat();
     const assetFileCountMap: AssetUniqueFileCountMap =
       createAssetFileCountMap(assets);
     const documents = assets.map(

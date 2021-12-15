@@ -1,14 +1,16 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, Suspense, useEffect, useState } from "react";
 import MicroCopy from "@bmi/micro-copy";
-import PitchedRoofCalculator, {
-  no,
-  sampleData,
-  Data
-} from "@bmi/pitched-roof-calculator";
+// import sampleData from "@bmi/pitched-roof-calculator/src/samples/data.json";
+// import no from "@bmi/pitched-roof-calculator/src/samples/copy/no.json";
+import { Data, no, sampleData } from "@bmi/pitched-roof-calculator";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import axios from "axios";
 import { devLog } from "../utils/devLog";
 import { pushToDataLayer } from "../utils/google-tag-manager";
+
+const PitchedRoofCalculator = React.lazy(
+  () => import("@bmi/pitched-roof-calculator")
+);
 
 type Parameters = {
   isDebugging?: boolean;
@@ -89,38 +91,42 @@ const CalculatorProvider = ({ children, onError }: Props) => {
       {children}
       {/* Currently, this is only available for Norway */}
       <MicroCopy.Provider values={no}>
-        <PitchedRoofCalculator
-          isOpen={isOpen}
-          onClose={() => setIsOpen(false)}
-          isDebugging={parameters?.isDebugging}
-          data={data}
-          onAnalyticsEvent={pushToDataLayer}
-          sendEmailAddress={async (values) => {
-            if (!process.env.GATSBY_WEBTOOLS_CALCULATOR_APSIS_ENDPOINT) {
-              devLog(
-                "WebTools calculator api endpoint for apsis isn't configured"
-              );
-              return;
-            }
-
-            const token = await executeRecaptcha();
-
-            try {
-              await axios.post(
-                process.env.GATSBY_WEBTOOLS_CALCULATOR_APSIS_ENDPOINT,
-                values,
-                {
-                  headers: {
-                    "X-Recaptcha-Token": token
-                  }
+        {!(typeof window === "undefined") && isOpen ? (
+          <Suspense fallback={<div>Loading...</div>}>
+            <PitchedRoofCalculator
+              isOpen={isOpen}
+              onClose={() => setIsOpen(false)}
+              isDebugging={parameters?.isDebugging}
+              data={data}
+              onAnalyticsEvent={pushToDataLayer}
+              sendEmailAddress={async (values) => {
+                if (!process.env.GATSBY_WEBTOOLS_CALCULATOR_APSIS_ENDPOINT) {
+                  devLog(
+                    "WebTools calculator api endpoint for apsis isn't configured"
+                  );
+                  return;
                 }
-              );
-            } catch (error) {
-              // Ignore errors if any as this isn't necessary for PDF download to proceed
-              devLog("WebTools calculator api endpoint error", error);
-            }
-          }}
-        />
+
+                const token = await executeRecaptcha();
+
+                try {
+                  await axios.post(
+                    process.env.GATSBY_WEBTOOLS_CALCULATOR_APSIS_ENDPOINT,
+                    values,
+                    {
+                      headers: {
+                        "X-Recaptcha-Token": token
+                      }
+                    }
+                  );
+                } catch (error) {
+                  // Ignore errors if any as this isn't necessary for PDF download to proceed
+                  devLog("WebTools calculator api endpoint error", error);
+                }
+              }}
+            />
+          </Suspense>
+        ) : undefined}
       </MicroCopy.Provider>
     </CalculatorContext.Provider>
   );

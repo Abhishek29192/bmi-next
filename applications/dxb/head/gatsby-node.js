@@ -14,7 +14,6 @@ const { getPathWithCountryCode } = require("./src/utils/path");
 const typeDefs = require("./src/schema/schema.graphql");
 const resolvers = require("./src/schema/resolvers");
 const { createSystemPages } = require("./src/gatsby/systemDetailsPages");
-
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
 });
@@ -32,6 +31,7 @@ const createProductPages = async (
   variantCodeToPathMap
 ) => {
   if (!pimClassificationCatalogueNamespace) {
+    // eslint-disable-next-line no-console
     console.warn(
       "createProductPages: You have to provide a PIM_CLASSIFICATION_CATALOGUE_NAMESPACE in your env file"
     );
@@ -81,6 +81,7 @@ const createProductPages = async (
       const component = componentMap[product.__typename];
 
       if (!component) {
+        // eslint-disable-next-line no-console
         console.warn(
           `CreatePage: Could not map the page to any component. Make sure you handle the __typename [${product.__typename}] with a template.`
         );
@@ -240,6 +241,7 @@ exports.createPages = async ({ graphql, actions }) => {
         const component = componentMap[page.__typename];
 
         if (!component) {
+          // eslint-disable-next-line no-console
           console.warn(
             "CreatePage: Could not map the page to any component. Make sure you handle the __typename with a template."
           );
@@ -338,7 +340,7 @@ exports.createPages = async ({ graphql, actions }) => {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     const redirectsToml = fs.readFileSync(redirectsTomlFile);
 
-    const redirects = toml.parse(redirectsToml);
+    const redirects = toml.parse(redirectsToml.toString());
     redirects.redirects.forEach((redirect) =>
       createRedirect({
         fromPath: redirect.from,

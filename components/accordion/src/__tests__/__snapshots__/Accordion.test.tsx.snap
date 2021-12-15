@@ -44,7 +44,7 @@ exports[`Accordion component renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-hidden"
+      class="MuiCollapse-root MuiCollapse-hidden"
       style="min-height: 0px;"
     >
       <div
@@ -106,7 +106,7 @@ exports[`Accordion component renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-hidden"
+      class="MuiCollapse-root MuiCollapse-hidden"
       style="min-height: 0px;"
     >
       <div
@@ -175,7 +175,7 @@ exports[`Accordion component renders correctly after expanded item clicked 1`] =
       </div>
     </div>
     <div
-      class="MuiCollapse-container"
+      class="MuiCollapse-root"
       style="min-height: 0px; height: 0px; transition-duration: 0ms;"
     >
       <div
@@ -237,7 +237,7 @@ exports[`Accordion component renders correctly after expanded item clicked 1`] =
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-hidden"
+      class="MuiCollapse-root MuiCollapse-hidden"
       style="min-height: 0px;"
     >
       <div
@@ -306,7 +306,7 @@ exports[`Accordion component renders correctly as radio 1`] = `
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-hidden"
+      class="MuiCollapse-root MuiCollapse-hidden"
       style="min-height: 0px;"
     >
       <div
@@ -368,7 +368,7 @@ exports[`Accordion component renders correctly as radio 1`] = `
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-hidden"
+      class="MuiCollapse-root MuiCollapse-hidden"
       style="min-height: 0px;"
     >
       <div
@@ -437,7 +437,7 @@ exports[`Accordion component renders correctly as radio when item is collapsed 1
       </div>
     </div>
     <div
-      class="MuiCollapse-container"
+      class="MuiCollapse-root"
       style="min-height: 0px; height: 0px; transition-duration: 0ms;"
     >
       <div
@@ -499,7 +499,7 @@ exports[`Accordion component renders correctly as radio when item is collapsed 1
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-hidden"
+      class="MuiCollapse-root MuiCollapse-hidden"
       style="min-height: 0px;"
     >
       <div
@@ -568,7 +568,7 @@ exports[`Accordion component renders correctly as radio when item is expanded 1`
       </div>
     </div>
     <div
-      class="MuiCollapse-container"
+      class="MuiCollapse-root"
       style="min-height: 0px; height: 0px; transition-duration: 0ms;"
     >
       <div
@@ -630,7 +630,7 @@ exports[`Accordion component renders correctly as radio when item is expanded 1`
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-hidden"
+      class="MuiCollapse-root MuiCollapse-hidden"
       style="min-height: 0px;"
     >
       <div
@@ -699,7 +699,7 @@ exports[`Accordion component renders correctly with default expanded item 1`] = 
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-hidden"
+      class="MuiCollapse-root MuiCollapse-hidden"
       style="min-height: 0px;"
     >
       <div
@@ -761,7 +761,7 @@ exports[`Accordion component renders correctly with default expanded item 1`] = 
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-entered"
+      class="MuiCollapse-root MuiCollapse-entered"
       style="min-height: 0px;"
     >
       <div
@@ -830,7 +830,7 @@ exports[`Accordion component renders correctly with no padding on accordion deta
       </div>
     </div>
     <div
-      class="MuiCollapse-container"
+      class="MuiCollapse-root"
       style="min-height: 0px; height: 0px; transition-duration: 0ms;"
     >
       <div
@@ -892,7 +892,7 @@ exports[`Accordion component renders correctly with no padding on accordion deta
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-hidden"
+      class="MuiCollapse-root MuiCollapse-hidden"
       style="min-height: 0px;"
     >
       <div

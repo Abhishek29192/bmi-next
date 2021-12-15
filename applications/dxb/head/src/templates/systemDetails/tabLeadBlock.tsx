@@ -1,8 +1,7 @@
 import React from "react";
 import Tabs from "@bmi/tabs";
-import { Tab, TabProps } from "@material-ui/core";
+import Tab, { TabProps } from "@material-ui/core/Tab";
 import Section from "@bmi/section";
-import { isEmpty } from "lodash";
 import LeadBlock from "@bmi/lead-block";
 import Typography from "@bmi/typography";
 import { useSiteContext } from "../../components/Site";
@@ -78,7 +77,7 @@ const TabLeadBlock = ({
           />
         </Section>
       </Tabs.TabPanel>
-      {technicalSpecClassifications && !isEmpty(technicalSpecClassifications) && (
+      {technicalSpecClassifications?.length && (
         <Tabs.TabPanel
           heading={getMicroCopy("sdp.leadBlock.technicalSpecification")}
           index="two"
@@ -90,7 +89,7 @@ const TabLeadBlock = ({
           </Section>
         </Tabs.TabPanel>
       )}
-      {documentsAndDownloads && !isEmpty(documentsAndDownloads) && (
+      {documentsAndDownloads?.length && (
         <Tabs.TabPanel
           heading={getMicroCopy("sdp.leadBlock.documentsAndDownloads")}
           index="three"

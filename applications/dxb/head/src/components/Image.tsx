@@ -116,54 +116,63 @@ export const query = graphql`
       y
     }
   }
+
   fragment ImageFragment on ContentfulImage {
     ...BaseImageFragment
     image {
       ...AssetFragment
-      gatsbyImageData(placeholder: BLURRED)
+      gatsbyImageData(
+        placeholder: DOMINANT_COLOR
+        width: 500
+        formats: [WEBP, AUTO]
+      )
     }
   }
+
   fragment ImageDocumentFragment on ContentfulImage {
     ...BaseImageFragment
     image {
       ...AssetFragment
       gatsbyImageData(
-        placeholder: BLURRED
-        width: 684
-        formats: [WEBP, JPG, AUTO]
+        placeholder: DOMINANT_COLOR
+        width: 342
+        formats: [WEBP, AUTO]
       )
     }
   }
+
   fragment ImageGallerySlideFragment on ContentfulImage {
     ...BaseImageFragment
     image {
       ...AssetFragment
       gatsbyImageData(
-        placeholder: BLURRED
-        width: 1392
-        formats: [WEBP, JPG, AUTO]
+        placeholder: DOMINANT_COLOR
+        width: 696
+        formats: [WEBP, AUTO]
       )
     }
   }
+
   fragment ImageCardFragment on ContentfulImage {
     ...BaseImageFragment
     image {
       ...AssetFragment
       gatsbyImageData(
-        placeholder: BLURRED
-        width: 580
-        formats: [WEBP, JPG, AUTO]
+        placeholder: DOMINANT_COLOR
+        width: 290
+        formats: [WEBP, AUTO]
       )
     }
   }
+
   fragment ImageSlideFragment on ContentfulImage {
     ...BaseImageFragment
     image {
       ...AssetFragment
       gatsbyImageData(
-        placeholder: BLURRED
-        width: 684
-        formats: [WEBP, JPG, AUTO]
+        placeholder: DOMINANT_COLOR
+        width: 460
+        formats: [WEBP, AUTO]
       )
     }
   }

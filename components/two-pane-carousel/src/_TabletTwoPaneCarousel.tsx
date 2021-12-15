@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import {
-  useTheme,
-  createMuiTheme,
-  ThemeProvider
-} from "@material-ui/core/styles";
+import { createTheme, ThemeProvider, useTheme } from "@material-ui/core/styles";
 import Grid from "@bmi/grid";
 import AnchorLink from "@bmi/anchor-link";
 import Carousel, { getPageFromAbsoluteIndex } from "@bmi/carousel";
@@ -16,7 +12,7 @@ import styles from "./TwoPaneCarousel.module.scss";
 const TwoPaneCarousel = ({ slides }: Props) => {
   const [activePage, setActivePage] = useState<number>(0);
   const defaultTheme = useTheme();
-  const customBreakpointsTheme = createMuiTheme({
+  const customBreakpointsTheme = createTheme({
     ...defaultTheme,
     breakpoints: {
       values: {

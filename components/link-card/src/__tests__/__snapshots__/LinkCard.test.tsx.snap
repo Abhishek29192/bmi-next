@@ -31,7 +31,7 @@ exports[`LinkCard component renders closed variant 1`] = `
     </svg>
   </div>
   <div
-    class="MuiCollapse-container details MuiCollapse-entered"
+    class="MuiCollapse-root details MuiCollapse-entered"
     style="min-height: 0px;"
   >
     <div
@@ -78,7 +78,7 @@ exports[`LinkCard component renders correctly open variant 1`] = `
     </svg>
   </div>
   <div
-    class="MuiCollapse-container details MuiCollapse-hidden"
+    class="MuiCollapse-root details MuiCollapse-hidden"
     style="min-height: 0px;"
   >
     <div

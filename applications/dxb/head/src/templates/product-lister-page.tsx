@@ -1,8 +1,7 @@
 import AnchorLink from "@bmi/anchor-link";
-import React, { useEffect, useMemo, useState, useRef } from "react";
-import { graphql } from "gatsby";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { graphql, Link as GatsbyLink } from "gatsby";
 import Button from "@bmi/button";
-import { flatten } from "lodash";
 import Hero, { HeroItem } from "@bmi/hero";
 import SpotlightHero from "@bmi/spotlight-hero";
 import LeadBlock from "@bmi/lead-block";
@@ -15,20 +14,19 @@ import Typography from "@bmi/typography";
 import { Filter } from "@bmi/filters";
 import queryString from "query-string";
 import { useLocation } from "@reach/router";
-import { Link as GatsbyLink } from "gatsby";
 import {
-  getProductUrl,
   findMasterImageUrl,
-  mapClassificationValues,
-  findUniqueVariantClassifications
+  findUniqueVariantClassifications,
+  getProductUrl,
+  mapClassificationValues
 } from "../utils/product-details-transforms";
 import ResultsPagination from "../components/ResultsPagination";
 import withGTM from "../utils/google-tag-manager";
 import {
-  URLProductFilter,
   clearFilterValues,
   convertToURLFilters,
-  updateFilterValue
+  updateFilterValue,
+  URLProductFilter
 } from "../utils/filters";
 import { enhanceColourFilterWithSwatches } from "../utils/filtersUI";
 import Scrim from "../components/Scrim";
@@ -514,72 +512,70 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                       {getMicroCopy("plp.product.noResultsFound")}
                     </Typography>
                   )}
-                  {flatten(
-                    products.map((variant) => {
-                      const brandLogoCode = variant.brandCode;
-                      // eslint-disable-next-line security/detect-object-injection
-                      const brandLogo = iconMap[brandLogoCode];
-                      const mainImage = findMasterImageUrl(variant.images);
-                      const product: Product = variant.baseProduct;
-                      const productUrl = getProductUrl(
-                        countryCode,
-                        pageContext.variantCodeToPathMap[variant.code]
-                      );
-                      const uniqueClassifications = mapClassificationValues(
-                        findUniqueVariantClassifications(
-                          { ...variant, _product: product },
-                          pageContext.pimClassificationCatalogueNamespace
-                        )
-                      );
-                      const moreOptionsAvailable =
-                        variant.all_variants?.length > 1 &&
-                        getMicroCopy("plp.product.moreOptionsAvailable");
+                  {products.flatMap((variant) => {
+                    const brandLogoCode = variant.brandCode;
+                    // eslint-disable-next-line security/detect-object-injection
+                    const brandLogo = iconMap[brandLogoCode];
+                    const mainImage = findMasterImageUrl(variant.images);
+                    const product: Product = variant.baseProduct;
+                    const productUrl = getProductUrl(
+                      countryCode,
+                      pageContext.variantCodeToPathMap[variant.code]
+                    );
+                    const uniqueClassifications = mapClassificationValues(
+                      findUniqueVariantClassifications(
+                        { ...variant, _product: product },
+                        pageContext.pimClassificationCatalogueNamespace
+                      )
+                    );
+                    const moreOptionsAvailable =
+                      variant.all_variants?.length > 1 &&
+                      getMicroCopy("plp.product.moreOptionsAvailable");
 
-                      return (
-                        <Grid
-                          item
-                          key={`${product.code}-${variant.code}`}
-                          xs={12}
-                          md={6}
-                          lg={4}
-                          xl={filters.length ? 4 : 3}
+                    return (
+                      <Grid
+                        item
+                        key={`${product.code}-${variant.code}`}
+                        xs={12}
+                        md={6}
+                        lg={4}
+                        xl={filters.length ? 4 : 3}
+                      >
+                        <GTMOverviewCard
+                          title={product.name}
+                          titleVariant="h5"
+                          subtitle={uniqueClassifications}
+                          subtitleVariant="h6"
+                          media={
+                            <img
+                              src={mainImage}
+                              alt={`${uniqueClassifications} ${product.name}`}
+                            />
+                          }
+                          imageSize="contain"
+                          brandImageSource={brandLogo}
+                          action={{
+                            model: "routerLink",
+                            linkComponent: GatsbyLink,
+                            to: productUrl
+                          }}
+                          gtm={{
+                            id: "cta-click1",
+                            action: productUrl,
+                            label: getMicroCopy("plp.product.viewDetails")
+                          }}
+                          footer={
+                            <AnchorLink iconEnd>
+                              {getMicroCopy("plp.product.viewDetails")}
+                            </AnchorLink>
+                          }
+                          moreOptionsAvailable={moreOptionsAvailable}
                         >
-                          <GTMOverviewCard
-                            title={product.name}
-                            titleVariant="h5"
-                            subtitle={uniqueClassifications}
-                            subtitleVariant="h6"
-                            media={
-                              <img
-                                src={mainImage}
-                                alt={`${uniqueClassifications} ${product.name}`}
-                              />
-                            }
-                            imageSize="contain"
-                            brandImageSource={brandLogo}
-                            action={{
-                              model: "routerLink",
-                              linkComponent: GatsbyLink,
-                              to: productUrl
-                            }}
-                            gtm={{
-                              id: "cta-click1",
-                              action: productUrl,
-                              label: getMicroCopy("plp.product.viewDetails")
-                            }}
-                            footer={
-                              <AnchorLink iconEnd>
-                                {getMicroCopy("plp.product.viewDetails")}
-                              </AnchorLink>
-                            }
-                            moreOptionsAvailable={moreOptionsAvailable}
-                          >
-                            {variant.shortDescription}
-                          </GTMOverviewCard>
-                        </Grid>
-                      );
-                    })
-                  )}
+                          {variant.shortDescription}
+                        </GTMOverviewCard>
+                      </Grid>
+                    );
+                  })}
                 </Grid>
                 <ResultsPagination
                   page={page + 1}

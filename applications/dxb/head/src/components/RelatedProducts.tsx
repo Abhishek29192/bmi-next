@@ -1,27 +1,26 @@
 import React, { useMemo, useState } from "react";
 import Tabs from "@bmi/tabs";
-import { Link, graphql } from "gatsby";
-import { Tab, TabProps } from "@material-ui/core";
-import { Add as AddIcon } from "@material-ui/icons";
+import { graphql, Link } from "gatsby";
+import Tab, { TabProps } from "@material-ui/core/Tab";
+import AddIcon from "@material-ui/icons/Add";
 import Grid from "@bmi/grid";
 import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
 import AnchorLink from "@bmi/anchor-link";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
-import { uniqBy } from "lodash";
 import withGTM from "../utils/google-tag-manager";
-import { iconMap } from "../components/Icon";
 import {
-  getProductUrl,
   findMasterImageUrl,
   findProductBrandLogoCode,
-  mapClassificationValues,
+  findUniqueVariantClassifications,
+  getProductUrl,
   groupProductsByCategory,
-  findUniqueVariantClassifications
+  mapClassificationValues
 } from "../utils/product-details-transforms";
 import { Product, VariantOption } from "./types/pim"; // Hmmmmmm
 import styles from "./styles/RelatedProducts.module.scss";
 import { useSiteContext } from "./Site";
+import { iconMap } from "./Icon";
 
 const ProductListing = ({
   countryCode,
@@ -45,7 +44,12 @@ const ProductListing = ({
 
   const allVariants = useMemo(
     () =>
-      uniqBy(products, (product) => product.name)
+      products
+        .reduce<Product[]>((products, product) => {
+          products.find((prod) => prod.name === product.name) ||
+            products.push(product);
+          return products;
+        }, [])
         .sort((a, b) => {
           // NOTE: Sort only by base product scoring weight
           const getWeightValue = (product) =>

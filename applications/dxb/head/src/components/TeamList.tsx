@@ -6,7 +6,7 @@ import EqualHeights from "@bmi/equal-heights";
 import Button from "@bmi/button";
 import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
-import { getClickableActionFromUrl, Data as LinkData } from "./Link";
+import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import Image, { Data as ImageData } from "./Image";
 
 export type Data = {
@@ -92,9 +92,9 @@ export const query = graphql`
     profileImage {
       image {
         gatsbyImageData(
-          placeholder: BLURRED
+          placeholder: DOMINANT_COLOR
           width: 200
-          formats: [WEBP, JPG, AUTO]
+          formats: [WEBP, AUTO]
         )
       }
     }

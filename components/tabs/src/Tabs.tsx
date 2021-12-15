@@ -1,10 +1,9 @@
-import {
-  AppBarProps,
-  Box,
-  Tab as DefaultTab,
-  Tabs as MaterialTabs,
+import { AppBarProps } from "@material-ui/core/AppBar";
+import Box from "@material-ui/core/Box";
+import DefaultTab from "@material-ui/core/Tab";
+import MaterialTabs, {
   TabsProps as MaterialTabsProps
-} from "@material-ui/core";
+} from "@material-ui/core/Tabs";
 import Container, { Props as ContainerProps } from "@bmi/container";
 import Grid, { GridProps } from "@bmi/grid";
 import classnames from "classnames";

@@ -473,7 +473,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                     </svg>
                   </div>
                   <div
-                    class="MuiCollapse-container details MuiCollapse-hidden"
+                    class="MuiCollapse-root details MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div

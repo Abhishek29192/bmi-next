@@ -1,23 +1,23 @@
 import { Link } from "gatsby";
 import {
+  findAllCategories,
+  findMasterImageUrl,
   findProductBrandLogoCode,
+  findUniqueVariantClassifications,
+  getColourThumbnailUrl,
   getMergedClassifications,
+  getProductAttributes,
   getProductUrl,
+  getSizeLabel,
   getValidClassification,
   getValidFeatures,
-  getSizeLabel,
-  findMasterImageUrl,
-  getColourThumbnailUrl,
-  mapGalleryImages,
   groupProductsByCategory,
   mapClassificationValues,
+  mapGalleryImages,
+  mapProductClassifications,
   TransformedClassificationsMap,
-  TransformedMeasurementValue,
   TransformedClassificationValue,
-  getProductAttributes,
-  findAllCategories,
-  findUniqueVariantClassifications,
-  mapProductClassifications
+  TransformedMeasurementValue
 } from "../product-details-transforms";
 import createClassification, {
   createFeature
@@ -2026,43 +2026,74 @@ describe("product-details-transforms tests", () => {
     });
   });
   describe("findMasterImageUrl tests", () => {
-    describe("when master image asset exists", () => {
-      it("returns master image url value", () => {
-        const result = findMasterImageUrl([
-          {
-            realFileName:
-              "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1.jpg",
-            assetType: "NOT_MASTER_IMAGE",
-            mime: "image/jpeg",
-            url: "http://nowhere.com",
-            allowedToDownload: true,
-            containerId: "container_Zanda Arktis normalstein1.jpg",
-            fileSize: 28390,
-            name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
-            format: "Product-Listing-Card-Large-Desktop"
-          }
-        ]);
-        expect(result).toEqual(undefined);
-      });
+    it("returns undefined if null provided", () => {
+      const result = findMasterImageUrl(null);
+      expect(result).toEqual(undefined);
     });
-    describe("when master image exists", () => {
-      it("returns master image url value", () => {
-        const result = findMasterImageUrl([
-          {
-            realFileName:
-              "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1.jpg",
-            assetType: ImageAssetTypesEnum.MASTER_IMAGE,
-            mime: "image/jpeg",
-            url: "http://nowhere.com",
-            allowedToDownload: true,
-            containerId: "container_Zanda Arktis normalstein1.jpg",
-            fileSize: 28390,
-            name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
-            format: "Product-Listing-Card-Large-Desktop"
-          }
-        ]);
-        expect(result).toEqual("http://nowhere.com");
-      });
+    it("returns undefined when master image does not exist", () => {
+      const result = findMasterImageUrl([
+        {
+          realFileName:
+            "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1.jpg",
+          assetType: ImageAssetTypesEnum.GALLERY,
+          mime: "image/jpeg",
+          url: "http://nowhere.com",
+          allowedToDownload: true,
+          containerId: "container_Zanda Arktis normalstein1.jpg",
+          fileSize: 28390,
+          name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
+          format: "Product-Listing-Card-Small-Desktop-Tablet"
+        }
+      ]);
+      expect(result).toEqual(undefined);
+    });
+    it("returns master image URL when when master image exists", () => {
+      const result = findMasterImageUrl([
+        {
+          realFileName:
+            "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1.jpg",
+          assetType: ImageAssetTypesEnum.MASTER_IMAGE,
+          mime: "image/jpeg",
+          url: "http://nowhere.com",
+          allowedToDownload: true,
+          containerId: "container_Zanda Arktis normalstein1.jpg",
+          fileSize: 28390,
+          name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
+          format: "Product-Listing-Card-Small-Desktop-Tablet"
+        }
+      ]);
+      expect(result).toEqual("http://nowhere.com");
+    });
+    it("returns small-desktop-tablet format when master image exists", () => {
+      const result = findMasterImageUrl([
+        {
+          realFileName:
+            "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1.jpg",
+          assetType: ImageAssetTypesEnum.MASTER_IMAGE,
+          mime: "image/jpeg",
+          url: "http://product-listing-card-large-desktop.com",
+          allowedToDownload: true,
+          containerId: "container_Zanda Arktis normalstein1.jpg",
+          fileSize: 28390,
+          name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
+          format: "Product-Listing-Card-Large-Desktop"
+        },
+        {
+          realFileName:
+            "Product-Listing-Card-Small-Desktop-Tablet_Zanda Arktis normalstein1.jpg",
+          assetType: ImageAssetTypesEnum.MASTER_IMAGE,
+          mime: "image/jpeg",
+          url: "http://product-listing-card-small-desktop-tablet.com",
+          allowedToDownload: true,
+          containerId: "container_Zanda Arktis normalstein1.jpg",
+          fileSize: 28390,
+          name: "Product-Listing-Card-Small-Desktop-Tablet_Zanda Arktis normalstein1",
+          format: "Product-Listing-Card-Small-Desktop-Tablet"
+        }
+      ]);
+      expect(result).toEqual(
+        "http://product-listing-card-small-desktop-tablet.com"
+      );
     });
   });
   describe("getColourThumbnailUrl tests", () => {

@@ -1,23 +1,23 @@
 import React, {
-  useState,
-  useMemo,
-  useEffect,
-  useContext,
   createContext,
   Dispatch,
-  SetStateAction,
   isValidElement,
-  useRef
+  SetStateAction,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
 } from "react";
 import SwipeableViews from "react-swipeable-views";
-import { virtualize, autoPlay } from "react-swipeable-views-utils";
+import { autoPlay, virtualize } from "react-swipeable-views-utils";
 import { mod } from "react-swipeable-views-core";
 import classnames from "classnames";
 import SlideControls, {
   Props as SlideControlsProps
 } from "@bmi/slide-controls";
 import ArrowControl from "@bmi/arrow-control";
-import { withWidth, WithWidth } from "@material-ui/core";
+import withWidth, { WithWidth } from "@material-ui/core/withWidth";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 import styles from "./Carousel.module.scss";

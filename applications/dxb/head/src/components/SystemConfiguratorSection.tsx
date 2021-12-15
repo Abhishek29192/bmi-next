@@ -1,4 +1,3 @@
-import { graphql } from "gatsby";
 import React, {
   ChangeEvent,
   createContext,
@@ -8,6 +7,7 @@ import React, {
   useLayoutEffect,
   useState
 } from "react";
+import { graphql } from "gatsby";
 import axios, { AxiosResponse, CancelToken } from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ConfiguratorPanel from "@bmi/configurator-panel";

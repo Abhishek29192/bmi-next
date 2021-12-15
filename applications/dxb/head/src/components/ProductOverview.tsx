@@ -15,7 +15,7 @@ export type Data = {
   name: string;
   brandName: string;
   nobb: string | null;
-  images: Image[];
+  images: readonly Image[];
   attributes: ProductOverviewProps["attributes"] | null;
   isRecapchaShown?: boolean;
 };

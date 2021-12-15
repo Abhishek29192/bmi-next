@@ -472,7 +472,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -957,7 +957,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                       </svg>
                     </div>
                     <div
-                      class="MuiCollapse-container details MuiCollapse-entered"
+                      class="MuiCollapse-root details MuiCollapse-entered"
                       style="min-height: 0px;"
                     >
                       <div
@@ -1142,7 +1142,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                       </svg>
                     </div>
                     <div
-                      class="MuiCollapse-container details MuiCollapse-entered"
+                      class="MuiCollapse-root details MuiCollapse-entered"
                       style="min-height: 0px;"
                     >
                       <div
@@ -1937,7 +1937,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -2139,7 +2139,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -2341,7 +2341,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -2543,7 +2543,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -2745,7 +2745,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -3223,7 +3223,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -3405,7 +3405,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -3867,7 +3867,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                       </svg>
                     </div>
                     <div
-                      class="MuiCollapse-container details MuiCollapse-hidden"
+                      class="MuiCollapse-root details MuiCollapse-hidden"
                       style="min-height: 0px;"
                     >
                       <div
@@ -4247,7 +4247,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -4719,7 +4719,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -5203,7 +5203,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -5836,7 +5836,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -5993,7 +5993,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -6291,7 +6291,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -6448,7 +6448,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -6881,7 +6881,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -7036,7 +7036,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -7467,7 +7467,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -7622,7 +7622,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -8053,7 +8053,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -8208,7 +8208,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -8723,7 +8723,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -8928,7 +8928,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -9409,7 +9409,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -9594,7 +9594,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -10097,7 +10097,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -10302,7 +10302,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -10783,7 +10783,7 @@ exports[`ServiceLocatorSection component renders multiple services with no field
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -10862,7 +10862,7 @@ exports[`ServiceLocatorSection component renders multiple services with no field
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -11217,7 +11217,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -11422,7 +11422,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -11903,7 +11903,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -12364,7 +12364,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -12845,7 +12845,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -13326,7 +13326,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div
@@ -13809,7 +13809,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                       </svg>
                     </div>
                     <div
-                      class="MuiCollapse-container details MuiCollapse-hidden"
+                      class="MuiCollapse-root details MuiCollapse-hidden"
                       style="min-height: 0px;"
                     >
                       <div
@@ -14276,7 +14276,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                       </svg>
                     </div>
                     <div
-                      class="MuiCollapse-container details MuiCollapse-hidden"
+                      class="MuiCollapse-root details MuiCollapse-hidden"
                       style="min-height: 0px;"
                     >
                       <div
@@ -14461,7 +14461,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                       </svg>
                     </div>
                     <div
-                      class="MuiCollapse-container details MuiCollapse-hidden"
+                      class="MuiCollapse-root details MuiCollapse-hidden"
                       style="min-height: 0px;"
                     >
                       <div
@@ -14953,7 +14953,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-entered"
+                  class="MuiCollapse-root details MuiCollapse-entered"
                   style="min-height: 0px;"
                 >
                   <div
@@ -15625,7 +15625,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-entered"
+                  class="MuiCollapse-root details MuiCollapse-entered"
                   style="min-height: 0px;"
                 >
                   <div
@@ -16308,7 +16308,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                       </svg>
                     </div>
                     <div
-                      class="MuiCollapse-container details MuiCollapse-hidden"
+                      class="MuiCollapse-root details MuiCollapse-hidden"
                       style="min-height: 0px;"
                     >
                       <div
@@ -17055,7 +17055,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="MuiCollapse-container details MuiCollapse-hidden"
+                  class="MuiCollapse-root details MuiCollapse-hidden"
                   style="min-height: 0px;"
                 >
                   <div

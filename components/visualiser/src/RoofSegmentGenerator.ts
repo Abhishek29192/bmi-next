@@ -1,4 +1,11 @@
-import * as THREE from "three";
+import {
+  Box2,
+  Group,
+  InstancedMesh,
+  Mesh,
+  MeshStandardMaterial,
+  Object3D
+} from "three";
 import tileSlice from "./TileSlice";
 import { Tile } from "./Types";
 
@@ -12,11 +19,11 @@ import { Tile } from "./Types";
  */
 
 export default (
-  boundsBox2: THREE.Box2,
-  tileMesh: THREE.Mesh,
+  boundsBox2: Box2,
+  tileMesh: Mesh,
   tileInfo: Tile,
-  tileMaterial: THREE.MeshStandardMaterial
-): THREE.Group | undefined => {
+  tileMaterial: MeshStandardMaterial
+): Group | undefined => {
   // First measure the tile:
   const tileBounds = tileMesh.geometry.boundingBox;
 
@@ -70,14 +77,14 @@ export default (
   const instanceCount = rowCount * intHorizontalTiles;
 
   // Create InstancedMesh:
-  const primaryTilesMesh = new THREE.InstancedMesh(
+  const primaryTilesMesh = new InstancedMesh(
     tileMesh.geometry.clone(),
     tileMaterial,
     instanceCount
   );
 
   // Instance placement helper:
-  const placementHelper = new THREE.Object3D();
+  const placementHelper = new Object3D();
 
   let instanceIndex = 0;
   let endOfRowIndex = 0;
@@ -96,7 +103,7 @@ export default (
     "x",
     "right"
   ); // Discard the left side
-  const endOfPrimaryRowTileMesh = new THREE.InstancedMesh(
+  const endOfPrimaryRowTileMesh = new InstancedMesh(
     endOfRowTile,
     tileMaterial,
     rowCount
@@ -110,8 +117,8 @@ export default (
   }
 
   let offsetRowEndTileWidth: number = 0;
-  let endOfSecondaryRowTileMesh: THREE.InstancedMesh | undefined;
-  let startOfSecondaryRowTileMesh: THREE.InstancedMesh | undefined;
+  let endOfSecondaryRowTileMesh: InstancedMesh | undefined;
+  let startOfSecondaryRowTileMesh: InstancedMesh | undefined;
   if (horizontalOffset != 0) {
     offsetRowEndTileWidth = roofWidth - offsetRowWidth;
     const endOfSecondaryRowTile = tileSlice(
@@ -120,7 +127,7 @@ export default (
       "x",
       "right"
     ); // Discard the left side
-    endOfSecondaryRowTileMesh = new THREE.InstancedMesh(
+    endOfSecondaryRowTileMesh = new InstancedMesh(
       endOfSecondaryRowTile,
       tileMaterial,
       rowCount
@@ -132,7 +139,7 @@ export default (
       "x",
       "left"
     ); // Discard the right side
-    startOfSecondaryRowTileMesh = new THREE.InstancedMesh(
+    startOfSecondaryRowTileMesh = new InstancedMesh(
       startOfSecondaryRowTile,
       tileMaterial,
       rowCount
@@ -246,7 +253,7 @@ export default (
   endOfPrimaryRowTileMesh.castShadow = true;
   endOfPrimaryRowTileMesh.receiveShadow = true;
 
-  const group = new THREE.Group();
+  const group = new Group();
   group.add(primaryTilesMesh);
   group.add(endOfPrimaryRowTileMesh);
 

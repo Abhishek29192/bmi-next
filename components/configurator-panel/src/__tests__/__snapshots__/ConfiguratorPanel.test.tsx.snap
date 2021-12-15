@@ -48,7 +48,7 @@ exports[`ConfiguratorPanel component renders collapsed 1`] = `
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-hidden"
+      class="MuiCollapse-root MuiCollapse-hidden"
       style="min-height: 0px;"
     >
       <div
@@ -119,7 +119,7 @@ exports[`ConfiguratorPanel component renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-entered"
+      class="MuiCollapse-root MuiCollapse-entered"
       style="min-height: 0px;"
     >
       <div
@@ -190,7 +190,7 @@ exports[`ConfiguratorPanel component renders disabled 1`] = `
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-entered"
+      class="MuiCollapse-root MuiCollapse-entered"
       style="min-height: 0px;"
     >
       <div
@@ -276,7 +276,7 @@ exports[`ConfiguratorPanel component renders expanded with child content 1`] = `
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-entered"
+      class="MuiCollapse-root MuiCollapse-entered"
       style="min-height: 0px;"
     >
       <div
@@ -353,7 +353,7 @@ exports[`ConfiguratorPanel component renders expanded with child content and opt
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-entered"
+      class="MuiCollapse-root MuiCollapse-entered"
       style="min-height: 0px;"
     >
       <div
@@ -444,7 +444,7 @@ exports[`ConfiguratorPanel component renders with title with selected option tit
       </div>
     </div>
     <div
-      class="MuiCollapse-container MuiCollapse-entered"
+      class="MuiCollapse-root MuiCollapse-entered"
       style="min-height: 0px;"
     >
       <div

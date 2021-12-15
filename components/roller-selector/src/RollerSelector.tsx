@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
+import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import ArrowIcon from "@material-ui/icons/ArrowForward";
 import styles from "./RollerSelector.module.scss";
 

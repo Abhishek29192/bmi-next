@@ -5,10 +5,13 @@
 #### NPM TOKEN
 
 The workspace packages are also published to a private NPM registry.
-You will need to add the NPM_AUTH_READ_TOKEN to your profile's environment variables to run the install step.
+You will need to authenticate against the NPM registry by adding a `.npmrc` file to your home directory.
 
-```
-export NPM_AUTH_READ_TOKEN="00000000-0000-0000-0000-000000000000"
+There is a `.npmrc` file in this repo, which is setup for our CI runs. Remove .npmrc locally. Stop tracking .npmrc changes on git to not commit the removed file.
+
+```bash
+rm .npmrc
+git update-index --skip-worktree .npmrc
 ```
 
 See [this guide by NPM](https://blog.npmjs.org/post/118393368555/deploying-with-npm-private-modules) for more details.
@@ -111,8 +114,16 @@ choco install git
 
 ```cmd
 choco install nvm
-nvm install 14.18.1
-nvm use 14.18.1
+nvm install latest
+nvm use [version installed]
+```
+
+#### Python 2
+
+This is required for node-gyp from node-sass.
+
+```cmd
+choco install python2
 ```
 
 #### Yarn

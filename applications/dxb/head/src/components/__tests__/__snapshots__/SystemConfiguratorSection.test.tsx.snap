@@ -68,7 +68,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
+              class="MuiCollapse-root MuiCollapse-hidden"
               style="min-height: 0px;"
             >
               <div
@@ -263,7 +263,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
               >
                 <div
                   class="header-picture header-picture--contain"
-                  style="background-image: url(testhttp);"
+                  style="background-image: url(product-listing-card-small-desktop-tablet);"
                 />
                 <div
                   class="body"
@@ -378,7 +378,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
+              class="MuiCollapse-root MuiCollapse-hidden"
               style="min-height: 0px;"
             >
               <div
@@ -573,7 +573,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
               >
                 <div
                   class="header-picture header-picture--contain"
-                  style="background-image: url(testhttp);"
+                  style="background-image: url(product-listing-card-small-desktop-tablet);"
                 />
                 <div
                   class="body"
@@ -688,7 +688,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-root"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -937,7 +937,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-entered"
+              class="MuiCollapse-root MuiCollapse-entered"
               style="min-height: 0px;"
             >
               <div
@@ -1153,7 +1153,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-root"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -1403,7 +1403,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-root"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -1598,7 +1598,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               >
                 <div
                   class="header-picture header-picture--contain"
-                  style="background-image: url(testhttp);"
+                  style="background-image: url(product-listing-card-small-desktop-tablet);"
                 />
                 <div
                   class="body"
@@ -1713,7 +1713,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-root"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -1903,7 +1903,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-entered"
+              class="MuiCollapse-root MuiCollapse-entered"
               style="min-height: 0px;"
             >
               <div
@@ -2099,7 +2099,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-root"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -2289,7 +2289,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-entered"
+              class="MuiCollapse-root MuiCollapse-entered"
               style="min-height: 0px;"
             >
               <div
@@ -2465,7 +2465,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-root"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -2704,7 +2704,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-root"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -2943,7 +2943,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-root"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -3188,7 +3188,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-root"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -3630,7 +3630,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-root"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -3871,7 +3871,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               >
                 <div
                   class="header-picture header-picture--contain"
-                  style="background-image: url(testhttp);"
+                  style="background-image: url(product-listing-card-small-desktop-tablet);"
                 />
                 <div
                   class="body"
@@ -3986,7 +3986,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-root"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -4181,7 +4181,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-hidden"
+              class="MuiCollapse-root MuiCollapse-hidden"
               style="min-height: 0px;"
             >
               <div
@@ -4291,7 +4291,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-entered"
+              class="MuiCollapse-root MuiCollapse-entered"
               style="min-height: 0px;"
             >
               <div
@@ -4467,7 +4467,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
               </div>
             </div>
             <div
-              class="MuiCollapse-container"
+              class="MuiCollapse-root"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -4657,7 +4657,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
               </div>
             </div>
             <div
-              class="MuiCollapse-container MuiCollapse-entered"
+              class="MuiCollapse-root MuiCollapse-entered"
               style="min-height: 0px;"
             >
               <div

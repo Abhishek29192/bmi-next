@@ -68,7 +68,9 @@ describe("DocumentResults component", () => {
   it("technicalTable: renders correctly", () => {
     const { container } = render(
       <DocumentResults
-        data={inputDataItems}
+        data={inputDataItems.filter(
+          (data) => data.__typename !== "ContentfulDocument"
+        )}
         format="technicalTable"
         page={20}
       />

@@ -29,8 +29,11 @@ exports[`Contact us page renders correctly 1`] = `
                 class="MuiButton-label buttonStyles-label-4"
               >
                 <img
+                  alt="Norge"
                   class="language-icon"
+                  height="16px"
                   src="/icons/flags/no.svg"
+                  width="20px"
                 />
                 NO
                 <span
@@ -146,7 +149,9 @@ exports[`Contact us page renders correctly 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/al.svg"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -173,7 +178,9 @@ exports[`Contact us page renders correctly 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/at.svg"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -200,7 +207,9 @@ exports[`Contact us page renders correctly 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/no.svg"
+                        width="20px"
                       />
                     </span>
                     Norge
@@ -384,8 +393,11 @@ exports[`Contact us page renders correctly 1`] = `
                   class="LanguageButtonContent"
                 >
                   <img
+                    alt="Norge"
                     class="LanguageIcon"
+                    height="16px"
                     src="/icons/flags/no.svg"
+                    width="20px"
                   />
                   NO
                 </span>

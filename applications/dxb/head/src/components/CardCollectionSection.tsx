@@ -1,16 +1,15 @@
-import React, { useState, useMemo, memo } from "react";
+import React, { memo, useMemo, useState } from "react";
 import { graphql } from "gatsby";
 import AnchorLink from "@bmi/anchor-link";
 import Button, { ButtonProps } from "@bmi/button";
 import Section from "@bmi/section";
 import OverviewCard from "@bmi/overview-card";
 import Typography from "@bmi/typography";
-import { uniq, flatten } from "lodash";
 import Chip, { Props as ChipProps } from "@bmi/chip";
 import Carousel from "@bmi/carousel";
 import Grid from "@bmi/grid";
 import { withClickable } from "@bmi/clickable";
-import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
+import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import withGTM from "../utils/google-tag-manager";
 import { renderVideo } from "./Video";
@@ -230,13 +229,13 @@ const CardCollectionSection = ({
     return cardsBySection;
   };
 
-  const activeCards = uniq(
-    flatten(
-      Object.entries(activeGroups).map(([title, isSelected]) =>
+  const activeCards = [
+    ...new Set(
+      Object.entries(activeGroups).flatMap(([title, isSelected]) =>
         isSelected ? getCards(title) : []
       )
     )
-  );
+  ];
 
   const formatDate = (date: string): string =>
     new Intl.DateTimeFormat(

@@ -25,13 +25,8 @@
     "test:components": "jest --config=components/jest.config.js --reporters=default --reporters=jest-junit",
     "workbench": "styleguidist server",
     "workbench:build": "styleguidist build",
-    "run-apollo": "yarn workspace @bmi/apollo-server run start"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && yarn install --frozen-lockfile && find . -type d -name 'node_modules' -prune -false -o -type f -name 'yarn.lock' | sort | xargs sha1sum -b > modules-sha && git add modules-sha",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
+    "run-apollo": "yarn workspace @bmi/apollo-server run start",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -66,9 +61,10 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.12.0",
     "fetch-mock-jest": "^1.5.1",
     "file-loader": "^6.0.0",
-    "husky": "^4.2.5",
+    "husky": "^7.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
     "jest-css-modules-transform": "^4.3.0",

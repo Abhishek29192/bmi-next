@@ -9,7 +9,7 @@ exports[`ProfileCard component renders an element if the image source is a compo
       class="head"
     >
       <div
-        class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+        class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
       >
         <h1>
           Something here
@@ -71,7 +71,7 @@ exports[`ProfileCard component renders correctly with an image 1`] = `
     class="head"
   >
     <div
-      class="MuiAvatar-root MuiAvatar-circle profile-picture"
+      class="MuiAvatar-root MuiAvatar-circular profile-picture"
     >
       <img
         class="MuiAvatar-img"
@@ -133,7 +133,7 @@ exports[`ProfileCard component renders correctly without an image 1`] = `
     class="head"
   >
     <div
-      class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+      class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
     >
       <svg
         aria-hidden="true"

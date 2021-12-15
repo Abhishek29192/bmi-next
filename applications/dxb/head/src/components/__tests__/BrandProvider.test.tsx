@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { useTheme } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 import BrandProvider, { getBrandClassName } from "../BrandProvider";
 
 describe("BrandProvider", () => {

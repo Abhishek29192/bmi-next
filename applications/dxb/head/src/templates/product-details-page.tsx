@@ -4,6 +4,7 @@ import Container from "@bmi/container";
 import Section from "@bmi/section";
 import Grid, { GridSize } from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
+import { Image as ImageGalleryImage } from "@bmi/image-gallery";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SiteData } from "../components/Site";
 import ProductOverview, {
@@ -157,7 +158,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const getTechDrawings = (
     images: readonly Image[],
     selfProdImages: readonly Image[]
-  ): Image[] => {
+  ): readonly ImageGalleryImage[] => {
     const imagesByFormat: Image[][] = Object.values(
       groupImage([...(images || []), ...(selfProdImages || [])], "containerId")
     );

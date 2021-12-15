@@ -5,7 +5,6 @@ import Icon, { iconMap } from "@bmi/icon";
 import Table from "@bmi/table";
 import classnames from "classnames";
 import filesize from "filesize";
-import { get } from "lodash";
 import React, { useContext } from "react";
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
@@ -241,10 +240,9 @@ const DocumentSimpleTableResults = ({
                               "documentLibrary.download"
                             )} ${title}`}
                             value={document}
-                            fileSize={get(
-                              document,
-                              typenameToSizeMap[document.__typename]
-                            )}
+                            fileSize={
+                              document[typenameToSizeMap[document.__typename]]
+                            }
                           />
                         ) : (
                           <span className={styles["no-document-icon"]}>-</span>

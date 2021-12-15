@@ -12,7 +12,7 @@ import ProductListerPage, {
 } from "../../templates/product-lister-page";
 import { Data as PageInfoData } from "../../components/PageInfo";
 import { Data as PageData } from "../../components/Page";
-import { RichTextData } from "../../components/RichText";
+import { RichTextData } from "../RichText";
 import { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
 import { Data as LinkData, DataTypeEnum } from "../../components/Link";
 import { Data as SiteData } from "../Site";
@@ -191,6 +191,7 @@ const productWithVariantAndBase = {
       parentCategoryCode: "Root"
     }
   ],
+  images: [],
   variantOptions: [
     {
       code: "test1",
@@ -264,9 +265,11 @@ function mockUseDimensions({
       .mockImplementationOnce(getDimensionHookFn(mediumTableWidth));
   }
 }
+
 process.env.GATSBY_USE_LEGACY_FILTERS = "true";
 process.env.GATSBY_RECAPTCHA_KEY = "test";
 process.env.GATSBY_VISUALISER_ASSETS_URL = "jest-test-page";
+
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));
 

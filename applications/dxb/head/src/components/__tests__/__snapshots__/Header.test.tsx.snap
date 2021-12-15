@@ -49,8 +49,11 @@ exports[`Header component renders correctly 1`] = `
                 class="MuiButton-label buttonStyles-label-4"
               >
                 <img
+                  alt="United Kingdom"
                   class="language-icon"
+                  height="16px"
                   src="/icons/flags/uk.svg"
+                  width="20px"
                 />
                 GB
                 <span
@@ -166,7 +169,9 @@ exports[`Header component renders correctly 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/al.svg"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -193,7 +198,9 @@ exports[`Header component renders correctly 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/at.svg"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -220,7 +227,9 @@ exports[`Header component renders correctly 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/uk.svg"
+                        width="20px"
                       />
                     </span>
                     United Kingdom
@@ -655,8 +664,11 @@ exports[`Header component renders correctly 1`] = `
                   class="LanguageButtonContent"
                 >
                   <img
+                    alt="United Kingdom"
                     class="LanguageIcon"
+                    height="16px"
                     src="/icons/flags/uk.svg"
+                    width="20px"
                   />
                   GB
                 </span>
@@ -774,8 +786,11 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 class="MuiButton-label buttonStyles-label-28"
               >
                 <img
+                  alt=""
                   class="language-icon"
+                  height="16px"
                   src="/icons/flags/globe.svg"
+                  width="20px"
                 />
                 EN
                 <span
@@ -891,7 +906,9 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/al.svg"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -918,7 +935,9 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/at.svg"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -945,7 +964,9 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/uk.svg"
+                        width="20px"
                       />
                     </span>
                     United Kingdom
@@ -1380,8 +1401,11 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                   class="LanguageButtonContent"
                 >
                   <img
+                    alt=""
                     class="LanguageIcon"
+                    height="16px"
                     src="/icons/flags/globe.svg"
+                    width="20px"
                   />
                   EN
                 </span>
@@ -1501,8 +1525,11 @@ exports[`Header component shows sample basket icon 1`] = `
                 class="MuiButton-label buttonStyles-label-76"
               >
                 <img
+                  alt="United Kingdom"
                   class="language-icon"
+                  height="16px"
                   src="/icons/flags/uk.svg"
+                  width="20px"
                 />
                 GB
                 <span
@@ -1618,7 +1645,9 @@ exports[`Header component shows sample basket icon 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/al.svg"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -1645,7 +1674,9 @@ exports[`Header component shows sample basket icon 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/at.svg"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -1672,7 +1703,9 @@ exports[`Header component shows sample basket icon 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/uk.svg"
+                        width="20px"
                       />
                     </span>
                     United Kingdom
@@ -2134,8 +2167,11 @@ exports[`Header component shows sample basket icon 1`] = `
                   class="LanguageButtonContent"
                 >
                   <img
+                    alt="United Kingdom"
                     class="LanguageIcon"
+                    height="16px"
                     src="/icons/flags/uk.svg"
+                    width="20px"
                   />
                   GB
                 </span>
@@ -2253,8 +2289,11 @@ exports[`Header component toggles search 1`] = `
                 class="MuiButton-label buttonStyles-label-52"
               >
                 <img
+                  alt="United Kingdom"
                   class="language-icon"
+                  height="16px"
                   src="/icons/flags/uk.svg"
+                  width="20px"
                 />
                 GB
                 <span
@@ -2370,7 +2409,9 @@ exports[`Header component toggles search 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/al.svg"
+                        width="20px"
                       />
                     </span>
                     Albania
@@ -2397,7 +2438,9 @@ exports[`Header component toggles search 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/at.svg"
+                        width="20px"
                       />
                     </span>
                     Österreich
@@ -2424,7 +2467,9 @@ exports[`Header component toggles search 1`] = `
                     >
                       <img
                         class="LanguageIcon"
+                        height="16px"
                         src="/icons/flags/uk.svg"
+                        width="20px"
                       />
                     </span>
                     United Kingdom
@@ -2859,8 +2904,11 @@ exports[`Header component toggles search 1`] = `
                   class="LanguageButtonContent"
                 >
                   <img
+                    alt="United Kingdom"
                     class="LanguageIcon"
+                    height="16px"
                     src="/icons/flags/uk.svg"
+                    width="20px"
                   />
                   GB
                 </span>

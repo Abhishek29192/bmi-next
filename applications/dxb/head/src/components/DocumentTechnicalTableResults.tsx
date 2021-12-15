@@ -1,15 +1,13 @@
 import React, { useMemo } from "react";
-import { groupBy, uniqBy } from "lodash";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
-import {
-  PIMDocumentData,
-  PIMLinkDocumentData
-} from "../components/types/PIMDocumentBase";
+import groupBy from "../utils/groupBy";
+import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
 import DesktopDocumentTechnicalTableResults from "./_DesktopDocumentTechnicalTableResults";
 import MobileDocumentTechnicalTableResults from "./_MobileDocumentTechnicalTableResults";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import fileIconsMap from "./FileIconsMap";
+import { Data as AssetTypeData } from "./AssetType";
 
 type Props = {
   documents: (PIMDocumentData | PIMLinkDocumentData)[];
@@ -20,7 +18,7 @@ type Props = {
 const groupDocuments = (
   documents: (PIMDocumentData | PIMLinkDocumentData)[]
 ): [string, (PIMDocumentData | PIMLinkDocumentData)[]][] =>
-  Object.entries(groupBy(documents, "product.code"));
+  Object.entries(groupBy(documents, (document) => document.product.code));
 
 export const getCount = (documents: Props["documents"]): number => {
   return groupDocuments(documents).length;
@@ -37,10 +35,13 @@ const DocumentTechnicalTableResults = ({
   );
   const assetTypes = useMemo(
     () =>
-      uniqBy(
-        documents.map(({ assetType }) => assetType),
-        "id"
-      ),
+      documents
+        .map(({ assetType }) => assetType)
+        .reduce<AssetTypeData[]>((assetTypes, assetType) => {
+          assetTypes.find((type) => type.id === assetType.id) ||
+            assetTypes.push(assetType);
+          return assetTypes;
+        }, []),
     [documents]
   );
 

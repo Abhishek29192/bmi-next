@@ -1,4 +1,4 @@
-import * as THREE from "three";
+import { BufferAttribute, BufferGeometry } from "three";
 
 /*
  * Given a tile mesh (A three.js BufferGeometry object), this outputs a new geometry which has been
@@ -13,7 +13,7 @@ import * as THREE from "three";
  */
 
 export default (
-  bufferGeometry: THREE.BufferGeometry,
+  bufferGeometry: BufferGeometry,
   axisInTileUnits: number,
   axis: "x" | "z",
   keepSide: "left" | "right"
@@ -207,7 +207,7 @@ export default (
   }
 
   // The new geometry
-  const slicedTile = new THREE.BufferGeometry();
+  const slicedTile = new BufferGeometry();
 
   // If we have new verts:
   if (newVerts.length) {
@@ -222,10 +222,7 @@ export default (
       vertBuffer[verts.length + i] = newVerts[i];
     }
 
-    slicedTile.setAttribute(
-      "position",
-      new THREE.BufferAttribute(vertBuffer, 3)
-    );
+    slicedTile.setAttribute("position", new BufferAttribute(vertBuffer, 3));
 
     if (normals) {
       const normalBuffer = new Float32Array(totalVertCount);
@@ -236,10 +233,7 @@ export default (
         normalBuffer[verts.length + i] = newNormals[i];
       }
 
-      slicedTile.setAttribute(
-        "normal",
-        new THREE.BufferAttribute(normalBuffer, 3)
-      );
+      slicedTile.setAttribute("normal", new BufferAttribute(normalBuffer, 3));
     }
 
     if (uvs) {
@@ -251,7 +245,7 @@ export default (
         uvBuffer[uvs.array.length + i] = newUvs[i];
       }
 
-      slicedTile.setAttribute("uv", new THREE.BufferAttribute(uvBuffer, 2));
+      slicedTile.setAttribute("uv", new BufferAttribute(uvBuffer, 2));
     }
   } else {
     for (const key in bufferGeometry.attributes) {
@@ -260,10 +254,7 @@ export default (
     }
   }
 
-  slicedTile.index = new THREE.BufferAttribute(
-    new Uint16Array(newTriangles),
-    1
-  );
+  slicedTile.index = new BufferAttribute(new Uint16Array(newTriangles), 1);
   slicedTile.computeBoundingBox();
   return slicedTile;
 };

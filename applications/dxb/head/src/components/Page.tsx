@@ -6,6 +6,10 @@ import BackToTop from "@bmi/back-to-top";
 import MicroCopy from "@bmi/micro-copy";
 import { graphql, navigate } from "gatsby";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import EffraBold from "@bmi/theme-provider/src/fonts/Effra_W_Bold.woff2";
+import EffraHeavy from "@bmi/theme-provider/src/fonts/Effra_W_Heavy.woff2";
+import EffraMedium from "@bmi/theme-provider/src/fonts/Effra_W_Medium.woff2";
+import EffraRegular from "@bmi/theme-provider/src/fonts/Effra_W_Regular.woff2";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import InputBanner, {
@@ -17,10 +21,10 @@ import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import BrandProvider from "./BrandProvider";
 import {
-  SiteContextProvider,
+  Context as SiteContext,
   Data as SiteData,
-  useSiteContext,
-  Context as SiteContext
+  SiteContextProvider,
+  useSiteContext
 } from "./Site";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import { generateGetMicroCopy } from "./MicroCopy";
@@ -157,6 +161,35 @@ const Page = ({
         title={seo?.metaTitle || title}
         defer={false}
       >
+        <link
+          rel="preload"
+          href={EffraBold}
+          as="font"
+          type="font/woff2"
+          crossOrigin=""
+        ></link>
+        <link
+          rel="preload"
+          href={EffraHeavy}
+          as="font"
+          type="font/woff2"
+          crossOrigin=""
+        ></link>
+        <link
+          rel="preload"
+          href={EffraMedium}
+          as="font"
+          type="font/woff2"
+          crossOrigin=""
+        ></link>
+        <link
+          rel="preload"
+          href={EffraRegular}
+          as="font"
+          type="font/woff2"
+          crossOrigin=""
+        ></link>
+
         {imageUrl && <meta property="og:image" content={imageUrl} />}
 
         {noindex && <meta name="robots" content="noindex, nofollow" />}
@@ -169,7 +202,7 @@ const Page = ({
         {seo?.metaDescription && (
           <meta name="description" content={seo.metaDescription} />
         )}
-        {headScripts && <script>{headScripts.headScripts}</script>}
+        {headScripts && <script async>{headScripts.headScripts}</script>}
 
         {enableOnetrust && (
           <script
@@ -177,10 +210,11 @@ const Page = ({
             type="text/javascript"
             charSet="UTF-8"
             data-domain-script={scriptOnetrust}
+            async
           />
         )}
         {enableOnetrust && (
-          <script type="text/javascript">
+          <script type="text/javascript" async>
             {`function OptanonWrapper() {}`}
           </script>
         )}
@@ -190,14 +224,16 @@ const Page = ({
         )}
 
         {enableTagManagerId && (
-          <script>{`(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+          <script
+            async
+          >{`(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
           h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
           (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
         })(window,document.documentElement,'async-hide','dataLayer',4000,
           {'${process.env.GOOGLE_TAGMANAGER_ID}':true});`}</script>
         )}
         {enableGA && (
-          <script>
+          <script async>
             {`<!-- Global site tag (gtag.js) - Google Analytics -->
             window.dataLayer = window.dataLayer || []; 
             function gtag(){dataLayer.push(arguments);} 
@@ -213,17 +249,31 @@ const Page = ({
         )}
 
         {enableHotjar && (
-          <script>
+          <script async>
             {`<!-- Hotjar Tracking Code for https://www.bmigroup.com/no -->
-              (function(h,o,t,j,a,r){
-                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                h._hjSettings={hjid:${scriptHotJar},hjsv:6};
-                a=o.getElementsByTagName('head')[0];
-                r=o.createElement('script');r.async=1;
-                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                a.appendChild(r);
-            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
+                (function(h,o,t,j,a,r){
+                  h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                  h._hjSettings={hjid:${scriptHotJar},hjsv:6};
+                  a=o.getElementsByTagName('head')[0];
+                  r=o.createElement('script');r.async=1;
+                  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                  a.appendChild(r);
+              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
           </script>
+        )}
+        {enableHotjar && (
+          <link
+            rel="preconnect"
+            href="https://script.hotjar.com/"
+            crossOrigin="anonymous"
+          />
+        )}
+        {enableHotjar && (
+          <link
+            rel="preconnect"
+            href="https://vars.hotjar.com"
+            crossOrigin="anonymous"
+          />
         )}
         {enableGOptimize && (
           <script
@@ -236,6 +286,7 @@ const Page = ({
           <script
             id="hubspot-cta-script"
             src="https://js.hscta.net/cta/current.js"
+            async
           />
         )}
         <script lang="javascript">
@@ -266,6 +317,7 @@ const Page = ({
               reCaptchaKey={reCaptchaKey}
               useRecaptchaNet={reCaptchaNet}
               language={countryCode}
+              scriptProps={{ async: true }}
             >
               <BmiThemeProvider>
                 <Header

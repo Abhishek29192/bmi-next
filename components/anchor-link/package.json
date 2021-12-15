@@ -14,7 +14,7 @@
     "@bmi/clickable": "0.0.0",
     "@bmi/icon": "0.0.0",
     "@bmi/styles": "0.0.0",
-    "@material-ui/core": "^4.10.1",
+    "@material-ui/core": "^4.10.2",
     "react": "^16.13.1"
   }
 }

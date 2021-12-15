@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Visualiser, { tilesSetData, sidingsSetData } from "../";
+import Visualiser, { sidingsSetData, tilesSetData } from "../";
 import { Tile } from "../Types";
 
 describe("Visualiser component", () => {
