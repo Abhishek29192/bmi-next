@@ -74,6 +74,17 @@ exports[`AnchorLink component renders multi-line with icon correctly 1`] = `
 </a>
 `;
 
+exports[`AnchorLink component renders only with data from context 1`] = `
+<a
+  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--black MuiTypography-colorPrimary"
+  type="button"
+>
+  <span>
+    BMI Group
+  </span>
+</a>
+`;
+
 exports[`AnchorLink component renders trailing icon correctly 1`] = `
 <a
   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
@@ -101,6 +112,59 @@ exports[`AnchorLink component renders with a specified color 1`] = `
 </a>
 `;
 
+exports[`AnchorLink component renders with children component 1`] = `
+<a
+  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+  type="button"
+>
+  <span>
+    <div>
+      Test
+    </div>
+  </span>
+</a>
+`;
+
+exports[`AnchorLink component renders with className 1`] = `
+<a
+  class="MuiTypography-root MuiLink-root MuiLink-underlineHover test-className Anchorlink MuiTypography-colorPrimary"
+  type="button"
+>
+  <span>
+    Test
+  </span>
+</a>
+`;
+
+exports[`AnchorLink component renders with iconInverted 1`] = `
+<a
+  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+  type="button"
+>
+  <svg
+    aria-hidden="true"
+    class="icon icon--inverted"
+    focusable="false"
+  />
+  <span>
+    Test
+  </span>
+</a>
+`;
+
+exports[`AnchorLink component renders with rest props 1`] = `
+<a
+  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+  rel="noreferrer"
+  target="_blank"
+  type="button"
+>
+  <span>
+    Test
+  </span>
+</a>
+`;
+
 exports[`AnchorLink component renders within a dark color pair context 1`] = `
 <a
   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
@@ -113,17 +177,6 @@ exports[`AnchorLink component renders within a dark color pair context 1`] = `
 `;
 
 exports[`AnchorLink component renders within a light color pair context 1`] = `
-<a
-  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
-  type="button"
->
-  <span>
-    BMI Group
-  </span>
-</a>
-`;
-
-exports[`AnchorLink component renders within a white themed color pair context 1`] = `
 <a
   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
   type="button"
