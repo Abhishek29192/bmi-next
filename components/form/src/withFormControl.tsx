@@ -35,7 +35,7 @@ const withFormControl = <P extends {}, I extends InputValue>(
         return fieldIsRequiredError || null;
       }
       if (getValidationError && getValidationError(val)) {
-        return getValidationError(val) || null;
+        return getValidationError(val);
       }
       return null;
     };
