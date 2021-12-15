@@ -6,6 +6,7 @@ const groupBy = <T extends {}>(
     if (typeof field === "function") {
       (grouped[field(value)] || (grouped[field(value)] = [])).push(value);
     } else {
+      // eslint-disable-next-line security/detect-object-injection
       (grouped[`${value[field]}`] || (grouped[`${value[field]}`] = [])).push(
         value
       );

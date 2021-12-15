@@ -67,6 +67,7 @@ export const SetTradingAddress = ({
     (updatedAddress) => {
       const formValue = (key) => ({
         // return "" in case of empty field, in order to re-render the input field
+        // eslint-disable-next-line security/detect-object-injection
         [`tradingAddress.${key}`]: updatedAddress[key] || ""
       });
 

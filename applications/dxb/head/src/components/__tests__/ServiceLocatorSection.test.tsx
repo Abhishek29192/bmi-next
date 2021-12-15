@@ -1,5 +1,5 @@
 import React from "react";
-import { act, fireEvent, render } from "@testing-library/react";
+import { act, fireEvent } from "@testing-library/react";
 import { LocationProvider } from "@reach/router";
 import camelCase from "lodash-es/camelCase";
 import ServiceLocatorSection, {
