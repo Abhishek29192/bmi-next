@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import React from "react";
-import { render, fireEvent, waitFor, screen } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import BackToTop from "../";
 
 describe("BackToTop component", () => {

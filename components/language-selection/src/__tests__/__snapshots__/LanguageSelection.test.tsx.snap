@@ -263,7 +263,9 @@ exports[`LanguageSelection component renders correctly if forceMobile 1`] = `
             >
               <img
                 class="LanguageIcon"
+                height="16px"
                 src="path/to/al.svg"
+                width="20px"
               />
             </span>
             Albania
@@ -290,7 +292,9 @@ exports[`LanguageSelection component renders correctly if forceMobile 1`] = `
             >
               <img
                 class="LanguageIcon"
+                height="16px"
                 src="path/to/at.svg"
+                width="20px"
               />
             </span>
             Österreich
