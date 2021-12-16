@@ -1,8 +1,6 @@
-import {
-  createMuiTheme,
-  ThemeProvider as MaterialThemeProvider,
-  ThemeOptions
-} from "@material-ui/core";
+import { createTheme, ThemeOptions } from "@material-ui/core/styles";
+import MaterialThemeProvider from "@material-ui/styles/ThemeProvider";
+
 import React from "react";
 import variables from "./ThemeProvider.module.scss";
 import { effraBold, effraHeavy, effraMedium, effraRegular } from "./fonts";
@@ -104,7 +102,7 @@ export const getTheme = (
     },
     ...getCssOverrides()
   };
-  return createMuiTheme(modifyTheme(defaultTheme));
+  return createTheme(modifyTheme(defaultTheme));
 };
 
 type Props = {
