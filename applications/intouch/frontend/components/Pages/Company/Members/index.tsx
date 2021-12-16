@@ -67,8 +67,8 @@ export type MessageProp = {
 const CERTIFICATION_ICONS: {
   [K in Technology]: React.FC<React.SVGProps<SVGSVGElement>>;
 } = {
-  FLAT: CertificationPitchedRoof,
-  PITCHED: CertificationFlatRoof,
+  FLAT: CertificationFlatRoof,
+  PITCHED: CertificationPitchedRoof,
   OTHER: CertificationOtherTraining
 };
 
