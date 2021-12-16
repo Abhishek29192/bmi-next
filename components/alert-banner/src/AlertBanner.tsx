@@ -50,7 +50,7 @@ const AlertBanner = ({
         [styles[`Alert--${severity}`]!]: ["error", "success"].includes(severity)
       })}
       style={{
-        top: stickyPosition && `${stickyPosition}px`
+        top: typeof stickyPosition && `${stickyPosition}px`
       }}
     >
       <div className={styles["actions"]}>{actions}</div>
