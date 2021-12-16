@@ -104,4 +104,39 @@ describe("Breadcrumbs component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it("renders correctly more than 5 items - small screens", () => {
+    // @ts-ignore Only used for testing.
+    window.matchMedia = createMatchMedia(600);
+
+    const { container } = render(
+      <Breadcrumbs>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
+          BMI Group
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/products" }}>
+          Products
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/tiles" }}>
+          Tiles
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/tea" }}>
+          Tea
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/biscuits" }}>
+          Biscuits
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/chocolate" }}>
+          Chocolate
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/ice-cream" }}>
+          Ice Cream
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/pizza" }}>
+          Pizza
+        </Breadcrumbs.Item>
+      </Breadcrumbs>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

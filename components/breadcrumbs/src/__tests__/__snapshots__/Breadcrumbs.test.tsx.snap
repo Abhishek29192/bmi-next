@@ -49,6 +49,114 @@ exports[`Breadcrumbs component renders correctly 1`] = `
 </nav>
 `;
 
+exports[`Breadcrumbs component renders correctly more than 5 items - small screens 1`] = `
+<nav
+  aria-label="breadcrumbs"
+  class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary"
+>
+  <ol
+    class="MuiBreadcrumbs-ol"
+  >
+    <li
+      class="MuiBreadcrumbs-li"
+    >
+      <a
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-text buttonStyles-text-82 button link MuiButton-textPrimary"
+        href="/"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-84"
+        >
+          <span
+            class="label"
+          >
+            BMI Group
+          </span>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </a>
+    </li>
+    <li
+      aria-hidden="true"
+      class="MuiBreadcrumbs-separator"
+    >
+      /
+    </li>
+    <li
+      class="MuiBreadcrumbs-li"
+    >
+      <p
+        class="MuiTypography-root ellipsis Typography MuiTypography-body1"
+      >
+        ...
+      </p>
+    </li>
+    <li
+      aria-hidden="true"
+      class="MuiBreadcrumbs-separator"
+    >
+      /
+    </li>
+    <li
+      class="MuiBreadcrumbs-li"
+    >
+      <a
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-text buttonStyles-text-82 button link MuiButton-textPrimary"
+        href="/ice-cream"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-84"
+        >
+          <span
+            class="label"
+          >
+            Ice Cream
+          </span>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </a>
+    </li>
+    <li
+      aria-hidden="true"
+      class="MuiBreadcrumbs-separator"
+    >
+      /
+    </li>
+    <li
+      class="MuiBreadcrumbs-li"
+    >
+      <a
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-text buttonStyles-text-82 button link MuiButton-textPrimary"
+        href="/pizza"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-84"
+        >
+          <span
+            class="label"
+          >
+            Pizza
+          </span>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </a>
+    </li>
+  </ol>
+</nav>
+`;
+
 exports[`Breadcrumbs component renders correctly only one item 1`] = `
 <nav
   aria-label="breadcrumbs"
