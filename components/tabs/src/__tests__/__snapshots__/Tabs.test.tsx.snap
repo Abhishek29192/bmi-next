@@ -154,7 +154,7 @@ exports[`Tabs component renders correctly when one tab is false 1`] = `
               </button>
             </div>
             <span
-              class="PrivateTabIndicator-root-25 PrivateTabIndicator-colorPrimary-26 MuiTabs-indicator"
+              class="PrivateTabIndicator-root-19 PrivateTabIndicator-colorPrimary-20 MuiTabs-indicator"
               style="left: 0px; width: 0px;"
             />
           </div>
@@ -170,7 +170,7 @@ exports[`Tabs component renders correctly when one tab is false 1`] = `
     role="tabpanel"
   >
     <div
-      class="MuiBox-root MuiBox-root-29 TabPanelBox"
+      class="MuiBox-root MuiBox-root-23 TabPanelBox"
     >
       Content One
     </div>
@@ -178,9 +178,114 @@ exports[`Tabs component renders correctly when one tab is false 1`] = `
 </div>
 `;
 
-exports[`Tabs component renders correctly when visibleUntil is defined 1`] = `
+exports[`Tabs component renders correctly when visibleUntil is set to md  1`] = `
 <div
   class="Tabs Tabs--primary Tabs--visible-until-md"
+>
+  <div
+    class="TabsBar"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="MuiTabs-root"
+        >
+          <div
+            class="MuiTabs-scrollable"
+            style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+          />
+          <div
+            class="MuiTabs-scroller MuiTabs-scrollable"
+            style="margin-bottom: 0px;"
+          >
+            <div
+              aria-label="tabs"
+              class="MuiTabs-flexContainer"
+              role="tablist"
+            >
+              <button
+                aria-controls="tabpanel-0"
+                aria-selected="true"
+                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                id="tab-0"
+                role="tab"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiTab-wrapper"
+                >
+                  Tab 1
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+              <button
+                aria-controls="tabpanel-1"
+                aria-selected="false"
+                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
+                id="tab-1"
+                role="tab"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="MuiTab-wrapper"
+                >
+                  Tab 2
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+            <span
+              class="PrivateTabIndicator-root-24 PrivateTabIndicator-colorPrimary-25 MuiTabs-indicator"
+              style="left: 0px; width: 0px;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-labelledby="tab-0"
+    class="MuiGrid-root TabPanel MuiGrid-item"
+    heading="Tab 1"
+    id="tabpanel-0"
+    role="tabpanel"
+  >
+    <div
+      class="MuiBox-root MuiBox-root-28 TabPanelBox"
+    >
+      Content One
+    </div>
+  </div>
+  <div
+    aria-labelledby="tab-1"
+    class="MuiGrid-root TabPanel MuiGrid-item"
+    heading="Tab 2"
+    hidden=""
+    id="tabpanel-1"
+    role="tabpanel"
+  >
+    <div
+      class="MuiBox-root MuiBox-root-29 TabPanelBox"
+    >
+      Content Two
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs component renders correctly when visibleUntil is set to sm  1`] = `
+<div
+  class="Tabs Tabs--primary Tabs--visible-until-sm"
 >
   <div
     class="TabsBar"
@@ -395,5 +500,3 @@ Array [
   ],
 ]
 `;
-
-exports[`Tabs component triggers onChange undefined 1`] = `Array []`;
