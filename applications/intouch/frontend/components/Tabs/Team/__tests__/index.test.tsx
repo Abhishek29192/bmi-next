@@ -15,10 +15,13 @@ jest.mock("@bmi/use-dimensions", () => ({
 
 const mockDeleteProjectMember = jest.fn(() => {});
 jest.mock("../../../../graphql/generated/hooks", () => ({
-  useDeleteProjectMemberMutation: () => [mockDeleteProjectMember],
-  useAddProjectsMemberMutation: () => [jest.fn()],
-  useGetProjectCompanyMembersLazyQuery: () => [jest.fn()],
-  useUpdateProjectMemberMutation: () => [jest.fn()]
+  useDeleteProjectMemberMutation: () => [
+    mockDeleteProjectMember,
+    { loading: false }
+  ],
+  useAddProjectsMemberMutation: () => [jest.fn(), { loading: false }],
+  useGetProjectCompanyMembersLazyQuery: () => [jest.fn(), { loading: false }],
+  useUpdateProjectMemberMutation: () => [jest.fn(), { loading: false }]
 }));
 
 describe("TeamTab Components", () => {

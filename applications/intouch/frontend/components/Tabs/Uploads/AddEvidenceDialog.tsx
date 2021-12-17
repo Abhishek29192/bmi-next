@@ -12,6 +12,7 @@ import { DeepPartial } from "../../../lib/utils/types";
 
 type AddEvidenceDialogProps = {
   isOpen: boolean;
+  loading: boolean;
   evidenceCategories?: DeepPartial<ContentfulEvidenceCategory>[];
   onCloseClick: () => void;
   onConfirmClick: (
@@ -29,7 +30,8 @@ export const AddEvidenceDialog = ({
   isOpen,
   evidenceCategories = [],
   onCloseClick,
-  onConfirmClick
+  onConfirmClick,
+  loading
 }: AddEvidenceDialogProps) => {
   const { t } = useTranslation("project-page");
   const [files, setFiles] = useState<File[]>([]);
@@ -111,7 +113,7 @@ export const AddEvidenceDialog = ({
       <Dialog.Actions
         confirmLabel={t("upload_tab.add_evidence_modal.confirm_label")}
         onConfirmClick={addEvidenceHandler}
-        isConfirmButtonDisabled={files.length === 0}
+        isConfirmButtonDisabled={loading || files.length === 0}
         cancelLabel={t("upload_tab.add_evidence_modal.cancel_label")}
         onCancelClick={() => onCloseClick()}
       />

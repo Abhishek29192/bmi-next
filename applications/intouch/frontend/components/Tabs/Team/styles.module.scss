@@ -23,3 +23,8 @@
     }
   }
 }
+
+.deleteButton:disabled {
+  background-color: transparent !important;
+  opacity: 0.6;
+}

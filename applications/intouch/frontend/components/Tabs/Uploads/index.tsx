@@ -156,7 +156,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
   const [selectedEvidenceCollection, setSelectedEvidenceCollection] =
     useState<EvidenceCollection>();
 
-  const [addEvidences] = useAddEvidencesMutation({
+  const [addEvidences, { loading: loadingAdd }] = useAddEvidencesMutation({
     refetchQueries: [
       {
         query: GetProjectDocument,
@@ -167,16 +167,17 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
     ]
   });
 
-  const [deleteEvidence] = useDeleteEvidenceItemMutation({
-    refetchQueries: [
-      {
-        query: GetProjectDocument,
-        variables: {
-          projectId
+  const [deleteEvidence, { loading: loadingDelete }] =
+    useDeleteEvidenceItemMutation({
+      refetchQueries: [
+        {
+          query: GetProjectDocument,
+          variables: {
+            projectId
+          }
         }
-      }
-    ]
-  });
+      ]
+    });
 
   const evidenceDialogConfirmHandler = async (
     evidenceCategoryType: EvidenceCategoryType,
@@ -344,6 +345,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
                                       <Button
                                         data-testid="upload-item-delete"
                                         variant="text"
+                                        disabled={loadingDelete}
                                         onClick={() => {
                                           onDeleteClickHandler(value.id);
                                         }}
@@ -378,6 +380,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
           }
           onCloseClick={() => setEvidenceDialogOpen(false)}
           onConfirmClick={evidenceDialogConfirmHandler}
+          loading={loadingAdd}
         />
         <RequirementDialog
           isOpen={isRequirementOpen}
