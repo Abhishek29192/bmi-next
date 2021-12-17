@@ -31,7 +31,7 @@ const EqualHeights = ({ children }: { children: React.ReactNode }) => {
   const setHeights = useCallback(() => {
     const offsetHeights = Object.values(refs.current)
       .map((ref) => {
-        return ref.current && ref.current.clientHeight;
+        return ref.current.clientHeight;
       })
       .filter(Boolean);
 

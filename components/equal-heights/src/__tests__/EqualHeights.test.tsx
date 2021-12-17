@@ -58,7 +58,7 @@ describe("EqualHeights component", () => {
 
       expect(container.firstChild).toMatchSnapshot();
     });
-    it("should set equal height to added elements", () => {
+    it("should get the biggest height of added elements and if it's not equal with current height of elements set new height value to all added elements", () => {
       let count = 0;
       Object.defineProperties(window.HTMLElement.prototype, {
         clientHeight: {
@@ -80,7 +80,7 @@ describe("EqualHeights component", () => {
 
   describe("test EqualHeights.Consumer without Provider", () => {
     it("should call addRef method from default context", () => {
-      const { container } = render(<>{mockElements(undefined)}</>);
+      const { container } = render(<>{mockElements()}</>);
       fireEvent.click(screen.getByRole("button"));
       expect(container.firstChild).toMatchSnapshot();
     });
