@@ -111,6 +111,7 @@ jest.mock("react-google-recaptcha-v3", () => ({
 }));
 
 jest.spyOn(local, "getItem").mockReturnValue(JSON.stringify([sample]));
+jest.spyOn(local, "setItem");
 
 describe("SampleBasketSection component", () => {
   it("renders correctly", () => {
@@ -125,9 +126,11 @@ describe("SampleBasketSection component", () => {
 
   it("should render form after complete button press", () => {
     const { container } = render(
-      <BasketContextProvider>
-        <SampleBasketSection data={data} />
-      </BasketContextProvider>
+      <MockSiteContext>
+        <BasketContextProvider>
+          <SampleBasketSection data={data} />
+        </BasketContextProvider>
+      </MockSiteContext>
     );
 
     expect(screen.queryByText("Complete form")).toBeNull();
@@ -140,6 +143,11 @@ describe("SampleBasketSection component", () => {
     expect(
       screen.queryByText("MC: pdp.overview.completeSampleOrder")
     ).toBeNull();
+    expect(local.getItem).lastCalledWith("no-basketItems");
+    expect(local.setItem).lastCalledWith(
+      "no-basketItems",
+      '[{"name":"sample-1","classifications":[{"name":"appearanceAttributes","code":"appearanceAttributes","features":[{"code":"colour","featureValues":[{"value":"green"}],"name":"colour"},{"code":"texturefamily","featureValues":[{"value":"rough"}],"name":"texturefamily"}]}],"code":"sample-1","image":"http://localhost:8000/image-real-file-name.jpg","path":"sample-1-details"}]'
+    );
   });
 });
 
@@ -189,6 +197,8 @@ describe("SampleBasketSection with form", () => {
       { products: [sample] },
       { type: BasketContextUtils.ACTION_TYPES.BASKET_CLEAR }
     );
+    expect(local.getItem).lastCalledWith("no-basketItems");
+    expect(local.setItem).lastCalledWith("no-basketItems", "[]");
   });
 });
 describe("SampleBasketSection remove sample from basket", () => {
@@ -217,6 +227,8 @@ describe("SampleBasketSection remove sample from basket", () => {
         "href",
         "/no/zanda-brand/torvtak/"
       );
+      expect(local.getItem).lastCalledWith("no-basketItems");
+      expect(local.setItem).lastCalledWith("no-basketItems", "[]");
     });
   });
 });
