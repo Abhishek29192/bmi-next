@@ -5,6 +5,7 @@ import Upload from "@bmi/upload";
 
 type UploadDialogProps = {
   isOpen: boolean;
+  loading: boolean;
   onCloseClick: () => void;
   onConfirmClick: (files: File[]) => void;
 };
@@ -13,6 +14,7 @@ const MAX_FILE_SIZE: number = 25;
 
 export const UploadDialog = ({
   isOpen,
+  loading,
   onCloseClick,
   onConfirmClick
 }: UploadDialogProps) => {
@@ -56,7 +58,7 @@ export const UploadDialog = ({
       <Dialog.Actions
         confirmLabel={t("document.uploadDialog.confirmLabel")}
         onConfirmClick={() => onConfirmClick(files)}
-        isConfirmButtonDisabled={files.length === 0}
+        isConfirmButtonDisabled={loading || files.length === 0}
         cancelLabel={t("document.uploadDialog.cancelLabel")}
         onCancelClick={() => onCloseClick()}
       />

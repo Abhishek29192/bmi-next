@@ -31,6 +31,7 @@ export type SetCompanyDetailsDialogProps = {
   title: string;
   company?: GetCompanyQuery["company"];
   isOpen: boolean;
+  loading: boolean;
   onCloseClick: () => void;
   onSubmit: (values: { [key: string]: any }) => any;
   errorMessage?: string;
@@ -42,7 +43,8 @@ export const SetCompanyDetailsDialog = ({
   isOpen,
   onCloseClick,
   onSubmit,
-  errorMessage
+  errorMessage,
+  loading
 }: SetCompanyDetailsDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
 
@@ -295,7 +297,7 @@ export const SetCompanyDetailsDialog = ({
                 {t("company-page:edit_dialog.form.actions.cancel")}
               </Form.Button>
             ) : null}
-            <Form.SubmitButton>
+            <Form.SubmitButton disabled={loading}>
               {t("company-page:edit_dialog.form.actions.submit")}
             </Form.SubmitButton>
           </Form.ButtonWrapper>

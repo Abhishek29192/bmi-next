@@ -32,26 +32,28 @@ export const TeamTab = ({
   const [projectMembers, setProjectMembers] = useState<ProjectMember[]>([]);
   const [companyMembers, setCompanyMembers] = useState<CompanyMember[]>([]);
   const [isTeamMemberDialogOpen, setTeamMemberDialogOpen] = useState(false);
-  const [deleteProjectMember] = useDeleteProjectMemberMutation({
-    refetchQueries: [
-      {
-        query: GetProjectDocument,
-        variables: {
-          projectId
+  const [deleteProjectMember, { loading: loadingDeleteMember }] =
+    useDeleteProjectMemberMutation({
+      refetchQueries: [
+        {
+          query: GetProjectDocument,
+          variables: {
+            projectId
+          }
         }
-      }
-    ]
-  });
-  const [addProjectsMember] = useAddProjectsMemberMutation({
-    refetchQueries: [
-      {
-        query: GetProjectDocument,
-        variables: {
-          projectId: projectId
+      ]
+    });
+  const [addProjectsMember, { loading: loadingAddMember }] =
+    useAddProjectsMemberMutation({
+      refetchQueries: [
+        {
+          query: GetProjectDocument,
+          variables: {
+            projectId: projectId
+          }
         }
-      }
-    ]
-  });
+      ]
+    });
   const [getProjectCompanyMembers] = useGetProjectCompanyMembersLazyQuery({
     onCompleted: ({ companyMembers }) => {
       setCompanyMembers(companyMembers?.nodes as CompanyMember[]);
@@ -168,6 +170,7 @@ export const TeamTab = ({
                       onResponsibleInstallerChange={() =>
                         onResponsibleInstallerChangeHandler(team)
                       }
+                      loading={loadingDeleteMember}
                     />
                   )
               )}
@@ -180,6 +183,7 @@ export const TeamTab = ({
         onCloseClick={() => setTeamMemberDialogOpen(false)}
         onConfirmClick={confirmTeamMemberHandler}
         members={companyMembers || []}
+        loading={loadingAddMember}
       />
     </div>
   );

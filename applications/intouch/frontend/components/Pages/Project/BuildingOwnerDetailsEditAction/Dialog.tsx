@@ -27,15 +27,13 @@ export const BuildingOwnerDetailsEditDialog = ({
 }: BuildingOwnerDetailsEditDialogProps) => {
   const { t } = useTranslation();
   const guarantee = findProjectGuarantee(project);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [updateProject] = useUpdateProjectMutation({
+
+  const [updateProject, { loading: isSubmitting }] = useUpdateProjectMutation({
     onError: (error) => {
       log({
         severity: "ERROR",
         message: `There was an error updating project building owner details: ${error.toString()}`
       });
-      // TODO: show some visual error
-      setIsSubmitting(false);
     },
     onCompleted: ({ updateProject: { project } }) => {
       log({
@@ -44,7 +42,6 @@ export const BuildingOwnerDetailsEditDialog = ({
       });
 
       onCompleted && onCompleted();
-      setIsSubmitting(false);
     }
   });
 
@@ -54,8 +51,6 @@ export const BuildingOwnerDetailsEditDialog = ({
     if (isSubmitting) {
       return;
     }
-
-    setIsSubmitting(true);
 
     // we need to account for nested objects (e.g. address)
     const valuesObject = spreadObjectKeys(values, (key, value) => {
@@ -112,6 +107,7 @@ export const BuildingOwnerDetailsEditDialog = ({
 
       <Dialog.Content className={styles.dialogContent}>
         <BuildingOwnerForm
+          key="building-owner-form"
           project={project}
           onSubmit={onSubmit}
           isSubmitting={isSubmitting}

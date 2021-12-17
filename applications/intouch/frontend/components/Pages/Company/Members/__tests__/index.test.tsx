@@ -26,11 +26,14 @@ const mockRoleAccountMutation = jest.fn();
 
 jest.mock("../../../../../graphql/generated/hooks", () => ({
   __esModule: true,
-  useInviteMutation: () => [inviteMock],
-  useDeleteCompanyMemberMutation: () => [mockDelete],
-  useTeamMembersLazyQuery: () => [mockCompanyMembers],
-  useUpdateRoleAccountMutation: () => [mockRoleAccountMutation],
-  useGetTeamsReportLazyQuery: () => [jest.fn()]
+  useInviteMutation: () => [inviteMock, { loading: false }],
+  useDeleteCompanyMemberMutation: () => [mockDelete, { loading: false }],
+  useTeamMembersLazyQuery: () => [mockCompanyMembers, { loading: false }],
+  useUpdateRoleAccountMutation: () => [
+    mockRoleAccountMutation,
+    { loading: false }
+  ],
+  useGetTeamsReportLazyQuery: () => [jest.fn(), { loading: false }]
 }));
 
 jest.mock("@bmi/use-dimensions", () => ({

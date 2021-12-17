@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
 import Table from "@bmi/table";
 import Button from "@bmi/button";
@@ -12,6 +12,7 @@ import styles from "./styles.module.scss";
 
 type TeamMemberItemProps = {
   member: ProjectMember;
+  loading: boolean;
   onDeleteClick?: () => void;
   canNominateProjectResponsible?: boolean;
   isSomeResponsibleInstaller?: boolean;
@@ -23,10 +24,18 @@ export const TeamMemberItem = ({
   onDeleteClick,
   canNominateProjectResponsible,
   isSomeResponsibleInstaller,
-  onResponsibleInstallerChange
+  onResponsibleInstallerChange,
+  loading
 }: TeamMemberItemProps) => {
   const { account, isResponsibleInstaller } = member;
+  const [deletingId, setDeletingId] = useState(null);
   const { t } = useTranslation("common");
+
+  const onInternalDelete = (id) => {
+    setDeletingId(id);
+    onDeleteClick();
+  };
+
   return (
     <Table.Row
       data-testid="team-item"
@@ -62,10 +71,13 @@ export const TeamMemberItem = ({
       </Table.Cell>
       <Table.Cell>
         <Button
+          keu={`delete-btn-member-${member.accountId}`}
           data-testid="team-member-delete"
           variant="text"
           isIconButton
-          onClick={onDeleteClick}
+          onClick={() => onInternalDelete(member.accountId)}
+          disabled={deletingId === member.accountId && loading}
+          className={styles.deleteButton}
         >
           <DeleteIcon color="primary" />
         </Button>

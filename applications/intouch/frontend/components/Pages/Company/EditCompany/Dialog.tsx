@@ -31,7 +31,7 @@ export const EditCompanyDialog = ({
 
   const [errorMessage, setErrorMessage] = useState<string>(null);
 
-  const [updateCompany] = useUpdateCompanyDetailsMutation({
+  const [updateCompany, { loading }] = useUpdateCompanyDetailsMutation({
     onError: (error) => {
       log({
         severity: "ERROR",
@@ -139,6 +139,7 @@ export const EditCompanyDialog = ({
       onCloseClick={onCloseClick}
       onSubmit={onSubmit}
       errorMessage={errorMessage}
+      loading={loading}
     />
   );
 };

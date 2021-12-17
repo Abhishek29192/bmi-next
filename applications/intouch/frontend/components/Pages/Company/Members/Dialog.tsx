@@ -42,7 +42,7 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
   });
   const [emails, setEmails] = useState<string[]>([]);
   const [inputValue, setInputValue] = React.useState("");
-  const [inviteUsers] = useInviteMutation({
+  const [inviteUsers, { loading }] = useInviteMutation({
     onError: (error) => {
       setAlertState({
         open: true,
@@ -186,7 +186,11 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
             >
               {t("team-page:invitation.dialog.cancel")}
             </Button>
-            <Form.SubmitButton data-testid="invite-dialog-submit">
+            <Form.SubmitButton
+              data-testid="invite-dialog-submit"
+              key="btn-send-invitation"
+              disabled={loading}
+            >
               {t("team-page:invitation.dialog.send")}
             </Form.SubmitButton>
           </Form.ButtonWrapper>
