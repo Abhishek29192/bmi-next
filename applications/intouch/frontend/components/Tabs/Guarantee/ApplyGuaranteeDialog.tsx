@@ -44,6 +44,7 @@ export const ApplyGuaranteeDialog = ({
           }
         });
       }
+      onGuaranteeSubmitted && onGuaranteeSubmitted();
       onCloseClick();
       setGuaranteeCoverage(guarantee.coverage);
       setModalOpen(true);
@@ -107,8 +108,6 @@ export const ApplyGuaranteeDialog = ({
         }
       ]
     });
-
-    onGuaranteeSubmitted && onGuaranteeSubmitted();
   };
   return (
     <div>

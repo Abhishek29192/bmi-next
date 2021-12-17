@@ -122,23 +122,17 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
     fetchPolicy: "no-cache",
     notifyOnNetworkStatusChange: true,
     onCompleted: ({ project }) => {
-      const needPolling = project?.guarantees?.nodes?.reduce(
-        (result, guarantee) => {
-          if (!guarantee.signedFileStorageUrl) {
-            result = true;
-          }
-          return result;
-        },
-        false
+      const isMissingPdf = project?.guarantees?.nodes?.some(
+        (guarantee) => !guarantee.signedFileStorageUrl
       );
 
-      if (!needPolling && isPolling) {
-        stopPolling();
-        setIsPolling(false);
+      // If some guarantees are missing the pdf means it is still in creation, I need a polling
+      if (isMissingPdf) {
+        startPollingPdf();
       }
-      if (!isPolling && needPolling) {
-        startPolling(5000);
-        setIsPolling(true);
+      // If not necessary stop any polling if already in started
+      else {
+        stopPollingPdf();
       }
     },
     variables: {
@@ -172,10 +166,17 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
     );
   };
 
-  const onGuaranteeSubmitted = () => {
+  const startPollingPdf = (interval = 5000) => {
     if (!isPolling) {
-      startPolling(5000);
+      startPolling(interval);
       setIsPolling(true);
+    }
+  };
+
+  const stopPollingPdf = () => {
+    if (isPolling) {
+      stopPolling();
+      setIsPolling(false);
     }
   };
 
@@ -238,7 +239,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
             <TabCard>
               <GuaranteeTab
                 project={project}
-                onGuaranteeSubmitted={onGuaranteeSubmitted}
+                onGuaranteeSubmitted={startPollingPdf}
                 isApplyGuarantee={isGuaranteeAppliable}
               />
             </TabCard>
