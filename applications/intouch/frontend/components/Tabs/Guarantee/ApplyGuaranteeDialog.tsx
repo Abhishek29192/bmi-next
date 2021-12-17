@@ -26,11 +26,13 @@ type ApplyGuaranteeDialogProps = {
   isOpen: boolean;
   project: GetProjectQuery["project"];
   onCloseClick: () => void;
+  onGuaranteeSubmitted: () => void;
 };
 export const ApplyGuaranteeDialog = ({
   isOpen,
   project,
-  onCloseClick
+  onCloseClick,
+  onGuaranteeSubmitted
 }: ApplyGuaranteeDialogProps) => {
   const [createGuaranteMutation] = useCreateGuaranteeMutation({
     onCompleted: ({ createGuarantee }) => {
@@ -42,6 +44,7 @@ export const ApplyGuaranteeDialog = ({
           }
         });
       }
+      onGuaranteeSubmitted && onGuaranteeSubmitted();
       onCloseClick();
       setGuaranteeCoverage(guarantee.coverage);
       setModalOpen(true);

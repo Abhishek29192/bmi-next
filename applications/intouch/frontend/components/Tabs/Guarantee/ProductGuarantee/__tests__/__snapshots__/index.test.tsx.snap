@@ -80,6 +80,142 @@ exports[`ProductGuarantee Component renders correctly 1`] = `
         </tbody>
       </table>
     </div>
+    <div
+      class="productCard__footer"
+      data-testid="guarantee-pdf-item"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+        disabled=""
+        rel="noopener noreferrer"
+        tabindex="-1"
+        target="_blank"
+        type="button"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-4"
+        >
+          <span
+            class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+          >
+            <svg
+              class="productCard__logo"
+            />
+          </span>
+          generatingPdf
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProductGuarantee Component renders correctly when pdf available 1`] = `
+<div
+  class="body"
+>
+  <div
+    class="productCard"
+  >
+    <div
+      class="productCard__title"
+    >
+      <h2
+        class="MuiTypography-root Typography MuiTypography-h6"
+      >
+        Product
+      </h2>
+    </div>
+    <div
+      class="productCard__description"
+    >
+      <h6
+        class="MuiTypography-root Typography MuiTypography-subtitle2"
+      >
+        description
+      </h6>
+    </div>
+    <div>
+      <table
+        class="MuiTable-root Table Table--row-even-color"
+      >
+        <thead
+          class="MuiTableHead-root ColorPair ColorPair--pearl"
+        >
+          <tr
+            class="MuiTableRow-root MuiTableRow-head"
+          >
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
+              productDetails.name
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
+              productDetails.family
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
+              productDetails.brand
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="MuiTableBody-root"
+        >
+          <tr
+            class="MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            >
+              Product
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            >
+              family
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            >
+              brand
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      class="productCard__footer"
+      data-testid="guarantee-pdf-item"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+        disabled=""
+        rel="noopener noreferrer"
+        tabindex="-1"
+        target="_blank"
+        type="button"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-24"
+        >
+          <span
+            class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+          >
+            <svg
+              class="productCard__logo"
+            />
+          </span>
+          generatingPdf
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -164,6 +300,32 @@ exports[`ProductGuarantee Component renders multiple guarantee 1`] = `
         </tbody>
       </table>
     </div>
+    <div
+      class="productCard__footer"
+      data-testid="guarantee-pdf-item"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+        disabled=""
+        rel="noopener noreferrer"
+        tabindex="-1"
+        target="_blank"
+        type="button"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-44"
+        >
+          <span
+            class="MuiButton-startIcon buttonStyles-startIcon-45 MuiButton-iconSizeMedium"
+          >
+            <svg
+              class="productCard__logo"
+            />
+          </span>
+          generatingPdf
+        </span>
+      </button>
+    </div>
   </div>
   <div
     class="productCard"
@@ -240,6 +402,32 @@ exports[`ProductGuarantee Component renders multiple guarantee 1`] = `
           </tr>
         </tbody>
       </table>
+    </div>
+    <div
+      class="productCard__footer"
+      data-testid="guarantee-pdf-item"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+        disabled=""
+        rel="noopener noreferrer"
+        tabindex="-1"
+        target="_blank"
+        type="button"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-44"
+        >
+          <span
+            class="MuiButton-startIcon buttonStyles-startIcon-45 MuiButton-iconSizeMedium"
+          >
+            <svg
+              class="productCard__logo"
+            />
+          </span>
+          generatingPdf
+        </span>
+      </button>
     </div>
   </div>
 </div>

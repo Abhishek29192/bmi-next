@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { gql } from "@apollo/client";
 import Grid from "@bmi/grid";
 import Tabs from "@bmi/tabs";
@@ -41,6 +41,7 @@ import { useAccountContext } from "../../context/AccountContext";
 const ProjectDetail = ({ projectId }: { projectId: number }) => {
   const { t } = useTranslation("project-page");
   const { account } = useAccountContext();
+  const [isPolling, setIsPolling] = useState(false);
   const [updateGuarantee] = useUpdateGuaranteeMutation({
     onError: (error) => {
       log({
@@ -114,8 +115,26 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
   const {
     data: { project } = {},
     loading,
-    error
+    error,
+    startPolling,
+    stopPolling
   } = useGetProjectQuery({
+    fetchPolicy: "no-cache",
+    notifyOnNetworkStatusChange: true,
+    onCompleted: ({ project }) => {
+      const isMissingPdf = project?.guarantees?.nodes?.some(
+        (guarantee) => !guarantee.signedFileStorageUrl
+      );
+
+      // If some guarantees are missing the pdf means it is still in creation, I need a polling
+      if (isMissingPdf) {
+        startPollingPdf();
+      }
+      // If not necessary stop any polling if already in started
+      else {
+        stopPollingPdf();
+      }
+    },
     variables: {
       projectId: projectId
     }
@@ -131,7 +150,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
     );
   }
 
-  if (loading)
+  if (loading && !project)
     return (
       <div style={{ minHeight: "100vh" }}>{t("projectDetails.loading")}</div>
     );
@@ -145,6 +164,20 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
       can(account, "project", "nominateResponsible") &&
       ["NEW", "REJECTED"].includes(getGuaranteeStatus(project))
     );
+  };
+
+  const startPollingPdf = (interval = 5000) => {
+    if (!isPolling) {
+      startPolling(interval);
+      setIsPolling(true);
+    }
+  };
+
+  const stopPollingPdf = () => {
+    if (isPolling) {
+      stopPolling();
+      setIsPolling(false);
+    }
   };
 
   return (
@@ -206,6 +239,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
             <TabCard>
               <GuaranteeTab
                 project={project}
+                onGuaranteeSubmitted={startPollingPdf}
                 isApplyGuarantee={isGuaranteeAppliable}
               />
             </TabCard>

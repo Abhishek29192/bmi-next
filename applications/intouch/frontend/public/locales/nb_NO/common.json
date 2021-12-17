@@ -31,6 +31,7 @@
   "ARCHITECT": "Arkitekt",
   "MERCHANT": "Kjøpmann",
   "CORP_DEVELOPER": "Utvikler",
+  "generatingPdf": "Genererer PDF",
   "roles": {
     "INSTALLER": "Medlem",
     "COMPANY_ADMIN": "Bedriftsadministrator",
