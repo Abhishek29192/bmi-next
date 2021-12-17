@@ -1,5 +1,6 @@
 import { createTheme, ThemeOptions } from "@material-ui/core/styles";
 import MaterialThemeProvider from "@material-ui/styles/ThemeProvider";
+import { CssBaseline } from "@material-ui/core";
 
 import React from "react";
 import variables from "./ThemeProvider.module.scss";
@@ -113,16 +114,18 @@ type Props = {
 
 const ThemeProvider = ({
   modifyTheme,
-  includeCssBaseline,
+  includeCssBaseline = true,
   children
 }: Props) => {
   const theme = React.useMemo(
     () => getTheme(modifyTheme, includeCssBaseline),
     [modifyTheme]
   );
-
   return (
-    <MaterialThemeProvider theme={theme}>{children}</MaterialThemeProvider>
+    <MaterialThemeProvider theme={theme}>
+      {includeCssBaseline && <CssBaseline />}
+      {children}
+    </MaterialThemeProvider>
   );
 };
 
