@@ -1,5 +1,5 @@
 import React from "react";
-import get from "lodash/get";
+import { get } from "lodash";
 import { useTranslation } from "next-i18next";
 import { Guarantee } from "@bmi/intouch-api-types";
 import Form, { FormProps } from "@bmi/form";

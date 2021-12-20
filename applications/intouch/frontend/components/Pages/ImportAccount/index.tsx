@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import get from "lodash.get";
+import { get } from "lodash";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import Typography from "@bmi/typography";
