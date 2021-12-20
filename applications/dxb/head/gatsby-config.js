@@ -198,6 +198,14 @@ module.exports = {
   },
   assetPrefix: process.env.GATSBY_ASSET_PREFIX,
   plugins: [
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        stylesProvider: {
+          injectFirst: true
+        }
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
     {
@@ -394,14 +402,6 @@ module.exports = {
       }
     },
     ...elasticSearchPlugin,
-    {
-      resolve: `gatsby-plugin-material-ui`,
-      options: {
-        stylesProvider: {
-          injectFirst: true
-        }
-      }
-    },
     {
       resolve: `gatsby-plugin-sass`,
       options: {

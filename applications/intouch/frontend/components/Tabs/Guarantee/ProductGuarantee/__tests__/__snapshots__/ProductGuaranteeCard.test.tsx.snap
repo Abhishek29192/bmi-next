@@ -75,5 +75,31 @@ exports[`ProductGuaranteeCard Component renders correctly 1`] = `
       </tbody>
     </table>
   </div>
+  <div
+    class="productCard__footer"
+    data-testid="guarantee-pdf-item"
+  >
+    <button
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+      disabled=""
+      rel="noopener noreferrer"
+      tabindex="-1"
+      target="_blank"
+      type="button"
+    >
+      <span
+        class="MuiButton-label buttonStyles-label-4"
+      >
+        <span
+          class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+        >
+          <svg
+            class="productCard__logo"
+          />
+        </span>
+        generatingPdf
+      </span>
+    </button>
+  </div>
 </div>
 `;

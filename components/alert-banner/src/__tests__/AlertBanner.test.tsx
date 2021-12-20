@@ -32,7 +32,7 @@ describe("AlertBanner component", () => {
   });
   it("renders correctly with a sticky position", () => {
     const { container } = render(
-      <AlertBanner severity="warning" stickyPosition={0}>
+      <AlertBanner severity="warning" stickyPosition={100}>
         <AlertBanner.Title>Warning</AlertBanner.Title>
         This is a warning alert banner
       </AlertBanner>

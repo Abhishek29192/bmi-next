@@ -34,6 +34,25 @@ describe("ProductGuarantee Component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it("renders correctly when pdf available", () => {
+    const mockProductGuarantees: GetProjectQuery["project"]["guarantees"]["nodes"] =
+      [
+        {
+          id: 1,
+          guaranteeReferenceCode: "FLAT_PRODUCT",
+          coverage: "PRODUCT",
+          status: "APPROVED",
+          productByProductBmiRef: mockProduct
+        }
+      ];
+
+    const { container } = renderWithI18NProvider(
+      <ProductGuarantee guarantees={mockProductGuarantees} />
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
   it("renders multiple guarantee", () => {
     const mockProductGuarantees: GetProjectQuery["project"]["guarantees"]["nodes"] =
       [

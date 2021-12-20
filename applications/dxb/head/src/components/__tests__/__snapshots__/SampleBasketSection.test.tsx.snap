@@ -344,29 +344,29 @@ exports[`SampleBasketSection component should render form after complete button 
         <p
           class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
         >
-          This site is protected by reCAPTCHA and the Google 
+          Dette nettstedet er beskyttet av reCAPTCHA og Googles 
           <a
             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-            href="https://policies.google.com/privacy"
+            href="https://policies.google.com/privacy?hl=no-nb"
             rel="noreferrer noopener"
             target="_blank"
           >
             <span>
-              Privacy Policy
+              Personvernregler
             </span>
           </a>
-           and 
+           og 
           <a
             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-            href="https://policies.google.com/terms"
+            href="https://policies.google.com/terms?hl=no-nb"
             rel="noreferrer noopener"
             target="_blank"
           >
             <span>
-              Terms of Service
+              Vilkår for bruk
             </span>
           </a>
-           apply.
+           gjelder.
         </p>
       </div>
     </div>

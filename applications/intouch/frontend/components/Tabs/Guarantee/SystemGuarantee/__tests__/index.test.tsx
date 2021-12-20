@@ -31,4 +31,12 @@ describe("SystemGuarantee Component", () => {
 
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders correctly with download button", () => {
+    mockSystemGuarantee.signedFileStorageUrl = "signed-url";
+    const { container } = renderWithI18NProvider(
+      <SystemGuarantee guarantee={mockSystemGuarantee} />
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

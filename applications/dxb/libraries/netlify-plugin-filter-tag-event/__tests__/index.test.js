@@ -96,6 +96,26 @@ describe("onPreBuild", () => {
     expect(mockFailBuild).toBeCalledTimes(0);
   });
 
+  it("should return if pre-production branch and INCOMING_HOOK_TITLE is Firestore hook", () => {
+    process.env.BRANCH = "pre-production";
+    process.env.INCOMING_HOOK_TITLE = "Firestore hook";
+
+    index.onPreBuild(mockMethods);
+
+    expect(mockCancelBuild).toBeCalledTimes(0);
+    expect(mockFailBuild).toBeCalledTimes(0);
+  });
+
+  it("should return if production branch and INCOMING_HOOK_TITLE is Firestore hook", () => {
+    process.env.BRANCH = "production";
+    process.env.INCOMING_HOOK_TITLE = "Firestore hook";
+
+    index.onPreBuild(mockMethods);
+
+    expect(mockCancelBuild).toBeCalledTimes(0);
+    expect(mockFailBuild).toBeCalledTimes(0);
+  });
+
   it("should return if pre-production branch and DXB_FORCE_NETLIFY_BUILD is true", () => {
     process.env.BRANCH = "pre-production";
     process.env.DXB_FORCE_NETLIFY_BUILD = true;

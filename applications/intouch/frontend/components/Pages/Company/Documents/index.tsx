@@ -56,27 +56,31 @@ export const CompanyDocuments = ({
     setCompanyDocuments([...documents.nodes]);
   }, [documents]);
 
-  const [createCompanyDocuments] = useCreateCompanyDocumentsMutation({
-    onCompleted: ({ createCompanyDocuments }) => {
-      setCompanyDocuments((prev) => [
-        ...prev,
-        ...createCompanyDocuments.companyDocuments
-      ]);
-      onCompanyDocumentsUpdate && onCompanyDocumentsUpdate();
-    }
-  });
-  const [deleteCompanyDocumentMutation] = useDeleteCompanyDocumentMutation({
-    onCompleted: ({ deleteCompanyDocument }) => {
-      setCompanyDocuments((prev) => [
-        ...prev.filter((p) => p.id !== deleteCompanyDocument.companyDocument.id)
-      ]);
-      setConfirmDialogState({
-        id: null,
-        isOpen: false
-      });
-      onCompanyDocumentsUpdate && onCompanyDocumentsUpdate();
-    }
-  });
+  const [createCompanyDocuments, { loading: loadingCreate }] =
+    useCreateCompanyDocumentsMutation({
+      onCompleted: ({ createCompanyDocuments }) => {
+        setCompanyDocuments((prev) => [
+          ...prev,
+          ...createCompanyDocuments.companyDocuments
+        ]);
+        onCompanyDocumentsUpdate && onCompanyDocumentsUpdate();
+      }
+    });
+  const [deleteCompanyDocumentMutation, { loading: loadingDelete }] =
+    useDeleteCompanyDocumentMutation({
+      onCompleted: ({ deleteCompanyDocument }) => {
+        setCompanyDocuments((prev) => [
+          ...prev.filter(
+            (p) => p.id !== deleteCompanyDocument.companyDocument.id
+          )
+        ]);
+        setConfirmDialogState({
+          id: null,
+          isOpen: false
+        });
+        onCompanyDocumentsUpdate && onCompanyDocumentsUpdate();
+      }
+    });
 
   const uploadDialogConfirmHandler = async (uploadedFiles: File[]) => {
     if (uploadedFiles.length > 0) {
@@ -173,6 +177,7 @@ export const CompanyDocuments = ({
                       <AccessControl dataModel="company" action="addDocument">
                         <Button
                           variant="text"
+                          disabled={loadingDelete}
                           endIcon={<DeleteIcon color="primary" />}
                           onClick={() => {
                             onCompanyDocumentDeletHandler(doc.id);
@@ -192,6 +197,7 @@ export const CompanyDocuments = ({
         isOpen={isUploadDialog}
         onCloseClick={() => setUploadDialog(false)}
         onConfirmClick={uploadDialogConfirmHandler}
+        loading={loadingCreate}
       />
       <ConfirmDialog
         state={confirmDialogState}

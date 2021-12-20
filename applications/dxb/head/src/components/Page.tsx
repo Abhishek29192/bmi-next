@@ -1,15 +1,10 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import BmiThemeProvider from "@bmi/theme-provider";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import BackToTop from "@bmi/back-to-top";
 import MicroCopy from "@bmi/micro-copy";
 import { graphql, navigate } from "gatsby";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import EffraBold from "@bmi/theme-provider/src/fonts/Effra_W_Bold.woff2";
-import EffraHeavy from "@bmi/theme-provider/src/fonts/Effra_W_Heavy.woff2";
-import EffraMedium from "@bmi/theme-provider/src/fonts/Effra_W_Medium.woff2";
-import EffraRegular from "@bmi/theme-provider/src/fonts/Effra_W_Regular.woff2";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import InputBanner, {
@@ -19,6 +14,10 @@ import getJpgImage from "../utils/images";
 import { getPathWithCountryCode } from "../utils/path";
 import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
+import EffraBold from "../../static/fonts/Effra_W_Bold.woff2";
+import EffraHeavy from "../../static/fonts/Effra_W_Heavy.woff2";
+import EffraMedium from "../../static/fonts/Effra_W_Medium.woff2";
+import EffraRegular from "../../static/fonts/Effra_W_Regular.woff2";
 import BrandProvider from "./BrandProvider";
 import {
   Context as SiteContext,
@@ -33,6 +32,7 @@ import { Data as SEOContentData } from "./SEOContent";
 import VisualiserProvider from "./Visualiser";
 import Calculator from "./PitchedRoofCalcualtor";
 import { Product, VariantOption } from "./types/pim";
+import "../../src/styles/fonts.module.scss";
 
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
@@ -163,33 +163,32 @@ const Page = ({
       >
         <link
           rel="preload"
-          href={EffraBold}
+          href={EffraRegular}
           as="font"
           type="font/woff2"
-          crossOrigin=""
-        ></link>
-        <link
-          rel="preload"
-          href={EffraHeavy}
-          as="font"
-          type="font/woff2"
-          crossOrigin=""
-        ></link>
+          crossOrigin="anonymous"
+        />
         <link
           rel="preload"
           href={EffraMedium}
           as="font"
           type="font/woff2"
-          crossOrigin=""
-        ></link>
+          crossOrigin="anonymous"
+        />
         <link
           rel="preload"
-          href={EffraRegular}
+          href={EffraHeavy}
           as="font"
           type="font/woff2"
-          crossOrigin=""
-        ></link>
-
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href={EffraBold}
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         {imageUrl && <meta property="og:image" content={imageUrl} />}
 
         {noindex && <meta name="robots" content="noindex, nofollow" />}
@@ -319,22 +318,20 @@ const Page = ({
               language={countryCode}
               scriptProps={{ async: true }}
             >
-              <BmiThemeProvider>
-                <Header
-                  navigationData={menuNavigation}
-                  utilitiesData={menuUtilities}
-                  countryCode={countryCode}
-                  activeLabel={
-                    (breadcrumbs && breadcrumbs[0]?.label) || undefined
-                  }
-                  isOnSearchPage={isSearchPage}
-                  countryNavigationIntroduction={
-                    resources?.countryNavigationIntroduction
-                  }
-                  regions={regions}
-                  sampleBasketLink={resources?.sampleBasketLink}
-                />
-              </BmiThemeProvider>
+              <Header
+                navigationData={menuNavigation}
+                utilitiesData={menuUtilities}
+                countryCode={countryCode}
+                activeLabel={
+                  (breadcrumbs && breadcrumbs[0]?.label) || undefined
+                }
+                isOnSearchPage={isSearchPage}
+                countryNavigationIntroduction={
+                  resources?.countryNavigationIntroduction
+                }
+                regions={regions}
+                sampleBasketLink={resources?.sampleBasketLink}
+              />
               <BrandProvider brand={brand}>
                 <ErrorBoundary
                   fallbackRender={() => (
@@ -363,13 +360,11 @@ const Page = ({
                   {inputBanner ? <InputBanner data={inputBanner} /> : null}
                 </ErrorBoundary>
               </BrandProvider>
-              <BmiThemeProvider>
-                <Footer
-                  mainNavigation={footerMainNavigation}
-                  secondaryNavigation={footerSecondaryNavigation}
-                />
-                <BackToTop accessibilityLabel="Back to the top" />
-              </BmiThemeProvider>
+              <Footer
+                mainNavigation={footerMainNavigation}
+                secondaryNavigation={footerSecondaryNavigation}
+              />
+              <BackToTop accessibilityLabel="Back to the top" />
             </GoogleReCaptchaProvider>
           </BasketContextProvider>
         </MicroCopy.Provider>

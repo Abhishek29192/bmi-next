@@ -1,13 +1,28 @@
 import { createTheme, ThemeOptions } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import MaterialThemeProvider from "@material-ui/styles/ThemeProvider";
+import { CssBaseline } from "@material-ui/core";
+
 import React from "react";
 import variables from "./ThemeProvider.module.scss";
 import { effraBold, effraHeavy, effraMedium, effraRegular } from "./fonts";
 
 export const getTheme = (
-  modifyTheme: (theme: ThemeOptions) => ThemeOptions = (t) => t
+  modifyTheme: (theme: ThemeOptions) => ThemeOptions = (t) => t,
+  includeCssBaseline: boolean = true
 ) => {
+  const getCssOverrides = () => {
+    return includeCssBaseline
+      ? {
+          overrides: {
+            MuiCssBaseline: {
+              "@global": {
+                "@font-face": [effraRegular, effraMedium, effraBold, effraHeavy]
+              }
+            }
+          }
+        }
+      : undefined;
+  };
   const defaultTheme: ThemeOptions = {
     breakpoints: {
       values: {
@@ -86,13 +101,7 @@ export const getTheme = (
         textTransform: "none"
       }
     },
-    overrides: {
-      MuiCssBaseline: {
-        "@global": {
-          "@font-face": [effraRegular, effraMedium, effraBold, effraHeavy]
-        }
-      }
-    }
+    ...getCssOverrides()
   };
   return createTheme(modifyTheme(defaultTheme));
 };
@@ -100,14 +109,21 @@ export const getTheme = (
 type Props = {
   children: React.ReactNode;
   modifyTheme?: (theme: ThemeOptions) => ThemeOptions;
+  includeCssBaseline?: boolean;
 };
 
-const ThemeProvider = ({ modifyTheme, children }: Props) => {
-  const theme = React.useMemo(() => getTheme(modifyTheme), [modifyTheme]);
-
+const ThemeProvider = ({
+  modifyTheme,
+  includeCssBaseline = true,
+  children
+}: Props) => {
+  const theme = React.useMemo(
+    () => getTheme(modifyTheme, includeCssBaseline),
+    [modifyTheme]
+  );
   return (
     <MaterialThemeProvider theme={theme}>
-      <CssBaseline />
+      {includeCssBaseline && <CssBaseline />}
       {children}
     </MaterialThemeProvider>
   );

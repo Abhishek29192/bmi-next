@@ -37,7 +37,7 @@ exports[`AlertBanner component renders correctly 1`] = `
 exports[`AlertBanner component renders correctly with a sticky position 1`] = `
 <div
   class="Alert Alert--sticky ColorPair ColorPair--alert"
-  style="top: 0px;"
+  style="top: 100px;"
 >
   <div
     class="actions"

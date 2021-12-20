@@ -6,13 +6,5 @@ module.exports = {
   ...sharedConfig,
   rootDir: "../../",
   roots: ["<rootDir>/components/breadcrumbs/src"],
-  collectCoverageFrom: [
-    "<rootDir>/components/breadcrumbs/src/**/*.{ts,tsx,js}"
-  ],
-  coverageThreshold: {
-    global: {
-      ...sharedConfig.coverageThreshold.global,
-      branches: "91"
-    }
-  }
+  collectCoverageFrom: ["<rootDir>/components/breadcrumbs/src/**/*.{ts,tsx,js}"]
 };

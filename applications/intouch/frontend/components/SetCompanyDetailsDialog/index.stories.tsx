@@ -18,5 +18,6 @@ export const Basic = () => (
     onSubmit={(values) => {
       window.alert(`submitting values! ${JSON.stringify(values, null, 2)}`);
     }}
+    loading={false}
   />
 );
