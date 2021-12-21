@@ -37,5 +37,9 @@ export const AddressLinesFragment = gql`
     region
     country
     postcode
+    coordinates {
+      x
+      y
+    }
   }
 `;

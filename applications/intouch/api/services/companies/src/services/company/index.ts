@@ -78,7 +78,7 @@ export const updateCompany = async (
         rows: [{ logo: currentLogoURL }]
       } = await pgClient.query(
         "select company.logo from company where id = $1",
-        [user.company.id]
+        [args.input.id]
       );
 
       // delete the previous image if it exists & is hosted on GCP Cloud storage
