@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import Component from "../documentsLeadBlock";
 import { DocumentData } from "../types";
 import "@testing-library/jest-dom";
+import { FileContentTypeEnum } from "../../../components/types/pim";
 
 const documents: DocumentData[] = [
   {
@@ -17,7 +18,7 @@ const documents: DocumentData[] = [
       file: {
         fileName: "1344416763.pdf",
         url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf",
-        contentType: "application/pdf",
+        contentType: FileContentTypeEnum.APPLICATION_PDF,
         details: {
           size: 270539
         }
