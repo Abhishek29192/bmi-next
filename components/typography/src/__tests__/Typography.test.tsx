@@ -138,4 +138,25 @@ describe("Typography component", () => {
         ?.className?.includes(styles["Typography--underline--dark-bg"]!)
     ).toBe(false);
   });
+
+  it("renders typography variant correctly if variant === default", () => {
+    const { container } = render(
+      <Typography variant="default">Caption</Typography>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders typography variant correctly if variant === lead", () => {
+    const { container } = render(
+      <Typography variant="lead">Caption</Typography>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders typography variant correctly if variant === hero", () => {
+    const { container } = render(
+      <Typography variant="hero">Caption</Typography>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
