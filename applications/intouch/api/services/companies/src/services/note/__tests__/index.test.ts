@@ -32,7 +32,9 @@ describe("Note", () => {
       log: jest.fn(),
       error: jest.fn()
     }),
-    pgRootPool: null,
+    pgRootPool: {
+      query: mockQuery
+    },
     pgClient: {
       query: mockQuery
     },
