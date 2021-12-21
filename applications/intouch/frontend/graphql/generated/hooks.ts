@@ -22,6 +22,10 @@ export const AddressLinesFragmentFragmentDoc = gql`
     region
     country
     postcode
+    coordinates {
+      x
+      y
+    }
   }
 `;
 export const ProjectDetailsProductFragmentFragmentDoc = gql`

@@ -5,6 +5,7 @@ import React, {
   useMemo,
   useState
 } from "react";
+import { get } from "lodash";
 import { useTranslation } from "react-i18next";
 import { Point } from "@bmi/intouch-api-types";
 import { FormContext } from "@bmi/form";
@@ -68,7 +69,7 @@ export const SetTradingAddress = ({
       const formValue = (key) => ({
         // return "" in case of empty field, in order to re-render the input field
         // eslint-disable-next-line security/detect-object-injection
-        [`tradingAddress.${key}`]: updatedAddress[key] || ""
+        [`tradingAddress.${key}`]: get(updatedAddress, key, "")
       });
 
       updateFormState(
