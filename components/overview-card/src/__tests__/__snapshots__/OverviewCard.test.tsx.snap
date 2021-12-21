@@ -250,6 +250,288 @@ exports[`OverviewCard component renders correctly 1`] = `
 </button>
 `;
 
+exports[`OverviewCard component renders correctly if clickableArea === body 1`] = `
+<div
+  class="OverviewCard OverviewCard--clickable"
+>
+  <img
+    alt="Lorem ipsum"
+    class="header-picture Media"
+    src="path-to-image"
+  />
+  <button
+    class="MuiButtonBase-root body"
+    tabindex="0"
+    type="button"
+  >
+    <svg
+      class="brand-logo brand-logo--negative"
+      preserveAspectRatio="xMinYMin"
+    />
+    <h4
+      class="MuiTypography-root title Typography MuiTypography-h4"
+    >
+      Heading
+    </h4>
+    <div
+      class="children text"
+    >
+      We do the things
+    </div>
+    <div
+      class="footer"
+    >
+      <span
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-outlined MuiButton-outlinedPrimary"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-124"
+        >
+          Go to this
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </span>
+    </div>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;
+
+exports[`OverviewCard component renders correctly if hasChildrenWithoutMargin  === true 1`] = `
+<button
+  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+  tabindex="0"
+  type="button"
+>
+  <img
+    alt="Lorem ipsum"
+    class="header-picture Media"
+    src="path-to-image"
+  />
+  <div
+    class="body"
+  >
+    <svg
+      class="brand-logo brand-logo--negative"
+      preserveAspectRatio="xMinYMin"
+    />
+    <h4
+      class="MuiTypography-root title Typography MuiTypography-h4"
+    >
+      Heading
+    </h4>
+    <div
+      class="children text children--without-margin"
+    >
+      We do the things
+    </div>
+    <div
+      class="footer"
+    >
+      <span
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-161 MuiButton-outlined MuiButton-outlinedPrimary"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-164"
+        >
+          Go to this
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </span>
+    </div>
+  </div>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
+`;
+
+exports[`OverviewCard component renders correctly if imageSize === contain 1`] = `
+<button
+  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+  tabindex="0"
+  type="button"
+>
+  <div
+    class="header-picture header-picture--contain"
+    style="background-image: url(imageSource);"
+  />
+  <img
+    alt="Lorem ipsum"
+    class="header-picture Media Media--contain"
+    src="path-to-image"
+  />
+  <div
+    class="body"
+  >
+    <svg
+      class="brand-logo brand-logo--negative"
+      preserveAspectRatio="xMinYMin"
+    />
+    <h4
+      class="MuiTypography-root title Typography MuiTypography-h4"
+    >
+      Heading
+    </h4>
+    <div
+      class="children text"
+    >
+      We do the things
+    </div>
+    <div
+      class="footer"
+    >
+      <span
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-181 MuiButton-outlined MuiButton-outlinedPrimary"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-184"
+        >
+          Go to this
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </span>
+    </div>
+  </div>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
+`;
+
+exports[`OverviewCard component renders correctly if imageSource !== string 1`] = `
+<button
+  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+  tabindex="0"
+  type="button"
+>
+  <div
+    class="header-picture"
+  >
+    <img />
+  </div>
+  <img
+    alt="Lorem ipsum"
+    class="header-picture Media"
+    src="path-to-image"
+  />
+  <div
+    class="body"
+  >
+    <svg
+      class="brand-logo brand-logo--negative"
+      preserveAspectRatio="xMinYMin"
+    />
+    <h4
+      class="MuiTypography-root title Typography MuiTypography-h4"
+    >
+      Heading
+    </h4>
+    <div
+      class="children text"
+    >
+      We do the things
+    </div>
+    <div
+      class="footer"
+    >
+      <span
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-201 MuiButton-outlined MuiButton-outlinedPrimary"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-204"
+        >
+          Go to this
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </span>
+    </div>
+  </div>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
+`;
+
+exports[`OverviewCard component renders correctly if moreOptionsAvailable === true 1`] = `
+<button
+  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+  tabindex="0"
+  type="button"
+>
+  <img
+    alt="Lorem ipsum"
+    class="header-picture Media"
+    src="path-to-image"
+  />
+  <div
+    class="body"
+  >
+    <svg
+      class="brand-logo brand-logo--negative"
+      preserveAspectRatio="xMinYMin"
+    />
+    <h4
+      class="MuiTypography-root title Typography MuiTypography-h4"
+    >
+      Heading
+    </h4>
+    <h5
+      class="MuiTypography-root text Typography MuiTypography-h5"
+    />
+    <div
+      class="children text"
+    >
+      We do the things
+    </div>
+    <div
+      class="footer"
+    >
+      <span
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-141 MuiButton-outlined MuiButton-outlinedPrimary"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-144"
+        >
+          Go to this
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </span>
+    </div>
+  </div>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
+`;
+
 exports[`OverviewCard component renders correctly with a subtitle 1`] = `
 <button
   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"

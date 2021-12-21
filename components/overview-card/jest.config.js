@@ -8,11 +8,5 @@ module.exports = {
   roots: ["<rootDir>/components/overview-card/src"],
   collectCoverageFrom: [
     "<rootDir>/components/overview-card/src/**/*.{ts,tsx,js}"
-  ],
-  coverageThreshold: {
-    global: {
-      ...sharedConfig.coverageThreshold.global,
-      branches: "90"
-    }
-  }
+  ]
 };
