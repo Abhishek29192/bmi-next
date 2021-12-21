@@ -122,4 +122,28 @@ describe("Filters component", () => {
     fireEvent.click(getByLabelText(filters[0].options[0].label));
     expect(onChange.mock.calls).toMatchSnapshot();
   });
+
+  it("renders correct summaryLabel if filter.label is an empty string", () => {
+    const filters = [
+      {
+        label: "",
+        name: "product-1",
+        value: ["option-2"],
+        options: [
+          {
+            label: "Option 1",
+            value: "option-1"
+          },
+          {
+            label: "Option 2",
+            value: "option-2",
+            isDisabled: true
+          }
+        ]
+      }
+    ];
+
+    const { container } = render(<Filters filters={filters} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
