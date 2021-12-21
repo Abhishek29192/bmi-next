@@ -1,4 +1,4 @@
-import get from "lodash/get";
+import { get } from "lodash";
 import validator from "validator";
 import { ValidationResult } from "@bmi/form";
 
