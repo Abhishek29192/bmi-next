@@ -261,9 +261,10 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                 role="button"
                 tabindex="0"
               >
-                <div
-                  class="header-picture header-picture--contain"
-                  style="background-image: url(product-listing-card-small-desktop-tablet);"
+                <img
+                  alt="efgh name"
+                  class="header-picture Media Media--contain"
+                  src="testhttp"
                 />
                 <div
                   class="body"
@@ -571,9 +572,10 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                 role="button"
                 tabindex="0"
               >
-                <div
-                  class="header-picture header-picture--contain"
-                  style="background-image: url(product-listing-card-small-desktop-tablet);"
+                <img
+                  alt="efgh name"
+                  class="header-picture Media Media--contain"
+                  src="testhttp"
                 />
                 <div
                   class="body"
@@ -1596,9 +1598,10 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                 role="button"
                 tabindex="0"
               >
-                <div
-                  class="header-picture header-picture--contain"
-                  style="background-image: url(product-listing-card-small-desktop-tablet);"
+                <img
+                  alt="efgh name"
+                  class="header-picture Media Media--contain"
+                  src="testhttp"
                 />
                 <div
                   class="body"
@@ -3871,9 +3874,10 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                 role="button"
                 tabindex="0"
               >
-                <div
-                  class="header-picture header-picture--contain"
-                  style="background-image: url(product-listing-card-small-desktop-tablet);"
+                <img
+                  alt="efgh name"
+                  class="header-picture Media Media--contain"
+                  src="testhttp"
                 />
                 <div
                   class="body"
