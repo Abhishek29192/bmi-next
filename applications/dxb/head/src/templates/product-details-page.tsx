@@ -45,6 +45,8 @@ import KeyAssetTypesDownloadSection from "../components/KeyAssetTypesDownloadSec
 import { getAssetsIframeUrl } from "../components/AssetsIframe";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { combineVariantClassifications } from "../utils/filters";
+import { convertStrToBool } from "../utils/convertStrToBool";
+import { useConfig } from "../contexts/ConfigProvider";
 import { microCopy } from "../constants/microCopies";
 import { filterAndTransformVideoData, transformMediaSrc } from "../utils/media";
 
@@ -103,6 +105,9 @@ const getVariant = (product: Product, variantCode: string) => {
 
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { product, relatedProducts, contentfulSite } = data;
+  const {
+    config: { isSampleOrderingEnabled }
+  } = useConfig();
 
   // Which variant (including base) are we looking at
   // TODO: Merge data here!
@@ -164,7 +169,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     );
 
   const getSampleOrderAllowed = () => {
-    if (process.env.GATSBY_ENABLE_SAMPLE_ORDERING === "true") {
+    if (convertStrToBool(isSampleOrderingEnabled)) {
       return (
         selfProduct.isSampleOrderAllowed ??
         product.isSampleOrderAllowed ??

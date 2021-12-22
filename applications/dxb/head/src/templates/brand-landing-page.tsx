@@ -20,6 +20,8 @@ import BrandLogo from "../components/BrandLogo";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
+import { convertStrToBool } from "../utils/convertStrToBool";
+import { useConfig } from "../contexts/ConfigProvider";
 
 type BrandLandingPageData = PageInfoData &
   PageData & {
@@ -95,6 +97,9 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     seo,
     path: data.contentfulBrandLandingPage.path
   };
+  const {
+    config: { brandProviderToggler }
+  } = useConfig();
 
   const firstSlide: HeroItem = {
     title: <BrandLogo brandName={brandLogo} />,
@@ -132,6 +137,9 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
               }
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom
+              isHeroKeyLine={Boolean(
+                convertStrToBool(brandProviderToggler) && brandLogo
+              )}
             />
 
             {overlapCards && <OverlapCards data={overlapCards} />}

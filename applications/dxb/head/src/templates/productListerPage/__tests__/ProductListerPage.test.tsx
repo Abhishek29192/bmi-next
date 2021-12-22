@@ -27,6 +27,8 @@ import {
 import { Data as SiteData } from "../../../components/Site";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import * as elasticSearch from "../../../utils/elasticSearch";
+import { ConfigProviderMock } from "./utils/ConfigProviderMock";
+import { IEnvConfig } from "../../contexts/ConfigProvider";
 
 window.alert = jest.fn();
 type Data = PageInfoData &
@@ -273,13 +275,9 @@ function mockUseDimensions({
       .mockImplementationOnce(getDimensionHookFn(mediumTableWidth));
   }
 }
-
-process.env.GATSBY_USE_LEGACY_FILTERS = "true";
-process.env.GATSBY_RECAPTCHA_KEY = "test";
-process.env.GATSBY_VISUALISER_ASSETS_URL = "jest-test-page";
-
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));
+let isLegacyFiltersUsing = "true";
 
 const mockQueryES = jest
   .spyOn(elasticSearch, "queryElasticSearch")
@@ -294,14 +292,24 @@ const mockQueryES = jest
 
 const renderWithStylesAndLocationProvider = (
   pageData: any,
-  pageContext: PageContextType
+  pageContext: PageContextType,
+  mockEnvVariables?: Partial<IEnvConfig["config"]>
 ): RenderResult => {
+  const defaultPageEnvVars = {
+    isLegacyFiltersUsing: isLegacyFiltersUsing,
+    gatsbyReCaptchaKey: "test",
+    visualizerAssetUrl: "est-test-page",
+    brandProviderToggler: "true"
+  } as Partial<IEnvConfig["config"]>;
+  const res = { ...defaultPageEnvVars, ...mockEnvVariables };
   return render(
-    <ProvideStyles>
-      <LocationProvider history={history}>
-        <ProductListerPage data={pageData} pageContext={pageContext} />
-      </LocationProvider>
-    </ProvideStyles>
+    <ConfigProviderMock customConfig={res}>
+      <ProvideStyles>
+        <LocationProvider history={history}>
+          <ProductListerPage data={pageData} pageContext={pageContext} />
+        </LocationProvider>
+      </ProvideStyles>
+    </ConfigProviderMock>
   );
 };
 
@@ -314,9 +322,8 @@ afterEach(() => {
 });
 
 beforeEach(() => {
-  jest.resetModules(); // Most important - it clears the cache
-  process.env = { ...OLD_ENV }; // Make a copy
-  process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
+  jest.resetModules();
+  process.env = { ...OLD_ENV };
   mockUseDimensions({
     containerWidth: 400,
     normalTableWidth: 400,
@@ -327,17 +334,17 @@ beforeEach(() => {
 describe("ProductListerPage template", () => {
   describe("New plpFilters tests", () => {
     beforeEach(() => {
-      process.env.GATSBY_USE_LEGACY_FILTERS = "false";
+      isLegacyFiltersUsing = "false";
     });
 
     describe("ProductListerPage without initialProducts without BrandProvider", () => {
       it("renders basic ProductListerPage", async () => {
-        process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
         pageData.initialProducts = [];
         pageData.plpFilters = [];
         const { container, findByText } = renderWithStylesAndLocationProvider(
           pageData,
-          pageContext
+          pageContext,
+          { brandProviderToggler: "false", isLegacyFiltersUsing: "false" }
         );
         await findByText(heroTitle);
         await waitFor(() => expect(container.parentElement).toMatchSnapshot());
@@ -536,17 +543,20 @@ describe("ProductListerPage template", () => {
     });
   });
 
-  //TODO: remove these tests when `GATSBY_USE_LEGACY_FILTERS` flag is removed
+  // TODO: remove these tests when `GATSBY_USE_LEGACY_FILTERS` flag is removed
   // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
   describe("ProductListerPage Legacy ProductFilters tests", () => {
+    beforeEach(() => {
+      isLegacyFiltersUsing = "true";
+    });
     describe("ProductListerPage without initialProducts without BrandProvider", () => {
       it("renders basic ProductListerPage", async () => {
-        process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
         pageData.initialProducts = [];
         pageData.productFilters = [];
         const { container, findByText } = renderWithStylesAndLocationProvider(
           pageData,
-          pageContext
+          pageContext,
+          { brandProviderToggler: "false" }
         );
         await findByText(heroTitle);
         await waitFor(() => expect(container.parentElement).toMatchSnapshot());
@@ -746,7 +756,8 @@ describe("ProductListerPage template", () => {
     pageData.productFilters = [];
     const { container, findByText } = renderWithStylesAndLocationProvider(
       pageData,
-      pageContext
+      pageContext,
+      { isPreviewMode: "true" }
     );
     await findByText(heroTitle);
     expect(container.parentElement).toMatchSnapshot();

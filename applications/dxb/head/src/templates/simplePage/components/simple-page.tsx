@@ -27,6 +27,10 @@ import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../../../components/ShareWidgetSection";
 import { Data as LinkData } from "../../../components/Link";
+import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
+import { convertStrToBool } from "../utils/convertStrToBool";
+import { useConfig } from "../contexts/ConfigProvider";
+} from "../../../components/ShareWidgetSection";
 import { updateBreadcrumbTitleFromContentful } from "../../../utils/breadcrumbUtils";
 import {
   generateHeroLevel,
@@ -89,6 +93,9 @@ const SimplePage = ({ data, pageContext }: Props) => {
     breadcrumbs,
     breadcrumbTitle
   );
+  const {
+    config: { brandProviderToggler }
+  } = useConfig();
   const heroProps: HeroItem = generateHeroProps(
     title,
     subtitle,

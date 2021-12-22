@@ -61,6 +61,8 @@ import {
 } from "../utils/productListerPageUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
 import { microCopy } from "../../../constants/microCopies";
+import { useConfig } from "../../../contexts/ConfigProvider";
+import { convertStrToBool } from "../../../utils/convertStrToBool";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -136,6 +138,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     breadcrumbTitle
   );
   const initialProducts = data.initialProducts || [];
+  const {
+    config: { isLegacyFiltersUsing, isPreviewMode, brandProviderToggler }
+  } = useConfig();
 
   const heroProps: HeroItem = generateHeroProps(
     title,
@@ -176,7 +181,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   //TODO: Remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch code
   // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
   const getResolvedFilters = () => {
-    return process.env.GATSBY_USE_LEGACY_FILTERS === "true"
+    return isLegacyFiltersUsing === "true"
       ? resolvedFilters
       : resolvedNewPLPFilters;
   };
@@ -214,7 +219,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
     if (result && result.aggregations) {
       setFilters(
-        process.env.GATSBY_USE_LEGACY_FILTERS === "true"
+        isLegacyFiltersUsing === "true"
           ? xferFilterValue(
               newFilters,
               disableFiltersFromAggregations(filters, result.aggregations)
@@ -264,7 +269,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       return;
     }
 
-    if (process.env.GATSBY_PREVIEW) {
+    if (convertStrToBool(isPreviewMode)) {
       alert("You cannot search on the preview environment.");
       return;
     }
@@ -274,7 +279,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     //TODO: remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch of code
     // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
     const query =
-      process.env.GATSBY_USE_LEGACY_FILTERS === "true"
+      isLegacyFiltersUsing === "true"
         ? compileElasticSearchQuery(filters, categoryCodes, page, pageSize)
         : compileESQueryPLP({
             filters, //these are updated filters with user's selection from UI!
@@ -314,7 +319,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       // TODO: Remove 'GATSBY_USE_LEGACY_FILTERS' branch of code
       // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
       const newFilters =
-        process.env.GATSBY_USE_LEGACY_FILTERS === "true"
+        isLegacyFiltersUsing === "true"
           ? disableFiltersFromAggregations(filters, results.aggregations)
           : disableFiltersFromAggregationsPLP(filters, results.aggregations);
 

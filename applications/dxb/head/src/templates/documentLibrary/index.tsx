@@ -38,6 +38,7 @@ import { getCount as getTechnicalTableCount } from "../../components/DocumentTec
 import FilterSection from "./components/FilterSection";
 import ResultSection from "./components/ResultSection";
 import { sourceToSortMap } from "./helpers/documnetLibraryHelpers";
+import { DOCUMENT_DOWNLOAD_MAX_LIMIT } from "../../constants/commonConstants";
 
 const PAGE_SIZE = 24;
 
@@ -244,7 +245,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
               <RichText document={description} />
             </Section>
           )}
-          <DownloadList maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
+          <DownloadList maxSize={DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
             <DownloadListContext.Consumer>
               {({ count }) => {
                 if (count === 0) {
