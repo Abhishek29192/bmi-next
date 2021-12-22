@@ -14,10 +14,6 @@ export type Props = Omit<ButtonBaseProps, "action"> & {
   subtitleVariant?: "h5" | "h6"; // TODO: Add h6 (from DS) smallest when needed.
   children: React.ReactNode;
   hasChildrenWithoutMargin?: boolean;
-  /**
-   * @deprecated Use `media` instead.
-   */
-  imageSource?: string | React.ReactNode;
   imageSize?: "cover" | "contain";
   media?: React.ReactElement<AcceptedNode>;
   brandImageSource?: SVGImport | string;
@@ -29,42 +25,16 @@ export type Props = Omit<ButtonBaseProps, "action"> & {
   moreOptionsAvailable?: string | boolean;
 };
 
-const __DeprecatedImageSource = ({
-  imageSource,
-  imageSize
-}: Pick<Props, "imageSource" | "imageSize">) => {
-  if (!imageSource) {
-    return null;
-  }
-
-  return (
-    <div
-      className={classnames(
-        styles["header-picture"],
-        imageSize !== "cover" && styles[`header-picture--${imageSize}`]
-      )}
-      style={
-        typeof imageSource === "string"
-          ? { backgroundImage: `url(${imageSource})` }
-          : {}
-      }
-    >
-      {typeof imageSource !== "string" && imageSource}
-    </div>
-  );
-};
-
 const BrandLogo = ({
   brandImageSource,
-  imageSource,
   media
-}: Pick<Props, "brandImageSource" | "imageSource" | "media">) => {
+}: Pick<Props, "brandImageSource" | "media">) => {
   if (!brandImageSource) {
     return null;
   }
 
   const className = classnames(styles["brand-logo"], {
-    [styles["brand-logo--negative"]!]: !!(imageSource || media)
+    [styles["brand-logo--negative"]!]: Boolean(media)
   });
 
   if (typeof brandImageSource === "string") {
@@ -81,7 +51,6 @@ const OverviewCard = ({
   subtitle,
   subtitleVariant = "h5",
   children,
-  imageSource,
   imageSize = "cover",
   media,
   brandImageSource,
@@ -130,19 +99,11 @@ const OverviewCard = ({
         className
       )}
     >
-      <__DeprecatedImageSource
-        imageSource={imageSource}
-        imageSize={imageSize}
-      />
       <Media size={imageSize} className={styles["header-picture"]}>
         {media}
       </Media>
       <Body className={styles["body"]}>
-        <BrandLogo
-          brandImageSource={brandImageSource}
-          imageSource={imageSource}
-          media={media}
-        />
+        <BrandLogo brandImageSource={brandImageSource} media={media} />
         <Typography
           variant={titleVariant}
           className={classnames(

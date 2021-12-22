@@ -29,7 +29,6 @@ describe("OverviewCard component", () => {
       <OverviewCard
         title="Heading"
         titleVariant="h4"
-        imageSource={mockImage}
         brandImageSource={"image/source.jpg"}
         footer={
           <Button component="span" variant="outlined">
@@ -42,24 +41,7 @@ describe("OverviewCard component", () => {
     );
     expect(container).toMatchSnapshot();
   });
-  it("renders with deprecated imageSource", () => {
-    const { container } = render(
-      <OverviewCard
-        title="Heading"
-        titleVariant="h4"
-        imageSource={mockImage}
-        brandImageSource={mockLogo}
-        footer={
-          <Button component="span" variant="outlined">
-            Go to this
-          </Button>
-        }
-      >
-        We do the things
-      </OverviewCard>
-    );
-    expect(container).toMatchSnapshot();
-  });
+
   it("renders correctly without optional props", () => {
     const { container } = render(
       <OverviewCard title="Heading">We do the things</OverviewCard>
@@ -111,7 +93,7 @@ describe("OverviewCard component", () => {
     fireEvent.click(title);
 
     expect(container).toMatchSnapshot();
-    expect(onClick.mock.calls).toMatchSnapshot();
+    expect(onClick.mock.calls.length).toEqual(1);
   });
   it("accpets onClick", () => {
     const onClick = jest.fn();
