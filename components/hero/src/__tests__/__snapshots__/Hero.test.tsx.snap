@@ -353,140 +353,57 @@ exports[`Hero component renders level 3 1`] = `
 </div>
 `;
 
-exports[`Hero component renders with deprecated imageSource - not string 1`] = `
-<div>
-  <div
-    class="Hero Hero--lvl-1"
-  >
-    <div
-      class="Container"
-    >
-      <div
-        class="MuiContainer-root container MuiContainer-maxWidthXl"
-      >
-        <div
-          class="wrapper"
-        >
-          <div
-            class="content"
-          >
-            <h1
-              class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
-            >
-              H1 Heading
-            </h1>
-            <div
-              class="text"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="image"
-    >
-      <img
-        src="path-to-image"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hero component renders with deprecated imageSource 1`] = `
-<div>
-  <div
-    class="Hero Hero--lvl-1"
-  >
-    <div
-      class="Container"
-    >
-      <div
-        class="MuiContainer-root container MuiContainer-maxWidthXl"
-      >
-        <div
-          class="wrapper"
-        >
-          <div
-            class="content"
-          >
-            <h1
-              class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
-            >
-              H1 Heading
-            </h1>
-            <div
-              class="text"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="image"
-      style="background-image: url(path-to-image);"
-    />
-  </div>
-</div>
-`;
-
 exports[`Hero component renders with no underline for brand 1`] = `
-<div>
+<div
+  class="Hero Hero--slim Hero--carousel Hero--keyline"
+>
   <div
-    class="Hero Hero--slim Hero--carousel Hero--keyline"
+    class="Container"
   >
     <div
-      class="Container"
+      class="MuiContainer-root container MuiContainer-maxWidthXl"
     >
       <div
-        class="MuiContainer-root container MuiContainer-maxWidthXl"
+        class="wrapper"
       >
         <div
           class="wrapper"
         >
           <div
-            class="wrapper"
+            class="Carousel Carousel--opacity Carousel--swipable"
+            data-testid="carousel"
           >
             <div
-              class="Carousel Carousel--opacity Carousel--swipable"
-              data-testid="carousel"
+              style="overflow-x: hidden;"
             >
               <div
-                style="overflow-x: hidden;"
+                class="react-swipeable-view-container"
+                style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
               >
                 <div
-                  class="react-swipeable-view-container"
-                  style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+                  aria-hidden="false"
+                  class="Carousel__slide--global"
+                  data-swipeable="true"
+                  style="width: 100%; flex-shrink: 0; overflow: auto;"
                 >
                   <div
-                    aria-hidden="false"
-                    class="Carousel__slide--global"
-                    data-swipeable="true"
-                    style="width: 100%; flex-shrink: 0; overflow: auto;"
+                    class="page"
                   >
                     <div
-                      class="page"
+                      class="slide"
+                      style="width: 100%;"
                     >
                       <div
-                        class="slide"
-                        style="width: 100%;"
+                        class="content"
                       >
-                        <div
-                          class="content"
+                        <h1
+                          class="MuiTypography-root title title--truncated Typography MuiTypography-h1"
                         >
-                          <h1
-                            class="MuiTypography-root title title--truncated Typography MuiTypography-h1"
-                          >
-                            Title
-                          </h1>
-                          <div
-                            class="text-no-underline"
-                          />
-                        </div>
+                          Title
+                        </h1>
+                        <div
+                          class="text-no-underline"
+                        />
                       </div>
                     </div>
                   </div>
@@ -494,74 +411,69 @@ exports[`Hero component renders with no underline for brand 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="SlideControls SlideControls--light controls"
+        </div>
+        <div
+          class="SlideControls SlideControls--light controls"
+        >
+          <span
+            class="middle-container"
           >
             <span
-              class="middle-container"
+              class="sliding-slot"
             >
               <span
-                class="sliding-slot"
+                class="numbers"
               >
                 <span
-                  class="numbers"
+                  class="number number--active"
                 >
-                  <span
-                    class="number number--active"
-                  >
-                    01
-                  </span>
+                  01
                 </span>
               </span>
-              <span
-                class="total"
-              >
-                01
-              </span>
             </span>
-          </div>
-          <div
-            class="children"
-          />
+            <span
+              class="total"
+            >
+              01
+            </span>
+          </span>
         </div>
+        <div
+          class="children"
+        />
       </div>
     </div>
+  </div>
+  <div
+    class="image-carousel"
+  >
     <div
-      class="image-carousel"
+      class="wrapper"
     >
       <div
-        class="wrapper"
+        class="Carousel Carousel--swipable"
+        data-testid="carousel"
       >
         <div
-          class="Carousel Carousel--swipable"
-          data-testid="carousel"
+          style="overflow-x: hidden;"
         >
           <div
-            style="overflow-x: hidden;"
+            class="react-swipeable-view-container"
+            style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
           >
             <div
-              class="react-swipeable-view-container"
-              style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+              aria-hidden="false"
+              class="Carousel__slide--global"
+              data-swipeable="true"
+              style="width: 100%; flex-shrink: 0; overflow: auto;"
             >
               <div
-                aria-hidden="false"
-                class="Carousel__slide--global"
-                data-swipeable="true"
-                style="width: 100%; flex-shrink: 0; overflow: auto;"
+                class="page"
               >
                 <div
-                  class="page"
-                >
-                  <div
-                    class="slide"
-                    style="width: 100%;"
-                  >
-                    <div
-                      class="image"
-                      style="background-image: url(path-to-image);"
-                    />
-                  </div>
-                </div>
+                  class="slide"
+                  style="width: 100%;"
+                />
               </div>
             </div>
           </div>

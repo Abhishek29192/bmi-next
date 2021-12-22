@@ -10,12 +10,6 @@ import styles from "./Hero.module.scss";
 
 export type HeroItem = {
   title: React.ReactNode;
-  /**
-   * Only required for level 1
-   *
-   * @deprecated This will be removed on version 1.0.0
-   */
-  imageSource?: string | React.ReactNode;
   /** Only required for level 1 */
   media?: React.ReactElement<AcceptedNode>;
   /** Only required for level 1 */
@@ -38,22 +32,6 @@ type Props<L = undefined> = {
       title: React.ReactNode;
     }
 );
-
-// NOTE: This should be removed when packages have individual releases and
-// allow local breaking changes.
-const __DeprecatedImageSource = ({
-  imageSource
-}: Pick<HeroItem, "imageSource">) => {
-  if (React.isValidElement(imageSource) && typeof imageSource !== "string") {
-    return <div className={styles["image"]}>{imageSource}</div>;
-  }
-  return (
-    <div
-      style={{ backgroundImage: `url(${imageSource})` }}
-      className={styles["image"]}
-    />
-  );
-};
 
 const Hero = ({
   breadcrumbs,
@@ -169,11 +147,8 @@ const Hero = ({
           hasAutoPlay={!!autoPlayInterval}
           autoPlayInterval={autoPlayInterval}
         >
-          {heroes.map(({ imageSource, media }, index) => (
+          {heroes.map(({ media }, index) => (
             <Carousel.Slide key={`image-slide-${index}`}>
-              {imageSource && (
-                <__DeprecatedImageSource imageSource={imageSource} />
-              )}
               <Media className={styles["image"]}>{media}</Media>
             </Carousel.Slide>
           ))}
@@ -236,12 +211,7 @@ const SingleHero = ({
         </div>
       </Container>
       {levelProps.level === 1 && (
-        <>
-          {levelProps.imageSource && (
-            <__DeprecatedImageSource imageSource={levelProps.imageSource} />
-          )}
-          <Media className={styles["image"]}>{levelProps.media}</Media>
-        </>
+        <Media className={styles["image"]}>{levelProps.media}</Media>
       )}
     </div>
   );
