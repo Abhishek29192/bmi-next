@@ -5,16 +5,14 @@ import Media, { AcceptedNode } from "@bmi/media";
 import Container from "@bmi/container";
 import styles from "./SpotlightHero.module.scss";
 
+type BackgroundColor = "cyan" | "teal" | "blue" | "charcoal";
+
 type Props = {
   title: React.ReactNode;
   children: React.ReactNode;
   brand?: string;
-  /**
-   * @deprecated Use `media` instead.
-   */
-  imageSource?: string | React.ReactNode;
   media?: React.ReactElement<AcceptedNode>;
-  backgroundColor?: "cyan" | "teal" | "blue" | "charcoal";
+  backgroundColor?: BackgroundColor;
   breadcrumbs?: React.ReactNode;
   cta?: React.ReactNode;
 };
@@ -34,7 +32,6 @@ const renderMedia = (media: Props["media"]) => {
 const SpotlightHero = ({
   title,
   children,
-  imageSource,
   media,
   backgroundColor = "blue",
   breadcrumbs,
@@ -51,50 +48,39 @@ const SpotlightHero = ({
           styles["SpotlightHero--keyline"]
       )}
     >
-      <div
-        className={styles["image"]}
-        style={
-          // TODO: This handles the case where there is no image, but we need to
-          // remove this too once fully deprecated.
-          typeof imageSource === "string"
-            ? { backgroundImage: `url(${imageSource})` }
-            : undefined
-        }
-      >
-        <div className={styles["header"]}>
-          <Container className={styles["header-container"]}>
-            {breadcrumbs && (
-              <div className={styles["breadcrumbs"]}>{breadcrumbs}</div>
-            )}
-            <Typography
-              variant="h1"
-              hasUnderline
-              hasDarkBackground
-              className={styles["title"]}
-            >
-              {title}
-            </Typography>
-          </Container>
-        </div>
-        <Container>
-          <div className={styles["content"]}>
-            <div className={styles["text"]}>{children}</div>
-            {React.isValidElement(cta) &&
-              React.cloneElement(cta, {
-                className: styles["cta"],
-                variant: "outlined",
-                hasDarkBackground: true
-              })}
-          </div>
-        </Container>
-        <div
-          className={classnames(
-            styles["overlay"],
-            styles[`overlay--${backgroundColor}`]
+      <div className={styles["header"]}>
+        <Container className={styles["header-container"]}>
+          {breadcrumbs && (
+            <div className={styles["breadcrumbs"]}>{breadcrumbs}</div>
           )}
-        >
-          <Media>{renderMedia(media)}</Media>
+          <Typography
+            variant="h1"
+            hasUnderline
+            hasDarkBackground
+            className={styles["title"]}
+          >
+            {title}
+          </Typography>
+        </Container>
+      </div>
+      <Container>
+        <div className={styles["content"]}>
+          <div className={styles["text"]}>{children}</div>
+          {React.isValidElement(cta) &&
+            React.cloneElement(cta, {
+              className: styles["cta"],
+              variant: "outlined",
+              hasDarkBackground: true
+            })}
         </div>
+      </Container>
+      <div
+        className={classnames(
+          styles["overlay"],
+          styles[`overlay--${backgroundColor}`]
+        )}
+      >
+        <Media className={styles["image"]}>{renderMedia(media)}</Media>
       </div>
     </div>
   );

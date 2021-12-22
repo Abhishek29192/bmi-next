@@ -1,6 +1,8 @@
 @import "@bmi/styles";
 
 .SpotlightHero {
+  position: relative;
+
   @media (min-width: $breakpoint-sm) {
     height: 630px;
   }

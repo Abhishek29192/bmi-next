@@ -53,11 +53,7 @@ describe("SpotlightHero component", () => {
 
   it("renders with deprecated imageSource", () => {
     const { container } = render(
-      <SpotlightHero
-        breadcrumbs={breadcrumbNode}
-        title="H1 Heading desktop"
-        imageSource={imageSource}
-      >
+      <SpotlightHero breadcrumbs={breadcrumbNode} title="H1 Heading desktop">
         <Typography>
           Duis incididunt non laborum nulla consectetur irure ipsum. Laboris eu
           quis ex nostrud sunt ad eu laboris commodo deserunt commodo.
