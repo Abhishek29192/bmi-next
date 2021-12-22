@@ -1,4 +1,4 @@
-type ParamType = string | boolean;
+type ParamType = string | boolean | undefined;
 
 export const convertStrToBool = (param: ParamType) => {
   if (typeof param === "boolean") {

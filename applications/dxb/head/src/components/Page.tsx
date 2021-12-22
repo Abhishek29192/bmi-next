@@ -12,7 +12,7 @@ import InputBanner, {
 import { getJpgImage } from "../utils/media";
 import { getPathWithCountryCode } from "../utils/path";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
-import { ConfigProvider, envConfig } from "../contexts/ConfigProvider";
+import { useConfig } from "../contexts/ConfigProvider";
 import BrandProvider from "./BrandProvider";
 import {
   Context as SiteContext,
@@ -89,11 +89,13 @@ const Page = ({
 
   const { breadcrumbs, inputBanner, seo, path } = pageData;
   const {
-    gatsbyReCaptchaKey,
-    gatsbyReCaptchaNet,
-    isPreviewMode,
-    visualizerAssetUrl
-  } = envConfig.config;
+    config: {
+      gatsbyReCaptchaKey,
+      gatsbyReCaptchaNet,
+      isPreviewMode,
+      visualizerAssetUrl
+    }
+  } = useConfig();
   const reCaptchaKey = !isPreviewMode && gatsbyReCaptchaKey;
   const reCaptchaNet = !isPreviewMode && gatsbyReCaptchaNet === "true";
 
@@ -117,93 +119,90 @@ const Page = ({
   );
 
   return (
-    <ConfigProvider configObject={envConfig}>
-      <>
-        <Head
-          htmlAttributes={{ lang: node_locale }}
-          title={title}
-          defer={false}
-          ogImageUrl={ogImageUrl}
-          scripts={{
-            headScripts,
-            scriptGA,
-            scriptOnetrust,
-            scriptHotJar,
-            scriptGOptLoad
-          }}
-          path={path}
-          seo={seo}
-          baseProduct={baseproduct}
-          variantProduct={variantProduct}
-          countryCode={countryCode}
-        />
-        {/* TODO: move cascade of providers to separate composition component AppProviders */}
-        <SiteContextProvider value={siteContext}>
-          <MicroCopy.Provider values={microCopyContext}>
-            <BasketContextProvider>
-              <GoogleReCaptchaProvider
-                reCaptchaKey={reCaptchaKey}
-                useRecaptchaNet={reCaptchaNet}
-                language={countryCode}
-                scriptProps={{ async: true }}
-              >
-                <BmiThemeProvider>
-                  <Header
-                    navigationData={menuNavigation}
-                    utilitiesData={menuUtilities}
-                    countryCode={countryCode}
-                    activeLabel={
-                      (breadcrumbs && breadcrumbs[0]?.label) || undefined
-                    }
-                    isOnSearchPage={isSearchPage}
-                    countryNavigationIntroduction={
-                      resources?.countryNavigationIntroduction
-                    }
-                    regions={regions}
-                    sampleBasketLink={resources?.sampleBasketLink}
-                  />
-                </BmiThemeProvider>
-                <BrandProvider brand={brand}>
-                  <ErrorBoundary
-                    fallbackRender={() => (
-                      <ErrorFallback
-                        countryCode={countryCode}
-                        promo={resources.errorGeneral}
-                      />
-                    )}
-                    onError={() =>
-                      navigate(getPathWithCountryCode(countryCode, "422"))
-                    }
+    <>
+      <Head
+        htmlAttributes={{ lang: node_locale }}
+        title={title}
+        defer={false}
+        ogImageUrl={ogImageUrl}
+        scripts={{
+          headScripts,
+          scriptGA,
+          scriptOnetrust,
+          scriptHotJar,
+          scriptGOptLoad
+        }}
+        path={path}
+        seo={seo}
+        baseProduct={baseproduct}
+        variantProduct={variantProduct}
+        countryCode={countryCode}
+      />
+      {/* TODO: move cascade of providers to separate composition component AppProviders */}
+      <SiteContextProvider value={siteContext}>
+        <MicroCopy.Provider values={microCopyContext}>
+          <BasketContextProvider>
+            <GoogleReCaptchaProvider
+              reCaptchaKey={reCaptchaKey}
+              useRecaptchaNet={reCaptchaNet}
+              language={countryCode}
+            >
+              <BmiThemeProvider>
+                <Header
+                  navigationData={menuNavigation}
+                  utilitiesData={menuUtilities}
+                  countryCode={countryCode}
+                  activeLabel={
+                    (breadcrumbs && breadcrumbs[0]?.label) || undefined
+                  }
+                  isOnSearchPage={isSearchPage}
+                  countryNavigationIntroduction={
+                    resources?.countryNavigationIntroduction
+                  }
+                  regions={regions}
+                  sampleBasketLink={resources?.sampleBasketLink}
+                />
+              </BmiThemeProvider>
+              <BrandProvider brand={brand}>
+                <ErrorBoundary
+                  fallbackRender={() => (
+                    <ErrorFallback
+                      countryCode={countryCode}
+                      promo={resources.errorGeneral}
+                    />
+                  )}
+                  onError={() =>
+                    navigate(getPathWithCountryCode(countryCode, "422"))
+                  }
+                >
+                  <VisualiserProvider
+                    contentSource={visualizerAssetUrl}
+                    variantCodeToPathMap={variantCodeToPathMap}
+                    shareWidgetData={resources?.visualiserShareWidget}
                   >
-                    <VisualiserProvider
-                      contentSource={visualizerAssetUrl}
-                      variantCodeToPathMap={variantCodeToPathMap}
-                      shareWidgetData={resources?.visualiserShareWidget}
+                    <Calculator
+                      onError={() =>
+                        navigate(getPathWithCountryCode(countryCode, "422"))
+                      }
                     >
-                      <Calculator
-                        onError={() =>
-                          navigate(getPathWithCountryCode(countryCode, "422"))
-                        }
-                      >
-                        <Content>{children}</Content>
-                      </Calculator>
-                    </VisualiserProvider>
-                    {inputBanner ? <InputBanner data={inputBanner} /> : null}
-                  </ErrorBoundary>
-                </BrandProvider>
-                <BmiThemeProvider>
-                  <Footer
-                    mainNavigation={footerMainNavigation}
-                    secondaryNavigation={footerSecondaryNavigation}
-                  />
-                  <BackToTop accessibilityLabel="Back to the top" />
-                </BmiThemeProvider>
-              </GoogleReCaptchaProvider>
-            </BasketContextProvider>
-          </MicroCopy.Provider>
-        </SiteContextProvider>
-      </>
-    </ConfigProvider>
+                      <Content>{children}</Content>
+                    </Calculator>
+                  </VisualiserProvider>
+                  {inputBanner ? <InputBanner data={inputBanner} /> : null}
+                </ErrorBoundary>
+              </BrandProvider>
+              <BmiThemeProvider>
+                <Footer
+                  mainNavigation={footerMainNavigation}
+                  secondaryNavigation={footerSecondaryNavigation}
+                />
+                <BackToTop accessibilityLabel="Back to the top" />
+              </BmiThemeProvider>
+            </GoogleReCaptchaProvider>
+          </BasketContextProvider>
+        </MicroCopy.Provider>
+      </SiteContextProvider>
+    </>
   );
 };
 

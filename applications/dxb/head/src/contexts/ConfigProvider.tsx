@@ -1,5 +1,36 @@
 import React, { createContext, useContext, useState } from "react";
 
+export interface IEnvConfig {
+  config: {
+    isPreviewMode?: string | undefined;
+    googleTagManagerID?: string;
+    hubSpotId?: string;
+    isSchemaORGActivated?: string | undefined;
+    brandProviderToggler?: string | undefined;
+    gatsbyReCaptchaKey?: string;
+    gatsbyReCaptchaNet?: string;
+    visualizerAssetUrl?: string;
+    documentDownloadEndpoint?: string;
+    gcpFormUploadEndpoint?: string;
+    gcpFormSubmitEndpoint?: string;
+    hubspotApiUrl?: string;
+    gcpApsisEndpoint?: string;
+    isCountryCodeProhibited?: string | undefined;
+    webtoolsCalculatorDataUrl?: string;
+    isWebToolsCalculatorEnabled?: string | undefined;
+    webToolsCalculatorApsisEndpoint?: string | undefined;
+    documentDownloadMaxLimit?: string;
+    isRecomendedProductsHide?: string | undefined;
+    googleApiKey?: string;
+    esIndexNameSystem?: string;
+    isDevMode?: string | undefined;
+    gcpSystemConfiguratorEndpoint?: string;
+    isSampleOrderingEnabled?: string | undefined;
+    isLegacyFiltersUsing?: string | undefined;
+  };
+  updateConfig?: (param: ConfigType) => void;
+}
+
 export const envConfig = {
   config: {
     isPreviewMode: process.env.GATSBY_PREVIEW,
@@ -24,17 +55,19 @@ export const envConfig = {
     isRecomendedProductsHide: process.env.GATSBY_HIDE_RECOMMENDED_PRODUCTS,
     googleApiKey: process.env.GATSBY_GOOGLE_API_KEY,
     esIndexNameSystem: process.env.GATSBY_ES_INDEX_NAME_SYSTEMS,
-    isDevMode: process.env.NODE_ENV === "development",
+    isDevMode: (process.env.NODE_ENV === "development").toString(),
     gcpSystemConfiguratorEndpoint:
-      process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT
+      process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT,
+    isSampleOrderingEnabled: process.env.GATSBY_ENABLE_SAMPLE_ORDERING,
+    isLegacyFiltersUsing: process.env.GATSBY_USE_LEGACY_FILTERS
   }
-};
+} as IEnvConfig;
 
-type ConfigType = Record<string, string>;
+type ConfigType = IEnvConfig["config"];
 
 interface ConfigContextValues {
-  config: ConfigType;
-  updateConfig?: (config: ConfigType) => void;
+  config: IEnvConfig["config"];
+  updateConfig?: IEnvConfig["updateConfig"];
 }
 
 const ConfigContext = createContext<ConfigContextValues>({
@@ -43,18 +76,17 @@ const ConfigContext = createContext<ConfigContextValues>({
 });
 
 export const ConfigProvider = ({
-  configObject,
+  configObject = envConfig,
   children
 }: {
   configObject: ConfigContextValues;
   children: React.ReactChild | React.ReactChildren;
 }) => {
-  const [{ config }, setUpdateConfig] = useState(configObject);
+  const [config, setUpdateConfig] = useState(configObject.config);
   const updateConfig = (updatedConfig: ConfigType) => {
-    setUpdateConfig({
-      config: { ...config, ...updatedConfig }
-    });
+    setUpdateConfig({ ...config, ...updatedConfig });
   };
+
   return (
     <ConfigContext.Provider value={{ config, updateConfig }}>
       {children}

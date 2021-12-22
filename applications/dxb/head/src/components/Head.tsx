@@ -7,9 +7,10 @@ import EffraBold from "../../static/fonts/Effra_W_Bold.woff2";
 import EffraHeavy from "../../static/fonts/Effra_W_Heavy.woff2";
 import EffraMedium from "../../static/fonts/Effra_W_Medium.woff2";
 import EffraRegular from "../../static/fonts/Effra_W_Regular.woff2";
-import { Product, VariantOption } from "./types/pim";
-import { Data as SEOContentData } from "./SEOContent";
+import { convertStrToBool } from "../utils/convertStrToBool";
 import { Data as SiteData } from "./Site";
+import { Data as SEOContentData } from "./SEOContent";
+import { Product, VariantOption } from "./types/pim";
 
 interface HeadProps {
   htmlAttributes: Record<string, string>;
@@ -58,6 +59,7 @@ export const Head = ({
       isSchemaORGActivated
     }
   } = useConfig();
+  const isPreview = convertStrToBool(isPreviewMode);
   const imageUrl = getJpgImage(ogImageUrl);
 
   //TODO: to be improved by making noindex a page level content option from Contentful
@@ -71,15 +73,15 @@ export const Head = ({
       "concrete-tiles/" // qa test page - remove before final commit
     ].indexOf(path) > -1;
 
-  const isScriptOnetrustEnabled = Boolean(!isPreviewMode && scriptOnetrust);
-  const isScriptGAenabled = Boolean(!isPreviewMode && scriptGA);
-  const enableTagManagerId = Boolean(!isPreviewMode && googleTagManagerID);
-  const enableHotjar = Boolean(!isPreviewMode && scriptHotJar);
-  const enableGOptimize = Boolean(!isPreviewMode && scriptGOptLoad);
-  const enableHubSpot = Boolean(!isPreviewMode && hubSpotId);
+  const isScriptOnetrustEnabled = Boolean(!isPreview && scriptOnetrust);
+  const isScriptGAenabled = Boolean(!isPreview && scriptGA);
+  const enableTagManagerId = Boolean(!isPreview && googleTagManagerID);
+  const enableHotjar = Boolean(!isPreview && scriptHotJar);
+  const enableGOptimize = Boolean(!isPreview && scriptGOptLoad);
+  const enableHubSpot = Boolean(!isPreview && hubSpotId);
 
   const schemaOrgActivated =
-    Boolean(isSchemaORGActivated) &&
+    Boolean(convertStrToBool(isSchemaORGActivated)) &&
     Boolean(baseProduct) &&
     Boolean(variantProduct);
 
