@@ -29,7 +29,8 @@ export const transformImagesSrc = (images?: GallerySectionImage[]): Image[] => {
   return (images || []).map((item) => ({
     media: renderImage(item),
     thumbnail: item.image.thumbnail.src,
-    caption: item.caption?.caption || undefined
+    caption: item.caption?.caption || undefined,
+    altText: item.altText || undefined
   }));
 };
 

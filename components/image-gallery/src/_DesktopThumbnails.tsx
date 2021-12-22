@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import classnames from "classnames";
 import DefaultThumbnail from "@bmi/thumbnail";
 import ThumbScrollerButton from "@bmi/thumb-scroller-button";
+import { StateEnum, SizeEnum } from "../../thumbnail/src/Thumbnail";
 import { Image } from "./types";
 import styles from "./ImageGallery.module.scss";
 
@@ -101,16 +102,21 @@ const Thumbnails = ({
           marginRight: `${scrollerPosition}%`
         }}
       >
-        {images.map(({ mainSource, thumbnail, altText }, index) => {
+        {images.map(({ media, thumbnail, altText }, index) => {
           return (
             <Thumbnail
+              media={media}
               key={`thumbnail-${index}`}
-              imageSource={thumbnail || mainSource}
+              imageSource={thumbnail}
               altText={altText}
-              state={activeImageIndex === index ? "selected" : "enabled"}
+              state={
+                activeImageIndex === index
+                  ? StateEnum.SELECTED
+                  : StateEnum.ENABLED
+              }
               onClick={() => onThumbnailClick(index)}
               className={styles["thumbnail"]}
-              size="large"
+              size={SizeEnum.LARGE}
             />
           );
         })}

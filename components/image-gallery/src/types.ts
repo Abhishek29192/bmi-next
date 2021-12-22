@@ -1,10 +1,6 @@
 import { AcceptedNode } from "@bmi/media";
 
 export type Image = {
-  /**
-   * @deprecated Use `media` instead.
-   */
-  mainSource?: string;
   media?: React.ReactElement<AcceptedNode>;
   thumbnail?: string;
   /**
