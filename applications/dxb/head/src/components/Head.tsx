@@ -185,6 +185,20 @@ export const Head = ({
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
         </script>
       )}
+      {enableHotjar && (
+        <link
+          rel="preconnect"
+          href="https://script.hotjar.com/"
+          crossOrigin="anonymous"
+        />
+      )}
+      {enableHotjar && (
+        <link
+          rel="preconnect"
+          href="https://vars.hotjar.com"
+          crossOrigin="anonymous"
+        />
+      )}
       {enableGOptimize && (
         <script
           async
@@ -196,6 +210,7 @@ export const Head = ({
         <script
           id="hubspot-cta-script"
           src="https://js.hscta.net/cta/current.js"
+          async
         />
       )}
       <script lang="javascript">
