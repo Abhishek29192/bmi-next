@@ -371,12 +371,7 @@ const FormSection = ({
   onSuccess?: () => void;
 }) => {
   const {
-    config: {
-      isPreviewMode,
-      gcpFormSubmitEndpoint,
-      hubspotApiUrl,
-      hubSpotFormID
-    }
+    config: { isPreviewMode, gcpFormSubmitEndpoint, hubspotApiUrl, hubSpotId }
   } = useConfig();
   const { countryCode, getMicroCopy, node_locale } = useSiteContext();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -512,7 +507,7 @@ const FormSection = ({
     };
 
     try {
-      await axios.post(`${hubspotApiUrl}${hubSpotFormID}/${hubSpotFormGuid}`, {
+      await axios.post(`${hubspotApiUrl}${hubSpotId}/${hubSpotFormGuid}`, {
         ...hsPayload,
         ...(hsLegalFields
           ? {

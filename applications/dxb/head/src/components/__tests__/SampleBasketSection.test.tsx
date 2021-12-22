@@ -13,19 +13,29 @@ import { local } from "../../utils/storage";
 import { SiteContextProvider } from "../Site";
 import * as BasketContextUtils from "../../contexts/SampleBasketContext";
 import { ClassificationCodeEnum } from "../types/pim";
+import { IEnvConfig } from "../../contexts/ConfigProvider";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
+import { ConfigProviderMock } from "./utils/ConfigProviderMock";
 
-const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
+const MockSiteContext = ({
+  mockEnvConfig = { gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT" },
+  children
+}: {
+  mockEnvConfig?: Partial<IEnvConfig["config"]>;
+  children: React.ReactNode;
+}) => {
   return (
-    <SiteContextProvider
-      value={{
-        ...getMockSiteContext("no"),
-        reCaptchaKey: "1234",
-        reCaptchaNet: false
-      }}
-    >
-      {children}
-    </SiteContextProvider>
+    <ConfigProviderMock customConfig={mockEnvConfig}>
+      <SiteContextProvider
+        value={{
+          ...getMockSiteContext("no"),
+          reCaptchaKey: "1234",
+          reCaptchaNet: false
+        }}
+      >
+        {children}
+      </SiteContextProvider>
+    </ConfigProviderMock>
   );
 };
 

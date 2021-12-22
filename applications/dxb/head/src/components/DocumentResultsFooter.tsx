@@ -10,7 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import classnames from "classnames";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
-import { useConfig } from "../contexts/ConfigProvider";
+import { IEnvConfig, useConfig } from "../contexts/ConfigProvider";
 import { convertStrToBool } from "../utils/convertStrToBool";
 import { devLog } from "../utils/devLog";
 import { microCopy } from "../constants/microCopies";
@@ -42,7 +42,7 @@ type Props = {
   onDownloadClick?: (
     list: Record<string, any>,
     token: string,
-    config: Record<string, string>,
+    config: Partial<IEnvConfig["config"]>,
     callback?: () => void
   ) => void;
 };
@@ -52,7 +52,7 @@ const GTMButton = withGTM<ButtonProps>(Button);
 export const handleDownloadClick = async (
   list: Record<string, any>,
   token: string,
-  config: Record<string, string>,
+  config: Partial<IEnvConfig["config"]>,
   callback?: () => void
 ) => {
   const { isPreviewMode, documentDownloadEndpoint } = config;

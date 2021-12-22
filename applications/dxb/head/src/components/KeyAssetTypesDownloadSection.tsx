@@ -6,7 +6,7 @@ import { GetApp } from "@material-ui/icons";
 import { getDownloadLink, downloadAs } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
 import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
-import { useConfig } from "../contexts/ConfigProvider";
+import { IEnvConfig, useConfig } from "../contexts/ConfigProvider";
 import { convertStrToBool } from "../utils/convertStrToBool";
 import Icon from "./Icon";
 
@@ -41,7 +41,7 @@ const GTMButton = withGTM<
 export const handleDownloadClick = async (
   list: CommonData[],
   token: string,
-  config: Record<string, string>
+  config: Partial<IEnvConfig["config"]>
 ) => {
   const { isPreviewMode, documentDownloadEndpoint } = config;
   const [currentTime] = new Date().toJSON().replace(/-|:|T/g, "").split(".");
