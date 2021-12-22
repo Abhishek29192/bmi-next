@@ -39,16 +39,6 @@ describe("CtaCard component", () => {
     );
     expect(container).toMatchSnapshot();
   });
-  it("renders with deprecated imageSource", () => {
-    const { container } = render(
-      <CTACard
-        title="Call to Action Card"
-        imageSource={demoHouseImage}
-        action={{ model: "htmlLink", href: "#" }}
-      />
-    );
-    expect(container).toMatchSnapshot();
-  });
   it("should handle library props from ButtonBaseProps", () => {
     const onClick = jest.fn();
     const { getByText } = render(
@@ -56,15 +46,5 @@ describe("CtaCard component", () => {
     );
     fireEvent.click(getByText("Call to Action Card"));
     expect(onClick).toBeCalledTimes(1);
-  });
-  it("renders with deprecated imageSource as ReactNode", () => {
-    const { container } = render(
-      <CTACard
-        title="Call to Action Card"
-        imageSource={<div>Custom Image Component</div>}
-        action={{ model: "htmlLink", href: "#" }}
-      />
-    );
-    expect(container.firstChild).toMatchSnapshot();
   });
 });
