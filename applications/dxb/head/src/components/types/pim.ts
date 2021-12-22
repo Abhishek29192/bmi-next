@@ -194,7 +194,8 @@ export type VariantOptionWithProduct = VariantOption & {
 export enum ImageAssetTypesEnum {
   TECHNICAL_DRAWINGS = "TECHNICAL_DRAWINGS",
   MASTER_IMAGE = "MASTER_IMAGE",
-  GALLERY = "GALLERY"
+  GALLERY = "GALLERY",
+  NOT_MASTER_IMAGE = "NOT_MASTER_IMAGE"
 }
 
 export enum ClassificationCodeEnum {

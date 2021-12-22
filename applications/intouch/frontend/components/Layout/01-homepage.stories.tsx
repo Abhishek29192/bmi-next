@@ -24,19 +24,34 @@ export const CompanyHome = ({ title }: LayoutProps) => (
           title: "H1 First heading dark background",
           children:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.",
-          imageSource: "https://source.unsplash.com/MjLrM8rVMC0/1200x1200"
+          media: (
+            <img
+              src={"https://source.unsplash.com/MjLrM8rVMC0/1200x1200"}
+              alt="H1 First heading dark background"
+            />
+          )
         },
         {
           title: "H1 Second heading dark background",
           children:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula.",
-          imageSource: "https://source.unsplash.com/MjLrM8rVMC0/1200x1200"
+          media: (
+            <img
+              src={"https://source.unsplash.com/MjLrM8rVMC0/1200x1200"}
+              alt="H1 First heading dark background"
+            />
+          )
         },
         {
           title: "H1 Third heading dark background",
           children:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula.",
-          imageSource: "https://source.unsplash.com/MjLrM8rVMC0/1200x1200"
+          media: (
+            <img
+              src={"https://source.unsplash.com/MjLrM8rVMC0/1200x1200"}
+              alt="H1 First heading dark background"
+            />
+          )
         }
       ]}
     />

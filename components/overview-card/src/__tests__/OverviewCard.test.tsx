@@ -224,24 +224,4 @@ describe("OverviewCard component", () => {
     );
     expect(container).toMatchSnapshot();
   });
-
-  it("renders correctly if imageSource !== string", () => {
-    const { container } = render(
-      <OverviewCard
-        title="Heading"
-        titleVariant="h4"
-        imageSource={<img />}
-        media={<img src={mockImage} alt="Lorem ipsum" />}
-        brandImageSource={mockLogo}
-        footer={
-          <Button component="span" variant="outlined">
-            Go to this
-          </Button>
-        }
-      >
-        We do the things
-      </OverviewCard>
-    );
-    expect(container).toMatchSnapshot();
-  });
 });

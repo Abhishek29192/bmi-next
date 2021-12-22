@@ -38,7 +38,7 @@ export const createSample = (
   name: product.name,
   code: variant.code,
   path: variant.path,
-  image: findMasterImageUrl(variant.images),
+  image: findMasterImageUrl([...(variant?.images || [])]),
   classifications: combineVariantClassifications(product, variant)
 });
 

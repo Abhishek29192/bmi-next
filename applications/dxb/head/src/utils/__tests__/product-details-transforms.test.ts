@@ -32,7 +32,8 @@ import {
   ClassificationCodeEnum,
   ImageAssetTypesEnum,
   Product,
-  Image
+  Image,
+  ImageFormatEnum
 } from "../../components/types/pim";
 
 describe("product-details-transforms tests", () => {
@@ -2042,7 +2043,7 @@ describe("product-details-transforms tests", () => {
           containerId: "container_Zanda Arktis normalstein1.jpg",
           fileSize: 28390,
           name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
-          format: "Product-Listing-Card-Small-Desktop-Tablet"
+          format: ImageFormatEnum.PRODUCT_LISTING_CARD_SMALL_DESKTOP_TABLET
         }
       ]);
       expect(result).toEqual(undefined);
@@ -2059,7 +2060,7 @@ describe("product-details-transforms tests", () => {
           containerId: "container_Zanda Arktis normalstein1.jpg",
           fileSize: 28390,
           name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
-          format: "Product-Listing-Card-Small-Desktop-Tablet"
+          format: ImageFormatEnum.PRODUCT_LISTING_CARD_SMALL_DESKTOP_TABLET
         }
       ]);
       expect(result).toEqual("http://nowhere.com");
@@ -2076,7 +2077,7 @@ describe("product-details-transforms tests", () => {
           containerId: "container_Zanda Arktis normalstein1.jpg",
           fileSize: 28390,
           name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
-          format: "Product-Listing-Card-Large-Desktop"
+          format: ImageFormatEnum.PRODUCT_LISTING_CARD_LARGE_DESKTOP
         },
         {
           realFileName:
@@ -2088,7 +2089,7 @@ describe("product-details-transforms tests", () => {
           containerId: "container_Zanda Arktis normalstein1.jpg",
           fileSize: 28390,
           name: "Product-Listing-Card-Small-Desktop-Tablet_Zanda Arktis normalstein1",
-          format: "Product-Listing-Card-Small-Desktop-Tablet"
+          format: ImageFormatEnum.PRODUCT_LISTING_CARD_SMALL_DESKTOP_TABLET
         }
       ]);
       expect(result).toEqual(
@@ -2110,7 +2111,7 @@ describe("product-details-transforms tests", () => {
             containerId: "container_Zanda Arktis normalstein1.jpg",
             fileSize: 28390,
             name: "Product-Color-Selector-Mobile_Zanda Arktis normalstein1",
-            format: "Product-Color-Selector-Mobile"
+            format: ImageFormatEnum.PRODUCT_COLOR_SELECTOR_MOBILE
           }
         ]);
         expect(result).toEqual(undefined);
@@ -2129,7 +2130,7 @@ describe("product-details-transforms tests", () => {
             containerId: "container_Zanda Arktis normalstein1.jpg",
             fileSize: 28390,
             name: "Product-Color-Selector-Mobile_Zanda Arktis normalstein1",
-            format: "Product-Color-Selector-Mobile"
+            format: ImageFormatEnum.PRODUCT_COLOR_SELECTOR_MOBILE
           }
         ]);
         expect(result).toEqual("http://nowhere.com");
@@ -2181,7 +2182,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Web_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Web"
+              format: ImageFormatEnum.WEB
             },
             {
               allowedToDownload: true,
@@ -2193,7 +2194,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/tiff",
               realFileName:
                 "Print_297006251_Turmalin Ridge tile K Glazed Zeder grey.tiff",
-              format: "Print"
+              format: ImageFormatEnum.PRINT
             },
             {
               allowedToDownload: true,
@@ -2205,7 +2206,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Color-Selector-Mobile_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Color-Selector-Mobile"
+              format: ImageFormatEnum.PRODUCT_COLOR_SELECTOR_MOBILE
             },
             {
               allowedToDownload: true,
@@ -2217,7 +2218,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Hero-Large-Desktop_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Hero-Large-Desktop"
+              format: ImageFormatEnum.PRODUCT_HERO_LARGE_DESKTOP
             },
             {
               allowedToDownload: true,
@@ -2229,7 +2230,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Listing-Card-Large-Desktop_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Listing-Card-Large-Desktop"
+              format: ImageFormatEnum.PRODUCT_LISTING_CARD_LARGE_DESKTOP
             },
             {
               allowedToDownload: true,
@@ -2241,7 +2242,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Hero-Small-Desktop-Tablet_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Hero-Small-Desktop-Tablet"
+              format: ImageFormatEnum.PRODUCT_HERO_SMALL_DESKTOP_TABLET
             },
             {
               allowedToDownload: true,
@@ -2253,7 +2254,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Color-Selector-Large-Desktop_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Color-Selector-Large-Desktop"
+              format: ImageFormatEnum.PRODUCT_COLOR_SELECTOR_LARGE_DESKTOP
             },
             {
               allowedToDownload: true,
@@ -2265,7 +2266,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Hero-Mobile_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Hero-Mobile"
+              format: ImageFormatEnum.PRODUCT_HERO_MOBILE
             },
             {
               allowedToDownload: true,
@@ -2277,7 +2278,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Listing-Card-Mobile_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Listing-Card-Mobile"
+              format: ImageFormatEnum.PRODUCT_LISTING_CARD_MOBILE
             },
             {
               allowedToDownload: true,
@@ -2289,7 +2290,8 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Color-Selector-Small-Desktop-Tablet_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Color-Selector-Small-Desktop-Tablet"
+              format:
+                ImageFormatEnum.PRODUCT_COLOR_SELECTOR_SMALL_DESKTOP_TABLET
             },
             {
               allowedToDownload: true,
@@ -2301,7 +2303,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Listing-Card-Small-Desktop-Tablet_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Listing-Card-Small-Desktop-Tablet"
+              format: ImageFormatEnum.PRODUCT_LISTING_CARD_SMALL_DESKTOP_TABLET
             }
           ];
           const expectedResult = [
@@ -2330,7 +2332,7 @@ describe("product-details-transforms tests", () => {
               containerId: "container_Zanda Arktis normalstein1.jpg",
               fileSize: 28390,
               name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
-              format: "Product-Listing-Card-Large-Desktop"
+              format: ImageFormatEnum.PRODUCT_LISTING_CARD_LARGE_DESKTOP
             },
             {
               realFileName:
@@ -2342,7 +2344,7 @@ describe("product-details-transforms tests", () => {
               containerId: "container_Zanda Arktis normalstein1.jpg",
               fileSize: 28390,
               name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
-              format: "Product-Hero-Small-Desktop-Tablet"
+              format: ImageFormatEnum.PRODUCT_HERO_SMALL_DESKTOP_TABLET
             },
             {
               realFileName:
@@ -2354,7 +2356,7 @@ describe("product-details-transforms tests", () => {
               containerId: "container_Zanda Arktis normalstein1.jpg",
               fileSize: 28390,
               name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
-              format: "Product-Color-Selector-Mobile"
+              format: ImageFormatEnum.PRODUCT_COLOR_SELECTOR_MOBILE
             }
           ];
           const expectedResult = [

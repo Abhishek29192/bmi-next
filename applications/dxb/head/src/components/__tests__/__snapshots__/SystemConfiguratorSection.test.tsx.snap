@@ -264,7 +264,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                 <img
                   alt="efgh name"
                   class="header-picture Media Media--contain"
-                  src="testhttp"
+                  src="product-listing-card-small-desktop-tablet"
                 />
                 <div
                   class="body"
@@ -575,7 +575,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                 <img
                   alt="efgh name"
                   class="header-picture Media Media--contain"
-                  src="testhttp"
+                  src="product-listing-card-small-desktop-tablet"
                 />
                 <div
                   class="body"
@@ -1601,7 +1601,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                 <img
                   alt="efgh name"
                   class="header-picture Media Media--contain"
-                  src="testhttp"
+                  src="product-listing-card-small-desktop-tablet"
                 />
                 <div
                   class="body"
@@ -3877,7 +3877,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                 <img
                   alt="efgh name"
                   class="header-picture Media Media--contain"
-                  src="testhttp"
+                  src="product-listing-card-small-desktop-tablet"
                 />
                 <div
                   class="body"
