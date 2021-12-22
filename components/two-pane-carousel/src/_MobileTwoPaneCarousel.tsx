@@ -45,18 +45,12 @@ const MobileTwoPaneCarousel = ({ slides }: Props) => {
         onPageChange={setActivePage}
         hasOpacityAnimation
       >
-        {slides.map(({ description, cta, imageSource, media }, index) => {
+        {slides.map(({ description, cta, media }, index) => {
           return (
             <Carousel.Slide
               key={`left-pane-${index}`}
               className={styles["left-pane-slide"]}
             >
-              {imageSource ? (
-                <div
-                  className={styles["image"]}
-                  style={{ backgroundImage: `url(${imageSource})` }}
-                />
-              ) : null}
               <Media className={styles["image"]}>{media}</Media>
               {(description || cta) && (
                 <div className={styles["text"]}>

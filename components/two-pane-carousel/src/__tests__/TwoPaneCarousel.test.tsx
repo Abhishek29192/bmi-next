@@ -43,9 +43,7 @@ const slides: Props["slides"] = [
     description: "Aliquip velit exercitation sunt eiusmod.",
     cta: {
       label: "Read the full story"
-    },
-    // TODO: This tests the deprecated imageSource
-    imageSource
+    }
   },
   {
     title: "H1 Heading",
@@ -54,6 +52,7 @@ const slides: Props["slides"] = [
 ];
 
 afterEach(cleanup);
+
 describe("TwoPaneCarousel component", () => {
   it("renders correctly", () => {
     const { container } = render(
