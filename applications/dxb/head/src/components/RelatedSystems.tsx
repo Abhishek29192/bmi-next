@@ -54,7 +54,7 @@ export const SystemCard = ({
   // eslint-disable-next-line security/detect-object-injection
   const brandLogo = iconMap[brandLogoCode];
   const systemUrl = getSystemUrl(countryCode, path);
-  const mainImage = findMasterImageUrl(system.images || []);
+  const mainImage = findMasterImageUrl([...(system.images || [])]);
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   return (
@@ -63,7 +63,7 @@ export const SystemCard = ({
         title={system.name}
         titleVariant="h5"
         imageSize="contain"
-        imageSource={mainImage}
+        media={mainImage && <img src={mainImage} alt={`${system.name}`} />}
         brandImageSource={brandLogo}
         action={{
           model: "routerLink",

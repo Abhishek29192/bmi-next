@@ -127,7 +127,14 @@ const ProductListing = ({
                 subtitle={uniqueClassifications}
                 subtitleVariant="h6"
                 imageSize="contain"
-                imageSource={mainImage}
+                media={
+                  mainImage && (
+                    <img
+                      src={mainImage}
+                      alt={`${uniqueClassifications} ${product.name}`}
+                    />
+                  )
+                }
                 brandImageSource={brandLogo}
                 action={{
                   model: "routerLink",
