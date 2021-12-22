@@ -1,5 +1,4 @@
 import React from "react";
-import BmiThemeProvider from "@bmi/theme-provider";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import { BackToTop, MicroCopy } from "@bmi/components";
 import { graphql, navigate } from "gatsby";
@@ -147,22 +146,20 @@ const Page = ({
               useRecaptchaNet={reCaptchaNet}
               language={countryCode}
             >
-              <BmiThemeProvider>
-                <Header
-                  navigationData={menuNavigation}
-                  utilitiesData={menuUtilities}
-                  countryCode={countryCode}
-                  activeLabel={
-                    (breadcrumbs && breadcrumbs[0]?.label) || undefined
-                  }
-                  isOnSearchPage={isSearchPage}
-                  countryNavigationIntroduction={
-                    resources?.countryNavigationIntroduction
-                  }
-                  regions={regions}
-                  sampleBasketLink={resources?.sampleBasketLink}
-                />
-              </BmiThemeProvider>
+              <Header
+                navigationData={menuNavigation}
+                utilitiesData={menuUtilities}
+                countryCode={countryCode}
+                activeLabel={
+                  (breadcrumbs && breadcrumbs[0]?.label) || undefined
+                }
+                isOnSearchPage={isSearchPage}
+                countryNavigationIntroduction={
+                  resources?.countryNavigationIntroduction
+                }
+                regions={regions}
+                sampleBasketLink={resources?.sampleBasketLink}
+              />
               <BrandProvider brand={brand}>
                 <ErrorBoundary
                   fallbackRender={() => (
@@ -191,13 +188,11 @@ const Page = ({
                   {inputBanner ? <InputBanner data={inputBanner} /> : null}
                 </ErrorBoundary>
               </BrandProvider>
-              <BmiThemeProvider>
-                <Footer
-                  mainNavigation={footerMainNavigation}
-                  secondaryNavigation={footerSecondaryNavigation}
-                />
-                <BackToTop accessibilityLabel="Back to the top" />
-              </BmiThemeProvider>
+              <Footer
+                mainNavigation={footerMainNavigation}
+                secondaryNavigation={footerSecondaryNavigation}
+              />
+              <BackToTop accessibilityLabel="Back to the top" />
             </GoogleReCaptchaProvider>
           </BasketContextProvider>
         </MicroCopy.Provider>
