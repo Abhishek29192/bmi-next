@@ -12,14 +12,13 @@ import { Launch } from "@material-ui/icons";
 import CheckIcon from "@material-ui/icons/Check";
 import Tab, { TabProps } from "@material-ui/core/Tab";
 import withGTM from "../utils/google-tag-manager";
+import { DOCUMENT_DOWNLOAD_MAX_LIMIT } from "../constants/commonConstants";
 import { microCopy } from "../constants/microCopies";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/ProductLeadBlock.module.scss";
 import { useSiteContext } from "./Site";
 import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
-import DocumentResultsFooter, {
-  handleDownloadClick
-} from "./DocumentResultsFooter";
+import DocumentResultsFooter from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { Asset, Classification } from "./types/pim";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
@@ -54,8 +53,6 @@ type Props = {
 };
 
 const DOCUMENTS_PER_PAGE = 24;
-const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
-  +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
 
 export const getCountsOfDocuments = (
   documentsByAssetType: [string, (PIMDocumentData | PIMLinkDocumentData)[]][]
@@ -356,9 +353,7 @@ const ProductLeadBlock = ({
           index="three"
         >
           <div className={styles["document-library"]} ref={resultsElement}>
-            <DownloadList
-              maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}
-            >
+            <DownloadList maxSize={DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
               <DocumentSimpleTableResults
                 documents={filteredDocuments}
                 page={page}
@@ -369,7 +364,6 @@ const ProductLeadBlock = ({
               <DocumentResultsFooter
                 page={page}
                 count={count}
-                onDownloadClick={handleDownloadClick}
                 onPageChange={handlePageChange}
               />
             </DownloadList>

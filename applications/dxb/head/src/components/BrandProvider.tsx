@@ -4,6 +4,7 @@ import { ThemeProvider } from "@bmi/components";
 import { DialogClassNameContext } from "@bmi/components";
 import type { ThemeOptions } from "@material-ui/core/styles";
 
+import { useConfig } from "../contexts/ConfigProvider";
 import styles from "./styles/BrandProvider.module.scss";
 
 export const BrandClassNameContext = createContext<string | null>(null);
@@ -60,6 +61,9 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
 
   const [interColor, setInterColor] = useState<string | null>(null);
   const [focusColor, setFocusColor] = useState<string | undefined>();
+  const {
+    config: { brandProviderToggler }
+  } = useConfig();
 
   const className = getBrandClassName(brand);
 
@@ -85,7 +89,7 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
     return theme;
   };
 
-  const featureToggle = process.env.GATSBY_ENABLE_BRAND_PROVIDER as
+  const featureToggle = brandProviderToggler as
     | boolean // styleguidist's webpack returns boolean value
     | string
     | undefined;

@@ -19,6 +19,7 @@ import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import { queryElasticSearch } from "../utils/elasticSearch";
 import { generateSystemPath } from "../utils/systems";
 import { getPathWithCountryCode } from "../utils/path";
+import { useConfig } from "../contexts/ConfigProvider";
 import { devLog } from "../utils/devLog";
 import { System } from "./types/pim";
 import ConfiguratorPanel from "./configurator-panel/ConfiguratorPanel";

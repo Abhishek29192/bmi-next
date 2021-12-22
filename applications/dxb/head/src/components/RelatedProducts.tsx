@@ -21,6 +21,8 @@ import {
   groupProductsByCategory,
   mapClassificationValues
 } from "../utils/product-details-transforms";
+import { convertStrToBool } from "../utils/convertStrToBool";
+import { useConfig } from "../contexts/ConfigProvider";
 import { renderMedia } from "../utils/renderMedia";
 import { Product, VariantOption } from "./types/pim"; // Hmmmmmm
 import styles from "./styles/RelatedProducts.module.scss";
@@ -191,6 +193,9 @@ const RelatedProducts = ({
   products
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
+  const {
+    config: { isRecomendedProductsHide }
+  } = useConfig();
 
   if (Object.entries(products).length === 0) {
     return null;
@@ -198,8 +203,7 @@ const RelatedProducts = ({
 
   const productGroups = groupProductsByCategory(products);
 
-  const isRelatedProductsHide =
-    process.env.GATSBY_HIDE_RECOMMENDED_PRODUCTS === "true";
+  const isRelatedProductsHide = convertStrToBool(isRecomendedProductsHide);
 
   if (!Object.keys(productGroups).length || isRelatedProductsHide) {
     return null;

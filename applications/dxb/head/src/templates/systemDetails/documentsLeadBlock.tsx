@@ -2,9 +2,7 @@ import React, { useState, useRef } from "react";
 import { LeadBlock } from "@bmi/components";
 import { DownloadList } from "@bmi/components";
 import DocumentSimpleTableResults from "../../components/DocumentSimpleTableResults";
-import DocumentResultsFooter, {
-  handleDownloadClick
-} from "../../components/DocumentResultsFooter";
+import DocumentResultsFooter from "../../components/DocumentResultsFooter";
 import { DocumentData } from "./types";
 import styles from "./styles/documentsLeadBlock.module.scss";
 
@@ -51,7 +49,6 @@ const DocumnetsLeadBlock = ({ documents }: Props) => {
             <DocumentResultsFooter
               page={page}
               count={count}
-              onDownloadClick={handleDownloadClick}
               onPageChange={handlePageChange}
             />
           </DownloadList>

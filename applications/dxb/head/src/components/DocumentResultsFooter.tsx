@@ -10,6 +10,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import classnames from "classnames";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
+import { useConfig } from "../contexts/ConfigProvider";
+import { convertStrToBool } from "../utils/convertStrToBool";
 import { devLog } from "../utils/devLog";
 import { microCopy } from "../constants/microCopies";
 import createAssetFileCountMap, {
@@ -36,9 +38,11 @@ type Props = {
   page: number;
   count: number;
   onPageChange: (event: React.ChangeEvent<unknown>, page: number) => void;
+  isDownloadButtonClickable?: boolean;
   onDownloadClick?: (
     list: Record<string, any>,
     token: string,
+    config: Record<string, string>,
     callback?: () => void
   ) => void;
 };
@@ -48,8 +52,10 @@ const GTMButton = withGTM<ButtonProps>(Button);
 export const handleDownloadClick = async (
   list: Record<string, any>,
   token: string,
+  config: Record<string, string>,
   callback?: () => void
 ) => {
+  const { isPreviewMode, documentDownloadEndpoint } = config;
   const listValues = Object.values(list).filter(Boolean);
   const [currentTime] = new Date().toJSON().replace(/-|:|T/g, "").split(".");
 
@@ -57,7 +63,7 @@ export const handleDownloadClick = async (
     return;
   }
 
-  if (process.env.GATSBY_PREVIEW) {
+  if (convertStrToBool(isPreviewMode)) {
     alert("You cannot download documents on the preview enviornment.");
     callback();
 
@@ -65,7 +71,7 @@ export const handleDownloadClick = async (
   }
 
   try {
-    if (!process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT) {
+    if (!documentDownloadEndpoint) {
       throw Error(
         "`GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT` missing in environment config"
       );
@@ -100,7 +106,7 @@ export const handleDownloadClick = async (
     );
 
     const response = await axios.post(
-      process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT,
+      documentDownloadEndpoint,
       { documents: documents },
       { responseType: "text", headers: { "X-Recaptcha-Token": token } }
     );
@@ -147,11 +153,13 @@ const DocumentResultsFooter = ({
   page,
   count,
   onPageChange,
-  onDownloadClick
+  isDownloadButtonClickable = true,
+  onDownloadClick = handleDownloadClick
 }: Props) => {
   const globalClasses = useGlobalDocResFooterStyles();
   const { getMicroCopy } = useSiteContext();
   const { resetList, list } = useContext(DownloadListContext);
+  const { config } = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -167,7 +175,7 @@ const DocumentResultsFooter = ({
           globalClasses.paginationRoot
         )}
       />
-      {onDownloadClick && !isMobile && (
+      {isDownloadButtonClickable && !isMobile && (
         <>
           <DownloadList.Clear
             label={getMicroCopy(microCopy.DOWNLOAD_LIST_CLEAR)}
@@ -190,7 +198,7 @@ const DocumentResultsFooter = ({
             onClick={async (list) => {
               const token = await executeRecaptcha();
 
-              onDownloadClick(list, token, resetList);
+              onDownloadClick(list, token, config, resetList);
             }}
           />
           <RecaptchaPrivacyLinks />

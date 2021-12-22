@@ -14,12 +14,11 @@ import {
   getDocumentQueryObject
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
+import { DOCUMENT_DOWNLOAD_MAX_LIMIT } from "../constants/commonConstants";
 import { microCopy } from "../constants/microCopies";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { useSiteContext } from "./Site";
-import DocumentResultsFooter, {
-  handleDownloadClick
-} from "./DocumentResultsFooter";
+import DocumentResultsFooter from "./DocumentResultsFooter";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
@@ -212,7 +211,7 @@ const SearchTabPanelDocuments = (props: Props) => {
   }, []);
 
   return (
-    <DownloadList maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
+    <DownloadList maxSize={DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
       <Grid container spacing={3} ref={resultsElement}>
         <Grid item xs={12} md={12} lg={3}>
           <DownloadListContext.Consumer>
@@ -235,7 +234,6 @@ const SearchTabPanelDocuments = (props: Props) => {
             <DocumentResultsFooter
               page={page + 1}
               count={pageCount}
-              onDownloadClick={handleDownloadClick}
               onPageChange={handlePageChange}
             />
           </div>
