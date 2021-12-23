@@ -9,6 +9,7 @@ describe("ProfileCard component", () => {
     const { container } = render(
       <ProfileCard
         imageSource={imageSource}
+        className="name"
         body={<ProfileCard.Body name="Richard Stallman" title="Code Wizard" />}
       >
         <ProfileCard.Row
@@ -68,25 +69,44 @@ describe("ProfileCard component", () => {
     const { container } = render(
       <ProfileCard
         imageSource={<h1>Something here</h1>}
+        body={<ProfileCard.Body name="Richard Stallman" />}
+      ></ProfileCard>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly ProfileRow if icon not passed", () => {
+    const { container } = render(
+      <ProfileCard
+        imageSource={<h1>Something here</h1>}
+        body={<ProfileCard.Body name="Richard Stallman" title="Code Wizard" />}
+      >
+        <ProfileCard.Row action={{ model: "htmlLink", href: "/" }}>
+          Profile line with link
+        </ProfileCard.Row>
+      </ProfileCard>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly if ProfileCard.Body title passed", () => {
+    const { container } = render(
+      <ProfileCard
+        imageSource={<h1>Something here</h1>}
         body={<ProfileCard.Body name="Richard Stallman" title="Code Wizard" />}
       ></ProfileCard>
     );
     expect(container).toMatchSnapshot();
   });
 
-  it("renders correctly ProfileRow if icon undefined", () => {
+  it("renders correctly if ProfileCard.Body style passed", () => {
     const { container } = render(
       <ProfileCard
         imageSource={<h1>Something here</h1>}
-        body={<ProfileCard.Body name="Richard Stallman" title="Code Wizard" />}
-      >
-        <ProfileCard.Row
-          action={{ model: "htmlLink", href: "/" }}
-          icon={undefined}
-        >
-          Profile line with link
-        </ProfileCard.Row>
-      </ProfileCard>
+        body={
+          <ProfileCard.Body name="Richard Stallman" style={{ color: "red" }} />
+        }
+      ></ProfileCard>
     );
     expect(container).toMatchSnapshot();
   });

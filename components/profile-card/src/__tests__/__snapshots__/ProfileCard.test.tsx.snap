@@ -63,7 +63,7 @@ exports[`ProfileCard component renders an element if the image source is a compo
 </div>
 `;
 
-exports[`ProfileCard component renders correctly ProfileRow if icon undefined 1`] = `
+exports[`ProfileCard component renders correctly ProfileRow if icon not passed 1`] = `
 <div>
   <div
     class="ProfileCard"
@@ -115,7 +115,39 @@ exports[`ProfileCard component renders correctly ProfileRow if icon undefined 1`
 </div>
 `;
 
-exports[`ProfileCard component renders correctly if does not have children 1`] = `
+exports[`ProfileCard component renders correctly if ProfileCard.Body style passed 1`] = `
+<div>
+  <div
+    class="ProfileCard"
+  >
+    <div
+      class="head"
+    >
+      <div
+        class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+      >
+        <h1>
+          Something here
+        </h1>
+      </div>
+    </div>
+    <div
+      class="body"
+      style="color: red;"
+    >
+      <div>
+        <strong
+          class="MuiTypography-root Typography MuiTypography-h5"
+        >
+          Richard Stallman
+        </strong>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProfileCard component renders correctly if ProfileCard.Body title passed 1`] = `
 <div>
   <div
     class="ProfileCard"
@@ -151,9 +183,40 @@ exports[`ProfileCard component renders correctly if does not have children 1`] =
 </div>
 `;
 
+exports[`ProfileCard component renders correctly if does not have children 1`] = `
+<div>
+  <div
+    class="ProfileCard"
+  >
+    <div
+      class="head"
+    >
+      <div
+        class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+      >
+        <h1>
+          Something here
+        </h1>
+      </div>
+    </div>
+    <div
+      class="body"
+    >
+      <div>
+        <strong
+          class="MuiTypography-root Typography MuiTypography-h5"
+        >
+          Richard Stallman
+        </strong>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ProfileCard component renders correctly with an image 1`] = `
 <div
-  class="ProfileCard"
+  class="ProfileCard name"
 >
   <div
     class="head"
