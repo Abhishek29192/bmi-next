@@ -95,3 +95,175 @@ exports[`InputBanner component renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`InputBanner component renders correctly if buttonComponent is passed 1`] = `
+<div
+  class="ColorPair ColorPair--blue-800"
+>
+  <div
+    class="InputBanner"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="wrapper"
+        >
+          <h3
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
+          >
+            Lorem ipsum
+          </h3>
+          <div
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-5"
+            >
+              <p
+                class="MuiTypography-root Typography MuiTypography-body2"
+              >
+                Lorem ipsum sit dolor amet
+              </p>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-5"
+            >
+              <div
+                class="InputGroup InputGroup--locked-md"
+              >
+                <div
+                  class="MuiFormControl-root MuiTextField-root TextField input"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
+                    data-shrink="false"
+                  >
+                    Label
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+                  >
+                    <input
+                      aria-invalid="false"
+                      class="MuiInputBase-input MuiFilledInput-input"
+                      name="input-banner-text-field"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <button>
+                  buttonComponent
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InputBanner component renders correctly if inputGroupSuffix is passed 1`] = `
+<div
+  class="ColorPair ColorPair--blue-800"
+>
+  <div
+    class="InputBanner"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="wrapper"
+        >
+          <h3
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
+          >
+            Lorem ipsum
+          </h3>
+          <div
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-5"
+            >
+              <p
+                class="MuiTypography-root Typography MuiTypography-body2"
+              >
+                Lorem ipsum sit dolor amet
+              </p>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-5"
+            >
+              <div
+                class="InputGroup InputGroup--locked-md"
+              >
+                <div
+                  class="MuiFormControl-root MuiTextField-root TextField input"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
+                    data-shrink="false"
+                  >
+                    Label
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+                  >
+                    <input
+                      aria-invalid="false"
+                      class="MuiInputBase-input MuiFilledInput-input"
+                      name="input-banner-text-field"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <button
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-contained buttonStyles-contained-83 buttonStyles-containedDarkBg-90 button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+                  disabled=""
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-84"
+                  >
+                    CTA
+                    <span
+                      class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+              <div>
+                inputGroupSuffix
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

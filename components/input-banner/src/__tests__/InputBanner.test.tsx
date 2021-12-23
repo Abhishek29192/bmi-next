@@ -83,4 +83,30 @@ describe("InputBanner component", () => {
     await fireEvent.keyDown(input, mockEnter);
     expect(onSubmit).toHaveBeenCalledTimes(0);
   });
+
+  it("renders correctly if inputGroupSuffix is passed", () => {
+    const { container } = render(
+      <InputBanner
+        title="Lorem ipsum"
+        description="Lorem ipsum sit dolor amet"
+        inputLabel="Label"
+        inputCallToAction="CTA"
+        inputGroupSuffix={<div>inputGroupSuffix</div>}
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders correctly if buttonComponent is passed", () => {
+    const { container } = render(
+      <InputBanner
+        title="Lorem ipsum"
+        description="Lorem ipsum sit dolor amet"
+        inputLabel="Label"
+        inputCallToAction="CTA"
+        buttonComponent={() => <button>buttonComponent</button>}
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
