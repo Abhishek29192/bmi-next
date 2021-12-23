@@ -52,4 +52,20 @@ describe("ExpandableLinksTextCard component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it("renders correctly with closeButton", () => {
+    const { container } = render(
+      <ExpandableLinksTextCard
+        title="Heading One"
+        links={[
+          { action: { model: "htmlLink", href: "/" }, label: "Link One" },
+          { action: { model: "htmlLink", href: "/" }, label: "Link Two" },
+          { action: { model: "htmlLink", href: "/" }, label: "Link Three" }
+        ]}
+        openButton={<Button>Open</Button>}
+        closeButton={<Button>Close</Button>}
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
