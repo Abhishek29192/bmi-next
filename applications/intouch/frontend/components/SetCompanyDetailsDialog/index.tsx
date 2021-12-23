@@ -219,7 +219,15 @@ export const SetCompanyDetailsDialog = ({
             )}
           />
 
-          <TextField {...getFieldProps("aboutUs")} isTextArea rows={6} />
+          <TextField
+            {...getFieldProps("aboutUs")}
+            isTextArea
+            rows={6}
+            inputProps={{
+              maxLength: 255
+            }}
+            helperText={t(`company-page:edit_dialog.form.maxCharacters`)}
+          />
           <Form.Row>
             <Typography variant="h6" className={styles.sectionText}>
               {t("company-page:edit_dialog.sections.trading_address")}

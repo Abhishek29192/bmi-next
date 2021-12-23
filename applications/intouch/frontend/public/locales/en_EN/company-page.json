@@ -69,6 +69,7 @@
       "owner_details": "Company owner details"
     },
     "form": {
+      "maxCharacters": "Max 255 characters",
       "fields": {
         "name": "Registered Name",
         "registeredAddress": {
