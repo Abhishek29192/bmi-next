@@ -4,8 +4,8 @@ import Table from "@bmi/table";
 import Button from "@bmi/button";
 import { ProjectMember, Technology } from "@bmi/intouch-api-types";
 import DeleteIcon from "@material-ui/icons/Delete";
-import Check from "@material-ui/icons/Check";
-import AddIcon from "@material-ui/icons/Add";
+import CheckBoxOutlineBlank from "@material-ui/icons/CheckBoxOutlineBlank";
+import CheckBox from "@material-ui/icons/CheckBox";
 import classnames from "classnames";
 import TeamMemberCertification from "./TeamMemberCertifications";
 import styles from "./styles.module.scss";
@@ -97,9 +97,9 @@ const responsibleStatusIcons: Record<
   React.ReactElement | null
 > = {
   NONE_RESPONSIBLE: null,
-  SELECTED_RESPONSIBLE: <Check style={{ color: "green" }} />,
-  ADD_RESPONSIBLE: <AddIcon color="action" />,
-  REMOVE_RESPONSIBLE: <Check style={{ color: "green" }} />
+  SELECTED_RESPONSIBLE: <CheckBox style={{ color: "green" }} />,
+  ADD_RESPONSIBLE: <CheckBoxOutlineBlank color="action" />,
+  REMOVE_RESPONSIBLE: <CheckBox style={{ color: "green" }} />
 };
 
 const ResponsibleInstaller = ({
