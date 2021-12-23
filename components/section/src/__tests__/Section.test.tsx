@@ -7,12 +7,14 @@ describe("Section component", () => {
     const { container } = render(<Section>Hello world.</Section>);
     expect(container.firstChild).toMatchSnapshot();
   });
-  it("renders a white section", () => {
+
+  it("renders correctly a white section", () => {
     const { container } = render(
       <Section backgroundColor="white">Hello world.</Section>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
   it("does not render nested section components", () => {
     const { container } = render(
       <Section>
@@ -21,7 +23,8 @@ describe("Section component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
-  it("renders with a title", () => {
+
+  it("renders correctly with a title", () => {
     const { container } = render(
       <Section>
         <Section.Title>H2 Heading</Section.Title>
@@ -30,7 +33,8 @@ describe("Section component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
-  it("renders with a custom className", () => {
+
+  it("renders correctly with a custom className", () => {
     const { container } = render(
       <Section className="test">
         <Section.Title>H2 Heading</Section.Title>
@@ -39,20 +43,43 @@ describe("Section component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
-  it("renders as slim", () => {
+
+  it("renders correctly with slim === true", () => {
     const { container } = render(<Section isSlim>Hello world.</Section>);
     expect(container.firstChild).toMatchSnapshot();
   });
-  it("renders as with overflow visible", () => {
+
+  it("renders correctly with overflow visible", () => {
     const { container } = render(
       <Section overflowVisible>Hey, I like to over flow.</Section>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("renders as with spacing none", () => {
+  it("renders correctly with spacing none", () => {
     const { container } = render(
       <Section spacing="none">Hey, I like to over flow.</Section>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders correctly as with size === 'lg'", () => {
+    const { container } = render(
+      <Section size="lg">Hey, I like to over flow.</Section>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders correctly with id", () => {
+    const { container } = render(
+      <Section id="id">Hey, I like to over flow.</Section>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders correctly with hasNoPadding", () => {
+    const { container } = render(
+      <Section hasNoPadding={true}>Hey, I like to over flow.</Section>
     );
     expect(container.firstChild).toMatchSnapshot();
   });

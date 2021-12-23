@@ -16,70 +16,6 @@ exports[`Section component does not render nested section components 1`] = `
 </div>
 `;
 
-exports[`Section component renders a white section 1`] = `
-<div
-  class="Section Section--white"
->
-  <div
-    class="Container"
-  >
-    <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
-    >
-      Hello world.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Section component renders as slim 1`] = `
-<div
-  class="Section Section--slim"
->
-  <div
-    class="Container"
-  >
-    <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
-    >
-      Hello world.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Section component renders as with overflow visible 1`] = `
-<div
-  class="Section Section--overflow-visible"
->
-  <div
-    class="Container"
-  >
-    <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
-    >
-      Hey, I like to over flow.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Section component renders as with spacing none 1`] = `
-<div
-  class="Section Section--no-spacing"
->
-  <div
-    class="Container"
-  >
-    <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
-    >
-      Hey, I like to over flow.
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Section component renders correctly 1`] = `
 <div
   class="Section"
@@ -96,7 +32,39 @@ exports[`Section component renders correctly 1`] = `
 </div>
 `;
 
-exports[`Section component renders with a custom className 1`] = `
+exports[`Section component renders correctly a white section 1`] = `
+<div
+  class="Section Section--white"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      Hello world.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Section component renders correctly as with size === 'lg' 1`] = `
+<div
+  class="Section"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg"
+    >
+      Hey, I like to over flow.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Section component renders correctly with a custom className 1`] = `
 <div
   class="test Section"
 >
@@ -117,7 +85,7 @@ exports[`Section component renders with a custom className 1`] = `
 </div>
 `;
 
-exports[`Section component renders with a title 1`] = `
+exports[`Section component renders correctly with a title 1`] = `
 <div
   class="Section"
 >
@@ -133,6 +101,87 @@ exports[`Section component renders with a title 1`] = `
         H2 Heading
       </h2>
       Hello world.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Section component renders correctly with hasNoPadding 1`] = `
+<div
+  class="Section"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
+    >
+      Hey, I like to over flow.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Section component renders correctly with id 1`] = `
+<div
+  class="Section"
+  id="id"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      Hey, I like to over flow.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Section component renders correctly with overflow visible 1`] = `
+<div
+  class="Section Section--overflow-visible"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      Hey, I like to over flow.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Section component renders correctly with slim === true 1`] = `
+<div
+  class="Section Section--slim"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      Hello world.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Section component renders correctly with spacing none 1`] = `
+<div
+  class="Section Section--no-spacing"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      Hey, I like to over flow.
     </div>
   </div>
 </div>
