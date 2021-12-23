@@ -108,6 +108,58 @@ exports[`SpotlightHero component renders correctly 1`] = `
 </div>
 `;
 
+exports[`SpotlightHero component renders correctly if media does not pass at all 1`] = `
+<div
+  class="SpotlightHero"
+>
+  <div
+    class="image"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root header-container MuiContainer-maxWidthXl"
+        >
+          <h1
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+          >
+            H1 Heading desktop
+          </h1>
+        </div>
+      </div>
+    </div>
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="content"
+        >
+          <div
+            class="text"
+          >
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1"
+            >
+              Duis incididunt non laborum nulla consectetur irure ipsum. Laboris eu quis ex nostrud sunt ad eu laboris commodo deserunt commodo. Exercitation ullamco ipsum duis reprehenderit labore officia incididunt amet aliquip quis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="overlay overlay--blue"
+    />
+  </div>
+</div>
+`;
+
 exports[`SpotlightHero component renders if media !== 'img' 1`] = `
 <div
   class="SpotlightHero"
