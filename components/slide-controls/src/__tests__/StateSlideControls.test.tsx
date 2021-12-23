@@ -64,7 +64,7 @@ describe("SlideControls component", () => {
 
     fireEvent.click(getByLabelText(previousLabel));
 
-    expect(onPrevClick.mock.calls).toMatchSnapshot();
+    expect(onPrevClick).toBeCalledTimes(1);
   });
 
   it("triggers a onPrevClick event and onChange", () => {
@@ -83,7 +83,7 @@ describe("SlideControls component", () => {
 
     fireEvent.click(getByLabelText(previousLabel));
 
-    expect(onChange.mock.calls).toMatchSnapshot();
+    expect(onChange).toBeCalledTimes(1);
   });
 
   it("triggers a onNextClick event", () => {
@@ -100,7 +100,7 @@ describe("SlideControls component", () => {
 
     fireEvent.click(getByLabelText(nextLabel));
 
-    expect(onNextClick.mock.calls).toMatchSnapshot();
+    expect(onNextClick).toBeCalledTimes(1);
   });
 
   it("triggers a onNextClick event and onChange", () => {
@@ -119,6 +119,6 @@ describe("SlideControls component", () => {
 
     fireEvent.click(getByLabelText(nextLabel));
 
-    expect(onChange.mock.calls).toMatchSnapshot();
+    expect(onChange).toBeCalledTimes(1);
   });
 });
