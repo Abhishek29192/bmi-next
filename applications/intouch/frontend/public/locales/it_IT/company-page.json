@@ -52,7 +52,9 @@
         "browse": "Scorri",
         "drop": "Abbandona"
       },
-      "title": "Caricamento del documento"
+      "title": "Caricamento del documento",
+      "fileAlreadyExisting": "Il file caricato esiste gia",
+      "genericError": "Errore generico, se il problema persiste contattaci"
     }
   },
   "edit_dialog": {

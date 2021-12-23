@@ -76,6 +76,7 @@ describe("Company Documents", () => {
 
       mockQuery
         .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => ({ rows: [] }))
         .mockImplementationOnce(() => ({
           rows: [
             {
@@ -88,6 +89,32 @@ describe("Company Documents", () => {
       await createCompanyDocuments(resolve, source, args, context, resolveInfo);
       expect(resolve).toBeCalledTimes(1);
       expect(storage.uploadFileByStream).toHaveBeenCalledTimes(1);
+    });
+
+    it("should throw already existing file if duplicate file", async () => {
+      context.user.can = () => true;
+
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => ({
+          rows: [
+            {
+              id: 1
+            }
+          ]
+        }));
+
+      try {
+        await createCompanyDocuments(
+          resolve,
+          source,
+          args,
+          context,
+          resolveInfo
+        );
+      } catch (error) {
+        expect(error.message).toEqual("fileAlreadyExisting");
+      }
     });
   });
 
