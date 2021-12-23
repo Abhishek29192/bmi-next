@@ -66,9 +66,15 @@ export default class StorageClient implements StorageClientType {
   }
 
   async deleteFile(bucketName: string, fileName: string): Promise<any> {
-    return !this.isExternal(fileName)
-      ? await this.storage.bucket(bucketName).file(fileName).delete()
-      : null;
+    try {
+      return !this.isExternal(fileName)
+        ? await this.storage.bucket(bucketName).file(fileName).delete()
+        : null;
+    } catch (error) {
+      if (error.code !== 404) {
+        throw error;
+      }
+    }
   }
 
   getPublicFileUrl(fileName: string): string {
@@ -87,39 +93,47 @@ export default class StorageClient implements StorageClientType {
     fileName: string,
     expiryDate?: Date
   ): Promise<string | undefined> {
-    // if we try to sign an externally hosted image
-    // Cloud Storage wouldn't find the image
-    if (
-      !fileName ||
-      // externally-hosted or null images should not be signed
-      fileName.startsWith("http")
-    ) {
-      return fileName;
-    }
-    if (!expiryDate) {
-      expiryDate = new Date();
-      expiryDate.setDate(expiryDate.getDate() + 1);
-    }
+    try {
+      // if we try to sign an externally hosted image
+      // Cloud Storage wouldn't find the image
+      if (
+        !fileName ||
+        // externally-hosted or null images should not be signed
+        fileName.startsWith("http")
+      ) {
+        return fileName;
+      }
+      if (!expiryDate) {
+        expiryDate = new Date();
+        expiryDate.setDate(expiryDate.getDate() + 1);
+      }
 
-    const [url] = await this.storage
-      .bucket(bucketName)
-      .file(fileName)
-      .getSignedUrl({
-        expires: expiryDate,
-        action: "read"
-      });
-    return url;
+      const [url] = await this.storage
+        .bucket(bucketName)
+        .file(fileName)
+        .getSignedUrl({
+          expires: expiryDate,
+          action: "read"
+        });
+      return url;
+    } catch (error) {
+      return null;
+    }
   }
 
   async getPrivateAssetSignedUrl(
     fileName: string,
     expiryDate?: Date
   ): Promise<string | undefined> {
-    return this.getFileSignedUrl(
-      process.env.GCP_PRIVATE_BUCKET_NAME,
-      fileName,
-      expiryDate
-    );
+    try {
+      return this.getFileSignedUrl(
+        process.env.GCP_PRIVATE_BUCKET_NAME,
+        fileName,
+        expiryDate
+      );
+    } catch (error) {
+      return null;
+    }
   }
 
   isExternal(filePath: string) {
@@ -131,23 +145,27 @@ export default class StorageClient implements StorageClientType {
   async getFileMetaData(
     fileName: string
   ): Promise<GoogleCloudFileMetaData | null> {
-    // if we try to sign an externally hosted file
-    // Cloud Storage wouldn't find the file
-    if (
-      !fileName ||
-      // externally-hosted or null images should not be signed
-      fileName.startsWith("http")
-    ) {
+    try {
+      // if we try to sign an externally hosted file
+      // Cloud Storage wouldn't find the file
+      if (
+        !fileName ||
+        // externally-hosted or null images should not be signed
+        fileName.startsWith("http")
+      ) {
+        return null;
+      }
+      const bucketName = process.env.GCP_PRIVATE_BUCKET_NAME;
+
+      //https://cloud.google.com/storage/docs/viewing-editing-metadata
+      const [metadata] = await this.storage
+        .bucket(bucketName)
+        .file(fileName)
+        .getMetadata();
+      return metadata;
+    } catch (error) {
       return null;
     }
-    const bucketName = process.env.GCP_PRIVATE_BUCKET_NAME;
-
-    //https://cloud.google.com/storage/docs/viewing-editing-metadata
-    const [metadata] = await this.storage
-      .bucket(bucketName)
-      .file(fileName)
-      .getMetadata();
-    return metadata;
   }
 }
 

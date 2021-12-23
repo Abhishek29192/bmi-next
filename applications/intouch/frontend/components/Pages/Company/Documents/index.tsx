@@ -7,6 +7,7 @@ import Icon, { FilePDF, FilePNG, FileJPG, FileJPEG } from "@bmi/icon";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { useTranslation } from "next-i18next";
 import { CompanyDocumentType } from "@bmi/intouch-api-types";
+import log from "../../../../lib/logger";
 import { NoContent } from "../../../NoContent";
 import { SimpleCard } from "../../../Cards/SimpleCard";
 import AccessControl from "../../../../lib/permissions/AccessControl";
@@ -43,6 +44,7 @@ export const CompanyDocuments = ({
 }: CompanyDocumentsProps) => {
   const { t } = useTranslation("company-page");
   const [isUploadDialog, setUploadDialog] = useState(false);
+  const [mutationError, setMutationError] = useState(null);
   const [confirmDialogState, setConfirmDialogState] = useState({
     isOpen: false,
     id: null
@@ -58,11 +60,24 @@ export const CompanyDocuments = ({
 
   const [createCompanyDocuments, { loading: loadingCreate }] =
     useCreateCompanyDocumentsMutation({
+      onError: (error) => {
+        log({
+          severity: "ERROR",
+          message: `There was an error uploading a company document: ${error.toString()}`
+        });
+
+        if (error.message === "fileAlreadyExisting") {
+          setMutationError(t("document.uploadDialog.fileAlreadyExisting"));
+        } else {
+          setMutationError(t("document.uploadDialog.genericError"));
+        }
+      },
       onCompleted: ({ createCompanyDocuments }) => {
         setCompanyDocuments((prev) => [
           ...prev,
           ...createCompanyDocuments.companyDocuments
         ]);
+        setUploadDialog(false);
         onCompanyDocumentsUpdate && onCompanyDocumentsUpdate();
       }
     });
@@ -97,7 +112,6 @@ export const CompanyDocuments = ({
         }
       });
     }
-    setUploadDialog(false);
   };
   const onCompanyDocumentDeletHandler = async (id: number) => {
     setConfirmDialogState({
@@ -195,9 +209,16 @@ export const CompanyDocuments = ({
 
       <UploadDialog
         isOpen={isUploadDialog}
-        onCloseClick={() => setUploadDialog(false)}
+        onCloseClick={() => {
+          setUploadDialog(false);
+          setMutationError(null);
+        }}
+        onFilesChange={() => {
+          setMutationError(null);
+        }}
         onConfirmClick={uploadDialogConfirmHandler}
         loading={loadingCreate}
+        errors={mutationError}
       />
       <ConfirmDialog
         state={confirmDialogState}

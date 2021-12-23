@@ -47,4 +47,18 @@ describe("UploadDialog Components", () => {
     confirmButton.click();
     expect(confirmMock).toHaveBeenCalledWith(files);
   });
+
+  it("should show the alert if error", () => {
+    const confirmMock = jest.fn((files) => {});
+    renderWithI18NProvider(
+      <UploadDialog
+        isOpen={true}
+        onConfirmClick={confirmMock}
+        onCloseClick={closeMock}
+        errors="error"
+      />
+    );
+
+    expect(screen.queryByTestId("uploader-error")).not.toBeNull();
+  });
 });

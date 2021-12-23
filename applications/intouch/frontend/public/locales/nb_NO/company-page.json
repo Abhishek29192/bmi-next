@@ -146,7 +146,9 @@
       "instruction": "Du kan legge til filer",
       "confirmLabel": "Last opp filer",
       "cancelLabel": "Avbryt",
-      "fileValidationMessage": "Du kan ikke laste opp filer som er større enn {{fileSize}}"
+      "fileValidationMessage": "Du kan ikke laste opp filer som er større enn {{fileSize}}",
+      "fileAlreadyExisting": "Den opplastede filen eksisterer allerede",
+      "genericError": "Generisk feil, kontakt oss hvis problemet vedvarer"
     },
     "confirmDialog": {
       "title": "Firmadokument",

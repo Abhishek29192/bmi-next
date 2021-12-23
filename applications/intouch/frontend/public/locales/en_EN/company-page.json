@@ -147,7 +147,9 @@
       "confirmLabel": "Upload files",
       "cancelLabel": "Cancel",
       "fileValidationMessage": "You cannot upload  files larger than {{fileSize}}",
-      "evidence_category": "Evidence Category"
+      "evidence_category": "Evidence Category",
+      "fileAlreadyExisting": "This file already exists",
+      "genericError": "An error has occurred. Please try again, if the problem persists contact us"
     },
     "confirmDialog": {
       "title": "Company Document",
