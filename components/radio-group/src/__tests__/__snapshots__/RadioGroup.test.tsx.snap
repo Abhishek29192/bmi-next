@@ -42,3 +42,141 @@ exports[`RadioGroup component renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`RadioGroup component renders correctly with className prop 1`] = `
+<div
+  class="RadioGroup name"
+>
+  <div
+    class="container"
+  >
+    <div
+      class="RadioButton item"
+    >
+      <input
+        class="input"
+        id="radio-deckType-label"
+        name="deckType"
+        type="radio"
+        value="label"
+      />
+      <label
+        class="label"
+        for="radio-deckType-label"
+      >
+        <div
+          aria-disabled="false"
+          class="MuiButtonBase-root text"
+          role="button"
+          tabindex="-1"
+        >
+          <span>
+            Combustible (timber/plywood)
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </label>
+    </div>
+    <div
+      class="RadioButton item"
+    >
+      <input
+        class="input"
+        id="radio-deckType-label"
+        name="deckType"
+        type="radio"
+        value="label"
+      />
+      <label
+        class="label"
+        for="radio-deckType-label"
+      >
+        <div
+          aria-disabled="false"
+          class="MuiButtonBase-root text"
+          role="button"
+          tabindex="-1"
+        >
+          <span>
+            Non-combustible (metal/concrete)
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RadioGroup component renders correctly with defaultValue prop 1`] = `
+<div
+  class="RadioGroup"
+>
+  <div
+    class="container"
+  >
+    <div
+      class="RadioButton item"
+    >
+      <input
+        class="input"
+        id="radio-deckType-label"
+        name="deckType"
+        type="radio"
+        value="label"
+      />
+      <label
+        class="label"
+        for="radio-deckType-label"
+      >
+        <div
+          aria-disabled="false"
+          class="MuiButtonBase-root text"
+          role="button"
+          tabindex="-1"
+        >
+          <span>
+            Combustible (timber/plywood)
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </label>
+    </div>
+    <div
+      class="RadioButton item"
+    >
+      <input
+        class="input"
+        id="radio-deckType-label"
+        name="deckType"
+        type="radio"
+        value="label"
+      />
+      <label
+        class="label"
+        for="radio-deckType-label"
+      >
+        <div
+          aria-disabled="false"
+          class="MuiButtonBase-root text"
+          role="button"
+          tabindex="-1"
+        >
+          <span>
+            Non-combustible (metal/concrete)
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </label>
+    </div>
+  </div>
+</div>
+`;

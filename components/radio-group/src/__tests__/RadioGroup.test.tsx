@@ -33,4 +33,34 @@ describe("RadioGroup component", () => {
 
     expect(handleOnChange).toBeCalledTimes(1);
   });
+
+  it("renders correctly with className prop", () => {
+    const { container } = render(
+      <RadioGroup className="name" name="deckType">
+        <RadioButton value="label">
+          <span>Combustible (timber/plywood)</span>
+        </RadioButton>
+        <RadioButton value="label">
+          <span>Non-combustible (metal/concrete)</span>
+        </RadioButton>
+      </RadioGroup>
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders correctly with defaultValue prop", () => {
+    const { container } = render(
+      <RadioGroup defaultValue="defaultValue" name="deckType">
+        <RadioButton value="label">
+          <span>Combustible (timber/plywood)</span>
+        </RadioButton>
+        <RadioButton value="label">
+          <span>Non-combustible (metal/concrete)</span>
+        </RadioButton>
+      </RadioGroup>
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
