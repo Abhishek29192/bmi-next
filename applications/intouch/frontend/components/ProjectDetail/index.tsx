@@ -119,7 +119,6 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
     startPolling,
     stopPolling
   } = useGetProjectQuery({
-    fetchPolicy: "no-cache",
     notifyOnNetworkStatusChange: true,
     onCompleted: ({ project }) => {
       const isMissingPdf = project?.guarantees?.nodes?.some(
