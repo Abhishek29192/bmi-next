@@ -94,22 +94,41 @@ exports[`ExpandableLinksTextCard component renders correctly with closeButton 1`
           </span>
         </a>
       </div>
-      <div
-        class="link-wrapper"
-      >
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-          href="/"
-        >
-          <span>
-            Link Three
-          </span>
-        </a>
-      </div>
     </div>
     <div
       class="hidden-links-container"
-    />
+    >
+      <div>
+        <div>
+          <div
+            class="link-wrapper"
+          >
+            <a
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+              href="/"
+            >
+              <span>
+                Link Three
+              </span>
+            </a>
+          </div>
+        </div>
+        <button
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 MuiButton-containedPrimary"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-44"
+          >
+            Close
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
   </nav>
 </div>
 `;

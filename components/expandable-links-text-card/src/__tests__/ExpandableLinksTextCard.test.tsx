@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import Button from "@bmi/button";
 import ExpandableLinksTextCard from "../";
 
@@ -54,7 +54,7 @@ describe("ExpandableLinksTextCard component", () => {
   });
 
   it("renders correctly with closeButton", () => {
-    const { container } = render(
+    const { container, getByText } = render(
       <ExpandableLinksTextCard
         title="Heading One"
         links={[
@@ -64,8 +64,12 @@ describe("ExpandableLinksTextCard component", () => {
         ]}
         openButton={<Button>Open</Button>}
         closeButton={<Button>Close</Button>}
+        separator={2}
       />
     );
+
+    fireEvent.click(getByText("Open"));
+
     expect(container.firstChild).toMatchSnapshot();
   });
 });
