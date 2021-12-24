@@ -63,8 +63,7 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
     inviteUsers({
       variables: {
         input: {
-          emails: emails || [],
-          personalNote: values.personalNote
+          emails: emails || []
         }
       }
     });
@@ -162,19 +161,6 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
                   fullWidth
                 />
               )}
-            />
-            <TextField
-              name="personalNote"
-              label={t("team-page:invitation.dialog.personalNote.label")}
-              className={styles.personalNote}
-              onChange={() => setAlertState({ open: false })}
-              inputProps={{
-                ["data-testid"]: "personalNote"
-              }}
-              isRequired
-              isTextArea
-              fullWidth
-              rows={6}
             />
           </Form.Row>
           <Form.ButtonWrapper>
