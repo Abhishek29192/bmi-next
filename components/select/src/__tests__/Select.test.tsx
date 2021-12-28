@@ -1,6 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import Select, { MenuItem } from "../";
+import { MenuItem } from "../";
+import Select from "../";
 
 describe("Select component", () => {
   it("renders correctly", () => {
@@ -16,7 +17,7 @@ describe("Select component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
-  it("renders correctly as hybrid variant", () => {
+  it("renders correctly as variant hybrid", () => {
     const { container } = render(
       <Select
         name="Country"
@@ -32,6 +33,147 @@ describe("Select component", () => {
         <MenuItem value="fr">France</MenuItem>
       </Select>
     );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders correctly if label is undefined", () => {
+    const { container } = render(
+      <Select
+        name="Country"
+        variant="outlined"
+        labelId="outlined-country-simple"
+      >
+        <MenuItem aria-label="None" defaultValue="">
+          None
+        </MenuItem>
+        <MenuItem value="uk">United Kingdom</MenuItem>
+        <MenuItem value="no">Norway</MenuItem>
+        <MenuItem value="fr">France</MenuItem>
+      </Select>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders correctly if labelId is undefined", () => {
+    const { container } = render(
+      <Select name="Country" variant="outlined" label="label">
+        <MenuItem aria-label="None" defaultValue="">
+          None
+        </MenuItem>
+        <MenuItem value="uk">United Kingdom</MenuItem>
+        <MenuItem value="no">Norway</MenuItem>
+        <MenuItem value="fr">France</MenuItem>
+      </Select>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders correctly as variant outlined", () => {
+    const { container } = render(
+      <Select
+        name="Country"
+        variant="outlined"
+        label="Country"
+        labelId="outlined-country-simple"
+      >
+        <MenuItem aria-label="None" defaultValue="">
+          None
+        </MenuItem>
+        <MenuItem value="uk">United Kingdom</MenuItem>
+        <MenuItem value="no">Norway</MenuItem>
+        <MenuItem value="fr">France</MenuItem>
+      </Select>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders correctly as variant undefined", () => {
+    const { container } = render(
+      <Select name="Country" label="Country" labelId="outlined-country-simple">
+        <MenuItem aria-label="None" defaultValue="">
+          None
+        </MenuItem>
+        <MenuItem value="uk">United Kingdom</MenuItem>
+        <MenuItem value="no">Norway</MenuItem>
+        <MenuItem value="fr">France</MenuItem>
+      </Select>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("displays errorText instead of helperText if error is provided ", () => {
+    const label = "Country";
+    const { container, getByLabelText } = render(
+      <Select
+        name="Country"
+        label={label}
+        error={true}
+        labelId="outlined-country-simple"
+        isRequired
+        errorText="errorText"
+        fieldIsRequiredError="fieldIsRequiredError"
+      >
+        <MenuItem aria-label="None" defaultValue="">
+          None
+        </MenuItem>
+        <MenuItem value="uk">United Kingdom</MenuItem>
+        <MenuItem value="no">Norway</MenuItem>
+        <MenuItem value="fr">France</MenuItem>
+      </Select>
+    );
+    fireEvent.blur(getByLabelText(label));
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("displays helperText instead of errorText if errorText provided but error is undefined", () => {
+    const { container } = render(
+      <Select
+        name="Country"
+        label="Country"
+        labelId="outlined-country-simple"
+        helperText="helperText"
+        errorText="errorText"
+      >
+        <MenuItem aria-label="None" defaultValue="">
+          None
+        </MenuItem>
+        <MenuItem value="uk">United Kingdom</MenuItem>
+        <MenuItem value="no">Norway</MenuItem>
+        <MenuItem value="fr">France</MenuItem>
+      </Select>
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders correctly if disabled", () => {
+    const { container } = render(
+      <Select name="Country" disabled>
+        <MenuItem aria-label="None" defaultValue="">
+          None
+        </MenuItem>
+        <MenuItem value="uk">United Kingdom</MenuItem>
+        <MenuItem value="no">Norway</MenuItem>
+        <MenuItem value="fr">France</MenuItem>
+      </Select>
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders correctly with className", () => {
+    const { container } = render(
+      <Select name="Country" className="class">
+        <MenuItem aria-label="None" defaultValue="">
+          None
+        </MenuItem>
+        <MenuItem value="uk">United Kingdom</MenuItem>
+        <MenuItem value="no">Norway</MenuItem>
+        <MenuItem value="fr">France</MenuItem>
+      </Select>
+    );
+
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -55,6 +197,6 @@ describe("Select component", () => {
       </Select>
     );
     fireEvent.change(getByDisplayValue("uk"), { target: { value: "fr" } });
-    expect(onChange.mock.calls).toMatchSnapshot();
+    expect(onChange).toBeCalledWith("fr");
   });
 });
