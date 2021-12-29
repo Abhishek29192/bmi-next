@@ -15,14 +15,8 @@ command = "node ./scripts/netlify-toml-builder.js && node ./scripts/netlify-toke
 environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES = "true", YARN_FLAGS = "--frozen-lockfile", NETLIFY_YARN_WORKSPACES = "true", NETLIFY_USE_YARN = "true", NODE_VERSION = "lts/erbium" }
 
 [[plugins]]
-package = "../libraries/netlify-plugin-filter-tag-event"
-
-[[plugins]]
 # enable Gatsby.js incremental builds plugin.
 package = "netlify-plugin-gatsby-cache"
-
-[[plugins]]
-package = "../libraries/netlify-plugin-clear-gatsby-cache"
 
 [[plugins]]
 package = "../libraries/netlify-plugin-trigger-gitlab"
