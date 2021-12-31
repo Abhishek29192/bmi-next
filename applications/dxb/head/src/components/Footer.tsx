@@ -17,6 +17,9 @@ const parseNavigation = (
   navigationItems: NavigationData["links"],
   countryCode: string
 ): MenuItem[] => {
+  if (!navigationItems) {
+    return [];
+  }
   return navigationItems.map((navigationItem) => {
     // @ts-ignore I have on idea why, but TS does not understand narrowing the Union here.
     if (navigationItem.links) {
@@ -58,8 +61,8 @@ type Props = {
 
 const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
   const { countryCode, getMicroCopy } = useSiteContext();
-  const main = parseNavigation(mainNavigation.links, countryCode);
-  const secondary = parseNavigation(secondaryNavigation.links, countryCode);
+  const main = parseNavigation(mainNavigation?.links, countryCode);
+  const secondary = parseNavigation(secondaryNavigation?.links, countryCode);
   const secondaryWithSitemap = [
     ...secondary,
     {
