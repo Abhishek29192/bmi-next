@@ -6,12 +6,14 @@ const mockGetAccount = jest.fn();
 const mockCreateAccount = jest.fn();
 const mockGetInvitation = jest.fn();
 const mockCreateDoceboUser = jest.fn();
+const mockIsSuperAdmin = jest.fn();
 
 jest.mock("../../../lib/account", () => {
   const mockedModule = jest.requireActual("../../../lib/account");
 
   return {
     __esModule: true,
+    isSuperAdmin: mockIsSuperAdmin,
     default: jest.fn().mockImplementation(() => {
       return {
         ...mockedModule,

@@ -5,9 +5,8 @@ import { NextLogger } from "@bmi-digital/logger";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getAuth0Instance } from "../../../lib/auth0";
 import { initializeApollo } from "../../../lib/apolloClient";
-import Account from "../../../lib/account";
+import Account, { isSuperAdmin } from "../../../lib/account";
 import { getMarketAndEnvFromReq } from "../../../lib/utils";
-import { isSuperAdmin } from "../../../lib/account";
 import { withLoggerApi } from "../../../lib/middleware/withLogger";
 
 interface Request extends NextApiRequest {

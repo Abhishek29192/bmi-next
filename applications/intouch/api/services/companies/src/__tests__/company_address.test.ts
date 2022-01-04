@@ -2,9 +2,7 @@ import {
   getDbPool,
   actAs,
   curryContext,
-  insertOne as dbInsertOne,
-  RLS_ERROR,
-  PERMISSION_DENIED
+  insertOne as dbInsertOne
 } from "../test-utils/db";
 
 let pool;

@@ -17,6 +17,7 @@ import {
   installerTeamMembers
 } from "../../../../../fixtures/teamMembers";
 import { useAccountContext } from "../../../../../context/AccountContext";
+import { useMarketContext } from "../../../../../context/MarketContext";
 import { TeamMembersQuery } from "../../../../../graphql/generated/operations";
 
 const inviteMock = jest.fn();
@@ -43,6 +44,9 @@ jest.mock("@bmi/use-dimensions", () => ({
 
 jest.mock("../../../../../context/AccountContext", () => ({
   useAccountContext: jest.fn()
+}));
+jest.mock("../../../../../context/MarketContext", () => ({
+  useMarketContext: jest.fn()
 }));
 
 describe("Company Members Page", () => {
@@ -399,6 +403,9 @@ describe("Company Members Page", () => {
       it("the user action button visible if super admin", async () => {
         (useAccountContext as jest.Mock).mockImplementation(() => ({
           account: { role: "SUPER_ADMIN" }
+        }));
+        (useMarketContext as jest.Mock).mockImplementation(() => ({
+          market: { id: 1 }
         }));
 
         wrapper = render(

@@ -1,4 +1,39 @@
-DROP POLICY policy_super_admin ON account;
+-- Get the current account
+CREATE OR REPLACE FUNCTION projects_by_market (market int)
+  RETURNS SETOF project
+  AS $$
+  SELECT
+    project.*
+  FROM
+    project
+    JOIN company ON company.id = project.company_id
+  WHERE
+    company.market_id = market;
+
+$$
+LANGUAGE sql
+STABLE STRICT;
+
+-- Get the current account
+CREATE OR REPLACE FUNCTION guarantees_by_market (market int)
+  RETURNS SETOF guarantee
+  AS $$
+  SELECT
+    guarantee.*
+  FROM
+    guarantee
+    JOIN project ON project.id = guarantee.project_id
+    JOIN company ON company.id = project.company_id
+  WHERE
+    company.market_id = market
+$$
+LANGUAGE sql
+STABLE STRICT;
+
+
+
+
+DROP POLICY IF EXISTS policy_super_admin ON account;
 CREATE POLICY policy_super_admin ON account FOR ALL TO super_admin USING (true) WITH CHECK (true);
 
 -- new
@@ -31,57 +66,57 @@ CREATE POLICY policy_installer ON certification FOR SELECT TO installer USING (E
 ));
 
 
-DROP POLICY policy_super_admin ON company;
+DROP POLICY IF EXISTS policy_super_admin ON company;
 CREATE POLICY policy_super_admin ON company FOR ALL TO super_admin USING (true) WITH CHECK (true);
 
 
-DROP POLICY policy_super_admin ON company_document;
+DROP POLICY IF EXISTS policy_super_admin ON company_document;
 CREATE POLICY policy_super_admin ON company_document FOR ALL TO super_admin USING (true) WITH CHECK (true);
 
 
-DROP POLICY policy_super_admin ON company_member;
+DROP POLICY IF EXISTS policy_super_admin ON company_member;
 CREATE POLICY policy_super_admin ON company_member FOR ALL TO super_admin USING (true) WITH CHECK (true);
 
 
-DROP POLICY policy_super_admin ON company_operation;
+DROP POLICY IF EXISTS policy_super_admin ON company_operation;
 CREATE POLICY policy_super_admin ON company_operation FOR ALL TO super_admin USING (true) WITH CHECK (true);
 
 
-DROP POLICY policy_super_admin ON evidence_item;
+DROP POLICY IF EXISTS policy_super_admin ON evidence_item;
 CREATE POLICY policy_super_admin ON evidence_item FOR ALL TO super_admin USING (true) WITH CHECK (true);
 
 
-DROP POLICY policy_super_admin ON guarantee;
+DROP POLICY IF EXISTS policy_super_admin ON guarantee;
 CREATE POLICY policy_super_admin ON guarantee FOR ALL TO super_admin USING (true) WITH CHECK (true);
 
 
-DROP POLICY policy_super_admin ON invitation;
+DROP POLICY IF EXISTS policy_super_admin ON invitation;
 CREATE POLICY policy_super_admin ON invitation FOR ALL TO super_admin USING (true) WITH CHECK (true);
 
-DROP POLICY policy_super_admin ON market;
+DROP POLICY IF EXISTS policy_super_admin ON market;
 CREATE POLICY policy_super_admin ON market FOR ALL TO super_admin USING (true) WITH CHECK (true);
 
 
-DROP POLICY policy_super_admin ON note;
+DROP POLICY IF EXISTS policy_super_admin ON note;
 CREATE POLICY policy_super_admin ON note FOR ALL TO super_admin USING (true) WITH CHECK (true);
 
 
-DROP POLICY policy_super_admin ON notification;
+DROP POLICY IF EXISTS policy_super_admin ON notification;
 CREATE POLICY policy_super_admin ON notification FOR ALL TO super_admin USING (true) WITH CHECK (true);
 
 
-DROP POLICY policy_super_admin ON product;
+DROP POLICY IF EXISTS policy_super_admin ON product;
 CREATE POLICY policy_super_admin ON product FOR ALL TO super_admin USING (true) WITH CHECK (true);
 
 
-DROP POLICY policy_super_admin ON project;
+DROP POLICY IF EXISTS policy_super_admin ON project;
 CREATE POLICY policy_super_admin ON project FOR ALL TO super_admin USING (true) WITH CHECK (true);
 
-DROP POLICY policy_super_admin ON project_member;
+DROP POLICY IF EXISTS policy_super_admin ON project_member;
 CREATE POLICY policy_super_admin ON project_member FOR ALL TO super_admin USING (true) WITH CHECK (true);
 
-DROP POLICY policy_super_admin ON system;
+DROP POLICY IF EXISTS policy_super_admin ON system;
 CREATE POLICY policy_super_admin ON system FOR ALL TO super_admin USING (true) WITH CHECK (true);
 
-DROP POLICY policy_super_admin ON system_member;
+DROP POLICY IF EXISTS policy_super_admin ON system_member;
 CREATE POLICY policy_super_admin ON system_member FOR ALL TO super_admin USING (true) WITH CHECK (true);

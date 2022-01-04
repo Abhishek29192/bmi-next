@@ -1,3 +1,7 @@
+DROP FUNCTION IF EXISTS project_by_market;
+DROP FUNCTION IF EXISTS guarantees_by_market;
+
+
 
 DROP POLICY policy_super_admin_select ON account;
 DROP POLICY policy_super_admin_update ON account;
