@@ -36,7 +36,7 @@ const sortProjects = (
   const now = Date.now();
   return [...(projects || [])].sort((a, b) => {
     return isPowerfulUser
-      ? a.name.localeCompare(b.name)
+      ? a.name?.localeCompare(b.name)
       : Math.abs(now - new Date(a.endDate).getTime()) -
           Math.abs(now - new Date(b.endDate).getTime());
   });
@@ -115,7 +115,8 @@ export const getServerSideProps = withPage(
       "common",
       "sidebar",
       "footer",
-      "project-page"
+      "project-page",
+      "error-page"
     ]);
 
     // Check if user can generally access the page

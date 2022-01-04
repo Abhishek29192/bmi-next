@@ -1,8 +1,8 @@
 {
   "title": "En feil oppsto",
   "body": "Kontakt en administrator",
-  "user_blocked": "Brukeren er blokkert",
+  "errorUserBlocked": "Brukeren er blokkert",
   "errorAlreadyMember": "Brukeren er allerede medlem av et annet firma",
-  "errorInvitationNotFound": "Fant ingen invitarsjon",
-  "auth_error": "Du har nå lov til å utføre denne operasjonen"
+  "errorAuthentication": "Du har nå lov til å utføre denne operasjonen",
+  "errorInvitationNotFound": "Fant ingen invitarsjon"
 }

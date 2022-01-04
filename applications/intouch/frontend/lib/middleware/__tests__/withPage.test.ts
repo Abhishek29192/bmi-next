@@ -366,7 +366,7 @@ describe("Middleware withPage", () => {
     expect(result).toEqual({
       redirect: {
         permanent: false,
-        destination: "/api-error?message=generic_error"
+        destination: "/api-error?message=genericError"
       }
     });
   });

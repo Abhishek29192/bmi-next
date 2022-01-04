@@ -32,10 +32,22 @@ const MarketsPage = ({ globalPageData, markets }: MarketsPageProps) => {
 
 export const getServerSideProps = withPage(
   async ({ locale, account, apolloClient, globalPageData, res }) => {
+    const translations = await serverSideTranslations(locale, [
+      "admin-markets",
+      "common",
+      "sidebar",
+      "footer",
+      "error-page"
+    ]);
+
     if (!can(account, "navigation", "marketsAdmin")) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
-      return generatePageError(statusCode, {}, { globalPageData });
+      return generatePageError(
+        statusCode,
+        {},
+        { globalPageData, ...translations }
+      );
     }
 
     const {
@@ -44,12 +56,7 @@ export const getServerSideProps = withPage(
 
     return {
       props: {
-        ...(await serverSideTranslations(locale, [
-          "admin-markets",
-          "common",
-          "sidebar",
-          "footer"
-        ])),
+        ...translations,
         account,
         markets: data.markets
       }

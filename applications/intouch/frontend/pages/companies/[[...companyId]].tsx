@@ -170,9 +170,9 @@ export const getServerSideProps = withPage(
       "common",
       "sidebar",
       "footer",
-      "company-page"
+      "company-page",
+      "error-page"
     ]);
-
     if (params.companyId) {
       const companyId = parseInt(params.companyId);
 

@@ -84,6 +84,12 @@ export const getServerSideProps = async (context) => {
   // account and globalPageData are only available in withPage middleware
   return await middleware(
     async ({ globalPageData, locale, apolloClient, res }) => {
+      const translations = await serverSideTranslations(locale, [
+        "common",
+        "sidebar",
+        "error-page"
+      ]);
+
       const {
         props: {
           data: {
@@ -108,7 +114,8 @@ export const getServerSideProps = async (context) => {
           statusCode,
           {},
           {
-            globalPageData
+            globalPageData,
+            ...translations
           }
         );
       }
@@ -117,7 +124,7 @@ export const getServerSideProps = async (context) => {
         props: {
           title: pageContent.title,
           body: pageContent.body.json,
-          ...(await serverSideTranslations(locale, ["common"]))
+          ...translations
         }
       };
     }

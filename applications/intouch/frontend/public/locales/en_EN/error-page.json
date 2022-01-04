@@ -2,8 +2,8 @@
   "hi": "Hi {{firstName}} {{lastName}}",
   "title": "Something went wrong",
   "body": "An error occurred, please contact an administrator",
-  "user_blocked": "User is blocked",
-  "auth_error": "You are now allowed to do this operation",
+  "errorUserBlocked": "User is blocked",
+  "errorAuthentication": "You are now allowed to do this operation",
   "errorAlreadyMember": "The user is already a member of another company",
   "errorInvitationNotFound": "Invitation not found"
 }

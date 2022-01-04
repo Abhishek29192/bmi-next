@@ -21,6 +21,21 @@ type Props = {
   account: Account;
 };
 
+const errors = {
+  errorInvitationNotFound: {
+    title: "errorInvitationNotFound",
+    statusCode: 404
+  },
+  errorUserBlocked: {
+    title: "errorUserBlocked",
+    statusCode: 401
+  },
+  errorAuthentication: {
+    title: "errorAuthentication",
+    statusCode: 401
+  }
+};
+
 const ErrorPageApi = ({ message }: Props) => {
   const { t } = useTranslation("error-page");
 
@@ -35,9 +50,6 @@ const ErrorPageApi = ({ message }: Props) => {
       >
         <Grid item>
           <Typography component="h1" variant="h1">
-            {t("title")}
-          </Typography>
-          <Typography style={{ marginTop: 10 }} variant="body1">
             {t(message)}
           </Typography>
         </Grid>
@@ -47,11 +59,11 @@ const ErrorPageApi = ({ message }: Props) => {
 };
 
 export const getServerSideProps = async (context) => {
-  // Only if we're requesting for a public page AND we're not logged in (no session) can we use the public middleware.
-  // otherwise normal middleware.
   const auth0 = await getAuth0Instance(context.req, context.res);
   const session: Session = auth0.getSession(context.req, context.res);
 
+  // Only if we're requesting for a public page AND we're not logged in (no session) can we use the public middleware.
+  // otherwise normal middleware.
   const middleware = !session ? withPublicPage : withPage;
 
   const translations = await serverSideTranslations(context.locale, [
@@ -73,13 +85,13 @@ export const getServerSideProps = async (context) => {
     }
 
     const statusCode = ErrorStatusCode.INTERNAL_SERVER_ERROR;
-    res.statusCode = statusCode;
+    res.statusCode = errors[context.query.message].statusCode || statusCode;
     return generatePageError(
-      statusCode,
+      res.statusCode,
       {},
       {
         globalPageData,
-        message: context.query.message,
+        title: context.query.message,
         ...translations
       }
     );

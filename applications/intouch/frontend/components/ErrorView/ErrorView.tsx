@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "next-i18next";
 import Typography from "@bmi/typography";
 import { Layout } from "../Layout";
+import { useAccountContext } from "../../context/AccountContext";
 import { GetGlobalDataQuery } from "../../graphql/generated/operations";
 import styles from "./styles.module.scss";
 
@@ -18,17 +20,21 @@ const ErrorView = ({
   globalPageData,
   message
 }: ErrorViewProps) => {
+  const { account } = useAccountContext();
+  const { firstName, lastName } = account;
+  const { t } = useTranslation("error-page");
+
   return (
-    <Layout title={`Error: ${statusCode}`} pageData={globalPageData}>
+    <Layout title={`${firstName} ${lastName}`} pageData={globalPageData}>
       <div className={styles.errorContentContainer}>
         {title ? (
           <Typography component="h1" variant="h1">
-            {title}
+            {t(title)}
           </Typography>
         ) : null}
         {message ? (
           <Typography style={{ marginTop: 10 }} variant="body1">
-            {message}
+            {t(message)}
           </Typography>
         ) : null}
       </div>

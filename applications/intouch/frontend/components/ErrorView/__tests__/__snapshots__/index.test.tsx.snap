@@ -178,7 +178,7 @@ exports[`ErrorView component renders correctly with title 1`] = `
               <h3
                 class="MuiTypography-root Typography MuiTypography-h3"
               >
-                Error: 400
+                Chris Evans
               </h3>
               <hr
                 class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
@@ -488,7 +488,7 @@ exports[`ErrorView component renders correctly with title and message 1`] = `
               <h3
                 class="MuiTypography-root Typography MuiTypography-h3"
               >
-                Error: 400
+                Chris Evans
               </h3>
               <hr
                 class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
@@ -804,7 +804,7 @@ exports[`ErrorView component renders correctly without title 1`] = `
               <h3
                 class="MuiTypography-root Typography MuiTypography-h3"
               >
-                Error: 400
+                Chris Evans
               </h3>
               <hr
                 class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
