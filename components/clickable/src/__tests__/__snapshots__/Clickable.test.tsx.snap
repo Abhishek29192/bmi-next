@@ -17,6 +17,17 @@ exports[`Clickable component renders a default button 1`] = `
 </button>
 `;
 
+exports[`Clickable component renders a download button 1`] = `
+<a
+  download="test-download"
+  href="#"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Hit me
+</a>
+`;
+
 exports[`Clickable component renders a reset button 1`] = `
 <button
   type="reset"

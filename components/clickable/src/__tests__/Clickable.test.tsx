@@ -53,6 +53,14 @@ describe("Clickable component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders a download button", () => {
+    const { container } = render(
+      <Clickable model="download" href="#" download="test-download">
+        Hit me
+      </Clickable>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
   it("renders a with custom className", () => {
     const { container } = render(
       <Clickable className="test-class">Hit me</Clickable>
