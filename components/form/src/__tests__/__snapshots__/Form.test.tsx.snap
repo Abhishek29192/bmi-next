@@ -105,3 +105,30 @@ exports[`Form component renders with a right aligned button 1`] = `
   </div>
 </form>
 `;
+
+exports[`Form component test withFormControl calls onChange 1`] = `
+<input
+  data-testid="id"
+  name="test"
+  type="text"
+  value="Value"
+/>
+`;
+
+exports[`Form component test withFormControl not calls onChange 1`] = `
+<input
+  data-testid="id"
+  name="test"
+  type="text"
+  value="Value"
+/>
+`;
+
+exports[`Form component test withFormControl with no fieldIsRequiredError and value 1`] = `
+<input
+  data-testid="id"
+  name="test"
+  type="text"
+  value=""
+/>
+`;
