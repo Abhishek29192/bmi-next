@@ -44,7 +44,26 @@ describe("useDimensions helper", () => {
 
     expect(wrapper.container).toMatchSnapshot();
   });
-  it("should use ", () => {
+  it("should return node element and values of dimensions if assigned to element without liveMeasure", () => {
+    const { result } = clientRenderHook(() =>
+      useDimensions({
+        liveMeasure: false
+      })
+    );
+    const node = <div ref={result.current[0]}>test</div>;
+    const wrapper = render(node);
+    expect(typeof result.current[0]).toEqual("function");
+    expect(result.current[1]).toEqual({
+      bottom: 0,
+      height: 0,
+      right: 0,
+      width: 0
+    });
+    expect(result.current[2]?.innerHTML).toEqual("test");
+
+    expect(wrapper.container).toMatchSnapshot();
+  });
+  it("should call useEffect hook if window is undefined", () => {
     Object.defineProperty(global, "window", { value: undefined });
     const { result } = renderHookServer(() => useDimensions());
     expect(typeof result.current[0]).toEqual("function");
