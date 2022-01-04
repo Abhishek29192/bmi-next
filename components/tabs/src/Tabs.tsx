@@ -70,9 +70,7 @@ const Tabs = ({
   const [value, setValue] = React.useState(initialValue);
 
   const handleChange = (_event: React.ChangeEvent<{}>, newValue: any) => {
-    if (onChange) {
-      onChange(newValue);
-    }
+    onChange && onChange(newValue);
     setValue(newValue);
   };
 
