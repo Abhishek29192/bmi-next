@@ -13,6 +13,7 @@ type AddressAutocompleteProps = GoogleAutocompleteProps & {
   mapProps: GoogleMapProps;
   searchBiasCenter?: Point;
   searchBiasRadiusKm?: number;
+  mapsApiKey: string;
 };
 
 const DEFAULT_SEARCH_BIAS_RADIUS_KM = 100 * 1000;
@@ -22,14 +23,13 @@ export const AddressAutocomplete = ({
   mapProps,
   searchBiasCenter,
   searchBiasRadiusKm,
+  mapsApiKey,
   ...rest
 }: AddressAutocompleteProps) => {
   const [googleApi, setGoogleApi] = useState(null);
 
   const initialiseGoogleApi = async () => {
-    await loadGoogleApi(process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY, [
-      "places"
-    ]);
+    await loadGoogleApi(mapsApiKey, ["places"]);
     setGoogleApi(typeof window?.google !== "undefined" ? window.google : null);
   };
 

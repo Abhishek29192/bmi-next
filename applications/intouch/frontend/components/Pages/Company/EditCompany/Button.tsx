@@ -10,11 +10,13 @@ import styles from "./styles.module.scss";
 type EditCompanyButtonProps = {
   company: GetCompanyQuery["company"];
   onCompanyUpdateSuccess?: OnCompanyUpdateSuccess;
+  mapsApiKey: string;
 };
 
 export const EditCompanyButton = ({
-  company,
-  onCompanyUpdateSuccess
+  onCompanyUpdateSuccess,
+  mapsApiKey,
+  company
 }: EditCompanyButtonProps) => {
   const { t } = useTranslation(["common", "company-page"]);
   const [isEditDialogOpen, setEditDialogOpen] = useState(false);
@@ -41,6 +43,7 @@ export const EditCompanyButton = ({
         isOpen={isEditDialogOpen}
         onCloseClick={() => setEditDialogOpen(false)}
         onCompanyUpdateSuccess={onCompanyUpdateSuccess}
+        mapsApiKey={mapsApiKey}
       />
     </div>
   );

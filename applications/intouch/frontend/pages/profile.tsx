@@ -11,9 +11,11 @@ import { UserProfilePageContent } from "../components/Pages/UserProfile";
 
 type UserProfilePageProps = GlobalPageProps & {
   pageAccount: GetUserProfileQuery["account"];
+  mapsApiKey: string;
 };
 
 const UserProfilePage = ({
+  mapsApiKey,
   pageAccount,
   globalPageData
 }: UserProfilePageProps) => {
@@ -26,6 +28,7 @@ const UserProfilePage = ({
     >
       <UserProfilePageContent
         accountSSR={account}
+        mapsApiKey={mapsApiKey}
         contactUsPage={{
           href: contactUsPage.relativePath,
           label: contactUsPage.title
@@ -88,6 +91,7 @@ export const getServerSideProps = withPage(
         // called "pageAccount" so that it doesn't override "account", which is passed via "withPage"
         // the "account" property is needed for the context
         pageAccount,
+        mapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
         ...(await serverSideTranslations(locale, [
           "profile",
           "company-page",

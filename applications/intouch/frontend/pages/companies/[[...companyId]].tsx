@@ -33,6 +33,7 @@ type CompaniesPageProps = GlobalPageProps & {
   companies?: GetCompaniesByMarketQuery["companies"]["nodes"];
   companySSR?: GetCompanyQuery["company"];
   contactDetailsCollection: GetCompanyQuery["contactDetailsCollection"];
+  mapsApiKey: string;
 };
 
 const CompaniesPage = ({
@@ -41,6 +42,7 @@ const CompaniesPage = ({
   companySSR,
   contactDetailsCollection,
   globalPageData,
+  mapsApiKey,
   market
 }: CompaniesPageProps) => {
   const { t } = useTranslation("company-page");
@@ -88,6 +90,7 @@ const CompaniesPage = ({
           setCompany(updatedCompany);
           updateCompaniesList();
         }}
+        mapsApiKey={mapsApiKey}
       />
     );
   }, [company]);
@@ -210,6 +213,7 @@ export const getServerSideProps = withPage(
             : [],
           companySSR: company,
           contactDetailsCollection,
+          mapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
           ...translations
         }
       };
@@ -249,6 +253,7 @@ export const getServerSideProps = withPage(
     return {
       props: {
         companies: sortArrayByField([...companies], "name"),
+        mapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
         contactDetailsCollection,
         ...translations
       }

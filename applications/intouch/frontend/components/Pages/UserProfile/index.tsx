@@ -14,10 +14,12 @@ import { LeaveCompanyButton } from "./LeaveCompanyButton";
 type UserProfilePageContentProps = {
   accountSSR: GetUserProfileQuery["account"];
   contactUsPage?: { href: string; label: string };
+  mapsApiKey: string;
 };
 
 export const UserProfilePageContent = ({
   accountSSR,
+  mapsApiKey,
   contactUsPage
 }: UserProfilePageContentProps) => {
   const { t } = useTranslation(["profile", "company-page"]);
@@ -54,7 +56,7 @@ export const UserProfilePageContent = ({
             />
           </div>
         ) : (
-          <RegisterCompanyCard />
+          <RegisterCompanyCard mapsApiKey={mapsApiKey} />
         )}
       </div>
       <div>

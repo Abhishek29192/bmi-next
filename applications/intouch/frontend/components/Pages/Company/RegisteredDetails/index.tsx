@@ -14,6 +14,7 @@ import styles from "./styles.module.scss";
 export type CompanyRegisteredDetailsProps = {
   company: GetCompanyQuery["company"];
   onCompanyUpdateSuccess?: OnCompanyUpdateSuccess;
+  mapsApiKey: string;
 };
 
 export const formatCompanyOperations = (t, operations: Operation[]) => {
@@ -38,6 +39,7 @@ export const formatCompanyOperations = (t, operations: Operation[]) => {
 
 export const CompanyRegisteredDetails = ({
   company,
+  mapsApiKey,
   onCompanyUpdateSuccess
 }: CompanyRegisteredDetailsProps) => {
   const { t } = useTranslation(["common", "company-page"]);
@@ -92,6 +94,7 @@ export const CompanyRegisteredDetails = ({
 
         <EditCompanyButton
           company={company}
+          mapsApiKey={mapsApiKey}
           onCompanyUpdateSuccess={onCompanyUpdateSuccess}
         />
       </div>

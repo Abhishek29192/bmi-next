@@ -6,7 +6,10 @@ import Button from "@bmi/button";
 import { RegisterCompanyDialog } from "../Dialog";
 import styles from "./styles.module.scss";
 
-export const RegisterCompanyCard = () => {
+type Props = {
+  mapsApiKey: string;
+};
+export const RegisterCompanyCard = ({ mapsApiKey }: Props) => {
   const { t } = useTranslation("profile");
   const [isDialogOpen, setDialogOpen] = useState(false);
 
@@ -26,6 +29,7 @@ export const RegisterCompanyCard = () => {
         </CardActions>
       </Card>
       <RegisterCompanyDialog
+        mapsApiKey={mapsApiKey}
         isOpen={isDialogOpen}
         onCloseClick={() => setDialogOpen(false)}
       />

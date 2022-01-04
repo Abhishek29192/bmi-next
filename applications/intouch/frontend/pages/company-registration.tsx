@@ -10,9 +10,10 @@ import { EditCompanyDialog } from "../components/Pages/Company/EditCompany/Dialo
 
 type Props = GlobalPageProps & {
   company: GetCompanyQuery["company"];
+  mapsApiKey: string;
 };
 
-const CompanyRegistrationPage = ({ company }: Props) => {
+const CompanyRegistrationPage = ({ company, mapsApiKey }: Props) => {
   // The company is created when we create the user in the db
   // through an sql procedure (create_account) here we just
   // need to update it with the new values
@@ -21,6 +22,7 @@ const CompanyRegistrationPage = ({ company }: Props) => {
       <EditCompanyDialog
         company={company}
         isOpen
+        mapsApiKey={mapsApiKey}
         onCompanyUpdateSuccess={() => {
           // Redirect to silent-login in order to re-create the session as we need to remove
           // the claim from the jwt token to stop showing the registration page to the user
@@ -63,6 +65,7 @@ export const getServerSideProps = withPage(
     return {
       props: {
         company,
+        mapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
         ...(await serverSideTranslations(locale, ["common", "company-page"]))
       }
     };

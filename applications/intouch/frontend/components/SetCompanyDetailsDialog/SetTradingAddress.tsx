@@ -27,12 +27,14 @@ type Props = {
   existingTradingAddress: GetCompanyQuery["company"]["tradingAddress"];
   marketCenterPoint: Point;
   locationBiasRadiusKm: number;
+  mapsApiKey: string;
 };
 
 export const SetTradingAddress = ({
   existingTradingAddress,
   marketCenterPoint,
-  locationBiasRadiusKm
+  locationBiasRadiusKm,
+  mapsApiKey
 }: Props) => {
   const { t } = useTranslation(["common", "company-page"]);
   const { updateFormState, values: formValues } = useContext(FormContext);
@@ -147,6 +149,7 @@ export const SetTradingAddress = ({
             mapProps={googleMapProps}
             searchBiasCenter={marketCenterPoint}
             searchBiasRadiusKm={locationBiasRadiusKm}
+            mapsApiKey={mapsApiKey}
           />
         </Grid>
       </Grid>

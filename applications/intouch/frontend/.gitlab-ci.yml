@@ -36,7 +36,7 @@ build_intouch_frontend_dev:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - echo $BMI_KEY > gcloud-service-key-bmi.json
     - echo "Building and pushing image to GCP Projects $BMI_PROJECT and $GCP_INTOUCH_REPLATFORM_PROJECT_ID"
-    - docker build . -t eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-frontend:$CI_COMMIT_SHORT_SHA -f applications/intouch/frontend/dockerfile --build-arg NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN --build-arg AUTH0_COOKIE_DOMAIN=intouch.dddev.io --build-arg NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIzaSyAgm19YJTafOD1jKkLDsx1n0XtVKjpgIQs
+    - docker build . -t eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-frontend:$CI_COMMIT_SHORT_SHA -f applications/intouch/frontend/dockerfile --build-arg NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN --build-arg AUTH0_COOKIE_DOMAIN=intouch.bmigroup.com
     - docker tag eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-frontend:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-frontend:$CI_COMMIT_SHORT_SHA
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud auth configure-docker
