@@ -1,21 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RadioGroup component calls onChange 1`] = `
-[MockFunction] {
-  "calls": Array [
-    Array [
-      "Non-combustible (metal/concrete)",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "type": "return",
-      "value": undefined,
-    },
-  ],
-}
-`;
-
 exports[`RadioGroup component renders correctly 1`] = `
 <div
   class="RadioGroup"
@@ -28,14 +12,14 @@ exports[`RadioGroup component renders correctly 1`] = `
     >
       <input
         class="input"
-        id="radio-deckType-Combustible (timber/plywood)"
+        id="radio-deckType-label"
         name="deckType"
         type="radio"
-        value="Combustible (timber/plywood)"
+        value="label"
       />
       <label
         class="label"
-        for="radio-deckType-Combustible (timber/plywood)"
+        for="radio-deckType-label"
       >
         <div
           aria-disabled="false"
@@ -43,7 +27,52 @@ exports[`RadioGroup component renders correctly 1`] = `
           role="button"
           tabindex="-1"
         >
-          Combustible (timber/plywood)
+          <span>
+            Combustible (timber/plywood)
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </label>
+    </div>
+    <div>
+      Non-combustible (metal/concrete)
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RadioGroup component renders correctly with className prop 1`] = `
+<div
+  class="RadioGroup name"
+>
+  <div
+    class="container"
+  >
+    <div
+      class="RadioButton item"
+    >
+      <input
+        class="input"
+        id="radio-deckType-label"
+        name="deckType"
+        type="radio"
+        value="label"
+      />
+      <label
+        class="label"
+        for="radio-deckType-label"
+      >
+        <div
+          aria-disabled="false"
+          class="MuiButtonBase-root text"
+          role="button"
+          tabindex="-1"
+        >
+          <span>
+            Combustible (timber/plywood)
+          </span>
           <span
             class="MuiTouchRipple-root"
           />
@@ -55,14 +84,14 @@ exports[`RadioGroup component renders correctly 1`] = `
     >
       <input
         class="input"
-        id="radio-deckType-Non-combustible (metal/concrete)"
+        id="radio-deckType-label"
         name="deckType"
         type="radio"
-        value="Non-combustible (metal/concrete)"
+        value="label"
       />
       <label
         class="label"
-        for="radio-deckType-Non-combustible (metal/concrete)"
+        for="radio-deckType-label"
       >
         <div
           aria-disabled="false"
@@ -70,7 +99,9 @@ exports[`RadioGroup component renders correctly 1`] = `
           role="button"
           tabindex="-1"
         >
-          Non-combustible (metal/concrete)
+          <span>
+            Non-combustible (metal/concrete)
+          </span>
           <span
             class="MuiTouchRipple-root"
           />
@@ -81,7 +112,7 @@ exports[`RadioGroup component renders correctly 1`] = `
 </div>
 `;
 
-exports[`RadioGroup component selects initialValue 1`] = `
+exports[`RadioGroup component renders correctly with defaultValue prop 1`] = `
 <div
   class="RadioGroup"
 >
@@ -93,14 +124,14 @@ exports[`RadioGroup component selects initialValue 1`] = `
     >
       <input
         class="input"
-        id="radio-deckType-Combustible (timber/plywood)"
+        id="radio-deckType-label"
         name="deckType"
         type="radio"
-        value="Combustible (timber/plywood)"
+        value="label"
       />
       <label
         class="label"
-        for="radio-deckType-Combustible (timber/plywood)"
+        for="radio-deckType-label"
       >
         <div
           aria-disabled="false"
@@ -108,7 +139,9 @@ exports[`RadioGroup component selects initialValue 1`] = `
           role="button"
           tabindex="-1"
         >
-          Combustible (timber/plywood)
+          <span>
+            Combustible (timber/plywood)
+          </span>
           <span
             class="MuiTouchRipple-root"
           />
@@ -120,14 +153,14 @@ exports[`RadioGroup component selects initialValue 1`] = `
     >
       <input
         class="input"
-        id="radio-deckType-Non-combustible (metal/concrete)"
+        id="radio-deckType-label"
         name="deckType"
         type="radio"
-        value="Non-combustible (metal/concrete)"
+        value="label"
       />
       <label
         class="label"
-        for="radio-deckType-Non-combustible (metal/concrete)"
+        for="radio-deckType-label"
       >
         <div
           aria-disabled="false"
@@ -135,7 +168,9 @@ exports[`RadioGroup component selects initialValue 1`] = `
           role="button"
           tabindex="-1"
         >
-          Non-combustible (metal/concrete)
+          <span>
+            Non-combustible (metal/concrete)
+          </span>
           <span
             class="MuiTouchRipple-root"
           />
