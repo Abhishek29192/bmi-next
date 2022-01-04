@@ -16,6 +16,7 @@
     "@bmi/button": "0.0.0",
     "@bmi/card": "0.0.0",
     "@bmi/card-radio-group": "0.0.0",
+    "@bmi/container-dialog": "0.0.0",
     "@bmi/dialog": "0.0.0",
     "@bmi/grid": "0.0.0",
     "@bmi/icon": "0.0.0",
