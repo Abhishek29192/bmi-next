@@ -163,7 +163,7 @@ export const getServerSideProps = withPage(
     market,
     params
   }) => {
-    const transaltions = await serverSideTranslations(locale, [
+    const translations = await serverSideTranslations(locale, [
       "common",
       "sidebar",
       "footer",
@@ -179,7 +179,7 @@ export const getServerSideProps = withPage(
         return generatePageError(
           statusCode,
           {},
-          { globalPageData, ...transaltions }
+          { globalPageData, ...translations }
         );
       }
       const {
@@ -209,7 +209,8 @@ export const getServerSideProps = withPage(
             ? sortArrayByField([...companies], "name")
             : [],
           companySSR: company,
-          contactDetailsCollection
+          contactDetailsCollection,
+          ...translations
         }
       };
     }
@@ -220,7 +221,7 @@ export const getServerSideProps = withPage(
       return generatePageError(
         statusCode,
         {},
-        { globalPageData, ...transaltions }
+        { globalPageData, ...translations }
       );
     }
 
@@ -249,7 +250,7 @@ export const getServerSideProps = withPage(
       props: {
         companies: sortArrayByField([...companies], "name"),
         contactDetailsCollection,
-        ...transaltions
+        ...translations
       }
     };
   }
