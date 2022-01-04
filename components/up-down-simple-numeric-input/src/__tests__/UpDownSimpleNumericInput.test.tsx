@@ -97,4 +97,64 @@ describe("UpDownSimpleNumericInput component", () => {
     }
     expect(onInputMock).not.toHaveBeenCalled();
   });
+  it("should trigger handleInputChange function with min value on trigger input change event with value that is less than min value", () => {
+    const onInputMock = jest.fn();
+    const min = 5;
+    const wrapper = render(
+      <UpDownSimpleNumericInput
+        name="Counter"
+        onChange={onInputMock}
+        min={min}
+      />
+    );
+    const input = wrapper.container.querySelector("input[value='5']");
+    if (input) {
+      fireEvent.change(input, { target: { value: 1 } });
+    }
+    expect(onInputMock).toHaveBeenCalledWith(5);
+  });
+  it("should trigger handleInputChange function with max value on trigger input change event with value that is more than max value", () => {
+    const onInputMock = jest.fn();
+    const max = 5;
+    const wrapper = render(
+      <UpDownSimpleNumericInput
+        name="Counter"
+        onChange={onInputMock}
+        max={max}
+      />
+    );
+    const input = wrapper.container.querySelector("input[value='0']");
+    if (input) {
+      fireEvent.change(input, { target: { value: 6 } });
+    }
+    expect(onInputMock).toHaveBeenCalledWith(5);
+  });
+  it("should set default value if the value is defined", () => {
+    const onInputMock = jest.fn();
+    const defaultValue = 5;
+    const wrapper = render(
+      <UpDownSimpleNumericInput
+        name="Counter"
+        onChange={onInputMock}
+        defaultValue={defaultValue}
+      />
+    );
+    const input = wrapper.container.querySelector("input[value='5']");
+    expect(input).toBeDefined();
+  });
+  it("should change lockBreakpoint value for styles class of buttons container", () => {
+    const onInputMock = jest.fn();
+    const lockBreakpoint = "md";
+    const wrapper = render(
+      <UpDownSimpleNumericInput
+        name="Counter"
+        onChange={onInputMock}
+        lockBreakpoint={lockBreakpoint}
+      />
+    );
+    const buttonsHolder = wrapper.container.querySelector(
+      `div.UpDownSimpleNumericInput--locked-${lockBreakpoint}`
+    );
+    expect(buttonsHolder).toBeDefined();
+  });
 });
