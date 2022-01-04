@@ -39,9 +39,7 @@ const CardRadioGroup = ({
           const handleOnChange = () => {
             setSelected(value);
 
-            if (onChange) {
-              onChange(value);
-            }
+            onChange && onChange(value);
           };
 
           result = React.cloneElement(child, {
