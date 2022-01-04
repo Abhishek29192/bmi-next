@@ -15013,6 +15013,8 @@ export type Query = Node & {
   guaranteeTypeCollection?: Maybe<GuaranteeTypeCollection>;
   /** Reads and enables pagination through a set of `Guarantee`. */
   guarantees?: Maybe<GuaranteesConnection>;
+  /** Reads and enables pagination through a set of `Guarantee`. */
+  guaranteesByMarket?: Maybe<GuaranteesConnection>;
   invitation?: Maybe<Invitation>;
   /** Reads a single `Invitation` using its globally unique `ID`. */
   invitationByNodeId?: Maybe<Invitation>;
@@ -15070,6 +15072,8 @@ export type Query = Node & {
   projectMembers?: Maybe<ProjectMembersConnection>;
   /** Reads and enables pagination through a set of `Project`. */
   projects?: Maybe<ProjectsConnection>;
+  /** Reads and enables pagination through a set of `Project`. */
+  projectsByMarket?: Maybe<ProjectsConnection>;
   /**
    * Exposes the root query type nested one level down. This is helpful for Relay 1
    * which can only query top level fields if they are in a particular form.
@@ -15678,6 +15682,17 @@ export type QueryGuaranteesArgs = {
 };
 
 /** The root query type which gives access points into the data universe. */
+export type QueryGuaranteesByMarketArgs = {
+  market: Scalars["Int"];
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  filter?: Maybe<GuaranteeFilter>;
+};
+
+/** The root query type which gives access points into the data universe. */
 export type QueryInvitationArgs = {
   id: Scalars["Int"];
 };
@@ -15970,6 +15985,17 @@ export type QueryProjectsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<ProjectsOrderBy>>;
   condition?: Maybe<ProjectCondition>;
+  filter?: Maybe<ProjectFilter>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryProjectsByMarketArgs = {
+  market: Scalars["Int"];
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
   filter?: Maybe<ProjectFilter>;
 };
 

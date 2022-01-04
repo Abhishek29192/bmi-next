@@ -12,6 +12,7 @@ import {
   useUpdateProjectMemberMutation
 } from "../../../graphql/generated/hooks";
 import { NoContent } from "../../NoContent";
+import AccessControl from "../../../lib/permissions/AccessControl";
 import { AddTeamMemberDialog } from "./AddTeamMemberDialog";
 import { TeamMemberItem } from "./TeamMemberItem";
 import styles from "./styles.module.scss";
@@ -130,9 +131,11 @@ export const TeamTab = ({
   return (
     <div className={styles.main}>
       <div className={styles.header}>
-        <Button variant="outlined" onClick={addTeamMemberHandler}>
-          {t("teamTab.header")}
-        </Button>
+        <AccessControl dataModel="project" action="addTeamMember">
+          <Button variant="outlined" onClick={addTeamMemberHandler}>
+            {t("teamTab.header")}
+          </Button>
+        </AccessControl>
       </div>
       <div className={styles.body}>
         {!projectMembers.length ? (
@@ -150,7 +153,9 @@ export const TeamTab = ({
                 <Table.Cell>{t("teamTab.table.teamMember")}</Table.Cell>
                 <Table.Cell>{t("teamTab.table.role")}</Table.Cell>
                 <Table.Cell>{t("teamTab.table.certification")}</Table.Cell>
-                <Table.Cell>{t("teamTab.table.remove")}</Table.Cell>
+                <AccessControl dataModel="project" action="removeTeamMember">
+                  <Table.Cell>{t("teamTab.table.remove")}</Table.Cell>
+                </AccessControl>
               </Table.Row>
             </Table.Head>
             <Table.Body>

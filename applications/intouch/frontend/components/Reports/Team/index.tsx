@@ -5,6 +5,7 @@ import { gql } from "@apollo/client";
 import { exportCsv } from "../../../lib/utils/report";
 import { useGetTeamsReportLazyQuery } from "../../../graphql/generated/hooks";
 import { GetTeamsReportQuery } from "../../../graphql/generated/operations";
+import { useMarketContext } from "../../../context/MarketContext";
 import { ReportProps } from "../types";
 import styles from "./styles.module.scss";
 
@@ -17,7 +18,11 @@ const getReportData = (teams: GetTeamsReportQuery["accounts"]) => {
 
 const TeamReport = ({ disabled }: ReportProps) => {
   const { t } = useTranslation("team-page");
+  const { market } = useMarketContext();
   const [getReport] = useGetTeamsReportLazyQuery({
+    variables: {
+      marketId: market.id
+    },
     onCompleted: ({ accounts }) => {
       const data = getReportData(accounts);
       exportCsv(data, {
@@ -45,8 +50,8 @@ const TeamReport = ({ disabled }: ReportProps) => {
 export default TeamReport;
 
 export const GET_TEAMS_REPORT = gql`
-  query GetTeamsReport {
-    accounts {
+  query GetTeamsReport($marketId: Int!) {
+    accounts(condition: { marketId: $marketId }) {
       nodes {
         id
         email

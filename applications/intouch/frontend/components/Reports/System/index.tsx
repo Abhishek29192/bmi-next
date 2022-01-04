@@ -4,12 +4,18 @@ import Button from "@bmi/button";
 import { gql } from "@apollo/client";
 import { exportCsv } from "../../../lib/utils/report";
 import { useGetSystemsReportLazyQuery } from "../../../graphql/generated/hooks";
+import { useMarketContext } from "../../../context/MarketContext";
 import { ReportProps } from "../types";
 import styles from "./styles.module.scss";
 
 const SystemReport = ({ disabled }: ReportProps) => {
   const { t } = useTranslation("admin-products-systems");
+  const { market } = useMarketContext();
+
   const [getSystemsReport] = useGetSystemsReportLazyQuery({
+    variables: {
+      marketId: market.id
+    },
     onCompleted: ({ systems }) => {
       const data = [...systems.nodes].map((system) => {
         const members = system.systemMembersBySystemBmiRef.nodes
@@ -42,8 +48,8 @@ const SystemReport = ({ disabled }: ReportProps) => {
 export default SystemReport;
 
 export const GET_SYSTEMS = gql`
-  query GetSystemsReport {
-    systems {
+  query GetSystemsReport($marketId: Int) {
+    systems(condition: { marketId: $marketId }) {
       nodes {
         id
         bmiRef

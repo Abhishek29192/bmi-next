@@ -35,7 +35,7 @@ const ProductsAndSystems = ({
 };
 
 export const getServerSideProps = withPage(
-  async ({ locale, account, apolloClient, globalPageData, res }) => {
+  async ({ locale, account, apolloClient, globalPageData, market, res }) => {
     if (!can(account, "navigation", "productsAdmin")) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
@@ -44,7 +44,14 @@ export const getServerSideProps = withPage(
 
     const {
       props: { data }
-    } = await getServerPageProductsAndSystems({}, apolloClient);
+    } = await getServerPageProductsAndSystems(
+      {
+        variables: {
+          marketId: market.id
+        }
+      },
+      apolloClient
+    );
 
     return {
       props: {
@@ -64,8 +71,8 @@ export const getServerSideProps = withPage(
 
 // TODO: fetch product by market
 export const GetProductsAndSystems = gql`
-  query ProductsAndSystems {
-    products(orderBy: NAME_ASC) {
+  query ProductsAndSystems($marketId: Int) {
+    products(orderBy: NAME_ASC, condition: { marketId: $marketId }) {
       nodes {
         id
         name
@@ -79,7 +86,7 @@ export const GetProductsAndSystems = gql`
         maximumValidityYears
       }
     }
-    systems(orderBy: NAME_ASC) {
+    systems(orderBy: NAME_ASC, condition: { marketId: $marketId }) {
       nodes {
         id
         name

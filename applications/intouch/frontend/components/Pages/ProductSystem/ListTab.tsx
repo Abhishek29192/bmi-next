@@ -12,6 +12,7 @@ import classnames from "classnames";
 import { SidePanel } from "../../../components/SidePanel";
 import { FilterResult } from "../../FilterResult";
 import { formatDate } from "../../../lib/utils";
+import { useMarketContext } from "../../../context/MarketContext";
 import {
   useUpdateProductMutation,
   useUpdateSystemMutation
@@ -70,6 +71,7 @@ const getValue = (t, type, value) => {
 
 const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
   const { t } = useTranslation("admin-products-systems");
+  const { market } = useMarketContext();
 
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [filterState, setFilterState] = useState({
@@ -113,6 +115,7 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
       const { id, __typename, ...rest } = selectedItem;
       udpateProduct({
         variables: {
+          marketId: market.id,
           input: {
             id,
             patch: {
@@ -131,6 +134,7 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
       const { id, __typename, ...rest } = selectedItem;
       udpateSystem({
         variables: {
+          marketId: market.id,
           input: {
             id,
             patch: {
@@ -341,10 +345,10 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
 export default ProductTab;
 
 export const updateProduct = gql`
-  mutation updateProduct($input: UpdateProductInput!) {
+  mutation updateProduct($input: UpdateProductInput!, $marketId: Int) {
     updateProduct(input: $input) {
       query {
-        products(orderBy: NAME_ASC) {
+        products(orderBy: NAME_ASC, condition: { marketId: $marketId }) {
           nodes {
             id
             name
@@ -364,10 +368,10 @@ export const updateProduct = gql`
 `;
 
 export const updateSystem = gql`
-  mutation updateSystem($input: UpdateSystemInput!) {
+  mutation updateSystem($input: UpdateSystemInput!, $marketId: Int) {
     updateSystem(input: $input) {
       query {
-        systems(orderBy: NAME_ASC) {
+        systems(orderBy: NAME_ASC, condition: { marketId: $marketId }) {
           nodes {
             id
             name
