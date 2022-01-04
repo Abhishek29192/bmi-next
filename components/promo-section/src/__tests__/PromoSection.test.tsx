@@ -103,4 +103,32 @@ describe("PromoSection component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it("renders correctly if imageSource !== string", () => {
+    const { container } = render(
+      <PromoSection
+        imageSource={<img />}
+        backgroundColor="alabaster"
+        className="test-class"
+      >
+        Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet
+        mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam,
+        tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit
+        feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+      </PromoSection>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders correctly if no props passed", () => {
+    const { container } = render(
+      <PromoSection>
+        Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet
+        mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam,
+        tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit
+        feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+      </PromoSection>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
