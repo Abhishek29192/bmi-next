@@ -17,6 +17,7 @@ export type OnCompanyUpdateSuccess = (
 export type EditCompanyDialogProps = {
   company: GetCompanyQuery["company"];
   isOpen: boolean;
+  mapsApiKey: string;
   onCloseClick?: () => void;
   onCompanyUpdateSuccess?: OnCompanyUpdateSuccess;
 };
@@ -25,6 +26,7 @@ export const EditCompanyDialog = ({
   company,
   isOpen,
   onCloseClick,
+  mapsApiKey,
   onCompanyUpdateSuccess
 }: EditCompanyDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
@@ -140,6 +142,7 @@ export const EditCompanyDialog = ({
       onSubmit={onSubmit}
       errorMessage={errorMessage}
       loading={loading}
+      mapsApiKey={mapsApiKey}
     />
   );
 };

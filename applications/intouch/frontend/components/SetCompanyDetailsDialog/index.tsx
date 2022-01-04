@@ -36,6 +36,7 @@ export type SetCompanyDetailsDialogProps = {
   onCloseClick: () => void;
   onSubmit: (values: { [key: string]: any }) => any;
   errorMessage?: string;
+  mapsApiKey: string;
 };
 
 export const SetCompanyDetailsDialog = ({
@@ -45,6 +46,7 @@ export const SetCompanyDetailsDialog = ({
   onCloseClick,
   onSubmit,
   errorMessage,
+  mapsApiKey,
   loading
 }: SetCompanyDetailsDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
@@ -244,6 +246,7 @@ export const SetCompanyDetailsDialog = ({
             existingTradingAddress={company?.tradingAddress}
             marketCenterPoint={market.geoMiddle}
             locationBiasRadiusKm={market.locationBiasRadiusKm}
+            mapsApiKey={mapsApiKey}
           />
 
           <Typography variant="h6" className={styles.sectionText}>

@@ -24,6 +24,7 @@ export const Basic = () => (
       company={mockCompany}
       actions={
         <EditCompanyButton
+          mapsApiKey=""
           company={mockCompany}
           onCompanyUpdateSuccess={() => {
             window.alert("success");

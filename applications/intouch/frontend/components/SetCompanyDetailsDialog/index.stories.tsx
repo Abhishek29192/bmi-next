@@ -9,6 +9,7 @@ export default {
 
 export const Basic = () => (
   <SetCompanyDetailsDialog
+    mapsApiKey=""
     title="Set Company Details Story"
     company={mockCompany}
     isOpen

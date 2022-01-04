@@ -6,7 +6,7 @@ To know more about BMI InTouch, see the related [Confluence documents](https://b
 
 ## Getting Started
 
-- First, follow the monoropo instructions (root directory README). You should have installed all the necessary dependencies
+- First, follow the monoropo instructions (root directory README). You should have installed all the necessary dependencies.
 
 - set `AUTH0_COOKIE_DOMAIN=local.intouch` and you add these domain in yout /etc/hosts:
 

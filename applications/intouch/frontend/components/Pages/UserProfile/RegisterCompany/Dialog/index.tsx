@@ -15,11 +15,13 @@ import { SetCompanyDetailsDialog } from "../../../../SetCompanyDetailsDialog";
 export type RegisterCompanyDialogProps = {
   isOpen: boolean;
   onCloseClick: () => void;
+  mapsApiKey: string;
 };
 
 export const RegisterCompanyDialog = ({
   isOpen,
-  onCloseClick
+  onCloseClick,
+  mapsApiKey
 }: RegisterCompanyDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
   const [errorMessage, setErrorMessage] = useState<string>(undefined);
@@ -127,6 +129,7 @@ export const RegisterCompanyDialog = ({
       onCloseClick={onCloseClick}
       errorMessage={errorMessage}
       loading={loadingRegister || loadingUpdate}
+      mapsApiKey={mapsApiKey}
     />
   );
 };
