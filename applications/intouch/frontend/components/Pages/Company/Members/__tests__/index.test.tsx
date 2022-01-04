@@ -183,18 +183,12 @@ describe("Company Members Page", () => {
             value: "email@email.co.uk, email1@email.co.uk"
           }
         });
-        fireEvent.change(screen.getByTestId("personalNote"), {
-          target: {
-            value: "Lorem ipsum"
-          }
-        });
         fireEvent.click(screen.getByTestId("invite-dialog-submit"));
 
         expect(inviteMock).toHaveBeenCalledWith({
           variables: {
             input: {
-              emails: ["email@email.co.uk", "email1@email.co.uk"],
-              personalNote: "Lorem ipsum"
+              emails: ["email@email.co.uk", "email1@email.co.uk"]
             }
           }
         });
