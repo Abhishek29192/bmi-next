@@ -404,19 +404,3 @@ exports[`SlideControls component renders correctly 1`] = `
   </button>
 </div>
 `;
-
-exports[`SlideControls component triggers a onNextClick event 1`] = `
-Array [
-  Array [
-    1,
-  ],
-]
-`;
-
-exports[`SlideControls component triggers a onPrevClick event 1`] = `
-Array [
-  Array [
-    1,
-  ],
-]
-`;
