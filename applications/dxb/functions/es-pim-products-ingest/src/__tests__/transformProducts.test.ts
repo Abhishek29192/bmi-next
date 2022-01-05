@@ -445,6 +445,38 @@ describe("transformProduct", () => {
       expect(transformProduct(product)).toMatchSnapshot();
     });
 
+    it("should transform product with colourfamilyCode,colourfamilyValue,texturefamilyCode,texturefamilyValue equal undefined if appearanceClassifications.features === undefined", () => {
+      const product = createPimProduct({
+        classifications: [
+          createAppearanceAttributesClassification({
+            features: undefined
+          })
+        ]
+      });
+
+      const transformedProduct = transformProduct(product);
+
+      expect(transformedProduct[0].colourfamilyCode).toEqual(undefined);
+      expect(transformedProduct[0].colourfamilyValue).toEqual(undefined);
+      expect(transformedProduct[0].texturefamilyCode).toEqual(undefined);
+      expect(transformedProduct[0].texturefamilyValue).toEqual(undefined);
+    });
+
+    it("should transform product with materialsCode,materialsValue equal undefined if generalInformationClassification.features === undefined", () => {
+      const product = createPimProduct({
+        classifications: [
+          createGeneralInformationClassification({
+            features: undefined
+          })
+        ]
+      });
+
+      const transformedProduct = transformProduct(product);
+
+      expect(transformedProduct[0].materialsCode).toEqual(undefined);
+      expect(transformedProduct[0].materialsValue).toEqual(undefined);
+    });
+
     it("should default PIM_CLASSIFICATION_CATALOGUE_NAMESPACE if not provided", () => {
       const pimClassificationCcatalogueNamespace =
         process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE;
@@ -493,6 +525,48 @@ describe("transformProduct", () => {
       expect(actualScoringWeightAttributes).toEqual(
         expectedScoringWeightAttributes
       );
+    });
+
+    it("should assign variantScoringWeightInt to 0", () => {
+      const product = createPimProduct({
+        variantOptions: [
+          createVariantOption({
+            classifications: [
+              createScoringWeightAttributesClassification({
+                features: [
+                  createFeature({
+                    featureValues: [createFeatureValue({ value: "tValue" })]
+                  })
+                ]
+              })
+            ]
+          })
+        ]
+      });
+      const variantScoringWeightInt =
+        transformProduct(product)[0].variantScoringWeightInt;
+
+      expect(variantScoringWeightInt).toEqual(0);
+    });
+
+    it("should assign scoringWeightInt and productScoringWeightInt to 0", () => {
+      const product = createPimProduct({
+        classifications: [
+          createScoringWeightAttributesClassification({
+            features: [
+              createFeature({
+                featureValues: [createFeatureValue({ value: "tValue" })]
+              })
+            ]
+          })
+        ]
+      });
+      const scoringWeightInt = transformProduct(product)[0].scoringWeightInt;
+      const productScoringWeightInt =
+        transformProduct(product)[0].productScoringWeightInt;
+
+      expect(scoringWeightInt).toEqual(0);
+      expect(productScoringWeightInt).toEqual(0);
     });
 
     describe("scoringWeightAttributes classification tests", () => {
