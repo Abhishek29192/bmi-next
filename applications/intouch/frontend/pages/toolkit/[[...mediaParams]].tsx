@@ -57,10 +57,20 @@ export const getServerSideProps = withPage(
     params: { mediaParams },
     res
   }) => {
+    const translations = await serverSideTranslations(locale, [
+      "common",
+      "toolkit",
+      "error-page"
+    ]);
+
     if (!can(account, "page", "mediaLibrary")) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
-      return generatePageError(statusCode, {}, { globalPageData });
+      return generatePageError(
+        statusCode,
+        {},
+        { globalPageData, ...translations }
+      );
     }
 
     const {
@@ -81,11 +91,6 @@ export const getServerSideProps = withPage(
         }
       };
     }
-
-    const translations = await serverSideTranslations(locale, [
-      "common",
-      "toolkit"
-    ]);
 
     if (!mediaFolderId && rootFolders.length === 0) {
       return {
@@ -114,7 +119,11 @@ export const getServerSideProps = withPage(
     if (!mediaFolder) {
       const statusCode = ErrorStatusCode.NOT_FOUND;
       res.statusCode = statusCode;
-      return generatePageError(statusCode, {}, { globalPageData });
+      return generatePageError(
+        statusCode,
+        {},
+        { globalPageData, ...translations }
+      );
     }
 
     // TODO: pass active mediaTool & redirect to folder if mediaTool does not exist

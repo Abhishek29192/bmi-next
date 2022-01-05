@@ -81,6 +81,13 @@ export const getServerSideProps = withPage(
     expiryDate.setHours(0, 0, 0, 0);
     expiryDate.setMonth(expiryDate.getMonth() - 6);
 
+    const translations = await serverSideTranslations(locale, [
+      "common",
+      "sidebar",
+      "team-page",
+      "error-page"
+    ]);
+
     const { props } = await getServerPageTeamMembers(
       {
         variables: {
@@ -94,7 +101,11 @@ export const getServerSideProps = withPage(
     if (!can(account, "page", "team")) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
-      return generatePageError(statusCode, {}, { globalPageData });
+      return generatePageError(
+        statusCode,
+        {},
+        { globalPageData, ...translations }
+      );
     }
 
     return {
@@ -107,12 +118,7 @@ export const getServerSideProps = withPage(
             nodes: sortByFirstName(props.data.accounts.nodes)
           }
         },
-        ...(await serverSideTranslations(locale, [
-          "common",
-          "sidebar",
-          "team-page",
-          "error-page"
-        ]))
+        ...translations
       }
     };
   }

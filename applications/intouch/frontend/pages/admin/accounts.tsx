@@ -28,21 +28,28 @@ const ImportAccountPage = ({ globalPageData }: ImportAccountPageProps) => {
 
 export const getServerSideProps = withPage(
   async ({ locale, account, globalPageData, res }) => {
+    const translations = await serverSideTranslations(locale, [
+      "admin-account-import",
+      "company-page",
+      "common",
+      "sidebar",
+      "footer",
+      "error-page"
+    ]);
+
     if (!can(account, "navigation", "accountsAdmin")) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
-      return generatePageError(statusCode, {}, { globalPageData });
+      return generatePageError(
+        statusCode,
+        {},
+        { globalPageData, ...translations }
+      );
     }
 
     return {
       props: {
-        ...(await serverSideTranslations(locale, [
-          "admin-account-import",
-          "company-page",
-          "common",
-          "sidebar",
-          "footer"
-        ])),
+        ...translations,
         account
       }
     };

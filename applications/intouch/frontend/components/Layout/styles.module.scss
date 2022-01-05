@@ -91,11 +91,7 @@ $tablet-width: 1024px;
 }
 
 .logoContainerPublic {
-  margin-top: 28px;
-
-  @media (max-width: $breakpoint-md) {
-    margin-top: 12px;
-  }
+  margin: 28px 21px 0 21px;
 }
 
 .appContent {
@@ -117,17 +113,17 @@ $tablet-width: 1024px;
 .appMainPublic {
   background-color: $color-pearl;
   flex: 1;
+}
 
-  margin: 0 21px;
-
-  @media (max-width: $breakpoint-md) {
-    margin: 0px 16px;
-  }
+.appError {
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .appContentPublic {
-  margin-top: 28px;
-  max-width: $breakpoint-xl;
+  margin: 28px 21px 0 21px;
+  min-height: calc(100vh - 172px - 28px - 28px); // 172 = header + footer
 
   @media (max-width: $breakpoint-md) {
     margin-top: 12px;

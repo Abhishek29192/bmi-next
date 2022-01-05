@@ -3,5 +3,6 @@
   "errorAlreadyMember": "L'utente è già membro di un'altra azienda",
   "errorInvitationNotFound": "Invito non trovato",
   "title": "Qualcosa è andato storto",
-  "user_blocked": "L'utente è bloccato"
+  "errorUserBlocked": "L'utente è bloccato",
+  "errorAuthentication": "Non sei autorizzate ad eseguire questa operazione"
 }

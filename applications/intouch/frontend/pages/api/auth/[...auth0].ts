@@ -116,17 +116,29 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
       } catch (error) {
         logger.error(`handle callback`, error);
 
+        const session = await auth0.getSession(req, res);
+
         if (req?.query?.error_description === "email_not_verified") {
           res.writeHead(302, { Location: "/email-verification" });
           return res.end();
         }
 
         if (req?.query?.error_description === "user is blocked") {
-          res.writeHead(302, { Location: "/api-error?message=user_blocked" });
+          res.writeHead(302, {
+            Location: "/api-error?message=errorUserBlocked"
+          });
           return res.end();
         }
 
-        res.writeHead(302, { Location: "/api-error?message=auth_error" });
+        if (!session) {
+          res.writeHead(302, {
+            Location: "/api-error?message=errorAuthentication"
+          });
+        } else {
+          res.writeHead(302, {
+            Location: "/"
+          });
+        }
         return res.end();
       }
     },

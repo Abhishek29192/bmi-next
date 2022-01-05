@@ -40,4 +40,4 @@ export const getMarketAndEnvFromReq = ({
 };
 
 export const sortArrayByField = (nodes: any[], field: string) =>
-  nodes?.sort((a, b) => a?.[field].localeCompare(b?.[field]));
+  nodes?.sort((a, b) => a?.[field]?.localeCompare(b?.[field]));

@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from "classnames";
 import Head from "next/head";
 import Icon from "@bmi/icon";
 import BmiThemeProvider from "@bmi/theme-provider";
@@ -9,8 +10,9 @@ import styles from "./styles.module.scss";
 
 export type LayoutProps = {
   children: React.ReactNode | React.ReactNode[];
-  title: string;
   pageData?: GetGlobalDataQuery;
+  isError?: boolean;
+  title: string;
 };
 
 const mapFooterLinks = (pageData: GetGlobalDataQuery): FooterProps["links"] => {
@@ -24,7 +26,12 @@ const mapFooterLinks = (pageData: GetGlobalDataQuery): FooterProps["links"] => {
   );
 };
 
-export const Layout = ({ children, title, pageData = {} }: LayoutProps) => {
+export const Layout = ({
+  children,
+  title,
+  pageData = {},
+  isError
+}: LayoutProps) => {
   const footerLinks = pageData ? mapFooterLinks(pageData) : [];
 
   return (
@@ -42,7 +49,15 @@ export const Layout = ({ children, title, pageData = {} }: LayoutProps) => {
             <div className={styles.logoContainerPublic}>
               <Icon source={BMI} className={styles.logo} />
             </div>
-            <div className={styles.appContentPublic}>{children}</div>
+            <div
+              className={
+                isError
+                  ? classnames(styles.appContentPublic, styles.appError)
+                  : styles.appContentPublic
+              }
+            >
+              {children}
+            </div>
             <Footer links={footerLinks} />
           </div>
         </div>

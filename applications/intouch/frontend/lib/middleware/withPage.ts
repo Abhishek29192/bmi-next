@@ -71,7 +71,7 @@ export const innerGetServerSideProps = async (
   auth0,
   ctx
 ) => {
-  const { req, res } = ctx;
+  const { req, res, resolvedUrl } = ctx;
 
   const session: Session = auth0.getSession(req, res);
 
@@ -80,10 +80,19 @@ export const innerGetServerSideProps = async (
   const now = Date.now();
 
   if (now >= session.accessTokenExpiresAt * 1000) {
-    const newAccessToken = await auth0.getAccessToken(req, res, {
-      refresh: true
-    });
-    accessToken = newAccessToken?.accessToken;
+    try {
+      const newAccessToken = await auth0.getAccessToken(req, res, {
+        refresh: true
+      });
+      accessToken = newAccessToken?.accessToken;
+    } catch (error) {
+      return {
+        redirect: {
+          permanent: false,
+          destination: "/api/auth/logout"
+        }
+      };
+    }
   }
 
   const logger = req.logger("withPage");
@@ -134,11 +143,11 @@ export const innerGetServerSideProps = async (
     if (redirect) return redirect;
 
     // Redirect to user registration if missing data in the user profile
-    redirect = userRegistration(ctx.resolvedUrl, account, session);
+    redirect = userRegistration(resolvedUrl, account, session);
     if (redirect) return redirect;
 
     // Redirect to company registration if new company
-    redirect = redirectCompanyRegistration(ctx.resolvedUrl, account);
+    redirect = redirectCompanyRegistration(resolvedUrl, account);
     if (redirect) return redirect;
 
     market = markets[0];
@@ -153,9 +162,29 @@ export const innerGetServerSideProps = async (
 
     globalPageData = data;
   } catch (error) {
-    logger.error("Generic error", error);
+    const { networkError } = error;
 
-    throw error;
+    logger.error("Generic error", networkError?.result?.message || error);
+
+    if (networkError?.result) {
+      if (networkError?.result?.message === "Jwt issuer is not configured") {
+        return {
+          redirect: {
+            permanent: false,
+            destination: `/api/auth/logout`
+          }
+        };
+      } else {
+        if (resolvedUrl?.indexOf("/api-error") === -1) {
+          return {
+            redirect: {
+              permanent: false,
+              destination: `/api-error?message=genericError`
+            }
+          };
+        }
+      }
+    }
   }
 
   return merge(

@@ -36,10 +36,22 @@ const ProductsAndSystems = ({
 
 export const getServerSideProps = withPage(
   async ({ locale, account, apolloClient, globalPageData, market, res }) => {
+    const translations = await serverSideTranslations(locale, [
+      "admin-products-systems",
+      "common",
+      "sidebar",
+      "footer",
+      "error-page"
+    ]);
+
     if (!can(account, "navigation", "productsAdmin")) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
-      return generatePageError(statusCode, {}, { globalPageData });
+      return generatePageError(
+        statusCode,
+        {},
+        { globalPageData, ...translations }
+      );
     }
 
     const {
@@ -55,12 +67,7 @@ export const getServerSideProps = withPage(
 
     return {
       props: {
-        ...(await serverSideTranslations(locale, [
-          "admin-products-systems",
-          "common",
-          "sidebar",
-          "footer"
-        ])),
+        ...translations,
         account,
         ssrProducts: data.products,
         ssrSystems: data.systems
