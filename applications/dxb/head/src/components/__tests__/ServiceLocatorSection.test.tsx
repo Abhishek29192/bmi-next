@@ -1113,7 +1113,7 @@ describe("ServiceLocatorSection component", () => {
       expect(text).toBeFalsy();
       expect(wrapper.container.firstChild).toMatchSnapshot();
     });
-  }); //       name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
+  });
 
   describe("with GoogleAutocomplete component", () => {
     beforeEach(() => {
