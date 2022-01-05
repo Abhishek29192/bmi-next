@@ -106,6 +106,9 @@ const WizardContextWrapper = ({
     if (currentStep === 2) {
       return currentData?.product || currentData.system ? true : false;
     }
+    if (currentStep === 3) {
+      return currentData?.evidences?.length > 0;
+    }
     return currentStep < 4;
   };
 
