@@ -88,8 +88,16 @@ export default class DoceboClient {
     username: string,
     path: string = "/learn/mycourses"
   ) {
-    const token = await this.getTokenByJWTPayload(username);
-    return `${DOCEBO_API_URL}${path};type=oauth2_response;access_token=${token.access_token};expires_in=${token.expires_in};token_type=${token.token_type};scope=${token.scope}`;
+    try {
+      const token = await this.getTokenByJWTPayload(username);
+      return `${DOCEBO_API_URL}${path};type=oauth2_response;access_token=${token.access_token};expires_in=${token.expires_in};token_type=${token.token_type};scope=${token.scope}`;
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log("error", error.message);
+      // eslint-disable-next-line no-console
+      console.log("Error creating SSO url", error.response.data);
+      throw error;
+    }
   }
 
   /**
@@ -116,11 +124,20 @@ export default class DoceboClient {
     const queryParams = { match_type: "full", search_text: encodedEmail };
     const queryString = new URLSearchParams(queryParams).toString();
 
-    const {
-      data: { data }
-    } = await this.client.get(`/manage/v1/user?${queryString}`);
+    try {
+      const {
+        data: { data }
+      } = await this.client.get(`/manage/v1/user?${queryString}`);
 
-    return data.items[0];
+      return data.items[0];
+    } catch (error) {
+      this.logger.error("Error message getting docebo account", error.message);
+      this.logger.error(
+        "Error response getting docebo account",
+        error.response.data
+      );
+      throw error;
+    }
   }
 
   public async checkUserValidatiy(userId?: string, email?: string) {
@@ -151,7 +168,11 @@ export default class DoceboClient {
 
       return data;
     } catch (error) {
-      this.logger.error("Error creating docebo account", error.response.data);
+      this.logger.error("Error message creating docebo account", error.message);
+      this.logger.error(
+        "Error response creating docebo account",
+        error.response.data
+      );
       throw error;
     }
   }
@@ -166,7 +187,11 @@ export default class DoceboClient {
       const { data } = await this.client.put(`/manage/v1/user/${userid}`, rest);
       return data;
     } catch (error) {
-      this.logger.error("Error updating docebo account", error.response.data);
+      this.logger.error("Error message updating docebo account", error.message);
+      this.logger.error(
+        "Error response updating docebo account",
+        error.response.data
+      );
       throw error;
     }
   }
