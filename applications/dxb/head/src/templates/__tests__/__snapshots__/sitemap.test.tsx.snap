@@ -48,10 +48,10 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 class="MuiButton-label buttonStyles-label-116"
               >
                 <img
-                  alt=""
+                  alt="English"
                   class="language-icon"
                   height="16px"
-                  src="/icons/flags/globe.svg"
+                  src="/icons/flags/uk.svg"
                   width="20px"
                 />
                 EN
@@ -146,7 +146,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
             <h6
               class="MuiTypography-root heading Typography MuiTypography-h6"
             >
-              region
+              Europe
             </h6>
             <div
               class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
@@ -157,7 +157,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 NavigationListButton link MuiButton-textPrimary"
-                  href="/menuCode"
+                  href="/al"
                   tabindex="0"
                 >
                   <span
@@ -169,11 +169,98 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                       <img
                         class="LanguageIcon"
                         height="16px"
-                        src="/menuIcon"
+                        src="/icons/flags/al.svg"
                         width="20px"
                       />
                     </span>
-                    menuLabel
+                    Albania
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 NavigationListButton link MuiButton-textPrimary"
+                  href="/at"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-116"
+                  >
+                    <span
+                      class="MuiButton-startIcon buttonStyles-startIcon-117 MuiButton-iconSizeMedium"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        height="16px"
+                        src="/icons/flags/at.svg"
+                        width="20px"
+                      />
+                    </span>
+                    Österreich
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 NavigationListButton link MuiButton-textPrimary"
+                  href="/uk"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-116"
+                  >
+                    <span
+                      class="MuiButton-startIcon buttonStyles-startIcon-117 MuiButton-iconSizeMedium"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        height="16px"
+                        src="/icons/flags/uk.svg"
+                        width="20px"
+                      />
+                    </span>
+                    United Kingdom
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 NavigationListButton link MuiButton-textPrimary"
+                  href="/en"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-116"
+                  >
+                    <span
+                      class="MuiButton-startIcon buttonStyles-startIcon-117 MuiButton-iconSizeMedium"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        height="16px"
+                        src="/icons/flags/uk.svg"
+                        width="20px"
+                      />
+                    </span>
+                    English
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -201,7 +288,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
           <a
             aria-label="MC: global.logoLabel"
             class="logo-link"
-            href="/no"
+            href="/en"
           >
             <svg
               class="logo"
@@ -410,10 +497,10 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                   class="LanguageButtonContent"
                 >
                   <img
-                    alt=""
+                    alt="English"
                     class="LanguageIcon"
                     height="16px"
-                    src="/icons/flags/globe.svg"
+                    src="/icons/flags/uk.svg"
                     width="20px"
                   />
                   EN
@@ -531,10 +618,10 @@ exports[`Sitemap renders correctly 1`] = `
                 class="MuiButton-label buttonStyles-label-4"
               >
                 <img
-                  alt=""
+                  alt="English"
                   class="language-icon"
                   height="16px"
-                  src="/icons/flags/globe.svg"
+                  src="/icons/flags/uk.svg"
                   width="20px"
                 />
                 EN
@@ -629,7 +716,7 @@ exports[`Sitemap renders correctly 1`] = `
             <h6
               class="MuiTypography-root heading Typography MuiTypography-h6"
             >
-              region
+              Europe
             </h6>
             <div
               class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
@@ -640,7 +727,7 @@ exports[`Sitemap renders correctly 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
-                  href="/menuCode"
+                  href="/al"
                   tabindex="0"
                 >
                   <span
@@ -652,11 +739,98 @@ exports[`Sitemap renders correctly 1`] = `
                       <img
                         class="LanguageIcon"
                         height="16px"
-                        src="/menuIcon"
+                        src="/icons/flags/al.svg"
                         width="20px"
                       />
                     </span>
-                    menuLabel
+                    Albania
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
+                  href="/at"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-4"
+                  >
+                    <span
+                      class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        height="16px"
+                        src="/icons/flags/at.svg"
+                        width="20px"
+                      />
+                    </span>
+                    Österreich
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
+                  href="/uk"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-4"
+                  >
+                    <span
+                      class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        height="16px"
+                        src="/icons/flags/uk.svg"
+                        width="20px"
+                      />
+                    </span>
+                    United Kingdom
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
+                  href="/en"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-4"
+                  >
+                    <span
+                      class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        height="16px"
+                        src="/icons/flags/uk.svg"
+                        width="20px"
+                      />
+                    </span>
+                    English
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -684,7 +858,7 @@ exports[`Sitemap renders correctly 1`] = `
           <a
             aria-label="MC: global.logoLabel"
             class="logo-link"
-            href="/no"
+            href="/en"
           >
             <svg
               class="logo"
@@ -893,10 +1067,10 @@ exports[`Sitemap renders correctly 1`] = `
                   class="LanguageButtonContent"
                 >
                   <img
-                    alt=""
+                    alt="English"
                     class="LanguageIcon"
                     height="16px"
-                    src="/icons/flags/globe.svg"
+                    src="/icons/flags/uk.svg"
                     width="20px"
                   />
                   EN
@@ -1014,10 +1188,10 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 class="MuiButton-label buttonStyles-label-28"
               >
                 <img
-                  alt=""
+                  alt="English"
                   class="language-icon"
                   height="16px"
-                  src="/icons/flags/globe.svg"
+                  src="/icons/flags/uk.svg"
                   width="20px"
                 />
                 EN
@@ -1112,7 +1286,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
             <h6
               class="MuiTypography-root heading Typography MuiTypography-h6"
             >
-              region
+              Europe
             </h6>
             <div
               class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
@@ -1123,7 +1297,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton link MuiButton-textPrimary"
-                  href="/menuCode"
+                  href="/al"
                   tabindex="0"
                 >
                   <span
@@ -1135,11 +1309,98 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                       <img
                         class="LanguageIcon"
                         height="16px"
-                        src="/menuIcon"
+                        src="/icons/flags/al.svg"
                         width="20px"
                       />
                     </span>
-                    menuLabel
+                    Albania
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton link MuiButton-textPrimary"
+                  href="/at"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-28"
+                  >
+                    <span
+                      class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        height="16px"
+                        src="/icons/flags/at.svg"
+                        width="20px"
+                      />
+                    </span>
+                    Österreich
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton link MuiButton-textPrimary"
+                  href="/uk"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-28"
+                  >
+                    <span
+                      class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        height="16px"
+                        src="/icons/flags/uk.svg"
+                        width="20px"
+                      />
+                    </span>
+                    United Kingdom
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton link MuiButton-textPrimary"
+                  href="/en"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-28"
+                  >
+                    <span
+                      class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        height="16px"
+                        src="/icons/flags/uk.svg"
+                        width="20px"
+                      />
+                    </span>
+                    English
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -1167,7 +1428,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
           <a
             aria-label="MC: global.logoLabel"
             class="logo-link"
-            href="/no"
+            href="/en"
           >
             <svg
               class="logo"
@@ -1376,10 +1637,10 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                   class="LanguageButtonContent"
                 >
                   <img
-                    alt=""
+                    alt="English"
                     class="LanguageIcon"
                     height="16px"
-                    src="/icons/flags/globe.svg"
+                    src="/icons/flags/uk.svg"
                     width="20px"
                   />
                   EN
@@ -1497,10 +1758,10 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 class="MuiButton-label buttonStyles-label-52"
               >
                 <img
-                  alt=""
+                  alt="English"
                   class="language-icon"
                   height="16px"
-                  src="/icons/flags/globe.svg"
+                  src="/icons/flags/uk.svg"
                   width="20px"
                 />
                 EN
@@ -1595,7 +1856,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
             <h6
               class="MuiTypography-root heading Typography MuiTypography-h6"
             >
-              region
+              Europe
             </h6>
             <div
               class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
@@ -1606,7 +1867,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton link MuiButton-textPrimary"
-                  href="/menuCode"
+                  href="/al"
                   tabindex="0"
                 >
                   <span
@@ -1618,11 +1879,98 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                       <img
                         class="LanguageIcon"
                         height="16px"
-                        src="/menuIcon"
+                        src="/icons/flags/al.svg"
                         width="20px"
                       />
                     </span>
-                    menuLabel
+                    Albania
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton link MuiButton-textPrimary"
+                  href="/at"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-52"
+                  >
+                    <span
+                      class="MuiButton-startIcon buttonStyles-startIcon-53 MuiButton-iconSizeMedium"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        height="16px"
+                        src="/icons/flags/at.svg"
+                        width="20px"
+                      />
+                    </span>
+                    Österreich
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton link MuiButton-textPrimary"
+                  href="/uk"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-52"
+                  >
+                    <span
+                      class="MuiButton-startIcon buttonStyles-startIcon-53 MuiButton-iconSizeMedium"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        height="16px"
+                        src="/icons/flags/uk.svg"
+                        width="20px"
+                      />
+                    </span>
+                    United Kingdom
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton link MuiButton-textPrimary"
+                  href="/en"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-52"
+                  >
+                    <span
+                      class="MuiButton-startIcon buttonStyles-startIcon-53 MuiButton-iconSizeMedium"
+                    >
+                      <img
+                        class="LanguageIcon"
+                        height="16px"
+                        src="/icons/flags/uk.svg"
+                        width="20px"
+                      />
+                    </span>
+                    English
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -1650,7 +1998,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
           <a
             aria-label="MC: global.logoLabel"
             class="logo-link"
-            href="/no"
+            href="/en"
           >
             <svg
               class="logo"
@@ -1859,10 +2207,10 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                   class="LanguageButtonContent"
                 >
                   <img
-                    alt=""
+                    alt="English"
                     class="LanguageIcon"
                     height="16px"
-                    src="/icons/flags/globe.svg"
+                    src="/icons/flags/uk.svg"
                     width="20px"
                   />
                   EN

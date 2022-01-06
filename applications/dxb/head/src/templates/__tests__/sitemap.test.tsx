@@ -7,6 +7,7 @@ import {
   DataTypeEnum
 } from "../../components/Link";
 import { renderWithRouter } from "../../test/renderWithRouter";
+import { createMockSiteData } from "../../test/mockSiteData";
 
 beforeAll(() => {
   jest.clearAllMocks();
@@ -25,32 +26,6 @@ describe("Sitemap", () => {
     parameters: null,
     dialogContent: null,
     hubSpotCTAID: null
-  };
-  const resources = {
-    microCopy: [],
-    pdpSidebarItems: null,
-    pdpCardsTitle: null,
-    pdpCards: null,
-    pdpExploreBar: null,
-    pdpShareWidget: null,
-    sdpShareWidget: null,
-    sdpLeadBlockCta: null,
-    sdpSidebarItems: null,
-    sdpBimDescription: null,
-    visualiserShareWidget: null,
-    pdpInputBanner: null,
-    searchPageSearchTips: null,
-    searchPageSidebarItems: null,
-    searchPageNextBestActions: null,
-    searchPageExploreBar: null,
-    errorFourOFour: null,
-    errorGeneral: null,
-    welcomeDialogTitle: null,
-    welcomeDialogBrands: null,
-    welcomeDialogBody: null,
-    maximumSamples: null,
-    sampleBasketLink: null,
-    keyAssetTypes: null
   };
   const footerMainNavigation: NavigationData = {
     __typename: "ContentfulNavigation",
@@ -108,35 +83,16 @@ describe("Sitemap", () => {
       }
     ]
   };
-  const contentfulSiteData = {
-    node_locale: "it",
-    homePage: {
-      title: "homepageTitle"
-    },
-    countryCode: "no",
-    resources,
-    regions: [
-      {
-        label: "region",
-        menu: [
-          {
-            code: "menuCode",
-            label: "menuLabel",
-            icon: "menuIcon"
-          }
-        ]
-      }
-    ]
-  };
+  const mockSiteData = createMockSiteData();
 
   it("renders correctly", () => {
     const data: { contentfulSite: SiteData } = {
       contentfulSite: {
+        ...mockSiteData,
         footerMainNavigation,
         footerSecondaryNavigation,
         menuNavigation,
-        menuUtilities,
-        ...contentfulSiteData
+        menuUtilities
       }
     };
     const { container, getByTestId, queryByText } = renderWithRouter(
@@ -157,11 +113,11 @@ describe("Sitemap", () => {
   it("renders correctly when footerMainNavigation is falsy", () => {
     const data: { contentfulSite: SiteData } = {
       contentfulSite: {
+        ...mockSiteData,
         footerMainNavigation: null,
         footerSecondaryNavigation,
         menuNavigation,
-        menuUtilities,
-        ...contentfulSiteData
+        menuUtilities
       }
     };
     const { container, getByTestId, queryByText } = renderWithRouter(
@@ -182,11 +138,11 @@ describe("Sitemap", () => {
   it("renders correctly when footerSecondaryNavigation is falsy", () => {
     const data: { contentfulSite: SiteData } = {
       contentfulSite: {
+        ...mockSiteData,
         footerMainNavigation,
         footerSecondaryNavigation: null,
         menuNavigation,
-        menuUtilities,
-        ...contentfulSiteData
+        menuUtilities
       }
     };
     const { container, getByTestId, queryByText } = renderWithRouter(
@@ -207,11 +163,11 @@ describe("Sitemap", () => {
   it("renders correctly when menuNavigation is falsy", () => {
     const data: { contentfulSite: SiteData } = {
       contentfulSite: {
+        ...mockSiteData,
         footerMainNavigation,
         footerSecondaryNavigation,
         menuNavigation: null,
-        menuUtilities,
-        ...contentfulSiteData
+        menuUtilities
       }
     };
     const { container, getByTestId, queryByText } = renderWithRouter(
@@ -232,11 +188,11 @@ describe("Sitemap", () => {
   it("renders correctly when menuUtilities is falsy", () => {
     const data: { contentfulSite: SiteData } = {
       contentfulSite: {
+        ...mockSiteData,
         footerMainNavigation,
         footerSecondaryNavigation,
         menuNavigation,
-        menuUtilities: null,
-        ...contentfulSiteData
+        menuUtilities: null
       }
     };
     const { container, getByTestId, queryByText } = renderWithRouter(
@@ -257,11 +213,11 @@ describe("Sitemap", () => {
   it("cover test for pageContext optional chaining", () => {
     const data: { contentfulSite: SiteData } = {
       contentfulSite: {
+        ...mockSiteData,
         footerMainNavigation,
         footerSecondaryNavigation,
         menuNavigation,
-        menuUtilities,
-        ...contentfulSiteData
+        menuUtilities
       }
     };
     const { container, getByTestId, queryByText } = renderWithRouter(
