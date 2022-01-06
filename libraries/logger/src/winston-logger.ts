@@ -4,8 +4,6 @@ import maskDeep from "mask-deep";
 
 const isProd = process.env.NODE_ENV === "production";
 
-const loggerContainer: Record<string, winston.Logger> = {};
-
 const getLogLevel = () => {
   if (process.env.LOG_LEVEL) {
     return process.env.LOG_LEVEL;
@@ -97,21 +95,15 @@ const getLogger = (headers: { [key: string]: string }, _module: string) => {
     return info;
   });
 
-  if (!loggerContainer[`${_module}`]) {
-    loggerContainer[`${_module}`] = winston.createLogger({
-      handleExceptions: true,
-      level: getLogLevel(),
-      transports: [
-        isProd ? loggingWinston : new winston.transports.Console({})
-      ],
-      format: winston.format.combine(addHeader(), defaultFormat),
-      exceptionHandlers: [
-        isProd ? loggingWinston : new winston.transports.Console({})
-      ]
-    });
-  }
-
-  return loggerContainer[`${_module}`];
+  return winston.createLogger({
+    handleExceptions: true,
+    level: getLogLevel(),
+    transports: [isProd ? loggingWinston : new winston.transports.Console({})],
+    format: winston.format.combine(addHeader(), defaultFormat),
+    exceptionHandlers: [
+      isProd ? loggingWinston : new winston.transports.Console({})
+    ]
+  });
 };
 
 export default (req: any, res: any, next: any) => {
