@@ -32,7 +32,7 @@ describe("useDimensions helper", () => {
   it("should return node element and values of dimensions if assigned to element", () => {
     const { result } = clientRenderHook(() => useDimensions());
     const node = <div ref={result.current[0]}>test</div>;
-    const wrapper = render(node);
+    render(node);
     expect(typeof result.current[0]).toEqual("function");
     expect(result.current[1]).toEqual({
       bottom: 0,
@@ -41,8 +41,6 @@ describe("useDimensions helper", () => {
       width: 0
     });
     expect(result.current[2]?.innerHTML).toEqual("test");
-
-    expect(wrapper.container).toMatchSnapshot();
   });
   it("should return node element and values of dimensions if assigned to element without liveMeasure", () => {
     const { result } = clientRenderHook(() =>
@@ -51,7 +49,7 @@ describe("useDimensions helper", () => {
       })
     );
     const node = <div ref={result.current[0]}>test</div>;
-    const wrapper = render(node);
+    render(node);
     expect(typeof result.current[0]).toEqual("function");
     expect(result.current[1]).toEqual({
       bottom: 0,
@@ -60,8 +58,6 @@ describe("useDimensions helper", () => {
       width: 0
     });
     expect(result.current[2]?.innerHTML).toEqual("test");
-
-    expect(wrapper.container).toMatchSnapshot();
   });
   it("should call useEffect hook if window is undefined", () => {
     Object.defineProperty(global, "window", { value: undefined });
