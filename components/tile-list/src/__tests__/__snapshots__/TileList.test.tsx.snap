@@ -1,5 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TileList component render correctly when onClick is defined 1`] = `
+<div
+  class="MuiPaper-root MuiCard-root Tile Tile--clickable MuiPaper-elevation1 MuiPaper-rounded"
+>
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root icon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+    />
+  </svg>
+  <div
+    class="description"
+  >
+    <p
+      class="MuiTypography-root Typography MuiTypography-body1"
+    >
+      Text 1
+    </p>
+  </div>
+</div>
+`;
+
 exports[`TileList component renders correctly 1`] = `
 <div
   class="wrapper"
