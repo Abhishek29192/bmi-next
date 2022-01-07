@@ -21,3 +21,47 @@ exports[`ThumbScrollerButton component renders correctly 1`] = `
   />
 </button>
 `;
+
+exports[`ThumbScrollerButton component renders correctly when className is provided 1`] = `
+<button
+  class="MuiButtonBase-root testClass ThumbScrollerButton ThumbScrollerButton--left"
+  tabindex="-1"
+  type="button"
+>
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root icon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+    />
+  </svg>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
+`;
+
+exports[`ThumbScrollerButton component renders correctly when direction is left 1`] = `
+<button
+  class="MuiButtonBase-root ThumbScrollerButton ThumbScrollerButton--left"
+  tabindex="-1"
+  type="button"
+>
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root icon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+    />
+  </svg>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
+`;
