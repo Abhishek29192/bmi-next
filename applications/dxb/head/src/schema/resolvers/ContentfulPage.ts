@@ -1,6 +1,5 @@
-"use strict";
-
-const { resolvePath, getUrlFromPath } = require("./utils/path");
+import { Context, Node, ResolveArgs } from "./types";
+import { resolvePath, getUrlFromPath } from "./utils/path";
 
 const pages = [
   "ContentfulSimplePage",
@@ -8,26 +7,30 @@ const pages = [
   "ContentfulProductListerPage",
   "ContentfulDocumentLibraryPage",
   "ContentfulBrandLandingPage"
-];
+] as const;
 
-module.exports = pages.reduce(
+type ResolveArgsArray = [Node, ResolveArgs, Context];
+
+type Resolver = { resolve: (...args: ResolveArgsArray) => Promise<unknown> };
+
+export default pages.reduce(
   (resolvers, pageName) => ({
     ...resolvers,
     [pageName]: {
       path: {
-        async resolve(...args) {
+        async resolve(...args: ResolveArgsArray) {
           const path = await resolvePath(...args);
 
           return getUrlFromPath(path);
         }
       },
       breadcrumbs: {
-        resolve(...args) {
+        resolve(...args: ResolveArgsArray) {
           return resolvePath(...args);
         }
       },
       subtitle: {
-        async resolve(source, args, context) {
+        async resolve(source: Node, args: ResolveArgs, context: Context) {
           if (pageName !== "ContentfulSimplePage") {
             return source.subtitle;
           }
@@ -47,4 +50,7 @@ module.exports = pages.reduce(
     }
   }),
   {}
-);
+) as Record<
+  string,
+  { path: Resolver; breadcrumbs: Resolver; subtitle: Resolver }
+>;

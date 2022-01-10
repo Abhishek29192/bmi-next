@@ -1,18 +1,15 @@
-"use strict";
-
-const {
+import { Product, VariantOption } from "../../components/types/pim";
+import {
   generateIdFromString,
   generateDigestFromData
-} = require("../../utils/encryption");
-const { generateSimpleProductUrl } = require("../../utils/product-url-path");
-const {
-  getFormatFromFileName,
-  isPimLinkDocument
-} = require("./utils/documents");
+} from "../../utils/encryption";
+import { generateSimpleProductUrl } from "../../utils/product-url-path";
+import { Node, ResolveArgs, Context } from "./types";
+import { getFormatFromFileName, isPimLinkDocument } from "./utils/documents";
 
-const { resolvePath, getUrlFromPath } = require("./utils/path");
+import { resolvePath, getUrlFromPath } from "./utils/path";
 
-const getSlugAttributes = (source) => {
+const getSlugAttributes = (source: VariantOption) => {
   if (!source.classifications || !source.classifications.length) {
     return [];
   }
@@ -37,9 +34,14 @@ const getSlugAttributes = (source) => {
   });
 };
 
-const getSlug = (string) => string.toLowerCase().replace(/[-_\s]+/gi, "-");
+const getSlug = (string: string) =>
+  string.toLowerCase().replace(/[-_\s]+/gi, "-");
 
-const resolvePathFromFamily = async (source, args, context) => {
+const resolvePathFromFamily = async (
+  source: Node,
+  args: ResolveArgs,
+  context: Context
+) => {
   const parentFamilies = await context.nodeModel.runQuery({
     query: {
       filter: {
@@ -58,9 +60,9 @@ const resolvePathFromFamily = async (source, args, context) => {
   return resolvePath(parentFamilies[0], args, context);
 };
 
-module.exports = {
+export default {
   variantOptions: {
-    async resolve(source, args, context) {
+    async resolve(source: Node, args: ResolveArgs, context: Context) {
       const fullPath = await resolvePathFromFamily(source, args, context);
 
       return (source.variantOptions || [])
@@ -82,7 +84,7 @@ module.exports = {
             path:
               process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE === "true"
                 ? `p/${generateSimpleProductUrl(
-                    source,
+                    source as Product,
                     variant,
                     id,
                     process.env.GATSBY_ENABLE_PDP_VARIANT_ATTRIBUTE_URL ===
@@ -97,7 +99,7 @@ module.exports = {
   },
   documents: {
     type: ["ProductDocument"],
-    async resolve(source, args, context) {
+    async resolve(source: Node, args: ResolveArgs, context: Context) {
       const assetTypes = await context.nodeModel.getAllNodes(
         { type: "ContentfulAssetType" },
         { connectionType: "ContentfulAssetType" }

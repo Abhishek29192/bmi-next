@@ -1,18 +1,17 @@
-"use strict";
-
-const { generateSystemPath } = require("../../utils/systems");
+import { generateSystemPath } from "../../utils/systems";
+import { Context, Node, ResolveArgs } from "./types";
 
 const systemPathResolver = {
-  async resolve(source) {
+  async resolve(source: Partial<Node>) {
     return generateSystemPath(source);
   }
 };
 
-const createResolver = (field) => ({
+const createResolver = (field: keyof Node) => ({
   type: ["Products"],
-  async resolve(source, args, context) {
+  async resolve(source: Node, args: ResolveArgs, context: Context) {
     // eslint-disable-next-line security/detect-object-injection
-    const sourceField = source[field];
+    const sourceField = source[field] as { code: string }[];
 
     if (!sourceField) {
       return [];
@@ -37,6 +36,7 @@ const createResolver = (field) => ({
     });
 
     if (products.length !== variantCodes.length) {
+      // eslint-disable-next-line no-console
       console.warn(
         `Couldn't find ${field} that match ${JSON.stringify(
           variantCodes,
@@ -50,7 +50,7 @@ const createResolver = (field) => ({
   }
 });
 
-module.exports = {
+export default {
   path: systemPathResolver,
   relatedProducts: createResolver("products"),
   relatedOptionalProducts: createResolver("optionalProducts")

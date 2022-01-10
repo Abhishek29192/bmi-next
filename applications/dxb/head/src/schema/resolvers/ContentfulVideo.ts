@@ -1,9 +1,9 @@
-"use strict";
+import { google, youtube_v3 } from "googleapis";
+import { config } from "dotenv";
+import axios from "axios";
+import { Node } from "./types";
 
-const { google } = require("googleapis");
-const axios = require("axios");
-
-require("dotenv").config({
+config({
   path: `./.env.${process.env.NODE_ENV}`
 });
 
@@ -21,11 +21,11 @@ const youtube = GOOGLE_YOUTUBE_API_KEY
     })
   : null;
 
-const throwMissingEnvVariable = (name) => {
+const throwMissingEnvVariable = (name: string) => {
   throw new Error(`resolvers.ContentfulVideo: ${name} is missing.`);
 };
 
-const formatYoutubeDetails = (data) => {
+const formatYoutubeDetails = (data: youtube_v3.Schema$VideoListResponse) => {
   if (!data || !data.items.length) {
     return null;
   }
@@ -40,9 +40,9 @@ const formatYoutubeDetails = (data) => {
   };
 };
 
-module.exports = {
+export default {
   videoRatio: {
-    async resolve(source) {
+    async resolve(source: Node) {
       if (!ENABLE_YOUTUBE_CACHE) {
         if (!youtube) {
           if (process.env.NODE_ENV === "production") {

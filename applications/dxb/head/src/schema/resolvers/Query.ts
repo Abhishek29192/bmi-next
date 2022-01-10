@@ -1,12 +1,12 @@
-"use strict";
+import { Product } from "../../components/types/pim";
+import { getFilters, getPlpFilters } from "../../utils/filters";
+import { resolveDocumentsFromProducts } from "./documents";
+import { Context, Node, ResolveArgs } from "./types";
 
-const { getFilters, getPlpFilters } = require("../../utils/filters");
-const { resolveDocumentsFromProducts } = require("./documents");
-
-module.exports = {
+export default {
   allPIMDocument: {
     type: ["PIMDocument"],
-    async resolve(source, args, context) {
+    async resolve(source: Node, args: ResolveArgs, context: Context) {
       const allAssetTypes = await context.nodeModel.getAllNodes(
         { type: "ContentfulAssetType" },
         { connectionType: "ContentfulAssetType" }
@@ -25,13 +25,13 @@ module.exports = {
       showBrandFilter: "Boolean",
       allowFilterBy: "[String!]"
     },
-    async resolve(source, args, context) {
+    async resolve(source: Node, args: ResolveArgs, context: Context) {
       const {
         pimClassificationCatalogueNamespace,
         categoryCodes,
         allowFilterBy
       } = args;
-      const products = await context.nodeModel.runQuery({
+      const products = (await context.nodeModel.runQuery({
         query: categoryCodes
           ? {
               filter: {
@@ -44,7 +44,7 @@ module.exports = {
             }
           : {},
         type: "Products"
-      });
+      })) as Product[];
 
       if (!products.length) {
         return [];
@@ -70,14 +70,14 @@ module.exports = {
       categoryCodes: "[String!]",
       showBrandFilter: "Boolean"
     },
-    async resolve(source, args, context) {
+    async resolve(source: Node, args: ResolveArgs, context: Context) {
       const {
         pimClassificationCatalogueNamespace,
         categoryCodes,
         showBrandFilter
       } = args;
 
-      const products = await context.nodeModel.runQuery({
+      const products = (await context.nodeModel.runQuery({
         query: categoryCodes
           ? {
               filter: {
@@ -86,7 +86,7 @@ module.exports = {
             }
           : {},
         type: "Products"
-      });
+      })) as Product[];
 
       if (!products.length) {
         return [];

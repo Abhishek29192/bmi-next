@@ -17,12 +17,9 @@ describe("Path resolver util", () => {
   });
 
   it("resolvePath successfully resolves path", async () => {
-    const testObject = [
-      {
-        slug: "/en/i-am-a-test/path/thingy/"
-      }
-    ];
-
+    const testObject = {
+      slug: "/en/i-am-a-test/path/thingy/"
+    };
     const url = await resolvePath(testObject);
 
     expect(url).toMatchSnapshot();

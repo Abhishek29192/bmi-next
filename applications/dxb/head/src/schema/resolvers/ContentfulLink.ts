@@ -1,8 +1,15 @@
-"use strict";
+import { generateDigestFromData } from "../../utils/encryption";
+import { Context, Node, ResolveArgs } from "./types";
 
-const { generateDigestFromData } = require("../../utils/encryption");
+interface FieldData {
+  id: string;
+  tileId: number;
+  colourId: number;
+  sidingId: number;
+  viewMode: string;
+}
 
-const getNumberValue = (value) => {
+const getNumberValue = (value: string) => {
   const parsedValue = parseFloat(value);
 
   if (isNaN(parsedValue) || parsedValue < 0) {
@@ -11,18 +18,18 @@ const getNumberValue = (value) => {
 
   return parsedValue;
 };
-const getViewMode = (value = 0) => {
+
+const getViewMode = (value: string | number = 0) => {
   const availableModes = ["tile", "roof"];
 
-  if (availableModes.includes(value)) {
+  if (typeof value === "string" && availableModes.includes(value)) {
     return value;
   }
 
-  // eslint-disable-next-line security/detect-object-injection
-  return availableModes[value] || availableModes[0];
+  return availableModes[parseInt(value.toString())] || availableModes[0];
 };
 
-const getNodeData = (parentId, fieldData) => ({
+const getNodeData = (parentId: string, fieldData: FieldData) => ({
   ...fieldData,
   parent: parentId,
   children: [],
@@ -33,10 +40,10 @@ const getNodeData = (parentId, fieldData) => ({
   }
 });
 
-module.exports = {
+export default {
   parameters: {
     type: "contentfulLinkParametersJsonNode",
-    async resolve(source, args, context) {
+    async resolve(source: Node, args: ResolveArgs, context: Context) {
       if (!source.parameters___NODE) {
         return null;
       }

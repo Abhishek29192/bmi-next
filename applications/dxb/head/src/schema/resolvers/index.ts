@@ -1,31 +1,31 @@
-"use strict";
+import ContentfulDocumentLibraryPage from "./ContentfulDocumentLibraryPage";
+import ContentfulPage from "./ContentfulPage";
+import ContentfulHomePage from "./ContentfulHomePage";
+import ContentfulServiceLocatorSection from "./ContentfulServiceLocatorSection";
+import ContentfulSite from "./ContentfulSite";
+import ContentfulSystemConfiguratorBlock from "./ContentfulSystemConfiguratorBlock";
+import ContentfulVideo from "./ContentfulVideo";
+import ContentfulFormSection from "./ContentfulFormSection";
+import Products from "./Products";
+import ContentfulLink from "./ContentfulLink";
+import ContentfulImage from "./ContentfulImage";
+import Query from "./Query";
+import Systems from "./Systems";
 
-const ContentfulDocumentLibraryPage = require("./ContentfulDocumentLibraryPage");
 const {
   ContentfulDocumentLibraryPage: ContentfulDocumentLibraryPageCommon,
   ContentfulSimplePage,
   ContentfulContactUsPage,
   ContentfulProductListerPage,
   ContentfulBrandLandingPage
-} = require("./ContentfulPage");
-const ContentfulHomePage = require("./ContentfulHomePage");
-const ContentfulServiceLocatorSection = require("./ContentfulServiceLocatorSection");
-const ContentfulSite = require("./ContentfulSite");
-const ContentfulSystemConfiguratorBlock = require("./ContentfulSystemConfiguratorBlock");
-const ContentfulVideo = require("./ContentfulVideo");
-const ContentfulFormSection = require("./ContentfulFormSection");
-const Products = require("./Products");
-const ContentfulLink = require("./ContentfulLink");
-const ContentfulImage = require("./ContentfulImage");
-const Query = require("./Query");
-const Systems = require("./Systems");
+} = ContentfulPage;
 
 /**
  * These resolvers need to be exported at the level of the parent type. For
  * example, to have a resolver for System.SystemLayer.Field, it has to be
  * exported for SystemLayer.
  */
-module.exports = {
+export default {
   ContentfulDocumentLibraryPage: {
     ...ContentfulDocumentLibraryPage,
     ...ContentfulDocumentLibraryPageCommon

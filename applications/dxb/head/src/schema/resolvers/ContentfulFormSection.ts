@@ -1,15 +1,25 @@
-"use strict";
-
-const {
+import { config } from "dotenv";
+import {
   generateIdFromString,
   generateDigestFromData
-} = require("../../utils/encryption");
+} from "../../utils/encryption";
+import { Context, LegalConsent, MetaData, Node, ResolveArgs } from "./types";
 
-require("dotenv").config({
+interface FieldData {
+  id: string;
+  name: string;
+  label: string;
+  type: string;
+  width?: string;
+  required?: boolean;
+  options?: string;
+}
+
+config({
   path: `./.env.${process.env.NODE_ENV}`
 });
 
-const getNodeData = (parentId, fieldData) => ({
+const getNodeData = (parentId: string, fieldData: FieldData) => ({
   ...fieldData,
   parent: parentId,
   children: [],
@@ -30,9 +40,14 @@ const hubSpotFieldtoBMIFieldMap = {
   // checkbox: "",
   // file: ""
   // date: ""
-};
+} as const;
 
-const mapFields = (type, name) => {
+export type HubspotFieldTypes =
+  typeof hubSpotFieldtoBMIFieldMap[keyof typeof hubSpotFieldtoBMIFieldMap];
+
+export type HubspotFieldNames = "mobilephone" | "email" | string;
+
+const mapFields = (type: HubspotFieldTypes, name: HubspotFieldNames) => {
   // hardcode extra validations
   switch (name) {
     case "mobilephone":
@@ -47,18 +62,23 @@ const mapFields = (type, name) => {
 };
 
 // flatten select/radio options to string
-const transformOptions = (options) => {
+const transformOptions = (options: { value: string }[]) => {
   return options.map((item) => item.value).join(", ");
 };
 
-const getLegalConsentOptions = (metaData) => {
+const getLegalConsentOptions = (metaData: MetaData[]): LegalConsent => {
   const legalConsent =
     metaData.find(({ name }) => name === "legalConsentOptions") || null;
 
-  return legalConsent && JSON.parse(legalConsent.value);
+  return legalConsent && (JSON.parse(legalConsent.value) as LegalConsent);
 };
 
-const createLegalCensentField = (legalConsentOptions, parentId, name, type) => {
+const createLegalCensentField = (
+  legalConsentOptions: LegalConsent,
+  parentId: string,
+  name: string,
+  type: string
+) => {
   const HubSpotId =
     legalConsentOptions.communicationConsentCheckboxes[0].communicationTypeId;
 
@@ -74,10 +94,10 @@ const createLegalCensentField = (legalConsentOptions, parentId, name, type) => {
   });
 };
 
-module.exports = {
+export default {
   inputs: {
     type: ["ContentfulFormInputs"],
-    async resolve(source, args, context) {
+    async resolve(source: Node, args: ResolveArgs, context: Context) {
       if (source.source === "HubSpot") {
         if (!process.env.HUBSPOT_API_KEY) {
           throw new Error("No Hubspot API key provided");
@@ -89,6 +109,7 @@ module.exports = {
         });
 
         if (!hubSpotForm) {
+          // eslint-disable-next-line no-console
           console.warn(
             `HubSpot GUID not found: ${source.hubSpotFormGuid}.\nPlease check entry ${source.contentful_id} in Contentful.`
           );
