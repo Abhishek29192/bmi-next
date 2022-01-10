@@ -99,6 +99,114 @@ exports[`TwoPaneCarousel component navigates to next page 1`] = `
                   data-swipeable=\\"true\\""
 `;
 
+exports[`TwoPaneCarousel component navigates to next page on mobile 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -12,11 +12,11 @@
+          <div
+            style=\\"overflow-x: hidden;\\"
+          >
+            <div
+              class=\\"react-swipeable-view-container\\"
+-             style=\\"flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; height: 0px;\\"
++             style=\\"flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; height: 0px; transform: translate(-400%, 0);\\"
+            >
+              <div
+                aria-hidden=\\"false\\"
+                class=\\"Carousel__slide--global\\"
+                data-swipeable=\\"true\\"
+@@ -27,18 +27,14 @@
+                >
+                  <div
+                    class=\\"slide left-pane-slide\\"
+                    style=\\"width: 100%;\\"
+                  >
+-                   <svg
+-                     class=\\"brand-icon\\"
+-                     preserveAspectRatio=\\"xMinYMin\\"
+-                   />
+                    <h2
+                      class=\\"MuiTypography-root heading Typography Typography--underline MuiTypography-h2\\"
+                    >
+-                     H1 Heading running onto 2 lines
++                     H1 Heading
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+@@ -55,11 +51,11 @@
+          <div
+            style=\\"overflow-x: hidden;\\"
+          >
+            <div
+              class=\\"react-swipeable-view-container\\"
+-             style=\\"flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; height: 0px;\\"
++             style=\\"flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; height: 0px; transform: translate(-400%, 0);\\"
+            >
+              <div
+                aria-hidden=\\"false\\"
+                class=\\"Carousel__slide--global\\"
+                data-swipeable=\\"true\\"
+@@ -78,26 +74,12 @@
+                      src=\\"path-to-image\\"
+                    />
+                    <div
+                      class=\\"text\\"
+                    >
+-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nisi, condimentum facilisis hendrerit eget, sollicitudin non sapien. Class aptent taciti sociosqu ad litora.
+-                     <div>
+-                       <a
+-                         class=\\"MuiTypography-root MuiLink-root MuiLink-underlineHover cta Anchorlink MuiTypography-colorPrimary\\"
+-                         type=\\"button\\"
+-                       >
+-                         <span>
+-                           Read the full story
+-                         </span>
+-                         <svg
+-                           aria-hidden=\\"true\\"
+-                           class=\\"icon\\"
+-                           focusable=\\"false\\"
+-                         />
+-                       </a>
+-                     </div>
++                     Aliquip velit exercitation sunt eiusmod. Ipsum est quis dolore cupidatat nisi reprehenderit aliquip exercitation. Magna mollit Lorem est aliqua consequat officia cillum dolor.
++                     <div />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+@@ -134,18 +116,23 @@
+        <span
+          class=\\"middle-container\\"
+        >
+          <span
+            class=\\"sliding-slot\\"
++         >
++           <span
++             class=\\"numbers numbers--up\\"
+            >
+              <span
+-             class=\\"numbers\\"
++               class=\\"number\\"
+              >
++               01
++             </span>
+              <span
+                class=\\"number number--active\\"
+              >
+-               01
++               02
+              </span>
+            </span>
+          </span>
+          <span
+            class=\\"total\\""
+`;
+
 exports[`TwoPaneCarousel component navigates to previous page 1`] = `
 "Snapshot Diff:
 - First value
@@ -117,7 +225,7 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
                     aria-hidden=\\"false\\"
                     class=\\"Carousel__slide--global\\"
                     data-swipeable=\\"true\\"
-@@ -35,23 +35,19 @@
+@@ -35,39 +35,15 @@
                     >
                       <div
                         class=\\"slide left-pane-slide\\"
@@ -133,17 +241,32 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
 -                         H1 Heading running onto 2 lines
 +                         H1 Heading
                         </h2>
-                        <div
-                          class=\\"text\\"
-                        >
+-                       <div
+-                         class=\\"text\\"
+-                       >
 -                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nisi, condimentum facilisis hendrerit eget, sollicitudin non sapien. Class aptent taciti sociosqu ad litora.
-+                         Aliquip velit exercitation sunt eiusmod.
-                          <div>
-                            <a
-                              class=\\"MuiTypography-root MuiLink-root MuiLink-underlineHover cta Anchorlink MuiTypography-colorPrimary\\"
-                              type=\\"button\\"
-                            >
-@@ -105,14 +101,19 @@
+-                         <div>
+-                           <a
+-                             class=\\"MuiTypography-root MuiLink-root MuiLink-underlineHover cta Anchorlink MuiTypography-colorPrimary\\"
+-                             type=\\"button\\"
+-                           >
+-                             <span>
+-                               Read the full story
+-                             </span>
+-                             <svg
+-                               aria-hidden=\\"true\\"
+-                               class=\\"icon\\"
+-                               focusable=\\"false\\"
+-                             />
+-                           </a>
+-                         </div>
+-                       </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+@@ -105,14 +81,19 @@
             >
               <span
                 class=\\"sliding-slot\\"
@@ -155,7 +278,7 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
                   <span
                     class=\\"number number--active\\"
 +                 >
-+                   03
++                   04
 +                 </span>
 +                 <span
 +                   class=\\"number\\"
@@ -164,7 +287,7 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
                   </span>
                 </span>
               </span>
-@@ -162,11 +163,11 @@
+@@ -162,11 +143,11 @@
             <div
               style=\\"overflow-x: hidden;\\"
             >
@@ -176,25 +299,119 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
                 <div
                   aria-hidden=\\"false\\"
                   class=\\"Carousel__slide--global\\"
-                  data-swipeable=\\"true\\"
-@@ -177,14 +178,13 @@
+                  data-swipeable=\\"true\\""
+`;
+
+exports[`TwoPaneCarousel component navigates to previous page on mobile 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -12,11 +12,11 @@
+          <div
+            style=\\"overflow-x: hidden;\\"
+          >
+            <div
+              class=\\"react-swipeable-view-container\\"
+-             style=\\"flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; height: 0px;\\"
++             style=\\"flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; height: 0px; transform: translate(-200%, 0);\\"
+            >
+              <div
+                aria-hidden=\\"false\\"
+                class=\\"Carousel__slide--global\\"
+                data-swipeable=\\"true\\"
+@@ -27,18 +27,14 @@
+                >
+                  <div
+                    class=\\"slide left-pane-slide\\"
+                    style=\\"width: 100%;\\"
                   >
-                    <div
-                      class=\\"slide\\"
-                      style=\\"width: 100%;\\"
+-                   <svg
+-                     class=\\"brand-icon\\"
+-                     preserveAspectRatio=\\"xMinYMin\\"
+-                   />
+                    <h2
+                      class=\\"MuiTypography-root heading Typography Typography--underline MuiTypography-h2\\"
                     >
--                     <img
--                       alt=\\"Lorem ipsum\\"
--                       class=\\"image Media\\"
--                       src=\\"path-to-image\\"
-+                     <div
-+                       class=\\"image\\"
-+                       style=\\"background-image: url(path-to-image);\\"
-                      />
-                    </div>
+-                     H1 Heading running onto 2 lines
++                     H1 Heading
+                    </h2>
                   </div>
                 </div>
-              </div>"
+              </div>
+            </div>
+@@ -55,11 +51,11 @@
+          <div
+            style=\\"overflow-x: hidden;\\"
+          >
+            <div
+              class=\\"react-swipeable-view-container\\"
+-             style=\\"flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; height: 0px;\\"
++             style=\\"flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; height: 0px; transform: translate(-200%, 0);\\"
+            >
+              <div
+                aria-hidden=\\"false\\"
+                class=\\"Carousel__slide--global\\"
+                data-swipeable=\\"true\\"
+@@ -75,37 +71,17 @@
+                    <img
+                      alt=\\"Lorem ipsum\\"
+                      class=\\"image Media\\"
+                      src=\\"path-to-image\\"
+                    />
+-                   <div
+-                     class=\\"text\\"
+-                   >
+-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nisi, condimentum facilisis hendrerit eget, sollicitudin non sapien. Class aptent taciti sociosqu ad litora.
+-                     <div>
+-                       <a
+-                         class=\\"MuiTypography-root MuiLink-root MuiLink-underlineHover cta Anchorlink MuiTypography-colorPrimary\\"
+-                         type=\\"button\\"
+-                       >
+-                         <span>
+-                           Read the full story
+-                         </span>
+-                         <svg
+-                           aria-hidden=\\"true\\"
+-                           class=\\"icon\\"
+-                           focusable=\\"false\\"
+-                         />
+-                       </a>
+-                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+-     </div>
+      <div
+        class=\\"SlideControls SlideControls--full-size controls\\"
+      >
+        <button
+          aria-label=\\"previous\\"
+@@ -136,14 +112,19 @@
+        >
+          <span
+            class=\\"sliding-slot\\"
+          >
+            <span
+-             class=\\"numbers\\"
++             class=\\"numbers numbers--down\\"
+            >
+              <span
+                class=\\"number number--active\\"
++             >
++               04
++             </span>
++             <span
++               class=\\"number\\"
+              >
+                01
+              </span>
+            </span>
+          </span>"
 `;
 
 exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
@@ -319,7 +536,7 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
             <span
               class="total"
             >
-              03
+              04
             </span>
           </span>
           <button
@@ -554,7 +771,7 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
         <span
           class="total"
         >
-          03
+          04
         </span>
       </span>
       <button
