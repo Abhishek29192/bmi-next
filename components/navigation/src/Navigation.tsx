@@ -196,7 +196,9 @@ const NavigationList = ({
             key
           ) => [
             subMenu &&
-            (subMenu.length > 1 || "menu" in subMenu[0] || depth !== 0) ? (
+            (subMenu.length > 1 ||
+              (subMenu[0] && "menu" in subMenu[0]) ||
+              depth !== 0) ? (
               <li key={`menu-${depth}-item-${key}`}>
                 <NavigationListButton
                   component={Button}
@@ -327,16 +329,11 @@ const NavigationList = ({
                 {language.icon &&
                   (typeof language.icon === "string" ? (
                     <img
-                      width="20px"
-                      height="16px"
                       className={styles["LanguageIcon"]}
                       src={language.icon}
-                      alt={language.label}
                     />
                   ) : (
                     <Icon
-                      width="20px"
-                      height="16px"
                       source={language.icon}
                       className={styles["LanguageIcon"]}
                     />
