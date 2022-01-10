@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useMemo, useState } from "react";
 import Grid from "@bmi/grid";
 import Button from "@bmi/button";
 import { TextField } from "@bmi/text-field";
-import { FormContext } from "@bmi/form";
+import { FormContext, InputValue } from "@bmi/form";
 import CardInput from "@bmi/card-input";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
@@ -363,8 +363,9 @@ const Protrusions = ({
       }
     }
 
+    // InputValue needs to be forced to not pollute this hack out of here
     updateFormState(
-      { protrusions: list },
+      { protrusions: list as InputValue },
       {
         protrusions: error
           ? "There is an error" /* Random string to make it truthy */

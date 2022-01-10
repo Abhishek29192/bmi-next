@@ -15,7 +15,13 @@ import { calculateArea } from "./calculation/calculate";
 import Results from "./_Results";
 import { EmailFormValues } from "./types/EmailFormValues";
 import protrusionTypes from "./calculation/protrusions";
-import { DimensionsValues, Measurements, Roof } from "./types/roof";
+import {
+  DimensionsValues,
+  LinesMap,
+  Measurements,
+  Protrusion,
+  Roof
+} from "./types/roof";
 import styles from "./_PitchedRoofCalculatorSteps.module.scss";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import { Data, MainTile, MainTileVariant, Underlay } from "./types";
@@ -114,18 +120,20 @@ const PitchedRoofCalculatorSteps = ({
     if (Array.isArray(dimensions.protrusions)) {
       for (const { type, ...protrusionDimensions } of dimensions.protrusions) {
         // eslint-disable-next-line security/detect-object-injection
-        if (protrusionTypes[type]?.getMeasurements) {
+        const protrusionType: Protrusion | undefined = protrusionTypes[type];
+        if (protrusionType?.getMeasurements) {
           // eslint-disable-next-line security/detect-object-injection
-          const { faces: pFaces, lines: pLines } = protrusionTypes[
-            type
-          ].getMeasurements({
-            ...protrusionDimensions,
-            roofPitch: dimensions[roof.roofPitchField] // Says on what face of the roof the protrusion is
-          });
+          const { faces: pFaces, lines: pLines } =
+            protrusionType.getMeasurements({
+              ...protrusionDimensions,
+              roofPitch: dimensions[roof.roofPitchField] // Says on what face of the roof the protrusion is
+            });
           faces.push(...pFaces);
           Object.keys(lines).forEach((line) =>
             // eslint-disable-next-line security/detect-object-injection
-            lines[line].push(...pLines[line])
+            lines[line as keyof LinesMap].push(
+              ...pLines[line as keyof LinesMap]
+            )
           );
         }
       }

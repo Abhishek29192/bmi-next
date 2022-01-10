@@ -3,6 +3,7 @@ import { createClient } from "contentful-management";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import { fromBuffer } from "file-type";
 import fetch from "node-fetch";
+import { Environment } from "contentful-management/dist/typings/entities/environment";
 
 const {
   CONTENTFUL_ENVIRONMENT,
@@ -12,11 +13,11 @@ const {
   RECAPTCHA_SECRET_KEY,
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
-const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
+const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE || "1");
 const recaptchaTokenHeader = "X-Recaptcha-Token";
 
-let contentfulEnvironmentCache;
-let recaptchaSecretKeyCache;
+let contentfulEnvironmentCache: Environment | undefined;
+let recaptchaSecretKeyCache: string | undefined;
 const secretManagerClient = new SecretManagerServiceClient();
 
 const validMimeTypes = [
@@ -28,16 +29,23 @@ const validMimeTypes = [
 
 const getContentfulEnvironment = async () => {
   if (!contentfulEnvironmentCache) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- For some reason, eslint doesn't always like optional chained calls
     const managementTokenSecret = await secretManagerClient.accessSecretVersion(
       {
         name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
       }
     );
-    const managementToken = managementTokenSecret[0].payload.data.toString();
+    const managementToken =
+      managementTokenSecret?.[0]?.payload?.data?.toString();
+    if (!managementToken) {
+      // eslint-disable-next-line no-console
+      console.error("Unable to find contentful management token");
+      return;
+    }
     const client = createClient({ accessToken: managementToken });
-    const space = await client.getSpace(CONTENTFUL_SPACE_ID);
+    const space = await client.getSpace(CONTENTFUL_SPACE_ID!);
     contentfulEnvironmentCache = await space.getEnvironment(
-      CONTENTFUL_ENVIRONMENT
+      CONTENTFUL_ENVIRONMENT!
     );
   }
   return contentfulEnvironmentCache;
@@ -45,16 +53,36 @@ const getContentfulEnvironment = async () => {
 
 const getRecaptchaSecretKey = async () => {
   if (!recaptchaSecretKeyCache) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- For some reason, eslint doesn't always like optional chained calls
     const recaptchaSecretKey = await secretManagerClient.accessSecretVersion({
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${RECAPTCHA_SECRET_KEY}/versions/latest`
     });
 
-    recaptchaSecretKeyCache = recaptchaSecretKey[0].payload.data.toString();
+    recaptchaSecretKeyCache =
+      recaptchaSecretKey?.[0]?.payload?.data?.toString();
+
+    if (!recaptchaSecretKeyCache) {
+      // eslint-disable-next-line no-console
+      console.error("Unable to find recaptcha secret");
+      return;
+    }
   }
   return recaptchaSecretKeyCache;
 };
 
 export const upload: HttpFunction = async (request, response) => {
+  if (!CONTENTFUL_SPACE_ID) {
+    // eslint-disable-next-line no-console
+    console.error("CONTENTFUL_SPACE_ID has not been set");
+    return response.status(500).send(Error("Something went wrong."));
+  }
+
+  if (!CONTENTFUL_ENVIRONMENT) {
+    // eslint-disable-next-line no-console
+    console.error("CONTENTFUL_ENVIRONMENT has not been set");
+    return response.status(500).send(Error("Something went wrong."));
+  }
+
   response.set("Access-Control-Allow-Origin", "*");
 
   if (request.method === "OPTIONS") {
@@ -120,6 +148,13 @@ export const upload: HttpFunction = async (request, response) => {
       }
 
       const environment = await getContentfulEnvironment();
+      if (!environment) {
+        // eslint-disable-next-line no-console
+        console.error(
+          "Contentful environment client could not be instantiated."
+        );
+        return response.sendStatus(500);
+      }
       const upload = await environment.createUpload({ file: request.body });
 
       return response.send(upload);

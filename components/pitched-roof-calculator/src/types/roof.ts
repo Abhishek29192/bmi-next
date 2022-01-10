@@ -32,7 +32,7 @@ export type Face = {
   subtract?: boolean;
 };
 
-export type Vertex = Point & { side: Side };
+export type Vertex = Point & { side?: Side };
 
 export type FaceWithBattens = Face & {
   battens: any[];

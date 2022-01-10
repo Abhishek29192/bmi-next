@@ -27,16 +27,17 @@ type ApiResponse = {
   catalog: string;
   currentPage: number;
   totalPageCount: number;
-  totalProductCount: number;
 };
 
 export type ProductsApiResponse = ApiResponse & {
   products: any[];
   version: CatalogVersion;
+  totalProductCount: number;
 };
 
 export type SystemsApiResponse = ApiResponse & {
   systems: any[];
+  totalSystemsCount: number;
 };
 
 const secretManagerClient = new SecretManagerServiceClient();
@@ -61,6 +62,7 @@ const getAuthToken = async () => {
   }
 
   // get PIM secret from Secret Manager
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- Used as part of an optional chain
   const pimSecret = await secretManagerClient.accessSecretVersion({
     name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${PIM_CLIENT_SECRET}/versions/latest`
   });

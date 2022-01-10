@@ -3,7 +3,7 @@ import QuantitiesCalculator, {
   convertProductRowToResultsRow,
   QuantitiesCalculatorProps
 } from "../calculation/QuantitiesCalculator";
-import { VergeMetalFlushOption } from "../types";
+import { ResultsRow, VergeMetalFlushOption } from "../types";
 import { Measurements } from "../types/roof";
 
 beforeAll(() => {
@@ -1214,7 +1214,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
   it("convertProductRowToResultsRow defaults to no contingency", () => {
     const calculator = new QuantitiesCalculator(input);
 
-    const results = [];
+    const results: ResultsRow[] = [];
 
     calculator.results.forEach((product) => {
       results.push(convertProductRowToResultsRow(product));

@@ -1,6 +1,6 @@
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
-import { PubSub } from "@google-cloud/pubsub";
+import { PubSub, Topic } from "@google-cloud/pubsub";
 import { getProducts, getSystems } from "./pim";
 import { itemType as ItemType, messageType as MessageType } from "./types";
 
@@ -13,7 +13,16 @@ process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 const pubSubClient = new PubSub({
   projectId: GCP_PROJECT_ID
 });
-const topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME);
+let topicPublisher: Topic;
+const getTopicPublisher = () => {
+  if (!topicPublisher) {
+    if (!TRANSITIONAL_TOPIC_NAME) {
+      throw Error("TRANSITIONAL_TOPIC_NAME has not been set.");
+    }
+    topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME);
+  }
+  return topicPublisher;
+};
 
 const publishMessage = async (
   type: MessageType,
@@ -23,7 +32,7 @@ const publishMessage = async (
   const messageBuffer = Buffer.from(JSON.stringify({ type, itemType, items }));
 
   try {
-    const messageId = await topicPublisher.publish(messageBuffer);
+    const messageId = await getTopicPublisher().publish(messageBuffer);
     // eslint-disable-next-line no-console
     console.log(`PUB SUB MESSAGE PUBLISHED: ${messageId}`);
   } catch (err) {
@@ -70,7 +79,7 @@ async function* getProductsFromMessage(messageId: string, messageData: any) {
     // eslint-disable-next-line no-console
     console.log(
       `[${type}][${itemType}]: [${(messageResponse.products || [])
-        .map(({ code }) => code)
+        .map(({ code }: any) => code)
         .join(", ")}]`
     );
 
@@ -118,6 +127,12 @@ async function* getSystemsFromMessage(messageId: string, messageData: any) {
 }
 
 export const handleRequest: HttpFunction = async (req, res) => {
+  if (!BUILD_TRIGGER_ENDPOINT) {
+    // eslint-disable-next-line no-console
+    console.error("BUILD_TRIGGER_ENDPOINT has not been set.");
+    return res.sendStatus(500);
+  }
+
   if (!req.body) {
     // eslint-disable-next-line no-console
     console.log("No data received");

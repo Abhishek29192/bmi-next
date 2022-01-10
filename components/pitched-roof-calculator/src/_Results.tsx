@@ -17,7 +17,7 @@ import {
   Guttering,
   ResultsRow
 } from "./types";
-import { Measurements } from "./types/roof";
+import { Line, LinesMap, Measurements } from "./types/roof";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
 import { AnalyticsContext } from "./helpers/analytics";
 import Alert from "./subcomponents/_Alert";
@@ -114,10 +114,13 @@ const EmailAddressCollection = ({
 
           for (const category of Object.keys(results)) {
             // eslint-disable-next-line security/detect-object-injection
-            resultsWithImages[category] = await Promise.all(
-              // eslint-disable-next-line security/detect-object-injection
-              results[category].map(replaceImageURLWithImage)
-            );
+            resultsWithImages[category as keyof typeof results] =
+              await Promise.all(
+                // eslint-disable-next-line security/detect-object-injection
+                results[category as keyof typeof results].map(
+                  replaceImageURLWithImage
+                )
+              );
           }
 
           openPDF({
@@ -452,11 +455,13 @@ const Results = ({
           <ul>
             {Object.keys(lines).map((l) =>
               // eslint-disable-next-line security/detect-object-injection
-              lines[l].length ? (
+              lines[l as keyof LinesMap].length ? (
                 <li key={l}>
                   <b>{l}:</b>{" "}
                   {/* eslint-disable-next-line security/detect-object-injection */}
-                  {lines[l].map((v) => v.length.toFixed(2)).join(" | ")}
+                  {(lines[l as keyof LinesMap] as Line[])
+                    .map((v) => v.length.toFixed(2))
+                    .join(" | ")}
                 </li>
               ) : null
             )}

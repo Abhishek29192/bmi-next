@@ -25,7 +25,7 @@ const triggerFullFetchBatch = async (type: PimTypes) => {
         lastStartPage + numberOfPages
       } of ${type}.`
     });
-    const systemsBatchResponse = fetch(FULL_FETCH_ENDPOINT, {
+    const systemsBatchResponse = fetch(FULL_FETCH_ENDPOINT!, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -68,6 +68,18 @@ const triggerFullFetchBatch = async (type: PimTypes) => {
  * @param {!express:Response} res HTTP response context.
  */
 const handleRequest: HttpFunction = async (req, res) => {
+  if (!BUILD_TRIGGER_ENDPOINT) {
+    // eslint-disable-next-line no-console
+    console.error("BUILD_TRIGGER_ENDPOINT has not been set.");
+    return res.sendStatus(500);
+  }
+
+  if (!FULL_FETCH_ENDPOINT) {
+    // eslint-disable-next-line no-console
+    console.error("FULL_FETCH_ENDPOINT has not been set.");
+    return res.sendStatus(500);
+  }
+
   info({ message: "Clearing out data..." });
 
   await deleteElasticSearchIndex(ElasticsearchIndexes.Products);

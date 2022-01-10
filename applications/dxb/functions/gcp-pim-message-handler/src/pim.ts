@@ -1,9 +1,9 @@
 /**
- * Duplicated getAuthToken in gcp-full-fetch-coordinator and gcp-full-fetch-coordinator. We should keep these in sync until we get shared libraries working for GCP Functions.
+ * Duplicated getAuthToken and fetchData in gcp-full-fetch-coordinator and gcp-full-fetch-coordinator. We should keep these in sync until we get shared libraries working for GCP Functions.
  */
 import { URLSearchParams } from "url";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
-import fetch, { RequestInit, RequestRedirect } from "node-fetch";
+import fetch, { RequestRedirect } from "node-fetch";
 
 const secretManagerClient = new SecretManagerServiceClient();
 const {
@@ -14,8 +14,32 @@ const {
   PIM_CATALOG_NAME
 } = process.env;
 
-const productsEndpoint = "/export/products";
-const systemsEndpoint = "/export/systems";
+// TODO: NOPE HACK!
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+export enum PimTypes {
+  Products = "products",
+  Systems = "systems"
+}
+
+type CatalogVersion = "Online" | "Staged";
+
+type ApiResponse = {
+  catalog: string;
+  currentPage: number;
+  totalPageCount: number;
+};
+
+export type ProductsApiResponse = ApiResponse & {
+  products: any[];
+  version: CatalogVersion;
+  totalProductCount: number;
+};
+
+export type SystemsApiResponse = ApiResponse & {
+  systems: any[];
+  totalSystemsCount: number;
+};
 
 const getAuthToken = async () => {
   if (!PIM_CLIENT_ID) {
@@ -37,6 +61,7 @@ const getAuthToken = async () => {
   }
 
   // get PIM secret from Secret Manager
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- Used as part of an optional chain
   const pimSecret = await secretManagerClient.accessSecretVersion({
     name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${PIM_CLIENT_SECRET}/versions/latest`
   });
@@ -80,60 +105,62 @@ const getAuthToken = async () => {
   return data;
 };
 
-const fetchData = async (path: string, accessToken: string) => {
-  const options: RequestInit = {
+export const fetchData = async (
+  type: PimTypes,
+  messageId: string,
+  token: string,
+  currentPage: number = 0
+): Promise<ProductsApiResponse | SystemsApiResponse> => {
+  const { access_token } = await getAuthToken();
+
+  const redirect: RequestRedirect = "follow";
+
+  var options = {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${access_token}`,
       "Content-Type": "application/json"
     },
-    redirect: "follow"
+    redirect
   };
 
-  const response = await fetch(
-    `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}${path}`,
-    options
-  );
+  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?messageId=${messageId}&token=${token}&currentPage=${currentPage}`;
 
-  const body = await response.json();
+  // eslint-disable-next-line no-console
+  console.log(`FETCH: ${fullPath}`);
+  const response = await fetch(fullPath, options);
 
   if (!response.ok) {
-    const errorMessage = [
-      "[PIM] Error fetching catalogue:",
-      ...body.errors.map(
-        ({ type, message }: { type: any; message: any }) =>
-          `${type}: ${message}`
-      )
-    ].join("\n\n");
-
-    throw new Error(errorMessage);
+    // eslint-disable-next-line no-console
+    console.error("ERROR!", response.status, response.statusText);
+    throw new Error(response.statusText);
   }
 
-  return body;
+  const data = await response.json();
+
+  return data;
 };
 
 export const getProducts = async (
   messageId: string,
   token: string,
   currentPage: number
-) => {
-  // TODO: don't need to get a new token every time
-  const { access_token } = await getAuthToken();
-  return fetchData(
-    `${productsEndpoint}?messageId=${messageId}&token=${token}&currentPage=${currentPage}`,
-    access_token
-  );
-};
+): Promise<ProductsApiResponse> =>
+  fetchData(
+    PimTypes.Products,
+    messageId,
+    token,
+    currentPage
+  ) as Promise<ProductsApiResponse>;
 
 export const getSystems = async (
   messageId: string,
   token: string,
   currentPage: number
-) => {
-  // TODO: don't need to get a new token every time
-  const { access_token } = await getAuthToken();
-  return fetchData(
-    `${systemsEndpoint}?messageId=${messageId}&token=${token}&currentPage=${currentPage}`,
-    access_token
-  );
-};
+) =>
+  fetchData(
+    PimTypes.Systems,
+    messageId,
+    token,
+    currentPage
+  ) as Promise<SystemsApiResponse>;

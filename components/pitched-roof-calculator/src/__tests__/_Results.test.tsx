@@ -18,10 +18,6 @@ beforeEach(() => {
   global.open = jest.fn();
 });
 
-afterAll(() => {
-  global.open = undefined;
-});
-
 jest.mock("@bmi/quantity-table", () => {
   const QuantityTable = (props: Props) => (
     <p>{JSON.stringify(props, null, 2)}</p>

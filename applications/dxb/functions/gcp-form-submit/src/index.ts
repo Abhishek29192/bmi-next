@@ -20,12 +20,12 @@ const recaptchaTokenHeader = "X-Recaptcha-Token";
 
 let contentfulEnvironmentCache: Environment | undefined;
 let sendGridClientCache: MailService | undefined;
-let recaptchaSecretKeyCache: string;
+let recaptchaSecretKeyCache: string | undefined;
 const secretManagerClient = new SecretManagerServiceClient();
 
 const getContentfulEnvironment = async () => {
   if (!contentfulEnvironmentCache) {
-    // elsint-disable-next-line @typescript-eslint/no-unused-vars - For some reason, eslint doesn't always like optional chained calls
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- For some reason, eslint doesn't always like optional chained calls
     const managementTokenSecret = await secretManagerClient.accessSecretVersion(
       {
         name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
@@ -34,6 +34,8 @@ const getContentfulEnvironment = async () => {
     const managementToken =
       managementTokenSecret?.[0]?.payload?.data?.toString();
     if (!managementToken) {
+      // eslint-disable-next-line no-console
+      console.error("Unable to find contentful management token");
       return;
     }
     const client = createClient({ accessToken: managementToken });
@@ -50,6 +52,11 @@ const getSendGridClient = async () => {
     const apiKeySecret = await secretManagerClient.accessSecretVersion({
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${SENDGRID_API_KEY_SECRET}/versions/latest`
     });
+    if (!apiKeySecret) {
+      // eslint-disable-next-line no-console
+      console.error("Unable to find send grid API key");
+      return;
+    }
     const apiKey = apiKeySecret?.[0]?.payload?.data?.toString();
     if (!apiKey) {
       return;
@@ -167,14 +174,14 @@ export const submit: HttpFunction = async (request, response) => {
         console.error(
           "Contentful environment client could not be instantiated."
         );
-        return response.status(500).send(Error("Something went wrong."));
+        return response.sendStatus(500);
       }
 
       const sendgridClient = await getSendGridClient();
       if (!sendgridClient) {
         // eslint-disable-next-line no-console
         console.error("Send grid client could not be instantiated.");
-        return response.status(500).send(Error("Something went wrong."));
+        return response.sendStatus(500);
       }
 
       const assets: any[] =

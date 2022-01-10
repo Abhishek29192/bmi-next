@@ -231,4 +231,4 @@ export default {
   protrusion01,
   protrusion02,
   protrusion03
-} as Record<string, Protrusion>;
+} as { [key: string]: Protrusion };
