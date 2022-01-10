@@ -211,7 +211,7 @@ export type GutteringSelections = {
   downPipeConnectors?: number;
 };
 
-type GutteringProps = {
+export type GutteringProps = {
   selections: GutteringSelections;
   gutters: GutteringType[];
   gutterHooks: LengthBasedProduct[];

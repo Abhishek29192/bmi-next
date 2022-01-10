@@ -519,7 +519,7 @@ describe("PitchedRoofCalculator Results component", () => {
     const gdpr_2Input = container.querySelector(`input[name="gdpr_2"]`);
     fireEvent.click(gdpr_2Input!);
 
-    const submitButton = container.querySelector(`.submit`);
+    const submitButton = container.querySelector<HTMLButtonElement>(`.submit`)!;
     fireEvent.click(submitButton!);
 
     expect(sendEmailAddress.mock.calls).toMatchSnapshot(

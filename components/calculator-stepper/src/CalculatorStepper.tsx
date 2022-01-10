@@ -23,7 +23,7 @@ const isStepElement = (
 const CalculatorStepper = ({ selected, children }: Props) => {
   // TODO: add warnings for invalid items/keys
   const current = React.Children.toArray(children).filter((item) => {
-    return isStepElement(item) && (item.key + "").substr(2) === selected;
+    return isStepElement(item) && (item.key + "").substring(2) === selected;
   });
 
   return <div className={styles["CalculatorStepper"]}>{current}</div>;

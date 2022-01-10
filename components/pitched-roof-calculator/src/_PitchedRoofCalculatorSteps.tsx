@@ -114,7 +114,7 @@ const PitchedRoofCalculatorSteps = ({
     if (Array.isArray(dimensions.protrusions)) {
       for (const { type, ...protrusionDimensions } of dimensions.protrusions) {
         // eslint-disable-next-line security/detect-object-injection
-        if (protrusionTypes[type].getMeasurements) {
+        if (protrusionTypes[type]?.getMeasurements) {
           // eslint-disable-next-line security/detect-object-injection
           const { faces: pFaces, lines: pLines } = protrusionTypes[
             type

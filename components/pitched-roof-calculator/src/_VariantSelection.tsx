@@ -96,7 +96,7 @@ const VariantSelectionRow = ({
   );
 };
 
-type VariantSelecionProps = Pick<
+export type VariantSelecionProps = Pick<
   VariantSelectionRowProps,
   "select" | "selected" | "dimensions" | "tile"
 >;

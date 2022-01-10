@@ -4,7 +4,7 @@ const getMeasurement = (
 ): number => {
   // eslint-disable-next-line security/detect-object-injection
   if (!values[measurement]) {
-    throw new Error(`Unable to find measurement for ${measurement}`);
+    return 0;
   }
   // eslint-disable-next-line security/detect-object-injection
   return parseFloat(values[measurement]);

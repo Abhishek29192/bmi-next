@@ -43,8 +43,8 @@ export const SetTradingAddress = ({
   );
 
   const { lat, lng } = {
-    lat: formValues["tradingAddress.coordinates.x"],
-    lng: formValues["tradingAddress.coordinates.y"]
+    lat: formValues["tradingAddress.coordinates.x"] as number,
+    lng: formValues["tradingAddress.coordinates.y"] as number
   };
 
   const getFieldProps = useCallback(

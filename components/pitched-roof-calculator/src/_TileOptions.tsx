@@ -184,7 +184,7 @@ export type TileOptionsSeletions = {
   ventilation?: string[];
 };
 
-type TileOptionsProps = {
+export type TileOptionsProps = {
   variant: MainTileVariant;
   selections: TileOptionsSeletions;
 };

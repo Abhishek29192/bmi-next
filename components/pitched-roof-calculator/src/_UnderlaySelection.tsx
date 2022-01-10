@@ -69,7 +69,7 @@ const UnderlaySelectionRow = ({
   );
 };
 
-type UnderlaySelectionProps = Pick<
+export type UnderlaySelectionProps = Pick<
   UnderlaySelectionRowProps,
   "selected" | "options"
 > & {

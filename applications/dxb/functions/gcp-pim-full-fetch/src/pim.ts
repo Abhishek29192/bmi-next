@@ -1,9 +1,9 @@
 /**
- * Duplicated in gcp-full-fetch-coordinator. We should keep these in sync until we get shared libraries working for GCP Functions.
+ * Duplicated in gcp-full-fetch-coordinator and gcp-pim-message-handler has getAuthToken. We should keep these in sync until we get shared libraries working for GCP Functions.
  */
 import { URLSearchParams } from "url";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
-import fetch from "node-fetch";
+import fetch, { RequestRedirect } from "node-fetch";
 
 const {
   PIM_CLIENT_ID,
@@ -42,20 +42,44 @@ export type SystemsApiResponse = ApiResponse & {
 const secretManagerClient = new SecretManagerServiceClient();
 
 const getAuthToken = async () => {
+  if (!PIM_CLIENT_ID) {
+    // eslint-disable-next-line no-console
+    console.error("PIM_CLIENT_ID has not been set.");
+    return undefined;
+  }
+
+  if (!SECRET_MAN_GCP_PROJECT_NAME) {
+    // eslint-disable-next-line no-console
+    console.error("PIM_CLIENT_ID has not been set.");
+    return undefined;
+  }
+
+  if (!PIM_CLIENT_SECRET) {
+    // eslint-disable-next-line no-console
+    console.error("PIM_CLIENT_SECRET has not been set.");
+    return undefined;
+  }
+
   // get PIM secret from Secret Manager
   const pimSecret = await secretManagerClient.accessSecretVersion({
     name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${PIM_CLIENT_SECRET}/versions/latest`
   });
-  const pimClientSecret = pimSecret[0].payload.data.toString();
 
-  var urlencoded = new URLSearchParams();
+  const pimClientSecret = pimSecret?.[0]?.payload?.data?.toString();
+  if (!pimClientSecret) {
+    // eslint-disable-next-line no-console
+    console.error("pimClientSecret could not be retrieved.");
+    return undefined;
+  }
+
+  let urlencoded = new URLSearchParams();
   urlencoded.append("client_id", PIM_CLIENT_ID);
   urlencoded.append("client_secret", pimClientSecret);
   urlencoded.append("grant_type", "client_credentials");
 
   const redirect: RequestRedirect = "follow";
 
-  var requestOptions = {
+  const requestOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded"

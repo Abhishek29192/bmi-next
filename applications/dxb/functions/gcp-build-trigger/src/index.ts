@@ -96,6 +96,12 @@ export const build: HttpFunction = async (_req, res) => {
     return res.sendStatus(500);
   }
 
+  if (!DELAY_SECONDS) {
+    // eslint-disable-next-line no-console
+    console.error("DELAY_SECONDS was not provided");
+    return res.sendStatus(500);
+  }
+
   const timeoutLimit = Number.parseInt(TIMEOUT_LIMIT);
   if (Number.isNaN(timeoutLimit)) {
     // eslint-disable-next-line no-console

@@ -15,26 +15,31 @@ const {
   RECAPTCHA_SECRET_KEY,
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
-const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
+const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE || "1");
 const recaptchaTokenHeader = "X-Recaptcha-Token";
 
-let contentfulEnvironmentCache: Environment;
-let sendGridClientCache: MailService;
+let contentfulEnvironmentCache: Environment | undefined;
+let sendGridClientCache: MailService | undefined;
 let recaptchaSecretKeyCache: string;
 const secretManagerClient = new SecretManagerServiceClient();
 
 const getContentfulEnvironment = async () => {
   if (!contentfulEnvironmentCache) {
+    // elsint-disable-next-line @typescript-eslint/no-unused-vars - For some reason, eslint doesn't always like optional chained calls
     const managementTokenSecret = await secretManagerClient.accessSecretVersion(
       {
         name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
       }
     );
-    const managementToken = managementTokenSecret[0].payload.data.toString();
+    const managementToken =
+      managementTokenSecret?.[0]?.payload?.data?.toString();
+    if (!managementToken) {
+      return;
+    }
     const client = createClient({ accessToken: managementToken });
-    const space = await client.getSpace(CONTENTFUL_SPACE_ID);
+    const space = await client.getSpace(CONTENTFUL_SPACE_ID!);
     contentfulEnvironmentCache = await space.getEnvironment(
-      CONTENTFUL_ENVIRONMENT
+      CONTENTFUL_ENVIRONMENT!
     );
   }
   return contentfulEnvironmentCache;
@@ -45,7 +50,10 @@ const getSendGridClient = async () => {
     const apiKeySecret = await secretManagerClient.accessSecretVersion({
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${SENDGRID_API_KEY_SECRET}/versions/latest`
     });
-    const apiKey = apiKeySecret[0].payload.data.toString();
+    const apiKey = apiKeySecret?.[0]?.payload?.data?.toString();
+    if (!apiKey) {
+      return;
+    }
     sendGridClientCache = new MailService();
     sendGridClientCache.setApiKey(apiKey);
   }
@@ -68,6 +76,24 @@ const getRecaptchaSecretKey = async () => {
 };
 
 export const submit: HttpFunction = async (request, response) => {
+  if (!CONTENTFUL_SPACE_ID) {
+    // eslint-disable-next-line no-console
+    console.error("CONTENTFUL_SPACE_ID has not been set");
+    return response.status(500).send(Error("Something went wrong."));
+  }
+
+  if (!CONTENTFUL_ENVIRONMENT) {
+    // eslint-disable-next-line no-console
+    console.error("CONTENTFUL_ENVIRONMENT has not been set");
+    return response.status(500).send(Error("Something went wrong."));
+  }
+
+  if (!SENDGRID_FROM_EMAIL) {
+    // eslint-disable-next-line no-console
+    console.error("SENDGRID_FROM_EMAIL has not been set");
+    return response.status(500).send(Error("Something went wrong."));
+  }
+
   response.set("Access-Control-Allow-Origin", "*");
 
   if (request.method === "OPTIONS") {
@@ -136,11 +162,25 @@ export const submit: HttpFunction = async (request, response) => {
       }
 
       const environment = await getContentfulEnvironment();
+      if (!environment) {
+        // eslint-disable-next-line no-console
+        console.error(
+          "Contentful environment client could not be instantiated."
+        );
+        return response.status(500).send(Error("Something went wrong."));
+      }
 
-      const assets: Array<any> =
+      const sendgridClient = await getSendGridClient();
+      if (!sendgridClient) {
+        // eslint-disable-next-line no-console
+        console.error("Send grid client could not be instantiated.");
+        return response.status(500).send(Error("Something went wrong."));
+      }
+
+      const assets: any[] =
         files && files.length
           ? await Promise.all(
-              files.map((file) =>
+              files.map((file: any) =>
                 environment
                   .createAsset({
                     fields: {
@@ -173,7 +213,6 @@ export const submit: HttpFunction = async (request, response) => {
         )
         .join("")}</ul>`;
 
-      const sendgridClient = await getSendGridClient();
       await sendgridClient.send({
         to: recipients,
         from: SENDGRID_FROM_EMAIL,

@@ -20,18 +20,17 @@ async function publishMessage(
   itemType: PimTypes,
   apiResponse: ProductsApiResponse | SystemsApiResponse
 ) {
+  // eslint-disable-next-line security/detect-object-injection
+  const items = apiResponse[itemType];
   info({
-    message: `Publishing UPDATED ${
-      // eslint-disable-next-line security/detect-object-injection
-      apiResponse[itemType].length
-    } ${itemType.toUpperCase()}`
+    message: `Publishing UPDATED ${items.length} ${itemType.toUpperCase()}`
   });
   const messageBuffer = Buffer.from(
     JSON.stringify({
       type: "UPDATED",
       itemType: itemType.toUpperCase(),
       // eslint-disable-next-line security/detect-object-injection
-      items: apiResponse[itemType]
+      items
     })
   );
 

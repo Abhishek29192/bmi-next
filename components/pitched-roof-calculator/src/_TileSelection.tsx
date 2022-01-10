@@ -88,7 +88,10 @@ const TileSelectionRow = ({
 
 const categories: MainTileCategory[] = ["concrete", "clay", "metal"];
 
-type TileSelecionProps = Pick<TileSelectionRowProps, "select" | "selected"> & {
+export type TileSelecionProps = Pick<
+  TileSelectionRowProps,
+  "select" | "selected"
+> & {
   tiles: MainTile[];
   dimensions: DimensionsValues;
 };

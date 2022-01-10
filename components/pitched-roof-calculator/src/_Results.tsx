@@ -244,6 +244,19 @@ const getChangeQuantity =
       )
     );
 
+export type ResultProps = {
+  underlays: Underlay[];
+  gutters: Guttering[];
+  gutterHooks: LengthBasedProduct[];
+  isDebugging?: boolean;
+  measurements: Measurements;
+  variant: MainTileVariant;
+  tileOptions: TileOptionsSeletions;
+  underlay: Underlay;
+  guttering: GutteringSelections;
+  sendEmailAddress: EmailAddressCollectionProps["sendEmailAddress"];
+};
+
 const Results = ({
   underlays,
   gutters,
@@ -255,18 +268,7 @@ const Results = ({
   underlay,
   guttering,
   sendEmailAddress
-}: {
-  underlays: Underlay[];
-  gutters: Guttering[];
-  gutterHooks: LengthBasedProduct[];
-  isDebugging?: boolean;
-  measurements: Measurements;
-  variant: MainTileVariant;
-  tileOptions: TileOptionsSeletions;
-  underlay: Underlay;
-  guttering: GutteringSelections;
-  sendEmailAddress: EmailAddressCollectionProps["sendEmailAddress"];
-}) => {
+}: ResultProps) => {
   const copy = useContext(MicroCopyContext);
 
   const { faces, lines, area } = measurements;

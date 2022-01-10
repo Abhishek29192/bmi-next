@@ -5,7 +5,7 @@ import Protrusions from "./_Protrusions";
 import styles from "./_RoofDimensions.module.scss";
 import { DimensionsValues, Roof } from "./types/roof";
 
-type RoofDimensionsProps = {
+export type RoofDimensionsProps = {
   dimensions: DimensionsValues;
   roof: Roof;
 };

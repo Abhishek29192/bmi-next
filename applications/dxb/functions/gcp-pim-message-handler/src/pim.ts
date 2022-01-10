@@ -1,5 +1,9 @@
+/**
+ * Duplicated getAuthToken in gcp-full-fetch-coordinator and gcp-full-fetch-coordinator. We should keep these in sync until we get shared libraries working for GCP Functions.
+ */
+import { URLSearchParams } from "url";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
-import fetch, { RequestInit, BodyInit } from "node-fetch";
+import fetch, { RequestInit, RequestRedirect } from "node-fetch";
 
 const secretManagerClient = new SecretManagerServiceClient();
 const {
@@ -14,24 +18,50 @@ const productsEndpoint = "/export/products";
 const systemsEndpoint = "/export/systems";
 
 const getAuthToken = async () => {
+  if (!PIM_CLIENT_ID) {
+    // eslint-disable-next-line no-console
+    console.error("PIM_CLIENT_ID has not been set.");
+    return undefined;
+  }
+
+  if (!SECRET_MAN_GCP_PROJECT_NAME) {
+    // eslint-disable-next-line no-console
+    console.error("PIM_CLIENT_ID has not been set.");
+    return undefined;
+  }
+
+  if (!PIM_CLIENT_SECRET) {
+    // eslint-disable-next-line no-console
+    console.error("PIM_CLIENT_SECRET has not been set.");
+    return undefined;
+  }
+
   // get PIM secret from Secret Manager
   const pimSecret = await secretManagerClient.accessSecretVersion({
     name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${PIM_CLIENT_SECRET}/versions/latest`
   });
-  const pimClientSecret = pimSecret[0].payload.data.toString();
 
-  const urlencoded = new URLSearchParams();
+  const pimClientSecret = pimSecret?.[0]?.payload?.data?.toString();
+  if (!pimClientSecret) {
+    // eslint-disable-next-line no-console
+    console.error("pimClientSecret could not be retrieved.");
+    return undefined;
+  }
+
+  let urlencoded = new URLSearchParams();
   urlencoded.append("client_id", PIM_CLIENT_ID);
   urlencoded.append("client_secret", pimClientSecret);
   urlencoded.append("grant_type", "client_credentials");
 
-  const requestOptions: RequestInit = {
+  const redirect: RequestRedirect = "follow";
+
+  const requestOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded"
     },
-    body: urlencoded as BodyInit,
-    redirect: "follow"
+    body: urlencoded,
+    redirect: redirect
   };
 
   const response = await fetch(
@@ -40,9 +70,9 @@ const getAuthToken = async () => {
   );
 
   if (!response.ok) {
-    throw new Error(
-      `[PIM] Error getting auth token: ${response.status} ${response.statusText}`
-    );
+    // eslint-disable-next-line no-console
+    console.error("ERROR!", response.status, response.statusText);
+    throw new Error(response.statusText);
   }
 
   const data = await response.json();
@@ -70,7 +100,10 @@ const fetchData = async (path: string, accessToken: string) => {
   if (!response.ok) {
     const errorMessage = [
       "[PIM] Error fetching catalogue:",
-      ...body.errors.map(({ type, message }) => `${type}: ${message}`)
+      ...body.errors.map(
+        ({ type, message }: { type: any; message: any }) =>
+          `${type}: ${message}`
+      )
     ].join("\n\n");
 
     throw new Error(errorMessage);

@@ -1,5 +1,5 @@
 import { MainTileVariant, VergeTileOption } from "../types";
-import { Face, FaceWithBattens, Point } from "../types/roof";
+import { Vertex, Face, FaceWithBattens, Point } from "../types/roof";
 
 type RangeValue = {
   start: number;
@@ -37,7 +37,7 @@ const getValueForPitchSet = (options: RangeValue[], pitchSet: number[]) =>
   ).value;
 
 export const battenCalc = (
-  vertices: Point[],
+  vertices: Vertex[],
   pitchSet: number[],
   mainTileVariant: MainTileVariant
 ) => {
