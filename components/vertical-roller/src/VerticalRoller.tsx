@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button, { ClickableAction } from "@bmi/button";
 import Carousel, { getPageFromAbsoluteIndex } from "@bmi/carousel";
 import SlideControls from "@bmi/slide-controls";
+import { SVGImport } from "@bmi/svg-import";
 import Typography from "@bmi/typography";
 import Media, { AcceptedNode } from "@bmi/media";
 import RollerSelector from "@bmi/roller-selector";

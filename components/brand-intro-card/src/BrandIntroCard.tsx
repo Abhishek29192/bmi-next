@@ -1,6 +1,7 @@
 import React from "react";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Card from "@bmi/card";
+import { SVGImport } from "@bmi/svg-import";
 import Typography from "@bmi/typography";
 import DefaultButton, { ClickableAction } from "@bmi/button";
 import styles from "./BrandIntroCard.module.scss";

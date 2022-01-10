@@ -4,6 +4,7 @@ import PhoneIcon from "@material-ui/icons/Phone";
 import EmailIcon from "@material-ui/icons/Email";
 import PublicIcon from "@material-ui/icons/Public";
 import Icon from "@bmi/icon";
+import { SVGImport } from "@bmi/svg-import";
 import Typography from "@bmi/typography";
 import { Link } from "../Link";
 import styles from "./styles.module.scss";

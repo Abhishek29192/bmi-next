@@ -1,6 +1,7 @@
 import React, { MutableRefObject } from "react";
 import Typography from "@bmi/typography";
 import AnchorLink, { ClickableAction } from "@bmi/anchor-link";
+import { SVGImport } from "@bmi/svg-import";
 import Avatar from "@material-ui/core/Avatar";
 import classnames from "classnames";
 import styles from "./ProfileCard.module.scss";

@@ -33,6 +33,7 @@
     "@bmi/google-map": "0.0.0",
     "@bmi/intouch-api-types": "0.0.0",
     "@bmi/select": "0.0.0",
+    "@bmi/svg-import": "0.0.0",
     "@bmi/text-field": "0.0.0",
     "@bmi/typography": "0.0.0",
     "@bmi/upload": "0.0.0",

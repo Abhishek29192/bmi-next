@@ -1,5 +1,6 @@
 import DefaultButton, { ButtonProps, ClickableAction } from "@bmi/button";
 import Icon from "@bmi/icon";
+import { SVGImport } from "@bmi/svg-import";
 import Typography from "@bmi/typography";
 import type { LanguageSelectionItem } from "@bmi/language-selection";
 import { ChevronLeft, ChevronRight } from "@material-ui/icons";

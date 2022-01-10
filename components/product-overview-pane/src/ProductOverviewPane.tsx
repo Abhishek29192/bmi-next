@@ -2,6 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import PureChip from "@bmi/chip";
 import { ClickableAction, withClickable } from "@bmi/clickable";
+import { SVGImport } from "@bmi/svg-import";
 import DefaultThumbnail from "@bmi/thumbnail";
 import Typography from "@bmi/typography";
 import ToolTip from "@bmi/tooltip";

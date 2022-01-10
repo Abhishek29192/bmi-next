@@ -25,6 +25,7 @@ import Logo, {
   RoofProExpert,
   RoofProPartnerSmall
 } from "@bmi/logo";
+import { SVGImport } from "@bmi/svg-import";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
 import CloseIcon from "@material-ui/icons/Close";

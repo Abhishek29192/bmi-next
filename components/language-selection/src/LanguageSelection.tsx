@@ -3,6 +3,7 @@ import Typography from "@bmi/typography";
 import Icon from "@bmi/icon";
 import Grid from "@bmi/grid";
 import { NavigationListButton } from "@bmi/navigation";
+import { SVGImport } from "@bmi/svg-import";
 import styles from "./LanguageSelection.module.scss";
 
 export type LanguageSelectionItem = {
