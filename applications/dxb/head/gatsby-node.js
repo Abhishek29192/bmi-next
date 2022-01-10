@@ -167,7 +167,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
 
   const componentMap = {
-    ContentfulSimplePage: path.resolve("./src/templates/simple-page.tsx"),
+    ContentfulSimplePage: path.resolve(
+      "./src/templates/simplePage/components/simple-page.tsx"
+    ),
     ContentfulHomePage: path.resolve("./src/templates/home-page.tsx"),
     ContentfulContactUsPage: path.resolve(
       "./src/templates/contact-us-page.tsx"

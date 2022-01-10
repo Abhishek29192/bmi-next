@@ -547,6 +547,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
     >
       <div
         class="SpotlightHero"
+        data-testid="spotLightHero"
       >
         <div
           class="image"
@@ -1635,6 +1636,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
     >
       <div
         class="SpotlightHero"
+        data-testid="spotLightHero"
       >
         <div
           class="image"
@@ -6473,6 +6475,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
     >
       <div
         class="SpotlightHero"
+        data-testid="spotLightHero"
       >
         <div
           class="image"
@@ -7502,6 +7505,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
     >
       <div
         class="SpotlightHero"
+        data-testid="spotLightHero"
       >
         <div
           class="image"

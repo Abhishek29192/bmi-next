@@ -3,6 +3,7 @@
 exports[`SpotlightHero component renders correctly 1`] = `
 <div
   class="SpotlightHero"
+  data-testid="spotLightHero"
 >
   <div
     class="image"
@@ -111,6 +112,7 @@ exports[`SpotlightHero component renders correctly 1`] = `
 exports[`SpotlightHero component renders correctly if media does not pass at all 1`] = `
 <div
   class="SpotlightHero"
+  data-testid="spotLightHero"
 >
   <div
     class="image"
@@ -163,6 +165,7 @@ exports[`SpotlightHero component renders correctly if media does not pass at all
 exports[`SpotlightHero component renders if media !== 'img' 1`] = `
 <div
   class="SpotlightHero"
+  data-testid="spotLightHero"
 >
   <div
     class="image"
@@ -290,6 +293,7 @@ exports[`SpotlightHero component renders if media !== 'img' 1`] = `
 exports[`SpotlightHero component renders with cta 1`] = `
 <div
   class="SpotlightHero"
+  data-testid="spotLightHero"
 >
   <div
     class="image"
@@ -413,6 +417,7 @@ exports[`SpotlightHero component renders with cta 1`] = `
 exports[`SpotlightHero component renders with deprecated imageSource 1`] = `
 <div
   class="SpotlightHero"
+  data-testid="spotLightHero"
 >
   <div
     class="image"
@@ -516,6 +521,7 @@ exports[`SpotlightHero component renders with deprecated imageSource 1`] = `
 exports[`SpotlightHero component renders with keyline for brand 1`] = `
 <div
   class="SpotlightHero SpotlightHero--keyline"
+  data-testid="spotLightHero"
 >
   <div
     class="image"
