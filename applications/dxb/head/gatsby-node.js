@@ -8,7 +8,6 @@ const fs = require("fs");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const findUp = require("find-up");
 require("graphql-import-node");
-const jsonfile = require("jsonfile");
 const toml = require("toml");
 const { getPathWithCountryCode } = require("./src/utils/path");
 const typeDefs = require("./src/schema/schema.graphql");
@@ -267,23 +266,6 @@ exports.createPages = async ({ graphql, actions }) => {
         });
       })
     );
-
-    if (process.env.NODE_ENV === "development") {
-      const dataFilePath = "./.temp/microCopyKeys.json";
-
-      await createPage({
-        path: getPathWithCountryCode(site.countryCode, `global-reources/`),
-        component: path.resolve("./src/templates/_global-resources.tsx"),
-        context: {
-          siteId: site.id,
-          // eslint-disable-next-line security/detect-non-literal-fs-filename
-          micropCopyData: fs.existsSync(path.join(__dirname, dataFilePath))
-            ? // eslint-disable-next-line security/detect-non-literal-fs-filename
-              jsonfile.readFileSync(path.join(__dirname, dataFilePath))
-            : null
-        }
-      });
-    }
 
     await createPage({
       path: getPathWithCountryCode(site.countryCode, `search`),
