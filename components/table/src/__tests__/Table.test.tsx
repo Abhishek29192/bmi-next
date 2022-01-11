@@ -184,4 +184,47 @@ describe("Table component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders without TableHeader if header has no children", () => {
+    mockUseDimensions({
+      containerWidth: 400,
+      normalTableWidth: 401,
+      mediumTableWidth: 400
+    });
+    try {
+      render(
+        <Table>
+          <Table.Head />
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>Row 1 - Cell 1</Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </Table>
+      );
+    } catch (e) {
+      expect(e).not.toBeNull();
+    }
+  });
+
+  it("renders without TableHeader if header children not elements", () => {
+    mockUseDimensions({
+      containerWidth: 400,
+      normalTableWidth: 401,
+      mediumTableWidth: 400
+    });
+    try {
+      render(
+        <Table>
+          <Table.Head>Head</Table.Head>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>Row 1 - Cell 1</Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </Table>
+      );
+    } catch (e) {
+      expect(e).not.toBeNull();
+    }
+  });
 });
