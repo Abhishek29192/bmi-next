@@ -91,15 +91,20 @@ describe("Making a DELETE request", () => {
 
 describe("Making a GET request", () => {
   it("calls elasticsearch and returns error response if something goes wrong", async () => {
-    const req = mockRequest("GET", {}, "/some_index/_search", {
-      accept: uuid(),
-      "accept-encoding": uuid(),
-      "accept-language": uuid(),
-      authorization: uuid(),
-      connection: uuid(),
-      "content-length": uuid(),
-      "content-type": uuid()
-    });
+    const req = mockRequest(
+      "GET",
+      {
+        accept: uuid(),
+        "accept-encoding": uuid(),
+        "accept-language": uuid(),
+        authorization: uuid(),
+        connection: uuid(),
+        "content-length": uuid(),
+        "content-type": uuid()
+      },
+      "/some_index/_search",
+      {}
+    );
     const res = mockResponse();
 
     const expectedResponse: MockedResponse = {
@@ -131,15 +136,20 @@ describe("Making a GET request", () => {
   });
 
   it("calls elasticsearch and returns response", async () => {
-    const req = mockRequest("GET", {}, "/some_index/_search", {
-      accept: uuid(),
-      "accept-encoding": uuid(),
-      "accept-language": uuid(),
-      authorization: uuid(),
-      connection: uuid(),
-      "content-length": uuid(),
-      "content-type": uuid()
-    });
+    const req = mockRequest(
+      "GET",
+      {
+        accept: uuid(),
+        "accept-encoding": uuid(),
+        "accept-language": uuid(),
+        authorization: uuid(),
+        connection: uuid(),
+        "content-length": uuid(),
+        "content-type": uuid()
+      },
+      "/some_index/_search",
+      {}
+    );
     const res = mockResponse();
 
     const expectedResponse: MockedResponse = {
@@ -199,15 +209,20 @@ describe("Making a GET request", () => {
   });
 
   it("calls elasticsearch without compressed even if gzip encoding allowed and returns response", async () => {
-    const req = mockRequest("GET", {}, "/some_index/_search", {
-      accept: uuid(),
-      "accept-encoding": `gzip ${uuid()}`,
-      "accept-language": uuid(),
-      authorization: uuid(),
-      connection: uuid(),
-      "content-length": uuid(),
-      "content-type": uuid()
-    });
+    const req = mockRequest(
+      "GET",
+      {
+        accept: uuid(),
+        "accept-encoding": `gzip ${uuid()}`,
+        "accept-language": uuid(),
+        authorization: uuid(),
+        connection: uuid(),
+        "content-length": uuid(),
+        "content-type": uuid()
+      },
+      "/some_index/_search",
+      {}
+    );
     const res = mockResponse();
 
     const expectedResponse = {
@@ -242,15 +257,20 @@ describe("Making a GET request", () => {
 
 describe("Making a POST request", () => {
   it("calls elasticsearch and returns error response if something goes wrong", async () => {
-    const req = mockRequest("POST", {}, "/some_index/_search", {
-      accept: uuid(),
-      "accept-encoding": uuid(),
-      "accept-language": uuid(),
-      authorization: uuid(),
-      connection: uuid(),
-      "content-length": uuid(),
-      "content-type": uuid()
-    });
+    const req = mockRequest(
+      "POST",
+      {
+        accept: uuid(),
+        "accept-encoding": uuid(),
+        "accept-language": uuid(),
+        authorization: uuid(),
+        connection: uuid(),
+        "content-length": uuid(),
+        "content-type": uuid()
+      },
+      "/some_index/_search",
+      {}
+    );
     const res = mockResponse();
 
     const expectedResponse = {
@@ -285,15 +305,20 @@ describe("Making a POST request", () => {
   });
 
   it("calls elasticsearch and returns response", async () => {
-    const req = mockRequest("POST", {}, "/some_index/_search", {
-      accept: uuid(),
-      "accept-encoding": uuid(),
-      "accept-language": uuid(),
-      authorization: uuid(),
-      connection: uuid(),
-      "content-length": uuid(),
-      "content-type": uuid()
-    });
+    const req = mockRequest(
+      "POST",
+      {
+        accept: uuid(),
+        "accept-encoding": uuid(),
+        "accept-language": uuid(),
+        authorization: uuid(),
+        connection: uuid(),
+        "content-length": uuid(),
+        "content-type": uuid()
+      },
+      "/some_index/_search",
+      {}
+    );
     const res = mockResponse();
 
     const expectedResponse = {
@@ -357,15 +382,20 @@ describe("Making a POST request", () => {
   });
 
   it("calls elasticsearch with compressed even if gzip encoding allowed and returns response", async () => {
-    const req = mockRequest("POST", {}, "/some_index/_search", {
-      accept: uuid(),
-      "accept-encoding": `gzip ${uuid()}`,
-      "accept-language": uuid(),
-      authorization: uuid(),
-      connection: uuid(),
-      "content-length": uuid(),
-      "content-type": uuid()
-    });
+    const req = mockRequest(
+      "POST",
+      {
+        accept: uuid(),
+        "accept-encoding": `gzip ${uuid()}`,
+        "accept-language": uuid(),
+        authorization: uuid(),
+        connection: uuid(),
+        "content-length": uuid(),
+        "content-type": uuid()
+      },
+      "/some_index/_search",
+      {}
+    );
     const res = mockResponse();
 
     const expectedResponse = {
