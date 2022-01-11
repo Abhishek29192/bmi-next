@@ -18,7 +18,7 @@ export const mockRequest = (
   };
 };
 
-export const mockResponse = () => {
+export const mockResponse = (): Partial<ExpressResponse> => {
   const res: Partial<ExpressResponse> = {};
   res.send = jest.fn().mockReturnValue(res);
   res.status = jest.fn().mockReturnValue(res);

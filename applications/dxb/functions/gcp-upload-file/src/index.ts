@@ -35,8 +35,7 @@ const getContentfulEnvironment = async () => {
         name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
       }
     );
-    const managementToken =
-      managementTokenSecret?.[0]?.payload?.data?.toString();
+    const managementToken = managementTokenSecret[0].payload?.data?.toString();
     if (!managementToken) {
       // eslint-disable-next-line no-console
       console.error("Unable to find contentful management token");
@@ -58,8 +57,7 @@ const getRecaptchaSecretKey = async () => {
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${RECAPTCHA_SECRET_KEY}/versions/latest`
     });
 
-    recaptchaSecretKeyCache =
-      recaptchaSecretKey?.[0]?.payload?.data?.toString();
+    recaptchaSecretKeyCache = recaptchaSecretKey[0].payload?.data?.toString();
 
     if (!recaptchaSecretKeyCache) {
       // eslint-disable-next-line no-console

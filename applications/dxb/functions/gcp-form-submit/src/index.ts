@@ -15,6 +15,7 @@ const {
   RECAPTCHA_SECRET_KEY,
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
+
 const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE || "1");
 const recaptchaTokenHeader = "X-Recaptcha-Token";
 
@@ -31,8 +32,7 @@ const getContentfulEnvironment = async () => {
         name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
       }
     );
-    const managementToken =
-      managementTokenSecret?.[0]?.payload?.data?.toString();
+    const managementToken = managementTokenSecret[0].payload?.data?.toString();
     if (!managementToken) {
       // eslint-disable-next-line no-console
       console.error("Unable to find contentful management token");
@@ -49,15 +49,12 @@ const getContentfulEnvironment = async () => {
 
 const getSendGridClient = async () => {
   if (!sendGridClientCache) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- For some reason, eslint doesn't always like optional chained calls
     const apiKeySecret = await secretManagerClient.accessSecretVersion({
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${SENDGRID_API_KEY_SECRET}/versions/latest`
     });
-    if (!apiKeySecret) {
-      // eslint-disable-next-line no-console
-      console.error("Unable to find send grid API key");
-      return;
-    }
-    const apiKey = apiKeySecret?.[0]?.payload?.data?.toString();
+
+    const apiKey = apiKeySecret[0].payload?.data?.toString();
     if (!apiKey) {
       return;
     }
@@ -86,19 +83,19 @@ export const submit: HttpFunction = async (request, response) => {
   if (!CONTENTFUL_SPACE_ID) {
     // eslint-disable-next-line no-console
     console.error("CONTENTFUL_SPACE_ID has not been set");
-    return response.status(500).send(Error("Something went wrong."));
+    return response.sendStatus(500);
   }
 
   if (!CONTENTFUL_ENVIRONMENT) {
     // eslint-disable-next-line no-console
     console.error("CONTENTFUL_ENVIRONMENT has not been set");
-    return response.status(500).send(Error("Something went wrong."));
+    return response.sendStatus(500);
   }
 
   if (!SENDGRID_FROM_EMAIL) {
     // eslint-disable-next-line no-console
     console.error("SENDGRID_FROM_EMAIL has not been set");
-    return response.status(500).send(Error("Something went wrong."));
+    return response.sendStatus(500);
   }
 
   response.set("Access-Control-Allow-Origin", "*");

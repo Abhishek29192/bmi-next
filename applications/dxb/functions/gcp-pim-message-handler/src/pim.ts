@@ -66,7 +66,7 @@ const getAuthToken = async () => {
     name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${PIM_CLIENT_SECRET}/versions/latest`
   });
 
-  const pimClientSecret = pimSecret?.[0]?.payload?.data?.toString();
+  const pimClientSecret = pimSecret[0].payload?.data?.toString();
   if (!pimClientSecret) {
     // eslint-disable-next-line no-console
     console.error("pimClientSecret could not be retrieved.");
