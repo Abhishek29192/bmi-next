@@ -73,14 +73,10 @@ const CardCheckboxGroup = ({
               // eslint-disable-next-line security/detect-object-injection
               value === option ? !selectedMap[option] : selectedMap[option]
             );
-
             const newValue = newSelected.length ? newSelected : null;
 
             setSelected(newValue ? toBooleanObject(newValue) : null);
-
-            if (onChange) {
-              onChange(newValue);
-            }
+            onChange && onChange(newValue);
           };
 
           result = React.cloneElement(child, {
@@ -114,9 +110,7 @@ const CardCheckboxGroup = ({
               onClick={() => {
                 setSelected({});
 
-                if (onChange) {
-                  onChange([]);
-                }
+                onChange && onChange([]);
               }}
             />
           </Grid>
