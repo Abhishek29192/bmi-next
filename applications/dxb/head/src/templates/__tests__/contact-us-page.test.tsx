@@ -250,8 +250,7 @@ describe("Contact us page", () => {
                   "BMI Group - The beginning of a new era in the roofing and waterproofing industry.",
                 youtubeId: "TDNEwZbm_Nk",
                 previewMedia: null,
-                videoRatio: { width: 17776, height: 9999 },
-                className: null
+                videoRatio: { width: 17776, height: 9999 }
               },
               backgroundColor: null
             }

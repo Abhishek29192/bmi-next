@@ -10,7 +10,6 @@ export type Data = {
   youtubeId: string;
   previewMedia: ImageData | null;
   videoRatio: { width: number; height: number } | null;
-  className: string | null;
 };
 
 const Video = ({ data }: { data: Data }) => {
@@ -18,8 +17,7 @@ const Video = ({ data }: { data: Data }) => {
 };
 
 export const renderVideo = (data: Data) => {
-  const { label, subtitle, youtubeId, previewMedia, videoRatio, className } =
-    data;
+  const { label, subtitle, youtubeId, previewMedia, videoRatio } = data;
 
   return (
     <YoutubeVideo
@@ -31,7 +29,6 @@ export const renderVideo = (data: Data) => {
       previewImageSource={
         previewMedia ? <Image data={previewMedia} /> : undefined
       }
-      className={className}
     />
   );
 };
