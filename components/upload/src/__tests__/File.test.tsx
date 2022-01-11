@@ -58,6 +58,188 @@ describe("Upload component", () => {
     expect(await waitFor(() => container.firstChild)).toMatchSnapshot();
   });
 
+  it("should execute api request with headers", async () => {
+    axios.post = jest.fn().mockResolvedValue({
+      data: {
+        sys: {
+          type: "x"
+        }
+      }
+    });
+
+    axios.CancelToken.source = jest
+      .fn()
+      .mockReturnValue({ token: "this", cancel: () => {} });
+    const file = {
+      name: "something",
+      type: "file/docx",
+      size: 123,
+      lastModified: 123,
+      arrayBuffer: jest.fn(),
+      slice: jest.fn(),
+      stream: jest.fn(),
+      text: jest.fn()
+    };
+
+    const headers = {
+      "access-control-allow-origin": "*",
+      "content-type": "image/gif"
+    };
+
+    render(
+      <FileComponent
+        file={file}
+        uri={uri}
+        mapBody={mapBody}
+        onDeleteClick={onDeleteClick}
+        onRequestSuccess={onRequestSuccess}
+        errorMessage={"Upload failed"}
+        headers={headers}
+      />
+    );
+    expect(axios.post).toHaveBeenCalledWith(uri, mapBody(file), {
+      cancelToken: "this",
+      headers
+    });
+  });
+
+  it("sholud execute default source.cancel function", async () => {
+    axios.post = jest.fn().mockResolvedValue({
+      data: {
+        sys: {
+          type: "x"
+        }
+      }
+    });
+
+    axios.CancelToken.source = jest.fn().mockReturnValue({ token: "this" });
+
+    const { container } = render(
+      <FileComponent
+        file={{
+          name: "something",
+          type: "file/docx",
+          size: 123,
+          lastModified: 123,
+          arrayBuffer: jest.fn(),
+          slice: jest.fn(),
+          stream: jest.fn(),
+          text: jest.fn()
+        }}
+        uri={uri}
+        mapBody={mapBody}
+        onDeleteClick={onDeleteClick}
+        onRequestSuccess={onRequestSuccess}
+        errorMessage={"Upload failed"}
+      />
+    );
+    expect(axios.post).toHaveBeenCalled();
+    expect(await waitFor(() => container.firstChild)).toMatchSnapshot();
+  });
+
+  it("sholud catch request error", async () => {
+    axios.post = jest.fn().mockImplementation(() =>
+      Promise.reject({
+        data: {
+          sys: {
+            type: "Error"
+          }
+        }
+      })
+    );
+
+    axios.CancelToken.source = jest
+      .fn()
+      .mockReturnValue({ token: "this", cancel: () => {} });
+
+    const { container } = render(
+      <FileComponent
+        file={{
+          name: "something",
+          type: "file/docx",
+          size: 123,
+          lastModified: 123,
+          arrayBuffer: jest.fn(),
+          slice: jest.fn(),
+          stream: jest.fn(),
+          text: jest.fn()
+        }}
+        uri={uri}
+        mapBody={mapBody}
+        onDeleteClick={onDeleteClick}
+        onRequestSuccess={onRequestSuccess}
+        errorMessage={"Upload failed"}
+      />
+    );
+    expect(axios.post).toHaveBeenCalled();
+    expect(await waitFor(() => container.firstChild)).toMatchSnapshot();
+  });
+
+  it("renders correctly and should not call axios.post if validation error appears", async () => {
+    axios.post = jest.fn().mockResolvedValue({
+      data: {
+        sys: {
+          type: "x"
+        }
+      }
+    });
+
+    axios.CancelToken.source = jest
+      .fn()
+      .mockReturnValue({ token: "this", cancel: () => {} });
+
+    const validation = () => "valid";
+
+    const { container } = render(
+      <FileComponent
+        file={{
+          name: "something",
+          type: "file/docx",
+          size: 123,
+          lastModified: 123,
+          arrayBuffer: jest.fn(),
+          slice: jest.fn(),
+          stream: jest.fn(),
+          text: jest.fn()
+        }}
+        validation={validation}
+        uri={uri}
+        mapBody={mapBody}
+        onDeleteClick={onDeleteClick}
+        onRequestSuccess={onRequestSuccess}
+        errorMessage={"Upload failed"}
+      />
+    );
+    expect(axios.post).toHaveBeenCalledTimes(0);
+    expect(await waitFor(() => container.firstChild)).toMatchSnapshot();
+  });
+
+  it("should call onRequest function if it is populated", async () => {
+    const onRequest = jest.fn();
+
+    render(
+      <FileComponent
+        file={{
+          name: "something",
+          type: "file/docx",
+          size: 123,
+          lastModified: 123,
+          arrayBuffer: jest.fn(),
+          slice: jest.fn(),
+          stream: jest.fn(),
+          text: jest.fn()
+        }}
+        onRequest={onRequest}
+        uri={uri}
+        mapBody={mapBody}
+        onDeleteClick={onDeleteClick}
+        onRequestSuccess={onRequestSuccess}
+        errorMessage={"Upload failed"}
+      />
+    );
+    expect(onRequest).toHaveBeenCalledTimes(1);
+  });
+
   it("renders correctly with large file size", async () => {
     axios.post = jest.fn().mockResolvedValue({
       data: {

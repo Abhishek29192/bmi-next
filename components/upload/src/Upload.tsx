@@ -83,11 +83,7 @@ const Upload = ({
     onFilesChange && onFilesChange(files.map((file) => file.file));
   }, [files]);
 
-  const onInputChange = (event?: ChangeEvent<HTMLInputElement>) => {
-    if (!event) {
-      return;
-    }
-
+  const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     onBlur(event);
 
     const files: UploadFile[] =

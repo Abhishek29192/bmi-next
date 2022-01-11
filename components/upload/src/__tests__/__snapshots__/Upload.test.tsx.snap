@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Upload component onChange handler is called 1`] = `
+exports[`Upload component render correctly with error 1`] = `
 <div
   class="MuiFormControl-root Upload MuiFormControl-fullWidth"
 >
   <div>
     <label
-      for="onchange-mock-upload"
+      for="onFilesChange-mock-upload"
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-101 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-302 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-104"
+          class="MuiButton-label buttonStyles-label-305"
         >
           <svg
             aria-hidden="true"
@@ -36,8 +36,104 @@ exports[`Upload component onChange handler is called 1`] = `
     </label>
     <input
       class="input"
-      data-testid="onchange-mock-upload"
-      id="onchange-mock-upload"
+      data-testid="onFilesChange-mock-upload"
+      id="onFilesChange-mock-upload"
+      multiple=""
+      type="file"
+    />
+  </div>
+  <div>
+    <div
+      class="file"
+      data-testid="test-file"
+    >
+      <img
+        alt="name"
+        class="file-display"
+        src="url"
+      />
+      <div
+        class="file-info-wrapper"
+      >
+        <p
+          class="MuiTypography-root filename Typography MuiTypography-body1"
+        >
+          name
+        </p>
+        <p
+          class="MuiTypography-root file-size Typography MuiTypography-body1"
+        >
+          0KB
+        </p>
+      </div>
+      <button
+        aria-label="Remove file"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-313 iconButtonStyles-medium-319 iconButtonStyles-text-315 delete-icon"
+        data-testid="file-delete"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Upload component render correctly with error 2`] = `
+<div
+  class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+>
+  <div>
+    <label
+      for="onFilesChange-mock-upload"
+    >
+      <span
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-302 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-305"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"
+            />
+          </svg>
+          Upload here
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </span>
+    </label>
+    <input
+      class="input"
+      data-testid="onFilesChange-mock-upload"
+      id="onFilesChange-mock-upload"
       multiple=""
       type="file"
     />
@@ -46,22 +142,149 @@ exports[`Upload component onChange handler is called 1`] = `
 </div>
 `;
 
-exports[`Upload component onChange handler is called on file drop 1`] = `
-Array [
-  Array [
-    Array [],
-  ],
-  Array [
-    Array [
-      undefined,
-    ],
-  ],
-  Array [
-    Array [
-      undefined,
-    ],
-  ],
-]
+exports[`Upload component render correctly with value 1`] = `
+<div
+  class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+>
+  <div>
+    <label
+      for="onFilesChange-mock-upload"
+    >
+      <span
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-282 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-285"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"
+            />
+          </svg>
+          Upload here
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </span>
+    </label>
+    <input
+      class="input"
+      data-testid="onFilesChange-mock-upload"
+      id="onFilesChange-mock-upload"
+      multiple=""
+      type="file"
+    />
+  </div>
+  <div>
+    <div
+      class="file"
+      data-testid="test-file"
+    >
+      <img
+        alt="file1"
+        class="file-display"
+        src="url"
+      />
+      <div
+        class="file-info-wrapper"
+      >
+        <p
+          class="MuiTypography-root filename Typography MuiTypography-body1"
+        >
+          file1
+        </p>
+        <p
+          class="MuiTypography-root file-size Typography MuiTypography-body1"
+        >
+          0KB
+        </p>
+      </div>
+      <button
+        aria-label="Remove file"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-293 iconButtonStyles-medium-299 iconButtonStyles-text-295 delete-icon"
+        data-testid="file-delete"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+    <div
+      class="file"
+      data-testid="test-file"
+    >
+      <img
+        alt="file2"
+        class="file-display"
+        src="url"
+      />
+      <div
+        class="file-info-wrapper"
+      >
+        <p
+          class="MuiTypography-root filename Typography MuiTypography-body1"
+        >
+          file2
+        </p>
+        <p
+          class="MuiTypography-root file-size Typography MuiTypography-body1"
+        >
+          0KB
+        </p>
+      </div>
+      <button
+        aria-label="Remove file"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-293 iconButtonStyles-medium-299 iconButtonStyles-text-295 delete-icon"
+        data-testid="file-delete"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Upload component renders correctly 1`] = `
@@ -120,12 +343,12 @@ exports[`Upload component renders correctly on mobile 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-168 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-242 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-171"
+          class="MuiButton-label buttonStyles-label-245"
         >
           <svg
             aria-hidden="true"
@@ -157,6 +380,52 @@ exports[`Upload component renders correctly on mobile 1`] = `
 `;
 
 exports[`Upload component renders correctly with buttonLabel 1`] = `
+<div
+  class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+>
+  <div>
+    <label
+      for="default-upload"
+    >
+      <span
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-24"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"
+            />
+          </svg>
+          Choose files
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </span>
+    </label>
+    <input
+      class="input"
+      data-testid="default-upload"
+      id="default-upload"
+      multiple=""
+      type="file"
+    />
+  </div>
+  <div />
+</div>
+`;
+
+exports[`Upload component renders correctly with defaultExpanded 1`] = `
 <div
   class="MuiFormControl-root Upload MuiFormControl-fullWidth"
 >
@@ -248,52 +517,6 @@ exports[`Upload component renders correctly with description 1`] = `
     >
       Please upload your images here
     </p>
-  </div>
-  <div />
-</div>
-`;
-
-exports[`Upload component renders correctly with error 1`] = `
-<div
-  class="MuiFormControl-root Upload MuiFormControl-fullWidth"
->
-  <div>
-    <label
-      for="default-upload"
-    >
-      <span
-        aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
-        role="button"
-        tabindex="0"
-      >
-        <span
-          class="MuiButton-label buttonStyles-label-24"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"
-            />
-          </svg>
-          Upload
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </span>
-    </label>
-    <input
-      class="input"
-      data-testid="default-upload"
-      id="default-upload"
-      multiple=""
-      type="file"
-    />
   </div>
   <div />
 </div>
