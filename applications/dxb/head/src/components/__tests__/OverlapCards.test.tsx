@@ -193,8 +193,7 @@ const data: Data = [
           }
         }
       },
-      videoRatio: null,
-      className: null
+      videoRatio: null
     }
   }
 ];
