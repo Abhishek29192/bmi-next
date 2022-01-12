@@ -183,7 +183,7 @@ export const getSizeLabel = (
   measurement: TransformedMeasurementValue,
   withUnit = true
 ) => {
-  const components = Object.values(measurement || {}).filter(Boolean);
+  const components = Object.values(measurement).filter(Boolean);
   if (components.length === 0) {
     return "";
   }
@@ -236,11 +236,9 @@ export const IndexFeatures = (
   pimClassificationNameSpace: string = "",
   classifications: Classification[]
 ): IndexedItemGroup<ESIndexObject> => {
-  const allfeaturesAsProps = (classifications || []).reduce(
-    (acc, classification) => {
-      const classificationFeatureAsProp = (
-        classification.features || []
-      ).reduce((featureAsProp, feature) => {
+  const allfeaturesAsProps = classifications.reduce((acc, classification) => {
+    const classificationFeatureAsProp = (classification.features || []).reduce(
+      (featureAsProp, feature) => {
         const featureCode = extractFeatureCode(
           pimClassificationNameSpace,
           feature.code
@@ -257,13 +255,13 @@ export const IndexFeatures = (
           ...featureAsProp,
           [featureCode]: nameAndCodeValues
         };
-      }, {});
-      return {
-        ...acc,
-        ...classificationFeatureAsProp
-      };
-    },
-    {}
-  );
+      },
+      {}
+    );
+    return {
+      ...acc,
+      ...classificationFeatureAsProp
+    };
+  }, {});
   return allfeaturesAsProps;
 };

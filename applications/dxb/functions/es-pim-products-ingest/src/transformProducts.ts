@@ -59,7 +59,7 @@ const combineVariantClassifications = (
   // are overwritten by variant features of same classifications
   vairantClassificationsMap.forEach((variantClassification, key) => {
     const mergedFeaturesMap: Map<string, Feature> = new Map(
-      (variantClassification?.features || []).map((feature) => [
+      (variantClassification.features || []).map((feature) => [
         feature.code,
         feature
       ])
