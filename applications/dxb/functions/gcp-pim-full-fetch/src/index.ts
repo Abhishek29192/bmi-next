@@ -17,10 +17,7 @@ const pubSubClient = new PubSub({
 let topicPublisher: Topic;
 const getTopicPublisher = () => {
   if (!topicPublisher) {
-    if (!TRANSITIONAL_TOPIC_NAME) {
-      throw Error("TRANSITIONAL_TOPIC_NAME has not been set.");
-    }
-    topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME);
+    topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME!);
   }
   return topicPublisher;
 };
@@ -32,8 +29,8 @@ async function publishMessage(
   // eslint-disable-next-line security/detect-object-injection
   const items =
     itemType === PimTypes.Products
-      ? (apiResponse as ProductsApiResponse)["products"]
-      : (apiResponse as SystemsApiResponse)["systems"];
+      ? (apiResponse as ProductsApiResponse).products
+      : (apiResponse as SystemsApiResponse).systems;
   info({
     message: `Publishing UPDATED ${items.length} ${itemType.toUpperCase()}`
   });
@@ -60,6 +57,18 @@ const handleRequest = async (
   req: Request<any, any, FullFetchRequest>,
   res: Response
 ) => {
+  if (!GCP_PROJECT_ID) {
+    // eslint-disable-next-line no-console
+    console.error("GCP_PROJECT_ID has not been set.");
+    return res.sendStatus(500);
+  }
+
+  if (!TRANSITIONAL_TOPIC_NAME) {
+    // eslint-disable-next-line no-console
+    console.error("TRANSITIONAL_TOPIC_NAME has not been set.");
+    return res.sendStatus(500);
+  }
+
   const body = req.body;
 
   if (!body) {

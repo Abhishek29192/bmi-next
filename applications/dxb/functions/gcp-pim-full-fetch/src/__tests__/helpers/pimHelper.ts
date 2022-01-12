@@ -21,7 +21,7 @@ export const createSystemsApiResponse = (
   catalog: process.env.PIM_CATALOG_NAME || "",
   currentPage: 0,
   totalPageCount: 1,
-  totalProductCount: 1,
+  totalSystemsCount: 1,
   systems: [{}],
   ...systemsApiResponse
 });

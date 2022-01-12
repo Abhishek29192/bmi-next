@@ -2,12 +2,9 @@
  * Duplicated in gcp-full-fetch-coordinator. We should keep these in sync until we get shared libraries working for GCP Functions.
  */
 import { protos } from "@google-cloud/secret-manager";
-import { FetchMockStatic } from "fetch-mock";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
-import fetch from "node-fetch";
 import { mockResponses } from "../../../../../../libraries/fetch-mocks/src/index";
-import { fetchData, PimTypes } from "../pim";
 import {
   createProductsApiResponse,
   createSystemsApiResponse
@@ -23,8 +20,11 @@ jest.mock("@google-cloud/secret-manager", () => {
   return { SecretManagerServiceClient: mSecretManagerServiceClient };
 });
 
-const fetchMock = fetch as unknown as FetchMockStatic;
-jest.mock("node-fetch", () => fetchMockJest.sandbox());
+const fetchMock = fetchMockJest.sandbox();
+jest.mock("node-fetch", () => fetchMock);
+
+const fetchData = (type: "products" | "systems", currentPage?: number) =>
+  require("../pim").fetchData(type, currentPage);
 
 beforeAll(() => {
   mockConsole();
@@ -40,14 +40,100 @@ beforeEach(() => {
 });
 
 describe("fetchData", () => {
+  it("should error if PIM_CLIENT_ID is not set", async () => {
+    const originalPimClientId = process.env.PIM_CLIENT_ID;
+    delete process.env.PIM_CLIENT_ID;
+
+    try {
+      await fetchData("products");
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect(error.message).toEqual("PIM_CLIENT_ID has not been set.");
+    }
+
+    expect(accessSecretVersion).toHaveBeenCalledTimes(0);
+    expect(fetchMock).not.toHaveBeenCalled();
+
+    process.env.PIM_CLIENT_ID = originalPimClientId;
+  });
+
+  it("should error if SECRET_MAN_GCP_PROJECT_NAME is not set", async () => {
+    const originalSecretManGcpProjectName =
+      process.env.SECRET_MAN_GCP_PROJECT_NAME;
+    delete process.env.SECRET_MAN_GCP_PROJECT_NAME;
+
+    try {
+      await fetchData("products");
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect(error.message).toEqual(
+        "SECRET_MAN_GCP_PROJECT_NAME has not been set."
+      );
+    }
+
+    expect(accessSecretVersion).toHaveBeenCalledTimes(0);
+    expect(fetchMock).not.toHaveBeenCalled();
+
+    process.env.SECRET_MAN_GCP_PROJECT_NAME = originalSecretManGcpProjectName;
+  });
+
+  it("should error if PIM_CLIENT_SECRET is not set", async () => {
+    const originalPimClientSecret = process.env.PIM_CLIENT_SECRET;
+    delete process.env.PIM_CLIENT_SECRET;
+
+    try {
+      await fetchData("products");
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect(error.message).toEqual("PIM_CLIENT_SECRET has not been set.");
+    }
+
+    expect(accessSecretVersion).toHaveBeenCalledTimes(0);
+    expect(fetchMock).not.toHaveBeenCalled();
+
+    process.env.PIM_CLIENT_SECRET = originalPimClientSecret;
+  });
+
   it("should error if getting pim secret throws error", async () => {
     accessSecretVersion.mockRejectedValue(Error("Expected error"));
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData("products");
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual("Expected error");
+    }
+
+    expect(accessSecretVersion).toHaveBeenCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
+    });
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it("should error if getting pim secret returns undefined payload", async () => {
+    accessSecretVersion.mockResolvedValue([{}]);
+
+    try {
+      await fetchData("products");
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect(error.message).toEqual("pimClientSecret could not be retrieved.");
+    }
+
+    expect(accessSecretVersion).toHaveBeenCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
+    });
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it("should error if getting pim secret returns undefined payload data", async () => {
+    accessSecretVersion.mockResolvedValue([{ payload: {} }]);
+
+    try {
+      await fetchData("products");
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect(error.message).toEqual("pimClientSecret could not be retrieved.");
     }
 
     expect(accessSecretVersion).toHaveBeenCalledWith({
@@ -64,7 +150,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData("products");
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual("Expected error");
@@ -75,9 +161,9 @@ describe("fetchData", () => {
     });
     const body = fetchMock.lastOptions(
       `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    ).body;
+    )!.body;
     const expectedUrlencoded = new URLSearchParams();
-    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID);
+    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
@@ -91,7 +177,7 @@ describe("fetchData", () => {
       }
     );
     expect(fetchMock).not.toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/${PimTypes.Systems}?currentPage=0&approvalStatus=APPROVED`
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&approvalStatus=APPROVED`
     );
   });
 
@@ -103,7 +189,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData("products");
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual("Internal Server Error");
@@ -114,9 +200,9 @@ describe("fetchData", () => {
     });
     const body = fetchMock.lastOptions(
       `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    ).body;
+    )!.body;
     const expectedUrlencoded = new URLSearchParams();
-    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID);
+    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
@@ -130,7 +216,7 @@ describe("fetchData", () => {
       }
     );
     expect(fetchMock).not.toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/${PimTypes.Systems}?currentPage=0&approvalStatus=APPROVED`
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&approvalStatus=APPROVED`
     );
   });
 
@@ -142,7 +228,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData("products");
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual(
@@ -155,9 +241,9 @@ describe("fetchData", () => {
     });
     const body = fetchMock.lastOptions(
       `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    ).body;
+    )!.body;
     const expectedUrlencoded = new URLSearchParams();
-    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID);
+    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
@@ -171,7 +257,7 @@ describe("fetchData", () => {
       }
     );
     expect(fetchMock).not.toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/${PimTypes.Systems}?currentPage=0&approvalStatus=APPROVED`
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&approvalStatus=APPROVED`
     );
   });
 
@@ -186,7 +272,7 @@ describe("fetchData", () => {
         })
       },
       {
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/${PimTypes.Products}?currentPage=0&approvalStatus=APPROVED`,
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
         method: "GET",
         headers: {
           Authorization: `Bearer access_token`,
@@ -197,7 +283,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData("products");
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual("Expected error");
@@ -208,9 +294,9 @@ describe("fetchData", () => {
     });
     const body = fetchMock.lastOptions(
       `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    ).body;
+    )!.body;
     const expectedUrlencoded = new URLSearchParams();
-    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID);
+    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
@@ -224,7 +310,7 @@ describe("fetchData", () => {
       }
     );
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/${PimTypes.Products}?currentPage=0&approvalStatus=APPROVED`,
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
       {
         method: "GET",
         headers: {
@@ -246,7 +332,7 @@ describe("fetchData", () => {
         })
       },
       {
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/${PimTypes.Products}?currentPage=0&approvalStatus=APPROVED`,
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
         method: "GET",
         headers: {
           Authorization: `Bearer access_token`,
@@ -257,7 +343,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData("products");
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual("Internal Server Error");
@@ -268,9 +354,9 @@ describe("fetchData", () => {
     });
     const body = fetchMock.lastOptions(
       `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    ).body;
+    )!.body;
     const expectedUrlencoded = new URLSearchParams();
-    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID);
+    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
@@ -284,7 +370,7 @@ describe("fetchData", () => {
       }
     );
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/${PimTypes.Products}?currentPage=0&approvalStatus=APPROVED`,
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
       {
         method: "GET",
         headers: {
@@ -307,7 +393,7 @@ describe("fetchData", () => {
         })
       },
       {
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/${PimTypes.Products}?currentPage=0&approvalStatus=APPROVED`,
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
         method: "GET",
         headers: {
           Authorization: `Bearer access_token`,
@@ -317,16 +403,16 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData(PimTypes.Products);
+    const response = await fetchData("products");
 
     expect(accessSecretVersion).toHaveBeenCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
     });
     const body = fetchMock.lastOptions(
       `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    ).body;
+    )!.body;
     const expectedUrlencoded = new URLSearchParams();
-    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID);
+    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
@@ -340,7 +426,7 @@ describe("fetchData", () => {
       }
     );
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/${PimTypes.Products}?currentPage=0&approvalStatus=APPROVED`,
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
       {
         method: "GET",
         headers: {
@@ -364,7 +450,7 @@ describe("fetchData", () => {
         })
       },
       {
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/${PimTypes.Systems}?currentPage=0&approvalStatus=APPROVED`,
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&approvalStatus=APPROVED`,
         method: "GET",
         headers: {
           Authorization: `Bearer access_token`,
@@ -374,16 +460,16 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData(PimTypes.Systems);
+    const response = await fetchData("systems");
 
     expect(accessSecretVersion).toHaveBeenCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
     });
     const body = fetchMock.lastOptions(
       `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    ).body;
+    )!.body;
     const expectedUrlencoded = new URLSearchParams();
-    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID);
+    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
@@ -397,7 +483,7 @@ describe("fetchData", () => {
       }
     );
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/${PimTypes.Systems}?currentPage=0&approvalStatus=APPROVED`,
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&approvalStatus=APPROVED`,
       {
         method: "GET",
         headers: {
@@ -421,7 +507,7 @@ describe("fetchData", () => {
         })
       },
       {
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/${PimTypes.Products}?currentPage=18&approvalStatus=APPROVED`,
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&approvalStatus=APPROVED`,
         method: "GET",
         headers: {
           Authorization: `Bearer access_token`,
@@ -431,16 +517,16 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData(PimTypes.Products, 18);
+    const response = await fetchData("products", 18);
 
     expect(accessSecretVersion).toHaveBeenCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
     });
     const body = fetchMock.lastOptions(
       `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    ).body;
+    )!.body;
     const expectedUrlencoded = new URLSearchParams();
-    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID);
+    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
@@ -454,7 +540,7 @@ describe("fetchData", () => {
       }
     );
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/${PimTypes.Products}?currentPage=18&approvalStatus=APPROVED`,
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&approvalStatus=APPROVED`,
       {
         method: "GET",
         headers: {
