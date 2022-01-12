@@ -1,50 +1,7 @@
 @import "@bmi/styles";
 
-.Accordion {
-  .item {
-    background-color: $color-pearl;
-    border: 1px solid $color-storm;
-
-    & + .item {
-      border-top: none;
-    }
-
-    &:last-of-type .details {
-      border-bottom-left-radius: 4px;
-      border-bottom-right-radius: 4px;
-    }
-  }
-
-  .details {
-    background-color: $color-white;
-  }
-
-  :global {
-    .MuiAccordion-root.Mui-expanded {
-      margin-bottom: 0;
-      margin-top: 0;
-    }
-
-    .MuiCollapse-wrapper {
-      border-top: 1px solid $color-storm;
-    }
-
-    .MuiAccordionSummary-root.Mui-expanded {
-      min-height: initial;
-    }
-
-    .MuiAccordionSummary-content.Mui-expanded {
-      margin: 12px 0;
-    }
-
-    .MuiAccordionDetails-root {
-      padding: 32px 24px;
-    }
-  }
-
-  &--no-inner-padding {
-    :global(.MuiAccordionDetails-root) {
-      padding: 0;
-    }
-  }
+:export {
+  color-pearl: $color-pearl;
+  color-storm: $color-storm;
+  color-white: $color-white;
 }

@@ -180,11 +180,13 @@ describe("SystemDetailsPage template component", () => {
       const contentToBeIngored2 = queryAllByText(valueText2, { exact: false });
       const contentToBeExist = queryAllByText(valueText3, { exact: false });
       const accordionItems = container.querySelectorAll(
-        ".SystemDetailsTechnicalSpec .Accordion .item"
+        ".MuiAccordionSummary-root"
       );
-      const secondAccordionItemFeatureItems =
-        accordionItems[1].querySelectorAll("tr td:last-child");
-
+      const secondAccordionItemFeatureItems = container
+        .querySelectorAll(
+          ".MuiCollapse-root .MuiAccordionDetails-root tbody"
+        )[1]
+        .querySelectorAll("tr");
       expect(container).toMatchSnapshot();
       expect(contentToBeIngored1.length).toBeFalsy();
       expect(contentToBeIngored2.length).toBeFalsy();
@@ -196,6 +198,7 @@ describe("SystemDetailsPage template component", () => {
       expect(accordionItems[1].querySelector("h6").innerHTML).toBe(
         categoryName2
       );
+
       //test featureName sorting
       expect(secondAccordionItemFeatureItems[0].innerHTML).toContain(
         valueText3

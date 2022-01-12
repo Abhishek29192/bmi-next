@@ -8,7 +8,55 @@ import MaterialAccordionSummary, {
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import React, { useState } from "react";
 import classnames from "classnames";
-import styles from "./Accordion.module.scss";
+import { makeStyles } from "@material-ui/core/styles";
+import variables from "./Accordion.module.scss";
+
+export const useAccordionStyles = makeStyles(
+  () => ({
+    root: {
+      "& .Mui-expanded": {
+        marginBottom: "0px",
+        marginTop: "-1px"
+      },
+      "& .MuiAccordionSummary-content & .Mui-expanded": {
+        margin: "12px 0"
+      }
+    },
+    item: {
+      backgroundColor: variables["color-pearl"],
+      border: "1px",
+      borderStyle: "solid",
+      borderColor: variables["color-storm"],
+      marginTop: "-2px",
+      "& + .item": {
+        borderTop: "none",
+        marginTop: "-1px"
+      },
+      "&:last-of-type .details": {
+        borderBottomLeftRadius: "4px",
+        borderBottomRightRadius: "4px"
+      }
+    },
+    details: {
+      backgroundColor: variables["color-white"],
+      padding: "0px",
+      borderTop: "1px",
+      borderTopStyle: "solid",
+      borderTopColor: variables["color-storm"]
+    },
+    "no-inner-padding": {
+      "& .MuiAccordionDetails-root": {
+        padding: 0
+      }
+    },
+    summaryRoot: {
+      minHeight: "60px"
+    },
+    summaryExpanded: {},
+    summaryContent: {}
+  }),
+  { classNamePrefix: "accordionStyles" }
+);
 
 type AccordionItemProps = ExpansionPanelProps & {
   isExpanded?: boolean;
@@ -30,14 +78,14 @@ const Accordion = ({ children, isRadio, noInnerPadding }: AccordionProps) => {
   const firstDefaultExpanded = React.Children.toArray(children).findIndex(
     (child) => React.isValidElement(child) && child.props.defaultExpanded
   );
-
+  const classes = useAccordionStyles();
   const [expanded, setExpanded] = useState<number>(firstDefaultExpanded + 1);
 
   return (
     <div
       className={classnames(
-        styles["Accordion"],
-        noInnerPadding && styles["Accordion--no-inner-padding"]
+        classes.root,
+        noInnerPadding && classes["no-inner-padding"]
       )}
     >
       {React.Children.map(children, (child, index) => {
@@ -68,6 +116,7 @@ const AccordionItem = ({
   setExpanded,
   ...props
 }: AccordionItemProps) => {
+  const classes = useAccordionStyles();
   const handleChange = (
     event: React.ChangeEvent<{}>,
     expandedState: boolean
@@ -84,7 +133,7 @@ const AccordionItem = ({
     <ExpansionPanel
       expanded={isExpanded}
       onChange={handleChange}
-      className={styles["item"]}
+      className={classes.item}
       {...props}
     >
       {children}
@@ -101,17 +150,31 @@ const AccordionSummary = ({
   children,
   expandIcon = <ExpandMoreIcon />,
   ...other
-}: AccordionSummaryProps) => (
-  <MaterialAccordionSummary expandIcon={expandIcon} {...other}>
-    {children}
-  </MaterialAccordionSummary>
-);
+}: AccordionSummaryProps) => {
+  const classes = useAccordionStyles();
+  return (
+    <MaterialAccordionSummary
+      expandIcon={expandIcon}
+      {...other}
+      classes={{
+        root: classes.summaryRoot,
+        content: classes.summaryContent,
+        expanded: classes.summaryExpanded
+      }}
+    >
+      {children}
+    </MaterialAccordionSummary>
+  );
+};
 
-const AccordionDetails = ({ children, ...other }: AccordionSummaryProps) => (
-  <ExpansionPanelDetails className={styles["details"]} {...other}>
-    {children}
-  </ExpansionPanelDetails>
-);
+const AccordionDetails = ({ children, ...other }: AccordionSummaryProps) => {
+  const classes = useAccordionStyles();
+  return (
+    <ExpansionPanelDetails className={classes.details} {...other}>
+      {children}
+    </ExpansionPanelDetails>
+  );
+};
 
 Accordion.Summary = AccordionSummary;
 Accordion.Details = AccordionDetails;
