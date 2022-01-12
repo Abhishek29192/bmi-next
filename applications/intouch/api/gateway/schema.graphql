@@ -24970,6 +24970,7 @@ type Query implements Node {
     """
     condition: CourseCondition
   ): CoursesConnection
+  currentAccountDoceboId: Int
   currentAccountEmail: String
   currentAccountId: Int
   currentCompany: Int
