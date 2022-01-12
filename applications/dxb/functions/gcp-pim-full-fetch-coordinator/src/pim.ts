@@ -96,8 +96,12 @@ const getAuthToken = async (): Promise<AuthResponse> => {
 
   if (!response.ok) {
     // eslint-disable-next-line no-console
-    console.error("ERROR!", response.status, response.statusText);
-    throw new Error(response.statusText);
+    console.error(
+      `[PIM] Error getting auth token: ${response.status} ${response.statusText}`
+    );
+    throw new Error(
+      `[PIM] Error getting auth token: ${response.status} ${response.statusText}`
+    );
   }
 
   const data = await response.json();
@@ -130,8 +134,12 @@ export const fetchData = async (
 
   if (!response.ok) {
     // eslint-disable-next-line no-console
-    console.error("ERROR!", response.status, response.statusText);
-    throw new Error(response.statusText);
+    console.error(
+      `[PIM] Error getting data: ${response.status} ${response.statusText}`
+    );
+    throw new Error(
+      `[PIM] Error getting data: ${response.status} ${response.statusText}`
+    );
   }
 
   const data = await response.json();

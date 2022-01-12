@@ -192,7 +192,9 @@ describe("fetchData", () => {
       await fetchData("products");
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Internal Server Error");
+      expect(error.message).toEqual(
+        "[PIM] Error getting auth token: 500 Internal Server Error"
+      );
     }
 
     expect(accessSecretVersion).toHaveBeenCalledWith({
@@ -346,7 +348,9 @@ describe("fetchData", () => {
       await fetchData("products");
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Internal Server Error");
+      expect(error.message).toEqual(
+        "[PIM] Error getting data: 500 Internal Server Error"
+      );
     }
 
     expect(accessSecretVersion).toHaveBeenCalledWith({

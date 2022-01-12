@@ -1,11 +1,10 @@
 /**
- * Duplicated getAuthToken and fetchData in gcp-full-fetch-coordinator and gcp-full-fetch-coordinator. We should keep these in sync until we get shared libraries working for GCP Functions.
+ * Duplicated getAuthToken and fetchData is based off the fetchData in gcp-full-fetch-coordinator and gcp-full-fetch-coordinator. We should keep these in sync until we get shared libraries working for GCP Functions.
  */
 import { URLSearchParams } from "url";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import fetch, { RequestRedirect } from "node-fetch";
 
-const secretManagerClient = new SecretManagerServiceClient();
 const {
   SECRET_MAN_GCP_PROJECT_NAME,
   PIM_CLIENT_SECRET,
@@ -41,23 +40,26 @@ export type SystemsApiResponse = ApiResponse & {
   totalSystemsCount: number;
 };
 
-const getAuthToken = async () => {
+type AuthResponse = {
+  access_token: string;
+  token_type: "bearer";
+  expires_in: number;
+  scope: "basic openid";
+};
+
+const secretManagerClient = new SecretManagerServiceClient();
+
+const getAuthToken = async (): Promise<AuthResponse> => {
   if (!PIM_CLIENT_ID) {
-    // eslint-disable-next-line no-console
-    console.error("PIM_CLIENT_ID has not been set.");
-    return undefined;
+    throw Error("PIM_CLIENT_ID has not been set.");
   }
 
   if (!SECRET_MAN_GCP_PROJECT_NAME) {
-    // eslint-disable-next-line no-console
-    console.error("PIM_CLIENT_ID has not been set.");
-    return undefined;
+    throw Error("SECRET_MAN_GCP_PROJECT_NAME has not been set.");
   }
 
   if (!PIM_CLIENT_SECRET) {
-    // eslint-disable-next-line no-console
-    console.error("PIM_CLIENT_SECRET has not been set.");
-    return undefined;
+    throw Error("PIM_CLIENT_SECRET has not been set.");
   }
 
   // get PIM secret from Secret Manager
@@ -68,9 +70,7 @@ const getAuthToken = async () => {
 
   const pimClientSecret = pimSecret[0].payload?.data?.toString();
   if (!pimClientSecret) {
-    // eslint-disable-next-line no-console
-    console.error("pimClientSecret could not be retrieved.");
-    return undefined;
+    throw Error("pimClientSecret could not be retrieved.");
   }
 
   let urlencoded = new URLSearchParams();
@@ -96,8 +96,12 @@ const getAuthToken = async () => {
 
   if (!response.ok) {
     // eslint-disable-next-line no-console
-    console.error("ERROR!", response.status, response.statusText);
-    throw new Error(response.statusText);
+    console.error(
+      `[PIM] Error getting auth token: ${response.status} ${response.statusText}`
+    );
+    throw new Error(
+      `[PIM] Error getting auth token: ${response.status} ${response.statusText}`
+    );
   }
 
   const data = await response.json();
@@ -105,7 +109,7 @@ const getAuthToken = async () => {
   return data;
 };
 
-export const fetchData = async (
+const fetchData = async (
   type: PimTypes,
   messageId: string,
   token: string,
@@ -132,8 +136,12 @@ export const fetchData = async (
 
   if (!response.ok) {
     // eslint-disable-next-line no-console
-    console.error("ERROR!", response.status, response.statusText);
-    throw new Error(response.statusText);
+    console.error(
+      `[PIM] Error getting data: ${response.status} ${response.statusText}`
+    );
+    throw new Error(
+      `[PIM] Error getting data: ${response.status} ${response.statusText}`
+    );
   }
 
   const data = await response.json();
