@@ -13,10 +13,6 @@ import styles from "./Villain.module.scss";
 export type Props = {
   children: React.ReactNode;
   title: React.ReactNode;
-  /**
-   * @deprecated Use `media` instead.
-   */
-  imageSource?: string | React.ReactNode;
   media?: React.ReactElement<AcceptedNode>;
   isFullWidth?: boolean;
   isReversed?: boolean;
@@ -31,7 +27,6 @@ const FullSizeVillain = ({
   children,
   title,
   isReversed,
-  imageSource,
   media,
   cta,
   theme
@@ -74,18 +69,6 @@ const FullSizeVillain = ({
             })}
         </div>
       </Container>
-      {imageSource && (
-        <div
-          style={
-            typeof imageSource === "string"
-              ? { backgroundImage: `url(${imageSource})` }
-              : {}
-          }
-          className={styles["image"]}
-        >
-          {typeof imageSource !== "string" && imageSource}
-        </div>
-      )}
       <Media className={styles["image"]}>{media}</Media>
     </ColorPair>
   );
@@ -95,7 +78,6 @@ const ContainedVillain = ({
   children,
   title,
   isReversed,
-  imageSource,
   media,
   cta,
   theme
@@ -134,18 +116,6 @@ const ContainedVillain = ({
           </ColorPair>
         </Grid>
         <Grid item xs={12} sm={8}>
-          {imageSource ? (
-            <div
-              style={
-                typeof imageSource === "string"
-                  ? { backgroundImage: `url(${imageSource})` }
-                  : {}
-              }
-              className={styles["image"]}
-            >
-              {typeof imageSource !== "string" && imageSource}
-            </div>
-          ) : null}
           {media ? (
             // NOTE: This is necessary to maintain `imageSource`.
             <div className={styles["image"]}>
