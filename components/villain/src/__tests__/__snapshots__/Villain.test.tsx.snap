@@ -56,6 +56,52 @@ exports[`Villain component renders correctly 1`] = `
 </div>
 `;
 
+exports[`Villain component renders correctly on reversed when screen size is larger than sm  1`] = `
+<div
+  class="Villain Villain--contained Villain--reversed"
+>
+  <div
+    class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-direction-xs-row-reverse"
+  >
+    <div
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
+    >
+      <div
+        class="content ColorPair ColorPair--blue-800"
+      >
+        <h3
+          class="MuiTypography-root title Typography MuiTypography-h4"
+        >
+          H2 Heading
+        </h3>
+        <div
+          class="text"
+        >
+          Lorem ipsum dolor sit amet.
+        </div>
+        <button
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-141 MuiButton-contained buttonStyles-contained-143 buttonStyles-containedDarkBg-150 cta MuiButton-containedPrimary"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-144"
+          >
+            Call to action
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
+    />
+  </div>
+</div>
+`;
+
 exports[`Villain component renders full size 1`] = `
 <div
   class="Villain Villain--full-size ColorPair ColorPair--blue-800"
@@ -242,5 +288,158 @@ exports[`Villain component renders with deprecated imageSource 1`] = `
       />
     </div>
   </div>
+</div>
+`;
+
+exports[`Villain component renders with deprecated imageSource as react node 1`] = `
+<div
+  class="Villain Villain--contained"
+>
+  <div
+    class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+  >
+    <div
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
+    >
+      <div
+        class="content ColorPair ColorPair--blue-800"
+      >
+        <h3
+          class="MuiTypography-root title Typography MuiTypography-h4"
+        >
+          H2 Heading
+        </h3>
+        <div
+          class="text"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac nulla justo. Sed sollicitudin volutpat arcu at laoreet. Ut vel augue nisi. Pellentesque egestas sapien et mauris rutrum laoreet. Integer tellus enim, posuere vel nibh suscipit, rhoncus ornare lectus. Mauris ac interdum nibh, quis dictum nulla.
+        </div>
+        <button
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-contained buttonStyles-contained-83 buttonStyles-containedDarkBg-90 cta MuiButton-containedPrimary"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-84"
+          >
+            Call to action
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
+    >
+      <div
+        class="image"
+      >
+        <img
+          alt="Lorem ipsum"
+          src="path-to-image"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Villain component renders with deprecated imageSource as react node on a FullWidth  1`] = `
+<div
+  class="Villain Villain--full-size ColorPair ColorPair--blue-800"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root container MuiContainer-maxWidthXl"
+    >
+      <div
+        class="content"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h2"
+        >
+          H2 Heading
+        </h2>
+        <div
+          class="text"
+        >
+          Lorem ipsum dolor sit amet.
+        </div>
+        <button
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-contained buttonStyles-contained-123 buttonStyles-containedDarkBg-130 cta MuiButton-containedPrimary"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-124"
+          >
+            Call to action
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="image"
+  >
+    <img
+      alt="Lorem ipsum"
+      src="path-to-image"
+    />
+  </div>
+</div>
+`;
+
+exports[`Villain component renders with deprecated imageSource on a FullWidth 1`] = `
+<div
+  class="Villain Villain--full-size ColorPair ColorPair--blue-800"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root container MuiContainer-maxWidthXl"
+    >
+      <div
+        class="content"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h2"
+        >
+          H2 Heading
+        </h2>
+        <div
+          class="text"
+        >
+          Lorem ipsum dolor sit amet.
+        </div>
+        <button
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-101 MuiButton-contained buttonStyles-contained-103 buttonStyles-containedDarkBg-110 cta MuiButton-containedPrimary"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-104"
+          >
+            Call to action
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="image"
+    style="background-image: url(path-to-image);"
+  />
 </div>
 `;

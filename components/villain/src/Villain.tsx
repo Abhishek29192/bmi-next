@@ -74,7 +74,7 @@ const FullSizeVillain = ({
             })}
         </div>
       </Container>
-      {imageSource ? (
+      {imageSource && (
         <div
           style={
             typeof imageSource === "string"
@@ -85,7 +85,7 @@ const FullSizeVillain = ({
         >
           {typeof imageSource !== "string" && imageSource}
         </div>
-      ) : null}
+      )}
       <Media className={styles["image"]}>{media}</Media>
     </ColorPair>
   );
