@@ -120,12 +120,12 @@ exports[`Upload component renders correctly on mobile 1`] = `
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-161 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-168 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
         role="button"
         tabindex="0"
       >
         <span
-          class="MuiButton-label buttonStyles-label-164"
+          class="MuiButton-label buttonStyles-label-171"
         >
           <svg
             aria-hidden="true"

@@ -2923,22 +2923,22 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="Filters"
                   >
                     <div
-                      class="Accordion Accordion--no-inner-padding"
+                      class="accordionStyles-root accordionStyles-no-inner-padding"
                     >
                       <div
-                        class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                        class="MuiPaper-root MuiAccordion-root accordionStyles-item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                       >
                         <div
                           aria-disabled="false"
                           aria-expanded="false"
                           aria-label="Colour"
-                          class="MuiButtonBase-root MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot"
                           data-gtm="{\\"id\\":\\"filter1\\",\\"label\\":\\"Colour\\",\\"action\\":\\"Selector – Filter\\"}"
                           role="button"
                           tabindex="0"
                         >
                           <div
-                            class="MuiAccordionSummary-content"
+                            class="MuiAccordionSummary-content accordionStyles-summaryContent"
                           >
                             <h6
                               class="MuiTypography-root Typography MuiTypography-h6"
@@ -2981,7 +2981,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                 role="region"
                               >
                                 <div
-                                  class="MuiAccordionDetails-root details"
+                                  class="MuiAccordionDetails-root accordionStyles-details"
                                 >
                                   <div
                                     class="list"
@@ -4149,22 +4149,22 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="Filters"
                   >
                     <div
-                      class="Accordion Accordion--no-inner-padding"
+                      class="accordionStyles-root accordionStyles-no-inner-padding"
                     >
                       <div
-                        class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                        class="MuiPaper-root MuiAccordion-root accordionStyles-item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                       >
                         <div
                           aria-disabled="false"
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot"
                           data-gtm="{\\"id\\":\\"filter1\\",\\"label\\":\\"Size\\",\\"action\\":\\"Selector – Filter\\"}"
                           role="button"
                           tabindex="0"
                         >
                           <div
-                            class="MuiAccordionSummary-content"
+                            class="MuiAccordionSummary-content accordionStyles-summaryContent"
                           >
                             <h6
                               class="MuiTypography-root Typography MuiTypography-h6"
@@ -4207,7 +4207,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                 role="region"
                               >
                                 <div
-                                  class="MuiAccordionDetails-root details"
+                                  class="MuiAccordionDetails-root accordionStyles-details"
                                 >
                                   <div
                                     class="list"
@@ -5421,22 +5421,22 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     class="Filters"
                   >
                     <div
-                      class="Accordion Accordion--no-inner-padding"
+                      class="accordionStyles-root accordionStyles-no-inner-padding"
                     >
                       <div
-                        class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                        class="MuiPaper-root MuiAccordion-root accordionStyles-item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                       >
                         <div
                           aria-disabled="false"
                           aria-expanded="false"
                           aria-label="Colour"
-                          class="MuiButtonBase-root MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot"
                           data-gtm="{\\"id\\":\\"filter1\\",\\"label\\":\\"Colour\\",\\"action\\":\\"Selector – Filter\\"}"
                           role="button"
                           tabindex="0"
                         >
                           <div
-                            class="MuiAccordionSummary-content"
+                            class="MuiAccordionSummary-content accordionStyles-summaryContent"
                           >
                             <h6
                               class="MuiTypography-root Typography MuiTypography-h6"
@@ -5482,7 +5482,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                 role="region"
                               >
                                 <div
-                                  class="MuiAccordionDetails-root details"
+                                  class="MuiAccordionDetails-root accordionStyles-details"
                                 >
                                   <div
                                     class="list"
@@ -13009,22 +13009,22 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     class="Filters"
                   >
                     <div
-                      class="Accordion Accordion--no-inner-padding"
+                      class="accordionStyles-root accordionStyles-no-inner-padding"
                     >
                       <div
-                        class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                        class="MuiPaper-root MuiAccordion-root accordionStyles-item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                       >
                         <div
                           aria-disabled="false"
                           aria-expanded="false"
                           aria-label="Colour"
-                          class="MuiButtonBase-root MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot"
                           data-gtm="{\\"id\\":\\"filter1\\",\\"label\\":\\"Colour\\",\\"action\\":\\"Selector – Filter\\"}"
                           role="button"
                           tabindex="0"
                         >
                           <div
-                            class="MuiAccordionSummary-content"
+                            class="MuiAccordionSummary-content accordionStyles-summaryContent"
                           >
                             <h6
                               class="MuiTypography-root Typography MuiTypography-h6"
@@ -13067,7 +13067,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                                 role="region"
                               >
                                 <div
-                                  class="MuiAccordionDetails-root details"
+                                  class="MuiAccordionDetails-root accordionStyles-details"
                                 >
                                   <div
                                     class="list"
@@ -14235,22 +14235,22 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     class="Filters"
                   >
                     <div
-                      class="Accordion Accordion--no-inner-padding"
+                      class="accordionStyles-root accordionStyles-no-inner-padding"
                     >
                       <div
-                        class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                        class="MuiPaper-root MuiAccordion-root accordionStyles-item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                       >
                         <div
                           aria-disabled="false"
                           aria-expanded="false"
                           aria-label="Size"
-                          class="MuiButtonBase-root MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot"
                           data-gtm="{\\"id\\":\\"filter1\\",\\"label\\":\\"Size\\",\\"action\\":\\"Selector – Filter\\"}"
                           role="button"
                           tabindex="0"
                         >
                           <div
-                            class="MuiAccordionSummary-content"
+                            class="MuiAccordionSummary-content accordionStyles-summaryContent"
                           >
                             <h6
                               class="MuiTypography-root Typography MuiTypography-h6"
@@ -14293,7 +14293,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                                 role="region"
                               >
                                 <div
-                                  class="MuiAccordionDetails-root details"
+                                  class="MuiAccordionDetails-root accordionStyles-details"
                                 >
                                   <div
                                     class="list"
@@ -15507,22 +15507,22 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     class="Filters"
                   >
                     <div
-                      class="Accordion Accordion--no-inner-padding"
+                      class="accordionStyles-root accordionStyles-no-inner-padding"
                     >
                       <div
-                        class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                        class="MuiPaper-root MuiAccordion-root accordionStyles-item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
                       >
                         <div
                           aria-disabled="false"
                           aria-expanded="false"
                           aria-label="Colour"
-                          class="MuiButtonBase-root MuiAccordionSummary-root"
+                          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot"
                           data-gtm="{\\"id\\":\\"filter1\\",\\"label\\":\\"Colour\\",\\"action\\":\\"Selector – Filter\\"}"
                           role="button"
                           tabindex="0"
                         >
                           <div
-                            class="MuiAccordionSummary-content"
+                            class="MuiAccordionSummary-content accordionStyles-summaryContent"
                           >
                             <h6
                               class="MuiTypography-root Typography MuiTypography-h6"
@@ -15568,7 +15568,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                                 role="region"
                               >
                                 <div
-                                  class="MuiAccordionDetails-root details"
+                                  class="MuiAccordionDetails-root accordionStyles-details"
                                 >
                                   <div
                                     class="list"

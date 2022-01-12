@@ -56,7 +56,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
     class="accordion-div"
   >
     <div
-      class="Accordion"
+      class="accordionStyles-root-1"
     />
   </div>
 </div>

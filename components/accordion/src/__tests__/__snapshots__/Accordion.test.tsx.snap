@@ -2,20 +2,20 @@
 
 exports[`Accordion component renders correctly 1`] = `
 <div
-  class="Accordion"
+  class="accordionStyles-root-1"
 >
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiAccordion-root accordionStyles-item-2 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
       aria-disabled="false"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5"
       role="button"
       tabindex="0"
     >
       <div
-        class="MuiAccordionSummary-content"
+        class="MuiAccordionSummary-content accordionStyles-summaryContent-7"
       >
         Heading
       </div>
@@ -57,7 +57,7 @@ exports[`Accordion component renders correctly 1`] = `
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              class="MuiAccordionDetails-root accordionStyles-details-3"
             >
               Content
             </div>
@@ -67,17 +67,17 @@ exports[`Accordion component renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiAccordion-root accordionStyles-item-2 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
       aria-disabled="false"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5"
       role="button"
       tabindex="0"
     >
       <div
-        class="MuiAccordionSummary-content"
+        class="MuiAccordionSummary-content accordionStyles-summaryContent-7"
       >
         Heading
       </div>
@@ -119,7 +119,7 @@ exports[`Accordion component renders correctly 1`] = `
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              class="MuiAccordionDetails-root accordionStyles-details-3"
             >
               Content
             </div>
@@ -133,20 +133,20 @@ exports[`Accordion component renders correctly 1`] = `
 
 exports[`Accordion component renders correctly after expanded item clicked 1`] = `
 <div
-  class="Accordion"
+  class="accordionStyles-root-29"
 >
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiAccordion-root accordionStyles-item-30 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
       aria-disabled="false"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-33"
       role="button"
       tabindex="0"
     >
       <div
-        class="MuiAccordionSummary-content"
+        class="MuiAccordionSummary-content accordionStyles-summaryContent-35"
       >
         Heading One
       </div>
@@ -188,7 +188,7 @@ exports[`Accordion component renders correctly after expanded item clicked 1`] =
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              class="MuiAccordionDetails-root accordionStyles-details-31"
             >
               Content
             </div>
@@ -198,17 +198,17 @@ exports[`Accordion component renders correctly after expanded item clicked 1`] =
     </div>
   </div>
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiAccordion-root accordionStyles-item-30 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
       aria-disabled="false"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-33"
       role="button"
       tabindex="0"
     >
       <div
-        class="MuiAccordionSummary-content"
+        class="MuiAccordionSummary-content accordionStyles-summaryContent-35"
       >
         Heading Two
       </div>
@@ -250,7 +250,7 @@ exports[`Accordion component renders correctly after expanded item clicked 1`] =
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              class="MuiAccordionDetails-root accordionStyles-details-31"
             >
               Content
             </div>
@@ -264,20 +264,20 @@ exports[`Accordion component renders correctly after expanded item clicked 1`] =
 
 exports[`Accordion component renders correctly as radio 1`] = `
 <div
-  class="Accordion"
+  class="accordionStyles-root-15"
 >
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiAccordion-root accordionStyles-item-16 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
       aria-disabled="false"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-19"
       role="button"
       tabindex="0"
     >
       <div
-        class="MuiAccordionSummary-content"
+        class="MuiAccordionSummary-content accordionStyles-summaryContent-21"
       >
         Heading
       </div>
@@ -319,7 +319,7 @@ exports[`Accordion component renders correctly as radio 1`] = `
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              class="MuiAccordionDetails-root accordionStyles-details-17"
             >
               Content
             </div>
@@ -329,17 +329,17 @@ exports[`Accordion component renders correctly as radio 1`] = `
     </div>
   </div>
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiAccordion-root accordionStyles-item-16 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
       aria-disabled="false"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-19"
       role="button"
       tabindex="0"
     >
       <div
-        class="MuiAccordionSummary-content"
+        class="MuiAccordionSummary-content accordionStyles-summaryContent-21"
       >
         Heading
       </div>
@@ -381,7 +381,7 @@ exports[`Accordion component renders correctly as radio 1`] = `
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              class="MuiAccordionDetails-root accordionStyles-details-17"
             >
               Content
             </div>
@@ -395,20 +395,20 @@ exports[`Accordion component renders correctly as radio 1`] = `
 
 exports[`Accordion component renders correctly as radio when item is collapsed 1`] = `
 <div
-  class="Accordion"
+  class="accordionStyles-root-43"
 >
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiAccordion-root accordionStyles-item-44 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
       aria-disabled="false"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-47"
       role="button"
       tabindex="0"
     >
       <div
-        class="MuiAccordionSummary-content"
+        class="MuiAccordionSummary-content accordionStyles-summaryContent-49"
       >
         Heading One
       </div>
@@ -450,7 +450,7 @@ exports[`Accordion component renders correctly as radio when item is collapsed 1
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              class="MuiAccordionDetails-root accordionStyles-details-45"
             >
               Content
             </div>
@@ -460,17 +460,17 @@ exports[`Accordion component renders correctly as radio when item is collapsed 1
     </div>
   </div>
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiAccordion-root accordionStyles-item-44 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
       aria-disabled="false"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-47"
       role="button"
       tabindex="0"
     >
       <div
-        class="MuiAccordionSummary-content"
+        class="MuiAccordionSummary-content accordionStyles-summaryContent-49"
       >
         Heading Two
       </div>
@@ -512,7 +512,7 @@ exports[`Accordion component renders correctly as radio when item is collapsed 1
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              class="MuiAccordionDetails-root accordionStyles-details-45"
             >
               Content
             </div>
@@ -526,27 +526,27 @@ exports[`Accordion component renders correctly as radio when item is collapsed 1
 
 exports[`Accordion component renders correctly as radio when item is expanded 1`] = `
 <div
-  class="Accordion"
+  class="accordionStyles-root-36"
 >
   <div
-    class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiAccordion-root accordionStyles-item-37 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
       aria-disabled="false"
       aria-expanded="true"
-      class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+      class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-40 Mui-expanded accordionStyles-summaryExpanded-41"
       role="button"
       tabindex="0"
     >
       <div
-        class="MuiAccordionSummary-content Mui-expanded"
+        class="MuiAccordionSummary-content accordionStyles-summaryContent-42 Mui-expanded accordionStyles-summaryExpanded-41"
       >
         Heading One
       </div>
       <div
         aria-disabled="false"
         aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-41 MuiIconButton-edgeEnd"
       >
         <span
           class="MuiIconButton-label"
@@ -581,7 +581,7 @@ exports[`Accordion component renders correctly as radio when item is expanded 1`
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              class="MuiAccordionDetails-root accordionStyles-details-38"
             >
               Content
             </div>
@@ -591,17 +591,17 @@ exports[`Accordion component renders correctly as radio when item is expanded 1`
     </div>
   </div>
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiAccordion-root accordionStyles-item-37 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
       aria-disabled="false"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-40"
       role="button"
       tabindex="0"
     >
       <div
-        class="MuiAccordionSummary-content"
+        class="MuiAccordionSummary-content accordionStyles-summaryContent-42"
       >
         Heading Two
       </div>
@@ -643,7 +643,7 @@ exports[`Accordion component renders correctly as radio when item is expanded 1`
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              class="MuiAccordionDetails-root accordionStyles-details-38"
             >
               Content
             </div>
@@ -657,20 +657,20 @@ exports[`Accordion component renders correctly as radio when item is expanded 1`
 
 exports[`Accordion component renders correctly with default expanded item 1`] = `
 <div
-  class="Accordion"
+  class="accordionStyles-root-8"
 >
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiAccordion-root accordionStyles-item-9 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
       aria-disabled="false"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-12"
       role="button"
       tabindex="0"
     >
       <div
-        class="MuiAccordionSummary-content"
+        class="MuiAccordionSummary-content accordionStyles-summaryContent-14"
       >
         Heading
       </div>
@@ -712,7 +712,7 @@ exports[`Accordion component renders correctly with default expanded item 1`] = 
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              class="MuiAccordionDetails-root accordionStyles-details-10"
             >
               Content
             </div>
@@ -722,24 +722,24 @@ exports[`Accordion component renders correctly with default expanded item 1`] = 
     </div>
   </div>
   <div
-    class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiAccordion-root accordionStyles-item-9 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
       aria-disabled="false"
       aria-expanded="true"
-      class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+      class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-12 Mui-expanded accordionStyles-summaryExpanded-13"
       role="button"
       tabindex="0"
     >
       <div
-        class="MuiAccordionSummary-content Mui-expanded"
+        class="MuiAccordionSummary-content accordionStyles-summaryContent-14 Mui-expanded accordionStyles-summaryExpanded-13"
       >
         Heading
       </div>
       <div
         aria-disabled="false"
         aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-13 MuiIconButton-edgeEnd"
       >
         <span
           class="MuiIconButton-label"
@@ -774,7 +774,7 @@ exports[`Accordion component renders correctly with default expanded item 1`] = 
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              class="MuiAccordionDetails-root accordionStyles-details-10"
             >
               Content
             </div>
@@ -788,20 +788,20 @@ exports[`Accordion component renders correctly with default expanded item 1`] = 
 
 exports[`Accordion component renders correctly with no padding on accordion detail 1`] = `
 <div
-  class="Accordion Accordion--no-inner-padding"
+  class="accordionStyles-root-50 accordionStyles-no-inner-padding-53"
 >
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiAccordion-root accordionStyles-item-51 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
       aria-disabled="false"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-54"
       role="button"
       tabindex="0"
     >
       <div
-        class="MuiAccordionSummary-content"
+        class="MuiAccordionSummary-content accordionStyles-summaryContent-56"
       >
         Heading One
       </div>
@@ -843,7 +843,7 @@ exports[`Accordion component renders correctly with no padding on accordion deta
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              class="MuiAccordionDetails-root accordionStyles-details-52"
             >
               Content
             </div>
@@ -853,17 +853,17 @@ exports[`Accordion component renders correctly with no padding on accordion deta
     </div>
   </div>
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiAccordion-root accordionStyles-item-51 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
       aria-disabled="false"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
+      class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-54"
       role="button"
       tabindex="0"
     >
       <div
-        class="MuiAccordionSummary-content"
+        class="MuiAccordionSummary-content accordionStyles-summaryContent-56"
       >
         Heading Two
       </div>
@@ -905,7 +905,7 @@ exports[`Accordion component renders correctly with no padding on accordion deta
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              class="MuiAccordionDetails-root accordionStyles-details-52"
             >
               Content
             </div>
