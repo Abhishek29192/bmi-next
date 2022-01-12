@@ -340,6 +340,12 @@ describe("fetchData", () => {
           Authorization: `Bearer access_token`,
           "Content-Type": "application/json"
         },
+        body: {
+          errors: [
+            { type: "error1", message: "Expected error 1" },
+            { type: "error2", message: "Expected error 2" }
+          ]
+        },
         status: 500
       }
     );
@@ -350,6 +356,74 @@ describe("fetchData", () => {
     } catch (error) {
       expect(error.message).toEqual(
         "[PIM] Error getting data: 500 Internal Server Error"
+      );
+    }
+
+    expect(accessSecretVersion).toHaveBeenCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
+    });
+    const body = fetchMock.lastOptions(
+      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
+    )!.body;
+    const expectedUrlencoded = new URLSearchParams();
+    expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
+    expectedUrlencoded.append("client_secret", "access-secret");
+    expectedUrlencoded.append("grant_type", "client_credentials");
+    expect(body).toStrictEqual(expectedUrlencoded);
+    expect(fetchMock).toHaveFetched(
+      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      }
+    );
+    expect(fetchMock).toHaveFetched(
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer access_token`,
+          "Content-Type": "application/json"
+        }
+      }
+    );
+  });
+
+  it("should error with all errors if getting data returns bad request error code", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        method: "POST",
+        body: JSON.stringify({
+          access_token: "access_token"
+        })
+      },
+      {
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
+        method: "GET",
+        headers: {
+          Authorization: `Bearer access_token`,
+          "Content-Type": "application/json"
+        },
+        body: {
+          errors: [
+            { type: "error1", message: "Expected error 1" },
+            { type: "error2", message: "Expected error 2" }
+          ]
+        },
+        status: 400
+      }
+    );
+
+    try {
+      await fetchData("products");
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect(error.message).toStrictEqual(
+        `[PIM] Error getting catalogue:\n\nerror1: Expected error 1\n\nerror2: Expected error 2`
       );
     }
 

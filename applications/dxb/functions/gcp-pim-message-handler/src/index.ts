@@ -16,10 +16,7 @@ const pubSubClient = new PubSub({
 let topicPublisher: Topic;
 const getTopicPublisher = () => {
   if (!topicPublisher) {
-    if (!TRANSITIONAL_TOPIC_NAME) {
-      throw Error("TRANSITIONAL_TOPIC_NAME has not been set.");
-    }
-    topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME);
+    topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME!);
   }
   return topicPublisher;
 };
@@ -130,6 +127,12 @@ export const handleRequest: HttpFunction = async (req, res) => {
   if (!BUILD_TRIGGER_ENDPOINT) {
     // eslint-disable-next-line no-console
     console.error("BUILD_TRIGGER_ENDPOINT has not been set.");
+    return res.sendStatus(500);
+  }
+
+  if (!TRANSITIONAL_TOPIC_NAME) {
+    // eslint-disable-next-line no-console
+    console.error("TRANSITIONAL_TOPIC_NAME has not been set.");
     return res.sendStatus(500);
   }
 

@@ -47,6 +47,15 @@ type AuthResponse = {
   scope: "basic openid";
 };
 
+type ErrorResponse = {
+  errors: [
+    {
+      type: string;
+      message: string;
+    }
+  ];
+};
+
 const secretManagerClient = new SecretManagerServiceClient();
 
 const getAuthToken = async (): Promise<AuthResponse> => {
@@ -133,6 +142,16 @@ export const fetchData = async (
   const response = await fetch(fullPath, options);
 
   if (!response.ok) {
+    if (response.status === 400) {
+      const body: ErrorResponse = await response.json();
+      const errorMessage = [
+        "[PIM] Error getting catalogue:",
+        ...body.errors.map(({ type, message }) => `${type}: ${message}`)
+      ].join("\n\n");
+      // eslint-disable-next-line no-console
+      console.error(errorMessage);
+      throw new Error(errorMessage);
+    }
     // eslint-disable-next-line no-console
     console.error(
       `[PIM] Error getting data: ${response.status} ${response.statusText}`
