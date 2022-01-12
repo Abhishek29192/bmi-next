@@ -482,7 +482,7 @@ describe("Making a POST request", () => {
       url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       body: JSON.stringify({
         success: true,
-        score: parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE) - 0.1
+        score: parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!) - 0.1
       })
     });
 
