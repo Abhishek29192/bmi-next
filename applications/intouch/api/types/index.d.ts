@@ -14987,6 +14987,7 @@ export type Query = Node & {
   courseTemps?: Maybe<CourseTempsConnection>;
   /** Reads and enables pagination through a set of `Course`. */
   courses?: Maybe<CoursesConnection>;
+  currentAccountDoceboId?: Maybe<Scalars["Int"]>;
   currentAccountEmail?: Maybe<Scalars["String"]>;
   currentAccountId?: Maybe<Scalars["Int"]>;
   currentCompany?: Maybe<Scalars["Int"]>;

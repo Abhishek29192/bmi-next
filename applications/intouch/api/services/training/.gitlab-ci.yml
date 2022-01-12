@@ -56,6 +56,8 @@ deploy_intouch_training_to_cloudrun_bmi:
   cache: {}
   needs:
     - build_intouch_api_training
+    - job: migrate_training_db_bmi
+      optional: true
   image: google/cloud-sdk
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
@@ -65,9 +67,6 @@ deploy_intouch_training_to_cloudrun_bmi:
         CLOUD_RUN: "$GCP_BMI_INTOUCH_DEV_TRAINING"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
-  needs:
-    - job: migrate_training_db_bmi
-      optional: true
   script:
     - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts
     - echo "Deploying to $CLOUD_RUN on BMI tenant in project $BMI_PROJECT"
@@ -81,6 +80,9 @@ release_intouch_training_to_cloudrun_bmi:
   stage: deploy
   cache: {}
   image: google/cloud-sdk
+  needs:
+    - job: migrate_training_db_bmi
+      optional: true
   variables:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_TLS_CERTDIR: ""
