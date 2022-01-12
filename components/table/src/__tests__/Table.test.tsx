@@ -184,7 +184,7 @@ describe("Table component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
-  it("renders without TableHeader if header has no children", () => {
+  it("throws error if header has no children", () => {
     mockUseDimensions({
       containerWidth: 400,
       normalTableWidth: 401,
@@ -193,7 +193,7 @@ describe("Table component", () => {
     try {
       render(
         <Table>
-          <Table.Head />
+          <Table.Head>{null}</Table.Head>
           <Table.Body>
             <Table.Row>
               <Table.Cell>Row 1 - Cell 1</Table.Cell>
@@ -206,7 +206,7 @@ describe("Table component", () => {
     }
   });
 
-  it("renders without TableHeader if header children not elements", () => {
+  it("throws error if header children not an element", () => {
     mockUseDimensions({
       containerWidth: 400,
       normalTableWidth: 401,
