@@ -27,7 +27,7 @@ const validMimeTypes = [
   "image/png"
 ];
 
-const getContentfulEnvironment = async () => {
+const getContentfulEnvironment = async (): Promise<Environment | undefined> => {
   if (!contentfulEnvironmentCache) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars -- For some reason, eslint doesn't always like optional chained calls
     const managementTokenSecret = await secretManagerClient.accessSecretVersion(
@@ -72,13 +72,13 @@ export const upload: HttpFunction = async (request, response) => {
   if (!CONTENTFUL_SPACE_ID) {
     // eslint-disable-next-line no-console
     console.error("CONTENTFUL_SPACE_ID has not been set");
-    return response.status(500).send(Error("Something went wrong."));
+    return response.sendStatus(500);
   }
 
   if (!CONTENTFUL_ENVIRONMENT) {
     // eslint-disable-next-line no-console
     console.error("CONTENTFUL_ENVIRONMENT has not been set");
-    return response.status(500).send(Error("Something went wrong."));
+    return response.sendStatus(500);
   }
 
   response.set("Access-Control-Allow-Origin", "*");
