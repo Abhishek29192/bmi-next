@@ -1,5 +1,5 @@
 import { Readable } from "stream";
-import { Request } from "express";
+import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
 import { v4 as uuid } from "uuid";
@@ -14,7 +14,8 @@ import {
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
-let proxy;
+const proxy = (request: Partial<Request>, response: Partial<Response>) =>
+  require("../index").proxy(request, response);
 
 beforeAll(() => {
   mockConsole();
@@ -24,8 +25,6 @@ beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
   fetchMock.reset();
-  const index = require("../index");
-  proxy = index.proxy;
 });
 
 describe("Making an OPTIONS request as part of CORS", () => {
@@ -126,11 +125,11 @@ describe("Making a GET request", () => {
     expect(fetchMock).toHaveFetched(expectedResponse.url, {
       method: req.method,
       headers: {
-        accept: req.headers.accept,
-        "accept-encoding": req.headers["accept-encoding"] as string,
-        "accept-language": req.headers["accept-language"],
-        authorization: req.headers.authorization,
-        connection: req.headers.connection
+        accept: req.headers!.accept!,
+        "accept-encoding": req.headers!["accept-encoding"] as string,
+        "accept-language": req.headers!["accept-language"]!,
+        authorization: req.headers!.authorization!,
+        connection: req.headers!.connection!
       }
     });
   });
@@ -165,18 +164,18 @@ describe("Making a GET request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(expectedResponse.status);
-    Object.entries(expectedResponse.headers).forEach(([key, value]) => {
+    Object.entries(expectedResponse.headers!).forEach(([key, value]) => {
       expect(res.setHeader).toBeCalledWith(key, value);
     });
     expect(res.on).toBeCalledWith("unpipe", expect.any(Function));
     expect(fetchMock).toHaveFetched(expectedResponse.url, {
       method: req.method,
       headers: {
-        accept: req.headers.accept,
-        "accept-encoding": req.headers["accept-encoding"] as string,
-        "accept-language": req.headers["accept-language"],
-        authorization: req.headers.authorization,
-        connection: req.headers.connection
+        accept: req.headers!.accept!,
+        "accept-encoding": req.headers!["accept-encoding"] as string,
+        "accept-language": req.headers!["accept-language"]!,
+        authorization: req.headers!.authorization!,
+        connection: req.headers!.connection!
       }
     });
   });
@@ -198,7 +197,7 @@ describe("Making a GET request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(expectedResponse.status);
-    Object.entries(expectedResponse.headers).forEach(([key, value]) => {
+    Object.entries(expectedResponse.headers!).forEach(([key, value]) => {
       expect(res.setHeader).toBeCalledWith(key, value);
     });
     expect(res.on).toBeCalledWith("unpipe", expect.any(Function));
@@ -245,11 +244,11 @@ describe("Making a GET request", () => {
     expect(fetchMock).toHaveFetched(expectedResponse.url, {
       method: req.method,
       headers: {
-        accept: req.headers.accept,
-        "accept-encoding": req.headers["accept-encoding"] as string,
-        "accept-language": req.headers["accept-language"],
-        authorization: req.headers.authorization,
-        connection: req.headers.connection
+        accept: req.headers!.accept!,
+        "accept-encoding": req.headers!["accept-encoding"] as string,
+        "accept-language": req.headers!["accept-language"]!,
+        authorization: req.headers!.authorization!,
+        connection: req.headers!.connection!
       }
     });
   });
@@ -293,13 +292,13 @@ describe("Making a POST request", () => {
       body: req.body,
       method: req.method,
       headers: {
-        accept: req.headers.accept,
-        "accept-encoding": req.headers["accept-encoding"] as string,
-        "accept-language": req.headers["accept-language"],
-        authorization: req.headers.authorization,
-        connection: req.headers.connection,
-        "content-length": req.headers["content-length"],
-        "content-type": req.headers["content-type"]
+        accept: req.headers!.accept!,
+        "accept-encoding": req.headers!["accept-encoding"] as string,
+        "accept-language": req.headers!["accept-language"]!,
+        authorization: req.headers!.authorization!,
+        connection: req.headers!.connection!,
+        "content-length": req.headers!["content-length"]!,
+        "content-type": req.headers!["content-type"]!
       }
     });
   });
@@ -342,13 +341,13 @@ describe("Making a POST request", () => {
       body: req.body,
       method: req.method,
       headers: {
-        accept: req.headers.accept,
-        "accept-encoding": req.headers["accept-encoding"] as string,
-        "accept-language": req.headers["accept-language"],
-        authorization: req.headers.authorization,
-        connection: req.headers.connection,
-        "content-length": req.headers["content-length"],
-        "content-type": req.headers["content-type"]
+        accept: req.headers!.accept!,
+        "accept-encoding": req.headers!["accept-encoding"] as string,
+        "accept-language": req.headers!["accept-language"]!,
+        authorization: req.headers!.authorization!,
+        connection: req.headers!.connection!,
+        "content-length": req.headers!["content-length"]!,
+        "content-type": req.headers!["content-type"] as string
       }
     });
   });
@@ -419,13 +418,13 @@ describe("Making a POST request", () => {
       body: req.body,
       method: req.method,
       headers: {
-        accept: req.headers.accept,
-        "accept-encoding": req.headers["accept-encoding"] as string,
-        "accept-language": req.headers["accept-language"],
-        authorization: req.headers.authorization,
-        connection: req.headers.connection,
-        "content-length": req.headers["content-length"],
-        "content-type": req.headers["content-type"]
+        accept: req.headers!!.accept!,
+        "accept-encoding": req.headers!!["accept-encoding"] as string,
+        "accept-language": req.headers!!["accept-language"]!,
+        authorization: req.headers!!.authorization!,
+        connection: req.headers!!.connection!,
+        "content-length": req.headers!!["content-length"]!,
+        "content-type": req.headers!!["content-type"]!
       }
     });
   });
