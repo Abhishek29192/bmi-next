@@ -15,9 +15,7 @@ export const WizardBody = ({ children }: WizardBodyProps) => {
   return (
     <div className={styles.body}>
       <div className={styles.body__title}>
-        <Typography variant="h4" style={{ textTransform: "capitalize" }}>
-          {t(`${header.title}`)}
-        </Typography>
+        <Typography variant="h4">{t(`${header.title}`)}</Typography>
         <Typography variant={"body3"}>{t(`${header.subTitle}`)}</Typography>
         {isSubmit && (
           <div className={styles.spinnerBg}>
