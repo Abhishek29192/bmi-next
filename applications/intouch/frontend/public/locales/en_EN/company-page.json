@@ -1,164 +1,164 @@
 {
-  "titleMember": "Company",
-  "titleAdmin": "Companies",
+  "businessType": {
+    "ARCHITECT": "Architect",
+    "CONTRACTOR": "Contractor",
+    "CORP_DEVELOPER": "Developer",
+    "MERCHANT": "Merchant"
+  },
+  "certificationsTitle": "BMI Certifications",
+  "companyActions": {
+    "activate": "Activate company",
+    "deactivate": "Deactivate company"
+  },
+  "companyActionsTitle": "Company Actions",
+  "companyOperations": "Operation Type",
+  "companyOperationsSuffix": "roofing",
   "details": {
-    "title": "Company Details",
-    "name": "Company name",
     "aboutUs": "Company description",
-    "tradingAddress": "Main office address",
-    "owner": "Company Owner",
     "contactDetails": "Contact information",
-    "registeredDetails": "Registered Details",
+    "name": "Company name",
+    "owner": "Company Owner",
+    "phone": "Phone",
     "referenceNumber": "Membership number",
     "registeredAddress": "Registered Address",
+    "registeredDetails": "Registered Details",
     "taxNumber": "Company VAT number",
-    "phone": "Phone"
+    "title": "Company Details",
+    "tradingAddress": "Main office address"
+  },
+  "document": {
+    "addDocument": "Add Document",
+    "confirmDialog": {
+      "body": "Delete document?",
+      "cancelLabel": "Cancel",
+      "confirmLabel": "Confirm",
+      "title": "Company Document"
+    },
+    "headers": {
+      "date": "Date",
+      "document": "Document",
+      "download": "DOWNLOAD"
+    },
+    "noContent": "No documents uploaded yet",
+    "title": "Company Documents",
+    "uploadDialog": {
+      "buttonLabel": "Upload Files",
+      "cancelLabel": "Cancel",
+      "confirmLabel": "Upload files",
+      "evidence_category": "Evidence Category",
+      "fileAlreadyExisting": "Filename already exists",
+      "fileValidationMessage": "You cannot upload  files larger than {{fileSize}}",
+      "genericError": "Generic error",
+      "instruction": "You can add files",
+      "microcopy": {
+        "browse": "Browse",
+        "drop": "Drop"
+      },
+      "title": "Document Upload"
+    }
+  },
+  "edit_dialog": {
+    "form": {
+      "actions": {
+        "cancel": "Cancel",
+        "submit": "Save & Close"
+      },
+      "fields": {
+        "aboutUs": "Company description (optional)",
+        "businessType": "Business Type",
+        "facebook": "Facebook profile (optional)",
+        "linkedIn": "LinkedIn profile (optional)",
+        "logo": {
+          "alt_text": "Company logo",
+          "buttons": {
+            "remove": "Remove",
+            "upload": "Upload new photo"
+          },
+          "fileSizeMessage": "Max file size of 3mb.",
+          "fileTypesMessage": "You can upload jpg, gif or png files.",
+          "label": "Logo"
+        },
+        "name": "Registered Name",
+        "operationTypes": "Operation Types",
+        "ownerEmail": "E-mail address (optional)",
+        "ownerPhone": "Phone (optional)",
+        "phone": "Phone (optional)",
+        "publicEmail": "E-mail address (optional)",
+        "registeredAddress": {
+          "coordinates": {
+            "x": "Latitude",
+            "y": "Longitude"
+          },
+          "country": "Country",
+          "firstLine": "Address Line 1",
+          "postcode": "Post Code / ZIP",
+          "region": "Region",
+          "secondLine": "Address Line 2",
+          "town": "Town / City"
+        },
+        "taxNumber": "Tax number",
+        "tier": "Tier",
+        "tradingAddress": {
+          "autocomplete": "Post code, city or street",
+          "coordinates": {
+            "x": "Latitude",
+            "y": "Longitude"
+          },
+          "country": "Country",
+          "firstLine": "Address Line 1",
+          "postcode": "Post Code / ZIP",
+          "region": "Region",
+          "secondLine": "Address Line 2",
+          "town": "Town / City"
+        },
+        "website": "Company website (optional)"
+      },
+      "maxCharacters": "Max of 255 characters"
+    },
+    "sections": {
+      "contact_details": "Contact details",
+      "owner_details": "Company owner details",
+      "registered_details": "Registered details",
+      "trading_address": "Trading address",
+      "trading_address_description": "Please provide your trading address to appear on BMIGroup.com 'Find a Roofer' locator for building owners to contact you about your services",
+      "trading_address_fields_heading": "Contact Information"
+    },
+    "title": "Company Details"
+  },
+  "errorCompanyNameUniqueViolation": "Name already used",
+  "errorCompanyReferenceUniqueViolation": "Number already used",
+  "errorUniqueViolation": "Not unique",
+  "incompleteProfile": {
+    "closeAlertAccessibilityLabel": "Close Alert",
+    "fields": {
+      "aboutUs": "Description",
+      "logo": "Logo",
+      "phone": "Phone",
+      "publicEmail": "Email",
+      "tradingAddress": "Main office address"
+    },
+    "warning": "In order to take part of the BMI Contract Locator please provide the required information listed below."
   },
   "noCompanies": "This market has no companies yet",
+  "operationTypes": {
+    "BITUMEN": "bitumen",
+    "COATER": "coater",
+    "FLAT": "flat",
+    "GREEN": "green",
+    "PITCHED": "pitched",
+    "SOLAR": "solar",
+    "TILE": "tile"
+  },
+  "register_dialog": {
+    "title": "Register a company"
+  },
+  "report": "Download Companies List",
   "search": {
     "inputLabel": "Search for a company",
     "profileComplete": "Profile complete",
     "profileIncomplete": "Profile incomplete"
   },
   "supportTitle": "Roofpro Support",
-  "certificationsTitle": "BMI Certifications",
-  "incompleteProfile": {
-    "fields": {
-      "phone": "Phone",
-      "publicEmail": "Email",
-      "aboutUs": "Description",
-      "tradingAddress": "Main office address",
-      "logo": "Logo"
-    },
-    "warning": "In order to take part of the BMI Contract Locator please provide the required information listed below.",
-    "closeAlertAccessibilityLabel": "Close Alert"
-  },
-  "businessType": {
-    "CONTRACTOR": "Contractor",
-    "ARCHITECT": "Architect",
-    "MERCHANT": "Merchant",
-    "CORP_DEVELOPER": "Developer"
-  },
-  "companyOperations": "Operation Type",
-  "companyOperationsSuffix": "roofing",
-  "operationTypes": {
-    "FLAT": "flat",
-    "PITCHED": "pitched",
-    "SOLAR": "solar",
-    "BITUMEN": "bitumen",
-    "TILE": "tile",
-    "COATER": "coater",
-    "GREEN": "green"
-  },
-  "companyActionsTitle": "Company Actions",
-  "companyActions": {
-    "activate": "Activate company",
-    "deactivate": "Deactivate company"
-  },
-  "register_dialog": {
-    "title": "Register a company"
-  },
-  "edit_dialog": {
-    "title": "Company Details",
-    "sections": {
-      "registered_details": "Registered details",
-      "trading_address": "Trading address",
-      "trading_address_fields_heading": "Contact Information",
-      "trading_address_description": "Please provide your trading address to appear on BMIGroup.com 'Find a Roofer' locator for building owners to contact you about your services",
-      "contact_details": "Contact details",
-      "owner_details": "Company owner details"
-    },
-    "form": {
-      "maxCharacters": "Max 255 characters",
-      "fields": {
-        "name": "Registered Name",
-        "registeredAddress": {
-          "firstLine": "Address Line 1",
-          "secondLine": "Address Line 2 (optional)",
-          "town": "Town / City",
-          "postcode": "Post Code / ZIP",
-          "region": "Region (optional)",
-          "country": "Country",
-          "coordinates": {
-            "x": "Latitude",
-            "y": "Longitude"
-          }
-        },
-        "tradingAddress": {
-          "autocomplete": "Post code, city or street",
-          "firstLine": "Address Line 1 (optional)",
-          "secondLine": "Address Line 2 (optional)",
-          "town": "Town / City (optional)",
-          "postcode": "Post Code / ZIP (optional)",
-          "region": "Region (optional)",
-          "country": "Country (optional)",
-          "coordinates": {
-            "x": "Latitude",
-            "y": "Longitude"
-          }
-        },
-        "logo": {
-          "label": "Logo (optional)",
-          "alt_text": "Company logo",
-          "buttons": {
-            "upload": "Upload new photo",
-            "remove": "Remove"
-          },
-          "fileTypesMessage": "You can upload jpg, gif or png files.",
-          "fileSizeMessage": "Max file size of 3mb."
-        },
-        "taxNumber": "Tax number",
-        "businessType": "Business Type",
-        "operationTypes": "Operation Types",
-        "tier": "Tier",
-        "aboutUs": "Company description (optional)",
-        "phone": "Phone (optional)",
-        "website": "Company website (optional)",
-        "facebook": "Facebook profile (optional)",
-        "publicEmail": "E-mail address (optional)",
-        "linkedIn": "LinkedIn profile (optional)",
-        "ownerPhone": "Phone (optional)",
-        "ownerEmail": "E-mail address (optional)"
-      },
-      "actions": {
-        "submit": "Save & Close",
-        "cancel": "Cancel"
-      }
-    }
-  },
-  "report": "Download Companies List",
-  "document": {
-    "title": "Company Documents",
-    "noContent": "No documents uploaded yet",
-    "addDocument": "Add Document",
-    "headers": {
-      "document": "Document",
-      "date": "Date",
-      "download": "DOWNLOAD"
-    },
-    "uploadDialog": {
-      "title": "Document Upload",
-      "buttonLabel": "Upload Files",
-      "microcopy": {
-        "drop": "Drop",
-        "browse": "Browse"
-      },
-      "instruction": "You can add files",
-      "confirmLabel": "Upload files",
-      "cancelLabel": "Cancel",
-      "fileValidationMessage": "You cannot upload  files larger than {{fileSize}}",
-      "evidence_category": "Evidence Category",
-      "fileAlreadyExisting": "This file already exists",
-      "genericError": "An error has occurred. Please try again, if the problem persists contact us"
-    },
-    "confirmDialog": {
-      "title": "Company Document",
-      "body": "Delete document?",
-      "confirmLabel": "Confirm",
-      "cancelLabel": "Cancel"
-    }
-  },
-  "errorCompanyNameUniqueViolation": "Company with the same name already exists",
-  "errorCompanyReferenceUniqueViolation": "Company with the reference number already exists",
-  "errorUniqueViolation": "Unique violation problem"
+  "titleAdmin": "Companies",
+  "titleMember": "Company"
 }

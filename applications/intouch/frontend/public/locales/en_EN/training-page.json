@@ -1,29 +1,29 @@
 {
-  "Training": "Training",
-  "See training": "See training",
-  "My courses": "My courses",
-  "in_progress": "In progress",
-  "enrolled": "Enrolled",
-  "completed": "Completed",
-  "waiting": "Waiting",
-  "viewTraining": "View training",
   "Description": "Description",
-  "search": {
-    "inputLabel": "Search for a training"
-  },
+  "My courses": "My courses",
+  "See training": "See training",
+  "Training": "Training",
+  "completed": "Completed",
+  "enrolled": "Enrolled",
   "filter": {
     "labels": {
       "all": "All"
     }
+  },
+  "in_progress": "In progress",
+  "search": {
+    "inputLabel": "Search for a training"
+  },
+  "technology": {
+    "FLAT": "Flat",
+    "OTHER": "Other",
+    "PITCHED": "Pitched"
   },
   "type": {
     "classroom": "Classroom",
     "elearning": "E-Learning",
     "webinar": "Webinar"
   },
-  "technology": {
-    "PITCHED": "Pitched",
-    "FLAT": "Flat",
-    "OTHER": "Other"
-  }
+  "viewTraining": "View training",
+  "waiting": "Waiting"
 }
