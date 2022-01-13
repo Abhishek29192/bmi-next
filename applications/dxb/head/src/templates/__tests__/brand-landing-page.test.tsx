@@ -41,8 +41,7 @@ describe("Brand Landing Page Template", () => {
       subtitle: null,
       youtubeId: "youtubeId",
       previewMedia: null,
-      videoRatio: null,
-      className: null
+      videoRatio: null
     },
     backgroundColor: null
   };
@@ -65,8 +64,7 @@ describe("Brand Landing Page Template", () => {
         subtitle: null,
         youtubeId: "youtubeId",
         previewMedia: null,
-        videoRatio: null,
-        className: null
+        videoRatio: null
       },
       heroType: null,
       cta: null,
@@ -123,8 +121,7 @@ describe("Brand Landing Page Template", () => {
           subtitle: null,
           youtubeId: "youtubeId",
           previewMedia: null,
-          videoRatio: null,
-          className: null
+          videoRatio: null
         }
       },
       {
@@ -138,8 +135,7 @@ describe("Brand Landing Page Template", () => {
           subtitle: null,
           youtubeId: "youtubeId",
           previewMedia: null,
-          videoRatio: null,
-          className: null
+          videoRatio: null
         }
       }
     ];
