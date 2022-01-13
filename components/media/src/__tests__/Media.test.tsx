@@ -74,6 +74,21 @@ describe("Media component", () => {
     expect(myEvent.preventDefault).toHaveBeenCalledTimes(1);
   });
 
+  it("should prevent drag event if child.type is img and isDragEnabled is undefined", async () => {
+    const { container } = render(
+      <Media>
+        <img />
+      </Media>
+    );
+
+    const myEvent = createEvent.dragStart(container.firstChild!);
+    myEvent.preventDefault = jest.fn();
+
+    fireEvent(container.firstChild!, myEvent);
+
+    expect(myEvent.preventDefault).toHaveBeenCalledTimes(1);
+  });
+
   it("should not prevent drag event if child.type is img and isDragEnabled is true", async () => {
     const { container } = render(
       <Media isDragEnabled>
