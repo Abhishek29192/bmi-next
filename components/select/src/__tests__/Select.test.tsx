@@ -101,7 +101,7 @@ describe("Select component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("displays errorText instead of helperText if error is provided ", () => {
+  it("displays errorText instead of helperText if error is provided", () => {
     const label = "Country";
     const { container, getByLabelText } = render(
       <Select
