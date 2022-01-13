@@ -418,11 +418,11 @@ describe("Making a POST request", () => {
       body: req.body,
       method: req.method,
       headers: {
-        accept: req.headers!!.accept!,
+        accept: req.headers!.accept!,
         "accept-encoding": req.headers!!["accept-encoding"] as string,
         "accept-language": req.headers!!["accept-language"]!,
-        authorization: req.headers!!.authorization!,
-        connection: req.headers!!.connection!,
+        authorization: req.headers!.authorization!,
+        connection: req.headers!.connection!,
         "content-length": req.headers!!["content-length"]!,
         "content-type": req.headers!!["content-type"]!
       }

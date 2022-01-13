@@ -10,6 +10,10 @@ import {
   createSystemsApiResponse
 } from "./helpers/pimHelper";
 
+const pimAuthTokenUrl = `${process.env.PIM_HOST}/authorizationserver/oauth/token`;
+const pimProductsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`;
+const pimSystemsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&approvalStatus=APPROVED`;
+
 const accessSecretVersion = jest.fn();
 jest.mock("@google-cloud/secret-manager", () => {
   const mSecretManagerServiceClient = jest.fn(() => ({
@@ -144,7 +148,7 @@ describe("fetchData", () => {
 
   it("should error if getting auth token throws error", async () => {
     mockResponses(fetchMock, {
-      url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+      url: pimAuthTokenUrl,
       method: "POST",
       error: Error("Expected error")
     });
@@ -159,31 +163,24 @@ describe("fetchData", () => {
     expect(accessSecretVersion).toHaveBeenCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
     });
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    expect(fetchMock).not.toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&approvalStatus=APPROVED`
-    );
+    });
+    expect(fetchMock).not.toHaveFetched(pimSystemsUrl);
   });
 
   it("should error if getting auth token returns error code", async () => {
     mockResponses(fetchMock, {
-      url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+      url: pimAuthTokenUrl,
       method: "POST",
       status: 500
     });
@@ -200,31 +197,24 @@ describe("fetchData", () => {
     expect(accessSecretVersion).toHaveBeenCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
     });
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    expect(fetchMock).not.toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&approvalStatus=APPROVED`
-    );
+    });
+    expect(fetchMock).not.toHaveFetched(pimSystemsUrl);
   });
 
   it("should error if getting response JSON throws error", async () => {
     mockResponses(fetchMock, {
-      url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+      url: pimAuthTokenUrl,
       method: "POST",
       body: ""
     });
@@ -234,47 +224,40 @@ describe("fetchData", () => {
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual(
-        `invalid json response body at ${process.env.PIM_HOST}/authorizationserver/oauth/token reason: Unexpected end of JSON input`
+        `invalid json response body at ${pimAuthTokenUrl} reason: Unexpected end of JSON input`
       );
     }
 
     expect(accessSecretVersion).toHaveBeenCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
     });
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    expect(fetchMock).not.toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&approvalStatus=APPROVED`
-    );
+    });
+    expect(fetchMock).not.toHaveFetched(pimSystemsUrl);
   });
 
   it("should error if getting data throws error", async () => {
     mockResponses(
       fetchMock,
       {
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: pimAuthTokenUrl,
         method: "POST",
         body: JSON.stringify({
           access_token: "access_token"
         })
       },
       {
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
+        url: pimProductsUrl,
         method: "GET",
         headers: {
           Authorization: `Bearer access_token`,
@@ -294,47 +277,39 @@ describe("fetchData", () => {
     expect(accessSecretVersion).toHaveBeenCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
     });
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer access_token`,
-          "Content-Type": "application/json"
-        }
+    });
+    expect(fetchMock).toHaveFetched(pimProductsUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer access_token`,
+        "Content-Type": "application/json"
       }
-    );
+    });
   });
 
   it("should error if getting data returns error code", async () => {
     mockResponses(
       fetchMock,
       {
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: pimAuthTokenUrl,
         method: "POST",
         body: JSON.stringify({
           access_token: "access_token"
         })
       },
       {
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
+        url: pimProductsUrl,
         method: "GET",
         headers: {
           Authorization: `Bearer access_token`,
@@ -362,47 +337,39 @@ describe("fetchData", () => {
     expect(accessSecretVersion).toHaveBeenCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
     });
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer access_token`,
-          "Content-Type": "application/json"
-        }
+    });
+    expect(fetchMock).toHaveFetched(pimProductsUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer access_token`,
+        "Content-Type": "application/json"
       }
-    );
+    });
   });
 
   it("should error with all errors if getting data returns bad request error code", async () => {
     mockResponses(
       fetchMock,
       {
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: pimAuthTokenUrl,
         method: "POST",
         body: JSON.stringify({
           access_token: "access_token"
         })
       },
       {
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
+        url: pimProductsUrl,
         method: "GET",
         headers: {
           Authorization: `Bearer access_token`,
@@ -430,33 +397,25 @@ describe("fetchData", () => {
     expect(accessSecretVersion).toHaveBeenCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
     });
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer access_token`,
-          "Content-Type": "application/json"
-        }
+    });
+    expect(fetchMock).toHaveFetched(pimProductsUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer access_token`,
+        "Content-Type": "application/json"
       }
-    );
+    });
   });
 
   it("should return products data", async () => {
@@ -464,14 +423,14 @@ describe("fetchData", () => {
     mockResponses(
       fetchMock,
       {
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: pimAuthTokenUrl,
         method: "POST",
         body: JSON.stringify({
           access_token: "access_token"
         })
       },
       {
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
+        url: pimProductsUrl,
         method: "GET",
         headers: {
           Authorization: `Bearer access_token`,
@@ -486,33 +445,25 @@ describe("fetchData", () => {
     expect(accessSecretVersion).toHaveBeenCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
     });
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer access_token`,
-          "Content-Type": "application/json"
-        }
+    });
+    expect(fetchMock).toHaveFetched(pimProductsUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer access_token`,
+        "Content-Type": "application/json"
       }
-    );
+    });
     expect(response).toEqual(apiResponse);
   });
 
@@ -521,14 +472,14 @@ describe("fetchData", () => {
     mockResponses(
       fetchMock,
       {
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: pimAuthTokenUrl,
         method: "POST",
         body: JSON.stringify({
           access_token: "access_token"
         })
       },
       {
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&approvalStatus=APPROVED`,
+        url: pimSystemsUrl,
         method: "GET",
         headers: {
           Authorization: `Bearer access_token`,
@@ -543,33 +494,25 @@ describe("fetchData", () => {
     expect(accessSecretVersion).toHaveBeenCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
     });
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&approvalStatus=APPROVED`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer access_token`,
-          "Content-Type": "application/json"
-        }
+    });
+    expect(fetchMock).toHaveFetched(pimSystemsUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer access_token`,
+        "Content-Type": "application/json"
       }
-    );
+    });
     expect(response).toEqual(apiResponse);
   });
 
@@ -578,7 +521,7 @@ describe("fetchData", () => {
     mockResponses(
       fetchMock,
       {
-        url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+        url: pimAuthTokenUrl,
         method: "POST",
         body: JSON.stringify({
           access_token: "access_token"
@@ -600,23 +543,18 @@ describe("fetchData", () => {
     expect(accessSecretVersion).toHaveBeenCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
     });
-    const body = fetchMock.lastOptions(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`
-    )!.body;
+    const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
     expectedUrlencoded.append("client_secret", "access-secret");
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
-    expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+    expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
       }
-    );
+    });
     expect(fetchMock).toHaveFetched(
       `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&approvalStatus=APPROVED`,
       {
