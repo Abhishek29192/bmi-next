@@ -1,4 +1,4 @@
-import type { HandlerFunction } from "@google-cloud/functions-framework/build/src/functions";
+import type { EventFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { config } from "dotenv";
 import admin from "firebase-admin";
 
@@ -20,10 +20,10 @@ admin.initializeApp({
 const db = admin.firestore();
 
 // TODO: This is batched, functions can be consolidated
-const setItemsInFirestore = async (collectionPath: string, item) => {
+const setItemsInFirestore = async (collectionPath: string, item: any) => {
   const batch = db.batch();
 
-  item.forEach((item) => {
+  item.forEach((item: any) => {
     // Doing it this way to be able to set the ID, otherwise collection.add() creates ID automatically
     const docPath = `${process.env.FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`;
     const docRef = db.doc(docPath);
@@ -37,10 +37,10 @@ const setItemsInFirestore = async (collectionPath: string, item) => {
   await batch.commit();
 };
 
-const deleteItemsFromFirestore = async (collectionPath: string, items) => {
+const deleteItemsFromFirestore = async (collectionPath: string, items: any) => {
   const batch = db.batch();
 
-  items.forEach((item) => {
+  items.forEach((item: any) => {
     const docPath = `${process.env.FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`;
     const docRef = db.doc(docPath);
 
@@ -53,8 +53,8 @@ const deleteItemsFromFirestore = async (collectionPath: string, items) => {
   await batch.commit();
 };
 
-export const handleMessage: HandlerFunction = async ({ data }) => {
-  const message = data
+export const handleMessage: EventFunction = async ({ data }: any) => {
+  const message: { type: string; itemType: string; items: any } = data
     ? JSON.parse(Buffer.from(data, "base64").toString())
     : {};
 
@@ -67,7 +67,9 @@ export const handleMessage: HandlerFunction = async ({ data }) => {
 
   const { type, itemType, items } = message;
   // eslint-disable-next-line security/detect-object-injection
-  const collectionPath = COLLECTIONS[itemType];
+  const collectionPath =
+    itemType in COLLECTIONS &&
+    COLLECTIONS["itemType" as keyof typeof COLLECTIONS];
 
   if (!collectionPath) {
     throw new Error(`Unrecognised itemType [${itemType}]`);

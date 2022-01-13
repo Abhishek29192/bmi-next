@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import Icon from "@bmi/icon";
+import { SVGImport } from "@bmi/svg-import";
 import { useTranslation } from "next-i18next";
 import { Link } from "../Link";
 import { useAccountContext } from "../../context/AccountContext";

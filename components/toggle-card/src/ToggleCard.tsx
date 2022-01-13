@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "@bmi/card";
+import { SVGImport } from "@bmi/svg-import";
 import Typography from "@bmi/typography";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import classnames from "classnames";
@@ -9,13 +10,10 @@ export type Props = {
   title?: React.ReactNode;
   imageSource?: string;
   illustratedImage?: SVGImport;
-} & (
-  | ({ component: "div" } & Omit<ButtonBaseProps<"div">, "component">)
-  | ({ component?: "button" } & Omit<
-      ButtonBaseProps<"button">,
-      "component" | "type"
-    >)
-);
+} & ({ component?: "div" | "button" } & Omit<
+  ButtonBaseProps<"div">,
+  "component"
+>);
 
 const ToggleCard = ({
   title,

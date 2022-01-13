@@ -18,7 +18,7 @@ export const mockRequest = (
   };
 };
 
-export const mockResponse = () => {
+export const mockResponse = (): Partial<ExpressResponse> => {
   const res: Partial<ExpressResponse> = {};
   res.send = jest.fn().mockReturnValue(res);
   res.status = jest.fn().mockReturnValue(res);
@@ -33,6 +33,7 @@ export const mockResponse = () => {
 
 export interface MockedResponse {
   url: MockOptions["url"];
+  requestHeaders?: MockOptions["headers"];
   requestBody?: MockOptions["body"];
   method: MockOptions["method"];
   body?: MockResponseObject["body"] | Response["body"];
@@ -67,6 +68,7 @@ export const mockResponses = (
           !(mockedResponse.body instanceof Readable) && !!mockedResponse.body,
         repeat: mockedResponse.repeat,
         overwriteRoutes: false,
+        headers: mockedResponse.requestHeaders,
         body: mockedResponse.requestBody
       }
     );

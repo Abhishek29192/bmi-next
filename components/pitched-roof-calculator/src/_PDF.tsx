@@ -1,15 +1,15 @@
 import React from "react";
 import { isElement } from "react-is";
 import {
-  pdf,
-  Document,
-  styled,
-  View,
-  Text,
   Canvas,
+  Document,
+  Img,
+  pdf,
+  styled,
   SVG,
   Table,
-  Img
+  Text,
+  View
 } from "@bmi/react-pdf-maker";
 import EffraNormal from "./fonts/Effra_Rg.ttf";
 import EffraBold from "./fonts/Effra_Bd.ttf";
@@ -214,9 +214,9 @@ const ResultsTableTemplate = ({
       layout={{
         hLineColor: () => "#E0E0E0",
         vLineColor: () => "#CCCCCC",
-        vLineWidth: (i, node) =>
+        vLineWidth: (i: number, node: any) =>
           i === 0 || i === node.table.widths.length ? 1 : 0,
-        fillColor: (i) =>
+        fillColor: (i: number) =>
           i < headerRows || (i - headerRows) % 2 ? "#F7F7F7" : null,
         ...layout
       }}
@@ -231,7 +231,7 @@ const ResultsTableTemplate = ({
 const ResultsTableCellText = styled(Text)({
   fontSize: 10,
   color: "#70706F",
-  bold: ({ header }) => Boolean(header)
+  bold: ({ header }: { header: any }) => Boolean(header)
 });
 
 type ResultsTableTemplateCellProps = {
@@ -340,6 +340,8 @@ const shouldAddPageBreak = (
   ) {
     return true;
   }
+
+  return false;
 };
 
 const Header = () => (
@@ -463,7 +465,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
 );
 
 export const getPDF = (props: PdfDocumentProps) =>
-  pdf(<PdfDocument {...props} />, null, {
+  pdf(<PdfDocument {...props} />, undefined, {
     Effra: {
       normal: EffraNormal
         ? EffraNormal.includes("://")

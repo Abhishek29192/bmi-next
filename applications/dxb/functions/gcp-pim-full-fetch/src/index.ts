@@ -1,4 +1,4 @@
-import { PubSub } from "@google-cloud/pubsub";
+import { PubSub, Topic } from "@google-cloud/pubsub";
 import { Request, Response } from "express";
 import { error, info } from "./logger";
 import {
@@ -14,28 +14,36 @@ const { TRANSITIONAL_TOPIC_NAME, GCP_PROJECT_ID } = process.env;
 const pubSubClient = new PubSub({
   projectId: GCP_PROJECT_ID
 });
-const topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME);
+let topicPublisher: Topic;
+const getTopicPublisher = () => {
+  if (!topicPublisher) {
+    topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME!);
+  }
+  return topicPublisher;
+};
 
 async function publishMessage(
   itemType: PimTypes,
   apiResponse: ProductsApiResponse | SystemsApiResponse
 ) {
+  // eslint-disable-next-line security/detect-object-injection
+  const items =
+    itemType === PimTypes.Products
+      ? (apiResponse as ProductsApiResponse).products
+      : (apiResponse as SystemsApiResponse).systems;
   info({
-    message: `Publishing UPDATED ${
-      // eslint-disable-next-line security/detect-object-injection
-      apiResponse[itemType].length
-    } ${itemType.toUpperCase()}`
+    message: `Publishing UPDATED ${items.length} ${itemType.toUpperCase()}`
   });
   const messageBuffer = Buffer.from(
     JSON.stringify({
       type: "UPDATED",
       itemType: itemType.toUpperCase(),
       // eslint-disable-next-line security/detect-object-injection
-      items: apiResponse[itemType]
+      items
     })
   );
 
-  const messageId = await topicPublisher.publish(messageBuffer);
+  const messageId = await getTopicPublisher().publish(messageBuffer);
   info({ message: `Published: ${messageId}` });
 }
 
@@ -49,6 +57,18 @@ const handleRequest = async (
   req: Request<any, any, FullFetchRequest>,
   res: Response
 ) => {
+  if (!GCP_PROJECT_ID) {
+    // eslint-disable-next-line no-console
+    console.error("GCP_PROJECT_ID has not been set.");
+    return res.sendStatus(500);
+  }
+
+  if (!TRANSITIONAL_TOPIC_NAME) {
+    // eslint-disable-next-line no-console
+    console.error("TRANSITIONAL_TOPIC_NAME has not been set.");
+    return res.sendStatus(500);
+  }
+
   const body = req.body;
 
   if (!body) {

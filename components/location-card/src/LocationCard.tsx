@@ -2,6 +2,7 @@ import React from "react";
 import Typography from "@bmi/typography";
 import DefaultAnchorLink, { ClickableAction } from "@bmi/anchor-link";
 import Icon from "@bmi/icon";
+import { SVGImport } from "@bmi/svg-import";
 import { LocationOn, Phone, Mail } from "@material-ui/icons";
 import classnames from "classnames";
 import styles from "./LocationCard.module.scss";

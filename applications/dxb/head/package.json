@@ -82,6 +82,7 @@
     "@bmi/select": "0.0.0",
     "@bmi/share-widget": "0.0.0",
     "@bmi/styles": "0.0.0",
+    "@bmi/svg-import": "0.0.0",
     "@bmi/table": "0.0.0",
     "@bmi/table-of-content": "0.0.0",
     "@bmi/tabs": "0.0.0",

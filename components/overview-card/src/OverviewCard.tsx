@@ -4,6 +4,7 @@ import Media, { AcceptedNode } from "@bmi/media";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import Typography from "@bmi/typography";
 import { withClickable } from "@bmi/clickable";
+import { SVGImport } from "@bmi/svg-import";
 import styles from "./OverviewCard.module.scss";
 
 export type Props = Omit<ButtonBaseProps, "action"> & {

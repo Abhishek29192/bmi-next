@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "@bmi/button";
 import Card from "@bmi/card";
 import Icon from "@bmi/icon";
+import { SVGImport } from "@bmi/svg-import";
 import classnames from "classnames";
 import styles from "./TileList.module.scss";
 

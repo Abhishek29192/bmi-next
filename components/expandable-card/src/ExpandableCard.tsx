@@ -10,6 +10,7 @@ import React, {
 } from "react";
 import DefaultCard, { CardContent } from "@bmi/card";
 import Button from "@bmi/button";
+import { SVGImport } from "@bmi/svg-import";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@bmi/typography";
 import classnames from "classnames";

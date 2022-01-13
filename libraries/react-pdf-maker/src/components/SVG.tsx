@@ -1,4 +1,6 @@
-const SVG = ({ children, ...rest }): any => {
+import { ComponentProps } from "../types";
+
+const SVG = ({ children, ...rest }: ComponentProps): any => {
   return {
     svg: children,
     ...rest

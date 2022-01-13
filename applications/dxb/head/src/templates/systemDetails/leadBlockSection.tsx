@@ -6,6 +6,7 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Button, { ButtonProps } from "@bmi/button";
 import IconList from "@bmi/icon-list";
+import { SVGImport } from "@bmi/svg-import";
 import CheckIcon from "@material-ui/icons/Check";
 import { useLocation } from "@reach/router";
 import Link, { Data as LinkData } from "../../components/Link";

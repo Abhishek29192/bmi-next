@@ -94,6 +94,7 @@ const combineVariantClassifications = (
 };
 
 export const transformProduct = (product: PIMProduct): ESProduct[] => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- Used inside the nested map later on
   const mappedClassifications = mapProductClassifications(
     product,
     PIM_CLASSIFICATION_CATALOGUE_NAMESPACE
@@ -158,9 +159,9 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
   //category codes ONLY
   // not sure if we need to index array of category codes of special category type 'Category'
   // was in the spike.. need to ask Ben
-  const categoryCodesOnly = (categoryGroups["Category"] || []).map((cat) => {
-    return cat.code;
-  });
+  const categoryCodesOnly = (categoryGroups["Category"] || []).map(
+    (cat) => cat.code
+  );
 
   return (product.variantOptions || []).map((variant) => {
     const classifications = combineVariantClassifications(product, variant);
@@ -209,14 +210,14 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     // Codes used for matching against filter codes
     // Values used for matching against search strings (localised input)
     // TODO: Perhaps refactor into objects
-    let colourfamilyCode,
-      colourfamilyValue,
-      materialsCode,
-      materialsValue,
-      texturefamilyCode,
-      texturefamilyValue,
+    let colourfamilyCode: string | undefined,
+      colourfamilyValue: string | undefined,
+      materialsCode: string | undefined,
+      materialsValue: string | undefined,
+      texturefamilyCode: string | undefined,
+      texturefamilyValue: string | undefined,
       // Measurement doesn't need a code for filters at the moment
-      measurementValue;
+      measurementValue: string | undefined;
 
     if (appearanceClassifications) {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars

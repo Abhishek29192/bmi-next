@@ -91,8 +91,24 @@ describe("getEsClient without USE_LOCAL_ES", () => {
     expect(mockClient).toBeCalledTimes(0);
   });
 
-  it("should error if secret could not be found", async () => {
-    accessSecretVersion.mockResolvedValue([]);
+  it("should error if secret payload is undefined", async () => {
+    accessSecretVersion.mockResolvedValue([{}]);
+
+    try {
+      await getEsClient();
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect(error.message).toEqual("Unable to retrieve ES password");
+    }
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.ES_PASSWORD_SECRET}/versions/latest`
+    });
+    expect(mockClient).toBeCalledTimes(0);
+  });
+
+  it("should error if secret payload data is undefined", async () => {
+    accessSecretVersion.mockResolvedValue([{ payload: {} }]);
 
     try {
       await getEsClient();

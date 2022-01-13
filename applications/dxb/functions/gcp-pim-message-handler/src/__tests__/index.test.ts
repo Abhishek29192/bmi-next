@@ -49,6 +49,52 @@ beforeEach(() => {
 });
 
 describe("handleMessage", () => {
+  it("should return 500 if BUILD_TRIGGER_ENDPOINT is not set", async () => {
+    const originalBuildTriggerEndpoint = process.env.BUILD_TRIGGER_ENDPOINT;
+    delete process.env.BUILD_TRIGGER_ENDPOINT;
+
+    const req = mockRequest("GET", {}, "/", {
+      message: createEvent({
+        itemType: "TEST",
+        type: "UPDATED"
+      })
+    });
+    const res = mockResponse();
+
+    await handleRequest(req, res);
+
+    expect(getProducts).toHaveBeenCalledTimes(0);
+    expect(getSystems).toHaveBeenCalledTimes(0);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.sendStatus).toHaveBeenCalledWith(500);
+
+    process.env.BUILD_TRIGGER_ENDPOINT = originalBuildTriggerEndpoint;
+  });
+
+  it("should return 500 if TRANSITIONAL_TOPIC_NAME is not set", async () => {
+    const originalTransitionalTopicName = process.env.TRANSITIONAL_TOPIC_NAME;
+    delete process.env.TRANSITIONAL_TOPIC_NAME;
+
+    const req = mockRequest("GET", {}, "/", {
+      message: createEvent({
+        itemType: "TEST",
+        type: "UPDATED"
+      })
+    });
+    const res = mockResponse();
+
+    await handleRequest(req, res);
+
+    expect(getProducts).toHaveBeenCalledTimes(0);
+    expect(getSystems).toHaveBeenCalledTimes(0);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.sendStatus).toHaveBeenCalledWith(500);
+
+    process.env.TRANSITIONAL_TOPIC_NAME = originalTransitionalTopicName;
+  });
+
   it("should return 404 if request body not sent", async () => {
     const req = mockRequest("GET", {}, "/");
     const res = mockResponse();

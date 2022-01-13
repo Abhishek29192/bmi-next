@@ -20,7 +20,7 @@
  * @link https://cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry#logseverity
  */
 
-const globalLogFields = {};
+const globalLogFields: { [key: string]: any } = {};
 
 export type LogMessage = {
   message?: string;

@@ -19,6 +19,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/uuid": "^8.3.2",
     "env-cmd": "^10.1.0",
     "js-yaml": "^4.0.0"
   }

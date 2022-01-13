@@ -27,22 +27,30 @@ export const proxy: HttpFunction = async (req, res) => {
     // eslint-disable-next-line no-console
     console.info("req.body: ", JSON.stringify(req.body, undefined, 2));
 
+    const requestHeaders: { [key: string]: string } = {};
+    req.header("accept") && (requestHeaders["accept"] = req.header("accept")!);
+    req.header("accept-encoding") &&
+      (requestHeaders["accept-encoding"] = req.header("accept-encoding")!);
+    req.header("accept-language") &&
+      (requestHeaders["accept-language"] = req.header("accept-language")!);
+    req.header("authorization") &&
+      (requestHeaders["authorization"] = req.header("authorization")!);
+    req.header("connection") &&
+      (requestHeaders["connection"] = req.header("connection")!);
+
     const requestInit: RequestInit = {
-      method: req.method,
-      headers: {
-        accept: req.header("accept"),
-        "accept-encoding": req.header("accept-encoding"),
-        "accept-language": req.header("accept-language"),
-        authorization: req.header("authorization"),
-        connection: req.header("connection")
-      }
+      method: req.method
     };
     if (req.method === "POST") {
-      requestInit.headers["content-length"] = req.header("content-length");
-      requestInit.headers["content-type"] = req.header("content-type");
+      req.header("content-length") &&
+        (requestHeaders["content-length"] = req.header("content-length")!);
+      req.header("content-type") &&
+        (requestHeaders["content-type"] = req.header("content-type")!);
       requestInit.compress = false;
       requestInit.body = JSON.stringify(req.body);
     }
+    requestInit.headers = requestHeaders;
+
     try {
       const response = await fetch(ES_HOST + req.url, requestInit);
       // eslint-disable-next-line no-console

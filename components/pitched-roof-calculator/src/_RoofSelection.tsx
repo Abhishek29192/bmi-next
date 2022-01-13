@@ -59,7 +59,10 @@ const RoofSelectionRow = ({
 
 const categories: RoofType[] = ["gable", "hipped", "sloped"];
 
-type RoofSelecionProps = Pick<RoofSelectionRowProps, "select" | "selected">;
+export type RoofSelecionProps = Pick<
+  RoofSelectionRowProps,
+  "select" | "selected"
+>;
 
 const RoofSelection = ({ select, selected }: RoofSelecionProps) => {
   const copy = useContext(MicroCopyContext);

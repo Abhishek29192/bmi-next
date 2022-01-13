@@ -1,8 +1,8 @@
 import path from "path";
 import { readFileSync } from "fs";
 import { IncomingHttpHeaders } from "http";
-import { Request } from "express";
 import { protos } from "@google-cloud/secret-manager";
+import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
 // Needed until we upgrade to yarn 2 or use an NPM registry - https://github.com/yarnpkg/yarn/issues/6323
@@ -47,7 +47,9 @@ jest.mock("contentful-management", () => ({
     getSpace: getSpace
   })
 }));
-let upload;
+
+const upload = (request: Partial<Request>, response: Partial<Response>) =>
+  require("../index").upload(request, response);
 
 beforeAll(() => {
   mockConsole();
@@ -57,11 +59,51 @@ beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
   fetchMock.reset();
-  const index = require("../index");
-  upload = index.upload;
 });
 
 describe("Making an OPTIONS request as part of CORS", () => {
+  it("returns a 500 response if CONTENTFUL_SPACE_ID is not set", async () => {
+    const originalContentfulSpaceId = process.env.CONTENTFUL_SPACE_ID;
+    delete process.env.CONTENTFUL_SPACE_ID;
+
+    const req: Partial<Request> = {
+      method: "OPTIONS"
+    };
+    const res = mockResponse();
+
+    await upload(req, res);
+
+    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSpace).toBeCalledTimes(0);
+    expect(getEnvironment).toBeCalledTimes(0);
+    expect(createUpload).toBeCalledTimes(0);
+    expect(res.set).toBeCalledTimes(0);
+    expect(res.sendStatus).toBeCalledWith(500);
+
+    process.env.CONTENTFUL_SPACE_ID = originalContentfulSpaceId;
+  });
+
+  it("returns a 500 response if CONTENTFUL_ENVIRONMENT is not set", async () => {
+    const originalContentfulEnvironment = process.env.CONTENTFUL_ENVIRONMENT;
+    delete process.env.CONTENTFUL_ENVIRONMENT;
+
+    const req: Partial<Request> = {
+      method: "OPTIONS"
+    };
+    const res = mockResponse();
+
+    await upload(req, res);
+
+    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSpace).toBeCalledTimes(0);
+    expect(getEnvironment).toBeCalledTimes(0);
+    expect(createUpload).toBeCalledTimes(0);
+    expect(res.set).toBeCalledTimes(0);
+    expect(res.sendStatus).toBeCalledWith(500);
+
+    process.env.CONTENTFUL_ENVIRONMENT = originalContentfulEnvironment;
+  });
+
   it("returns a 204 response only allowing POST requests", async () => {
     const req: Partial<Request> = {
       method: "OPTIONS"
@@ -87,6 +129,44 @@ describe("Making an OPTIONS request as part of CORS", () => {
 });
 
 describe("Making a POST request", () => {
+  it("returns status code 500 if CONTENTFUL_SPACE_ID has not been set", async () => {
+    const originalContentfulSpaceId = process.env.CONTENTFUL_SPACE_ID;
+    delete process.env.CONTENTFUL_SPACE_ID;
+
+    const req = mockRequest();
+    const res = mockResponse();
+
+    await upload(req, res);
+
+    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSpace).toBeCalledTimes(0);
+    expect(getEnvironment).toBeCalledTimes(0);
+    expect(createUpload).toBeCalledTimes(0);
+    expect(res.set).toBeCalledTimes(0);
+    expect(res.sendStatus).toBeCalledWith(500);
+
+    process.env.CONTENTFUL_SPACE_ID = originalContentfulSpaceId;
+  });
+
+  it("returns status code 500 if CONTENTFUL_ENVIRONMENT has not been set", async () => {
+    const originalContentfulEnvironment = process.env.CONTENTFUL_ENVIRONMENT;
+    delete process.env.CONTENTFUL_ENVIRONMENT;
+
+    const req = mockRequest();
+    const res = mockResponse();
+
+    await upload(req, res);
+
+    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSpace).toBeCalledTimes(0);
+    expect(getEnvironment).toBeCalledTimes(0);
+    expect(createUpload).toBeCalledTimes(0);
+    expect(res.set).toBeCalledTimes(0);
+    expect(res.sendStatus).toBeCalledWith(500);
+
+    process.env.CONTENTFUL_ENVIRONMENT = originalContentfulEnvironment;
+  });
+
   it("returns status code 400 when the token is missing", async () => {
     const req = mockRequest(
       readFileSync(`${resourcesBasePath}/blank.jpeg`),
@@ -136,6 +216,46 @@ describe("Making a POST request", () => {
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
     expect(fetchMock).toBeCalledTimes(0);
+    expect(getSpace).toBeCalledTimes(0);
+    expect(getEnvironment).toBeCalledTimes(0);
+    expect(createUpload).toBeCalledTimes(0);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(500);
+    expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
+  });
+
+  it("returns status code 500 when the recaptch secret request returns undefined payload", async () => {
+    const req = mockRequest();
+    const res = mockResponse();
+
+    accessSecretVersion.mockResolvedValueOnce([{}]);
+
+    await upload(req, res);
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(fetchMock).toHaveFetchedTimes(0);
+    expect(getSpace).toBeCalledTimes(0);
+    expect(getEnvironment).toBeCalledTimes(0);
+    expect(createUpload).toBeCalledTimes(0);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(500);
+    expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
+  });
+
+  it("returns status code 500 when the recaptch secret request returns undefined payload data", async () => {
+    const req = mockRequest();
+    const res = mockResponse();
+
+    accessSecretVersion.mockResolvedValueOnce([{ payload: {} }]);
+
+    await upload(req, res);
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(fetchMock).toHaveFetchedTimes(0);
     expect(getSpace).toBeCalledTimes(0);
     expect(getEnvironment).toBeCalledTimes(0);
     expect(createUpload).toBeCalledTimes(0);
@@ -252,7 +372,7 @@ describe("Making a POST request", () => {
       url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       body: JSON.stringify({
         success: true,
-        score: parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE) - 0.1
+        score: parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!) - 0.1
       })
     });
 
@@ -381,15 +501,49 @@ describe("Making a POST request", () => {
     );
   });
 
-  it("returns status code 500 when an error is returned from Secret Manager when getting contentful management token", async () => {
+  it("returns status code 500 when Secret Manager when getting contentful management token returns undefined payload", async () => {
     const req = mockRequest();
     const res = mockResponse();
 
     accessSecretVersion
       .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockImplementationOnce(() => {
-        throw new Error("Expected Error");
-      });
+      .mockResolvedValueOnce([{}]);
+
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
+        success: true,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    });
+
+    await upload(req, res);
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(fetchMock).toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
+    });
+    expect(getSpace).toBeCalledTimes(0);
+    expect(getEnvironment).toBeCalledTimes(0);
+    expect(createUpload).toBeCalledTimes(0);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.sendStatus).toBeCalledWith(500);
+  });
+
+  it("returns status code 500 when Secret Manager when getting contentful management token returns undefined payload data", async () => {
+    const req = mockRequest();
+    const res = mockResponse();
+
+    accessSecretVersion
+      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
+      .mockResolvedValueOnce([{ payload: {} }]);
 
     mockResponses(fetchMock, {
       method: "POST",
@@ -745,6 +899,51 @@ describe("Making a POST request", () => {
     createUpload.mockResolvedValueOnce(uploadResponse);
 
     await upload(req, res);
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(fetchMock).toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
+    });
+    expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
+    expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
+    expect(createUpload).toBeCalledWith({ file: req.body });
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.send).toBeCalledWith(uploadResponse);
+  });
+
+  it("returns status 200 and defaults RECAPTCHA_MINIMUM_SCORE to 1.0", async () => {
+    const originalRecaptchaMinimumScore = process.env.RECAPTCHA_MINIMUM_SCORE;
+    delete process.env.RECAPTCHA_MINIMUM_SCORE;
+
+    const req = mockRequest();
+    const res = mockResponse();
+
+    accessSecretVersion
+      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
+      .mockImplementationOnce(() => [
+        { payload: { data: managementTokenSecret } }
+      ]);
+
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
+        success: true,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    });
+
+    const uploadResponse = {
+      expected: "response"
+    };
+    createUpload.mockResolvedValueOnce(uploadResponse);
+
     await upload(req, res);
 
     expect(accessSecretVersion).toBeCalledWith({
@@ -757,17 +956,13 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
     });
-    expect(accessSecretVersion).toBeCalledTimes(2);
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
-    expect(getSpace).toBeCalledTimes(1);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
-    expect(getEnvironment).toBeCalledTimes(1);
     expect(createUpload).toBeCalledWith({ file: req.body });
-    expect(createUpload).toBeCalledTimes(2);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.set).toBeCalledTimes(2);
     expect(res.send).toBeCalledWith(uploadResponse);
-    expect(res.send).toBeCalledTimes(2);
+
+    process.env.RECAPTCHA_MINIMUM_SCORE = originalRecaptchaMinimumScore;
   });
 
   it("only gets Recaptcha secret and Contentful environment once regardless of number of requests", async () => {

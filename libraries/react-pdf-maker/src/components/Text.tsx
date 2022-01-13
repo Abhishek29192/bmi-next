@@ -1,6 +1,7 @@
 import extractDefinitions from "../extractDefinitions";
+import { ComponentProps } from "../types";
 
-const Text = ({ children, ...rest }): any => {
+const Text = ({ children, ...rest }: ComponentProps): any => {
   return {
     text: extractDefinitions(children),
     ...rest

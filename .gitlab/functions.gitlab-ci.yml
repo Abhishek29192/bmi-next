@@ -20,6 +20,8 @@
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
+    - yarn workspace $WORKSPACE build
+    - rm -rf $ROOT_DIR/dist
     - yarn workspace $WORKSPACE build -p tsconfig.build.json
   artifacts:
     paths:

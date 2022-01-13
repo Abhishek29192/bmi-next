@@ -1,6 +1,7 @@
 import React from "react";
 import { ClickableAction } from "@bmi/clickable";
 import Media, { AcceptedNode } from "@bmi/media";
+import { SVGImport } from "@bmi/svg-import";
 import Typography from "@bmi/typography";
 import AnchorLink from "@bmi/anchor-link";
 import MicroCopy from "@bmi/micro-copy";

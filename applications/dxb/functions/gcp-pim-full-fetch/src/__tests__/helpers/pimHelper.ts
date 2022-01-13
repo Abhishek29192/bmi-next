@@ -6,7 +6,7 @@ import { ProductsApiResponse, SystemsApiResponse } from "../../pim";
 export const createProductsApiResponse = (
   productsApiResponse?: Partial<ProductsApiResponse>
 ): ProductsApiResponse => ({
-  catalog: process.env.PIM_CATALOG_NAME,
+  catalog: process.env.PIM_CATALOG_NAME || "",
   currentPage: 0,
   totalPageCount: 1,
   totalProductCount: 1,
@@ -18,10 +18,10 @@ export const createProductsApiResponse = (
 export const createSystemsApiResponse = (
   systemsApiResponse?: Partial<SystemsApiResponse>
 ): SystemsApiResponse => ({
-  catalog: process.env.PIM_CATALOG_NAME,
+  catalog: process.env.PIM_CATALOG_NAME || "",
   currentPage: 0,
   totalPageCount: 1,
-  totalProductCount: 1,
+  totalSystemsCount: 1,
   systems: [{}],
   ...systemsApiResponse
 });

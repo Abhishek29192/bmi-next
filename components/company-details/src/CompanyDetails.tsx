@@ -6,6 +6,7 @@ import Logo, {
   RoofProExpert,
   RoofProPartnerSmall
 } from "@bmi/logo";
+import { SVGImport } from "@bmi/svg-import";
 import Typography from "@bmi/typography";
 import {
   Directions,

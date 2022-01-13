@@ -1,5 +1,6 @@
 import { ClickableAction } from "@bmi/anchor-link";
 import { AcceptedNode } from "@bmi/media";
+import { SVGImport } from "@bmi/svg-import";
 
 export type Slide = {
   brandIcon?: SVGImport;
