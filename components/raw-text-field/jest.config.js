@@ -8,14 +8,5 @@ module.exports = {
   roots: ["<rootDir>/components/raw-text-field/src"],
   collectCoverageFrom: [
     "<rootDir>/components/raw-text-field/src/**/*.{ts,tsx,js}"
-  ],
-  coverageThreshold: {
-    global: {
-      ...sharedConfig.coverageThreshold.global,
-      statements: "94",
-      branches: "47",
-      functions: "50",
-      lines: "94"
-    }
-  }
+  ]
 };
