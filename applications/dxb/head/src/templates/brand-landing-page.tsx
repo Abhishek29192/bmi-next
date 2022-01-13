@@ -30,7 +30,7 @@ type BrandLandingPageData = PageInfoData &
     breadcrumbTitle: string;
   };
 
-type Props = {
+export type Props = {
   data: {
     contentfulBrandLandingPage: BrandLandingPageData;
     contentfulSite: SiteData;
@@ -70,6 +70,7 @@ const getHeroItemsWithContext = (
 const BrandLandingPage = ({ data, pageContext }: Props) => {
   const {
     title,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     description,
     brandLogo,
     featuredMedia,
