@@ -64,6 +64,10 @@ describe("Table component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it("renders correctly without width", () => {
+    const { container } = render(<ExampleTable />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
   it("renders table head with different ColorPair", () => {
     mockUseDimensions({
       containerWidth: 400,
@@ -71,16 +75,6 @@ describe("Table component", () => {
       mediumTableWidth: 400
     });
     const { container } = render(<ExampleTable theme="blue-900" />);
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
-  it("renders without border", () => {
-    mockUseDimensions({
-      containerWidth: 400,
-      normalTableWidth: 400,
-      mediumTableWidth: 400
-    });
-    const { container } = render(<ExampleTable theme="blue-900" hasNoBorder />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -92,6 +86,29 @@ describe("Table component", () => {
     });
     const { container } = render(<ExampleTable />);
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders medium table with no border", () => {
+    mockUseDimensions({
+      containerWidth: 400,
+      normalTableWidth: 401,
+      mediumTableWidth: 400
+    });
+    const { container } = render(<ExampleTable hasNoBorder />);
+    expect(container.firstChild).toMatchSnapshot();
+    expect(container.getElementsByClassName("Table--no-border").length).toBe(1);
+  });
+  it("renders small table with no border", () => {
+    mockUseDimensions({
+      containerWidth: 400,
+      normalTableWidth: 400,
+      mediumTableWidth: 401
+    });
+    const { container } = render(<ExampleTable hasNoBorder />);
+    expect(container.firstChild).toMatchSnapshot();
+    expect(
+      container.getElementsByClassName("SmallTable--no-border").length
+    ).toBe(1);
   });
 
   it("without header renders with reduced size - list view even if there is enough space", () => {
@@ -148,5 +165,66 @@ describe("Table component", () => {
       </Table>
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+  it("renders without TableBody", () => {
+    mockUseDimensions({
+      containerWidth: 400,
+      normalTableWidth: 401,
+      mediumTableWidth: 400
+    });
+    const { container } = render(
+      <Table>
+        <Table.Head>
+          <Table.Row>
+            <Table.Cell>Head Row - Cell 1</Table.Cell>
+            <Table.Cell>Head Row - Cell 2</Table.Cell>
+          </Table.Row>
+        </Table.Head>
+      </Table>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("throws error if header has no children", () => {
+    mockUseDimensions({
+      containerWidth: 400,
+      normalTableWidth: 401,
+      mediumTableWidth: 400
+    });
+    try {
+      render(
+        <Table>
+          <Table.Head>{null}</Table.Head>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>Row 1 - Cell 1</Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </Table>
+      );
+    } catch (e) {
+      expect(e).not.toBeNull();
+    }
+  });
+
+  it("throws error if header children not an element", () => {
+    mockUseDimensions({
+      containerWidth: 400,
+      normalTableWidth: 401,
+      mediumTableWidth: 400
+    });
+    try {
+      render(
+        <Table>
+          <Table.Head>Head</Table.Head>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>Row 1 - Cell 1</Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </Table>
+      );
+    } catch (e) {
+      expect(e).not.toBeNull();
+    }
   });
 });
