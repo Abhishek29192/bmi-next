@@ -119,7 +119,7 @@
     "notRequested": "Ikke efterspurgt",
     "status": {
       "APPROVED": "Godkendt",
-      "NOT_APPLICABLE": NaN,
+      "NOT_APPLICABLE": "N/A",
       "READY": "Parat",
       "REJECTED": "Vendt tilbage",
       "REVIEW": "Indsendt",
