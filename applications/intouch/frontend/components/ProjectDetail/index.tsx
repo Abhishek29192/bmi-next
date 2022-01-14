@@ -38,7 +38,15 @@ import {
 import log from "../../lib/logger";
 import { useAccountContext } from "../../context/AccountContext";
 
-const ProjectDetail = ({ projectId }: { projectId: number }) => {
+type ProjectDetailProps = {
+  projectId: number;
+  onUpdateGuarantee: () => void;
+};
+
+const ProjectDetail = ({
+  projectId,
+  onUpdateGuarantee
+}: ProjectDetailProps) => {
   const { t } = useTranslation("project-page");
   const { account } = useAccountContext();
   const [isPolling, setIsPolling] = useState(false);
@@ -61,6 +69,8 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           }
         });
       }
+
+      onUpdateGuarantee && onUpdateGuarantee();
     },
     refetchQueries: [
       {
@@ -122,7 +132,11 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
     notifyOnNetworkStatusChange: true,
     onCompleted: ({ project }) => {
       const isMissingPdf = project?.guarantees?.nodes?.some(
-        (guarantee) => !guarantee.signedFileStorageUrl
+        (guarantee) =>
+          !guarantee.signedFileStorageUrl &&
+          !["FLAT_SOLUTION", "PITCHED_SOLUTION"].includes(
+            guarantee.guaranteeReferenceCode
+          )
       );
 
       // If some guarantees are missing the pdf means it is still in creation, I need a polling
@@ -274,7 +288,12 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
   );
 };
 
-export default ProjectDetail;
+export default React.memo(ProjectDetail, (prev, next) => {
+  if (prev.projectId !== next.projectId) {
+    return false;
+  }
+  return true;
+});
 
 export const GET_PROJECT = gql`
   fragment ProjectDetailsFragment on Project {

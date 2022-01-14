@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState, useCallback } from "react";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
 import { useRouter } from "next/router";
@@ -20,9 +20,10 @@ import { Layout } from "../../components/Layout";
 import layoutStyles from "../../components/Layout/styles.module.scss";
 import { NoProjectsCard } from "../../components/Cards/NoProjects";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
-
+import { useGetProjectsLazyQuery } from "../../graphql/generated/hooks";
 import { getServerPageGetProjects } from "../../graphql/generated/page";
 import { isSuperOrMarketAdmin } from "../../lib/account";
+import { useMarketContext } from "../../context/MarketContext";
 
 export type ProjectsPageProps = GlobalPageProps & {
   projects: GetProjectsQuery["projectsByMarket"];
@@ -43,12 +44,26 @@ const sortProjects = (
 };
 
 const Projects = ({
-  projects,
+  projects: ssrProjects,
   isPowerfulUser,
   globalPageData
 }: ProjectsPageProps) => {
-  const { t } = useTranslation(["common", "project-page"]);
   const router = useRouter();
+  const { market } = useMarketContext();
+
+  const [projects, setProjects] =
+    useState<GetProjectsQuery["projectsByMarket"]>(ssrProjects);
+
+  const { t } = useTranslation(["common", "project-page"]);
+
+  const [getProjects] = useGetProjectsLazyQuery({
+    variables: {
+      market: market.id
+    },
+    onCompleted: ({ projectsByMarket }) => {
+      setProjects(projectsByMarket);
+    }
+  });
 
   const sortedProjects = useMemo(
     () => sortProjects(projects?.nodes, isPowerfulUser),
@@ -65,6 +80,8 @@ const Projects = ({
   const handleProjectSelection = (projectId: number) => {
     router.push(`/projects/${projectId}`, undefined, { shallow: true });
   };
+
+  const getProjectsCallBack = useCallback(() => getProjects(), [getProjects]);
 
   return (
     <Layout title={t("common:Projects")} pageData={globalPageData}>
@@ -93,7 +110,10 @@ const Projects = ({
               </NoProjectsCard>
             </Grid>
           ) : (
-            <ProjectDetail projectId={activeProject.id} />
+            <ProjectDetail
+              projectId={activeProject.id}
+              onUpdateGuarantee={getProjectsCallBack}
+            />
           )}
         </Grid>
       </div>
