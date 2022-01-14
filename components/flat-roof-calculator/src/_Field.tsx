@@ -29,9 +29,10 @@ const Field = ({
 
   return (
     <div
-      className={classnames(styles["field"], {
-        [styles["field--extra-margin"]]: extraMargin
-      })}
+      className={classnames(
+        styles["field"],
+        extraMargin && styles["field--extra-margin"]
+      )}
     >
       <div className={styles["fieldHeader"]}>
         <Typography variant="h5">{label}</Typography>

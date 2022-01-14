@@ -312,7 +312,7 @@ const ResultsView = ({
             if (pdfLoading) return;
             try {
               setPdfLoading(true);
-              if (typeof window !== "undefined" && window["gtag"]) {
+              if (typeof window !== "undefined" && "gtag" in window) {
                 window["gtag"]("event", "PDF Download", {
                   event_category: "Download"
                 });

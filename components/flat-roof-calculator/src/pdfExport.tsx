@@ -12,7 +12,9 @@ import {
   Img,
   SVG,
   Table,
-  Link
+  Link,
+  ContentTable,
+  ComponentProps
 } from "@bmi/react-pdf-maker";
 import EffraNormal from "./fonts/Effra_Rg.ttf";
 import EffraBold from "./fonts/Effra_Bd.ttf";
@@ -82,7 +84,7 @@ const textStyles = {
 };
 
 type TypographProps = {
-  variant?: string;
+  variant?: keyof typeof textStyles;
   hasUnderline?: boolean;
   children: React.ReactNode;
   [rest: string]: any;
@@ -101,7 +103,7 @@ const Typography = ({
   </View>
 );
 
-const Bullets = (props) => <View {...props} />;
+const Bullets = (props: ComponentProps) => <View {...props} />;
 
 const BulletText = styled(Text)({
   fontSize: 10,
@@ -170,9 +172,9 @@ const ResultsTable = ({
       layout={{
         hLineColor: () => "#CCCCCC",
         vLineColor: () => "#CCCCCC",
-        vLineWidth: (i, node) =>
-          i === 0 || i === node.table.widths.length ? 1 : 0,
-        fillColor: (i) => (i < headerRows ? "#F7F7F7" : null),
+        vLineWidth: (i: number, node: ContentTable) =>
+          i === 0 || i === node.table.widths?.length ? 1 : 0,
+        fillColor: (i: number) => (i < headerRows ? "#F7F7F7" : null),
         ...layout
       }}
       headerRows={headerRows}
@@ -186,11 +188,16 @@ const ResultsTable = ({
 const ResultsTableCellText = styled(Text)({
   fontSize: 10,
   color: "#70706F",
-  bold: ({ header }) => Boolean(header)
+  bold: ({ header }: { header: any }) => Boolean(header)
 });
 
 ResultsTable.Cell = styled(ResultsTableCellText)({
-  margin: ({ first, last }) => [first ? 14 : 5, 8, last ? 14 : 5, 10]
+  margin: ({ first, last }: { first: boolean; last: boolean }) => [
+    first ? 14 : 5,
+    8,
+    last ? 14 : 5,
+    10
+  ]
 });
 
 ResultsTable.Row = Table.Row;
@@ -212,7 +219,7 @@ const InputsTable = ({
     {/* TODO: type the input list or take this array as a prop */}
     {["guarantee", "combustible", "insulated", "color"].map((field) =>
       // eslint-disable-next-line security/detect-object-injection
-      typeof submittedValues[field] !== undefined &&
+      typeof submittedValues[field as keyof FormValues] !== undefined &&
       // eslint-disable-next-line security/detect-object-injection
       treeFieldsDisplay[field].label /* Only display known fields */ ? (
         <ResultsTable.Row key={field}>
@@ -221,8 +228,12 @@ const InputsTable = ({
             {treeFieldsDisplay[field].label}:
           </ResultsTable.Cell>
           <ResultsTable.Cell>
-            {/* eslint-disable-next-line security/detect-object-injection */}
-            {treeFieldsDisplay[field].options[submittedValues[field]].label}
+            {
+              // eslint-disable-next-line security/detect-object-injection
+              treeFieldsDisplay[field].options[
+                submittedValues[field as keyof FormValues]!
+              ].label
+            }
           </ResultsTable.Cell>
         </ResultsTable.Row>
       ) : null
@@ -321,6 +332,8 @@ const shouldAddPageBreak = (
   ) {
     return true;
   }
+
+  return false;
 };
 
 const HeaderText = styled(Text)({
@@ -533,7 +546,7 @@ const PdfDocument = ({
 );
 
 const openPdf = (props: PdfDocumentProps) => {
-  return pdf(<PdfDocument {...props} />, null, {
+  return pdf(<PdfDocument {...props} />, undefined, {
     Effra: {
       normal: window.location.origin + EffraNormal,
       bold: window.location.origin + EffraBold

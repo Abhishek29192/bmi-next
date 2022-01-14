@@ -18,11 +18,9 @@ const Section = ({
   <div
     className={classnames(
       styles["section"],
-      {
-        [styles["section--less-margin"]]: lessMargin,
-        [styles["section--x-less-margin"]]: xLessMargin,
-        [styles["section--xx-less-margin"]]: xxLessMargin
-      },
+      lessMargin && styles["section--less-margin"],
+      xLessMargin && styles["section--x-less-margin"],
+      xxLessMargin && styles["section--xx-less-margin"],
       className
     )}
     {...rest}

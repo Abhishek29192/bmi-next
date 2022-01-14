@@ -1,15 +1,15 @@
 import { pickNumbers } from "../utils/pickNumbers";
-import { TreeType } from "../types/TreeType";
+import { Tree } from "../types/CalculatorData";
 
-export const getSystem = (values, tree: TreeType) => {
+export const getSystem = (values: any, tree: Tree) => {
   // Create a new values object that only keep the necessary values (no left overs selections from other tree paths)
-  const params = {};
+  const params: { [key: string]: string } = {};
 
-  let current: TreeType | string = tree;
+  let current: Tree | string = tree;
 
   // Keep looking until we reach a result (a string which is the system name)
   while (typeof current !== "string") {
-    const { field, paths } = current;
+    const { field, paths } = current as Tree;
 
     // Check the selected value
     // eslint-disable-next-line security/detect-object-injection

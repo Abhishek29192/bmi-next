@@ -1,9 +1,9 @@
 import {
   Calculators,
-  Product,
-  ProductReference,
-  getProduct
-} from "../FlatRoofCalculator";
+  CalculatorDataProduct,
+  ProductReference
+} from "../types/CalculatorData";
+import { getProduct } from "../FlatRoofCalculator";
 import { ResultProduct } from "../types/ResultProduct";
 import { FormValues } from "../types/FormValues";
 
@@ -11,7 +11,7 @@ export const calculateQuantities = (
   systemName: string,
   values: FormValues,
   calculators: Calculators,
-  products: Product[]
+  products: CalculatorDataProduct[]
 ): ResultProduct[] => {
   // eslint-disable-next-line security/detect-object-injection
   const calculations = calculators[systemName];
@@ -54,7 +54,7 @@ export const calculateQuantities = (
 
   const productsToBuy = new Map<
     string,
-    Product & {
+    CalculatorDataProduct & {
       buildUp: string;
       category: string;
       quantity: number;

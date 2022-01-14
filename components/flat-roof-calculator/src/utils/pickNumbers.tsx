@@ -1,4 +1,4 @@
-const getNumber = (value) =>
+const getNumber = (value: any) =>
   typeof value === "number"
     ? value
     : parseFloat(typeof value === "string" ? value : "") ||

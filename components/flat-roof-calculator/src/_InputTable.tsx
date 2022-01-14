@@ -22,7 +22,7 @@ const InputTable = ({
       <TableBody>
         {["guarantee", "combustible", "insulated", "color"].map((field) =>
           // eslint-disable-next-line security/detect-object-injection
-          typeof submittedValues[field] !== undefined &&
+          typeof submittedValues[field as keyof FormValues] !== undefined &&
           // eslint-disable-next-line security/detect-object-injection
           treeFieldsDisplay[field].label /* Only display known fields */ ? (
             <TableRow key={field}>
@@ -33,8 +33,12 @@ const InputTable = ({
                 {treeFieldsDisplay[field].label}:
               </TableCell>
               <TableCell className={styles.cell}>
-                {/* eslint-disable-next-line security/detect-object-injection */}
-                {treeFieldsDisplay[field].options[submittedValues[field]].label}
+                {
+                  // eslint-disable-next-line security/detect-object-injection
+                  treeFieldsDisplay[field].options[
+                    submittedValues[field as keyof FormValues]!
+                  ].label
+                }
               </TableCell>
             </TableRow>
           ) : null

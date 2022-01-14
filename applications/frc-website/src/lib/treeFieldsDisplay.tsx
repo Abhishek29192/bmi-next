@@ -11,7 +11,7 @@ const swatchStyle = {
   height: 48
 };
 
-export const treeFieldsDisplay = (type) => ({
+export const treeFieldsDisplay = (type: string) => ({
   guarantee: {
     label: "Product guarantee",
     description:

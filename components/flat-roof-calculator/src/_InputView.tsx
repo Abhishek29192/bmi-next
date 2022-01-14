@@ -10,7 +10,7 @@ import MeasurementsSection from "./_MeasurementsSection";
 import styles from "./FlatRoofCalculator.module.scss";
 import { ProjectInformationSection } from "./_ProjectInformationSection";
 import { FormValues } from "./types/FormValues";
-import { TreeType } from "./types/TreeType";
+import { Tree as CalculatorDataTree } from "./types/CalculatorData";
 import { FieldsDisplay } from "./types/FieldsDisplay";
 import FormSection from "./_FormSection";
 import Tree from "./_Tree";
@@ -23,7 +23,7 @@ const DecisionTreeSection = ({
   header: string;
   description: string;
   treeProps: {
-    tree: TreeType;
+    tree: CalculatorDataTree;
     fieldsDisplay: FieldsDisplay;
     defaultValues: FormValues;
   };
@@ -46,7 +46,7 @@ type Props = {
     description: string;
   };
   defaultValues: FormValues;
-  typeTree: TreeType;
+  typeTree: CalculatorDataTree;
   treeFieldsDisplay: FieldsDisplay;
   measurementsProps: {
     header: string;

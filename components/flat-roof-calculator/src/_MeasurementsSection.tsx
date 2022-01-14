@@ -9,7 +9,7 @@ import { FormValues } from "./types/FormValues";
 
 const isNumber = (value: string) => !Number.isNaN(Number.parseFloat(value));
 
-const numberValidator = (value) => {
+const numberValidator = (value?: string) => {
   if (typeof value !== "string") {
     throw new Error("This validator only take string values");
   }
@@ -25,7 +25,8 @@ const numberValidator = (value) => {
 };
 
 const getPositiveMinimumValueValidator =
-  (fieldName, minValue, unit, zeroMessage?) => (value) => {
+  (fieldName: string, minValue: number, unit: string, zeroMessage?: string) =>
+  (value?: string) => {
     if (typeof value !== "string") {
       throw new Error("This validator only take string values");
     }

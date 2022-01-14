@@ -1,6 +1,6 @@
 import React from "react";
 
-export const inputContent = (type) => ({
+export const inputContent = (type: string) => ({
   header: `${type} Bitumen Estimator`,
   helpHeader: "Need some help?",
   helpDescription: (

@@ -15,9 +15,10 @@ const FormSection = ({ header, description, children, ...rest }: Props) => (
     <Typography
       variant="h3"
       hasUnderline
-      className={classnames(styles["header3"], {
-        [styles["header3--extra-margin"]]: !description
-      })}
+      className={classnames(
+        styles["header3"],
+        !description && styles["header3--extra-margin"]
+      )}
     >
       {header}
     </Typography>
