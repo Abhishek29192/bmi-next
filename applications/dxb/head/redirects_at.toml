@@ -1,5 +1,161 @@
 
 [[redirects]]
+  from = "/at/p/luminex-uni-max-braun-4180304661"
+  to = "/at//produkte/steildach/steildach-zubehoer/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-topas-13v-ton-solar-kabeldurchgang"
+  to = "/at/produkte/steildach/steildach-zubehoer/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/produkte-und-systemloesungen/produkte/bmi/sealoflex-ultima-concrete-primer-für-beton"
+  to = "/at/p/sealoflex-ultima-concrete-primer-f%C3%BCr-beton-milchig-wei%C3%9F-632889438"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/produkte-und-systemloesungen/flachdach"
+  to = "/at/produkte/flachdach/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/produkte-und-systemloesungen/systemloesungens/systemkonfigurator/flachdach-systemkonfigurator/villas-dichtdach-profi-warmdach"
+  to = "/at/produkte/flachdach/dachsysteme-flachdach/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/angebot-anfordern"
+  to = "/at/services/angebot-anfordern/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/produkte-und-systemloesungen/produkte/bramac-adria-1-1-normalstein"
+  to = "/at/p/bramac-adria-1-1-normalstein-terrakotta-standard-beton-2784113626"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-pultortgangstein-links"
+  to = "/at/p/bramac-markant-pultortgangstein-links-ziegelrot-protector-plus-beton-3543552012"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/ihr-dach-planen"
+  to = "/at/dach-tipps/ihr-dach-planen/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/produkte-und-systemloesungen/produkte/bramac/traufklammer-100-stück"
+  to = "/at/bmi-bramac/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/produkte-und-systemloesungen/produkte/bramac/divotape-anschlussband-dehnfähig-1-5-x-150-mm"
+  to = "/at/p/divotape-anschlussband-dehnfähig-1-5-x-150-mm-1092574519"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/produkte-und-systemloesungen/produkte/bramac/bügel-für-standbrettstein-stahl"
+  to = "/at/bmi-bramac/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/bramac-adria"
+  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-adria/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/produkte-und-systemloesungen/produkte/bmi/sealoflex-endura-catalyst-kat-pulver"
+  to = "/at/p/sealoflex-endura-catalyst-kat-pulver-wei%C3%9F-farblos-887797608"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/services-fuer-profis/projekte-und-referenzen/rotes-kreuz-freiwillige-feuerwehr-stmichael-neu"
+  to = "/at/dach-tipps/rotes-kreuz-freiwillige-feuerwehr-stmichael-neu/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/klöber-venduct-uni-be-entlüfter-set-dn150-wärmegedämmt-mit-langer-schürze-und-anschlussmanschette-rot-3354122027"
+  to = "/at/p/kl%C3%B6ber-venduct-uni-be-entl%C3%BCfter-set-dn150-w%C3%A4rmeged%C3%A4mmt-inkl-anschlussmanschette-rot-1793771982"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/fsv-zulassungen"
+  to = "/at/bruecke-und-strasse/fsv-zulassungen/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/services-fuer-profis/projekte-und-referenzen/almdorf-seinerzeit-neu"
+  to = "/at/dach-tipps/almdorf-seinerzeit-neu/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/bmi-akademie"
+  to = "/at/services/bmi-akademie/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/qr-tag-preisliste-bmi-villas-thermazone"
+  to = "/at/downloads/preislisten/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/qr-tag-preisliste-bmi-bramac-thermazone"
+  to = "/at/downloads/preislisten/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/kamin-und-wandanschlüsse"
+  to = "/at/produkte/steildach/steildach-zubehoer/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/projekte-und-referenzen"
+  to = "/at/dach-tipps/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dachtipps"
+  to = "/at/dach-tipps/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/produkte-und-systemloesungen/systemloesungens/steildach-systeme/dichtdach"
+  to = "/at/produkte/steildach/dichtdach/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/photovoltaik"
+  to = "/at/produkte/photovoltaik/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/at/downloads/leistungserklärung"
   to = "/at/downloads/leistungserklaerungen/"
   status = 301
@@ -218,6 +374,12 @@
 [[redirects]]
   from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-1-1-normalstein"
   to = "/at/p/bramac-7-dachsystem-1-1-normalstein-brillantschwarz-protector-beton-324742732"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/bramac-montero"
+  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-montero/"
   status = 301
   force = true
 
@@ -1608,6 +1770,12 @@
   force = true
 
 [[redirects]]
+  from = "/at/produkte-und-systemloesungen/flachdach"
+  to = "/at/produkte/flachdach/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/at/produkte-und-systemloesungen/produkte/villas/newdrain-dbv-10"
   to = "/at/p/newdrain-dbv-10-339715977"
   status = 301
@@ -2126,6 +2294,12 @@
 [[redirects]]
   from = "/at/ueber-bmi-oesterreich/standorte"
   to = "/at/kontakt/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/sxa/file/download*"
+  to = "/at/downloads/"
   status = 301
   force = true
 
