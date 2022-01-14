@@ -15,7 +15,7 @@ exports.sourceNodes = async (
   { types, credential, appConfig }
 ) => {
   try {
-    if (firebase.apps || !firebase.apps.length) {
+    if (firebase.apps && !firebase.apps.length) {
       const cfg = appConfig
         ? appConfig
         : { credential: firebase.credential.cert(credential) };
