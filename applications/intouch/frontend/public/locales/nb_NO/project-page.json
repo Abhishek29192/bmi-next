@@ -119,7 +119,7 @@
     "notRequested": "Ikke forespurt",
     "status": {
       "APPROVED": "Godkjent",
-      "NOT_APPLICABLE": NaN,
+      "NOT_APPLICABLE": "N/A",
       "READY": "Ferdig",
       "REJECTED": "Returnert",
       "REVIEW": "Sendt inn",
