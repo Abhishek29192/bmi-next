@@ -25,7 +25,7 @@ import SearchTabPanelPages, {
   getCount as getPagesCount
 } from "../components/SearchTabPages";
 
-type Props = {
+export type Props = {
   // TODO: pageContext is/should be the same for all pages, same type
   pageContext: {
     variantCode?: string;
@@ -217,13 +217,12 @@ const SearchPage = ({ pageContext, data }: Props) => {
           return null;
         }
 
-        const { component: Component, hasBeenDisplayed } = data;
+        const { component: Component, hasBeenDisplayed, heading, count } = data;
 
         return (
           <Tabs.TabPanel
             key={tabKey}
-            // eslint-disable-next-line security/detect-object-injection
-            heading={`${data.heading} (${results[tabKey]?.count || 0})`}
+            heading={`${heading} (${count})`}
             index={tabKey}
           >
             {hasBeenDisplayed ? (
