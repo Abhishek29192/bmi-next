@@ -1,23 +1,23 @@
 {
-  "submit": "Send",
-  "uploadFile": "Last opp filer",
-  "uploadFileText": "Last opp filer: {market}-accounts.csv, {market}-companies.csv, {market}-addresses.csv, {market}-members.csv, {market}-owners.csv",
-  "accountImported": "Kontoene er importert til databasen",
-  "dryRunTitle": "Selskapene og regnskapet vil bli importert",
-  "companiesImported": "Selskapene og regnskapene er importert",
-  "auth0Job": "Auth0-importoppgave opprettet",
-  "auth0JobText": "Auth0-importoppgave opprettet med ID: ",
-  "importCompleted": "Import fullført",
-  "dryRunCompleted": "Test fullført",
-  "dryRun": "Test opplasting",
   "account": {
+    "doceboUserId": "Docebo user id",
+    "doceboUsername": "Docebo username",
     "email": "Email",
-    "role": "Rolle",
-    "status": "Status",
-    "phone": "Telefonnummer",
-    "firstName": "Fornavn",
-    "lastName": "Etternavn",
-    "doceboUserId": "Docebo id",
-    "doceboUsername": "Docebo brukernavn"
-  }
+    "firstName": "First name",
+    "lastName": "Last name",
+    "phone": "Phone",
+    "role": "Role",
+    "status": "Status"
+  },
+  "accountImported": "These accounts are been imported in the local db",
+  "auth0Job": "Import job in Auth0 created",
+  "auth0JobText": "An import job it's been created in Auth0 with id:",
+  "companiesImported": "These companies and account have been imported",
+  "dryRun": "Dry run",
+  "dryRunCompleted": "Dry run completed",
+  "dryRunTitle": "These companies and account will be imported",
+  "importCompleted": "Import completed",
+  "submit": "Submit",
+  "uploadFile": "Upload files",
+  "uploadFileText": "Please upload thiese files: {market}-accounts.csv, {market}-companies.csv, {market}-addresses.csv, {market}-members.csv, {market}-owners.csv"
 }

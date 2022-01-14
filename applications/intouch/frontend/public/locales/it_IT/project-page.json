@@ -94,7 +94,7 @@
   },
   "building_owner": {
     "address": "Indirizzo del proprietario",
-    "contact_detail": "Dettaglio della costruzione",
+    "contact_detail": "Nome del proprietario",
     "email": "Email del proprietario",
     "title": "Dettagli del propriatario dell'immobile"
   },
@@ -119,7 +119,7 @@
     "notRequested": "Non richiesto",
     "status": {
       "APPROVED": "Approvato",
-      "NOT_APPLICABLE": "N/A",
+      "NOT_APPLICABLE": NaN,
       "READY": "Pronto",
       "REJECTED": "Restituito",
       "REVIEW": "Inviato",

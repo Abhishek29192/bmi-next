@@ -1,11 +1,11 @@
 {
   "contentTypes": {
+    "EXTERNAL_LINK": "External Link",
+    "FALLBACK": "Media",
     "FOLDER": "Folder",
     "IMAGE": "Image",
-    "VIDEO": "Video",
-    "EXTERNAL_LINK": "External Link",
     "PDF": "PDF",
-    "FALLBACK": "Media"
+    "VIDEO": "Video"
   },
   "countIndicator": "Showing {{amount}} of {{total}} items",
   "noItems": "Nothing here"

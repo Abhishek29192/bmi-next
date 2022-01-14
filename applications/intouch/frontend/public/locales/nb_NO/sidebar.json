@@ -1,7 +1,7 @@
 {
-  "daysRemaining": "Antall dager igjen",
-  "projectInsight": "Prosjekt innsikt",
   "certifiedInstallers": "BMI-kvalifiserte installatører",
+  "daysRemaining": "Antall dager igjen",
   "noCertifiedInstallers": "Ingen installatører er kvalifisert av BMI",
+  "projectInsight": "Prosjekt innsikt",
   "projectsInsightCertifiedInstallers": "Det er {{count}} BMI -sertifisert installatør på dette prosjektet"
 }
