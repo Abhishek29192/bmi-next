@@ -289,6 +289,14 @@ export const SetCompanyDetailsDialog = ({
           <Grid container xs={12} spacing={3}>
             <Grid item xs={12} lg={6}>
               <TextField
+                {...getFieldProps("ownerFullname")}
+                isRequired
+                autoComplete="off"
+              />
+            </Grid>
+
+            <Grid item xs={12} lg={6}>
+              <TextField
                 {...getFieldProps("ownerPhone")}
                 type="tel"
                 getValidationError={validatePhoneNumber}
