@@ -11,39 +11,38 @@ import {
   LocationProvider
 } from "@reach/router";
 import * as all from "@bmi/use-dimensions";
-import {Filter} from "@bmi/filters";
+import { Filter } from "@bmi/filters";
 import ProductListerPage, {
   PageContextType
 } from "../components/product-lister-page";
-import {Data as PageInfoData} from "../../../components/PageInfo";
-import {Data as PageData} from "../../../components/Page";
-import {RichTextData} from "../../../components/RichText";
-import {Data as BreadcrumbsData} from "../../../components/Breadcrumbs";
-import {Data as LinkData, DataTypeEnum} from "../../../components/Link";
-import {Data as SiteData} from "../../../components/Site";
-import {NavigationData} from "../../../components/Link";
+import { Data as PageInfoData } from "../../../components/PageInfo";
+import { Data as PageData } from "../../../components/Page";
+import { RichTextData } from "../../../components/RichText";
+import { Data as BreadcrumbsData } from "../../../components/Breadcrumbs";
+import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
+import { Data as SiteData } from "../../../components/Site";
+import { NavigationData } from "../../../components/Link";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import * as elasticSearch from "../../../utils/elasticSearch";
 
 window.alert = jest.fn();
-
 type Data = PageInfoData &
   PageData & {
-  __typename: "ContentfulProductListerPage";
-  content: RichTextData | null;
-  features: string[] | null;
-  featuresLink: LinkData | null;
-  breadcrumbs: BreadcrumbsData;
-  breadcrumbTitle: string;
-  heroType:
-    | "Hierarchy"
-    | "Spotlight"
-    | "Level 1"
-    | "Level 2"
-    | "Level 3"
-    | null;
-  cta: LinkData | null;
-};
+    __typename: "ContentfulProductListerPage";
+    content: RichTextData | null;
+    features: string[] | null;
+    featuresLink: LinkData | null;
+    breadcrumbs: BreadcrumbsData;
+    breadcrumbTitle: string;
+    heroType:
+      | "Hierarchy"
+      | "Spotlight"
+      | "Level 1"
+      | "Level 2"
+      | "Level 3"
+      | null;
+    cta: LinkData | null;
+  };
 
 const heroTitle = "i am a title";
 const pageInfo: Data = {
@@ -148,9 +147,9 @@ const siteData: SiteData = {
     {
       label: "Europe",
       menu: [
-        {code: "al", label: "Albania", icon: "/icons/flags/al.svg"},
-        {code: "at", label: "Österreich", icon: "/icons/flags/at.svg"},
-        {code: "uk", label: "United Kingdom", icon: "/icons/flags/uk.svg"}
+        { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
+        { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
+        { code: "uk", label: "United Kingdom", icon: "/icons/flags/uk.svg" }
       ]
     }
   ]
@@ -249,15 +248,14 @@ const productWithVariantAndBase = {
 };
 
 function getDimensionHookFn(width: number): () => all.UseDimensionsHook {
-  return () => [() => {
-  }, {width, height: 0}, document.createElement("div")];
+  return () => [() => {}, { width, height: 0 }, document.createElement("div")];
 }
 
 function mockUseDimensions({
-                             containerWidth,
-                             normalTableWidth,
-                             mediumTableWidth
-                           }: {
+  containerWidth,
+  normalTableWidth,
+  mediumTableWidth
+}: {
   containerWidth: number;
   normalTableWidth: number;
   mediumTableWidth: number;
@@ -298,7 +296,7 @@ const renderWithStylesAndLocationProvider = (
   return render(
     <ProvideStyles>
       <LocationProvider history={history}>
-        <ProductListerPage data={pageData} pageContext={pageContext}/>
+        <ProductListerPage data={pageData} pageContext={pageContext} />
       </LocationProvider>
     </ProvideStyles>
   );
@@ -314,7 +312,7 @@ afterEach(() => {
 
 beforeEach(() => {
   jest.resetModules(); // Most important - it clears the cache
-  process.env = {...OLD_ENV}; // Make a copy
+  process.env = { ...OLD_ENV }; // Make a copy
   process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
   mockUseDimensions({
     containerWidth: 400,
@@ -334,7 +332,7 @@ describe("ProductListerPage template", () => {
         process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
         pageData.initialProducts = [];
         pageData.plpFilters = [];
-        const {container, findByText} = renderWithStylesAndLocationProvider(
+        const { container, findByText } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
@@ -347,7 +345,7 @@ describe("ProductListerPage template", () => {
       it("renders basic ProductListerPage", async () => {
         pageData.initialProducts = [];
         pageData.plpFilters = [];
-        const {container, findByText} = renderWithStylesAndLocationProvider(
+        const { container, findByText } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
@@ -387,7 +385,7 @@ describe("ProductListerPage template", () => {
             }
           };
 
-          const {container, findByText} = renderWithStylesAndLocationProvider(
+          const { container, findByText } = renderWithStylesAndLocationProvider(
             localPageData,
             localPageContext
           );
@@ -428,7 +426,7 @@ describe("ProductListerPage template", () => {
               variant1: "variant1"
             }
           };
-          const {container, findByText, queryByText} =
+          const { container, findByText, queryByText } =
             renderWithStylesAndLocationProvider(
               localPageData,
               localPageContext
@@ -449,7 +447,7 @@ describe("ProductListerPage template", () => {
         pageData.initialProducts = [productWithVariantAndBase];
         pageData.contentfulProductListerPage.heroType = "Level 1";
 
-        const {container} = renderWithStylesAndLocationProvider(
+        const { container } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
@@ -471,14 +469,14 @@ describe("ProductListerPage template", () => {
               name: "colour",
               label: "Colour",
               options: [
-                {label: color1Label, value: "colour1"},
-                {label: color2Label, value: "colour2"}
+                { label: color1Label, value: "colour1" },
+                { label: color2Label, value: "colour2" }
               ]
             }
           ];
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.plpFilters = productFilters;
-          const {container, getByLabelText, queryByText} =
+          const { container, getByLabelText, queryByText } =
             renderWithStylesAndLocationProvider(pageData, pageContext);
           await getByLabelText(color1Label);
           expect(queryByText(color2Label)).not.toBeNull();
@@ -491,7 +489,7 @@ describe("ProductListerPage template", () => {
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.contentfulProductListerPage.heroType = "Level 1";
 
-          const {container} = renderWithStylesAndLocationProvider(
+          const { container } = renderWithStylesAndLocationProvider(
             pageData,
             pageContext
           );
@@ -516,14 +514,14 @@ describe("ProductListerPage template", () => {
               name: "size",
               label: "Size",
               options: [
-                {label: size1Label, value: "10mm"},
-                {label: size2Label, value: "20mm"}
+                { label: size1Label, value: "10mm" },
+                { label: size2Label, value: "20mm" }
               ]
             }
           ];
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.plpFilters = productFilters;
-          const {container, getByLabelText, queryByText} =
+          const { container, getByLabelText, queryByText } =
             renderWithStylesAndLocationProvider(pageData, pageContext);
           await getByLabelText(size1Label);
           expect(queryByText(size2Label)).not.toBeNull();
@@ -541,7 +539,7 @@ describe("ProductListerPage template", () => {
         process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
         pageData.initialProducts = [];
         pageData.productFilters = [];
-        const {container, findByText} = renderWithStylesAndLocationProvider(
+        const { container, findByText } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
@@ -553,7 +551,7 @@ describe("ProductListerPage template", () => {
       it("renders basic ProductListerPage", async () => {
         pageData.initialProducts = [];
         pageData.productFilters = [];
-        const {container, findByText} = renderWithStylesAndLocationProvider(
+        const { container, findByText } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
@@ -594,7 +592,7 @@ describe("ProductListerPage template", () => {
             }
           };
 
-          const {container, findByText} = renderWithStylesAndLocationProvider(
+          const { container, findByText } = renderWithStylesAndLocationProvider(
             localPageData,
             localPageContext
           );
@@ -635,7 +633,7 @@ describe("ProductListerPage template", () => {
               variant1: "variant1"
             }
           };
-          const {container, findByText, queryByText} =
+          const { container, findByText, queryByText } =
             renderWithStylesAndLocationProvider(
               localPageData,
               localPageContext
@@ -655,7 +653,7 @@ describe("ProductListerPage template", () => {
       it("renders matching category code of product on Section Title", async () => {
         pageData.initialProducts = [productWithVariantAndBase];
         pageData.productFilters = [];
-        const {container, findByText} = renderWithStylesAndLocationProvider(
+        const { container, findByText } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
@@ -675,14 +673,14 @@ describe("ProductListerPage template", () => {
               name: "verycolourfamily",
               label: "Colour",
               options: [
-                {label: color1Label, value: "colour1"},
-                {label: color2Label, value: "colour2"}
+                { label: color1Label, value: "colour1" },
+                { label: color2Label, value: "colour2" }
               ]
             }
           ];
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.productFilters = productFilters;
-          const {container, getByLabelText, queryByText} =
+          const { container, getByLabelText, queryByText } =
             renderWithStylesAndLocationProvider(pageData, pageContext);
           await getByLabelText(color1Label);
           expect(queryByText(color2Label)).not.toBeNull();
@@ -695,7 +693,7 @@ describe("ProductListerPage template", () => {
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.contentfulProductListerPage.heroType = "Level 1";
 
-          const {container} = renderWithStylesAndLocationProvider(
+          const { container } = renderWithStylesAndLocationProvider(
             pageData,
             pageContext
           );
@@ -720,14 +718,14 @@ describe("ProductListerPage template", () => {
               name: "size",
               label: "Size",
               options: [
-                {label: size1Label, value: "10mm"},
-                {label: size2Label, value: "20mm"}
+                { label: size1Label, value: "10mm" },
+                { label: size2Label, value: "20mm" }
               ]
             }
           ];
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.productFilters = productFilters;
-          const {container, getByLabelText, queryByText} =
+          const { container, getByLabelText, queryByText } =
             renderWithStylesAndLocationProvider(pageData, pageContext);
           await getByLabelText(size1Label);
           expect(queryByText(size2Label)).not.toBeNull();
@@ -741,7 +739,7 @@ describe("ProductListerPage template", () => {
     process.env.GATSBY_PREVIEW = "test";
     pageData.initialProducts = [productWithVariantAndBase];
     pageData.productFilters = [];
-    const {container, findByText} = renderWithStylesAndLocationProvider(
+    const { container, findByText } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext
     );
@@ -753,7 +751,7 @@ describe("ProductListerPage template", () => {
     const products = new Array(30).fill(productWithVariantAndBase);
     pageData.initialProducts = [...products];
     jest.spyOn(window, "scrollTo").mockImplementation();
-    const {getByLabelText} = renderWithStylesAndLocationProvider(
+    const { getByLabelText } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext
     );
@@ -815,7 +813,7 @@ describe("ProductListerPage template", () => {
         }
       }
     });
-    const {container, getByLabelText} = renderWithStylesAndLocationProvider(
+    const { container, getByLabelText } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext
     );
@@ -845,7 +843,7 @@ describe("ProductListerPage template", () => {
         }
       }
     });
-    const {container, getByLabelText} = renderWithStylesAndLocationProvider(
+    const { container, getByLabelText } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext
     );
@@ -863,8 +861,8 @@ describe("ProductListerPage template", () => {
         name: "colour",
         label: "Colour",
         options: [
-          {label: color1Label, value: "colour1"},
-          {label: color2Label, value: "colour2"}
+          { label: color1Label, value: "colour1" },
+          { label: color2Label, value: "colour2" }
         ]
       }
     ];
@@ -872,13 +870,13 @@ describe("ProductListerPage template", () => {
       {
         ...productWithVariantAndBase,
         all_variants: [
-          {...productWithVariantAndBase},
-          {...productWithVariantAndBase}
+          { ...productWithVariantAndBase },
+          { ...productWithVariantAndBase }
         ]
       }
     ];
     pageData.productFilters = productFilters;
-    const {container, queryByText, getByText} =
+    const { container, queryByText, getByText } =
       renderWithStylesAndLocationProvider(pageData, pageContext);
     expect(container.parentElement).toMatchSnapshot();
     fireEvent.click(queryByText(color2Label));
@@ -896,14 +894,14 @@ describe("ProductListerPage template", () => {
         name: "texturefamily",
         label: "texture",
         options: [
-          {label: texture1Label, value: "texture1"},
-          {label: texture2Label, value: "texture2"}
+          { label: texture1Label, value: "texture1" },
+          { label: texture2Label, value: "texture2" }
         ]
       }
     ];
     pageData.initialProducts = [productWithVariantAndBase];
     pageData.productFilters = productFilters;
-    const {container} = renderWithStylesAndLocationProvider(
+    const { container } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext
     );
@@ -913,7 +911,7 @@ describe("ProductListerPage template", () => {
   it("test filter resolver utils when no filters at all", async () => {
     pageData.initialProducts = [productWithVariantAndBase];
     pageData.productFilters = null;
-    const {container} = renderWithStylesAndLocationProvider(
+    const { container } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext
     );
@@ -925,7 +923,7 @@ describe("ProductListerPage template", () => {
     jest.spyOn(window, "alert").mockImplementation();
     const products = new Array(30).fill(productWithVariantAndBase);
     pageData.initialProducts = [...products];
-    const {getByLabelText} = renderWithStylesAndLocationProvider(
+    const { getByLabelText } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext
     );
