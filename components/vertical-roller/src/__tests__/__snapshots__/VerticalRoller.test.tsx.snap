@@ -1,5 +1,210 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`VerticalRoller component navigates to next page 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -17,11 +17,11 @@
+          </h2>
+          <div
+            class=\\"selectors\\"
+          >
+            <button
+-             class=\\"MuiButtonBase-root selector RollerSelector RollerSelector--selected\\"
++             class=\\"MuiButtonBase-root selector RollerSelector\\"
+              tabindex=\\"0\\"
+              type=\\"button\\"
+            >
+              Approved Installers
+              <svg
+@@ -37,11 +37,11 @@
+              <span
+                class=\\"MuiTouchRipple-root\\"
+              />
+            </button>
+            <button
+-             class=\\"MuiButtonBase-root selector RollerSelector\\"
++             class=\\"MuiButtonBase-root selector RollerSelector RollerSelector--selected\\"
+              tabindex=\\"0\\"
+              type=\\"button\\"
+            >
+              Realiable Warranties
+              <svg
+@@ -111,19 +111,24 @@
+            >
+              <span
+                class=\\"sliding-slot\\"
+              >
+                <span
+-                 class=\\"numbers\\"
++                 class=\\"numbers numbers--up\\"
+                >
+                  <span
+-                   class=\\"number number--active\\"
++                   class=\\"number\\"
+                  >
+                    01
+                  </span>
++                 <span
++                   class=\\"number number--active\\"
++                 >
++                   02
+                  </span>
+                </span>
++             </span>
+              <span
+                class=\\"total\\"
+              >
+                03
+              </span>
+@@ -171,11 +176,11 @@
+              <div
+                style=\\"overflow-x: hidden;\\"
+              >
+                <div
+                  class=\\"react-swipeable-view-container\\"
+-                 style=\\"flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;\\"
++                 style=\\"flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; transform: translate(-400%, 0);\\"
+                >
+                  <div
+                    aria-hidden=\\"false\\"
+                    class=\\"Carousel__slide--global\\"
+                    data-swipeable=\\"true\\"
+@@ -189,28 +194,25 @@
+                        style=\\"width: 100%;\\"
+                      >
+                        <div
+                          class=\\"image\\"
+                        >
+-                         <svg
+-                           class=\\"brand-icon\\"
++                         <img
++                           alt=\\"Lorem ipsum\\"
++                           class=\\"Media\\"
++                           src=\\"path-to-image\\"
+                          />
+                        </div>
+-                       <p
+-                         class=\\"MuiTypography-root description Typography MuiTypography-body1\\"
+-                       >
+-                         Accredited BMI installers are masters of their craft and available all over Norway.
+-                       </p>
+                        <button
+                          class=\\"MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 button MuiButton-containedPrimary\\"
+                          tabindex=\\"0\\"
+                          type=\\"button\\"
+                        >
+                          <span
+                            class=\\"MuiButton-label buttonStyles-label-44\\"
+                          >
+-                           Go to Approved Installers
++                           Go to Realiable Warranties
+                            <span
+                              class=\\"MuiButton-endIcon MuiButton-iconSizeMedium\\"
+                            >
+                              <svg
+                                aria-hidden=\\"true\\""
+`;
+
+exports[`VerticalRoller component navigates to previous page 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -17,11 +17,11 @@
+          </h2>
+          <div
+            class=\\"selectors\\"
+          >
+            <button
+-             class=\\"MuiButtonBase-root selector RollerSelector RollerSelector--selected\\"
++             class=\\"MuiButtonBase-root selector RollerSelector\\"
+              tabindex=\\"0\\"
+              type=\\"button\\"
+            >
+              Approved Installers
+              <svg
+@@ -57,11 +57,11 @@
+              <span
+                class=\\"MuiTouchRipple-root\\"
+              />
+            </button>
+            <button
+-             class=\\"MuiButtonBase-root selector RollerSelector\\"
++             class=\\"MuiButtonBase-root selector RollerSelector RollerSelector--selected\\"
+              tabindex=\\"0\\"
+              type=\\"button\\"
+            >
+              slide 3
+              <svg
+@@ -111,14 +111,19 @@
+            >
+              <span
+                class=\\"sliding-slot\\"
+              >
+                <span
+-                 class=\\"numbers\\"
++                 class=\\"numbers numbers--down\\"
+                >
+                  <span
+                    class=\\"number number--active\\"
++                 >
++                   03
++                 </span>
++                 <span
++                   class=\\"number\\"
+                  >
+                    01
+                  </span>
+                </span>
+              </span>
+@@ -171,11 +176,11 @@
+              <div
+                style=\\"overflow-x: hidden;\\"
+              >
+                <div
+                  class=\\"react-swipeable-view-container\\"
+-                 style=\\"flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;\\"
++                 style=\\"flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; transform: translate(-200%, 0);\\"
+                >
+                  <div
+                    aria-hidden=\\"false\\"
+                    class=\\"Carousel__slide--global\\"
+                    data-swipeable=\\"true\\"
+@@ -188,29 +193,20 @@
+                        class=\\"slide slide\\"
+                        style=\\"width: 100%;\\"
+                      >
+                        <div
+                          class=\\"image\\"
+-                       >
+-                         <svg
+-                           class=\\"brand-icon\\"
+                        />
+-                       </div>
+-                       <p
+-                         class=\\"MuiTypography-root description Typography MuiTypography-body1\\"
+-                       >
+-                         Accredited BMI installers are masters of their craft and available all over Norway.
+-                       </p>
+                        <button
+                          class=\\"MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 button MuiButton-containedPrimary\\"
+                          tabindex=\\"0\\"
+                          type=\\"button\\"
+                        >
+                          <span
+                            class=\\"MuiButton-label buttonStyles-label-64\\"
+                          >
+-                           Go to Approved Installers
++                           Go to side 3
+                            <span
+                              class=\\"MuiButton-endIcon MuiButton-iconSizeMedium\\"
+                            >
+                              <svg
+                                aria-hidden=\\"true\\""
+`;
+
 exports[`VerticalRoller component renders correctly 1`] = `
 <div
   class="VerticalRoller"
@@ -66,7 +271,7 @@ exports[`VerticalRoller component renders correctly 1`] = `
             tabindex="0"
             type="button"
           >
-            Best tiles ever
+            slide 3
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root icon"
@@ -192,8 +397,7 @@ exports[`VerticalRoller component renders correctly 1`] = `
                       style="width: 100%;"
                     >
                       <div
-                        class="image image--with-image-source"
-                        style="background-image: url(path-to-image);"
+                        class="image"
                       >
                         <svg
                           class="brand-icon"
@@ -211,6 +415,250 @@ exports[`VerticalRoller component renders correctly 1`] = `
                       >
                         <span
                           class="MuiButton-label buttonStyles-label-4"
+                        >
+                          Go to Approved Installers
+                          <span
+                            class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`VerticalRoller component renders correctly on onClick 1`] = `
+<div
+  class="VerticalRoller"
+>
+  <div
+    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-start"
+  >
+    <div
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+    >
+      <div
+        class="left-column"
+      >
+        <h2
+          class="MuiTypography-root Typography Typography--underline MuiTypography-h2"
+        >
+          H2 Heading
+        </h2>
+        <div
+          class="selectors"
+        >
+          <button
+            class="MuiButtonBase-root selector RollerSelector RollerSelector--selected"
+            tabindex="0"
+            type="button"
+          >
+            Approved Installers
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root icon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+              />
+            </svg>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root selector RollerSelector"
+            tabindex="0"
+            type="button"
+          >
+            Realiable Warranties
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root icon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+              />
+            </svg>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root selector RollerSelector"
+            tabindex="0"
+            type="button"
+          >
+            slide 3
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root icon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+              />
+            </svg>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          class="SlideControls SlideControls--vertical controls"
+        >
+          <button
+            aria-label="previous"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root chevron"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <span
+            class="middle-container"
+          >
+            <span
+              class="sliding-slot"
+            >
+              <span
+                class="numbers"
+              >
+                <span
+                  class="number number--active"
+                >
+                  01
+                </span>
+              </span>
+            </span>
+            <span
+              class="total"
+            >
+              03
+            </span>
+          </span>
+          <button
+            aria-label="next"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root chevron"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+    >
+      <div
+        class="right-column"
+      >
+        <div
+          class="wrapper"
+        >
+          <div
+            class="Carousel Carousel--swipable"
+            data-testid="carousel"
+          >
+            <div
+              style="overflow-x: hidden;"
+            >
+              <div
+                class="react-swipeable-view-container"
+                style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+              >
+                <div
+                  aria-hidden="false"
+                  class="Carousel__slide--global"
+                  data-swipeable="true"
+                  style="width: 100%; flex-shrink: 0; overflow: auto;"
+                >
+                  <div
+                    class="page"
+                  >
+                    <div
+                      class="slide slide"
+                      style="width: 100%;"
+                    >
+                      <div
+                        class="image"
+                      >
+                        <svg
+                          class="brand-icon"
+                        />
+                      </div>
+                      <p
+                        class="MuiTypography-root description Typography MuiTypography-body1"
+                      >
+                        Accredited BMI installers are masters of their craft and available all over Norway.
+                      </p>
+                      <button
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 button MuiButton-containedPrimary"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label buttonStyles-label-24"
                         >
                           Go to Approved Installers
                           <span
