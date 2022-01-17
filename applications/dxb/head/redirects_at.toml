@@ -115,13 +115,13 @@
 
 [[redirects]]
   from = "/at/qr-tag-preisliste-bmi-villas-thermazone"
-  to = "/at/downloads/preislisten/"
+  to = "https://assets.ctfassets.net/6s50ptwznz42/3SeHJcRPy7iVP0SNSntvcR/6c9f3c674e7b8e40d28ce72c59401ee4/Preisliste_-_BMI_Villas_Thermazone.pdf"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/qr-tag-preisliste-bmi-bramac-thermazone"
-  to = "/at/downloads/preislisten/"
+  to = "https://assets.ctfassets.net/6s50ptwznz42/7prgUKnkqKVvNczejWVFvW/e0aeebf11f018430d3db38eca568462f/Preisliste_-_BMI_Bramac_Thermazone.pdf"
   status = 301
   force = true
 
