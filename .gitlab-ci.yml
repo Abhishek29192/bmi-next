@@ -78,7 +78,7 @@ install:
     paths:
       - "**/node_modules"
       - ".yarn_cache"
-    policy: pull-push
+    policy: push
 
 #  https://github.com/pivotal/LicenseFinder
 # Remove report arg when we want this job to fail
