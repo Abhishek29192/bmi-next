@@ -1,4 +1,4 @@
-import { PageContextType } from "../../product-lister-page";
+import { PageContextType } from "../../productListerPage/components/product-lister-page";
 import { DataTypeEnum } from "../../../components/Link";
 
 export const pageContext: PageContextType = {

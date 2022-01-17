@@ -14,7 +14,7 @@ import { Data as NextBestActionsData } from "../../../components/NextBestActions
 import { Data as ExploreBarData } from "../../../components/ExploreBar";
 import { Data as LinkColumnsSectionData } from "../../../components/LinkColumnsSection";
 import { Data as LinkData } from "../../../components/Link";
-import { PageContextType } from "../../product-lister-page";
+import { PageContextType } from "../../productListerPage/components/product-lister-page";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import {
   cta,

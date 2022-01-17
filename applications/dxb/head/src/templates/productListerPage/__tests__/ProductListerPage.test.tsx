@@ -1,43 +1,49 @@
 import React from "react";
-import { render, RenderResult, waitFor } from "@testing-library/react";
+import {
+  fireEvent,
+  render,
+  RenderResult,
+  waitFor
+} from "@testing-library/react";
 import {
   createHistory,
   createMemorySource,
   LocationProvider
 } from "@reach/router";
 import * as all from "@bmi/use-dimensions";
-import { Filter } from "@bmi/filters";
+import {Filter} from "@bmi/filters";
 import ProductListerPage, {
   PageContextType
-} from "../../templates/product-lister-page";
-import { Data as PageInfoData } from "../../components/PageInfo";
-import { Data as PageData } from "../../components/Page";
-import { RichTextData } from "../RichText";
-import { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
-import { Data as LinkData, DataTypeEnum } from "../../components/Link";
-import { Data as SiteData } from "../Site";
-import { NavigationData } from "../Link";
-import ProvideStyles from "./utils/StylesProvider";
+} from "../components/product-lister-page";
+import {Data as PageInfoData} from "../../../components/PageInfo";
+import {Data as PageData} from "../../../components/Page";
+import {RichTextData} from "../../../components/RichText";
+import {Data as BreadcrumbsData} from "../../../components/Breadcrumbs";
+import {Data as LinkData, DataTypeEnum} from "../../../components/Link";
+import {Data as SiteData} from "../../../components/Site";
+import {NavigationData} from "../../../components/Link";
+import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
+import * as elasticSearch from "../../../utils/elasticSearch";
 
 window.alert = jest.fn();
 
 type Data = PageInfoData &
   PageData & {
-    __typename: "ContentfulProductListerPage";
-    content: RichTextData | null;
-    features: string[] | null;
-    featuresLink: LinkData | null;
-    breadcrumbs: BreadcrumbsData;
-    breadcrumbTitle: string;
-    heroType:
-      | "Hierarchy"
-      | "Spotlight"
-      | "Level 1"
-      | "Level 2"
-      | "Level 3"
-      | null;
-    cta: LinkData | null;
-  };
+  __typename: "ContentfulProductListerPage";
+  content: RichTextData | null;
+  features: string[] | null;
+  featuresLink: LinkData | null;
+  breadcrumbs: BreadcrumbsData;
+  breadcrumbTitle: string;
+  heroType:
+    | "Hierarchy"
+    | "Spotlight"
+    | "Level 1"
+    | "Level 2"
+    | "Level 3"
+    | null;
+  cta: LinkData | null;
+};
 
 const heroTitle = "i am a title";
 const pageInfo: Data = {
@@ -142,9 +148,9 @@ const siteData: SiteData = {
     {
       label: "Europe",
       menu: [
-        { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
-        { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
-        { code: "uk", label: "United Kingdom", icon: "/icons/flags/uk.svg" }
+        {code: "al", label: "Albania", icon: "/icons/flags/al.svg"},
+        {code: "at", label: "Österreich", icon: "/icons/flags/at.svg"},
+        {code: "uk", label: "United Kingdom", icon: "/icons/flags/uk.svg"}
       ]
     }
   ]
@@ -243,14 +249,15 @@ const productWithVariantAndBase = {
 };
 
 function getDimensionHookFn(width: number): () => all.UseDimensionsHook {
-  return () => [() => {}, { width, height: 0 }, document.createElement("div")];
+  return () => [() => {
+  }, {width, height: 0}, document.createElement("div")];
 }
 
 function mockUseDimensions({
-  containerWidth,
-  normalTableWidth,
-  mediumTableWidth
-}: {
+                             containerWidth,
+                             normalTableWidth,
+                             mediumTableWidth
+                           }: {
   containerWidth: number;
   normalTableWidth: number;
   mediumTableWidth: number;
@@ -273,6 +280,17 @@ process.env.GATSBY_VISUALISER_ASSETS_URL = "jest-test-page";
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));
 
+const mockQueryES = jest
+  .spyOn(elasticSearch, "queryElasticSearch")
+  .mockResolvedValue({
+    hits: {
+      hits: [productWithVariantAndBase],
+      total: {
+        value: 1
+      }
+    }
+  });
+
 const renderWithStylesAndLocationProvider = (
   pageData: any,
   pageContext: PageContextType
@@ -280,7 +298,7 @@ const renderWithStylesAndLocationProvider = (
   return render(
     <ProvideStyles>
       <LocationProvider history={history}>
-        <ProductListerPage data={pageData} pageContext={pageContext} />
+        <ProductListerPage data={pageData} pageContext={pageContext}/>
       </LocationProvider>
     </ProvideStyles>
   );
@@ -296,7 +314,7 @@ afterEach(() => {
 
 beforeEach(() => {
   jest.resetModules(); // Most important - it clears the cache
-  process.env = { ...OLD_ENV }; // Make a copy
+  process.env = {...OLD_ENV}; // Make a copy
   process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
   mockUseDimensions({
     containerWidth: 400,
@@ -316,7 +334,7 @@ describe("ProductListerPage template", () => {
         process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
         pageData.initialProducts = [];
         pageData.plpFilters = [];
-        const { container, findByText } = renderWithStylesAndLocationProvider(
+        const {container, findByText} = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
@@ -329,7 +347,7 @@ describe("ProductListerPage template", () => {
       it("renders basic ProductListerPage", async () => {
         pageData.initialProducts = [];
         pageData.plpFilters = [];
-        const { container, findByText } = renderWithStylesAndLocationProvider(
+        const {container, findByText} = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
@@ -369,7 +387,7 @@ describe("ProductListerPage template", () => {
             }
           };
 
-          const { container, findByText } = renderWithStylesAndLocationProvider(
+          const {container, findByText} = renderWithStylesAndLocationProvider(
             localPageData,
             localPageContext
           );
@@ -410,7 +428,7 @@ describe("ProductListerPage template", () => {
               variant1: "variant1"
             }
           };
-          const { container, findByText, queryByText } =
+          const {container, findByText, queryByText} =
             renderWithStylesAndLocationProvider(
               localPageData,
               localPageContext
@@ -431,7 +449,7 @@ describe("ProductListerPage template", () => {
         pageData.initialProducts = [productWithVariantAndBase];
         pageData.contentfulProductListerPage.heroType = "Level 1";
 
-        const { container } = renderWithStylesAndLocationProvider(
+        const {container} = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
@@ -453,14 +471,14 @@ describe("ProductListerPage template", () => {
               name: "colour",
               label: "Colour",
               options: [
-                { label: color1Label, value: "colour1" },
-                { label: color2Label, value: "colour2" }
+                {label: color1Label, value: "colour1"},
+                {label: color2Label, value: "colour2"}
               ]
             }
           ];
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.plpFilters = productFilters;
-          const { container, getByLabelText, queryByText } =
+          const {container, getByLabelText, queryByText} =
             renderWithStylesAndLocationProvider(pageData, pageContext);
           await getByLabelText(color1Label);
           expect(queryByText(color2Label)).not.toBeNull();
@@ -473,7 +491,7 @@ describe("ProductListerPage template", () => {
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.contentfulProductListerPage.heroType = "Level 1";
 
-          const { container } = renderWithStylesAndLocationProvider(
+          const {container} = renderWithStylesAndLocationProvider(
             pageData,
             pageContext
           );
@@ -498,14 +516,14 @@ describe("ProductListerPage template", () => {
               name: "size",
               label: "Size",
               options: [
-                { label: size1Label, value: "10mm" },
-                { label: size2Label, value: "20mm" }
+                {label: size1Label, value: "10mm"},
+                {label: size2Label, value: "20mm"}
               ]
             }
           ];
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.plpFilters = productFilters;
-          const { container, getByLabelText, queryByText } =
+          const {container, getByLabelText, queryByText} =
             renderWithStylesAndLocationProvider(pageData, pageContext);
           await getByLabelText(size1Label);
           expect(queryByText(size2Label)).not.toBeNull();
@@ -523,7 +541,7 @@ describe("ProductListerPage template", () => {
         process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
         pageData.initialProducts = [];
         pageData.productFilters = [];
-        const { container, findByText } = renderWithStylesAndLocationProvider(
+        const {container, findByText} = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
@@ -535,7 +553,7 @@ describe("ProductListerPage template", () => {
       it("renders basic ProductListerPage", async () => {
         pageData.initialProducts = [];
         pageData.productFilters = [];
-        const { container, findByText } = renderWithStylesAndLocationProvider(
+        const {container, findByText} = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
@@ -576,7 +594,7 @@ describe("ProductListerPage template", () => {
             }
           };
 
-          const { container, findByText } = renderWithStylesAndLocationProvider(
+          const {container, findByText} = renderWithStylesAndLocationProvider(
             localPageData,
             localPageContext
           );
@@ -617,7 +635,7 @@ describe("ProductListerPage template", () => {
               variant1: "variant1"
             }
           };
-          const { container, findByText, queryByText } =
+          const {container, findByText, queryByText} =
             renderWithStylesAndLocationProvider(
               localPageData,
               localPageContext
@@ -637,7 +655,7 @@ describe("ProductListerPage template", () => {
       it("renders matching category code of product on Section Title", async () => {
         pageData.initialProducts = [productWithVariantAndBase];
         pageData.productFilters = [];
-        const { container, findByText } = renderWithStylesAndLocationProvider(
+        const {container, findByText} = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
@@ -654,17 +672,17 @@ describe("ProductListerPage template", () => {
 
           const productFilters: Filter[] = [
             {
-              name: "colour",
+              name: "verycolourfamily",
               label: "Colour",
               options: [
-                { label: color1Label, value: "colour1" },
-                { label: color2Label, value: "colour2" }
+                {label: color1Label, value: "colour1"},
+                {label: color2Label, value: "colour2"}
               ]
             }
           ];
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.productFilters = productFilters;
-          const { container, getByLabelText, queryByText } =
+          const {container, getByLabelText, queryByText} =
             renderWithStylesAndLocationProvider(pageData, pageContext);
           await getByLabelText(color1Label);
           expect(queryByText(color2Label)).not.toBeNull();
@@ -677,7 +695,7 @@ describe("ProductListerPage template", () => {
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.contentfulProductListerPage.heroType = "Level 1";
 
-          const { container } = renderWithStylesAndLocationProvider(
+          const {container} = renderWithStylesAndLocationProvider(
             pageData,
             pageContext
           );
@@ -702,14 +720,14 @@ describe("ProductListerPage template", () => {
               name: "size",
               label: "Size",
               options: [
-                { label: size1Label, value: "10mm" },
-                { label: size2Label, value: "20mm" }
+                {label: size1Label, value: "10mm"},
+                {label: size2Label, value: "20mm"}
               ]
             }
           ];
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.productFilters = productFilters;
-          const { container, getByLabelText, queryByText } =
+          const {container, getByLabelText, queryByText} =
             renderWithStylesAndLocationProvider(pageData, pageContext);
           await getByLabelText(size1Label);
           expect(queryByText(size2Label)).not.toBeNull();
@@ -723,11 +741,198 @@ describe("ProductListerPage template", () => {
     process.env.GATSBY_PREVIEW = "test";
     pageData.initialProducts = [productWithVariantAndBase];
     pageData.productFilters = [];
-    const { container, findByText } = renderWithStylesAndLocationProvider(
+    const {container, findByText} = renderWithStylesAndLocationProvider(
       pageData,
       pageContext
     );
     await findByText(heroTitle);
     expect(container.parentElement).toMatchSnapshot();
+  });
+
+  it("test hande change by click on pagination", async () => {
+    const products = new Array(30).fill(productWithVariantAndBase);
+    pageData.initialProducts = [...products];
+    jest.spyOn(window, "scrollTo").mockImplementation();
+    const {getByLabelText} = renderWithStylesAndLocationProvider(
+      pageData,
+      pageContext
+    );
+    fireEvent.click(getByLabelText("Go to next page"));
+    expect(window.scrollTo).toHaveBeenCalledWith(0, -200);
+  });
+
+  it("test hande fetch product by click on pagination when ES return hits", async () => {
+    const esProduct = {
+      _index: "dxb_no_products",
+      _type: "_doc",
+      _id: "133000133_Zanda_Arktis_main_tile_black",
+      _score: 6.0,
+      _source: {
+        "appearanceAttributes.colour": [
+          {
+            code: "Svart",
+            name: "Svart"
+          }
+        ],
+        "appearanceAttributes.colourfamily": [
+          {
+            code: "BLACK",
+            name: "Sort"
+          }
+        ],
+        categories: [
+          {
+            parentCategoryCode: "CONCRETE_NO",
+            code: "MAINTILE_CONCRETE_NO"
+          },
+          {
+            parentCategoryCode: "TILES_STEELROOF_NO",
+            code: "MAINTILE_STEELROOF_NO"
+          }
+        ]
+      },
+      inner_hits: {
+        all_variants: {
+          hits: {
+            hits: []
+          }
+        }
+      }
+    };
+    const products = new Array(30).fill(productWithVariantAndBase);
+    const esProducts = new Array(30).fill(esProduct);
+    pageData.initialProducts = [...products];
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [...esProducts],
+        total: {
+          value: 1
+        }
+      },
+      aggregations: {
+        unique_base_products_count: {
+          value: 30
+        }
+      }
+    });
+    const {container, getByLabelText} = renderWithStylesAndLocationProvider(
+      pageData,
+      pageContext
+    );
+    fireEvent.click(getByLabelText("Go to next page"));
+    expect(mockQueryES).toBeCalledTimes(1);
+    expect(container.parentElement).toMatchSnapshot();
+  });
+
+  it("test hande fetch product by click on pagination when ES return aggregations", async () => {
+    const products = new Array(30).fill(productWithVariantAndBase);
+    pageData.initialProducts = [...products];
+    mockQueryES.mockResolvedValueOnce({
+      aggregations: {
+        texturefamily: {
+          doc_count_error_upper_bound: 0,
+          sum_other_doc_count: 0,
+          buckets: [
+            {
+              key: "GLAZED",
+              doc_count: 139
+            },
+            {
+              key: "ANTIQUED",
+              doc_count: 1
+            }
+          ]
+        }
+      }
+    });
+    const {container, getByLabelText} = renderWithStylesAndLocationProvider(
+      pageData,
+      pageContext
+    );
+    fireEvent.click(getByLabelText("Go to next page"));
+    expect(mockQueryES).toBeCalledTimes(1);
+    expect(container.parentElement).toMatchSnapshot();
+  });
+
+  it("test hande change url by click on filters and test clear all click", async () => {
+    window.history.replaceState = jest.fn();
+    const color1Label = "colour-1";
+    const color2Label = "colour-2";
+    const productFilters: Filter[] = [
+      {
+        name: "colour",
+        label: "Colour",
+        options: [
+          {label: color1Label, value: "colour1"},
+          {label: color2Label, value: "colour2"}
+        ]
+      }
+    ];
+    pageData.initialProducts = [
+      {
+        ...productWithVariantAndBase,
+        all_variants: [
+          {...productWithVariantAndBase},
+          {...productWithVariantAndBase}
+        ]
+      }
+    ];
+    pageData.productFilters = productFilters;
+    const {container, queryByText, getByText} =
+      renderWithStylesAndLocationProvider(pageData, pageContext);
+    expect(container.parentElement).toMatchSnapshot();
+    fireEvent.click(queryByText(color2Label));
+    expect(window.history.replaceState).toHaveBeenCalledTimes(1);
+    fireEvent.click(getByText("MC: plp.filters.clearAll"));
+    expect(window.history.replaceState).toHaveBeenCalledTimes(2);
+  });
+
+  it("test filter resolver utils when it is not a colour name", async () => {
+    const texture1Label = "texture-1";
+    const texture2Label = "texture-2";
+
+    const productFilters: Filter[] = [
+      {
+        name: "texturefamily",
+        label: "texture",
+        options: [
+          {label: texture1Label, value: "texture1"},
+          {label: texture2Label, value: "texture2"}
+        ]
+      }
+    ];
+    pageData.initialProducts = [productWithVariantAndBase];
+    pageData.productFilters = productFilters;
+    const {container} = renderWithStylesAndLocationProvider(
+      pageData,
+      pageContext
+    );
+    expect(container.parentElement).toMatchSnapshot();
+  });
+
+  it("test filter resolver utils when no filters at all", async () => {
+    pageData.initialProducts = [productWithVariantAndBase];
+    pageData.productFilters = null;
+    const {container} = renderWithStylesAndLocationProvider(
+      pageData,
+      pageContext
+    );
+    expect(container.parentElement).toMatchSnapshot();
+  });
+
+  it("should prevent fetch products on GATSBY_PREVIEW", async () => {
+    process.env.GATSBY_PREVIEW = "GATSBY_PREVIEW";
+    jest.spyOn(window, "alert").mockImplementation();
+    const products = new Array(30).fill(productWithVariantAndBase);
+    pageData.initialProducts = [...products];
+    const {getByLabelText} = renderWithStylesAndLocationProvider(
+      pageData,
+      pageContext
+    );
+    fireEvent.click(getByLabelText("Go to next page"));
+
+    expect(window.alert).toHaveBeenCalledWith(
+      "You cannot search on the preview environment."
+    );
   });
 });

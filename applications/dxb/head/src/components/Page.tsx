@@ -152,7 +152,7 @@ const Page = ({
     Boolean(variantProduct);
 
   return (
-    <div>
+    <>
       <Helmet
         htmlAttributes={{ lang: node_locale }}
         title={seo?.metaTitle || title}
@@ -365,7 +365,7 @@ const Page = ({
           </BasketContextProvider>
         </MicroCopy.Provider>
       </SiteContextProvider>
-    </div>
+    </>
   );
 };
 

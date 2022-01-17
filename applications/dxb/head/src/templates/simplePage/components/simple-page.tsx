@@ -1,8 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Hero, { HeroItem } from "@bmi/hero";
+import { HeroItem } from "@bmi/hero";
 import Section from "@bmi/section";
-import SpotlightHero from "@bmi/spotlight-hero";
 import TableOfContent from "@bmi/table-of-content";
 import AnchorLink from "@bmi/anchor-link";
 import Breadcrumbs, {
@@ -33,6 +32,7 @@ import {
   generateHeroLevel,
   generateHeroProps
 } from "../../../utils/heroLevelUtils";
+import { renderHero } from "../../../utils/heroTypesUI";
 
 export type Data = PageInfoData &
   PageData & {
@@ -120,20 +120,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
       variantCodeToPathMap={pageContext.variantCodeToPathMap}
       ogImageUrl={featuredMedia?.image?.file.url}
     >
-      {heroType === "Spotlight" ? (
-        <SpotlightHero
-          {...heroProps}
-          brand={brandLogo}
-          breadcrumbs={breadcrumbsNode}
-        />
-      ) : (
-        <Hero
-          brand={brandLogo}
-          level={heroLevel}
-          {...heroProps}
-          breadcrumbs={breadcrumbsNode}
-        />
-      )}
+      {renderHero(heroProps, breadcrumbsNode, heroLevel, brandLogo, heroType)}
       <TableOfContent
         renderLink={(sectionId, title) => (
           <AnchorLink

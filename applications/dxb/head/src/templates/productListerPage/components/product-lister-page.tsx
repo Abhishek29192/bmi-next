@@ -1,65 +1,64 @@
 import AnchorLink from "@bmi/anchor-link";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { graphql, Link as GatsbyLink } from "gatsby";
-import Hero, { HeroItem } from "@bmi/hero";
-import SpotlightHero from "@bmi/spotlight-hero";
+import { graphql } from "gatsby";
+import { HeroItem } from "@bmi/hero";
 import LeadBlock from "@bmi/lead-block";
 import Section from "@bmi/section";
 import CheckIcon from "@material-ui/icons/Check";
 import IconList from "@bmi/icon-list";
-import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
 import { Filter } from "@bmi/filters";
 import queryString from "query-string";
 import { useLocation } from "@reach/router";
-import {
-  findMasterImageUrl,
-  findUniqueVariantClassifications,
-  getProductUrl,
-  mapClassificationValues
-} from "../utils/product-details-transforms";
-import ResultsPagination from "../components/ResultsPagination";
-import withGTM from "../utils/google-tag-manager";
+import ResultsPagination from "../../../components/ResultsPagination";
 import {
   clearFilterValues,
   convertToURLFilters,
   updateFilterValue,
   URLProductFilter
-} from "../utils/filters";
-import { enhanceColourFilterWithSwatches } from "../utils/filtersUI";
-import Scrim from "../components/Scrim";
-import ProgressIndicator from "../components/ProgressIndicator";
-import { iconMap } from "../components/Icon";
-import RichText, { RichTextData } from "../components/RichText";
-import { Data as PageInfoData } from "../components/PageInfo";
+} from "../../../utils/filters";
+import Scrim from "../../../components/Scrim";
+import ProgressIndicator from "../../../components/ProgressIndicator";
+import RichText, { RichTextData } from "../../../components/RichText";
+import { Data as PageInfoData } from "../../../components/PageInfo";
 import {
   Data as LinkData,
   getClickableActionFromUrl
-} from "../components/Link";
-import { Data as SiteData } from "../components/Site";
-import Page, { Data as PageData } from "../components/Page";
+} from "../../../components/Link";
+import { Data as SiteData } from "../../../components/Site";
+import Page, { Data as PageData } from "../../../components/Page";
 import Breadcrumbs, {
   Data as BreadcrumbsData
-} from "../components/Breadcrumbs";
+} from "../../../components/Breadcrumbs";
 import {
   queryElasticSearch,
   disableFiltersFromAggregations,
   compileElasticSearchQuery
-} from "../utils/elasticSearch";
+} from "../../../utils/elasticSearch";
 import {
   compileESQueryPLP,
   disableFiltersFromAggregationsPLP,
   xferFilterValue
-} from "../utils/elasticSearchPLP";
+} from "../../../utils/elasticSearchPLP";
 
-import { devLog } from "../utils/devLog";
-import FiltersSidebar from "../components/FiltersSidebar";
-import { Product } from "../components/types/pim";
-import { ProductFilter, removePLPFilterPrefix } from "../utils/product-filters";
-import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
-import { generateHeroLevel, generateHeroProps } from "../utils/heroLevelUtils";
-import { microCopy } from "../constants/microCopies";
+import { devLog } from "../../../utils/devLog";
+import FiltersSidebar from "../../../components/FiltersSidebar";
+import {
+  ProductFilter,
+  removePLPFilterPrefix
+} from "../../../utils/product-filters";
+import { updateBreadcrumbTitleFromContentful } from "../../../utils/breadcrumbUtils";
+import {
+  generateHeroLevel,
+  generateHeroProps
+} from "../../../utils/heroLevelUtils";
+import {
+  renderProducts,
+  resolveFilters
+} from "../utils/productListerPageUtils";
+import { renderHero } from "../../../utils/heroTypesUI";
+import { microCopy } from "../../../constants/microCopies";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -161,21 +160,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
         : { filters: [] })
     };
   }, [location]);
-
-  //TODO: remove filter.name === "colour" condition when feature flag 'GATSBY_USE_LEGACY_FILTERS' is removed
-  // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
-  const resolveFilters = (filters: readonly Filter[]) => {
-    return (filters || [])
-      .filter((filter) => filter.options.length > 0)
-      .map((filter) => {
-        const filterName = filter.name.trim().toLowerCase();
-        if (filterName === "colour" || filterName.endsWith("colourfamily")) {
-          return enhanceColourFilterWithSwatches(filter);
-        }
-
-        return filter;
-      });
-  };
 
   const resolvedNewPLPFilters = useMemo(
     () => resolveFilters(data.plpFilters),
@@ -376,8 +360,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     path: data.contentfulProductListerPage.path
   };
 
-  const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
-
   const heroLevel = generateHeroLevel(heroType, enhancedBreadcrumbs);
 
   const breadcrumbsNode = (
@@ -405,19 +387,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
               <ProgressIndicator theme="light" />
             </Scrim>
           ) : null}
-          {heroType === "Spotlight" ? (
-            <SpotlightHero
-              {...heroProps}
-              breadcrumbs={breadcrumbsNode}
-              brand={brandLogo}
-            />
-          ) : (
-            <Hero
-              level={heroLevel}
-              {...heroProps}
-              breadcrumbs={breadcrumbsNode}
-              brand={brandLogo}
-            />
+          {renderHero(
+            heroProps,
+            breadcrumbsNode,
+            heroLevel,
+            brandLogo,
+            heroType
           )}
           <Section backgroundColor="white">
             <LeadBlock>
@@ -493,74 +468,13 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                       {getMicroCopy(microCopy.PLP_PRODUCT_NO_RESULTS_FOUND)}
                     </Typography>
                   )}
-                  {products.flatMap((variant) => {
-                    const brandLogoCode = variant.brandCode;
-                    // eslint-disable-next-line security/detect-object-injection
-                    const brandLogo = iconMap[brandLogoCode];
-                    const mainImage = findMasterImageUrl(variant.images);
-                    const product: Product = variant.baseProduct;
-                    const productUrl = getProductUrl(
-                      countryCode,
-                      pageContext.variantCodeToPathMap[variant.code]
-                    );
-                    const uniqueClassifications = mapClassificationValues(
-                      findUniqueVariantClassifications(
-                        { ...variant, _product: product },
-                        pageContext.pimClassificationCatalogueNamespace
-                      )
-                    );
-                    const moreOptionsAvailable =
-                      variant.all_variants?.length > 1 &&
-                      getMicroCopy(
-                        microCopy.PLP_PRODUCT_MORE_OPTIONS_AVAILABLE
-                      );
-
-                    return (
-                      <Grid
-                        item
-                        key={`${product.code}-${variant.code}`}
-                        xs={12}
-                        md={6}
-                        lg={4}
-                        xl={filters.length ? 4 : 3}
-                      >
-                        <GTMOverviewCard
-                          title={product.name}
-                          titleVariant="h5"
-                          subtitle={uniqueClassifications}
-                          subtitleVariant="h6"
-                          media={
-                            <img
-                              src={mainImage}
-                              alt={`${uniqueClassifications} ${product.name}`}
-                            />
-                          }
-                          imageSize="contain"
-                          brandImageSource={brandLogo}
-                          action={{
-                            model: "routerLink",
-                            linkComponent: GatsbyLink,
-                            to: productUrl
-                          }}
-                          gtm={{
-                            id: "cta-click1",
-                            action: productUrl,
-                            label: getMicroCopy(
-                              microCopy.PLP_PRODUCT_VIEW_DETAILS
-                            )
-                          }}
-                          footer={
-                            <AnchorLink iconEnd>
-                              {getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS)}
-                            </AnchorLink>
-                          }
-                          moreOptionsAvailable={moreOptionsAvailable}
-                        >
-                          {variant.shortDescription}
-                        </GTMOverviewCard>
-                      </Grid>
-                    );
-                  })}
+                  {renderProducts(
+                    products,
+                    pageContext,
+                    countryCode,
+                    getMicroCopy,
+                    filters
+                  )}
                 </Grid>
                 <ResultsPagination
                   page={page + 1}
