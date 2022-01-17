@@ -246,13 +246,11 @@ describe("RichText component", () => {
       {
         __typename: "ContentfulSimplePage",
         contentful_id: "6Eg6rK4nkEc3M1NFE8E4jU",
-        // @ts-ignore
         path: "testing-simple-page/"
       },
       {
         __typename: "ContentfulAsset",
         contentful_id: "70GS3lLVmrS7k71kH3iSbq",
-        // @ts-ignore
         title: "Customer Support",
         file: {
           contentType: "image/png",
@@ -262,7 +260,6 @@ describe("RichText component", () => {
       {
         __typename: "ContentfulLink",
         contentful_id: "3tcysaa3PGMlm42U4WnlmK",
-        // @ts-ignore
         icon: "AeroDek",
         id: "ddf00d82-c0de-5520-8929-78146ec48f8e",
         isLabelHidden: false,
@@ -276,7 +273,6 @@ describe("RichText component", () => {
       },
       {
         contentful_id: "1oPjxfZfvqmyAMIZx6rPgm",
-        // @ts-ignore
         id: "414f8808-3e8c-5f7b-a437-dba556a4b23a",
         isLabelHidden: null,
         label: "Support",
@@ -288,7 +284,6 @@ describe("RichText component", () => {
       },
       {
         contentful_id: "7di9aTEBjpoTGECA229JYr",
-        // @ts-ignore
         asset: null,
         dialogContent: {
           __typename: "ContentfulFormSection",

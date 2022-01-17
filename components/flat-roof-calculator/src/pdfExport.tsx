@@ -139,7 +139,7 @@ const LessWidth = ({ children }: { children: React.ReactNode }) => (
 
 type ResultsTableProps = {
   children: React.ReactNode;
-  layout?: object;
+  layout?: Record<string, unknown>;
   headerRows?: number;
   widths?: Array<string | number>;
   [rest: string]: any;

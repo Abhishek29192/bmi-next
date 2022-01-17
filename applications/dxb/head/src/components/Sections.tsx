@@ -119,11 +119,11 @@ const Sections = ({
         return {
           ...carry,
           [id]: {
-            // @ts-ignore Property 'id' does not exist on type 'SectionData'.
+            // Property 'id' does not exist on type 'SectionData'.
             isReversed: !carry[data[index - 1]?.id]?.isReversed,
             backgroundColor:
               backgroundColor ||
-              // @ts-ignore Property 'id' does not exist on type 'SectionData'.
+              // Property 'id' does not exist on type 'SectionData'.
               (carry[data[index - 1]?.id]?.backgroundColor === "White"
                 ? "Alabaster"
                 : "White")

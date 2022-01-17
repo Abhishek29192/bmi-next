@@ -52,7 +52,7 @@ jest.mock("../../../../../context/MarketContext", () => ({
 describe("Company Members Page", () => {
   let wrapper;
 
-  let props: PageProps = {
+  const props: PageProps = {
     data: teamMembers
   };
 

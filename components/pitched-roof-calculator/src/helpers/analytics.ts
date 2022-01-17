@@ -7,4 +7,6 @@ export type OnAnalyticsEvent = (event: {
   action?: string;
 }) => void;
 
-export const AnalyticsContext = createContext<OnAnalyticsEvent>(() => {});
+export const AnalyticsContext = createContext<OnAnalyticsEvent>(() => {
+  // no-op
+});

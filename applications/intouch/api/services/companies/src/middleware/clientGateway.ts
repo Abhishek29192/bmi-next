@@ -32,7 +32,10 @@ export default (req, res, next: NextFunction) => {
    */
   req.headers["x-request-market-domain"] = overwriteMarketHeader(req);
 
-  req.clientGateway = async (query: string, variables: Object) => {
+  req.clientGateway = async (
+    query: string,
+    variables: Record<string, unknown>
+  ) => {
     const { GATEWAY_URL } = process.env;
     const bearer = await getGCPToken(GATEWAY_URL);
 

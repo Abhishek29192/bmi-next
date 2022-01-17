@@ -9,7 +9,7 @@ import Account, { isSuperAdmin } from "../../../lib/account";
 import { getMarketAndEnvFromReq } from "../../../lib/utils";
 import { withLoggerApi } from "../../../lib/middleware/withLogger";
 
-interface Request extends NextApiRequest {
+export interface Request extends NextApiRequest {
   logger: any;
 }
 

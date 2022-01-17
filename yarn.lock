@@ -3284,6 +3284,11 @@
     stream-events "^1.0.1"
     xdg-basedir "^4.0.0"
 
+"@googlemaps/jest-mocks@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@googlemaps/jest-mocks/-/jest-mocks-2.2.0.tgz#4684a37b1330372bb7e9e5d5ef63af737321cda9"
+  integrity sha512-8AgpXLPv7WA5VYAZkAW5HZj+3/fUgoraG1TovI42iKeQ380rhbyJbIfUZHohzRkWdiqt6G2Gv+WZz/SaxllCTA==
+
 "@googlemaps/js-api-loader@^1.11.1":
   version "1.11.4"
   resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-1.11.4.tgz#f687a88e270234e3a29c64b42b76129e75467ca7"

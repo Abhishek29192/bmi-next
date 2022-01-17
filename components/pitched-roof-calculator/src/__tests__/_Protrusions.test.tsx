@@ -8,8 +8,8 @@ import Protrusions from "../_Protrusions";
 describe("PitchedRoofCalculator Protrusions component", () => {
   it("renders correctly", () => {
     const updateFormState = jest.fn();
-    let hasBeenSubmitted = false;
-    let submitButtonDisabled = false;
+    const hasBeenSubmitted = false;
+    const submitButtonDisabled = false;
 
     const { container } = render(
       <MicroCopy.Provider values={en}>
@@ -31,8 +31,8 @@ describe("PitchedRoofCalculator Protrusions component", () => {
 
   it("adds a protrusion", () => {
     const updateFormState = jest.fn();
-    let hasBeenSubmitted = false;
-    let submitButtonDisabled = false;
+    const hasBeenSubmitted = false;
+    const submitButtonDisabled = false;
 
     const { getByText } = render(
       <MicroCopy.Provider values={en}>
@@ -59,8 +59,8 @@ describe("PitchedRoofCalculator Protrusions component", () => {
 
   it("removes a protrusion", () => {
     const updateFormState = jest.fn();
-    let hasBeenSubmitted = false;
-    let submitButtonDisabled = false;
+    const hasBeenSubmitted = false;
+    const submitButtonDisabled = false;
 
     const { getByText } = render(
       <MicroCopy.Provider values={en}>

@@ -34,7 +34,6 @@ const Brands = ({ data }: { data: Data[] }) => {
                 <GTMButton
                   gtm={{
                     id: "cta-click1",
-                    // @ts-ignore
                     action: props.action.to
                   }}
                   {...props}

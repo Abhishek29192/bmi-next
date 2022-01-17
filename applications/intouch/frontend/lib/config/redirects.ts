@@ -1,6 +1,6 @@
 import { baseUrlDomain } from ".";
 
-const getDomainLocaleMapping = (domainCode) => ({
+const getDomainLocaleMapping = (domainCode: string) => ({
   [`${domainCode}.${baseUrlDomain}`]: domainCode
 });
 

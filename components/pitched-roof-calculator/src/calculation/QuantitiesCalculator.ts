@@ -50,7 +50,7 @@ export const convertProductRowToResultsRow = (
     externalProductCode,
     image
   }: ProductRow,
-  contingency: number = 0
+  contingency = 0
 ): ResultsRow => ({
   category,
   image,
@@ -317,8 +317,8 @@ class QuantitiesCalculator {
     eave: Line[],
     gutteringVariant?: GutteringVariant,
     gutteringHook?: LengthBasedProduct,
-    downPipes: number = 0,
-    downPipeConnectors: number = 0
+    downPipes = 0,
+    downPipeConnectors = 0
   ) {
     eave.forEach(({ length }) => {
       if (gutteringVariant) {

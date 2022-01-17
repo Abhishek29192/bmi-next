@@ -41,7 +41,6 @@ export const Notification = ({
         </div>
         <div>
           <ReactMarkdown
-            // @ts-ignore
             components={{
               a({ children, href }: { children: string; href: string }) {
                 return (

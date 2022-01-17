@@ -2,7 +2,7 @@ import { protos } from "@google-cloud/secret-manager";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
 import { mockResponses } from "@bmi/fetch-mocks";
-import { getProductsByMessageId, getSystemsByMessageId } from "..";
+import { getProductsByMessageId, getSystemsByMessageId, PimTypes } from "..";
 import {
   createProductsApiResponse,
   createSystemsApiResponse
@@ -25,8 +25,8 @@ jest.mock("@google-cloud/secret-manager", () => {
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
-const fetchData = (type: "products" | "systems", currentPage?: number) =>
-  require("../pim").fetchData(type, currentPage);
+const fetchData = async (type: PimTypes, currentPage?: number) =>
+  (await import("../index")).fetchData(type, currentPage);
 
 beforeAll(() => {
   mockConsole();
@@ -47,7 +47,7 @@ describe("fetchData", () => {
     delete process.env.PIM_CLIENT_ID;
 
     try {
-      await fetchData("products");
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual("PIM_CLIENT_ID has not been set.");
@@ -65,7 +65,7 @@ describe("fetchData", () => {
     delete process.env.SECRET_MAN_GCP_PROJECT_NAME;
 
     try {
-      await fetchData("products");
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual(
@@ -84,7 +84,7 @@ describe("fetchData", () => {
     delete process.env.PIM_CLIENT_SECRET;
 
     try {
-      await fetchData("products");
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual("PIM_CLIENT_SECRET has not been set.");
@@ -100,7 +100,7 @@ describe("fetchData", () => {
     accessSecretVersion.mockRejectedValue(Error("Expected error"));
 
     try {
-      await fetchData("products");
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual("Expected error");
@@ -116,7 +116,7 @@ describe("fetchData", () => {
     accessSecretVersion.mockResolvedValue([{}]);
 
     try {
-      await fetchData("products");
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual("pimClientSecret could not be retrieved.");
@@ -132,7 +132,7 @@ describe("fetchData", () => {
     accessSecretVersion.mockResolvedValue([{ payload: {} }]);
 
     try {
-      await fetchData("products");
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual("pimClientSecret could not be retrieved.");
@@ -152,7 +152,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData("products");
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual("Expected error");
@@ -184,7 +184,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData("products");
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual(
@@ -218,7 +218,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData("products");
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual(
@@ -266,7 +266,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData("products");
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual("Expected error");
@@ -324,7 +324,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData("products");
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toEqual(
@@ -384,7 +384,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData("products");
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect(error.message).toStrictEqual(
@@ -438,7 +438,7 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData("products");
+    const response = await fetchData(PimTypes.Products);
 
     expect(accessSecretVersion).toHaveBeenCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
@@ -487,7 +487,7 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData("systems");
+    const response = await fetchData(PimTypes.Products);
 
     expect(accessSecretVersion).toHaveBeenCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
@@ -536,7 +536,7 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData("products", 18);
+    const response = await fetchData(PimTypes.Products, 18);
 
     expect(accessSecretVersion).toHaveBeenCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.PIM_CLIENT_SECRET}/versions/latest`
@@ -576,7 +576,9 @@ describe("getProductsByMessageId", () => {
       await getProductsByMessageId("message-id", "token", 1);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toStrictEqual("PIM_CLIENT_ID has not been set.");
+      expect((error as Error).message).toStrictEqual(
+        "PIM_CLIENT_ID has not been set."
+      );
     }
 
     expect(accessSecretVersion).not.toHaveBeenCalled();
@@ -594,7 +596,7 @@ describe("getProductsByMessageId", () => {
       await getProductsByMessageId("message-id", "token", 1);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toStrictEqual(
+      expect((error as Error).message).toStrictEqual(
         "SECRET_MAN_GCP_PROJECT_NAME has not been set."
       );
     }
@@ -613,7 +615,7 @@ describe("getProductsByMessageId", () => {
       await getProductsByMessageId("message-id", "token", 1);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toStrictEqual(
+      expect((error as Error).message).toStrictEqual(
         "PIM_CLIENT_SECRET has not been set."
       );
     }
@@ -631,7 +633,7 @@ describe("getProductsByMessageId", () => {
       await getProductsByMessageId("message-id", "token", 1);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toStrictEqual(
+      expect((error as Error).message).toStrictEqual(
         `pimClientSecret could not be retrieved.`
       );
     }
@@ -649,7 +651,7 @@ describe("getProductsByMessageId", () => {
       await getProductsByMessageId("message-id", "token", 1);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toStrictEqual(
+      expect((error as Error).message).toStrictEqual(
         `pimClientSecret could not be retrieved.`
       );
     }
@@ -679,7 +681,7 @@ describe("getProductsByMessageId", () => {
       await getProductsByMessageId("message-id", "token", 1);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toStrictEqual(
+      expect((error as Error).message).toStrictEqual(
         `[PIM] Error getting auth token: 401 Unauthorized`
       );
     }
@@ -746,7 +748,7 @@ describe("getProductsByMessageId", () => {
       await getProductsByMessageId(messageId, token, currentPage);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toStrictEqual(
+      expect((error as Error).message).toStrictEqual(
         `[PIM] Error getting data: 500 Internal Server Error`
       );
     }
@@ -827,7 +829,7 @@ describe("getProductsByMessageId", () => {
       await getProductsByMessageId(messageId, token, currentPage);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toStrictEqual(
+      expect((error as Error).message).toStrictEqual(
         `[PIM] Error getting catalogue:\n\nerror1: Expected error 1\n\nerror2: Expected error 2`
       );
     }
@@ -959,7 +961,7 @@ describe("getSystemsByMessageId", () => {
       await getSystemsByMessageId("message-id", "token", 1);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toStrictEqual(
+      expect((error as Error).message).toStrictEqual(
         `[PIM] Error getting auth token: 401 Unauthorized`
       );
     }
@@ -1005,7 +1007,7 @@ describe("getSystemsByMessageId", () => {
       await getSystemsByMessageId(messageId, token, currentPage);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toStrictEqual(
+      expect((error as Error).message).toStrictEqual(
         `[PIM] Error getting data: 500 Internal Server Error`
       );
     }
@@ -1086,7 +1088,7 @@ describe("getSystemsByMessageId", () => {
       await getSystemsByMessageId(messageId, token, currentPage);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toStrictEqual(
+      expect((error as Error).message).toStrictEqual(
         `[PIM] Error getting catalogue:\n\nerror1: Expected error 1\n\nerror2: Expected error 2`
       );
     }

@@ -1,12 +1,7 @@
 import admin from "firebase-admin";
 import { DocumentData, Firestore, Query } from "@google-cloud/firestore";
 import logger from "@bmi/functions-logger";
-
-export enum FirestoreCollections {
-  Categories = "root/categories",
-  Products = "root/products",
-  Systems = "root/systems"
-}
+import { FirestoreCollections } from "./firestoreCollections";
 
 admin.initializeApp({
   databaseURL: `https://${process.env.GCP_PROJECT_ID}.firebaseio.com`

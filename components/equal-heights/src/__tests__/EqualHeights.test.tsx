@@ -2,7 +2,7 @@ import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import EqualHeights from "../EqualHeights";
 
-const mockElements = (shouldDisableBoxSizing: boolean = true) => (
+const mockElements = (shouldDisableBoxSizing = true) => (
   <EqualHeights.Consumer shouldDisableBoxSizing={shouldDisableBoxSizing}>
     {({ addRef, equalHeight, updateRef }) => {
       const elementStyle = {

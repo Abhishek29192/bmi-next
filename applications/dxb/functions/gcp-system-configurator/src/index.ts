@@ -74,9 +74,7 @@ const runQuery = async (
   query: string,
   variables: QueryString.ParsedQs
 ): Promise<Answer> => {
-  let contentfulDeliveryTokenSecret;
-
-  contentfulDeliveryTokenSecret = await getSecret(
+  const contentfulDeliveryTokenSecret = await getSecret(
     CONTENTFUL_DELIVERY_TOKEN_SECRET!
   );
 
@@ -237,7 +235,7 @@ export const nextStep: HttpFunction = async (request, response) => {
   try {
     recaptchaKeySecret = await getSecret(RECAPTCHA_SECRET_KEY);
   } catch (error) {
-    return response.status(500).send(generateError(error.message));
+    return response.status(500).send(generateError((error as Error).message));
   }
 
   try {
@@ -274,7 +272,7 @@ export const nextStep: HttpFunction = async (request, response) => {
   }
 
   let data: Answer;
-  let answers = [];
+  const answers = [];
   let page = 0;
 
   do {
@@ -342,10 +340,11 @@ export const nextStep: HttpFunction = async (request, response) => {
     return response.status(200).send(transformNextStepData(nextStep));
   }
 
-  return response.status(400).send(
-    generateError(
-      // @ts-ignore: if change to CMS
-      `__typename ${nextStep.__typename} is not a valid content type (SystemConfiguratorBlock or TitleWithContent)`
-    )
-  );
+  return response
+    .status(400)
+    .send(
+      generateError(
+        `__typename ${nextStep.__typename} is not a valid content type (SystemConfiguratorBlock or TitleWithContent)`
+      )
+    );
 };

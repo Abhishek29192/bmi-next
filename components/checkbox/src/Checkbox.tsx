@@ -21,9 +21,9 @@ export const Checkbox = ({
   onChange,
   ...props
 }: Props) => {
-  const handleChange = (event: React.ChangeEvent<{}>) => {
-    const target = event.target as EventTarget & HTMLInputElement;
-    !disabled && onChange(target.checked);
+  const handleChange = (event: React.ChangeEvent<Record<string, unknown>>) => {
+    const target = event.target;
+    !disabled && "checked" in target && onChange(target.checked as boolean);
   };
   return (
     <FormControl

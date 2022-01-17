@@ -18,7 +18,7 @@ const managementTokenSecret = "management-token-secret";
 const sendGridSecret = "send-grid-secret";
 
 const mockRequest = (
-  body: Object = {
+  body: Record<string, unknown> = {
     locale: locale,
     recipients: "email@email.com",
     values: { files: ["path/to/file"], a: "b" }
@@ -57,8 +57,8 @@ jest.mock("@sendgrid/mail", () => {
   return { MailService: mMailService };
 });
 
-const submit = (request: Partial<Request>, response: Partial<Response>) =>
-  require("../index").submit(request, response);
+const submit = async (request: Partial<Request>, response: Partial<Response>) =>
+  (await import("../index")).submit(request as Request, response as Response);
 
 beforeAll(() => {
   mockConsole();

@@ -16,8 +16,8 @@ const dimensionsSample = {
 describe("PitchedRoofCalculator UnderlaySelection component", () => {
   it("renders correctly", () => {
     const updateFormState = jest.fn();
-    let hasBeenSubmitted = false;
-    let submitButtonDisabled = false;
+    const hasBeenSubmitted = false;
+    const submitButtonDisabled = false;
 
     const { container } = render(
       <MicroCopy.Provider values={en}>
@@ -43,8 +43,8 @@ describe("PitchedRoofCalculator UnderlaySelection component", () => {
 
   it("renders with no options", () => {
     const updateFormState = jest.fn();
-    let hasBeenSubmitted = false;
-    let submitButtonDisabled = false;
+    const hasBeenSubmitted = false;
+    const submitButtonDisabled = false;
 
     const { container } = render(
       <MicroCopy.Provider values={en}>

@@ -1,4 +1,4 @@
-const groupBy = <T extends {}>(
+const groupBy = <T extends Record<string, unknown>>(
   array: readonly T[],
   field: keyof T | ((t: T) => string)
 ) =>

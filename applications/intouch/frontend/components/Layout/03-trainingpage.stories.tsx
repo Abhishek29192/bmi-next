@@ -17,7 +17,7 @@ export default {
   }
 };
 
-let media = <img src="https://source.unsplash.com/MjLrM8rVMC0/1600"></img>;
+const media = <img src="https://source.unsplash.com/MjLrM8rVMC0/1600"></img>;
 
 const trainingProcessCardData: TrainingQuery["trainingContentCollection"] = {
   items: [

@@ -136,7 +136,7 @@ const AccordionItem = ({
 }: AccordionItemProps) => {
   const classes = useAccordionStyles({});
   const handleChange = (
-    event: React.ChangeEvent<{}>,
+    event: React.ChangeEvent<Record<string, unknown>>,
     expandedState: boolean
   ) => {
     if (setExpanded) {

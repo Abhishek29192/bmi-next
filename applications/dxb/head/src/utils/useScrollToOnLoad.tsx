@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from "react";
 
-export const useScrollToOnLoad = (skip?: boolean, wait: number = 0) => {
+export const useScrollToOnLoad = (skip?: boolean, wait = 0) => {
   const ref = useRef<{
     node: HTMLDivElement | null;
     hasScrolled: boolean;

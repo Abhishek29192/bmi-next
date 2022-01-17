@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// @ts-nocheck
 
 const PRODUCTS_SHEET = "Products";
 const DECISIONS_SHEET = "Decisions";

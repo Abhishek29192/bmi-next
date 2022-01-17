@@ -14,7 +14,6 @@ const Component = () => {
     );
   }, []);
 
-  // @ts-ignore
   return <input data-testid="id" value={values["test"]} />;
 };
 

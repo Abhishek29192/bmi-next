@@ -7,6 +7,7 @@ const can = (
   action: string,
   extraData?: any
 ): boolean => {
+  // eslint-disable-next-line security/detect-object-injection
   const definition = gates?.[dataModel]?.[action];
   let gate;
 

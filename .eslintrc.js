@@ -74,18 +74,6 @@ module.exports = {
       }
     },
     {
-      files: "*.{ts,tsx}",
-      settings: {
-        react: {
-          version: "detect"
-        }
-      },
-      excludedFiles: ["*.test.tsx"],
-      rules: {
-        "no-console": "error"
-      }
-    },
-    {
       files: ["**/*.jsx"],
       env: {
         browser: true,
@@ -102,6 +90,7 @@ module.exports = {
     },
     {
       files: ["**/*.{ts,tsx}"],
+      extends: ["plugin:@typescript-eslint/recommended"],
       parser: "@typescript-eslint/parser",
       env: {
         browser: true,
@@ -113,9 +102,16 @@ module.exports = {
         ecmaFeatures: {
           jsx: true
         },
-        sourceType: "module"
+        sourceType: "module",
+        tsconfigRootDir: __dirname,
+        project: ["./tsconfig.json"]
       },
       plugins: ["@typescript-eslint"],
+      settings: {
+        react: {
+          version: "detect"
+        }
+      },
       rules: {
         // Add TypeScript specific rules (and turn off ESLint equivalents)
         "@typescript-eslint/consistent-type-assertions": "warn",
@@ -167,7 +163,8 @@ module.exports = {
         "jest/no-focused-tests": "error",
         "jest/no-identical-title": "error",
         "jest/valid-describe": "error",
-        "jest/valid-expect": "error"
+        "jest/valid-expect": "error",
+        "@typescript-eslint/no-empty-function": "off"
       }
     },
     {

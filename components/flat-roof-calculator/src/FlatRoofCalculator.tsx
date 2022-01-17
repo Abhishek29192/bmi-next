@@ -40,7 +40,7 @@ export const getProduct = (
 
 const VALUES_PARAM = "v";
 
-const getShareableLink = (values: object): string => {
+const getShareableLink = (values: FormValues): string => {
   if (typeof window === "undefined") return "";
   const currentQueryParams = queryString(window.location.search);
   const encoded = stringifyQueryString({
@@ -96,7 +96,7 @@ function getDefaultValues(treeFieldsDisplay: FieldsDisplay) {
 
 function getInitialResult(typeTree: Tree) {
   let systemName: string | null = null,
-    submittedValues: object | null = null;
+    submittedValues: FormValues | null = null;
 
   if (typeof window !== "undefined") {
     const params = queryString(window.location.search);

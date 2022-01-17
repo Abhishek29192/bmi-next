@@ -455,7 +455,7 @@ export const completeInvitation = async (
   const logger = context.logger("service:account");
 
   let user: Account = context.user;
-  let auth0User = await auth0.getUserByEmail(user.email);
+  const auth0User = await auth0.getUserByEmail(user.email);
 
   if (!auth0User) {
     throw new Error("User missing in auth0, please contact the support");

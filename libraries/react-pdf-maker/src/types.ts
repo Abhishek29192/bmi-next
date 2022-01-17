@@ -1,7 +1,7 @@
-export type PDFNode = string | object | PDFNodeArray;
+export type PDFNode = string | Record<string, unknown> | PDFNodeArray;
 
 // Circular reference work around, consider removing after upgrading to TS 3.7
-export interface PDFNodeArray extends Array<PDFNode> {}
+export type PDFNodeArray = Array<PDFNode>;
 
 export type PageSizeStringOptions =
   | "4A0"

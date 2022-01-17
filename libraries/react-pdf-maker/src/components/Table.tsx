@@ -7,7 +7,7 @@ type TableProps = ComponentProps & {
   children: React.ReactNode;
   headerRows?: number;
   widths?: Array<string | number>;
-  layout?: object | string;
+  layout?: Record<string, unknown> | string;
   [rest: string]: any;
 };
 

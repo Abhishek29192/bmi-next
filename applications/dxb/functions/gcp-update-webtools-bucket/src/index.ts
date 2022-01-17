@@ -24,7 +24,10 @@ const {
   WEBTOOLS_CONTENTFUL_ENVIRONMENT
 } = process.env;
 
-const fetchData = async (body: object, remainingRetries = 5): Promise<any> => {
+const fetchData = async (
+  body: Record<string, any>,
+  remainingRetries = 5
+): Promise<any> => {
   const contentfulToken = await getSecret(WEBTOOLS_CONTENTFUL_TOKEN_SECRET!);
 
   const requestOptions = {

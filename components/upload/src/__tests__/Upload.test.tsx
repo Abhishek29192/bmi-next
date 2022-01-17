@@ -18,13 +18,14 @@ const initialMatchMedia = window.matchMedia;
 window.URL.createObjectURL = jest.fn().mockReturnValue("url");
 window.URL.revokeObjectURL = jest.fn();
 
-function createMatchMedia(width?: unknown) {
-  return (query: string) => ({
-    matches: mediaQuery.match(query, { width }),
-    addListener: () => {},
-    removeListener: () => {}
-  });
-}
+const createMatchMedia = (width: number) => {
+  return (query: string): MediaQueryList =>
+    ({
+      matches: mediaQuery.match(query, { width }),
+      addListener: () => {},
+      removeListener: () => {}
+    } as MediaQueryList);
+};
 
 describe("Upload component", () => {
   afterAll(() => {
@@ -183,7 +184,6 @@ describe("Upload component", () => {
     const id = "drop-upload";
     const buttonLabel = "Upload here";
 
-    // @ts-ignore Only used for testing.
     window.matchMedia = createMatchMedia(1280);
 
     const { getByTestId, getByText } = render(
@@ -209,7 +209,7 @@ describe("Upload component", () => {
     fireEvent.dragOver(dropZone);
     fireEvent.dragLeave(dropZone);
 
-    let file: DataTransferItem = {
+    const file: DataTransferItem = {
       kind: "file",
       getAsFile: () => new File([], "example"),
       getAsString: jest.fn(),
@@ -351,7 +351,6 @@ describe("Upload component", () => {
     expect(onChange).toHaveBeenCalledTimes(2);
   });
   it("renders correctly on mobile", () => {
-    // @ts-ignore Only used for testing.
     window.matchMedia = createMatchMedia(500);
 
     const { container } = render(

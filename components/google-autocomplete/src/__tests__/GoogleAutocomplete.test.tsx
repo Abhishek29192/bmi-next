@@ -18,7 +18,6 @@ describe("GoogleAutocomplete component", () => {
     };
 
     const { container } = render(
-      // @ts-ignore Override typing for mock function override
       <GoogleApi.Provider value={google}>
         <GoogleAutocomplete id="google-autocomplete-test" />
       </GoogleApi.Provider>

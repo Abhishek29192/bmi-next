@@ -266,7 +266,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     //TODO: remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch of code
     // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
-    let query =
+    const query =
       process.env.GATSBY_USE_LEGACY_FILTERS === "true"
         ? compileElasticSearchQuery(filters, categoryCodes, page, pageSize)
         : compileESQueryPLP({

@@ -18,11 +18,11 @@ export type Data = {
 type Details = readonly [DetailProps, ...DetailProps[]];
 
 export const getDetails = (
-  address: string,
-  phoneNumber: string,
-  email: string
+  address: string | null,
+  phoneNumber: string | null,
+  email: string | null
 ): Details => {
-  const addressLine: DetailProps[] = address
+  const addressLine: [DetailProps] | undefined = address
     ? [
         {
           type: "address",
@@ -36,8 +36,8 @@ export const getDetails = (
           label: <MicroCopy path="global.address" />
         }
       ]
-    : [];
-  const phoneNumberLine: DetailProps[] = phoneNumber
+    : undefined;
+  const phoneNumberLine: [DetailProps] | undefined = phoneNumber
     ? [
         {
           type: "phone",
@@ -46,8 +46,8 @@ export const getDetails = (
           label: <MicroCopy path="global.telephone" />
         }
       ]
-    : [];
-  const emailLine: DetailProps[] = email
+    : undefined;
+  const emailLine: [DetailProps] | undefined = email
     ? [
         {
           type: "email",
@@ -56,12 +56,11 @@ export const getDetails = (
           label: <MicroCopy path="global.email" />
         }
       ]
-    : [];
+    : undefined;
 
-  if (!addressLine.length && !phoneNumberLine.length && !emailLine.length) {
+  if (!addressLine && !phoneNumberLine && !emailLine) {
     return null;
   }
-  // @ts-ignore It doens't realise that there will be at least one.
   return [...addressLine, ...phoneNumberLine, ...emailLine];
 };
 
@@ -93,7 +92,6 @@ const IntegratedLocationCard = ({
         <GTMAnchorLink
           gtm={{
             id: "cta-click1",
-            // @ts-ignore
             action: props?.action?.href
           }}
           {...props}

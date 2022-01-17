@@ -42,7 +42,6 @@ class CancelToken {
   }
 }
 
-// @ts-ignore
 mockedAxios.CancelToken = CancelToken;
 
 const { location } = window;
@@ -166,10 +165,7 @@ const nextStepData: NextStepData = {
     }
   ]
 };
-const getSiteContext = (
-  countryCode: string = "no",
-  nodeLocale: string = "en-GB"
-) => ({
+const getSiteContext = (countryCode = "no", nodeLocale = "en-GB") => ({
   countryCode: countryCode,
   getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
   node_locale: nodeLocale,

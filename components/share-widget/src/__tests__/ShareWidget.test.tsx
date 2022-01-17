@@ -3,29 +3,29 @@ import React from "react";
 import ShareWidget from "../";
 
 const channels = [
-  { type: "copy" as "copy", label: "Copy to clipboard" },
+  { type: "copy" as const, label: "Copy to clipboard" },
   {
-    type: "email" as "email",
+    type: "email" as const,
     label: "Share by email",
     apiUrl: "mailto:?body="
   },
   {
-    type: "linkedin" as "linkedin",
+    type: "linkedin" as const,
     label: "Share on LinkedIn",
     apiUrl: "https://www.linkedin.com/shareArticle?mini=true&url="
   },
   {
-    type: "twitter" as "twitter",
+    type: "twitter" as const,
     label: "Share on Twitter",
     apiUrl: "https://twitter.com/intent/tweet?url="
   },
   {
-    type: "facebook" as "facebook",
+    type: "facebook" as const,
     label: "Share on Facebook",
     apiUrl: "https://www.facebook.com/sharer/sharer.php?u="
   },
   {
-    type: "pinterest" as "pinterest",
+    type: "pinterest" as const,
     label: "Share on Pinterest",
     apiUrl: "https://www.pinterest.com/pin/create/button/?url="
   }

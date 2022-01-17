@@ -31,7 +31,7 @@ const apsisAudianceBase = `${APSIS_API_BASE_URL}/audience`;
 const getAuthToken = async () => {
   const apsisClientSecret = await getSecret(APSIS_CLIENT_SECRET!);
 
-  var requestOptions = {
+  const requestOptions = {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -157,7 +157,7 @@ const createSubscription = async (access_token: string, email: string) => {
 };
 
 const validateEmail = (email: string): boolean => {
-  var re = /\S+@\S+\.\S+/;
+  const re = /\S+@\S+\.\S+/;
   return re.test(email);
 };
 

@@ -39,11 +39,14 @@ beforeEach(() => {
   jest.resetModules();
 });
 
-const handleRequest = (
+const handleRequest = async (
   request: Partial<Request>,
   response: Partial<Response>
 ) =>
-  require("../index").handleRequest(request as Request, response as Response);
+  (await import("../index")).handleRequest(
+    request as Request,
+    response as Response
+  );
 
 describe("handleRequest", () => {
   it("should return 500 if GCP_PROJECT_ID is not set", async () => {
@@ -200,7 +203,7 @@ describe("handleRequest", () => {
       await handleRequest(request, response);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(fetchData).toHaveBeenCalledWith(
@@ -221,7 +224,7 @@ describe("handleRequest", () => {
       await handleRequest(request, response);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(fetchData).toHaveBeenCalledWith(

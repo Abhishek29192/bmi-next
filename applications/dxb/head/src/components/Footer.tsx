@@ -22,7 +22,6 @@ const parseNavigation = (
     return [];
   }
   return navigationItems.map((navigationItem) => {
-    // @ts-ignore I have on idea why, but TS does not understand narrowing the Union here.
     if (navigationItem.links) {
       const { links, label } = navigationItem as NavigationData;
       return {

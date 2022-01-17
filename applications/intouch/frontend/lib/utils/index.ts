@@ -19,7 +19,7 @@ export const getMarketAndEnvFromReq = ({
   let market = null;
   let environment = null;
 
-  let { host } = headers;
+  const { host } = headers;
 
   const paths = host.split(".");
   const subdomain = paths[0];
@@ -41,4 +41,5 @@ export const getMarketAndEnvFromReq = ({
 };
 
 export const sortArrayByField = (nodes: any[], field: string) =>
+  // eslint-disable-next-line security/detect-object-injection
   nodes?.sort((a, b) => a?.[field]?.localeCompare(b?.[field]));

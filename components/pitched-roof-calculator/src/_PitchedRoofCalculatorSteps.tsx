@@ -72,7 +72,10 @@ const PitchedRoofCalculatorSteps = ({
     setDimensions({});
   };
 
-  const saveDimensions = (e: React.FormEvent<Element>, values: object) => {
+  const saveDimensions = (
+    e: React.FormEvent<Element>,
+    values: Record<string, unknown>
+  ) => {
     e.preventDefault();
 
     pushEvent({
@@ -115,7 +118,7 @@ const PitchedRoofCalculatorSteps = ({
 
   const measurements: Measurements | null = useMemo(() => {
     if (!roof || !dimensions) return null;
-    let { faces, lines } = roof.getMeasurements(dimensions);
+    const { faces, lines } = roof.getMeasurements(dimensions);
 
     if (Array.isArray(dimensions.protrusions)) {
       for (const { type, ...protrusionDimensions } of dimensions.protrusions) {

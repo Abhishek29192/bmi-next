@@ -39,7 +39,7 @@ export type StepProps = {
   linkLabel?: string;
   linkOnClick?: () => void;
   nextLabel?: string;
-  nextButtonOnClick?: (e: FormEvent, value: object) => void;
+  nextButtonOnClick?: (e: FormEvent, value: Record<string, unknown>) => void;
   children: React.ReactNode;
 };
 

@@ -15,8 +15,8 @@ import styles from "./styles/PromoSection.module.scss";
 export type Data = PromoData;
 
 const backgroundColorMap = {
-  White: "white" as "white",
-  Alabaster: "alabaster" as "alabaster"
+  White: "white" as const,
+  Alabaster: "alabaster" as const
 };
 
 const IntegratedPromoSection = ({ data }: { data: Data }) => {

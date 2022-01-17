@@ -22,8 +22,8 @@ jest.mock("@google-cloud/pubsub", () => ({
   }))
 }));
 
-const handleRequest = (req: Partial<Request>, res: Partial<Response>) =>
-  require("../index").handleRequest(req, res);
+const handleRequest = async (req: Partial<Request>, res: Partial<Response>) =>
+  (await import("../index")).handleRequest(req as Request, res as Response);
 
 const createEvent = (message = {}): { data: string } => {
   if (!message) {

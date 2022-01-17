@@ -68,10 +68,7 @@ const card4: PromoData = {
   featuredVideo: null
 };
 
-const getSiteContext = (
-  countryCode: string = "en",
-  nodeLocale: string = "en-GB"
-) => ({
+const getSiteContext = (countryCode = "en", nodeLocale = "en-GB") => ({
   countryCode: countryCode,
   getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
   node_locale: nodeLocale,

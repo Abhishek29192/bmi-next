@@ -54,7 +54,6 @@ export const mapAssetToFileDownload = (
 
     return {
       url,
-      // @ts-ignore: Format to string
       format,
       size
     };
@@ -66,7 +65,6 @@ export const mapAssetToFileDownload = (
 
   return {
     url: file.url,
-    // @ts-ignore: Format to string
     format: file.contentType,
     size: file.details.size
   };

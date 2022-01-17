@@ -74,8 +74,8 @@ export const battenCalc = (
   // Place battens at this even spacing up to the top of the roof
   for (let i = 0; i < battenCount + 1; i += 1) {
     const battenHeight = firstBatten + i * spacing;
-    let topOfTile = battenHeight;
-    let bottomOfTile = Math.max(0, battenHeight - mainTileVariant.height);
+    const topOfTile = battenHeight;
+    const bottomOfTile = Math.max(0, battenHeight - mainTileVariant.height);
     // Keep track of intersections with y = batten, and the edges of the shapes
     let intersections = [];
     // First consider edge between final point in list and first point
@@ -287,7 +287,7 @@ export const surface = (
       }
     }
   }
-  let result = {
+  const result = {
     quantity: count,
     half: {
       quantity: halfcount

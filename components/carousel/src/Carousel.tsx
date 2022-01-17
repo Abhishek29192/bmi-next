@@ -112,7 +112,7 @@ const handleSwiping = (
   wrapperElement: HTMLElement,
   index: number,
   type: "move" | "end",
-  minimumOpacity: number = 0
+  minimumOpacity = 0
 ) => {
   const activeSlide: HTMLElement | null = wrapperElement.querySelector(
     ".Carousel__slide--global[aria-hidden='false']"
@@ -122,10 +122,11 @@ const handleSwiping = (
     return;
   }
 
-  const nextSlide =
+  const nextSlide: HTMLElement | undefined = (
     index >= 3
       ? activeSlide.nextElementSibling
-      : activeSlide.previousElementSibling;
+      : activeSlide.previousElementSibling
+  ) as HTMLElement | undefined;
 
   if (type === "end") {
     Array.from(
@@ -145,9 +146,7 @@ const handleSwiping = (
   activeSlide.style.transitionDuration = "0s";
 
   if (nextSlide) {
-    // @ts-ignore It's a HTMLElement
     nextSlide.style.opacity = "" + Math.max(minimumOpacity, currentSwipe);
-    // @ts-ignore It's a HTMLElement
     nextSlide.style.transitionDuration = "0s";
   }
 };
@@ -321,8 +320,8 @@ const Carousel = ({
       ? AutoPlaySwipeableViews
       : InfiniteSwipeableViewsComponent;
 
-  let firstSlideIndex: number = 0;
-  let lastSlideIndex: number = 0;
+  let firstSlideIndex = 0;
+  let lastSlideIndex = 0;
 
   const slides = useMemo(
     () =>
@@ -455,7 +454,6 @@ const Carousel = ({
             disabled={isSwipeDisabled}
             onChangeIndex={handleStepChange}
             slideClassName="Carousel__slide--global"
-            // @ts-ignore TS doesn't get this variable when `autoPlay` util wraps it.
             onSwitching={(index: number, type: "move" | "end") => {
               if (!wrapper.current || !hasOpacityAnimation) {
                 return;

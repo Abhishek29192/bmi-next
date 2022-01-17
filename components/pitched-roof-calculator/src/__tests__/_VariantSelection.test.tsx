@@ -16,8 +16,8 @@ const dimensionsSample = {
 describe("PitchedRoofCalculator VariantSelection component", () => {
   it("renders correctly", () => {
     const updateFormState = jest.fn();
-    let hasBeenSubmitted = false;
-    let submitButtonDisabled = false;
+    const hasBeenSubmitted = false;
+    const submitButtonDisabled = false;
 
     const select = jest.fn();
 
@@ -46,8 +46,8 @@ describe("PitchedRoofCalculator VariantSelection component", () => {
 
   it("renders with no variants", () => {
     const updateFormState = jest.fn();
-    let hasBeenSubmitted = false;
-    let submitButtonDisabled = false;
+    const hasBeenSubmitted = false;
+    const submitButtonDisabled = false;
 
     const select = jest.fn();
 

@@ -33,12 +33,18 @@ type Context = {
 
 export const DownloadListContext = createContext<Context>({
   list: {},
-  updateList: () => {},
-  resetList: () => {},
+  updateList: () => {
+    // no-op
+  },
+  resetList: () => {
+    // no-op
+  },
   count: 0,
   remainingSize: Infinity,
   isLoading: false,
-  setIsLoading: () => {}
+  setIsLoading: () => {
+    // no-op
+  }
 });
 
 type DownloadListCheckboxProps = Omit<

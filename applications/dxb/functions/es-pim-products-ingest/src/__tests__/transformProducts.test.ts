@@ -15,8 +15,10 @@ import { ProductVariant } from "../es-model";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 
-const transformProduct = (product: Partial<Product>): ProductVariant[] =>
-  require("../transformProducts").transformProduct(product as Product);
+const transformProduct = async (
+  product: Partial<Product>
+): Promise<ProductVariant[]> =>
+  (await import("../transformProducts")).transformProduct(product as Product);
 
 beforeAll(() => {
   mockConsole();
@@ -34,12 +36,12 @@ const getDynamicPropValue = (obj: any, prop: string): any => {
 
 describe("transformProduct", () => {
   describe("stratigic transform tests", () => {
-    it("should transform single Categorytype 'Category'", () => {
+    it("should transform single Categorytype 'Category'", async () => {
       const product = createPimProduct({
         variantOptions: [createVariantOption()],
         categories: [createCategory()]
       });
-      const transformedProduct = transformProduct(product);
+      const transformedProduct = await transformProduct(product);
       const categoryAsProp = getDynamicPropValue(
         transformedProduct[0],
         "Category"
@@ -47,11 +49,11 @@ describe("transformProduct", () => {
       expect(categoryAsProp).toEqual([{ code: "code", name: "name" }]);
     });
 
-    it("should transform multiple Categorytype 'Category'", () => {
+    it("should transform multiple Categorytype 'Category'", async () => {
       const product = createPimProduct({
         variantOptions: [createVariantOption()]
       });
-      const transformedProduct = transformProduct(product);
+      const transformedProduct = await transformProduct(product);
       const newFeatureValueAsProp = getDynamicPropValue(
         transformedProduct[0],
         "Category"
@@ -64,7 +66,7 @@ describe("transformProduct", () => {
       ]);
     });
 
-    it("should transform single Categorytype 'ProductLine'", () => {
+    it("should transform single Categorytype 'ProductLine'", async () => {
       const product = createPimProduct({
         variantOptions: [createVariantOption()],
         categories: [
@@ -75,7 +77,7 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const transformedProduct = transformProduct(product);
+      const transformedProduct = await transformProduct(product);
       const categoryAsProp = getDynamicPropValue(
         transformedProduct[0],
         "ProductLine"
@@ -84,7 +86,7 @@ describe("transformProduct", () => {
         { code: "RoofTiles", name: "Roof Tiles" }
       ]);
     });
-    it("should transform single Categorytype 'ProductFamily'", () => {
+    it("should transform single Categorytype 'ProductFamily'", async () => {
       const product = createPimProduct({
         variantOptions: [createVariantOption()],
         categories: [
@@ -95,7 +97,7 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const transformedProduct = transformProduct(product);
+      const transformedProduct = await transformProduct(product);
       const categoryAsProp = getDynamicPropValue(
         transformedProduct[0],
         "ProductFamily"
@@ -103,7 +105,7 @@ describe("transformProduct", () => {
       expect(categoryAsProp).toEqual([{ code: "Tiles", name: "Tiles" }]);
     });
 
-    it("should transform single Categorytype 'Brand'", () => {
+    it("should transform single Categorytype 'Brand'", async () => {
       const product = createPimProduct({
         variantOptions: [createVariantOption()],
         categories: [
@@ -114,7 +116,7 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const transformedProduct = transformProduct(product);
+      const transformedProduct = await transformProduct(product);
       const categoryAsProp = getDynamicPropValue(
         transformedProduct[0],
         "Brand"
@@ -122,7 +124,7 @@ describe("transformProduct", () => {
       expect(categoryAsProp).toEqual([{ code: "Aerodek", name: "Aerodek" }]);
     });
 
-    it("should transform All Parent Categories", () => {
+    it("should transform All Parent Categories", async () => {
       const product = createPimProduct({
         variantOptions: [createVariantOption()],
         categories: [
@@ -152,7 +154,7 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const transformedProduct = transformProduct(product);
+      const transformedProduct = await transformProduct(product);
       let categoryAsProp = getDynamicPropValue(transformedProduct[0], "Brand");
       expect(categoryAsProp).toEqual([{ code: "Aerodek", name: "Aerodek" }]);
 
@@ -185,7 +187,7 @@ describe("transformProduct", () => {
     });
 
     describe("when feature values do not have 'code'", () => {
-      it("uses value to generate transformed code for single feature value from a variant classification", () => {
+      it("uses value to generate transformed code for single feature value from a variant classification", async () => {
         const product = createPimProduct({
           variantOptions: [
             createVariantOption({
@@ -204,7 +206,7 @@ describe("transformProduct", () => {
             })
           ]
         });
-        const transformedProduct = transformProduct(product);
+        const transformedProduct = await transformProduct(product);
         const featureNameAsProp = getDynamicPropValue(
           transformedProduct[0],
           "measurements.width"
@@ -215,7 +217,7 @@ describe("transformProduct", () => {
         ]);
       });
 
-      it("uses value to generate transformed code for multiple feature values from a variant classification", () => {
+      it("uses value to generate transformed code for multiple feature values from a variant classification", async () => {
         const product = createPimProduct({
           variantOptions: [
             createVariantOption({
@@ -235,7 +237,7 @@ describe("transformProduct", () => {
             })
           ]
         });
-        const transformedProduct = transformProduct(product);
+        const transformedProduct = await transformProduct(product);
         const featureNameAsProp = getDynamicPropValue(
           transformedProduct[0],
           "measurements.height"
@@ -249,7 +251,7 @@ describe("transformProduct", () => {
     });
 
     describe("when feature values has 'code'", () => {
-      it("uses feature code to generate transformed code for single feature value from a variant classification", () => {
+      it("uses feature code to generate transformed code for single feature value from a variant classification", async () => {
         const product = createPimProduct({
           variantOptions: [
             createVariantOption({
@@ -272,7 +274,7 @@ describe("transformProduct", () => {
             })
           ]
         });
-        const transformedProduct = transformProduct(product);
+        const transformedProduct = await transformProduct(product);
         const featureNameAsProp = getDynamicPropValue(
           transformedProduct[0],
           "appearanceAttributes.colorFamily"
@@ -283,7 +285,7 @@ describe("transformProduct", () => {
         ]);
       });
 
-      it("uses feature code to generate transformed code for multiple feature values from a variant classification", () => {
+      it("uses feature code to generate transformed code for multiple feature values from a variant classification", async () => {
         const product = createPimProduct({
           variantOptions: [
             createVariantOption({
@@ -307,7 +309,7 @@ describe("transformProduct", () => {
             })
           ]
         });
-        const transformedProduct = transformProduct(product);
+        const transformedProduct = await transformProduct(product);
         const featureNameAsProp = getDynamicPropValue(
           transformedProduct[0],
           "appearanceAttributes.colorFamily"
@@ -319,7 +321,7 @@ describe("transformProduct", () => {
         ]);
       });
     });
-    it("should transform nothing into measurementValue if not width, length or height", () => {
+    it("should transform nothing into measurementValue if not width, length or height", async () => {
       const product = createPimProduct({
         variantOptions: [
           createVariantOption({
@@ -336,12 +338,12 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const transformedProduct = transformProduct(product);
+      const transformedProduct = await transformProduct(product);
 
       expect(transformedProduct[0].measurementValue).toBeUndefined();
     });
 
-    it("should transform width into measurementValue", () => {
+    it("should transform width into measurementValue", async () => {
       const product = createPimProduct({
         variantOptions: [
           createVariantOption({
@@ -358,12 +360,12 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const transformedProduct = transformProduct(product);
+      const transformedProduct = await transformProduct(product);
 
       expect(transformedProduct[0].measurementValue).toEqual("100symbol");
     });
 
-    it("should transform length into measurementValue", () => {
+    it("should transform length into measurementValue", async () => {
       const product = createPimProduct({
         variantOptions: [
           createVariantOption({
@@ -380,12 +382,12 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const transformedProduct = transformProduct(product);
+      const transformedProduct = await transformProduct(product);
 
       expect(transformedProduct[0].measurementValue).toEqual("10symbol");
     });
 
-    it("should transform height into measurementValue", () => {
+    it("should transform height into measurementValue", async () => {
       const product = createPimProduct({
         variantOptions: [
           createVariantOption({
@@ -402,12 +404,12 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const transformedProduct = transformProduct(product);
+      const transformedProduct = await transformProduct(product);
 
       expect(transformedProduct[0].measurementValue).toEqual("1symbol");
     });
 
-    it("should transform width, legnth and height into measurementValue", () => {
+    it("should transform width, legnth and height into measurementValue", async () => {
       const product = createPimProduct({
         variantOptions: [
           createVariantOption({
@@ -432,20 +434,20 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const transformedProduct = transformProduct(product);
+      const transformedProduct = await transformProduct(product);
 
       expect(transformedProduct[0].measurementValue).toEqual("10x100x1symbol");
     });
   });
 
   describe("original transform tests", () => {
-    it("should transform full product with single variant to a single ES product", () => {
+    it("should transform full product with single variant to a single ES product", async () => {
       const product = createPimProduct();
 
-      expect(transformProduct(product)).toMatchSnapshot();
+      expect(await transformProduct(product)).toMatchSnapshot();
     });
 
-    it("should transform product with colourfamilyCode,colourfamilyValue,texturefamilyCode,texturefamilyValue equal undefined if appearanceClassifications.features === undefined", () => {
+    it("should transform product with colourfamilyCode,colourfamilyValue,texturefamilyCode,texturefamilyValue equal undefined if appearanceClassifications.features === undefined", async () => {
       const product = createPimProduct({
         classifications: [
           createAppearanceAttributesClassification({
@@ -454,7 +456,7 @@ describe("transformProduct", () => {
         ]
       });
 
-      const transformedProduct = transformProduct(product);
+      const transformedProduct = await transformProduct(product);
 
       expect(transformedProduct[0].colourfamilyCode).toEqual(undefined);
       expect(transformedProduct[0].colourfamilyValue).toEqual(undefined);
@@ -462,7 +464,7 @@ describe("transformProduct", () => {
       expect(transformedProduct[0].texturefamilyValue).toEqual(undefined);
     });
 
-    it("should transform product with materialsCode,materialsValue equal undefined if generalInformationClassification.features === undefined", () => {
+    it("should transform product with materialsCode,materialsValue equal undefined if generalInformationClassification.features === undefined", async () => {
       const product = createPimProduct({
         classifications: [
           createGeneralInformationClassification({
@@ -471,26 +473,26 @@ describe("transformProduct", () => {
         ]
       });
 
-      const transformedProduct = transformProduct(product);
+      const transformedProduct = await transformProduct(product);
 
       expect(transformedProduct[0].materialsCode).toEqual(undefined);
       expect(transformedProduct[0].materialsValue).toEqual(undefined);
     });
 
-    it("should default PIM_CLASSIFICATION_CATALOGUE_NAMESPACE if not provided", () => {
+    it("should default PIM_CLASSIFICATION_CATALOGUE_NAMESPACE if not provided", async () => {
       const pimClassificationCcatalogueNamespace =
         process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE;
       delete process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE;
 
       const product = createPimProduct();
 
-      expect(transformProduct(product)).toMatchSnapshot();
+      expect(await transformProduct(product)).toMatchSnapshot();
 
       process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE =
         pimClassificationCcatalogueNamespace;
     });
 
-    it("should ignore variant scoringWeightAttributes", () => {
+    it("should ignore variant scoringWeightAttributes", async () => {
       const product = createPimProduct({
         variantOptions: [
           createVariantOption({
@@ -506,8 +508,8 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const actualScoringWeightAttributes = transformProduct(
-        product
+      const actualScoringWeightAttributes = (
+        await transformProduct(product)
       )[0].classifications.filter(
         (classification) => classification.code === "scoringWeightAttributes"
       );
@@ -527,7 +529,7 @@ describe("transformProduct", () => {
       );
     });
 
-    it("should assign variantScoringWeightInt to 0", () => {
+    it("should assign variantScoringWeightInt to 0", async () => {
       const product = createPimProduct({
         variantOptions: [
           createVariantOption({
@@ -543,13 +545,13 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const variantScoringWeightInt =
-        transformProduct(product)[0].variantScoringWeightInt;
+      const variantScoringWeightInt = (await transformProduct(product))[0]
+        .variantScoringWeightInt;
 
       expect(variantScoringWeightInt).toEqual(0);
     });
 
-    it("should assign scoringWeightInt and productScoringWeightInt to 0", () => {
+    it("should assign scoringWeightInt and productScoringWeightInt to 0", async () => {
       const product = createPimProduct({
         classifications: [
           createScoringWeightAttributesClassification({
@@ -561,9 +563,10 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const scoringWeightInt = transformProduct(product)[0].scoringWeightInt;
-      const productScoringWeightInt =
-        transformProduct(product)[0].productScoringWeightInt;
+      const scoringWeightInt = (await transformProduct(product))[0]
+        .scoringWeightInt;
+      const productScoringWeightInt = (await transformProduct(product))[0]
+        .productScoringWeightInt;
 
       expect(scoringWeightInt).toEqual(0);
       expect(productScoringWeightInt).toEqual(0);
@@ -571,9 +574,9 @@ describe("transformProduct", () => {
 
     describe("scoringWeightAttributes classification tests", () => {
       describe("When scoringWeightAttributes classification is not present", () => {
-        it("should default scoringWeight", () => {
+        it("should default scoringWeight", async () => {
           const product = createPimProduct({ classifications: [] });
-          const transformedProduct = transformProduct(product);
+          const transformedProduct = await transformProduct(product);
           expect(transformedProduct[0]["productScoringWeightInt"]).toEqual(0);
           expect(transformedProduct[0]["variantScoringWeightInt"]).toEqual(0);
           expect(transformedProduct[0]["scoringWeightInt"]).toEqual(0);
@@ -581,7 +584,7 @@ describe("transformProduct", () => {
       });
       describe("When scoringWeightAttributes classification is present and no feature", () => {
         describe("Product Feature is undefined", () => {
-          it("should default scoringWeight", () => {
+          it("should default scoringWeight", async () => {
             const product = createPimProduct({
               classifications: [
                 createScoringWeightAttributesClassification({
@@ -589,14 +592,14 @@ describe("transformProduct", () => {
                 })
               ]
             });
-            const transformedProduct = transformProduct(product);
+            const transformedProduct = await transformProduct(product);
             expect(transformedProduct[0]["productScoringWeightInt"]).toEqual(0);
             expect(transformedProduct[0]["variantScoringWeightInt"]).toEqual(0);
             expect(transformedProduct[0]["scoringWeightInt"]).toEqual(0);
           });
         });
         describe("Variant Feature is undefined", () => {
-          it("should default scoringWeight", () => {
+          it("should default scoringWeight", async () => {
             const product = createPimProduct({
               classifications: [
                 createScoringWeightAttributesClassification({
@@ -613,7 +616,7 @@ describe("transformProduct", () => {
                 })
               ]
             });
-            const transformedProduct = transformProduct(product);
+            const transformedProduct = await transformProduct(product);
             expect(transformedProduct[0]["productScoringWeightInt"]).toEqual(0);
             expect(transformedProduct[0]["variantScoringWeightInt"]).toEqual(0);
             expect(transformedProduct[0]["scoringWeightInt"]).toEqual(0);
@@ -622,7 +625,7 @@ describe("transformProduct", () => {
       });
     });
 
-    it("should index product and variant scoringWeightAttributeInt separately", () => {
+    it("should index product and variant scoringWeightAttributeInt separately", async () => {
       const product = createPimProduct({
         classifications: [
           createScoringWeightAttributesClassification({
@@ -647,13 +650,13 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const transformedProduct = transformProduct(product);
+      const transformedProduct = await transformProduct(product);
       expect(transformedProduct[0]["productScoringWeightInt"]).toEqual(3);
       expect(transformedProduct[0]["variantScoringWeightInt"]).toEqual(2);
       expect(transformedProduct[0]["scoringWeightInt"]).toEqual(3);
     });
 
-    it("should override product appearanceAttributes classification with variant", () => {
+    it("should override product appearanceAttributes classification with variant", async () => {
       const product = createPimProduct({
         variantOptions: [
           createVariantOption({
@@ -676,8 +679,8 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const actualAppearanceAttributes = transformProduct(
-        product
+      const actualAppearanceAttributes = (
+        await transformProduct(product)
       )[0].classifications.filter(
         (classification) => classification.code === "appearanceAttributes"
       );
@@ -695,7 +698,7 @@ describe("transformProduct", () => {
       expect(actualAppearanceAttributes).toEqual(expectedAppearanceAttributes);
     });
 
-    it("should override product generalInformation classification with variant", () => {
+    it("should override product generalInformation classification with variant", async () => {
       const product = createPimProduct({
         variantOptions: [
           createVariantOption({
@@ -712,8 +715,8 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const actualGeneralInformation = transformProduct(
-        product
+      const actualGeneralInformation = (
+        await transformProduct(product)
       )[0].classifications.filter(
         (classification) => classification.code === "generalInformation"
       );
@@ -731,7 +734,7 @@ describe("transformProduct", () => {
       expect(actualGeneralInformation).toEqual(expectedGeneralInformation);
     });
 
-    it("should override product measurements classification with variant", () => {
+    it("should override product measurements classification with variant", async () => {
       const product = createPimProduct({
         variantOptions: [
           createVariantOption({
@@ -748,8 +751,8 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const actualGeneralInformation = transformProduct(
-        product
+      const actualGeneralInformation = (
+        await transformProduct(product)
       )[0].classifications.filter(
         (classification) => classification.code === "measurements"
       );
@@ -767,7 +770,7 @@ describe("transformProduct", () => {
       expect(actualGeneralInformation).toEqual(expectedGeneralInformation);
     });
 
-    it("should override product approvalStatus with variant", () => {
+    it("should override product approvalStatus with variant", async () => {
       const product = createPimProduct({
         variantOptions: [
           createVariantOption({
@@ -775,13 +778,14 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const actualApprovalStatus = transformProduct(product)[0].approvalStatus;
+      const actualApprovalStatus = (await transformProduct(product))[0]
+        .approvalStatus;
       const expectedApprovalStatus = product.variantOptions![0].approvalStatus;
       expect(expectedApprovalStatus).not.toEqual(product.approvalStatus);
       expect(actualApprovalStatus).toEqual(expectedApprovalStatus);
     });
 
-    it("should handle no classifications", () => {
+    it("should handle no classifications", async () => {
       const product = createPimProduct({
         classifications: undefined,
         variantOptions: [
@@ -790,10 +794,10 @@ describe("transformProduct", () => {
           })
         ]
       });
-      expect(transformProduct(product)).toMatchSnapshot();
+      expect(await transformProduct(product)).toMatchSnapshot();
     });
 
-    it("should handle appearanceAttributes classifications with no features", () => {
+    it("should handle appearanceAttributes classifications with no features", async () => {
       const product = createPimProduct({
         classifications: [
           createAppearanceAttributesClassification({ features: undefined })
@@ -808,10 +812,10 @@ describe("transformProduct", () => {
           })
         ]
       });
-      expect(transformProduct(product)).toMatchSnapshot();
+      expect(await transformProduct(product)).toMatchSnapshot();
     });
 
-    it("should handle generalInformation classifications with no features", () => {
+    it("should handle generalInformation classifications with no features", async () => {
       const product = createPimProduct({
         classifications: [
           createGeneralInformationClassification({ features: undefined })
@@ -826,17 +830,17 @@ describe("transformProduct", () => {
           })
         ]
       });
-      expect(transformProduct(product)).toMatchSnapshot();
+      expect(await transformProduct(product)).toMatchSnapshot();
     });
 
-    it("should handle no categories", () => {
+    it("should handle no categories", async () => {
       const product = createPimProduct({
         categories: undefined
       });
-      expect(transformProduct(product)).toMatchSnapshot();
+      expect(await transformProduct(product)).toMatchSnapshot();
     });
 
-    it("should handle no images", () => {
+    it("should handle no images", async () => {
       const product = createPimProduct({
         images: undefined,
         variantOptions: [
@@ -845,14 +849,14 @@ describe("transformProduct", () => {
           })
         ]
       });
-      expect(transformProduct(product)).toMatchSnapshot();
+      expect(await transformProduct(product)).toMatchSnapshot();
     });
 
-    it("should return an empty array if there are no variants", () => {
+    it("should return an empty array if there are no variants", async () => {
       const product = createPimProduct({
         variantOptions: undefined
       });
-      expect(transformProduct(product)).toStrictEqual([]);
+      expect(await transformProduct(product)).toStrictEqual([]);
     });
   });
 });

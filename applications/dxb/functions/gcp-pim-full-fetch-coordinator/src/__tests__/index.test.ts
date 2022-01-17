@@ -58,11 +58,14 @@ beforeEach(() => {
     .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
 });
 
-const handleRequest = (
+const handleRequest = async (
   request: Partial<Request>,
   response: Partial<Response>
 ) =>
-  require("../index").handleRequest(request as Request, response as Response);
+  (await import("../index")).handleRequest(
+    request as Request,
+    response as Response
+  );
 
 describe("handleRequest", () => {
   it("should return 500 if BUILD_TRIGGER_ENDPOINT is not set", async () => {
@@ -114,7 +117,7 @@ describe("handleRequest", () => {
       await handleRequest(request, response);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
@@ -146,7 +149,7 @@ describe("handleRequest", () => {
       await handleRequest(request, response);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
@@ -176,7 +179,7 @@ describe("handleRequest", () => {
       await handleRequest(request, response);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
@@ -208,7 +211,7 @@ describe("handleRequest", () => {
       await handleRequest(request, response);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
@@ -239,7 +242,7 @@ describe("handleRequest", () => {
       await handleRequest(request, response);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
@@ -278,7 +281,7 @@ describe("handleRequest", () => {
       await handleRequest(request, response);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
@@ -339,7 +342,9 @@ describe("handleRequest", () => {
       await handleRequest(request, response);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Failed to get all of the products data.");
+      expect((error as Error).message).toEqual(
+        "Failed to get all of the products data."
+      );
     }
 
     expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
@@ -403,7 +408,7 @@ describe("handleRequest", () => {
       await handleRequest(request, response);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
@@ -476,7 +481,7 @@ describe("handleRequest", () => {
       await handleRequest(request, response);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
@@ -549,7 +554,9 @@ describe("handleRequest", () => {
       await handleRequest(request, response);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Failed to get all of the systems data.");
+      expect((error as Error).message).toEqual(
+        "Failed to get all of the systems data."
+      );
     }
 
     expect(deleteElasticSearchIndex).toHaveBeenCalledWith(

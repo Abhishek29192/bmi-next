@@ -24,8 +24,10 @@ const createEvent = (
   const objJsonB64 = Buffer.from(objJsonStr).toString("base64");
   return { data: objJsonB64 };
 };
-const createContext = (): { message: { data: object } } => ({
-  message: { data: {} }
+const createContext = (): {
+  message: { data: ProductMessage | SystemMessage };
+} => ({
+  message: { data: {} as ProductMessage }
 });
 
 const getEsClient = jest.fn();
@@ -62,14 +64,14 @@ beforeEach(() => {
   }));
 });
 
-const handleMessage = (
+const handleMessage = async (
   event: { data: string },
   context: {
     message: {
-      data: object;
+      data: ProductMessage | SystemMessage;
     };
   }
-): Promise<any> => require("../index").handleMessage(event, context);
+): Promise<any> => (await import("../index")).handleMessage(event, context);
 
 describe("handleMessage", () => {
   it("should error if getEsClient throws error", async () => {
@@ -79,7 +81,7 @@ describe("handleMessage", () => {
       await handleMessage(createEvent(), createContext());
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(getEsClient).toBeCalled();

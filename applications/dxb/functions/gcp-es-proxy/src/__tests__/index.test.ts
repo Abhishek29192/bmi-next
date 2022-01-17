@@ -13,8 +13,8 @@ import {
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
-const proxy = (request: Partial<Request>, response: Partial<Response>) =>
-  require("../index").proxy(request, response);
+const proxy = async (request: Partial<Request>, response: Partial<Response>) =>
+  (await import("../index")).proxy(request as Request, response as Response);
 
 beforeAll(() => {
   mockConsole();
@@ -303,6 +303,14 @@ describe("Making a POST request", () => {
   });
 
   it("calls elasticsearch and returns response", async () => {
+    const getRandomStatus = (): number => {
+      const number = Math.floor(Math.random() * 500);
+      if (number === 0) {
+        return getRandomStatus();
+      }
+      return number;
+    };
+
     const req = mockRequest(
       "POST",
       {
@@ -323,7 +331,7 @@ describe("Making a POST request", () => {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "POST",
       body: Readable.from(['{"size":0,"timeout":0}']),
-      status: Math.floor(Math.random() * 500),
+      status: getRandomStatus(),
       headers: { "content-type": "application/json" }
     };
     mockResponses(fetchMock, expectedResponse);
@@ -418,12 +426,12 @@ describe("Making a POST request", () => {
       method: req.method,
       headers: {
         accept: req.headers!.accept!,
-        "accept-encoding": req.headers!!["accept-encoding"] as string,
-        "accept-language": req.headers!!["accept-language"]!,
+        "accept-encoding": req.headers!["accept-encoding"] as string,
+        "accept-language": req.headers!["accept-language"]!,
         authorization: req.headers!.authorization!,
         connection: req.headers!.connection!,
-        "content-length": req.headers!!["content-length"]!,
-        "content-type": req.headers!!["content-type"]!
+        "content-length": req.headers!["content-length"]!,
+        "content-type": req.headers!["content-type"]!
       }
     });
   });

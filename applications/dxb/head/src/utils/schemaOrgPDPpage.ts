@@ -242,7 +242,9 @@ const getProductAssetPropByAssetType = (
   product: Product,
   assetType: string,
   prop: string
-) => getProductAssetByAssetType(product, assetType)?.[prop];
+) =>
+  // eslint-disable-next-line security/detect-object-injection
+  getProductAssetByAssetType(product, assetType)?.[prop];
 
 const getProductCategoriesByCategoryType = (
   product: Product,

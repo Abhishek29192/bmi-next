@@ -12,7 +12,10 @@ export type ConfiguratorPanelProps = {
   isExpanded?: boolean;
   options?: ReactNode[];
   children?: ReactNode;
-  handleOnChange?: (event: ChangeEvent<{}>, expanded: boolean) => void;
+  handleOnChange?: (
+    event: ChangeEvent<Record<string, unknown>>,
+    expanded: boolean
+  ) => void;
 } & Partial<AccordionProps>;
 
 const ConfiguratorPanel = (

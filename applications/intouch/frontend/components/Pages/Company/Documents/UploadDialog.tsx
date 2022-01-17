@@ -13,7 +13,7 @@ type UploadDialogProps = {
   onConfirmClick: (files: File[]) => void;
 };
 //You cannot upload  files larger than <MAX_FILE_SIZE> MB (It's megabyte)
-const MAX_FILE_SIZE: number = 25;
+const MAX_FILE_SIZE = 25;
 
 export const UploadDialog = ({
   isOpen,
@@ -39,7 +39,9 @@ export const UploadDialog = ({
           buttonLabel={t("document.uploadDialog.buttonLabel")}
           accept=".pdf,.jpg,.jpeg,.png"
           instructions={t("document.uploadDialog.instruction")}
-          mapValue={() => {}}
+          mapValue={() => {
+            // no-op
+          }}
           mapBody={(file) => ({ file })}
           microcopyProvider={{
             "upload.instructions.drop": t(

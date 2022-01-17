@@ -66,7 +66,6 @@ const FiltersSidebar = ({
             <GTMCheckbox
               gtm={{
                 id: "filter2",
-                // @ts-ignore
                 label: label.props ? label.props?.children[1] : label,
                 action: "Selector – Filter"
               }}

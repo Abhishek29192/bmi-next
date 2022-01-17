@@ -5,12 +5,12 @@ import styles from "./styles.module.scss";
 
 export type FilterButtonProps = {
   label: string;
-  isActive?: Boolean;
+  isActive?: boolean;
   onClick?: () => void;
 };
 
 interface MakeStylesProps {
-  isActive: Boolean;
+  isActive: boolean;
 }
 
 const useStyles = makeStyles<Theme, MakeStylesProps>((theme: Theme) =>

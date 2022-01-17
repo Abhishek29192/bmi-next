@@ -56,7 +56,7 @@ export const proxy: HttpFunction = async (req, res) => {
       const response = await fetch(ES_HOST + req.url, requestInit);
       logger.debug({ message: JSON.stringify(response, undefined, 2) });
       res.status(response.status);
-      for (let [key, value] of response.headers.entries()) {
+      for (const [key, value] of response.headers.entries()) {
         res.setHeader(key, value);
       }
       return response.body.pipe(res);

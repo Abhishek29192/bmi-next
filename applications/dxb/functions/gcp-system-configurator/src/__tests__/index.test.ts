@@ -987,7 +987,6 @@ describe("HTTP function:", () => {
       {
         data: {
           systemConfiguratorBlock: {
-            // @ts-ignore: breaking type to intentionally test a section type of the SystemConfiguratorBlock.
             nextStep: {
               __typename: "SystemConfiguratorBlock",
               sys: {
@@ -2007,11 +2006,10 @@ describe("HTTP function:", () => {
               sys: {
                 id: "newContentType1"
               },
-              // @ts-ignore: breaking type to intentionally test an unknown new content type relationship.
               __typename: "NewContentType",
               title: "Entry title"
             }
-          }
+          } as unknown as Answer
         }
       },
       0

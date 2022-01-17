@@ -26,8 +26,14 @@ Canvas.Line = (props: {
   y2: number;
 }) => ({ type: "line", key: null, props: undefined, ...props });
 
-Canvas.PolyLine = (props: {}) => ({ type: "polyline", ...props });
+Canvas.PolyLine = (props: Record<string, unknown>) => ({
+  type: "polyline",
+  ...props
+});
 
-Canvas.Ellipse = (props: {}) => ({ type: "ellipse", ...props });
+Canvas.Ellipse = (props: Record<string, unknown>) => ({
+  type: "ellipse",
+  ...props
+});
 
 export default Canvas;

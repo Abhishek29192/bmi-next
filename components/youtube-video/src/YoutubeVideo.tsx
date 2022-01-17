@@ -206,8 +206,7 @@ const InlineVideo = ({
         styles["YoutubeVideo--inline"],
         className
       )}
-      // @ts-ignore Does not recognise arbitrary css vars
-      style={{ "--aspect-ratio": embedHeight / embedWidth }}
+      style={{ ["--aspect-ratio" as any]: embedHeight / embedWidth }}
       onClick={() => setIsPlaying(true)}
     >
       <div>

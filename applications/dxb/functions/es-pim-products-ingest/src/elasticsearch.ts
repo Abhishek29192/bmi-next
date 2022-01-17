@@ -14,7 +14,7 @@ const getChunks = <T extends ProductVariant | EsSystem>(
 
   const chunksArray = [];
   const totalProducts = items.length;
-  for (var i = 0; i < totalProducts; i += chunkSize) {
+  for (let i = 0; i < totalProducts; i += chunkSize) {
     const chunk = items.slice(i, i + chunkSize);
     chunksArray.push(chunk);
   }
@@ -82,7 +82,7 @@ export const updateElasticSearch = async (
   // Having to do this synchronously as we are seeing errors and ES dropping
   // (partially or fully) requests and need to make sure this is working before
   // we make it asynchronous again.
-  for (let bulkOperation of bulkOperations) {
+  for (const bulkOperation of bulkOperations) {
     const response: BulkApiResponse = await client.bulk({
       index,
       refresh: true,

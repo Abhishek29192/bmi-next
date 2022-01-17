@@ -149,7 +149,7 @@ export const importAccountsCompaniesFromCVS = async (
   let members = [];
 
   let marketDomain = null;
-  for await (let file of files) {
+  for await (const file of files) {
     const { filename, ...f } = await file;
 
     const parsedFile: any[] = await singleImport({ filename, ...f });

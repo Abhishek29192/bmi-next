@@ -20,7 +20,7 @@ export const downloadAs = saveAs;
 export const getExtension = (href: Asset["href"]) => href.split(".").pop();
 
 const clientDownload = async (assets: Asset[]) => {
-  let zip = new JSZip();
+  const zip = new JSZip();
 
   await Promise.all(
     assets.map(async ({ href, name }) => {

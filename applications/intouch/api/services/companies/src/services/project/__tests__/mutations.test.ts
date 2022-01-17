@@ -1,12 +1,12 @@
 import { updateProject } from "../mutations";
 
 describe("Project", () => {
-  let resolve = jest.fn();
-  let source = {};
+  const resolve = jest.fn();
+  const source = {};
   let args;
   let context;
-  let resolveInfo = {};
-  let query = jest.fn();
+  const resolveInfo = {};
+  const query = jest.fn();
 
   beforeEach(() => {
     context = {

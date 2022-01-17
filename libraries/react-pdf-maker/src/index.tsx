@@ -13,5 +13,5 @@ export { default as styled } from "./styled";
 
 export { default as pdf } from "./pdf";
 
-export { ContentTable } from "pdfmake/interfaces";
+export type { ContentTable } from "pdfmake/interfaces";
 export { ComponentProps } from "./types";

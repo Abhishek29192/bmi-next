@@ -17,7 +17,7 @@ const fields = ["firstName", "lastName"];
 
 type Props = {
   account: Account;
-  termsToAccept: Boolean;
+  termsToAccept: boolean;
   baseUrl: string;
 };
 

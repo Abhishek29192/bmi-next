@@ -116,7 +116,7 @@ export default (
     offsetRowWidth -= tileWidth;
   }
 
-  let offsetRowEndTileWidth: number = 0;
+  let offsetRowEndTileWidth = 0;
   let endOfSecondaryRowTileMesh: InstancedMesh | undefined;
   let startOfSecondaryRowTileMesh: InstancedMesh | undefined;
   if (horizontalOffset != 0) {

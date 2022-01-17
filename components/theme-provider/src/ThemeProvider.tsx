@@ -8,7 +8,7 @@ import { effraBold, effraHeavy, effraMedium, effraRegular } from "./fonts";
 
 export const getTheme = (
   modifyTheme: (theme: ThemeOptions) => ThemeOptions = (t) => t,
-  includeCssBaseline: boolean = true
+  includeCssBaseline = true
 ) => {
   const getCssOverrides = () => {
     return includeCssBaseline

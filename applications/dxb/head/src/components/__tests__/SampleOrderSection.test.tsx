@@ -435,7 +435,6 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
 describe("Test basket context", () => {
   it("should handle adding existing item to basket", () => {
     const resolvedState = basketReducer(
-      // @ts-ignore
       { products: [variant] },
       {
         type: ACTION_TYPES.BASKET_ADD,
@@ -448,7 +447,6 @@ describe("Test basket context", () => {
     const resolvedState = basketReducer(
       { products: [] },
       {
-        // @ts-ignore
         type: "test"
       }
     );

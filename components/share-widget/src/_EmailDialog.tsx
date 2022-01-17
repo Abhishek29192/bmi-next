@@ -21,7 +21,7 @@ const EmailDialog = ({
 }: Props) => {
   const handleOnSubmit = (
     _: FormEvent<HTMLFormElement>,
-    { email, message, name }: Record<string, InputValue>
+    { email, message, name }: Record<string, InputValue | undefined>
   ) => {
     const br = "%0D%0A";
     setOpen(false);
@@ -45,7 +45,6 @@ const EmailDialog = ({
       <Dialog.Title hasUnderline>{title}</Dialog.Title>
       <Dialog.Content>
         {children}
-        {/* @ts-ignore */}
         <Form onSubmit={handleOnSubmit} rightAlignButton>
           <TextField
             name="email"

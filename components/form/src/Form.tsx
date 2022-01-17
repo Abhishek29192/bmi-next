@@ -26,7 +26,9 @@ type ContextType = {
 };
 
 export const FormContext = React.createContext<ContextType>({
-  updateFormState: () => {},
+  updateFormState: () => {
+    // no-op
+  },
   hasBeenSubmitted: false,
   submitButtonDisabled: false,
   values: {}

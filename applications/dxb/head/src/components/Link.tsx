@@ -62,7 +62,7 @@ export const getClickableActionFromUrl = (
     return {
       model: "default",
       onClick,
-      // @ts-ignore data-gtm is not defined but a general html attribute
+      // data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm)
     };
   }
@@ -77,7 +77,7 @@ export const getClickableActionFromUrl = (
     return {
       model: "default",
       onClick,
-      // @ts-ignore data-gtm is not defined but a general html attribute
+      // data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm)
     };
   }
@@ -87,7 +87,7 @@ export const getClickableActionFromUrl = (
     return {
       model: "default",
       onClick,
-      // @ts-ignore data-gtm is not defined but a general html attribute
+      // data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm)
     };
   }
@@ -101,7 +101,7 @@ export const getClickableActionFromUrl = (
     return {
       model: "download",
       href: assetUrl,
-      // @ts-ignore data-gtm is not defined but a general html attribute
+      // data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm)
     };
   }
@@ -121,7 +121,7 @@ export const getClickableActionFromUrl = (
       model: "routerLink",
       to,
       linkComponent: GatsbyLink,
-      // @ts-ignore data-gtm is not defined but a general html attribute
+      // data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm)
     };
   }
@@ -138,7 +138,7 @@ export const getClickableActionFromUrl = (
       model: "htmlLink",
       href: url,
       ...(checkUrlAction(url) || !isExternalUrl(url) ? {} : externalLinkProps),
-      // @ts-ignore data-gtm is not defined but a general html attribute
+      // data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm)
     };
   }

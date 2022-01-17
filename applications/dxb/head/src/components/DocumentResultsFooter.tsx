@@ -52,14 +52,18 @@ export const handleDownloadClick = async (
   const [currentTime] = new Date().toJSON().replace(/-|:|T/g, "").split(".");
 
   if (listValues.length === 0) {
-    return () => {};
+    return () => {
+      // no-op
+    };
   }
 
   if (process.env.GATSBY_PREVIEW) {
     alert("You cannot download documents on the preview enviornment.");
     callback();
 
-    return () => {};
+    return () => {
+      // no-op
+    };
   }
 
   try {

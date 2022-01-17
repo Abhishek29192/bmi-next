@@ -48,7 +48,7 @@ export const mockResponses = (
   fetchMock: FetchMockStatic,
   ...mockedResponses: MockedResponse[]
 ) => {
-  for (let mockedResponse of mockedResponses) {
+  for (const mockedResponse of mockedResponses) {
     fetchMock.mock(
       {
         name: `${mockedResponse.method} - ${mockedResponse.url}`,

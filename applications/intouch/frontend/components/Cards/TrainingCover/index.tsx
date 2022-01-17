@@ -6,7 +6,7 @@ import { TrainingQuery } from "../../../graphql/generated/operations";
 
 type TrainingCoverProps = {
   trainingContentCollection: TrainingQuery["trainingContentCollection"];
-  lmsUrl?: String;
+  lmsUrl?: string;
 };
 
 export const TrainingCover = ({

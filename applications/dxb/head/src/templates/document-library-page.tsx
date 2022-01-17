@@ -255,7 +255,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
           : removeFromArray(filter.value || [], filterValue);
       };
 
-      let newFilters = filters.map((filter) => {
+      const newFilters = filters.map((filter) => {
         return {
           ...filter,
           value:
@@ -274,7 +274,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
 
   const clearFilters = () => {
     // TODO: util function to "reset filters object"?
-    let newFilters = filters.map((filter) => ({
+    const newFilters = filters.map((filter) => ({
       ...filter,
       value: []
     }));
@@ -364,7 +364,6 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                               <GTMAccordionSummary
                                 gtm={{
                                   id: "filter1",
-                                  // @ts-ignore
                                   label: props.children?.props?.children,
                                   action: "Selector – Filter"
                                 }}

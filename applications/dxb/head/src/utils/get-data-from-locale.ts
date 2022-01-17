@@ -4,10 +4,11 @@ export type LocalisedFields<T> = {
   };
 };
 
-export const getDataFromLocale = <T extends {}>(
+// TODO: Is this even being used?
+export const getDataFromLocale = <T extends Record<string, unknown>>(
   localeCode: string,
   fields?: LocalisedFields<T>
-) => {
+): Record<string, unknown>[] | undefined => {
   if (!fields) {
     return;
   }

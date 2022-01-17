@@ -18,7 +18,7 @@ type Parameters = {
 
 type Context = {
   isOpen: boolean;
-  open?: (params?: object) => void;
+  open?: (params?: Record<string, unknown>) => void;
 };
 
 export const CalculatorContext = createContext<Context>({
@@ -85,7 +85,9 @@ const CalculatorProvider = ({ children, onError }: Props) => {
         open:
           process.env.GATSBY_ENABLE_WEBTOOLS_CALCULATOR === "true"
             ? open
-            : () => {}
+            : () => {
+                // no-op
+              }
       }}
     >
       {children}

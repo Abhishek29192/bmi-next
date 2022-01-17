@@ -6,13 +6,6 @@ type ProductFilterOption = {
   value: string;
 };
 
-type FeatureExtended =
-  | Feature & {
-      featureCode: string;
-    };
-
-type ProductFilterOptionExtended = ProductFilterOption & { sortValue: number };
-
 export type ProductFilter = {
   label: string;
   name: string;
@@ -209,7 +202,7 @@ export const generateFeatureFilters = (
               feature?.featureUnit?.symbol || ""
             }`.trim();
 
-          const tryConvertToNumber = (value: String) =>
+          const tryConvertToNumber = (value: string) =>
             parseInt(`${value}`.replace(/[^0-9]+/gi, ""));
           const optionSortValue = tryConvertToNumber(featureValue.value);
           const returningOption = {

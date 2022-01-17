@@ -75,8 +75,7 @@ describe("ContainerDialog component", () => {
     const backdrop = container.parentElement!.querySelector(
       `.${backdropClassName}`
     );
-    // @ts-ignore
-    backdrop.click();
+    backdrop!.click();
     expect(onBackdropClick).toHaveBeenCalled();
   });
 });

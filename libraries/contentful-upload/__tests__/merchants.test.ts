@@ -106,7 +106,6 @@ describe("Merchants contentful upload", () => {
           userCallback(error, data);
         };
 
-        //@ts-ignore
         // eslint-disable-next-line security/detect-non-literal-fs-filename
         return fs.readFile(path.join(__dirname, file), ...rest, callback);
       }

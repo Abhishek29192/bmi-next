@@ -7,7 +7,7 @@ export const getMicroCopy = (
   values: Record<string, string> = {},
   path: string,
   placeholders: Record<string, string> = {},
-  prefixMC: boolean = false
+  prefixMC = false
 ): string =>
   Object.entries(placeholders).reduce((carry, [key, value]) => {
     const toReplace = `{{${key}}}`;

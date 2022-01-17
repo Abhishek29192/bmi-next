@@ -166,7 +166,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
   return (product.variantOptions || []).map((variant) => {
     const classifications = combineVariantClassifications(product, variant);
 
-    let indexedFeatures = IndexFeatures(
+    const indexedFeatures = IndexFeatures(
       PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
       classifications
     );
