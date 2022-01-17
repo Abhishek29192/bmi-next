@@ -1,5 +1,6 @@
 import {
   AmbientLight,
+  AxesHelper,
   Box2,
   DirectionalLight,
   EquirectangularReflectionMapping,
@@ -573,7 +574,7 @@ export default class HouseViewer extends Viewer<Props, State> {
 
       // Add axes to help with debugging any changes required with the co-ordinates
       if (process.env.NODE_ENV === "development") {
-        this.scene?.add(new THREE.AxesHelper(20));
+        this.scene?.add(new AxesHelper(20));
       }
 
       window.scene = scene;
