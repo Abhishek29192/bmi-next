@@ -79,6 +79,7 @@
           "label": "Logo"
         },
         "name": "Nome registrato",
+        "ownerFullname": "Nome (opzionale)",
         "operationTypes": "Tipo di operazione",
         "ownerEmail": "Indirizzo email (opzionale)",
         "ownerPhone": "Telefono (opzionale)",

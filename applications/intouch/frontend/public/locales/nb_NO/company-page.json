@@ -79,6 +79,7 @@
           "label": "Logo"
         },
         "name": "Registrert navn",
+        "ownerFullname": "Navn (valgfri)",
         "operationTypes": "Operasjonstyper",
         "ownerEmail": "E-mail adresse (valgfri)",
         "ownerPhone": "Telefon (valgfri)",
