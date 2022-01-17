@@ -571,6 +571,11 @@ export default class HouseViewer extends Viewer<Props, State> {
       const amb = new AmbientLight(0x2f4352); // soft slightly blue light
       scene.add(amb);
 
+      // Add axes to help with debugging any changes required with the co-ordinates
+      if (process.env.NODE_ENV === "development") {
+        this.scene?.add(new THREE.AxesHelper(20));
+      }
+
       window.scene = scene;
     }
 
