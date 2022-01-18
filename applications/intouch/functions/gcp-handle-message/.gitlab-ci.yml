@@ -37,34 +37,6 @@ package_gcp-intouch-handle-message:
     paths:
       - $CI_PROJECT_DIR/dist/applications/intouch/functions
 
-# Deploy to DD environment
-deploy_gcp-intouch-handle-message:
-  image: gcr.io/google.com/cloudsdktool/cloud-sdk
-  stage: deploy
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
-      changes:
-        - applications/intouch/functions/gcp-handle-message/**/*
-      allow_failure: true
-  needs:
-    - package_gcp-intouch-handle-message
-  dependencies:
-    - package_gcp-intouch-handle-message
-  before_script:
-    - |
-      GCP_INTOUCH_REPLATFORM_SERVICE_KEY=$GCP_INTOUCH_REPLATFORM_SERVICE_KEY
-      GCP_INTOUCH_REPLATFORM_PROJECT_ID=$GCP_INTOUCH_REPLATFORM_PROJECT_ID
-      GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE
-
-      INTOUCH_SENDGRID_API_KEY_DEV=$INTOUCH_SENDGRID_API_KEY_DEV
-      INTOUCH_MAIL_FROM=$INTOUCH_MAIL_FROM
-  script:
-    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
-    - gcloud auth activate-service-account --key-file gcloud-service-key.json
-    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-handle-message.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud builds submit . --config=applications/intouch/functions/gcp-handle-message/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_MAIL_FROM=$INTOUCH_MAIL_FROM,_GCP_SECRET_PROJECT=$GCP_SECRET_PROJECT
-
 # Deploy to BMI environments
 deploy_gcp-intouch-handle-message_bmi:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk

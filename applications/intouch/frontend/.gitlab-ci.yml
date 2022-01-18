@@ -1,7 +1,7 @@
 test_intouch_frontend:
   extends: .test_jest
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*
@@ -23,7 +23,7 @@ build_intouch_frontend_dev:
       alias: docker
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*
@@ -33,35 +33,12 @@ build_intouch_frontend_dev:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
   script:
-    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - echo $BMI_KEY > gcloud-service-key-bmi.json
-    - echo "Building and pushing image to GCP Projects $BMI_PROJECT and $GCP_INTOUCH_REPLATFORM_PROJECT_ID"
-    - docker build . -t eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-frontend:$CI_COMMIT_SHORT_SHA -f applications/intouch/frontend/dockerfile --build-arg NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN --build-arg AUTH0_COOKIE_DOMAIN=intouch.bmigroup.com
-    - docker tag eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-frontend:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-frontend:$CI_COMMIT_SHORT_SHA
-    - gcloud auth activate-service-account --key-file gcloud-service-key.json
-    - gcloud auth configure-docker
-    - docker push eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-frontend:$CI_COMMIT_SHORT_SHA
+    - echo "Building and pushing image to GCP Projects $BMI_PROJECT"
+    - docker build . -t eu.gcr.io/$BMI_PROJECT/intouch-frontend:$CI_COMMIT_SHORT_SHA -f applications/intouch/frontend/dockerfile --build-arg NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN --build-arg AUTH0_COOKIE_DOMAIN=intouch.bmigroup.com
     - gcloud auth activate-service-account --key-file gcloud-service-key-bmi.json
     - gcloud auth configure-docker
     - docker push eu.gcr.io/$BMI_PROJECT/intouch-frontend:$CI_COMMIT_SHORT_SHA
-
-deploy_intouch_frontend_dev_to_cloudrun:
-  stage: deploy
-  cache: {}
-  needs:
-    - build_intouch_frontend_dev
-    - test_intouch_frontend
-  image: google/cloud-sdk
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
-      changes:
-        - applications/intouch/frontend/**/*
-  script:
-    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
-    - gcloud auth activate-service-account --key-file gcloud-service-key.json
-    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gcloud builds submit . --config=applications/intouch/frontend/cloudbuild.deploy.yaml --substitutions _CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
-    - gcloud container images add-tag eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-frontend:$CI_COMMIT_SHORT_SHA eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-frontend:latest
 
 deploy_intouch_frontend_to_cloudrun_bmi:
   stage: deploy
