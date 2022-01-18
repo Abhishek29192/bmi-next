@@ -2169,13 +2169,14 @@ export type GetTeamsReportQuery = { readonly __typename?: "Query" } & {
           | "lastName"
           | "role"
           | "status"
-          | "created"
           | "doceboUserId"
           | "doceboUsername"
           | "photo"
           | "signedPhotoUrl"
           | "migrationId"
           | "migratedToAuth0"
+          | "createdAt"
+          | "updatedAt"
         >
       >;
     }
