@@ -102,10 +102,9 @@ const resultTypeFormatMap: Record<
   }
 };
 
-const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
-  +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
-
 const DocumentLibraryPage = ({ pageContext, data }: Props) => {
+  const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
+    +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
   const {
     title,
     description,
