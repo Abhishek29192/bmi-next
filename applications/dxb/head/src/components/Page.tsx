@@ -209,7 +209,6 @@ const Page = ({
             type="text/javascript"
             charSet="UTF-8"
             data-domain-script={scriptOnetrust}
-            async
           />
         )}
         {enableOnetrust && (
