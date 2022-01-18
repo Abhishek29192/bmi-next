@@ -60,13 +60,14 @@ export const GET_TEAMS_REPORT = gql`
         lastName
         role
         status
-        created
         doceboUserId
         doceboUsername
         photo
         signedPhotoUrl
         migrationId
         migratedToAuth0
+        createdAt
+        updatedAt
       }
     }
   }

@@ -1973,13 +1973,14 @@ export const GetTeamsReportDocument = gql`
         lastName
         role
         status
-        created
         doceboUserId
         doceboUsername
         photo
         signedPhotoUrl
         migrationId
         migratedToAuth0
+        createdAt
+        updatedAt
       }
     }
   }
