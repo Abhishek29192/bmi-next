@@ -14,6 +14,7 @@ import {
   getDocumentQueryObject
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
+import { microCopy } from "../constants/microCopies";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { useSiteContext } from "./Site";
 import DocumentResultsFooter, {
@@ -37,7 +38,9 @@ const getPagesFilters = (
 
   return [
     {
-      label: getMicroCopy("search.filters.documents.document-asset-type"),
+      label: getMicroCopy(
+        microCopy.SEARCH_FILTERS_DOCUMENTS_DOCUMENT_ASSET_TYPE
+      ),
       name: "document-asset-type",
       value: [],
       options: aggregations.assetTypes.buckets

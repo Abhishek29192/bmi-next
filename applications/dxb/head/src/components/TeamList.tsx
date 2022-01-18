@@ -4,6 +4,7 @@ import Grid from "@bmi/grid";
 import ProfileCard from "@bmi/profile-card";
 import EqualHeights from "@bmi/equal-heights";
 import Button from "@bmi/button";
+import { microCopy } from "../constants/microCopies";
 import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
 import { Data as LinkData, getClickableActionFromUrl } from "./Link";
@@ -20,7 +21,7 @@ const TEAM_MEMBERS_PER_PAGE = 8;
 
 const TeamList = ({ data }: { data: Data | null }) => {
   const { countryCode, getMicroCopy } = useSiteContext();
-  const showMoreText = getMicroCopy("global.showMore");
+  const showMoreText = getMicroCopy(microCopy.GLOBAL_SHOW_MORE);
   const [numberVisible, setNumberVisible] = useState(TEAM_MEMBERS_PER_PAGE);
   return (
     <div>

@@ -6,6 +6,7 @@ import Typography from "@bmi/typography";
 import Filters, { FilterProps } from "@bmi/filters";
 import PerfectScrollbar from "@bmi/perfect-scrollbar";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import { useSiteContext } from "./Site";
 
 type Props = {
@@ -49,10 +50,10 @@ const FiltersSidebar = ({
         }}
       >
         <Typography variant="h5">
-          {getMicroCopy("plp.filters.title")}
+          {getMicroCopy(microCopy.PLP_FILTERS_TITLE)}
         </Typography>
         <Button variant="text" onClick={onClearFilters}>
-          {getMicroCopy("plp.filters.clearAll")}
+          {getMicroCopy(microCopy.PLP_FILTERS_CLEAR_ALL)}
         </Button>
       </div>
       <Filters

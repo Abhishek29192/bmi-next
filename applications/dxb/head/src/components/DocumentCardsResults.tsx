@@ -3,6 +3,7 @@ import Button from "@bmi/button";
 import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
 import Grid from "@bmi/grid";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import { Data as DocumentData } from "./Document";
 import RichText from "./RichText";
 import { useSiteContext } from "./Site";
@@ -45,12 +46,12 @@ const DocumentCardsResults = ({ documents, page, documentsPerPage }: Props) => {
                 }}
                 gtm={{
                   id: "cta-click1",
-                  label: getMicroCopy("documentLibrary.card.download"),
+                  label: getMicroCopy(microCopy.DOCUMENT_LIBRARY_CARD_DOWNLOAD),
                   action: asset.file.url
                 }}
                 footer={
                   <Button component="span">
-                    {getMicroCopy("documentLibrary.card.download")}
+                    {getMicroCopy(microCopy.DOCUMENT_LIBRARY_CARD_DOWNLOAD)}
                   </Button>
                 }
               >

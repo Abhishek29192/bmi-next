@@ -16,6 +16,7 @@ import {
 } from "../components/types/PIMDocumentBase";
 import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
 import { getDownloadLink } from "../utils/client-download";
+import { microCopy } from "../constants/microCopies";
 import { Data as DocumentData } from "./Document";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
@@ -234,10 +235,10 @@ const DocumentSimpleTableResults = ({
                           <DownloadList.Checkbox
                             name={id}
                             maxLimitReachedLabel={getMicroCopy(
-                              "documents.download.maxReached"
+                              microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
                             )}
                             ariaLabel={`${getMicroCopy(
-                              "documentLibrary.download"
+                              microCopy.DOCUMENT_LIBRARY_DOWNLOAD
                             )} ${title}`}
                             value={document}
                             fileSize={

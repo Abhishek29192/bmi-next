@@ -12,6 +12,7 @@ import { withClickable } from "@bmi/clickable";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import { renderVideo } from "./Video";
 import { renderImage } from "./Image";
 import { useSiteContext } from "./Site";
@@ -303,14 +304,14 @@ const CardCollectionSection = ({
         {shouldDisplayGroups && (
           <>
             <Typography variant="h4" component="h3">
-              {getMicroCopy("cardCollection.groupTitle")}
+              {getMicroCopy(microCopy.CARD_COLLECTION_GROUP_TITLE)}
             </Typography>
             <div className={styles["group-chips"]}>
               <div className={styles["chips"]}>
                 {groupKeys.map((tagTitle, index) => {
                   const label =
                     tagTitle === "undefined"
-                      ? getMicroCopy("cardCollection.restLabel")
+                      ? getMicroCopy(microCopy.CARD_COLLECTION_REST_LABEL)
                       : tagTitle;
 
                   return (
@@ -347,7 +348,7 @@ const CardCollectionSection = ({
                   !activeGroupValues.length || !activeGroupValues.some(Boolean)
                 }
               >
-                {getMicroCopy("global.clearAll")}
+                {getMicroCopy(microCopy.GLOBAL_CLEAR_ALL)}
               </AnchorLink>
             </div>
           </>
@@ -414,7 +415,7 @@ const CardCollectionSection = ({
             {sortedIterableCards.length > numberOfCardsToShow && (
               <Grid item xs={12} className={styles["show-more-block"]}>
                 <Button variant="outlined" onClick={handleShowMoreClick}>
-                  {getMicroCopy("global.showMore")}
+                  {getMicroCopy(microCopy.GLOBAL_SHOW_MORE)}
                 </Button>
               </Grid>
             )}

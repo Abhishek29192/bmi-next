@@ -5,6 +5,7 @@ import Button, { ButtonProps } from "@bmi/button";
 import BrandIntroCard from "@bmi/brand-intro-card";
 import Grid from "@bmi/grid";
 import { iconMap } from "@bmi/logo";
+import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
 import styles from "./styles/Brands.module.scss";
 
@@ -24,7 +25,7 @@ const Brands = ({ data }: { data: Data[] }) => {
 
   return (
     <Section backgroundColor={"pearl"} className={styles["Brands"]}>
-      <Section.Title> {getMicroCopy("homepage.brands")}</Section.Title>
+      <Section.Title> {getMicroCopy(microCopy.HOMEPAGE_BRANDS)}</Section.Title>
       <Grid container justify="center">
         {data.map((brand, index) => (
           <Grid item xs={12} md={6} xl={3} key={`${brand.path}-${index}`}>
@@ -41,7 +42,7 @@ const Brands = ({ data }: { data: Data[] }) => {
               )}
               logoIcon={iconMap[brand.brandLogo]}
               description={brand.subtitle}
-              buttonLabel={getMicroCopy("homepage.brands.learn", {
+              buttonLabel={getMicroCopy(microCopy.HOMEPAGE_BRANDS_LEARN, {
                 title: brand.title
               })}
               action={{

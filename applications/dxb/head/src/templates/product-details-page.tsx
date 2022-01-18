@@ -42,6 +42,7 @@ import KeyAssetTypesDownloadSection from "../components/KeyAssetTypesDownloadSec
 import { getBimIframeUrl } from "../components/BimIframe";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { combineVariantClassifications } from "../utils/filters";
+import { microCopy } from "../constants/microCopies";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -248,9 +249,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     selfProduct,
                     pageContext.countryCode,
                     {
-                      size: getMicroCopy("pdp.overview.size"),
+                      size: getMicroCopy(microCopy.PDP_OVERVIEW_SIZE),
                       variantattribute: getMicroCopy(
-                        "pdp.overview.variantattribute"
+                        microCopy.PDP_OVERVIEW_VARIANT_ATTRIBUTE
                       )
                     },
                     variantCodeToPathMap,

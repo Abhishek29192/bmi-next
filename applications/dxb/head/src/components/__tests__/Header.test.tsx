@@ -1,6 +1,7 @@
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
+import { microCopy } from "../../constants/microCopies";
 import { Data as LinkData, DataTypeEnum, NavigationData } from "../Link";
 import { Data as PromoData } from "../Promo";
 import { fallbackGetMicroCopy as getMicroCopy } from "../MicroCopy";
@@ -294,7 +295,7 @@ describe("Header component", () => {
       />
     );
 
-    const searchLabel = getMicroCopy("search.label");
+    const searchLabel = getMicroCopy(microCopy.SEARCH_LABEL);
 
     const searchButton = getByLabelText(searchLabel);
 
@@ -319,7 +320,7 @@ describe("Header component", () => {
       </BasketContext.Provider>
     );
 
-    const basketLabel = getMicroCopy("basket.label");
+    const basketLabel = getMicroCopy(microCopy.BASKET_LABEL);
     const basketButton = getByLabelText(basketLabel);
 
     expect(basketButton).toBeTruthy();

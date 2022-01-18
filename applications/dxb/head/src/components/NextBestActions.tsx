@@ -9,6 +9,7 @@ import { withClickable } from "@bmi/clickable";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import { Data as PromoData } from "../components/Promo";
 import { Data as PageInfoData } from "../components/PageInfo";
+import { microCopy } from "../constants/microCopies";
 import { getCTA } from "./Link";
 import { useSiteContext } from "./Site";
 
@@ -26,10 +27,14 @@ const NextBestActions = ({ data }: { data: Data }) => {
 
   return (
     <Section backgroundColor="alabaster">
-      <Section.Title>{getMicroCopy("nba.title")}</Section.Title>
+      <Section.Title>{getMicroCopy(microCopy.NBA_TITLE)}</Section.Title>
       <Grid container spacing={3}>
         {data.map(({ title, subtitle, ...rest }, index) => {
-          const cta = getCTA(rest, countryCode, getMicroCopy("page.linkLabel"));
+          const cta = getCTA(
+            rest,
+            countryCode,
+            getMicroCopy(microCopy.PAGE_LINK_LABEL)
+          );
           const name = rest.__typename === "ContentfulPromo" ? rest.name : null;
 
           const ClickableButtonBase =

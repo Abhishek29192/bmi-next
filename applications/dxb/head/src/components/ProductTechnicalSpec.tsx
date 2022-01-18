@@ -3,6 +3,7 @@ import Accordion from "@bmi/accordion";
 import Typography from "@bmi/typography";
 import Table from "@bmi/table";
 import { getValidFeatures } from "../utils/product-details-transforms";
+import { microCopy } from "../constants/microCopies";
 import { Classification } from "./types/pim";
 import ProductFeaturesTable from "./ProductFeaturesTable";
 import styles from "./styles/ProductTechnicalSpec.module.scss";
@@ -21,7 +22,7 @@ const ProductTechnicalSpec = ({
   if (classifications.length === 0) {
     return (
       <div className={styles["ProductTechnicalSpec"]}>
-        {getMicroCopy("pdp.noTechSpecMessage")}
+        {getMicroCopy(microCopy.PDP_NO_TECH_SPEC_MESSAGE)}
       </div>
     );
   }

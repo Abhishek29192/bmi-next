@@ -2,6 +2,7 @@ import { graphql } from "gatsby";
 import React, { useState } from "react";
 import Grid from "@bmi/grid";
 import Button from "@bmi/button";
+import { microCopy } from "../constants/microCopies";
 import { useSiteContext } from "./Site";
 import styles from "./styles/Locations.module.scss";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
@@ -12,7 +13,7 @@ const LOCATIONS_PER_PAGE = 6;
 
 const Locations = ({ data }: { data: Data }) => {
   const { getMicroCopy } = useSiteContext();
-  const showMoreText = getMicroCopy("global.showMore");
+  const showMoreText = getMicroCopy(microCopy.GLOBAL_SHOW_MORE);
   const [numberVisible, setNumberVisible] = useState(LOCATIONS_PER_PAGE);
 
   const locationCards = (

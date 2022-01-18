@@ -5,6 +5,7 @@ import HidePrint from "@bmi/hide-print";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import { iconMap } from "./Icon";
 import {
   getClickableActionFromUrl,
@@ -66,13 +67,13 @@ const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
   const secondaryWithSitemap = [
     ...secondary,
     {
-      label: getMicroCopy("global.sitemap"),
+      label: getMicroCopy(microCopy.GLOBAL_SITEMAP),
       action: getClickableActionFromUrl(
         { path: "sitemap" },
         null,
         countryCode,
         null,
-        getMicroCopy("global.sitemap")
+        getMicroCopy(microCopy.GLOBAL_SITEMAP)
       )
     }
   ];
