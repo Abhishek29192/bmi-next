@@ -197,7 +197,7 @@ const NavigationList = ({
           ) => [
             subMenu &&
             (subMenu.length > 1 ||
-              (subMenu[0] && "menu" in subMenu[0]) ||
+              (subMenu[0] && subMenu[0]?.menu) ||
               depth !== 0) ? (
               <li key={`menu-${depth}-item-${key}`}>
                 <NavigationListButton
