@@ -59,10 +59,7 @@ const LinkCard = (
         className={styles["details"]}
         collapsedSize={0}
         onEntered={(element, isAppearing) => {
-          if (onExpandCompleted) {
-            onExpandCompleted();
-            return;
-          }
+          onExpandCompleted && onExpandCompleted();
         }}
       >
         {children}
