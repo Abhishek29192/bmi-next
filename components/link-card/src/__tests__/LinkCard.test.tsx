@@ -41,6 +41,30 @@ describe("LinkCard component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("onCloseClick for item", () => {
+    const onCloseClick = jest.fn();
+    const { container } = render(
+      <LinkCard isOpen title="test" onCloseClick={onCloseClick}>
+        content
+      </LinkCard>
+    );
+    const item = container.getElementsByClassName("item")[0];
+    fireEvent.click(item);
+    expect(onCloseClick).toHaveBeenCalledTimes(1);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("onCloseClick for icon", () => {
+    const onCloseClick = jest.fn();
+    const { container } = render(
+      <LinkCard isOpen title="test" onCloseClick={onCloseClick}>
+        content
+      </LinkCard>
+    );
+    const icon = container.getElementsByClassName("icon")[0].firstChild;
+    fireEvent.click(icon);
+    expect(onCloseClick).toHaveBeenCalledTimes(1);
+    expect(container.firstChild).toMatchSnapshot();
+  });
   it("renders onEnterd transition onClick ", async () => {
     const onExpandCompleted = jest.fn();
     const { container, getAllByText } = render(
