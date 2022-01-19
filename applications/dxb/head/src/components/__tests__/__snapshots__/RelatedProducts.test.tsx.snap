@@ -28,10 +28,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
               class="Container"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="MuiContainer-root tabStyles-ContainerRoot-33 MuiContainer-maxWidthXl"
               >
                 <div
-                  class="MuiTabs-root"
+                  class="MuiTabs-root tabStyles-TabsRoot-34"
                 >
                   <div
                     class="MuiTabs-scrollable"
@@ -49,7 +49,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       <button
                         aria-controls="tabpanel-category-name"
                         aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-35 Mui-selected"
                         data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
                         id="tab-category-name"
                         role="tab"
@@ -67,7 +67,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       </button>
                     </div>
                     <span
-                      class="PrivateTabIndicator-root-21 PrivateTabIndicator-colorPrimary-22 MuiTabs-indicator"
+                      class="PrivateTabIndicator-root-36 PrivateTabIndicator-colorPrimary-37 MuiTabs-indicator"
                       style="left: 0px; width: 0px;"
                     />
                   </div>
@@ -83,7 +83,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-25 TabPanelBox"
+              class="MuiBox-root MuiBox-root-40 TabPanelBox"
             >
               <div
                 class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -179,10 +179,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
               class="Container"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="MuiContainer-root tabStyles-ContainerRoot-41 MuiContainer-maxWidthXl"
               >
                 <div
-                  class="MuiTabs-root"
+                  class="MuiTabs-root tabStyles-TabsRoot-42"
                 >
                   <div
                     class="MuiTabs-scrollable"
@@ -200,7 +200,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       <button
                         aria-controls="tabpanel-category-name"
                         aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-43 Mui-selected"
                         data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
                         id="tab-category-name"
                         role="tab"
@@ -218,7 +218,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       </button>
                     </div>
                     <span
-                      class="PrivateTabIndicator-root-26 PrivateTabIndicator-colorPrimary-27 MuiTabs-indicator"
+                      class="PrivateTabIndicator-root-44 PrivateTabIndicator-colorPrimary-45 MuiTabs-indicator"
                       style="left: 0px; width: 0px;"
                     />
                   </div>
@@ -234,7 +234,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-30 TabPanelBox"
+              class="MuiBox-root MuiBox-root-48 TabPanelBox"
             >
               <div
                 class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -383,10 +383,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
               class="Container"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="MuiContainer-root tabStyles-ContainerRoot-25 MuiContainer-maxWidthXl"
               >
                 <div
-                  class="MuiTabs-root"
+                  class="MuiTabs-root tabStyles-TabsRoot-26"
                 >
                   <div
                     class="MuiTabs-scrollable"
@@ -404,7 +404,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                       <button
                         aria-controls="tabpanel-category-name"
                         aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-27 Mui-selected"
                         data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
                         id="tab-category-name"
                         role="tab"
@@ -422,7 +422,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                       </button>
                     </div>
                     <span
-                      class="PrivateTabIndicator-root-16 PrivateTabIndicator-colorPrimary-17 MuiTabs-indicator"
+                      class="PrivateTabIndicator-root-28 PrivateTabIndicator-colorPrimary-29 MuiTabs-indicator"
                       style="left: 0px; width: 0px;"
                     />
                   </div>
@@ -438,7 +438,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-20 TabPanelBox"
+              class="MuiBox-root MuiBox-root-32 TabPanelBox"
             >
               <div
                 class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -591,10 +591,10 @@ exports[`RelatedProducts component renders correctly with no variants 1`] = `
               class="Container"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="MuiContainer-root tabStyles-ContainerRoot-1 MuiContainer-maxWidthXl"
               >
                 <div
-                  class="MuiTabs-root"
+                  class="MuiTabs-root tabStyles-TabsRoot-2"
                 >
                   <div
                     class="MuiTabs-scrollable"
@@ -612,7 +612,7 @@ exports[`RelatedProducts component renders correctly with no variants 1`] = `
                       <button
                         aria-controls="tabpanel-category-name"
                         aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3 Mui-selected"
                         data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
                         id="tab-category-name"
                         role="tab"
@@ -630,7 +630,7 @@ exports[`RelatedProducts component renders correctly with no variants 1`] = `
                       </button>
                     </div>
                     <span
-                      class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorPrimary-2 MuiTabs-indicator"
+                      class="PrivateTabIndicator-root-4 PrivateTabIndicator-colorPrimary-5 MuiTabs-indicator"
                       style="left: 0px; width: 0px;"
                     />
                   </div>
@@ -646,7 +646,7 @@ exports[`RelatedProducts component renders correctly with no variants 1`] = `
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-5 TabPanelBox"
+              class="MuiBox-root MuiBox-root-8 TabPanelBox"
             />
           </div>
         </div>
@@ -688,10 +688,10 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
               class="Container"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="MuiContainer-root tabStyles-ContainerRoot-17 MuiContainer-maxWidthXl"
               >
                 <div
-                  class="MuiTabs-root"
+                  class="MuiTabs-root tabStyles-TabsRoot-18"
                 >
                   <div
                     class="MuiTabs-scrollable"
@@ -709,7 +709,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                       <button
                         aria-controls="tabpanel-category-name"
                         aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-19 Mui-selected"
                         data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
                         id="tab-category-name"
                         role="tab"
@@ -727,7 +727,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                       </button>
                     </div>
                     <span
-                      class="PrivateTabIndicator-root-11 PrivateTabIndicator-colorPrimary-12 MuiTabs-indicator"
+                      class="PrivateTabIndicator-root-20 PrivateTabIndicator-colorPrimary-21 MuiTabs-indicator"
                       style="left: 0px; width: 0px;"
                     />
                   </div>
@@ -743,7 +743,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-15 TabPanelBox"
+              class="MuiBox-root MuiBox-root-24 TabPanelBox"
             >
               <div
                 class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -892,10 +892,10 @@ exports[`RelatedProducts component renders variants correctly with products with
               class="Container"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="MuiContainer-root tabStyles-ContainerRoot-9 MuiContainer-maxWidthXl"
               >
                 <div
-                  class="MuiTabs-root"
+                  class="MuiTabs-root tabStyles-TabsRoot-10"
                 >
                   <div
                     class="MuiTabs-scrollable"
@@ -913,7 +913,7 @@ exports[`RelatedProducts component renders variants correctly with products with
                       <button
                         aria-controls="tabpanel-category-name"
                         aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-11 Mui-selected"
                         data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
                         id="tab-category-name"
                         role="tab"
@@ -931,7 +931,7 @@ exports[`RelatedProducts component renders variants correctly with products with
                       </button>
                     </div>
                     <span
-                      class="PrivateTabIndicator-root-6 PrivateTabIndicator-colorPrimary-7 MuiTabs-indicator"
+                      class="PrivateTabIndicator-root-12 PrivateTabIndicator-colorPrimary-13 MuiTabs-indicator"
                       style="left: 0px; width: 0px;"
                     />
                   </div>
@@ -947,7 +947,7 @@ exports[`RelatedProducts component renders variants correctly with products with
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-10 TabPanelBox"
+              class="MuiBox-root MuiBox-root-16 TabPanelBox"
             >
               <div
                 class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"

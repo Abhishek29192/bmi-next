@@ -12,10 +12,10 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
         class="Container"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root tabStyles-ContainerRoot-77 MuiContainer-maxWidthXl"
         >
           <div
-            class="MuiTabs-root"
+            class="MuiTabs-root tabStyles-TabsRoot-78"
           >
             <div
               class="MuiTabs-scrollable"
@@ -33,7 +33,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-79 Mui-selected"
                   data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   id="tab-one"
                   role="tab"
@@ -51,7 +51,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-58 PrivateTabIndicator-colorPrimary-59 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-80 PrivateTabIndicator-colorPrimary-81 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -67,7 +67,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
       role="tabpanel"
     >
       <div
-        class="MuiBox-root MuiBox-root-62 TabPanelBox"
+        class="MuiBox-root MuiBox-root-84 TabPanelBox"
       >
         <div
           class="section Section Section--white"
@@ -116,10 +116,10 @@ exports[`TabLeadBlock tests should render 1`] = `
         class="Container"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root tabStyles-ContainerRoot-1 MuiContainer-maxWidthXl"
         >
           <div
-            class="MuiTabs-root"
+            class="MuiTabs-root tabStyles-TabsRoot-2"
           >
             <div
               class="MuiTabs-scrollable"
@@ -137,7 +137,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                 <button
                   aria-controls="tabpanel-one"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3 Mui-selected"
                   data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                   id="tab-one"
                   role="tab"
@@ -156,7 +156,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                 <button
                   aria-controls="tabpanel-two"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3"
                   data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
                   id="tab-two"
                   role="tab"
@@ -174,7 +174,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorPrimary-2 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-4 PrivateTabIndicator-colorPrimary-5 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -190,7 +190,7 @@ exports[`TabLeadBlock tests should render 1`] = `
       role="tabpanel"
     >
       <div
-        class="MuiBox-root MuiBox-root-5 TabPanelBox"
+        class="MuiBox-root MuiBox-root-8 TabPanelBox"
       >
         <div
           class="section Section Section--white"
@@ -232,7 +232,7 @@ exports[`TabLeadBlock tests should render 1`] = `
       role="tabpanel"
     >
       <div
-        class="MuiBox-root MuiBox-root-6 TabPanelBox"
+        class="MuiBox-root MuiBox-root-9 TabPanelBox"
       >
         <div
           class="section Section Section--white"
@@ -320,7 +320,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiBox-root MuiBox-root-12 TabPanelBox"
+    class="MuiBox-root MuiBox-root-18 TabPanelBox"
   >
     <div
       class="section Section Section--white"
@@ -401,7 +401,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                             >
                               <a
                                 aria-disabled="false"
-                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-13 MuiButton-text buttonStyles-text-14 MuiButton-textPrimary"
+                                class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-text buttonStyles-text-20 MuiButton-textPrimary"
                                 data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf\\"}"
                                 href="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf"
                                 rel="noopener noreferrer"
@@ -409,10 +409,10 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                                 target="_blank"
                               >
                                 <span
-                                  class="MuiButton-label buttonStyles-label-16"
+                                  class="MuiButton-label buttonStyles-label-22"
                                 >
                                   <span
-                                    class="MuiButton-startIcon buttonStyles-startIcon-17 MuiButton-iconSizeMedium"
+                                    class="MuiButton-startIcon buttonStyles-startIcon-23 MuiButton-iconSizeMedium"
                                   >
                                     <svg
                                       class="download-icon"
@@ -439,14 +439,14 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                                   >
                                     <span
                                       aria-disabled="false"
-                                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-39 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                                     >
                                       <span
                                         class="MuiIconButton-label"
                                       >
                                         <input
                                           aria-label="MC: documentLibrary.download title"
-                                          class="PrivateSwitchBase-input-36"
+                                          class="PrivateSwitchBase-input-42"
                                           data-indeterminate="false"
                                           name="0"
                                           type="checkbox"
@@ -485,7 +485,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-43"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -542,13 +542,13 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                     </span>
                   </a>
                   <button
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-13 MuiButton-contained buttonStyles-contained-15 MuiButton-containedPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-19 MuiButton-contained buttonStyles-contained-21 MuiButton-containedPrimary"
                     data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
                     tabindex="0"
                     type="button"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-16"
+                      class="MuiButton-label buttonStyles-label-22"
                     >
                       MC: downloadList.download (0)
                     </span>
@@ -604,7 +604,7 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiBox-root MuiBox-root-52 TabPanelBox"
+    class="MuiBox-root MuiBox-root-68 TabPanelBox"
   >
     <div
       class="bimLeadBlock"

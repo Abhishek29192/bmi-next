@@ -6,6 +6,8 @@ import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
+import classnames from "classnames";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
@@ -16,6 +18,17 @@ import createAssetFileCountMap, {
 import { useSiteContext } from "./Site";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import styles from "./styles/DocumentResultsFooter.module.scss";
+
+export const useGlobalDocResFooterStyles = makeStyles(
+  () => ({
+    paginationRoot: {
+      "& ul": {
+        justifyContent: "flex-end"
+      }
+    }
+  }),
+  { classNamePrefix: "docResultsFooterStyles" }
+);
 
 type Props = {
   page: number;
@@ -106,6 +119,7 @@ const DocumentResultsFooter = ({
   onPageChange,
   onDownloadClick
 }: Props) => {
+  const globalClasses = useGlobalDocResFooterStyles();
   const { getMicroCopy } = useSiteContext();
   const { resetList, list } = useContext(DownloadListContext);
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -118,7 +132,10 @@ const DocumentResultsFooter = ({
         page={page}
         onChange={onPageChange}
         count={count}
-        className={styles["pagination"]}
+        className={classnames(
+          styles["pagination"],
+          globalClasses.paginationRoot
+        )}
       />
       {onDownloadClick && !isMobile && (
         <>
