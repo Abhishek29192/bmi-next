@@ -1,52 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LinkCard component onCloseClick for icon 1`] = `
-<div
-  class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
->
-  <div
-    class="item"
-  >
-    <h6
-      class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
-    >
-      test
-    </h6>
-    <p
-      class="MuiTypography-root subtitle Typography MuiTypography-body1"
-    />
-  </div>
-  <div
-    class="icon"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root"
-      focusable="false"
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
-      />
-    </svg>
-  </div>
-  <div
-    class="MuiCollapse-root details MuiCollapse-entered"
-    style="min-height: 0px;"
-  >
-    <div
-      class="MuiCollapse-wrapper"
-    >
-      <div
-        class="MuiCollapse-wrapperInner"
-      >
-        content
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`LinkCard component onCloseClick for item 1`] = `
 <div
   class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
