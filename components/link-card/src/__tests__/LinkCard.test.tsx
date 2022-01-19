@@ -60,8 +60,8 @@ describe("LinkCard component", () => {
         content
       </LinkCard>
     );
-    const icon = container.getElementsByClassName("icon")[0].firstChild;
-    fireEvent.click(icon);
+    const icon = container.getElementsByClassName("icon")[0];
+    fireEvent.click(icon.firstChild);
     expect(onCloseClick).toHaveBeenCalledTimes(1);
     expect(container.firstChild).toMatchSnapshot();
   });
