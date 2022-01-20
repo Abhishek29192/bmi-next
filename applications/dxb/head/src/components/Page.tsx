@@ -107,9 +107,6 @@ const Page = ({
 
   const enableOnetrust = Boolean(!process.env.GATSBY_PREVIEW && scriptOnetrust);
   const enableGA = Boolean(!process.env.GATSBY_PREVIEW && scriptGA);
-  const enableTagManagerId = Boolean(
-    !process.env.GATSBY_PREVIEW && process.env.GOOGLE_TAGMANAGER_ID
-  );
   const enableHotjar = Boolean(!process.env.GATSBY_PREVIEW && scriptHotJar);
   const enableGOptimize = Boolean(
     !process.env.GATSBY_PREVIEW && scriptGOptLoad
@@ -217,11 +214,11 @@ const Page = ({
           </script>
         )}
 
-        {enableTagManagerId && (
+        {enableGOptimize && (
           <style>{`.async-hide { opacity: 0 !important}`}</style>
         )}
 
-        {enableTagManagerId && (
+        {enableGOptimize && (
           <script
             async
           >{`(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
