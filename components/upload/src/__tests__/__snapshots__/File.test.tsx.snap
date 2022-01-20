@@ -24,9 +24,9 @@ exports[`Upload component renders correctly 1`] = `
       something
     </p>
     <p
-      class="MuiTypography-root file-size Typography MuiTypography-body1"
+      class="MuiTypography-root error Typography MuiTypography-body1"
     >
-      0KB
+      Upload failed
     </p>
   </div>
   <button
@@ -57,64 +57,7 @@ exports[`Upload component renders correctly 1`] = `
 </div>
 `;
 
-exports[`Upload component renders correctly and should not call axios.post if validation error appears 1`] = `
-<div
-  class="file"
-  data-testid="test-file"
->
-  <svg
-    aria-hidden="true"
-    class="MuiSvgIcon-root file-display"
-    focusable="false"
-    viewBox="0 0 24 24"
-  >
-    <path
-      d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4l6 6v10c0 1.1-.9 2-2 2H7.99C6.89 23 6 22.1 6 21l.01-14c0-1.1.89-2 1.99-2h7zm-1 7h5.5L14 6.5V12z"
-    />
-  </svg>
-  <div
-    class="file-info-wrapper"
-  >
-    <p
-      class="MuiTypography-root filename Typography MuiTypography-body1"
-    >
-      something
-    </p>
-    <p
-      class="MuiTypography-root error Typography MuiTypography-body1"
-    >
-      valid
-    </p>
-  </div>
-  <button
-    aria-label="Remove file"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 delete-icon"
-    data-testid="file-delete"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="MuiIconButton-label"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-        />
-      </svg>
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
-</div>
-`;
-
-exports[`Upload component renders correctly with error 1`] = `
+exports[`Upload component renders correctly if an error recieved in API response 1`] = `
 <div
   class="file"
   data-testid="test-file"
@@ -137,11 +80,21 @@ exports[`Upload component renders correctly with error 1`] = `
     >
       something
     </p>
-    <p
-      class="MuiTypography-root error Typography MuiTypography-body1"
+    <div
+      class="progress"
     >
-      Upload failed
-    </p>
+      <div
+        class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate"
+        role="progressbar"
+      >
+        <div
+          class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate"
+        />
+        <div
+          class="MuiLinearProgress-bar MuiLinearProgress-bar2Indeterminate MuiLinearProgress-barColorPrimary"
+        />
+      </div>
+    </div>
   </div>
   <button
     aria-label="Remove file"
@@ -189,129 +142,25 @@ exports[`Upload component renders correctly with large file size 1`] = `
     >
       something
     </p>
-    <p
-      class="MuiTypography-root file-size Typography MuiTypography-body1"
+    <div
+      class="progress"
     >
-      12345.6MB
-    </p>
+      <div
+        class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate"
+        role="progressbar"
+      >
+        <div
+          class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate"
+        />
+        <div
+          class="MuiLinearProgress-bar MuiLinearProgress-bar2Indeterminate MuiLinearProgress-barColorPrimary"
+        />
+      </div>
+    </div>
   </div>
   <button
     aria-label="Remove file"
     class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 delete-icon"
-    data-testid="file-delete"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="MuiIconButton-label"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-        />
-      </svg>
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
-</div>
-`;
-
-exports[`Upload component sholud catch request error 1`] = `
-<div
-  class="file"
-  data-testid="test-file"
->
-  <svg
-    aria-hidden="true"
-    class="MuiSvgIcon-root file-display"
-    focusable="false"
-    viewBox="0 0 24 24"
-  >
-    <path
-      d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4l6 6v10c0 1.1-.9 2-2 2H7.99C6.89 23 6 22.1 6 21l.01-14c0-1.1.89-2 1.99-2h7zm-1 7h5.5L14 6.5V12z"
-    />
-  </svg>
-  <div
-    class="file-info-wrapper"
-  >
-    <p
-      class="MuiTypography-root filename Typography MuiTypography-body1"
-    >
-      something
-    </p>
-    <p
-      class="MuiTypography-root error Typography MuiTypography-body1"
-    >
-      Upload failed
-    </p>
-  </div>
-  <button
-    aria-label="Remove file"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 delete-icon"
-    data-testid="file-delete"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="MuiIconButton-label"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-        />
-      </svg>
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
-</div>
-`;
-
-exports[`Upload component sholud execute default source.cancel function 1`] = `
-<div
-  class="file"
-  data-testid="test-file"
->
-  <svg
-    aria-hidden="true"
-    class="MuiSvgIcon-root file-display"
-    focusable="false"
-    viewBox="0 0 24 24"
-  >
-    <path
-      d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4l6 6v10c0 1.1-.9 2-2 2H7.99C6.89 23 6 22.1 6 21l.01-14c0-1.1.89-2 1.99-2h7zm-1 7h5.5L14 6.5V12z"
-    />
-  </svg>
-  <div
-    class="file-info-wrapper"
-  >
-    <p
-      class="MuiTypography-root filename Typography MuiTypography-body1"
-    >
-      something
-    </p>
-    <p
-      class="MuiTypography-root file-size Typography MuiTypography-body1"
-    >
-      0KB
-    </p>
-  </div>
-  <button
-    aria-label="Remove file"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 delete-icon"
     data-testid="file-delete"
     tabindex="0"
     type="button"

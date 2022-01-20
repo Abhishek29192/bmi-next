@@ -1,5 +1,5 @@
 import React from "react";
-import { render, waitFor } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import axios from "axios";
 import FileComponent from "../_File";
 
@@ -23,18 +23,6 @@ describe("Upload component", () => {
   });
 
   it("renders correctly", async () => {
-    axios.post = jest.fn().mockResolvedValue({
-      data: {
-        sys: {
-          type: "x"
-        }
-      }
-    });
-
-    axios.CancelToken.source = jest
-      .fn()
-      .mockReturnValue({ token: "this", cancel: () => {} });
-
     const { container } = render(
       <FileComponent
         file={{
@@ -54,8 +42,7 @@ describe("Upload component", () => {
         errorMessage={"Upload failed"}
       />
     );
-    expect(axios.post).toHaveBeenCalled();
-    expect(await waitFor(() => container.firstChild)).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it("should execute api request with headers", async () => {
@@ -114,7 +101,7 @@ describe("Upload component", () => {
 
     axios.CancelToken.source = jest.fn().mockReturnValue({ token: "this" });
 
-    const { container } = render(
+    render(
       <FileComponent
         file={{
           name: "something",
@@ -134,7 +121,6 @@ describe("Upload component", () => {
       />
     );
     expect(axios.post).toHaveBeenCalled();
-    expect(await waitFor(() => container.firstChild)).toMatchSnapshot();
   });
 
   it("sholud catch request error", async () => {
@@ -152,7 +138,7 @@ describe("Upload component", () => {
       .fn()
       .mockReturnValue({ token: "this", cancel: () => {} });
 
-    const { container } = render(
+    render(
       <FileComponent
         file={{
           name: "something",
@@ -172,7 +158,6 @@ describe("Upload component", () => {
       />
     );
     expect(axios.post).toHaveBeenCalled();
-    expect(await waitFor(() => container.firstChild)).toMatchSnapshot();
   });
 
   it("renders correctly and should not call axios.post if validation error appears", async () => {
@@ -190,7 +175,7 @@ describe("Upload component", () => {
 
     const validation = () => "valid";
 
-    const { container } = render(
+    render(
       <FileComponent
         file={{
           name: "something",
@@ -211,7 +196,6 @@ describe("Upload component", () => {
       />
     );
     expect(axios.post).toHaveBeenCalledTimes(0);
-    expect(await waitFor(() => container.firstChild)).toMatchSnapshot();
   });
 
   it("should call onRequest function if it is populated", async () => {
@@ -241,18 +225,6 @@ describe("Upload component", () => {
   });
 
   it("renders correctly with large file size", async () => {
-    axios.post = jest.fn().mockResolvedValue({
-      data: {
-        sys: {
-          type: "x"
-        }
-      }
-    });
-
-    axios.CancelToken.source = jest
-      .fn()
-      .mockReturnValue({ token: "this", cancel: () => {} });
-
     const { container } = render(
       <FileComponent
         file={{
@@ -272,10 +244,9 @@ describe("Upload component", () => {
         errorMessage={"Upload failed"}
       />
     );
-    expect(axios.post).toHaveBeenCalled();
-    expect(await waitFor(() => container.firstChild)).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
-  it("renders correctly with error", async () => {
+  it("renders correctly if an error recieved in API response", async () => {
     axios.post = jest.fn().mockResolvedValue({
       data: {
         sys: {
@@ -307,6 +278,6 @@ describe("Upload component", () => {
         errorMessage="Upload failed"
       />
     );
-    expect(await waitFor(() => container.firstChild)).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
