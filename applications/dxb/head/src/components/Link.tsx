@@ -3,7 +3,7 @@ import Clickable, { ClickableAction } from "@bmi/clickable";
 import Dialog from "@bmi/dialog";
 import { graphql, Link as GatsbyLink } from "gatsby";
 import React, { useCallback, useContext, useMemo, useState } from "react";
-import { Data as SimplePageData } from "../templates/simple-page";
+import { Data as SimplePageData } from "../templates/simplePage/components/simple-page";
 import { getPathWithCountryCode } from "../utils/path";
 import { IconName } from "./Icon";
 import { Data as PageInfoData } from "./PageInfo";

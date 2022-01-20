@@ -1,7 +1,6 @@
 import AnchorLink from "@bmi/anchor-link";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { graphql, Link as GatsbyLink } from "gatsby";
-import Button from "@bmi/button";
 import Hero, { HeroItem } from "@bmi/hero";
 import SpotlightHero from "@bmi/spotlight-hero";
 import LeadBlock from "@bmi/lead-block";
@@ -34,7 +33,7 @@ import ProgressIndicator from "../components/ProgressIndicator";
 import { iconMap } from "../components/Icon";
 import RichText, { RichTextData } from "../components/RichText";
 import { Data as PageInfoData } from "../components/PageInfo";
-import Link, {
+import {
   Data as LinkData,
   getClickableActionFromUrl
 } from "../components/Link";
@@ -57,10 +56,9 @@ import {
 import { devLog } from "../utils/devLog";
 import FiltersSidebar from "../components/FiltersSidebar";
 import { Product } from "../components/types/pim";
-import { renderVideo } from "../components/Video";
-import { renderImage } from "../components/Image";
 import { ProductFilter, removePLPFilterPrefix } from "../utils/product-filters";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
+import { generateHeroLevel, generateHeroProps } from "../utils/heroLevelUtils";
 import { microCopy } from "../constants/microCopies";
 
 const PAGE_SIZE = 24;
@@ -138,18 +136,13 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   );
   const initialProducts = data.initialProducts || [];
 
-  const heroProps: HeroItem = {
+  const heroProps: HeroItem = generateHeroProps(
     title,
-    children: subtitle,
-    media: featuredVideo
-      ? renderVideo(featuredVideo)
-      : renderImage(featuredMedia, { size: "cover" }),
-    cta: cta && (
-      <Link component={Button} data={cta}>
-        {cta.label}
-      </Link>
-    )
-  };
+    subtitle,
+    featuredVideo,
+    featuredMedia,
+    cta
+  );
   const { countryCode } = data.contentfulSite;
 
   const [isLoading, setIsLoading] = useState(false);
@@ -385,21 +378,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
-  let heroLevel;
-  if (heroType == "Spotlight" || heroType == "Hierarchy") {
-    heroLevel = (Math.min(
-      enhancedBreadcrumbs.filter(({ slug }) => slug).length,
-      3
-    ) || 1) as 1 | 2 | 3;
-  } else {
-    const levelMap = {
-      "Level 1": 1,
-      "Level 2": 2,
-      "Level 3": 3
-    };
-    // eslint-disable-next-line security/detect-object-injection
-    heroLevel = levelMap[heroType] as 1 | 2 | 3;
-  }
+  const heroLevel = generateHeroLevel(heroType, enhancedBreadcrumbs);
+
   const breadcrumbsNode = (
     <Breadcrumbs
       data={enhancedBreadcrumbs}
