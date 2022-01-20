@@ -2,6 +2,7 @@ import mockConsole from "jest-mock-console";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
 import { mockRequest, mockResponse, mockResponses } from "@bmi/fetch-mocks";
+import { ObjType } from "../types";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -245,19 +246,12 @@ describe("handleMessage", () => {
     const req = mockRequest("GET", {}, "/", {
       message: createEvent({
         itemType: "PRODUCTS",
-        type: "DELETED"
+        type: "DELETED",
+        base: ["BP1", "BP2"],
+        variant: ["VP1", "VP2"]
       })
     });
     const res = mockResponse();
-    getProductsByMessageId
-      .mockResolvedValueOnce({
-        totalPageCount: 2,
-        products: [{ name: "Test Product 1" }]
-      })
-      .mockResolvedValueOnce({
-        totalPageCount: 2,
-        products: [{ name: "Test Product 2" }]
-      });
     const token = "authentication-token";
     mockResponses(
       fetchMock,
@@ -274,7 +268,7 @@ describe("handleMessage", () => {
 
     await handleRequest(req, res);
 
-    expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith(
@@ -282,16 +276,23 @@ describe("handleMessage", () => {
         JSON.stringify({
           type: "DELETED",
           itemType: "PRODUCTS",
-          items: [{ name: "Test Product 1" }]
+          items: [
+            { code: "BP1", objType: ObjType.Base_product },
+            { code: "BP2", objType: ObjType.Base_product }
+          ]
         })
       )
     );
+
     expect(pubsubTopicPublisher).toHaveBeenCalledWith(
       Buffer.from(
         JSON.stringify({
           type: "DELETED",
           itemType: "PRODUCTS",
-          items: [{ name: "Test Product 2" }]
+          items: [
+            { code: "VP1", objType: ObjType.Variant },
+            { code: "VP2", objType: ObjType.Variant }
+          ]
         })
       )
     );
@@ -331,7 +332,7 @@ describe("handleMessage", () => {
 
     await handleRequest(req, res);
 
-    expect(getProductsByMessageId).toHaveBeenCalledTimes(1);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
@@ -441,7 +442,9 @@ describe("handleMessage", () => {
     const req = mockRequest("GET", {}, "/", {
       message: createEvent({
         itemType: "SYSTEMS",
-        type: "DELETED"
+        type: "DELETED",
+        system: ["System1", "System2"],
+        layer: ["Layer1", "Layer2"]
       })
     });
     const res = mockResponse();
@@ -471,14 +474,17 @@ describe("handleMessage", () => {
     await handleRequest(req, res);
 
     expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
-    expect(getSystemsByMessageId).toHaveBeenCalledTimes(2);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith(
       Buffer.from(
         JSON.stringify({
           type: "DELETED",
           itemType: "SYSTEMS",
-          items: [{ name: "Test System 1" }]
+          items: [
+            { code: "System1", objType: ObjType.System },
+            { code: "System2", objType: ObjType.System }
+          ]
         })
       )
     );
@@ -487,7 +493,10 @@ describe("handleMessage", () => {
         JSON.stringify({
           type: "DELETED",
           itemType: "SYSTEMS",
-          items: [{ name: "Test System 2" }]
+          items: [
+            { code: "Layer1", objType: ObjType.Layer },
+            { code: "Layer2", objType: ObjType.Layer }
+          ]
         })
       )
     );
@@ -517,7 +526,9 @@ describe("handleMessage", () => {
     const req = mockRequest("GET", {}, "/", {
       message: createEvent({
         itemType: "SYSTEMS",
-        type: "DELETED"
+        type: "DELETED",
+        system: ["System1", "System2"],
+        layer: ["Layer1", "Layer2"]
       })
     });
     const res = mockResponse();
@@ -528,8 +539,8 @@ describe("handleMessage", () => {
     await handleRequest(req, res);
 
     expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
-    expect(getSystemsByMessageId).toHaveBeenCalledTimes(1);
-    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.send).toHaveBeenCalledWith("ok");

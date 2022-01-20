@@ -16,7 +16,7 @@
     "@google-cloud/functions-framework": "^1.7.1",
     "@bmi/functions-firestore": "0.0.0",
     "@bmi/functions-logger": "0.0.0",
-    "dotenv": "^8.2.0",
+    "@bmi/gcp-pim-message-handler": "0.0.0",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
