@@ -196,7 +196,7 @@ const NavigationList = ({
             key
           ) => [
             subMenu &&
-            (subMenu.length > 1 || "menu" in subMenu[0] || depth !== 0) ? (
+            (subMenu.length > 1 || subMenu[0]?.menu || depth !== 0) ? (
               <li key={`menu-${depth}-item-${key}`}>
                 <NavigationListButton
                   component={Button}
