@@ -160,6 +160,8 @@ const DocumentSimpleTableResults = ({
                   // eslint-disable-next-line security/detect-object-injection
                   [styles["row--checked"]]: !!list[id]
                 })}
+                // eslint-disable-next-line security/detect-object-injection
+                selected={!!list[id]}
               >
                 {headers.map((header) => {
                   const key = `${title}-body-${header}`;

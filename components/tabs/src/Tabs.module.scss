@@ -4,7 +4,6 @@
   position: relative;
 
   .TabPanel {
-
     &[hidden] {
       position: absolute;
       top: -9999px;
@@ -22,31 +21,6 @@
   .TabsBar {
     background-color: $color-white;
     font-size: 1.25rem;
-
-    :global {
-      .MuiContainer-root {
-        padding-left: 0;
-        padding-right: 0;
-      }
-
-      .MuiTab-root {
-        min-width: initial;
-        padding: 6px 15px;
-        font-size: 1rem;
-
-        &.Mui-selected {
-          font-family: "Effra Medium";
-        }
-      }
-
-      .MuiTabs-scrollButtonsDesktop {
-        display: flex;
-      }
-
-      .MuiContainer-root.MuiTabs-root {
-        display: flex;
-      }
-    }
   }
 
   &--secondary {

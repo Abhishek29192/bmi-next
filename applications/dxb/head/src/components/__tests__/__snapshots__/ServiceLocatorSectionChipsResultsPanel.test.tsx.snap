@@ -367,10 +367,10 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
               class="Container"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="MuiContainer-root tabStyles-ContainerRoot-25 MuiContainer-maxWidthXl"
               >
                 <div
-                  class="MuiTabs-root"
+                  class="MuiTabs-root tabStyles-TabsRoot-26"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed"
@@ -384,7 +384,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                       <button
                         aria-controls="tabpanel-list"
                         aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected MuiTab-fullWidth"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-27 Mui-selected MuiTab-fullWidth"
                         id="tab-list"
                         role="tab"
                         tabindex="0"
@@ -402,7 +402,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                       <button
                         aria-controls="tabpanel-map"
                         aria-selected="false"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-27 MuiTab-fullWidth"
                         id="tab-map"
                         role="tab"
                         tabindex="-1"
@@ -419,7 +419,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                       </button>
                     </div>
                     <span
-                      class="PrivateTabIndicator-root-26 PrivateTabIndicator-colorPrimary-27 MuiTabs-indicator"
+                      class="PrivateTabIndicator-root-29 PrivateTabIndicator-colorPrimary-30 MuiTabs-indicator"
                       style="left: 0px; width: 0px;"
                     />
                   </div>
@@ -435,7 +435,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-30 TabPanelBox"
+              class="MuiBox-root MuiBox-root-33 TabPanelBox"
             >
               <div
                 class="list"
@@ -659,7 +659,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-25 TabPanelBox"
+              class="MuiBox-root MuiBox-root-28 TabPanelBox"
             >
               <div
                 class="map"

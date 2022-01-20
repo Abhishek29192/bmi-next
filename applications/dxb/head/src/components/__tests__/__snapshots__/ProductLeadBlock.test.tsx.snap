@@ -11,7 +11,7 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiBox-root MuiBox-root-28 TabPanelBox"
+    class="MuiBox-root MuiBox-root-32 TabPanelBox"
   >
     <div
       class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"

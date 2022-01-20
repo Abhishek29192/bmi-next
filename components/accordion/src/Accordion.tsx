@@ -14,12 +14,15 @@ import variables from "./Accordion.module.scss";
 export const useAccordionStyles = makeStyles(
   () => ({
     root: {
-      "& .Mui-expanded": {
-        marginBottom: "0px",
-        marginTop: "-1px"
+      "& .MuiAccordionSummary-root.Mui-expanded": {
+        minHeight: "48px"
       },
-      "& .MuiAccordionSummary-content & .Mui-expanded": {
-        margin: "12px 0"
+      "& .MuiAccordion-root.Mui-expanded": {
+        margin: "0px",
+        minHeight: "48px"
+      },
+      "& .Mui-expanded": {
+        margin: "0px"
       }
     },
     item: {
@@ -27,7 +30,9 @@ export const useAccordionStyles = makeStyles(
       border: "1px",
       borderStyle: "solid",
       borderColor: variables["color-storm"],
-      marginTop: "-2px",
+      "&:nth-child(n+2)": {
+        borderTop: "0px"
+      },
       "& + .item": {
         borderTop: "none",
         marginTop: "-1px"
@@ -39,7 +44,6 @@ export const useAccordionStyles = makeStyles(
     },
     details: {
       backgroundColor: variables["color-white"],
-      padding: "0px",
       borderTop: "1px",
       borderTopStyle: "solid",
       borderTopColor: variables["color-storm"]
@@ -50,9 +54,12 @@ export const useAccordionStyles = makeStyles(
       }
     },
     summaryRoot: {
-      minHeight: "60px"
+      minHeight: "48px"
     },
-    summaryExpanded: {},
+    summaryExpanded: {
+      minHeight: "revert",
+      margin: "0"
+    },
     summaryContent: {}
   }),
   { classNamePrefix: "accordionStyles" }

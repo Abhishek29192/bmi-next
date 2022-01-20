@@ -11,10 +11,10 @@ exports[`Tabs component renders correctly 1`] = `
       class="Container"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root tabStyles-ContainerRoot-1 MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiTabs-root"
+          class="MuiTabs-root tabStyles-TabsRoot-2"
         >
           <div
             class="MuiTabs-scrollable"
@@ -32,7 +32,7 @@ exports[`Tabs component renders correctly 1`] = `
               <button
                 aria-controls="tabpanel-0"
                 aria-selected="true"
-                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3 Mui-selected"
                 id="tab-0"
                 role="tab"
                 tabindex="0"
@@ -50,7 +50,7 @@ exports[`Tabs component renders correctly 1`] = `
               <button
                 aria-controls="tabpanel-1"
                 aria-selected="false"
-                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
+                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3"
                 id="tab-1"
                 role="tab"
                 tabindex="-1"
@@ -67,7 +67,7 @@ exports[`Tabs component renders correctly 1`] = `
               </button>
             </div>
             <span
-              class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorPrimary-2 MuiTabs-indicator"
+              class="PrivateTabIndicator-root-4 PrivateTabIndicator-colorPrimary-5 MuiTabs-indicator"
               style="left: 0px; width: 0px;"
             />
           </div>
@@ -83,7 +83,7 @@ exports[`Tabs component renders correctly 1`] = `
     role="tabpanel"
   >
     <div
-      class="MuiBox-root MuiBox-root-5 TabPanelBox"
+      class="MuiBox-root MuiBox-root-8 TabPanelBox"
     >
       Content One
     </div>
@@ -97,7 +97,7 @@ exports[`Tabs component renders correctly 1`] = `
     role="tabpanel"
   >
     <div
-      class="MuiBox-root MuiBox-root-6 TabPanelBox"
+      class="MuiBox-root MuiBox-root-9 TabPanelBox"
     >
       Content Two
     </div>
@@ -116,10 +116,10 @@ exports[`Tabs component renders correctly when one tab is false 1`] = `
       class="Container"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root tabStyles-ContainerRoot-28 MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiTabs-root"
+          class="MuiTabs-root tabStyles-TabsRoot-29"
         >
           <div
             class="MuiTabs-scrollable"
@@ -137,7 +137,7 @@ exports[`Tabs component renders correctly when one tab is false 1`] = `
               <button
                 aria-controls="tabpanel-0"
                 aria-selected="true"
-                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-30 Mui-selected"
                 id="tab-0"
                 role="tab"
                 tabindex="0"
@@ -154,7 +154,7 @@ exports[`Tabs component renders correctly when one tab is false 1`] = `
               </button>
             </div>
             <span
-              class="PrivateTabIndicator-root-19 PrivateTabIndicator-colorPrimary-20 MuiTabs-indicator"
+              class="PrivateTabIndicator-root-31 PrivateTabIndicator-colorPrimary-32 MuiTabs-indicator"
               style="left: 0px; width: 0px;"
             />
           </div>
@@ -170,7 +170,7 @@ exports[`Tabs component renders correctly when one tab is false 1`] = `
     role="tabpanel"
   >
     <div
-      class="MuiBox-root MuiBox-root-23 TabPanelBox"
+      class="MuiBox-root MuiBox-root-35 TabPanelBox"
     >
       Content One
     </div>
@@ -189,10 +189,10 @@ exports[`Tabs component renders correctly when visibleUntil is set to md  1`] = 
       class="Container"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root tabStyles-ContainerRoot-36 MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiTabs-root"
+          class="MuiTabs-root tabStyles-TabsRoot-37"
         >
           <div
             class="MuiTabs-scrollable"
@@ -210,7 +210,7 @@ exports[`Tabs component renders correctly when visibleUntil is set to md  1`] = 
               <button
                 aria-controls="tabpanel-0"
                 aria-selected="true"
-                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-38 Mui-selected"
                 id="tab-0"
                 role="tab"
                 tabindex="0"
@@ -228,7 +228,7 @@ exports[`Tabs component renders correctly when visibleUntil is set to md  1`] = 
               <button
                 aria-controls="tabpanel-1"
                 aria-selected="false"
-                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
+                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-38"
                 id="tab-1"
                 role="tab"
                 tabindex="-1"
@@ -245,7 +245,7 @@ exports[`Tabs component renders correctly when visibleUntil is set to md  1`] = 
               </button>
             </div>
             <span
-              class="PrivateTabIndicator-root-24 PrivateTabIndicator-colorPrimary-25 MuiTabs-indicator"
+              class="PrivateTabIndicator-root-39 PrivateTabIndicator-colorPrimary-40 MuiTabs-indicator"
               style="left: 0px; width: 0px;"
             />
           </div>
@@ -261,7 +261,7 @@ exports[`Tabs component renders correctly when visibleUntil is set to md  1`] = 
     role="tabpanel"
   >
     <div
-      class="MuiBox-root MuiBox-root-28 TabPanelBox"
+      class="MuiBox-root MuiBox-root-43 TabPanelBox"
     >
       Content One
     </div>
@@ -275,7 +275,7 @@ exports[`Tabs component renders correctly when visibleUntil is set to md  1`] = 
     role="tabpanel"
   >
     <div
-      class="MuiBox-root MuiBox-root-29 TabPanelBox"
+      class="MuiBox-root MuiBox-root-44 TabPanelBox"
     >
       Content Two
     </div>
@@ -294,10 +294,10 @@ exports[`Tabs component renders correctly when visibleUntil is set to sm  1`] = 
       class="Container"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root tabStyles-ContainerRoot-45 MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiTabs-root"
+          class="MuiTabs-root tabStyles-TabsRoot-46"
         >
           <div
             class="MuiTabs-scrollable"
@@ -315,7 +315,7 @@ exports[`Tabs component renders correctly when visibleUntil is set to sm  1`] = 
               <button
                 aria-controls="tabpanel-0"
                 aria-selected="true"
-                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-47 Mui-selected"
                 id="tab-0"
                 role="tab"
                 tabindex="0"
@@ -333,7 +333,7 @@ exports[`Tabs component renders correctly when visibleUntil is set to sm  1`] = 
               <button
                 aria-controls="tabpanel-1"
                 aria-selected="false"
-                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
+                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-47"
                 id="tab-1"
                 role="tab"
                 tabindex="-1"
@@ -350,7 +350,7 @@ exports[`Tabs component renders correctly when visibleUntil is set to sm  1`] = 
               </button>
             </div>
             <span
-              class="PrivateTabIndicator-root-30 PrivateTabIndicator-colorPrimary-31 MuiTabs-indicator"
+              class="PrivateTabIndicator-root-48 PrivateTabIndicator-colorPrimary-49 MuiTabs-indicator"
               style="left: 0px; width: 0px;"
             />
           </div>
@@ -366,7 +366,7 @@ exports[`Tabs component renders correctly when visibleUntil is set to sm  1`] = 
     role="tabpanel"
   >
     <div
-      class="MuiBox-root MuiBox-root-34 TabPanelBox"
+      class="MuiBox-root MuiBox-root-52 TabPanelBox"
     >
       Content One
     </div>
@@ -380,7 +380,7 @@ exports[`Tabs component renders correctly when visibleUntil is set to sm  1`] = 
     role="tabpanel"
   >
     <div
-      class="MuiBox-root MuiBox-root-35 TabPanelBox"
+      class="MuiBox-root MuiBox-root-53 TabPanelBox"
     >
       Content Two
     </div>
@@ -399,10 +399,10 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
       class="Container"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root tabStyles-ContainerRoot-10 MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiTabs-root"
+          class="MuiTabs-root tabStyles-TabsRoot-11"
         >
           <div
             class="MuiTabs-scrollable"
@@ -420,7 +420,7 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
               <button
                 aria-controls="tabpanel-0"
                 aria-selected="true"
-                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-12 Mui-selected"
                 id="tab-0"
                 role="tab"
                 tabindex="0"
@@ -438,7 +438,7 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
               <button
                 aria-controls="tabpanel-1"
                 aria-selected="false"
-                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
+                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-12"
                 id="tab-1"
                 role="tab"
                 tabindex="-1"
@@ -455,7 +455,7 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
               </button>
             </div>
             <span
-              class="PrivateTabIndicator-root-7 PrivateTabIndicator-colorPrimary-8 MuiTabs-indicator"
+              class="PrivateTabIndicator-root-13 PrivateTabIndicator-colorPrimary-14 MuiTabs-indicator"
               style="left: 0px; width: 0px;"
             />
           </div>
@@ -471,7 +471,7 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
     role="tabpanel"
   >
     <div
-      class="MuiBox-root MuiBox-root-11 TabPanelBox"
+      class="MuiBox-root MuiBox-root-17 TabPanelBox"
     >
       Content One
     </div>
@@ -485,7 +485,7 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
     role="tabpanel"
   >
     <div
-      class="MuiBox-root MuiBox-root-12 TabPanelBox"
+      class="MuiBox-root MuiBox-root-18 TabPanelBox"
     >
       Content Two
     </div>
