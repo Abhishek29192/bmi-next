@@ -158,7 +158,7 @@ const Header = ({
     if (!currentTarget || !("innerWidth" in currentTarget)) {
       return;
     }
-    const target = currentTarget as { innerWidth: number };
+    const target = currentTarget as Window;
     setSizes(getSize(target.innerWidth, elementWidths));
   };
 

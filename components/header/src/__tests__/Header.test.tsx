@@ -1,8 +1,9 @@
+import React from "react";
+import "@testing-library/jest-dom";
+import { render } from "@testing-library/react";
 import { Arrow } from "@bmi/icon";
 import Clickable from "@bmi/clickable";
 import { languages } from "@bmi/language-selection";
-import { render } from "@testing-library/react";
-import React from "react";
 import Header from "../";
 
 const productsLabel = "Products";
@@ -215,5 +216,37 @@ describe("Header component", () => {
     languageButton.click();
 
     expect(container).toMatchSnapshot("Language selection closed");
+  });
+
+  it("clicking backdrop hides everything", () => {
+    const openLabel = "Open";
+
+    const { container, getByRole } = render(
+      <Header
+        utilities={utilities}
+        navigation={navigation}
+        language={languages[0].menu[0]}
+        languages={languages}
+        languageLabel={languageLabel}
+        languageIntroduction={<p>Select a language</p>}
+        openLabel={openLabel}
+      />
+    );
+
+    const openButton = getByRole("button", { name: openLabel });
+    openButton.click();
+    expect(document.body).toHaveClass("MenuIsOpen");
+
+    const backdrop = container.querySelector(".backdrop") as HTMLElement;
+    backdrop.click();
+    expect(document.body).not.toHaveClass("MenuIsOpen");
+  });
+
+  it("sets default language when it's empty", () => {
+    const { findByText } = render(
+      <Header utilities={utilities} navigation={navigation} />
+    );
+
+    expect(findByText("EN")).not.toBeNull();
   });
 });
