@@ -840,7 +840,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -1934,7 +1934,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -3169,7 +3169,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -4389,7 +4389,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -5679,7 +5679,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -6723,7 +6723,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -7753,7 +7753,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -8811,7 +8811,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -9883,7 +9883,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -10950,7 +10950,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -12022,7 +12022,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -13257,7 +13257,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -14477,7 +14477,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -15767,7 +15767,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -16789,7 +16789,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -17797,7 +17797,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"
@@ -18850,7 +18850,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 >
                   <nav
                     aria-label="pagination navigation"
-                    class="MuiPagination-root pagination"
+                    class="MuiPagination-root pagination resultsPaginationStyles-paginationRoot"
                   >
                     <ul
                       class="MuiPagination-ul"

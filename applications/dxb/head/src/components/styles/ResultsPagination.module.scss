@@ -6,9 +6,5 @@
 
   .pagination {
     margin: 32px 0;
-
-    :global(.MuiPagination-ul) {
-      justify-content: flex-end;
-    }
   }
 }
