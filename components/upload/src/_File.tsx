@@ -96,7 +96,7 @@ const File = ({
     let source = {
       cancel: () => {}
     };
-    handleFileUpload().then((s) => (source = s));
+    handleFileUpload().then((s) => (source = { ...source, ...s }));
 
     return () => {
       previewImage && URL.revokeObjectURL(previewImage);

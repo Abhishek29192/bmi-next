@@ -24,9 +24,9 @@ exports[`Upload component renders correctly 1`] = `
       something
     </p>
     <p
-      class="MuiTypography-root file-size Typography MuiTypography-body1"
+      class="MuiTypography-root error Typography MuiTypography-body1"
     >
-      0KB
+      Upload failed
     </p>
   </div>
   <button
@@ -57,7 +57,7 @@ exports[`Upload component renders correctly 1`] = `
 </div>
 `;
 
-exports[`Upload component renders correctly with error 1`] = `
+exports[`Upload component renders correctly if an error recieved in API response 1`] = `
 <div
   class="file"
   data-testid="test-file"
@@ -80,15 +80,25 @@ exports[`Upload component renders correctly with error 1`] = `
     >
       something
     </p>
-    <p
-      class="MuiTypography-root error Typography MuiTypography-body1"
+    <div
+      class="progress"
     >
-      Upload failed
-    </p>
+      <div
+        class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate"
+        role="progressbar"
+      >
+        <div
+          class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate"
+        />
+        <div
+          class="MuiLinearProgress-bar MuiLinearProgress-bar2Indeterminate MuiLinearProgress-barColorPrimary"
+        />
+      </div>
+    </div>
   </div>
   <button
     aria-label="Remove file"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 delete-icon"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 delete-icon"
     data-testid="file-delete"
     tabindex="0"
     type="button"
@@ -132,15 +142,25 @@ exports[`Upload component renders correctly with large file size 1`] = `
     >
       something
     </p>
-    <p
-      class="MuiTypography-root file-size Typography MuiTypography-body1"
+    <div
+      class="progress"
     >
-      12345.6MB
-    </p>
+      <div
+        class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate"
+        role="progressbar"
+      >
+        <div
+          class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate"
+        />
+        <div
+          class="MuiLinearProgress-bar MuiLinearProgress-bar2Indeterminate MuiLinearProgress-barColorPrimary"
+        />
+      </div>
+    </div>
   </div>
   <button
     aria-label="Remove file"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 delete-icon"
+    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 delete-icon"
     data-testid="file-delete"
     tabindex="0"
     type="button"
