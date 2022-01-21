@@ -399,38 +399,6 @@
       "colours": [
         {
           "tileId": 6,
-          "name": "Rød",
-          "previewRef": "public:60.jpg",
-          "diffuseMapRef": "public:49.jpg",
-          "normalMapOverrideRef": "public:47.jpg",
-          "metallicRoughnessMapOverrideRef": "public:48.jpg",
-          "revision": 1,
-          "createdUtc": "2021-01-18T21:51:49",
-          "editedUtc": "2021-01-20T16:20:47",
-          "id": 25,
-          "revisionId": null,
-          "isDraft": false,
-          "type": "TileColour",
-          "variantCode": "143000511_Zanda_Minster_main_tile_red"
-        },
-        {
-          "tileId": 6,
-          "name": "Lys Grå",
-          "previewRef": "public:61.jpg",
-          "diffuseMapRef": "public:50.jpg",
-          "normalMapOverrideRef": "public:47.jpg",
-          "metallicRoughnessMapOverrideRef": "public:48.jpg",
-          "revision": 1,
-          "createdUtc": "2021-01-18T21:52:06",
-          "editedUtc": "2021-01-20T16:21:05",
-          "id": 26,
-          "revisionId": null,
-          "isDraft": false,
-          "type": "TileColour",
-          "variantCode": "143000214_Zanda_Minster_main_tile_light_grey"
-        },
-        {
-          "tileId": 6,
           "name": "Mørk Grå",
           "previewRef": "public:62.jpg",
           "diffuseMapRef": "public:51.jpg",
