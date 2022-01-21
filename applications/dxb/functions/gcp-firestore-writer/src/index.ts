@@ -69,7 +69,7 @@ export const handleMessage: EventFunction = async ({ data }: any) => {
   // eslint-disable-next-line security/detect-object-injection
   const collectionPath =
     itemType in COLLECTIONS &&
-    COLLECTIONS["itemType" as keyof typeof COLLECTIONS];
+    COLLECTIONS[itemType as keyof typeof COLLECTIONS];
 
   if (!collectionPath) {
     throw new Error(`Unrecognised itemType [${itemType}]`);
