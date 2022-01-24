@@ -14,6 +14,7 @@ export type Props = Omit<LinkProps, "color"> & {
   iconEnd?: boolean;
   iconInverted?: boolean;
   color?: "default" | "black" | "white";
+  action?: { href?: string };
 };
 
 const typeToColorMap: Record<"dark" | "light", Props["color"]> = {

@@ -15,7 +15,7 @@ export type Data = {
   otherInformation: RichTextData | null;
 };
 
-type Details = readonly [DetailProps, ...DetailProps[]];
+type Details = Array<DetailProps>;
 
 export const getDetails = (
   address: string | null,
@@ -61,7 +61,11 @@ export const getDetails = (
   if (!addressLine && !phoneNumberLine && !emailLine) {
     return null;
   }
-  return [...addressLine, ...phoneNumberLine, ...emailLine];
+  return [
+    ...(addressLine || []),
+    ...(phoneNumberLine || []),
+    ...(emailLine || [])
+  ];
 };
 
 const IntegratedLocationCard = ({
@@ -72,7 +76,7 @@ const IntegratedLocationCard = ({
   data: Data;
   isFlat?: boolean;
   anchorComponent?: React.ComponentType<any>; // TODO
-}) => {
+}): React.ReactElement => {
   const { title, address, phoneNumber, email, otherInformation } = data;
   const details = getDetails(address, phoneNumber, email);
 

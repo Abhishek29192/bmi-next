@@ -20,7 +20,7 @@ export type DetailProps = {
 type Props = {
   anchorComponent?: React.ComponentType<any>; // TODO
   title: React.ReactNode;
-  details: readonly [DetailProps, ...DetailProps[]];
+  details: Array<DetailProps>;
   footNote: React.ReactNode;
   isFlat?: boolean;
 };
@@ -31,7 +31,7 @@ const LocationCard = ({
   details,
   footNote,
   isFlat
-}: Props) => {
+}: Props): React.ReactElement => {
   return (
     <address
       className={classnames(
@@ -62,7 +62,7 @@ export const LocationItem = ({
   action,
   label,
   type
-}: DetailProps) => {
+}: DetailProps): React.ReactElement => {
   const typeToIconMap: Record<DetailType, SVGImport> = {
     address: LocationOn,
     phone: Phone,
