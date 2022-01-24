@@ -54,7 +54,7 @@ const deleteItemsFromFirestore = async (collectionPath: string, items: any) => {
 };
 
 export const handleMessage: EventFunction = async ({ data }: any) => {
-  const message = data
+  const message: { type: string; itemType: string; items: any } = data
     ? JSON.parse(Buffer.from(data, "base64").toString())
     : {};
 
