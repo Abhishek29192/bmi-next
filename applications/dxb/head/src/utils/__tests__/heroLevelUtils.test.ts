@@ -1,3 +1,4 @@
+import React from "react";
 import { generateHeroLevel, generateHeroProps } from "../heroLevelUtils";
 import { Data as LinkData, DataTypeEnum } from "../../components/Link";
 
@@ -95,8 +96,7 @@ describe("generateHeroProps test", () => {
       })
     );
 
-    // @ts-ignore
-    expect(result.cta.props).toEqual(
+    expect((result.cta as React.ReactElement).props).toEqual(
       expect.objectContaining({
         children: "ImALink"
       })
@@ -125,8 +125,7 @@ describe("generateHeroProps test", () => {
       })
     );
 
-    // @ts-ignore
-    expect(result.cta.props).toEqual(
+    expect((result.cta as React.ReactElement).props).toEqual(
       expect.objectContaining({
         children: "ImALink"
       })

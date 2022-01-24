@@ -244,7 +244,6 @@ describe("Upload component", () => {
     const id = "drop-upload";
     const buttonLabel = "Upload here";
 
-    // @ts-ignore Only used for testing.
     window.matchMedia = createMatchMedia(1280);
 
     const { getByTestId, getByText } = render(
@@ -271,7 +270,7 @@ describe("Upload component", () => {
     fireEvent.dragOver(dropZone);
     fireEvent.dragLeave(dropZone);
 
-    let file: DataTransferItem = {
+    const file: DataTransferItem = {
       kind: "file",
       getAsFile: () => new File([], "example"),
       getAsString: jest.fn(),
@@ -306,7 +305,6 @@ describe("Upload component", () => {
     const id = "drop-upload";
     const buttonLabel = "Upload here";
 
-    // @ts-ignore Only used for testing.
     window.matchMedia = createMatchMedia(1280);
 
     const { getByTestId, getByText } = render(
@@ -333,7 +331,7 @@ describe("Upload component", () => {
     fireEvent.dragOver(dropZone);
     fireEvent.dragLeave(dropZone);
 
-    let file: DataTransferItem = {
+    const file: DataTransferItem = {
       kind: "file",
       getAsFile: () => new File([], "example"),
       getAsString: jest.fn(),
