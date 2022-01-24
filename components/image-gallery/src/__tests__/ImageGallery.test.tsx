@@ -111,4 +111,33 @@ describe("ImageGallery component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders with main-image-wrapper--cover style if imageSize is not contain", () => {
+    const images = [
+      {
+        media: <img src={mockImage} alt="Lorem ipsum" />,
+        thumbnail: mockImage
+      }
+    ];
+
+    const { container } = render(
+      <ImageGallery images={images} imageSize="cover" />
+    );
+
+    expect(container.querySelector(".main-image-wrapper--cover")).toBeTruthy();
+  });
+  it("renders MobileThumbnails if isTouchDevice is true", () => {
+    Object.defineProperty(document.documentElement, "ontouchstart", jest.fn());
+    const images = [
+      {
+        media: <img src={mockImage} alt="Lorem ipsum" />,
+        thumbnail: mockImage
+      },
+      {
+        media: <img src={mockImage} alt="Lorem ipsum" />,
+        thumbnail: mockImage
+      }
+    ];
+    const { container } = render(<ImageGallery images={images} />);
+    expect(container.querySelector(".thumbnails--touch")).toBeTruthy();
+  });
 });

@@ -28,23 +28,29 @@ const Thumbnails = ({
   }>({ left: false, right: false });
 
   const handleOnScroll = () => {
+    const parentElement =
+      thumbnailsRef.current && thumbnailsRef.current.parentElement;
+    const parentScrollLeft = parentElement!.scrollLeft || 0;
+    const parentOffsetWidth = parentElement!.offsetWidth || 0;
+    const offsetWidth =
+      (thumbnailsRef.current && thumbnailsRef.current.offsetWidth) || 0;
+
     clearTimeout(debouncer);
 
     debouncer = setTimeout(() => {
       setVisibleGradients({
-        left: (thumbnailsRef?.current?.parentElement?.scrollLeft || 0) > 0,
-        right:
-          (thumbnailsRef?.current?.parentElement?.scrollLeft || 0) <
-          (thumbnailsRef?.current?.offsetWidth || 0) -
-            (thumbnailsRef?.current?.parentElement?.offsetWidth || 0)
+        left: parentScrollLeft > 0,
+        right: parentScrollLeft < offsetWidth - parentOffsetWidth
       });
     }, 50);
   };
 
   useEffect(() => {
-    if (thumbnailsRef.current) {
-      thumbnailsRef.current.parentElement?.scrollTo({
-        left: thumbnailsRef.current.offsetWidth
+    const currentElement = thumbnailsRef.current;
+    const scrollTo = currentElement && currentElement.parentElement!.scrollTo;
+    if (scrollTo) {
+      scrollTo({
+        left: (currentElement && currentElement.offsetWidth) || undefined
       });
     }
 
