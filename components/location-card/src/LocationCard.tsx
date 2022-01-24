@@ -20,7 +20,7 @@ export type DetailProps = {
 type Props = {
   anchorComponent?: React.ComponentType<any>; // TODO
   title: React.ReactNode;
-  details: Array<DetailProps>;
+  details?: readonly [DetailProps, ...DetailProps[]];
   footNote: React.ReactNode;
   isFlat?: boolean;
 };
@@ -41,7 +41,7 @@ const LocationCard = ({
     >
       <Typography variant="h5">{title}</Typography>
       <dl className={styles["list"]}>
-        {details.map((detail, index) => (
+        {details?.map((detail, index) => (
           <LocationItem
             key={index}
             anchorComponent={anchorComponent}

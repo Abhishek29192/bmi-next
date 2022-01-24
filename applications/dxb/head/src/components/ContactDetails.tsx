@@ -15,13 +15,13 @@ export type Data = {
   otherInformation: RichTextData | null;
 };
 
-type Details = Array<DetailProps>;
+type Details = [DetailProps, ...DetailProps[]];
 
 export const getDetails = (
   address: string | null,
   phoneNumber: string | null,
   email: string | null
-): Details => {
+): Details | undefined => {
   const addressLine: [DetailProps] | undefined = address
     ? [
         {
@@ -59,13 +59,13 @@ export const getDetails = (
     : undefined;
 
   if (!addressLine && !phoneNumberLine && !emailLine) {
-    return null;
+    return undefined;
   }
   return [
     ...(addressLine || []),
     ...(phoneNumberLine || []),
     ...(emailLine || [])
-  ];
+  ] as Details;
 };
 
 const IntegratedLocationCard = ({
