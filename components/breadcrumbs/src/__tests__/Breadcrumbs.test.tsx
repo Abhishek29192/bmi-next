@@ -9,7 +9,7 @@ const createMatchMedia = (width: unknown) => {
       matches: mediaQuery.match(query, { width }),
       addListener: () => {},
       removeListener: () => {}
-    } as MediaQueryList);
+    } as unknown as MediaQueryList);
 };
 
 describe("Breadcrumbs component", () => {

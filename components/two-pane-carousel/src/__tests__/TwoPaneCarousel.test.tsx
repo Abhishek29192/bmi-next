@@ -18,7 +18,7 @@ const createMatchMedia = (width: number) => {
       matches: mediaQuery.match(query, { width }),
       addListener: () => {},
       removeListener: () => {}
-    } as MediaQueryList);
+    } as unknown as MediaQueryList);
 };
 
 const slides: Props["slides"] = [
