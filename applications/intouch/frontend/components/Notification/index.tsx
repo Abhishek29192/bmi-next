@@ -6,7 +6,7 @@ import ReactTimeAgo from "react-time-ago";
 import en from "javascript-time-ago/locale/en";
 import it from "javascript-time-ago/locale/it";
 import nb from "javascript-time-ago/locale/nb";
-import dynamic from "next/dynamic";
+import ReactMarkdown from "react-markdown";
 import { Link } from "../Link";
 import styles from "./styles.module.scss";
 
@@ -20,11 +20,6 @@ export type NotificationProps = {
   read: boolean;
   id: number;
 };
-
-const ReactMarkdown = dynamic(
-  () => import("react-markdown").then((module) => module.default),
-  { ssr: false }
-);
 
 export const Notification = ({
   message,
@@ -42,7 +37,13 @@ export const Notification = ({
         <div>
           <ReactMarkdown
             components={{
-              a({ children, href }: { children: string; href: string }) {
+              a({
+                children,
+                href
+              }: {
+                children?: React.ReactNode;
+                href?: string;
+              }) {
                 return (
                   <Link href={href}>
                     <a>{children}</a>
