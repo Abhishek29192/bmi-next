@@ -290,7 +290,6 @@ export const SetCompanyDetailsDialog = ({
             <Grid item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("ownerFullname")}
-                isRequired
                 autoComplete="off"
               />
             </Grid>
