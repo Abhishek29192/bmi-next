@@ -1,123 +1,129 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CtaCard component renders correctly 1`] = `
-<a
-  aria-disabled="false"
-  class="MuiButtonBase-root Card"
-  href="#"
-  tabindex="0"
->
-  <div
-    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+<div>
+  <a
+    aria-disabled="false"
+    class="MuiButtonBase-root Card"
+    href="#"
+    tabindex="0"
   >
-    <section
-      class="top-box"
+    <div
+      class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <h5
-        class="MuiTypography-root heading Typography MuiTypography-h5"
+      <section
+        class="top-box"
       >
-        Call to Action Card
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+        <h5
+          class="MuiTypography-root heading Typography MuiTypography-h5"
         >
-          <path
-            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-          />
-        </svg>
-      </h5>
-    </section>
-    <img
-      alt="Lorem ipsum"
-      class="image Media"
-      src="path-to-image"
+          Call to Action Card
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+            />
+          </svg>
+        </h5>
+      </section>
+      <img
+        alt="Lorem ipsum"
+        class="image Media"
+        src="path-to-image"
+      />
+    </div>
+    <span
+      class="MuiTouchRipple-root"
     />
-  </div>
-  <span
-    class="MuiTouchRipple-root"
-  />
-</a>
+  </a>
+</div>
 `;
 
 exports[`CtaCard component renders with deprecated imageSource 1`] = `
-<a
-  aria-disabled="false"
-  class="MuiButtonBase-root Card"
-  href="#"
-  tabindex="0"
->
-  <div
-    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+<div>
+  <a
+    aria-disabled="false"
+    class="MuiButtonBase-root Card"
+    href="#"
+    tabindex="0"
   >
-    <section
-      class="top-box"
-    >
-      <h5
-        class="MuiTypography-root heading Typography MuiTypography-h5"
-      >
-        Call to Action Card
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root icon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-          />
-        </svg>
-      </h5>
-    </section>
     <div
-      class="image"
-      style="background-image: url(path-to-image);"
+      class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <section
+        class="top-box"
+      >
+        <h5
+          class="MuiTypography-root heading Typography MuiTypography-h5"
+        >
+          Call to Action Card
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+            />
+          </svg>
+        </h5>
+      </section>
+      <div
+        class="image"
+        style="background-image: url(path-to-image);"
+      />
+    </div>
+    <span
+      class="MuiTouchRipple-root"
     />
-  </div>
-  <span
-    class="MuiTouchRipple-root"
-  />
-</a>
+  </a>
+</div>
 `;
 
 exports[`CtaCard component renders with the clickable area around the heading 1`] = `
-<div
-  class="Card"
->
+<div>
   <div
-    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+    class="Card"
   >
-    <a
-      aria-disabled="false"
-      class="MuiButtonBase-root top-box"
-      href="#"
-      tabindex="0"
+    <div
+      class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <h5
-        class="MuiTypography-root heading Typography MuiTypography-h5"
+      <a
+        aria-disabled="false"
+        class="MuiButtonBase-root top-box"
+        href="#"
+        tabindex="0"
       >
-        Call to Action Card
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+        <h5
+          class="MuiTypography-root heading Typography MuiTypography-h5"
         >
-          <path
-            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-          />
-        </svg>
-      </h5>
-      <span
-        class="MuiTouchRipple-root"
+          Call to Action Card
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+            />
+          </svg>
+        </h5>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </a>
+      <img
+        alt="Lorem ipsum"
+        class="image Media"
+        src="path-to-image"
       />
-    </a>
-    <img
-      alt="Lorem ipsum"
-      class="image Media"
-      src="path-to-image"
-    />
+    </div>
   </div>
 </div>
 `;

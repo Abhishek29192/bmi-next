@@ -40,7 +40,7 @@ describe("VerticalRoller component", () => {
     const { container } = render(
       <VerticalRoller title="H2 Heading" slides={slides} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly on onClick", () => {
     const { container, getByText } = render(
@@ -48,32 +48,28 @@ describe("VerticalRoller component", () => {
     );
     const slide = getByText("Approved Installers");
     fireEvent.click(slide);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("navigates to next page", () => {
     const nextLabel = "next";
     const { container, getByLabelText } = render(
       <VerticalRoller title="something" slides={slides} />
     );
-    const containerBeforeClick = container.firstChild!.cloneNode(true);
+    const containerBeforeClick = container.cloneNode(true);
 
     fireEvent.click(getByLabelText(nextLabel));
 
-    expect(
-      snapshotDiff(containerBeforeClick, container.firstChild)
-    ).toMatchSnapshot();
+    expect(snapshotDiff(containerBeforeClick, container)).toMatchSnapshot();
   });
   it("navigates to previous page", () => {
     const previousLabel = "previous";
     const { container, getByLabelText } = render(
       <VerticalRoller title="something" slides={slides} />
     );
-    const containerBeforeClick = container.firstChild!.cloneNode(true);
+    const containerBeforeClick = container.cloneNode(true);
 
     fireEvent.click(getByLabelText(previousLabel));
 
-    expect(
-      snapshotDiff(containerBeforeClick, container.firstChild)
-    ).toMatchSnapshot();
+    expect(snapshotDiff(containerBeforeClick, container)).toMatchSnapshot();
   });
 });

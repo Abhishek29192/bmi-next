@@ -101,7 +101,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
       />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   describe("handleDownloadClick function", () => {

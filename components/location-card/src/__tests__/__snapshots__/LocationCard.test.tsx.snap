@@ -1,215 +1,219 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LocationCard component renders correctly if isFlat === true 1`] = `
-<address
-  class="LocationCard LocationCard--flat"
->
-  <h5
-    class="MuiTypography-root Typography MuiTypography-h5"
+<div>
+  <address
+    class="LocationCard LocationCard--flat"
   >
-    Area 51
-  </h5>
-  <dl
-    class="list"
-  >
-    <dt
-      class="term"
+    <h5
+      class="MuiTypography-root Typography MuiTypography-h5"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root icon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-        />
-      </svg>
-      <p
-        class="MuiTypography-root label Typography MuiTypography-body1"
-      >
-        Address
-      </p>
-    </dt>
-    <dd
-      class="description"
+      Area 51
+    </h5>
+    <dl
+      class="list"
     >
-      37°14′0″N 115°48′30″W
-    </dd>
-    <dt
-      class="term"
+      <dt
+        class="term"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+          />
+        </svg>
+        <p
+          class="MuiTypography-root label Typography MuiTypography-body1"
+        >
+          Address
+        </p>
+      </dt>
+      <dd
+        class="description"
+      >
+        37°14′0″N 115°48′30″W
+      </dd>
+      <dt
+        class="term"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+          />
+        </svg>
+        <p
+          class="MuiTypography-root label Typography MuiTypography-body1"
+        >
+          Telephone
+        </p>
+      </dt>
+      <dd
+        class="description"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+          href="tel:000000000000"
+        >
+          <span>
+            000000000000
+          </span>
+        </a>
+      </dd>
+      <dt
+        class="term"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+          />
+        </svg>
+        <p
+          class="MuiTypography-root label Typography MuiTypography-body1"
+        >
+          Email
+        </p>
+      </dt>
+      <dd
+        class="description"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+          href="email:area@51.space"
+        >
+          <span>
+            area@51.space
+          </span>
+        </a>
+      </dd>
+    </dl>
+    <div
+      class="foot-note"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root icon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-        />
-      </svg>
-      <p
-        class="MuiTypography-root label Typography MuiTypography-body1"
-      >
-        Telephone
-      </p>
-    </dt>
-    <dd
-      class="description"
-    >
-      <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-        href="tel:000000000000"
-      >
-        <span>
-          000000000000
-        </span>
-      </a>
-    </dd>
-    <dt
-      class="term"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root icon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
-        />
-      </svg>
-      <p
-        class="MuiTypography-root label Typography MuiTypography-body1"
-      >
-        Email
-      </p>
-    </dt>
-    <dd
-      class="description"
-    >
-      <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-        href="email:area@51.space"
-      >
-        <span>
-          area@51.space
-        </span>
-      </a>
-    </dd>
-  </dl>
-  <div
-    class="foot-note"
-  >
-    Monday - Friday, 9:00 - 17:00
-  </div>
-</address>
+      Monday - Friday, 9:00 - 17:00
+    </div>
+  </address>
+</div>
 `;
 
 exports[`LocationCard component renders correctly with props 1`] = `
-<address
-  class="LocationCard"
->
-  <h5
-    class="MuiTypography-root Typography MuiTypography-h5"
+<div>
+  <address
+    class="LocationCard"
   >
-    Area 51
-  </h5>
-  <dl
-    class="list"
-  >
-    <dt
-      class="term"
+    <h5
+      class="MuiTypography-root Typography MuiTypography-h5"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root icon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-        />
-      </svg>
-      <p
-        class="MuiTypography-root label Typography MuiTypography-body1"
-      >
-        Address
-      </p>
-    </dt>
-    <dd
-      class="description"
+      Area 51
+    </h5>
+    <dl
+      class="list"
     >
-      37°14′0″N 115°48′30″W
-    </dd>
-    <dt
-      class="term"
+      <dt
+        class="term"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+          />
+        </svg>
+        <p
+          class="MuiTypography-root label Typography MuiTypography-body1"
+        >
+          Address
+        </p>
+      </dt>
+      <dd
+        class="description"
+      >
+        37°14′0″N 115°48′30″W
+      </dd>
+      <dt
+        class="term"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+          />
+        </svg>
+        <p
+          class="MuiTypography-root label Typography MuiTypography-body1"
+        >
+          Telephone
+        </p>
+      </dt>
+      <dd
+        class="description"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+          href="tel:000000000000"
+        >
+          <span>
+            000000000000
+          </span>
+        </a>
+      </dd>
+      <dt
+        class="term"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+          />
+        </svg>
+        <p
+          class="MuiTypography-root label Typography MuiTypography-body1"
+        >
+          Email
+        </p>
+      </dt>
+      <dd
+        class="description"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+          href="email:area@51.space"
+        >
+          <span>
+            area@51.space
+          </span>
+        </a>
+      </dd>
+    </dl>
+    <div
+      class="foot-note"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root icon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-        />
-      </svg>
-      <p
-        class="MuiTypography-root label Typography MuiTypography-body1"
-      >
-        Telephone
-      </p>
-    </dt>
-    <dd
-      class="description"
-    >
-      <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-        href="tel:000000000000"
-      >
-        <span>
-          000000000000
-        </span>
-      </a>
-    </dd>
-    <dt
-      class="term"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root icon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
-        />
-      </svg>
-      <p
-        class="MuiTypography-root label Typography MuiTypography-body1"
-      >
-        Email
-      </p>
-    </dt>
-    <dd
-      class="description"
-    >
-      <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-        href="email:area@51.space"
-      >
-        <span>
-          area@51.space
-        </span>
-      </a>
-    </dd>
-  </dl>
-  <div
-    class="foot-note"
-  >
-    Monday - Friday, 9:00 - 17:00
-  </div>
-</address>
+      Monday - Friday, 9:00 - 17:00
+    </div>
+  </address>
+</div>
 `;

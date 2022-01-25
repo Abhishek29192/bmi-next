@@ -1,126 +1,137 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DownloadList component renders DownloadListButton properly without context 1`] = `
-<button
-  class="MuiButtonBase-root MuiButton-root buttonStyles-root-65 MuiButton-contained buttonStyles-contained-67 MuiButton-containedPrimary"
-  tabindex="0"
-  type="button"
->
-  <span
-    class="MuiButton-label buttonStyles-label-68"
+<div>
+  <button
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-65 MuiButton-contained buttonStyles-contained-67 MuiButton-containedPrimary"
+    tabindex="0"
+    type="button"
   >
-    label
-  </span>
-  <span
-    class="MuiTouchRipple-root"
-  />
-</button>
+    <span
+      class="MuiButton-label buttonStyles-label-68"
+    >
+      label
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
 `;
 
 exports[`DownloadList component renders DownloadListCheckbox properly without context 1`] = `
-<span
-  class=""
->
-  <div
-    class="MuiFormControl-root Checkbox"
+<div>
+  <span
+    class=""
   >
-    <label
-      class="MuiFormControlLabel-root"
+    <div
+      class="MuiFormControl-root Checkbox"
     >
-      <span
-        aria-disabled="false"
-        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-61 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-        data-testid="testID"
+      <label
+        class="MuiFormControlLabel-root"
       >
         <span
-          class="MuiIconButton-label"
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-61 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+          data-testid="testID"
         >
-          <input
-            aria-label="first checkbox"
-            class="PrivateSwitchBase-input-64"
-            data-indeterminate="false"
-            name="id-1"
-            type="checkbox"
-            value=""
-          />
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
+          <span
+            class="MuiIconButton-label"
           >
-            <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+            <input
+              aria-label="first checkbox"
+              class="PrivateSwitchBase-input-64"
+              data-indeterminate="false"
+              name="id-1"
+              type="checkbox"
+              value=""
             />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </span>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
         />
-      </span>
-      <span
-        class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-      />
-    </label>
-  </div>
-</span>
+      </label>
+    </div>
+  </span>
+</div>
 `;
 
 exports[`DownloadList component renders DownloadListClear properly without context 1`] = `
-<a
-  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-  type="button"
->
-  <span>
-    Label
-  </span>
-</a>
+<div>
+  <a
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+    type="button"
+  >
+    <span>
+      Label
+    </span>
+  </a>
+</div>
 `;
 
 exports[`DownloadList component renders correctly 1`] = `
-<span
-  class=""
->
-  <div
-    class="MuiFormControl-root Checkbox"
+<div>
+  <span
+    class=""
   >
-    <label
-      class="MuiFormControlLabel-root"
+    <div
+      class="MuiFormControl-root Checkbox"
     >
-      <span
-        aria-disabled="false"
-        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+      <label
+        class="MuiFormControlLabel-root"
       >
         <span
-          class="MuiIconButton-label"
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
         >
-          <input
-            aria-label="first checkbox"
-            class="PrivateSwitchBase-input-4"
-            data-indeterminate="false"
-            name="id-1"
-            type="checkbox"
-            value=""
-          />
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
+          <span
+            class="MuiIconButton-label"
           >
-            <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+            <input
+              aria-label="first checkbox"
+              class="PrivateSwitchBase-input-4"
+              data-indeterminate="false"
+              name="id-1"
+              type="checkbox"
+              value=""
             />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </span>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
         />
-      </span>
-      <span
-        class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-      />
-    </label>
-  </div>
-</span>
+      </label>
+    </div>
+  </span>
+  <button>
+    Download
+  </button>
+</div>
 `;

@@ -13,7 +13,7 @@ describe("RadioGroup component", () => {
         <div>Non-combustible (metal/concrete)</div>
       </RadioGroup>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("execute onChange correctly", () => {
@@ -46,7 +46,7 @@ describe("RadioGroup component", () => {
       </RadioGroup>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with defaultValue prop", () => {
@@ -61,6 +61,6 @@ describe("RadioGroup component", () => {
       </RadioGroup>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

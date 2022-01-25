@@ -99,7 +99,7 @@ describe("Sitemap", () => {
       <Sitemap data={data} pageContext={{ variantCodeToPathMap: {} }} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(container.querySelectorAll("header").length).toBe(1);
     expect(container.querySelectorAll(".Footer").length).toBe(1);
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
@@ -124,7 +124,7 @@ describe("Sitemap", () => {
       <Sitemap data={data} pageContext={{ variantCodeToPathMap: {} }} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(container.querySelectorAll("header").length).toBe(1);
     expect(container.querySelectorAll(".Footer").length).toBe(1);
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
@@ -149,7 +149,7 @@ describe("Sitemap", () => {
       <Sitemap data={data} pageContext={{ variantCodeToPathMap: {} }} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(container.querySelectorAll("header").length).toBe(1);
     expect(container.querySelectorAll(".Footer").length).toBe(1);
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
@@ -174,7 +174,7 @@ describe("Sitemap", () => {
       <Sitemap data={data} pageContext={{ variantCodeToPathMap: {} }} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(container.querySelectorAll("header").length).toBe(0);
     expect(container.querySelectorAll(".Footer").length).toBe(1);
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
@@ -199,7 +199,7 @@ describe("Sitemap", () => {
       <Sitemap data={data} pageContext={{ variantCodeToPathMap: {} }} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(container.querySelectorAll("header").length).toBe(0);
     expect(container.querySelectorAll(".Footer").length).toBe(1);
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
@@ -224,7 +224,7 @@ describe("Sitemap", () => {
       <Sitemap data={data} pageContext={null} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(container.querySelectorAll("header").length).toBe(1);
     expect(container.querySelectorAll(".Footer").length).toBe(1);
     expect(getByTestId("brand-colors-provider")).toBeTruthy();

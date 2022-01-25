@@ -34,7 +34,7 @@ describe("CalculatorStepper component", () => {
         </CalculatorStepper.Step>
       </CalculatorStepper>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders as a div", () => {
@@ -56,7 +56,7 @@ describe("CalculatorStepper component", () => {
         </CalculatorStepper.Step>
       </CalculatorStepper>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("ignores footer when there are no buttons", () => {
@@ -71,7 +71,7 @@ describe("CalculatorStepper component", () => {
         </CalculatorStepper.Step>
       </CalculatorStepper>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("calls button events", () => {

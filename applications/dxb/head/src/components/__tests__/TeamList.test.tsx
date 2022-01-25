@@ -47,7 +47,7 @@ describe("TeamList component", () => {
     ];
 
     const { container } = render(<TeamList data={data} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with more than 8", () => {
@@ -409,7 +409,7 @@ describe("TeamList component", () => {
 
     fireEvent.click(getByText("MC: global.showMore"));
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with links", () => {
@@ -472,13 +472,13 @@ describe("TeamList component", () => {
     ];
 
     const { container } = render(<TeamList data={data} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly when incomplete", () => {
     const data = [{}] as Data;
 
     const { container } = render(<TeamList data={data} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

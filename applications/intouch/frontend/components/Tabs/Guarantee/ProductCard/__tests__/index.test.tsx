@@ -9,6 +9,6 @@ describe("ProductCard component", () => {
     const { container } = renderWithI18NProvider(
       <ProductCard products={[product]} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

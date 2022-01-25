@@ -1,302 +1,310 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`IconList component renders compact list correctly 1`] = `
-<ul
-  class="IconList"
->
-  <li
-    class="ListItem ListItem--isCompact"
+<div>
+  <ul
+    class="IconList"
   >
-    <div
-      class="icon"
+    <li
+      class="ListItem ListItem--isCompact"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
+      <div
+        class="icon"
       >
-        <path
-          d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-        />
-      </svg>
-    </div>
-    <div
-      class="content"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          />
+        </svg>
+      </div>
+      <div
+        class="content"
+      >
+        <p
+          class="MuiTypography-root title Typography MuiTypography-body1"
+        >
+          Title 1
+        </p>
+      </div>
+    </li>
+    <li
+      class="ListItem ListItem--isCompact"
     >
-      <p
-        class="MuiTypography-root title Typography MuiTypography-body1"
+      <div
+        class="icon"
       >
-        Title 1
-      </p>
-    </div>
-  </li>
-  <li
-    class="ListItem ListItem--isCompact"
-  >
-    <div
-      class="icon"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          />
+        </svg>
+      </div>
+      <div
+        class="content"
+      >
+        <p
+          class="MuiTypography-root title Typography MuiTypography-body1"
+        >
+          Title 2
+        </p>
+      </div>
+    </li>
+    <li
+      class="ListItem ListItem--isCompact"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
+      <div
+        class="icon"
       >
-        <path
-          d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-        />
-      </svg>
-    </div>
-    <div
-      class="content"
-    >
-      <p
-        class="MuiTypography-root title Typography MuiTypography-body1"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          />
+        </svg>
+      </div>
+      <div
+        class="content"
       >
-        Title 2
-      </p>
-    </div>
-  </li>
-  <li
-    class="ListItem ListItem--isCompact"
-  >
-    <div
-      class="icon"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-        />
-      </svg>
-    </div>
-    <div
-      class="content"
-    >
-      <p
-        class="MuiTypography-root title Typography MuiTypography-body1"
-      >
-        Title 3
-      </p>
-    </div>
-  </li>
-</ul>
+        <p
+          class="MuiTypography-root title Typography MuiTypography-body1"
+        >
+          Title 3
+        </p>
+      </div>
+    </li>
+  </ul>
+</div>
 `;
 
 exports[`IconList component renders correctly with custom component 1`] = `
-<ul
-  class="IconList"
->
-  <li
-    class="ListItem"
+<div>
+  <ul
+    class="IconList"
   >
-    <div
-      class="icon"
+    <li
+      class="ListItem"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
+      <div
+        class="icon"
       >
-        <path
-          d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-        />
-      </svg>
-    </div>
-    <div
-      class="content"
-    >
-      <span
-        class="MuiTypography-root title Typography MuiTypography-h6"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          />
+        </svg>
+      </div>
+      <div
+        class="content"
       >
-        Title
-      </span>
-      <span
-        class="description"
-      >
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum qui quas rem. Animi doloremque veniam numquam at deleniti quas fuga, similique minus magni cum nihil, in sed neque, tempore adipisci.
-      </span>
-    </div>
-  </li>
-</ul>
+        <span
+          class="MuiTypography-root title Typography MuiTypography-h6"
+        >
+          Title
+        </span>
+        <span
+          class="description"
+        >
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum qui quas rem. Animi doloremque veniam numquam at deleniti quas fuga, similique minus magni cum nihil, in sed neque, tempore adipisci.
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
 `;
 
 exports[`IconList component renders correctly with default icon 1`] = `
-<ul
-  class="IconList"
->
-  <li
-    class="ListItem"
+<div>
+  <ul
+    class="IconList"
   >
-    <div
-      class="icon"
+    <li
+      class="ListItem"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
+      <div
+        class="icon"
       >
-        <path
-          d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-        />
-      </svg>
-    </div>
-    <div
-      class="content"
-    >
-      <h6
-        class="MuiTypography-root title Typography MuiTypography-h6"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          />
+        </svg>
+      </div>
+      <div
+        class="content"
       >
-        Title
-      </h6>
-      <span
-        class="description"
-      >
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum qui quas rem. Animi doloremque veniam numquam at deleniti quas fuga, similique minus magni cum nihil, in sed neque, tempore adipisci.
-      </span>
-    </div>
-  </li>
-</ul>
+        <h6
+          class="MuiTypography-root title Typography MuiTypography-h6"
+        >
+          Title
+        </h6>
+        <span
+          class="description"
+        >
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum qui quas rem. Animi doloremque veniam numquam at deleniti quas fuga, similique minus magni cum nihil, in sed neque, tempore adipisci.
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
 `;
 
 exports[`IconList component renders correctly with multiple children 1`] = `
-<ul
-  class="IconList"
->
-  <li
-    class="ListItem"
+<div>
+  <ul
+    class="IconList"
   >
-    <div
-      class="icon"
+    <li
+      class="ListItem"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
+      <div
+        class="icon"
       >
-        <path
-          d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-        />
-      </svg>
-    </div>
-    <div
-      class="content"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+          />
+        </svg>
+      </div>
+      <div
+        class="content"
+      >
+        <h6
+          class="MuiTypography-root title Typography MuiTypography-h6"
+        >
+          BMI Group sells to dealers, as well as professional customers.
+        </h6>
+        <span
+          class="description"
+        >
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est esse itaque consequatur laboriosam nisi perspiciatis, excepturi eaque delectus rerum maxime vitae minus error ipsam suscipit totam ab voluptates accusamus quia.
+        </span>
+      </div>
+    </li>
+    <li
+      class="ListItem"
     >
-      <h6
-        class="MuiTypography-root title Typography MuiTypography-h6"
+      <div
+        class="icon"
       >
-        BMI Group sells to dealers, as well as professional customers.
-      </h6>
-      <span
-        class="description"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+          />
+        </svg>
+      </div>
+      <div
+        class="content"
       >
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est esse itaque consequatur laboriosam nisi perspiciatis, excepturi eaque delectus rerum maxime vitae minus error ipsam suscipit totam ab voluptates accusamus quia.
-      </span>
-    </div>
-  </li>
-  <li
-    class="ListItem"
-  >
-    <div
-      class="icon"
+        <h6
+          class="MuiTypography-root title Typography MuiTypography-h6"
+        >
+          BMI Group sells to dealers, as well as professional customers.
+        </h6>
+        <span
+          class="description"
+        >
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        </span>
+      </div>
+    </li>
+    <li
+      class="ListItem"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
+      <div
+        class="icon"
       >
-        <path
-          d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-        />
-      </svg>
-    </div>
-    <div
-      class="content"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+          />
+        </svg>
+      </div>
+      <div
+        class="content"
+      >
+        <h6
+          class="MuiTypography-root title Typography MuiTypography-h6"
+        >
+          BMI Group sells to dealers, as well as professional customers.
+        </h6>
+        <span
+          class="description"
+        >
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est esse itaque consequatur laboriosam nisi perspiciatis, excepturi eaque delectus rerum maxime vitae minus error ipsam suscipit totam ab voluptates accusamus quia.
+        </span>
+      </div>
+    </li>
+    <li
+      class="ListItem"
     >
-      <h6
-        class="MuiTypography-root title Typography MuiTypography-h6"
+      <div
+        class="icon"
       >
-        BMI Group sells to dealers, as well as professional customers.
-      </h6>
-      <span
-        class="description"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+          />
+        </svg>
+      </div>
+      <div
+        class="content"
       >
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-      </span>
-    </div>
-  </li>
-  <li
-    class="ListItem"
-  >
-    <div
-      class="icon"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-        />
-      </svg>
-    </div>
-    <div
-      class="content"
-    >
-      <h6
-        class="MuiTypography-root title Typography MuiTypography-h6"
-      >
-        BMI Group sells to dealers, as well as professional customers.
-      </h6>
-      <span
-        class="description"
-      >
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est esse itaque consequatur laboriosam nisi perspiciatis, excepturi eaque delectus rerum maxime vitae minus error ipsam suscipit totam ab voluptates accusamus quia.
-      </span>
-    </div>
-  </li>
-  <li
-    class="ListItem"
-  >
-    <div
-      class="icon"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-        />
-      </svg>
-    </div>
-    <div
-      class="content"
-    >
-      <h6
-        class="MuiTypography-root title Typography MuiTypography-h6"
-      >
-        BMI Group sells to dealers, as well as professional customers.
-      </h6>
-      <span
-        class="description"
-      >
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-      </span>
-    </div>
-  </li>
-</ul>
+        <h6
+          class="MuiTypography-root title Typography MuiTypography-h6"
+        >
+          BMI Group sells to dealers, as well as professional customers.
+        </h6>
+        <span
+          class="description"
+        >
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
 `;

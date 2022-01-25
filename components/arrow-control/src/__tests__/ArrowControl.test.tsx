@@ -5,7 +5,7 @@ import ArrowControl from "../";
 describe("ArrowControl component", () => {
   it("renders correctly", () => {
     const { container } = render(<ArrowControl direction="left" />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("triggers an onClick event", () => {
     const onClick = jest.fn();

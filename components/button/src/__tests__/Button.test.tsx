@@ -7,7 +7,7 @@ afterEach(cleanup);
 describe("Button component", () => {
   it("renders correctly", () => {
     const { container } = render(<Button>Caption</Button>);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders an outlined button on dark background", () => {
     const { container } = render(
@@ -15,13 +15,13 @@ describe("Button component", () => {
         Caption
       </Button>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders an opaque outlined button on dark background", () => {
     const { container } = render(
       <Button variant="opaqueOutlined">Caption</Button>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders a flat button on dark background", () => {
     const { container } = render(
@@ -29,7 +29,7 @@ describe("Button component", () => {
         Caption
       </Button>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders an icon button", () => {
     const { container } = render(
@@ -37,7 +37,7 @@ describe("Button component", () => {
         Caption
       </Button>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders a small icon button", () => {
     const { container } = render(
@@ -45,7 +45,7 @@ describe("Button component", () => {
         <UserIcon />
       </Button>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders a disabled icon button", () => {
     const { container } = render(
@@ -53,7 +53,7 @@ describe("Button component", () => {
         <UserIcon />
       </Button>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("calls onClick function when clicked", () => {
     const onClick = jest.fn();
@@ -73,7 +73,7 @@ describe("Button component", () => {
   });
   it("renders with additional classes", () => {
     const { container } = render(<Button classes={"textSecondary"} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders a flat button with icon on dark background", () => {
     const { container } = render(
@@ -81,18 +81,18 @@ describe("Button component", () => {
         <UserIcon />
       </Button>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders button with component props", () => {
     const { container } = render(<Button component="span">Test</Button>);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders button with color props", () => {
     const { container } = render(<Button color="secondary">Test</Button>);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders button with rest props", () => {
     const { container } = render(<Button size="large">Test</Button>);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

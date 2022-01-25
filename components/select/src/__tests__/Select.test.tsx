@@ -15,7 +15,7 @@ describe("Select component", () => {
         <MenuItem value="fr">France</MenuItem>
       </Select>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly as variant hybrid", () => {
     const { container } = render(
@@ -33,7 +33,7 @@ describe("Select component", () => {
         <MenuItem value="fr">France</MenuItem>
       </Select>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if label is undefined", () => {
@@ -51,7 +51,7 @@ describe("Select component", () => {
         <MenuItem value="fr">France</MenuItem>
       </Select>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if labelId is undefined", () => {
@@ -65,7 +65,7 @@ describe("Select component", () => {
         <MenuItem value="fr">France</MenuItem>
       </Select>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly as variant outlined", () => {
@@ -84,7 +84,7 @@ describe("Select component", () => {
         <MenuItem value="fr">France</MenuItem>
       </Select>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly as variant undefined", () => {
@@ -98,7 +98,7 @@ describe("Select component", () => {
         <MenuItem value="fr">France</MenuItem>
       </Select>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("displays errorText instead of helperText if error is provided", () => {
@@ -123,7 +123,7 @@ describe("Select component", () => {
     );
     fireEvent.blur(getByLabelText(label));
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("displays helperText instead of errorText if errorText provided but error is undefined", () => {
@@ -144,7 +144,7 @@ describe("Select component", () => {
       </Select>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if disabled", () => {
@@ -159,7 +159,7 @@ describe("Select component", () => {
       </Select>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with className", () => {
@@ -174,7 +174,7 @@ describe("Select component", () => {
       </Select>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("calls onChange handler", () => {

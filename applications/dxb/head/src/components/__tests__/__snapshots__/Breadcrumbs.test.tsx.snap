@@ -1,23 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Breadcrumbs component renders correctly 1`] = `
-<nav
-  aria-label="breadcrumbs"
-  class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary"
->
-  <ol
-    class="MuiBreadcrumbs-ol"
-  />
-</nav>
+<div>
+  <nav
+    aria-label="breadcrumbs"
+    class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary"
+  >
+    <ol
+      class="MuiBreadcrumbs-ol"
+    />
+  </nav>
+</div>
 `;
 
 exports[`Breadcrumbs component renders correctly only one item 1`] = `
-<nav
-  aria-label="breadcrumbs"
-  class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary"
->
-  <ol
-    class="MuiBreadcrumbs-ol"
-  />
-</nav>
+<div>
+  <nav
+    aria-label="breadcrumbs"
+    class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary"
+  >
+    <ol
+      class="MuiBreadcrumbs-ol"
+    />
+  </nav>
+</div>
 `;

@@ -16,7 +16,7 @@ describe("CompanyDocuments Components", () => {
         </AccountContextWrapper>
       </ApolloProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("render correctly if there is document", () => {
@@ -37,6 +37,6 @@ describe("CompanyDocuments Components", () => {
         </AccountContextWrapper>
       </ApolloProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

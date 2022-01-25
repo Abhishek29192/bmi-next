@@ -5,6 +5,6 @@ import Icon from "../Icon";
 describe("Icon component", () => {
   it("renders correctly", () => {
     const { container } = render(<Icon name="Mail" />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

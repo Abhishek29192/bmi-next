@@ -165,7 +165,7 @@ const navigation = [
 const demoArea = useRef();
 
 const seatHeader = () => {
-  document.querySelector("body").prepend(demoArea.current.firstChild);
+  document.querySelector("body").prepend(demoArea.current);
 };
 
 <>

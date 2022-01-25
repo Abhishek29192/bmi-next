@@ -7,7 +7,7 @@ afterEach(cleanup);
 describe("SlideControls component", () => {
   it("renders correctly", () => {
     const { container } = render(<SlideControls total={5} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("moves forward from 1 to 2", () => {
     const nextLabel = "next";
@@ -17,7 +17,7 @@ describe("SlideControls component", () => {
 
     fireEvent.click(getByLabelText(nextLabel));
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("moves backward from 5 to 4", () => {
     const previousLabel = "previous";
@@ -27,7 +27,7 @@ describe("SlideControls component", () => {
 
     fireEvent.click(getByLabelText(previousLabel));
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("moves from last to first number", () => {
     const nextLabel = "next";
@@ -37,7 +37,7 @@ describe("SlideControls component", () => {
 
     fireEvent.click(getByLabelText(nextLabel));
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("moves from first to last number", () => {
     const previousLabel = "previous";
@@ -47,7 +47,7 @@ describe("SlideControls component", () => {
 
     fireEvent.click(getByLabelText(previousLabel));
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("triggers a onPrevClick event", () => {

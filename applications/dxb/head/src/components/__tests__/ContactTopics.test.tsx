@@ -55,6 +55,6 @@ describe("ContactTopics component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

@@ -1,647 +1,661 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Sidebar component renders correctly for company admin 1`] = `
-<nav
-  class="sidebarNavigation"
->
-  <a
-    class="sidebarLink"
-    href="/"
+<div>
+  <nav
+    class="sidebarNavigation"
   >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+    <a
+      class="sidebarLink"
+      href="/"
     >
-      <path
-        d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
-      />
-    </svg>
-    Home
-  </a>
-  <a
-    class="sidebarLink"
-    href="/projects"
-  >
-    <svg
-      color="primary"
-      style="font-size: 24px;"
-    />
-    Projects
-  </a>
-  <a
-    class="sidebarLink"
-    href="/training"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+        />
+      </svg>
+      Home
+    </a>
+    <a
+      class="sidebarLink"
+      href="/projects"
     >
-      <path
-        d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+      <svg
+        color="primary"
+        style="font-size: 24px;"
       />
-    </svg>
-    Training
-  </a>
-  <a
-    class="sidebarLink"
-    href="/team"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      Projects
+    </a>
+    <a
+      class="sidebarLink"
+      href="/training"
     >
-      <path
-        d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
-      />
-    </svg>
-    Team
-  </a>
-  <a
-    class="sidebarLink"
-    href="/companies/1"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+        />
+      </svg>
+      Training
+    </a>
+    <a
+      class="sidebarLink"
+      href="/team"
     >
-      <path
-        d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"
-      />
-    </svg>
-    Company
-  </a>
-  <a
-    class="sidebarLink"
-    href="/toolkit"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
+        />
+      </svg>
+      Team
+    </a>
+    <a
+      class="sidebarLink"
+      href="/companies/1"
     >
-      <path
-        d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
-      />
-    </svg>
-    Tools
-  </a>
-</nav>
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"
+        />
+      </svg>
+      Company
+    </a>
+    <a
+      class="sidebarLink"
+      href="/toolkit"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
+        />
+      </svg>
+      Tools
+    </a>
+  </nav>
+</div>
 `;
 
 exports[`Sidebar component renders correctly for installer 1`] = `
-<nav
-  class="sidebarNavigation"
->
-  <a
-    class="sidebarLink"
-    href="/"
+<div>
+  <nav
+    class="sidebarNavigation"
   >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+    <a
+      class="sidebarLink"
+      href="/"
     >
-      <path
-        d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
-      />
-    </svg>
-    Home
-  </a>
-  <a
-    class="sidebarLink"
-    href="/training"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+        />
+      </svg>
+      Home
+    </a>
+    <a
+      class="sidebarLink"
+      href="/training"
     >
-      <path
-        d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
-      />
-    </svg>
-    Training
-  </a>
-</nav>
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+        />
+      </svg>
+      Training
+    </a>
+  </nav>
+</div>
 `;
 
 exports[`Sidebar component renders correctly for installer in a T2 company 1`] = `
-<nav
-  class="sidebarNavigation"
->
-  <a
-    class="sidebarLink"
-    href="/"
+<div>
+  <nav
+    class="sidebarNavigation"
   >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+    <a
+      class="sidebarLink"
+      href="/"
     >
-      <path
-        d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
-      />
-    </svg>
-    Home
-  </a>
-  <a
-    class="sidebarLink"
-    href="/projects"
-  >
-    <svg
-      color="primary"
-      style="font-size: 24px;"
-    />
-    Projects
-  </a>
-  <a
-    class="sidebarLink"
-    href="/training"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+        />
+      </svg>
+      Home
+    </a>
+    <a
+      class="sidebarLink"
+      href="/projects"
     >
-      <path
-        d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+      <svg
+        color="primary"
+        style="font-size: 24px;"
       />
-    </svg>
-    Training
-  </a>
-  <a
-    class="sidebarLink"
-    href="/companies/1"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      Projects
+    </a>
+    <a
+      class="sidebarLink"
+      href="/training"
     >
-      <path
-        d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"
-      />
-    </svg>
-    Company
-  </a>
-  <a
-    class="sidebarLink"
-    href="/toolkit"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+        />
+      </svg>
+      Training
+    </a>
+    <a
+      class="sidebarLink"
+      href="/companies/1"
     >
-      <path
-        d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
-      />
-    </svg>
-    Tools
-  </a>
-</nav>
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"
+        />
+      </svg>
+      Company
+    </a>
+    <a
+      class="sidebarLink"
+      href="/toolkit"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
+        />
+      </svg>
+      Tools
+    </a>
+  </nav>
+</div>
 `;
 
 exports[`Sidebar component renders correctly for installer in a company 1`] = `
-<nav
-  class="sidebarNavigation"
->
-  <a
-    class="sidebarLink"
-    href="/"
+<div>
+  <nav
+    class="sidebarNavigation"
   >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+    <a
+      class="sidebarLink"
+      href="/"
     >
-      <path
-        d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
-      />
-    </svg>
-    Home
-  </a>
-  <a
-    class="sidebarLink"
-    href="/training"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+        />
+      </svg>
+      Home
+    </a>
+    <a
+      class="sidebarLink"
+      href="/training"
     >
-      <path
-        d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
-      />
-    </svg>
-    Training
-  </a>
-  <a
-    class="sidebarLink"
-    href="/companies/1"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+        />
+      </svg>
+      Training
+    </a>
+    <a
+      class="sidebarLink"
+      href="/companies/1"
     >
-      <path
-        d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"
-      />
-    </svg>
-    Company
-  </a>
-  <a
-    class="sidebarLink"
-    href="/toolkit"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"
+        />
+      </svg>
+      Company
+    </a>
+    <a
+      class="sidebarLink"
+      href="/toolkit"
     >
-      <path
-        d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
-      />
-    </svg>
-    Tools
-  </a>
-</nav>
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
+        />
+      </svg>
+      Tools
+    </a>
+  </nav>
+</div>
 `;
 
 exports[`Sidebar component renders correctly for installer with projects 1`] = `
-<nav
-  class="sidebarNavigation"
->
-  <a
-    class="sidebarLink"
-    href="/"
+<div>
+  <nav
+    class="sidebarNavigation"
   >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+    <a
+      class="sidebarLink"
+      href="/"
     >
-      <path
-        d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
-      />
-    </svg>
-    Home
-  </a>
-  <a
-    class="sidebarLink"
-    href="/projects"
-  >
-    <svg
-      color="primary"
-      style="font-size: 24px;"
-    />
-    Projects
-  </a>
-  <a
-    class="sidebarLink"
-    href="/training"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+        />
+      </svg>
+      Home
+    </a>
+    <a
+      class="sidebarLink"
+      href="/projects"
     >
-      <path
-        d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+      <svg
+        color="primary"
+        style="font-size: 24px;"
       />
-    </svg>
-    Training
-  </a>
-  <a
-    class="sidebarLink"
-    href="/companies/1"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      Projects
+    </a>
+    <a
+      class="sidebarLink"
+      href="/training"
     >
-      <path
-        d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"
-      />
-    </svg>
-    Company
-  </a>
-  <a
-    class="sidebarLink"
-    href="/toolkit"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+        />
+      </svg>
+      Training
+    </a>
+    <a
+      class="sidebarLink"
+      href="/companies/1"
     >
-      <path
-        d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
-      />
-    </svg>
-    Tools
-  </a>
-</nav>
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"
+        />
+      </svg>
+      Company
+    </a>
+    <a
+      class="sidebarLink"
+      href="/toolkit"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
+        />
+      </svg>
+      Tools
+    </a>
+  </nav>
+</div>
 `;
 
 exports[`Sidebar component renders correctly for market admin 1`] = `
-<nav
-  class="sidebarNavigation"
->
-  <a
-    class="sidebarLink"
-    href="/"
+<div>
+  <nav
+    class="sidebarNavigation"
   >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+    <a
+      class="sidebarLink"
+      href="/"
     >
-      <path
-        d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
-      />
-    </svg>
-    Home
-  </a>
-  <a
-    class="sidebarLink"
-    href="/projects"
-  >
-    <svg
-      color="primary"
-      style="font-size: 24px;"
-    />
-    Projects
-  </a>
-  <a
-    class="sidebarLink"
-    href="/training"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+        />
+      </svg>
+      Home
+    </a>
+    <a
+      class="sidebarLink"
+      href="/projects"
     >
-      <path
-        d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+      <svg
+        color="primary"
+        style="font-size: 24px;"
       />
-    </svg>
-    Training
-  </a>
-  <a
-    class="sidebarLink"
-    href="/team"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      Projects
+    </a>
+    <a
+      class="sidebarLink"
+      href="/training"
     >
-      <path
-        d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
-      />
-    </svg>
-    Team
-  </a>
-  <a
-    class="sidebarLink"
-    href="/companies"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+        />
+      </svg>
+      Training
+    </a>
+    <a
+      class="sidebarLink"
+      href="/team"
     >
-      <path
-        d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"
-      />
-    </svg>
-    Companies
-  </a>
-  <a
-    class="sidebarLink"
-    href="/toolkit"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
+        />
+      </svg>
+      Team
+    </a>
+    <a
+      class="sidebarLink"
+      href="/companies"
     >
-      <path
-        d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"
+        />
+      </svg>
+      Companies
+    </a>
+    <a
+      class="sidebarLink"
+      href="/toolkit"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
+        />
+      </svg>
+      Tools
+    </a>
+    <a
+      class="sidebarLink"
+      href="/admin/products"
+    >
+      <svg
+        color="primary"
+        style="font-size: 24px;"
       />
-    </svg>
-    Tools
-  </a>
-  <a
-    class="sidebarLink"
-    href="/admin/products"
-  >
-    <svg
-      color="primary"
-      style="font-size: 24px;"
-    />
-    Inventory
-  </a>
-</nav>
+      Inventory
+    </a>
+  </nav>
+</div>
 `;
 
 exports[`Sidebar component renders correctly for super admin 1`] = `
-<nav
-  class="sidebarNavigation"
->
-  <a
-    class="sidebarLink"
-    href="/"
+<div>
+  <nav
+    class="sidebarNavigation"
   >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+    <a
+      class="sidebarLink"
+      href="/"
     >
-      <path
-        d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
-      />
-    </svg>
-    Home
-  </a>
-  <a
-    class="sidebarLink"
-    href="/projects"
-  >
-    <svg
-      color="primary"
-      style="font-size: 24px;"
-    />
-    Projects
-  </a>
-  <a
-    class="sidebarLink"
-    href="/training"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+        />
+      </svg>
+      Home
+    </a>
+    <a
+      class="sidebarLink"
+      href="/projects"
     >
-      <path
-        d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+      <svg
+        color="primary"
+        style="font-size: 24px;"
       />
-    </svg>
-    Training
-  </a>
-  <a
-    class="sidebarLink"
-    href="/team"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      Projects
+    </a>
+    <a
+      class="sidebarLink"
+      href="/training"
     >
-      <path
-        d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
-      />
-    </svg>
-    Team
-  </a>
-  <a
-    class="sidebarLink"
-    href="/companies"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+        />
+      </svg>
+      Training
+    </a>
+    <a
+      class="sidebarLink"
+      href="/team"
     >
-      <path
-        d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"
-      />
-    </svg>
-    Companies
-  </a>
-  <a
-    class="sidebarLink"
-    href="/toolkit"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
+        />
+      </svg>
+      Team
+    </a>
+    <a
+      class="sidebarLink"
+      href="/companies"
     >
-      <path
-        d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
-      />
-    </svg>
-    Tools
-  </a>
-  <a
-    class="sidebarLink"
-    href="/admin/markets"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"
+        />
+      </svg>
+      Companies
+    </a>
+    <a
+      class="sidebarLink"
+      href="/toolkit"
     >
-      <path
-        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-      />
-    </svg>
-    Markets
-  </a>
-  <a
-    class="sidebarLink"
-    href="/admin/accounts"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-      focusable="false"
-      style="font-size: 24px;"
-      viewBox="0 0 24 24"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
+        />
+      </svg>
+      Tools
+    </a>
+    <a
+      class="sidebarLink"
+      href="/admin/markets"
     >
-      <path
-        d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+        />
+      </svg>
+      Markets
+    </a>
+    <a
+      class="sidebarLink"
+      href="/admin/accounts"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+        focusable="false"
+        style="font-size: 24px;"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
+        />
+      </svg>
+      Accounts
+    </a>
+    <a
+      class="sidebarLink"
+      href="/admin/products"
+    >
+      <svg
+        color="primary"
+        style="font-size: 24px;"
       />
-    </svg>
-    Accounts
-  </a>
-  <a
-    class="sidebarLink"
-    href="/admin/products"
-  >
-    <svg
-      color="primary"
-      style="font-size: 24px;"
-    />
-    Inventory
-  </a>
-</nav>
+      Inventory
+    </a>
+  </nav>
+</div>
 `;

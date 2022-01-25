@@ -28,7 +28,7 @@ describe("Hero component", () => {
         suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
       </Hero>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders level 1 with CTA", () => {
@@ -44,7 +44,7 @@ describe("Hero component", () => {
         suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
       </Hero>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with deprecated imageSource", () => {
@@ -55,7 +55,7 @@ describe("Hero component", () => {
         suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
       </Hero>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with deprecated imageSource - not string", () => {
@@ -67,17 +67,17 @@ describe("Hero component", () => {
         suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
       </Hero>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders level 2", () => {
     const { container } = render(<Hero title="H1 Heading" level={2} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders level 3", () => {
     const { container } = render(<Hero title="H1 Heading" level={3} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders level 1 with keyline for brand ", () => {
@@ -86,7 +86,7 @@ describe("Hero component", () => {
     const { container } = render(
       <Hero title="H1 Heading" level={3} brand="Brand Name" />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders level 1 with keyline for brand if brand", () => {
@@ -95,7 +95,7 @@ describe("Hero component", () => {
     const { container } = render(
       <Hero title="H1 Heading" level={3} brand="Brand Name" />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders level 0 with keyline for brand ", () => {
@@ -114,7 +114,7 @@ describe("Hero component", () => {
         brand="Brand Name"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with no underline for brand", () => {
@@ -134,6 +134,6 @@ describe("Hero component", () => {
         brand="Brand Name"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

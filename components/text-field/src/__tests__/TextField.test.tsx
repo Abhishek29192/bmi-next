@@ -14,7 +14,7 @@ describe("ControlledTextField component", () => {
         placeholder="e.g. lorem@ipsum.com"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders a hybrid variant", () => {
     const { container } = render(
@@ -25,7 +25,7 @@ describe("ControlledTextField component", () => {
         variant="hybrid"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with an extra class", () => {
     const { container } = render(
@@ -36,7 +36,7 @@ describe("ControlledTextField component", () => {
         className="test"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders as textarea", () => {
     const { container } = render(
@@ -47,7 +47,7 @@ describe("ControlledTextField component", () => {
         isTextArea
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with left adornment", () => {
     const { container } = render(
@@ -59,7 +59,7 @@ describe("ControlledTextField component", () => {
         leftAdornment={<AccountCircle />}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with right adornment", () => {
     const { container } = render(
@@ -71,7 +71,7 @@ describe("ControlledTextField component", () => {
         rightAdornment={<AccountCircle />}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with onChange", () => {
     const onChange = jest.fn();
@@ -92,7 +92,7 @@ describe("ControlledTextField component", () => {
     fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
 
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });
 
@@ -106,7 +106,7 @@ describe("TextField component", () => {
         placeholder="e.g. lorem@ipsum.com"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with error", () => {
     const { container } = render(
@@ -119,6 +119,6 @@ describe("TextField component", () => {
         errorText="error text"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

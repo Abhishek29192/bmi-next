@@ -10,7 +10,7 @@ describe("GoogleAutocomplete component", () => {
         <GoogleAutocomplete id="google-autocomplete-loader-test" />
       </GoogleApi.Provider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("invokes APIs and renders correctly", async () => {
     const google = {
@@ -23,7 +23,7 @@ describe("GoogleAutocomplete component", () => {
         <GoogleAutocomplete id="google-autocomplete-test" />
       </GoogleApi.Provider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(google.maps.places.AutocompleteService.mock.calls).toMatchSnapshot();
     expect(google.maps.Geocoder.mock.calls).toMatchSnapshot();
   });

@@ -7,7 +7,7 @@ describe("ProjectsInsight component", () => {
     const { container } = renderWithI18NProvider(
       <ProjectsInsight daysRemaining={0} certifiedInstallers={0} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("should highlight certificate If there are zero relevantly installers", () => {
     renderWithI18NProvider(

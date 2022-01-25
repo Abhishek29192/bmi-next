@@ -1,474 +1,478 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CompanyDetails component renders all types of details 1`] = `
-<div
-  class="CompanyDetails"
->
-  <h5
-    class="MuiTypography-root title Typography MuiTypography-h5"
-  >
-    Name of the company
-  </h5>
+<div>
   <div
-    class="scrollbar-container ps"
+    class="CompanyDetails"
   >
-    <dl
-      class="list"
+    <h5
+      class="MuiTypography-root title Typography MuiTypography-h5"
     >
-      <address
-        class="row"
+      Name of the company
+    </h5>
+    <div
+      class="scrollbar-container ps"
+    >
+      <dl
+        class="list"
       >
-        <dt
-          class="term"
+        <address
+          class="row"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root icon"
-            focusable="false"
-            viewBox="0 0 24 24"
+          <dt
+            class="term"
           >
-            <path
-              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-            />
-          </svg>
-          <span
-            class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root icon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+              />
+            </svg>
+            <span
+              class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+            >
+              Address
+            </span>
+          </dt>
+          <dd
+            class="description"
           >
-            Address
-          </span>
-        </dt>
-        <dd
-          class="description"
-        >
-          full address
-        </dd>
-      </address>
-      <address
-        class="row"
-      >
-        <dt
-          class="term"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root icon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-            />
-          </svg>
-          <span
-            class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-          >
-            Address
-          </span>
-        </dt>
-        <dd
-          class="description"
-        >
-          <b>
             full address
-          </b>
-        </dd>
-      </address>
-      <address
-        class="row"
-      >
-        <dt
-          class="term"
-        />
-        <dd
-          class="description"
+          </dd>
+        </address>
+        <address
+          class="row"
         >
-          full address
-        </dd>
-      </address>
-      <address
-        class="row"
-      >
-        <dt
-          class="term"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root icon"
-            focusable="false"
-            viewBox="0 0 24 24"
+          <dt
+            class="term"
           >
-            <path
-              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root icon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+              />
+            </svg>
+            <span
+              class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+            >
+              Address
+            </span>
+          </dt>
+          <dd
+            class="description"
+          >
+            <b>
+              full address
+            </b>
+          </dd>
+        </address>
+        <address
+          class="row"
+        >
+          <dt
+            class="term"
+          />
+          <dd
+            class="description"
+          >
+            full address
+          </dd>
+        </address>
+        <address
+          class="row"
+        >
+          <dt
+            class="term"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root icon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+              />
+            </svg>
+            <span
+              class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+            >
+              Address
+            </span>
+          </dt>
+          <dd
+            class="description"
+          >
+            full address
+          </dd>
+        </address>
+        <address
+          class="row"
+        >
+          <dt
+            class="term"
+          >
+            <span
+              class="MuiTypography-root label Typography MuiTypography-body1"
+            >
+              Address
+            </span>
+          </dt>
+          <dd
+            class="description"
+          >
+            full address
+          </dd>
+        </address>
+        <div
+          class="row"
+        >
+          <dt
+            class="term"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root icon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M21.71 11.29l-9-9a.9959.9959 0 00-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z"
+              />
+            </svg>
+            <span
+              class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+            >
+              Distance
+            </span>
+          </dt>
+          <dd
+            class="description"
+          >
+            12.56km
+          </dd>
+        </div>
+        <div
+          class="row, row--cta"
+        >
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 cta-button MuiButton-containedPrimary"
+            href="https://google.com"
+            tabindex="0"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-4"
+            >
+              Get directions
+            </span>
+            <span
+              class="MuiTouchRipple-root"
             />
-          </svg>
-          <span
-            class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+          </a>
+        </div>
+        <div
+          class="row"
+        >
+          <dt
+            class="term"
           >
-            Address
-          </span>
-        </dt>
-        <dd
-          class="description"
-        >
-          full address
-        </dd>
-      </address>
-      <address
-        class="row"
-      >
-        <dt
-          class="term"
-        >
-          <span
-            class="MuiTypography-root label Typography MuiTypography-body1"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root icon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+              />
+            </svg>
+            <span
+              class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+            >
+              Telephone
+            </span>
+          </dt>
+          <dd
+            class="description"
           >
-            Address
-          </span>
-        </dt>
-        <dd
-          class="description"
+            <a
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+              href="tel:000000000000"
+            >
+              <span>
+                67 97 90 99
+              </span>
+            </a>
+          </dd>
+        </div>
+        <div
+          class="row"
         >
-          full address
-        </dd>
-      </address>
-      <div
-        class="row"
-      >
-        <dt
-          class="term"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root icon"
-            focusable="false"
-            viewBox="0 0 24 24"
+          <dt
+            class="term"
           >
-            <path
-              d="M21.71 11.29l-9-9a.9959.9959 0 00-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root icon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+              />
+            </svg>
+            <span
+              class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+            >
+              Email
+            </span>
+          </dt>
+          <dd
+            class="description"
+          >
+            <a
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+              href="mailto:hello@roofingcompany.com"
+            >
+              <span>
+                hello@roofingcompany.com
+              </span>
+            </a>
+          </dd>
+        </div>
+        <div
+          class="row"
+        >
+          <dt
+            class="term"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root icon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+              />
+            </svg>
+            <span
+              class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+            >
+              Website
+            </span>
+          </dt>
+          <dd
+            class="description"
+          >
+            <a
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+              href="https://roofingcompany.com"
+            >
+              <span>
+                Visit website
+              </span>
+            </a>
+          </dd>
+        </div>
+        <div
+          class="row"
+        >
+          <dt
+            class="term"
+          >
+            <span
+              class="MuiTypography-root label Typography MuiTypography-body1"
+            >
+              Type of roof
+            </span>
+          </dt>
+          <dd
+            class="description"
+          >
+            <b>
+              Flat
+            </b>
+          </dd>
+        </div>
+        <div
+          class="row"
+        >
+          <dt
+            class="term"
+          >
+            <span
+              class="label"
+            >
+              BMI RoofPro Level
+            </span>
+          </dt>
+          <dd
+            class="description"
+          >
+            <svg
+              class="roofProLevelIcon"
             />
-          </svg>
-          <span
-            class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-          >
-            Distance
-          </span>
-        </dt>
-        <dd
-          class="description"
+            <span
+              class="accessibility-label"
+            >
+              expert
+            </span>
+          </dd>
+        </div>
+        <div
+          class="row"
         >
-          12.56km
-        </dd>
-      </div>
+          <dt
+            class="term"
+          >
+            <span
+              class="label"
+            >
+              BMI RoofPro Level
+            </span>
+          </dt>
+          <dd
+            class="description"
+          >
+            <svg
+              class="roofProLevelIcon"
+            />
+            <span
+              class="accessibility-label"
+            >
+              elite
+            </span>
+          </dd>
+        </div>
+        <div
+          class="row"
+        >
+          <dt
+            class="term"
+          >
+            <span
+              class="label"
+            >
+              BMI RoofPro Level
+            </span>
+          </dt>
+          <dd
+            class="description"
+          >
+            <svg
+              class="roofProLevelIcon"
+            />
+            <span
+              class="accessibility-label"
+            >
+              partner
+            </span>
+          </dd>
+        </div>
+        <div
+          class="row"
+        >
+          <dt
+            class="term"
+          >
+            <span
+              class="label"
+            >
+              BMI RoofPro Level
+            </span>
+          </dt>
+          <dd
+            class="description"
+          >
+            <pre
+              style="color: rgb(214, 0, 28);"
+            >
+              Error: Level "
+              invalid-level
+              " does not exist
+            </pre>
+            <span
+              class="accessibility-label"
+            >
+              invalid-level
+            </span>
+          </dd>
+        </div>
+      </dl>
+      <p>
+        Summary
+      </p>
       <div
-        class="row, row--cta"
+        class="ps__rail-x"
+        style="left: 0px; top: 0px;"
       >
-        <a
-          aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 cta-button MuiButton-containedPrimary"
-          href="https://google.com"
+        <div
+          class="ps__thumb-x"
+          style="left: 0px; width: 0px;"
           tabindex="0"
-        >
-          <span
-            class="MuiButton-label buttonStyles-label-4"
-          >
-            Get directions
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </a>
+        />
       </div>
       <div
-        class="row"
+        class="ps__rail-y"
+        style="top: 0px; left: 0px;"
       >
-        <dt
-          class="term"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root icon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-            />
-          </svg>
-          <span
-            class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-          >
-            Telephone
-          </span>
-        </dt>
-        <dd
-          class="description"
-        >
-          <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-            href="tel:000000000000"
-          >
-            <span>
-              67 97 90 99
-            </span>
-          </a>
-        </dd>
+        <div
+          class="ps__thumb-y"
+          style="top: 0px; height: 0px;"
+          tabindex="0"
+        />
       </div>
-      <div
-        class="row"
-      >
-        <dt
-          class="term"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root icon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
-            />
-          </svg>
-          <span
-            class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-          >
-            Email
-          </span>
-        </dt>
-        <dd
-          class="description"
-        >
-          <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-            href="mailto:hello@roofingcompany.com"
-          >
-            <span>
-              hello@roofingcompany.com
-            </span>
-          </a>
-        </dd>
-      </div>
-      <div
-        class="row"
-      >
-        <dt
-          class="term"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root icon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
-            />
-          </svg>
-          <span
-            class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-          >
-            Website
-          </span>
-        </dt>
-        <dd
-          class="description"
-        >
-          <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-            href="https://roofingcompany.com"
-          >
-            <span>
-              Visit website
-            </span>
-          </a>
-        </dd>
-      </div>
-      <div
-        class="row"
-      >
-        <dt
-          class="term"
-        >
-          <span
-            class="MuiTypography-root label Typography MuiTypography-body1"
-          >
-            Type of roof
-          </span>
-        </dt>
-        <dd
-          class="description"
-        >
-          <b>
-            Flat
-          </b>
-        </dd>
-      </div>
-      <div
-        class="row"
-      >
-        <dt
-          class="term"
-        >
-          <span
-            class="label"
-          >
-            BMI RoofPro Level
-          </span>
-        </dt>
-        <dd
-          class="description"
-        >
-          <svg
-            class="roofProLevelIcon"
-          />
-          <span
-            class="accessibility-label"
-          >
-            expert
-          </span>
-        </dd>
-      </div>
-      <div
-        class="row"
-      >
-        <dt
-          class="term"
-        >
-          <span
-            class="label"
-          >
-            BMI RoofPro Level
-          </span>
-        </dt>
-        <dd
-          class="description"
-        >
-          <svg
-            class="roofProLevelIcon"
-          />
-          <span
-            class="accessibility-label"
-          >
-            elite
-          </span>
-        </dd>
-      </div>
-      <div
-        class="row"
-      >
-        <dt
-          class="term"
-        >
-          <span
-            class="label"
-          >
-            BMI RoofPro Level
-          </span>
-        </dt>
-        <dd
-          class="description"
-        >
-          <svg
-            class="roofProLevelIcon"
-          />
-          <span
-            class="accessibility-label"
-          >
-            partner
-          </span>
-        </dd>
-      </div>
-      <div
-        class="row"
-      >
-        <dt
-          class="term"
-        >
-          <span
-            class="label"
-          >
-            BMI RoofPro Level
-          </span>
-        </dt>
-        <dd
-          class="description"
-        >
-          <pre
-            style="color: rgb(214, 0, 28);"
-          >
-            Error: Level "
-            invalid-level
-            " does not exist
-          </pre>
-          <span
-            class="accessibility-label"
-          >
-            invalid-level
-          </span>
-        </dd>
-      </div>
-    </dl>
-    <p>
-      Summary
-    </p>
-    <div
-      class="ps__rail-x"
-      style="left: 0px; top: 0px;"
-    >
-      <div
-        class="ps__thumb-x"
-        style="left: 0px; width: 0px;"
-        tabindex="0"
-      />
-    </div>
-    <div
-      class="ps__rail-y"
-      style="top: 0px; left: 0px;"
-    >
-      <div
-        class="ps__thumb-y"
-        style="top: 0px; height: 0px;"
-        tabindex="0"
-      />
     </div>
   </div>
 </div>
 `;
 
 exports[`CompanyDetails component renders with no details 1`] = `
-<div
-  class="CompanyDetails"
->
-  <h5
-    class="MuiTypography-root title Typography MuiTypography-h5"
-  >
-    Name of the company
-  </h5>
+<div>
   <div
-    class="scrollbar-container ps"
+    class="CompanyDetails"
   >
-    <p>
-      Summary
-    </p>
-    <div
-      class="ps__rail-x"
-      style="left: 0px; top: 0px;"
+    <h5
+      class="MuiTypography-root title Typography MuiTypography-h5"
     >
-      <div
-        class="ps__thumb-x"
-        style="left: 0px; width: 0px;"
-        tabindex="0"
-      />
-    </div>
+      Name of the company
+    </h5>
     <div
-      class="ps__rail-y"
-      style="top: 0px; left: 0px;"
+      class="scrollbar-container ps"
     >
+      <p>
+        Summary
+      </p>
       <div
-        class="ps__thumb-y"
-        style="top: 0px; height: 0px;"
-        tabindex="0"
-      />
+        class="ps__rail-x"
+        style="left: 0px; top: 0px;"
+      >
+        <div
+          class="ps__thumb-x"
+          style="left: 0px; width: 0px;"
+          tabindex="0"
+        />
+      </div>
+      <div
+        class="ps__rail-y"
+        style="top: 0px; left: 0px;"
+      >
+        <div
+          class="ps__thumb-y"
+          style="top: 0px; height: 0px;"
+          tabindex="0"
+        />
+      </div>
     </div>
   </div>
 </div>

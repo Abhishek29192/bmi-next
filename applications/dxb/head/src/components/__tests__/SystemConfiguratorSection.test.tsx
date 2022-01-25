@@ -239,7 +239,7 @@ describe("SystemConfiguratorSection component", () => {
         />
       </LocationProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with description rich text", () => {

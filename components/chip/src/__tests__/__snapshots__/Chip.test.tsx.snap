@@ -1,52 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Chip component renders correctly default chip 1`] = `
-<div
-  class="MuiChip-root Chip Chip--default Chip--theme-pearl"
->
-  <span
-    class="MuiChip-label"
+<div>
+  <div
+    class="MuiChip-root Chip Chip--default Chip--theme-pearl"
   >
-    test content
-  </span>
+    <span
+      class="MuiChip-label"
+    >
+      test content
+    </span>
+  </div>
 </div>
 `;
 
 exports[`Chip component renders correctly removable chip 1`] = `
-<div
-  class="MuiButtonBase-root MuiChip-root Chip Chip--removable Chip--default Chip--theme-pearl MuiChip-clickable MuiChip-deletable"
-  role="button"
-  tabindex="0"
->
-  <span
-    class="MuiChip-label"
+<div>
+  <div
+    class="MuiButtonBase-root MuiChip-root Chip Chip--removable Chip--default Chip--theme-pearl MuiChip-clickable MuiChip-deletable"
+    role="button"
+    tabindex="0"
   >
-    removable chip
-  </span>
-  <svg
-    aria-hidden="true"
-    class="MuiSvgIcon-root MuiChip-deleteIcon"
-    focusable="false"
-    viewBox="0 0 24 24"
-  >
-    <path
-      d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+    <span
+      class="MuiChip-label"
+    >
+      removable chip
+    </span>
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiChip-deleteIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root"
     />
-  </svg>
-  <span
-    class="MuiTouchRipple-root"
-  />
+  </div>
 </div>
 `;
 
 exports[`Chip component renders correctly selected chip 1`] = `
-<div
-  class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
->
-  <span
-    class="MuiChip-label"
+<div>
+  <div
+    class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
   >
-    selected chip
-  </span>
+    <span
+      class="MuiChip-label"
+    >
+      selected chip
+    </span>
+  </div>
 </div>
 `;

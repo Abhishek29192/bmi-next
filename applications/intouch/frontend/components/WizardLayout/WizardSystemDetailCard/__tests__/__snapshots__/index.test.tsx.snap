@@ -1,96 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`WizardSystemDetailCard should render with  products 1`] = `
-<div
-  class="MuiPaper-root MuiCard-root main MuiPaper-elevation1 MuiPaper-rounded"
->
+<div>
   <div
-    class="MuiCardHeader-root"
+    class="MuiPaper-root MuiCard-root main MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      class="MuiCardHeader-content"
+      class="MuiCardHeader-root"
     >
-      <span
-        class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+      <div
+        class="MuiCardHeader-content"
       >
-        name
-      </span>
-    </div>
-  </div>
-  <div
-    class="MuiCardContent-root"
-  >
-    <h6
-      class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
-    >
-      description
-    </h6>
-    <div
-      class="footer"
-    >
-      <div>
-        <table
-          class="MuiTable-root Table Table--row-even-color"
+        <span
+          class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
         >
-          <thead
-            class="MuiTableHead-root ColorPair ColorPair--pearl"
+          name
+        </span>
+      </div>
+    </div>
+    <div
+      class="MuiCardContent-root"
+    >
+      <h6
+        class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+      >
+        description
+      </h6>
+      <div
+        class="footer"
+      >
+        <div>
+          <table
+            class="MuiTable-root Table Table--row-even-color"
           >
-            <tr
-              class="MuiTableRow-root MuiTableRow-head"
+            <thead
+              class="MuiTableHead-root ColorPair ColorPair--pearl"
             >
-              <th
-                class="MuiTableCell-root MuiTableCell-head"
-                scope="col"
+              <tr
+                class="MuiTableRow-root MuiTableRow-head"
               >
-                Products
-              </th>
-            </tr>
-          </thead>
-          <tbody
-            class="MuiTableBody-root"
-          >
-            <tr
-              class="MuiTableRow-root"
-              data-testid="system-product-item"
+                <th
+                  class="MuiTableCell-root MuiTableCell-head"
+                  scope="col"
+                >
+                  Products
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              class="MuiTableBody-root"
             >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
+              <tr
+                class="MuiTableRow-root"
+                data-testid="system-product-item"
               >
-                name - family - brand
-              </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root"
-              data-testid="system-product-item"
-            >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
+                <td
+                  class="MuiTableCell-root MuiTableCell-body"
+                >
+                  name - family - brand
+                </td>
+              </tr>
+              <tr
+                class="MuiTableRow-root"
+                data-testid="system-product-item"
               >
-                name - family - brand
-              </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root"
-              data-testid="system-product-item"
-            >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
+                <td
+                  class="MuiTableCell-root MuiTableCell-body"
+                >
+                  name - family - brand
+                </td>
+              </tr>
+              <tr
+                class="MuiTableRow-root"
+                data-testid="system-product-item"
               >
-                name - family - brand
-              </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root"
-              data-testid="system-product-item"
-            >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
+                <td
+                  class="MuiTableCell-root MuiTableCell-body"
+                >
+                  name - family - brand
+                </td>
+              </tr>
+              <tr
+                class="MuiTableRow-root"
+                data-testid="system-product-item"
               >
-                name - family - brand
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                <td
+                  class="MuiTableCell-root MuiTableCell-body"
+                >
+                  name - family - brand
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -98,156 +100,160 @@ exports[`WizardSystemDetailCard should render with  products 1`] = `
 `;
 
 exports[`WizardSystemDetailCard should render with no products 1`] = `
-<div
-  class="MuiPaper-root MuiCard-root main MuiPaper-elevation1 MuiPaper-rounded"
->
+<div>
   <div
-    class="MuiCardHeader-root"
+    class="MuiPaper-root MuiCard-root main MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      class="MuiCardHeader-content"
+      class="MuiCardHeader-root"
     >
-      <span
-        class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+      <div
+        class="MuiCardHeader-content"
       >
-        name
-      </span>
+        <span
+          class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+        >
+          name
+        </span>
+      </div>
     </div>
-  </div>
-  <div
-    class="MuiCardContent-root"
-  >
-    <h6
-      class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
-    >
-      description
-    </h6>
     <div
-      class="footer"
-    />
+      class="MuiCardContent-root"
+    >
+      <h6
+        class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+      >
+        description
+      </h6>
+      <div
+        class="footer"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`WizardSystemDetailCard should render with onDelete 1`] = `
-<div
-  class="MuiPaper-root MuiCard-root main MuiPaper-elevation1 MuiPaper-rounded"
->
+<div>
   <div
-    class="MuiCardHeader-root"
+    class="MuiPaper-root MuiCard-root main MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      class="MuiCardHeader-content"
+      class="MuiCardHeader-root"
     >
-      <span
-        class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
-      >
-        name
-      </span>
-    </div>
-    <div
-      class="MuiCardHeader-action"
-    >
-      <button
-        class="MuiButtonBase-root MuiIconButton-root"
-        data-testid="system-delete"
-        tabindex="0"
-        type="button"
+      <div
+        class="MuiCardHeader-content"
       >
         <span
-          class="MuiIconButton-label"
+          class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-            />
-          </svg>
+          name
         </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </div>
-  </div>
-  <div
-    class="MuiCardContent-root"
-  >
-    <h6
-      class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
-    >
-      description
-    </h6>
-    <div
-      class="footer"
-    >
-      <div>
-        <table
-          class="MuiTable-root Table Table--row-even-color"
+      </div>
+      <div
+        class="MuiCardHeader-action"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root"
+          data-testid="system-delete"
+          tabindex="0"
+          type="button"
         >
-          <thead
-            class="MuiTableHead-root ColorPair ColorPair--pearl"
+          <span
+            class="MuiIconButton-label"
           >
-            <tr
-              class="MuiTableRow-root MuiTableRow-head"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              focusable="false"
+              viewBox="0 0 24 24"
             >
-              <th
-                class="MuiTableCell-root MuiTableCell-head"
-                scope="col"
-              >
-                Products
-              </th>
-            </tr>
-          </thead>
-          <tbody
-            class="MuiTableBody-root"
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="MuiCardContent-root"
+    >
+      <h6
+        class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+      >
+        description
+      </h6>
+      <div
+        class="footer"
+      >
+        <div>
+          <table
+            class="MuiTable-root Table Table--row-even-color"
           >
-            <tr
-              class="MuiTableRow-root"
-              data-testid="system-product-item"
+            <thead
+              class="MuiTableHead-root ColorPair ColorPair--pearl"
             >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
+              <tr
+                class="MuiTableRow-root MuiTableRow-head"
               >
-                name - family - brand
-              </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root"
-              data-testid="system-product-item"
+                <th
+                  class="MuiTableCell-root MuiTableCell-head"
+                  scope="col"
+                >
+                  Products
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              class="MuiTableBody-root"
             >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
+              <tr
+                class="MuiTableRow-root"
+                data-testid="system-product-item"
               >
-                name - family - brand
-              </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root"
-              data-testid="system-product-item"
-            >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
+                <td
+                  class="MuiTableCell-root MuiTableCell-body"
+                >
+                  name - family - brand
+                </td>
+              </tr>
+              <tr
+                class="MuiTableRow-root"
+                data-testid="system-product-item"
               >
-                name - family - brand
-              </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root"
-              data-testid="system-product-item"
-            >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
+                <td
+                  class="MuiTableCell-root MuiTableCell-body"
+                >
+                  name - family - brand
+                </td>
+              </tr>
+              <tr
+                class="MuiTableRow-root"
+                data-testid="system-product-item"
               >
-                name - family - brand
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                <td
+                  class="MuiTableCell-root MuiTableCell-body"
+                >
+                  name - family - brand
+                </td>
+              </tr>
+              <tr
+                class="MuiTableRow-root"
+                data-testid="system-product-item"
+              >
+                <td
+                  class="MuiTableCell-root MuiTableCell-body"
+                >
+                  name - family - brand
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

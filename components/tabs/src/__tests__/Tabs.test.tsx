@@ -14,7 +14,7 @@ describe("Tabs component", () => {
         </Tabs.TabPanel>
       </Tabs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders secondary theme correctly", () => {
     const { container } = render(
@@ -27,7 +27,7 @@ describe("Tabs component", () => {
         </Tabs.TabPanel>
       </Tabs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("triggers onChange", () => {
     const onChange = jest.fn();
@@ -55,7 +55,7 @@ describe("Tabs component", () => {
         {false}
       </Tabs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly when visibleUntil is set to md ", () => {
     const { container } = render(
@@ -68,7 +68,7 @@ describe("Tabs component", () => {
         </Tabs.TabPanel>
       </Tabs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly when visibleUntil is set to sm ", () => {
     const { container } = render(
@@ -81,6 +81,6 @@ describe("Tabs component", () => {
         </Tabs.TabPanel>
       </Tabs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

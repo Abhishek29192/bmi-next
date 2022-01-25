@@ -8,41 +8,41 @@ afterEach(cleanup);
 describe("SlideControls component", () => {
   it("renders correctly", () => {
     const { container } = render(<SlideControls total={5} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders the total number when current is more than total", () => {
     const { container } = render(<SlideControls current={7} total={5} />);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders vertically", () => {
     const { container } = render(
       <SlideControls current={1} total={5} isVertical />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders full size", () => {
     const { container } = render(
       <SlideControls current={1} total={5} isFullSize isVertical />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders a dark themed", () => {
     const { container } = render(
       <SlideControls current={1} total={5} isDarkThemed />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("doesn't apply the full size class, when vertical", () => {
     const { container } = render(
       <SlideControls current={1} total={5} isFullSize isVertical />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("triggers a onPrevClick event", () => {
     const onPrevClick = jest.fn();
@@ -152,12 +152,12 @@ describe("SlideControls component", () => {
     const { container, getByText } = render(
       <SlideControls current={1} total={5} />
     );
-    const containerBeforeAnimationEnd = container.firstChild!.cloneNode(true);
+    const containerBeforeAnimationEnd = container!.cloneNode(true);
 
     fireEvent.animationEnd(getByText("01"));
 
     expect(
-      snapshotDiff(containerBeforeAnimationEnd, container.firstChild)
+      snapshotDiff(containerBeforeAnimationEnd, container)
     ).toMatchSnapshot();
   });
   it("moves forward by one number", () => {
@@ -169,7 +169,7 @@ describe("SlideControls component", () => {
 
     fireEvent.animationEnd(getByText("02"));
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("moves backward by one number", () => {
     const { container, rerender, getByText } = render(
@@ -180,7 +180,7 @@ describe("SlideControls component", () => {
 
     fireEvent.animationEnd(getByText("01"));
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("moves from last to first number", () => {
     const { container, rerender, getByText } = render(
@@ -191,7 +191,7 @@ describe("SlideControls component", () => {
 
     fireEvent.animationEnd(getByText("01"));
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("moves from first to last number", () => {
     const { container, rerender, getAllByText } = render(
@@ -203,7 +203,7 @@ describe("SlideControls component", () => {
     // NOTE: Necessary because the total is the same as the current.
     fireEvent.animationEnd(getAllByText("05")[0]);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("getDirection execute correctly if total === 2", () => {
@@ -213,6 +213,6 @@ describe("SlideControls component", () => {
 
     rerender(<SlideControls current={2} total={2} />);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

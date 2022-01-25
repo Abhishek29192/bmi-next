@@ -258,7 +258,7 @@ describe("Header component", () => {
         regions={regions}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly when flag doesn't exist", () => {
     const { container } = render(
@@ -270,7 +270,7 @@ describe("Header component", () => {
         regions={regions}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders without navigation props", () => {
     const { container } = render(
@@ -282,7 +282,7 @@ describe("Header component", () => {
         regions={regions}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("toggles search", () => {
     const { container, getByLabelText } = render(
@@ -303,7 +303,7 @@ describe("Header component", () => {
 
     fireEvent.click(searchButton);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("shows sample basket icon", () => {
@@ -324,6 +324,6 @@ describe("Header component", () => {
     const basketButton = getByLabelText(basketLabel);
 
     expect(basketButton).toBeTruthy();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

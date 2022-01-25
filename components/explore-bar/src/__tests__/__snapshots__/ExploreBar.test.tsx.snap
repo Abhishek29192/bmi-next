@@ -1,163 +1,171 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ExploreBar component renders correctly 1`] = `
-<nav
-  aria-labelledby="explore-bar"
-  class="ExploreBar"
->
-  <h2
-    class="MuiTypography-root heading Typography MuiTypography-h6"
-    id="explore-bar"
+<div>
+  <nav
+    aria-labelledby="explore-bar"
+    class="ExploreBar"
   >
-    Explore:
-  </h2>
-  <a
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-opaqueOutlined-8 link MuiButton-outlinedPrimary"
-    href="world"
-    tabindex="0"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-4"
+    <h2
+      class="MuiTypography-root heading Typography MuiTypography-h6"
+      id="explore-bar"
     >
-      hello
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </a>
-</nav>
+      Explore:
+    </h2>
+    <a
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-opaqueOutlined-8 link MuiButton-outlinedPrimary"
+      href="world"
+      tabindex="0"
+    >
+      <span
+        class="MuiButton-label buttonStyles-label-4"
+      >
+        hello
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </a>
+  </nav>
+</div>
 `;
 
 exports[`ExploreBar component renders with a link using a component 1`] = `
-<nav
-  aria-labelledby="explore-bar"
-  class="ExploreBar"
->
-  <h2
-    class="MuiTypography-root heading Typography MuiTypography-h6"
-    id="explore-bar"
+<div>
+  <nav
+    aria-labelledby="explore-bar"
+    class="ExploreBar"
   >
-    Hello world
-  </h2>
-  <div
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined buttonStyles-opaqueOutlined-68 link MuiButton-outlinedPrimary"
-    role="button"
-    tabindex="0"
-    to="/world"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-64"
+    <h2
+      class="MuiTypography-root heading Typography MuiTypography-h6"
+      id="explore-bar"
     >
-      Hello
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </div>
-</nav>
+      Hello world
+    </h2>
+    <div
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined buttonStyles-opaqueOutlined-68 link MuiButton-outlinedPrimary"
+      role="button"
+      tabindex="0"
+      to="/world"
+    >
+      <span
+        class="MuiButton-label buttonStyles-label-64"
+      >
+        Hello
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </div>
+  </nav>
+</div>
 `;
 
 exports[`ExploreBar component renders with different heading 1`] = `
-<nav
-  aria-labelledby="explore-bar"
-  class="ExploreBar"
->
-  <h2
-    class="MuiTypography-root heading Typography MuiTypography-h6"
-    id="explore-bar"
+<div>
+  <nav
+    aria-labelledby="explore-bar"
+    class="ExploreBar"
   >
-    Hello world
-  </h2>
-  <a
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined buttonStyles-opaqueOutlined-48 link MuiButton-outlinedPrimary"
-    href="/world"
-    tabindex="0"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-44"
+    <h2
+      class="MuiTypography-root heading Typography MuiTypography-h6"
+      id="explore-bar"
     >
-      Hello
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </a>
-</nav>
+      Hello world
+    </h2>
+    <a
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined buttonStyles-opaqueOutlined-48 link MuiButton-outlinedPrimary"
+      href="/world"
+      tabindex="0"
+    >
+      <span
+        class="MuiButton-label buttonStyles-label-44"
+      >
+        Hello
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </a>
+  </nav>
+</div>
 `;
 
 exports[`ExploreBar component renders with multiple links 1`] = `
-<nav
-  aria-labelledby="explore-bar"
-  class="ExploreBar"
->
-  <h2
-    class="MuiTypography-root heading Typography MuiTypography-h6"
-    id="explore-bar"
+<div>
+  <nav
+    aria-labelledby="explore-bar"
+    class="ExploreBar"
   >
-    Explore:
-  </h2>
-  <a
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined buttonStyles-opaqueOutlined-28 link MuiButton-outlinedPrimary"
-    href="/tools"
-    tabindex="0"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-24"
+    <h2
+      class="MuiTypography-root heading Typography MuiTypography-h6"
+      id="explore-bar"
     >
-      Tools
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </a>
-  <a
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined buttonStyles-opaqueOutlined-28 link MuiButton-outlinedPrimary"
-    href="/engineering-guides"
-    tabindex="0"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-24"
+      Explore:
+    </h2>
+    <a
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined buttonStyles-opaqueOutlined-28 link MuiButton-outlinedPrimary"
+      href="/tools"
+      tabindex="0"
     >
-      Engineering guides
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </a>
-  <a
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined buttonStyles-opaqueOutlined-28 link MuiButton-outlinedPrimary"
-    href="/training"
-    tabindex="0"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-24"
+      <span
+        class="MuiButton-label buttonStyles-label-24"
+      >
+        Tools
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </a>
+    <a
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined buttonStyles-opaqueOutlined-28 link MuiButton-outlinedPrimary"
+      href="/engineering-guides"
+      tabindex="0"
     >
-      Training
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </a>
-  <a
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined buttonStyles-opaqueOutlined-28 link MuiButton-outlinedPrimary"
-    href="/frequently-asked-questions"
-    tabindex="0"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-24"
+      <span
+        class="MuiButton-label buttonStyles-label-24"
+      >
+        Engineering guides
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </a>
+    <a
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined buttonStyles-opaqueOutlined-28 link MuiButton-outlinedPrimary"
+      href="/training"
+      tabindex="0"
     >
-      Frequently asked questions
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </a>
-</nav>
+      <span
+        class="MuiButton-label buttonStyles-label-24"
+      >
+        Training
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </a>
+    <a
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined buttonStyles-opaqueOutlined-28 link MuiButton-outlinedPrimary"
+      href="/frequently-asked-questions"
+      tabindex="0"
+    >
+      <span
+        class="MuiButton-label buttonStyles-label-24"
+      >
+        Frequently asked questions
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </a>
+  </nav>
+</div>
 `;

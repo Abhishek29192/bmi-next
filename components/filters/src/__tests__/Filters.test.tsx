@@ -5,7 +5,7 @@ import Filters from "../";
 describe("Filters component", () => {
   it("renders correctly", () => {
     const { container } = render(<Filters filters={[]} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders multiple filters", () => {
@@ -41,7 +41,7 @@ describe("Filters component", () => {
     ];
 
     const { container } = render(<Filters filters={filters} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders selected filters", () => {
@@ -64,7 +64,7 @@ describe("Filters component", () => {
     ];
 
     const { container } = render(<Filters filters={filters} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders disabled filters", () => {
@@ -88,7 +88,7 @@ describe("Filters component", () => {
     ];
 
     const { container } = render(<Filters filters={filters} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("calls onChange handler", () => {
@@ -144,6 +144,6 @@ describe("Filters component", () => {
     ];
 
     const { container } = render(<Filters filters={filters} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

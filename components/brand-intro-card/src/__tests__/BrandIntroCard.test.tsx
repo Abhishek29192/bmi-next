@@ -12,6 +12,6 @@ describe("BrandIntroCard component", () => {
         buttonLabel="label"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

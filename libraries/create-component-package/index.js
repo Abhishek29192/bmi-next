@@ -81,7 +81,7 @@ import ${componentName} from "../";
 describe("${componentName} component", () => {
   it("renders correctly", () => {
     const { container } = render(<${componentName} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });
 `;

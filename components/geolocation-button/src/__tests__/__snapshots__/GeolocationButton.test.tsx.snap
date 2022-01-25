@@ -3,30 +3,32 @@
 exports[`GeolocationButton component calls onPosition on click 1`] = `Array []`;
 
 exports[`GeolocationButton component renders correctly 1`] = `
-<button
-  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
-  disabled=""
-  tabindex="-1"
-  type="button"
->
-  <span
-    class="MuiButton-label buttonStyles-label-4"
+<div>
+  <button
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+    disabled=""
+    tabindex="-1"
+    type="button"
   >
     <span
-      class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+      class="MuiButton-label buttonStyles-label-4"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
+      <span
+        class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
       >
-        <path
-          d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z"
-        />
-      </svg>
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z"
+          />
+        </svg>
+      </span>
+      Use my location
     </span>
-    Use my location
-  </span>
-</button>
+  </button>
+</div>
 `;

@@ -16,7 +16,7 @@ describe("PromoSection component", () => {
         feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
       </PromoSection>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders a two-thirds row", () => {
     const { container } = render(
@@ -31,7 +31,7 @@ describe("PromoSection component", () => {
         feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
       </PromoSection>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders reversed", () => {
     const { container } = render(
@@ -46,7 +46,7 @@ describe("PromoSection component", () => {
         feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
       </PromoSection>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders without a title", () => {
     const { container } = render(
@@ -57,7 +57,7 @@ describe("PromoSection component", () => {
         feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
       </PromoSection>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders deprecated imageSource", () => {
     const { container } = render(
@@ -68,7 +68,7 @@ describe("PromoSection component", () => {
         feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
       </PromoSection>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders deprecated imageSource string", () => {
     const { container } = render(
@@ -79,7 +79,7 @@ describe("PromoSection component", () => {
         feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
       </PromoSection>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with white background", () => {
     const { container } = render(
@@ -90,7 +90,7 @@ describe("PromoSection component", () => {
         feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
       </PromoSection>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with alabaster background", () => {
     const { container } = render(
@@ -101,7 +101,7 @@ describe("PromoSection component", () => {
         feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
       </PromoSection>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if imageSource !== string", () => {
@@ -117,7 +117,7 @@ describe("PromoSection component", () => {
         feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
       </PromoSection>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if no props passed", () => {
@@ -129,6 +129,6 @@ describe("PromoSection component", () => {
         feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
       </PromoSection>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

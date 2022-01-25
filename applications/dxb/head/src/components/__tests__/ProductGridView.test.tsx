@@ -9,7 +9,7 @@ describe("ProductsGridView component", () => {
     const { container } = render(
       <ProductsGridView products={products} pageContext={pageContext} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly when not empty", () => {
     const products: any[] = [
@@ -92,6 +92,6 @@ describe("ProductsGridView component", () => {
     const { container } = render(
       <ProductsGridView products={products} pageContext={pageContext} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

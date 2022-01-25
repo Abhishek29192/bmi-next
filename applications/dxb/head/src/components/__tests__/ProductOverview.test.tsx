@@ -22,7 +22,7 @@ describe("ProductOverview component", () => {
       </ProductOverview>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly without Recapcha", () => {
@@ -34,6 +34,6 @@ describe("ProductOverview component", () => {
       </ProductOverview>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

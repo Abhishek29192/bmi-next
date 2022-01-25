@@ -2,42 +2,44 @@
 
 exports[`ErrorView component renders correctly when error 1`] = `
 <div>
-  <div
-    class="appContainerPublic"
-  >
+  <div>
     <div
-      class="appMainPublic"
+      class="appContainerPublic"
     >
       <div
-        class="logoContainerPublic"
+        class="appMainPublic"
       >
-        <svg
-          class="logo"
-        />
-      </div>
-      <div
-        class="appContentPublic appError"
-      >
-        body
-      </div>
-      <div
-        class="footer"
-      >
-        <svg
-          style="width: 50px;"
-        />
-        <nav
-          class="footerNav"
+        <div
+          class="logoContainerPublic"
         >
-          <a
-            href="/footer/link/relativePath"
+          <svg
+            class="logo"
+          />
+        </div>
+        <div
+          class="appContentPublic appError"
+        >
+          body
+        </div>
+        <div
+          class="footer"
+        >
+          <svg
+            style="width: 50px;"
+          />
+          <nav
+            class="footerNav"
           >
-            Footer link title
-          </a>
-        </nav>
-        <svg
-          style="width: 120px;"
-        />
+            <a
+              href="/footer/link/relativePath"
+            >
+              Footer link title
+            </a>
+          </nav>
+          <svg
+            style="width: 120px;"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -46,42 +48,44 @@ exports[`ErrorView component renders correctly when error 1`] = `
 
 exports[`ErrorView component renders correctly without title 1`] = `
 <div>
-  <div
-    class="appContainerPublic"
-  >
+  <div>
     <div
-      class="appMainPublic"
+      class="appContainerPublic"
     >
       <div
-        class="logoContainerPublic"
+        class="appMainPublic"
       >
-        <svg
-          class="logo"
-        />
-      </div>
-      <div
-        class="appContentPublic"
-      >
-        body
-      </div>
-      <div
-        class="footer"
-      >
-        <svg
-          style="width: 50px;"
-        />
-        <nav
-          class="footerNav"
+        <div
+          class="logoContainerPublic"
         >
-          <a
-            href="/footer/link/relativePath"
+          <svg
+            class="logo"
+          />
+        </div>
+        <div
+          class="appContentPublic"
+        >
+          body
+        </div>
+        <div
+          class="footer"
+        >
+          <svg
+            style="width: 50px;"
+          />
+          <nav
+            class="footerNav"
           >
-            Footer link title
-          </a>
-        </nav>
-        <svg
-          style="width: 120px;"
-        />
+            <a
+              href="/footer/link/relativePath"
+            >
+              Footer link title
+            </a>
+          </nav>
+          <svg
+            style="width: 120px;"
+          />
+        </div>
       </div>
     </div>
   </div>

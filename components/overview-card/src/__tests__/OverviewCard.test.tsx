@@ -22,7 +22,7 @@ describe("OverviewCard component", () => {
         We do the things
       </OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with a string brandImageSource prop", () => {
     const { container } = render(
@@ -40,7 +40,7 @@ describe("OverviewCard component", () => {
         We do the things
       </OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with deprecated imageSource", () => {
     const { container } = render(
@@ -58,13 +58,13 @@ describe("OverviewCard component", () => {
         We do the things
       </OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly without optional props", () => {
     const { container } = render(
       <OverviewCard title="Heading">We do the things</OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with a subtitle", () => {
     const { container } = render(
@@ -72,7 +72,7 @@ describe("OverviewCard component", () => {
         We do the things
       </OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with contain image", () => {
     const { container } = render(
@@ -84,7 +84,7 @@ describe("OverviewCard component", () => {
         We do the things
       </OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders as a flat card", () => {
     const onClick = jest.fn();
@@ -110,7 +110,7 @@ describe("OverviewCard component", () => {
 
     fireEvent.click(title);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(onClick.mock.calls).toMatchSnapshot();
   });
   it("accpets onClick", () => {
@@ -179,7 +179,7 @@ describe("OverviewCard component", () => {
         We do the things
       </OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if moreOptionsAvailable === true", () => {
@@ -199,7 +199,7 @@ describe("OverviewCard component", () => {
         We do the things
       </OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if hasChildrenWithoutMargin  === true", () => {
@@ -219,7 +219,7 @@ describe("OverviewCard component", () => {
         We do the things
       </OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if imageSize === contain", () => {
@@ -240,7 +240,7 @@ describe("OverviewCard component", () => {
         We do the things
       </OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if imageSource !== string", () => {
@@ -260,6 +260,6 @@ describe("OverviewCard component", () => {
         We do the things
       </OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

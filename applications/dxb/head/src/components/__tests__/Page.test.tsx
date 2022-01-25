@@ -129,7 +129,7 @@ describe("Page component", () => {
         </Page>
       </LocationProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("og:image renders", () => {

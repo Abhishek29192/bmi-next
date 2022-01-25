@@ -1,45 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PromoSection component renders a two-thirds row 1`] = `
-<div
-  class="PromoSection Section Section--white"
->
+<div>
   <div
-    class="Container"
+    class="PromoSection Section Section--white"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
+          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="content"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
           >
-            <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            <div
+              class="content"
             >
-              H2 Heading
-            </h2>
-            <h3
-              class="MuiTypography-root subtitle Typography MuiTypography-h3"
-            >
-              H2 Heading
-            </h3>
-            Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+              <h2
+                class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              >
+                H2 Heading
+              </h2>
+              <h3
+                class="MuiTypography-root subtitle Typography MuiTypography-h3"
+              >
+                H2 Heading
+              </h3>
+              Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            </div>
           </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
-        >
-          <img
-            alt="Lorem ipsum"
-            class="image Media"
-            src="path-to-image"
-          />
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
+          >
+            <img
+              alt="Lorem ipsum"
+              class="image Media"
+              src="path-to-image"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -48,45 +50,47 @@ exports[`PromoSection component renders a two-thirds row 1`] = `
 `;
 
 exports[`PromoSection component renders correctly 1`] = `
-<div
-  class="PromoSection Section Section--white"
->
+<div>
   <div
-    class="Container"
+    class="PromoSection Section Section--white"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="content"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
-            <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            <div
+              class="content"
             >
-              H2 Heading
-            </h2>
-            <h3
-              class="MuiTypography-root subtitle Typography MuiTypography-h3"
-            >
-              H2 Heading
-            </h3>
-            Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+              <h2
+                class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              >
+                H2 Heading
+              </h2>
+              <h3
+                class="MuiTypography-root subtitle Typography MuiTypography-h3"
+              >
+                H2 Heading
+              </h3>
+              Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            </div>
           </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
-        >
-          <img
-            alt="Lorem ipsum"
-            class="image Media"
-            src="path-to-image"
-          />
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          >
+            <img
+              alt="Lorem ipsum"
+              class="image Media"
+              src="path-to-image"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -95,34 +99,36 @@ exports[`PromoSection component renders correctly 1`] = `
 `;
 
 exports[`PromoSection component renders correctly if imageSource !== string 1`] = `
-<div
-  class="test-class PromoSection Section Section--alabaster"
->
+<div>
   <div
-    class="Container"
+    class="test-class PromoSection Section Section--alabaster"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="content"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
-            Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            <div
+              class="content"
+            >
+              Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            </div>
           </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
-        >
           <div
-            class="image"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
-            <img />
+            <div
+              class="image"
+            >
+              <img />
+            </div>
           </div>
         </div>
       </div>
@@ -132,30 +138,32 @@ exports[`PromoSection component renders correctly if imageSource !== string 1`] 
 `;
 
 exports[`PromoSection component renders correctly if no props passed 1`] = `
-<div
-  class="PromoSection Section Section--white"
->
+<div>
   <div
-    class="Container"
+    class="PromoSection Section Section--white"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="content"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
-            Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            <div
+              class="content"
+            >
+              Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            </div>
           </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          />
         </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
-        />
       </div>
     </div>
   </div>
@@ -163,44 +171,46 @@ exports[`PromoSection component renders correctly if no props passed 1`] = `
 `;
 
 exports[`PromoSection component renders deprecated imageSource 1`] = `
-<div
-  class="PromoSection Section Section--white"
->
+<div>
   <div
-    class="Container"
+    class="PromoSection Section Section--white"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="content"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
-            <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            <div
+              class="content"
             >
-              H2 Heading
-            </h2>
-            <h3
-              class="MuiTypography-root subtitle Typography MuiTypography-h3"
-            >
-              H2 Heading
-            </h3>
-            Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+              <h2
+                class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              >
+                H2 Heading
+              </h2>
+              <h3
+                class="MuiTypography-root subtitle Typography MuiTypography-h3"
+              >
+                H2 Heading
+              </h3>
+              Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            </div>
           </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
-        >
           <div
-            class="image"
-            style="background-image: url(path-to-image);"
-          />
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          >
+            <div
+              class="image"
+              style="background-image: url(path-to-image);"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -209,44 +219,46 @@ exports[`PromoSection component renders deprecated imageSource 1`] = `
 `;
 
 exports[`PromoSection component renders deprecated imageSource string 1`] = `
-<div
-  class="PromoSection Section Section--white"
->
+<div>
   <div
-    class="Container"
+    class="PromoSection Section Section--white"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="content"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
-            <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            <div
+              class="content"
             >
-              H2 Heading
-            </h2>
-            <h3
-              class="MuiTypography-root subtitle Typography MuiTypography-h3"
-            >
-              H2 Heading
-            </h3>
-            Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+              <h2
+                class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              >
+                H2 Heading
+              </h2>
+              <h3
+                class="MuiTypography-root subtitle Typography MuiTypography-h3"
+              >
+                H2 Heading
+              </h3>
+              Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            </div>
           </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
-        >
           <div
-            class="image"
-            style="background-image: url(path-to-image.png);"
-          />
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          >
+            <div
+              class="image"
+              style="background-image: url(path-to-image.png);"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -255,45 +267,47 @@ exports[`PromoSection component renders deprecated imageSource string 1`] = `
 `;
 
 exports[`PromoSection component renders reversed 1`] = `
-<div
-  class="PromoSection PromoSection--reversed Section Section--white"
->
+<div>
   <div
-    class="Container"
+    class="PromoSection PromoSection--reversed Section Section--white"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="content"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
-            <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            <div
+              class="content"
             >
-              H2 Heading
-            </h2>
-            <h3
-              class="MuiTypography-root subtitle Typography MuiTypography-h3"
-            >
-              H2 Heading
-            </h3>
-            Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+              <h2
+                class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              >
+                H2 Heading
+              </h2>
+              <h3
+                class="MuiTypography-root subtitle Typography MuiTypography-h3"
+              >
+                H2 Heading
+              </h3>
+              Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            </div>
           </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
-        >
-          <img
-            alt="Lorem ipsum"
-            class="image Media"
-            src="path-to-image"
-          />
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          >
+            <img
+              alt="Lorem ipsum"
+              class="image Media"
+              src="path-to-image"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -302,30 +316,32 @@ exports[`PromoSection component renders reversed 1`] = `
 `;
 
 exports[`PromoSection component renders with alabaster background 1`] = `
-<div
-  class="test-class PromoSection Section Section--alabaster"
->
+<div>
   <div
-    class="Container"
+    class="test-class PromoSection Section Section--alabaster"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="content"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
-            Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            <div
+              class="content"
+            >
+              Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            </div>
           </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          />
         </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
-        />
       </div>
     </div>
   </div>
@@ -333,30 +349,32 @@ exports[`PromoSection component renders with alabaster background 1`] = `
 `;
 
 exports[`PromoSection component renders with white background 1`] = `
-<div
-  class="test-class PromoSection Section Section--white"
->
+<div>
   <div
-    class="Container"
+    class="test-class PromoSection Section Section--white"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="content"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
-            Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            <div
+              class="content"
+            >
+              Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            </div>
           </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          />
         </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
-        />
       </div>
     </div>
   </div>
@@ -364,35 +382,37 @@ exports[`PromoSection component renders with white background 1`] = `
 `;
 
 exports[`PromoSection component renders without a title 1`] = `
-<div
-  class="PromoSection Section Section--white"
->
+<div>
   <div
-    class="Container"
+    class="PromoSection Section Section--white"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="content"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
-            Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            <div
+              class="content"
+            >
+              Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            </div>
           </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
-        >
-          <img
-            alt="Lorem ipsum"
-            class="image Media"
-            src="path-to-image"
-          />
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          >
+            <img
+              alt="Lorem ipsum"
+              class="image Media"
+              src="path-to-image"
+            />
+          </div>
         </div>
       </div>
     </div>

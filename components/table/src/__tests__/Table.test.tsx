@@ -61,12 +61,12 @@ describe("Table component", () => {
       mediumTableWidth: 400
     });
     const { container } = render(<ExampleTable />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly without width", () => {
     const { container } = render(<ExampleTable />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders table head with different ColorPair", () => {
     mockUseDimensions({
@@ -75,7 +75,7 @@ describe("Table component", () => {
       mediumTableWidth: 400
     });
     const { container } = render(<ExampleTable theme="blue-900" />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with reduced size - fixed two columns if normal table is too big to contain", () => {
@@ -85,7 +85,7 @@ describe("Table component", () => {
       mediumTableWidth: 400
     });
     const { container } = render(<ExampleTable />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders medium table with no border", () => {
@@ -95,7 +95,7 @@ describe("Table component", () => {
       mediumTableWidth: 400
     });
     const { container } = render(<ExampleTable hasNoBorder />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(container.getElementsByClassName("Table--no-border").length).toBe(1);
   });
   it("renders small table with no border", () => {
@@ -105,7 +105,7 @@ describe("Table component", () => {
       mediumTableWidth: 401
     });
     const { container } = render(<ExampleTable hasNoBorder />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(
       container.getElementsByClassName("SmallTable--no-border").length
     ).toBe(1);
@@ -131,7 +131,7 @@ describe("Table component", () => {
         </Table.Body>
       </Table>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with reduced size - list view if both normal and medium table are too big to contain", () => {
@@ -141,7 +141,7 @@ describe("Table component", () => {
       mediumTableWidth: 401
     });
     const { container } = render(<ExampleTable />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders without striped rows", () => {
@@ -164,7 +164,7 @@ describe("Table component", () => {
         </Table.Body>
       </Table>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders without TableBody", () => {
     mockUseDimensions({
@@ -182,7 +182,7 @@ describe("Table component", () => {
         </Table.Head>
       </Table>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("throws error if header has no children", () => {
     mockUseDimensions({

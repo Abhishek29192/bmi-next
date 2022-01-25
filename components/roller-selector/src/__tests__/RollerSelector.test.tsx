@@ -7,19 +7,19 @@ describe("RollerSelector component", () => {
     const { container } = render(
       <RollerSelector>Lorem ipsum sit dolor</RollerSelector>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders selected", () => {
     const { container } = render(
       <RollerSelector isSelected>Lorem ipsum sit dolor</RollerSelector>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with custom className", () => {
     const { container } = render(
       <RollerSelector className="testing">Lorem ipsum sit dolor</RollerSelector>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("triggers an onClick event", () => {
     const onClick = jest.fn();

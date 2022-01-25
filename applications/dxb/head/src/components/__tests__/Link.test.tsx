@@ -40,7 +40,7 @@ describe("Link component", () => {
           <Link data={cta}>{cta.label}</Link>
         </SiteContextProvider>
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("ensure clicking link works", () => {
@@ -238,7 +238,7 @@ describe("Link component", () => {
           <Link data={data}>{data.label}</Link>
         </SiteContextProvider>
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("Dialog closes properly", () => {

@@ -1,518 +1,532 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProductOverviewPane component renders correctly 1`] = `
-<div
-  class="ProductOverview"
->
-  <svg
-    class="brand-logo"
-  />
-  <h1
-    class="MuiTypography-root heading Typography MuiTypography-h3"
+<div>
+  <div
+    class="ProductOverview"
   >
-    Type S Roof Shingles
-  </h1>
-  <ul
-    class="attributes"
-  >
-    <li>
-      <span
-        class="term"
-      >
-        label
-      </span>
-      <span
-        class="definition"
-      >
-        1394983720195
-      </span>
-    </li>
-    <li>
-      <span
-        class="term"
-      >
-        Colour
-      </span>
-      <span
-        class="definition"
-      >
-        Brown
-      </span>
-      <div
-        class="variants"
-      >
+    <svg
+      class="brand-logo"
+    />
+    <h1
+      class="MuiTypography-root heading Typography MuiTypography-h3"
+    >
+      Type S Roof Shingles
+    </h1>
+    <ul
+      class="attributes"
+    >
+      <li>
+        <span
+          class="term"
+        >
+          label
+        </span>
+        <span
+          class="definition"
+        >
+          1394983720195
+        </span>
+      </li>
+      <li>
+        <span
+          class="term"
+        >
+          Colour
+        </span>
+        <span
+          class="definition"
+        >
+          Brown
+        </span>
         <div
-          class="variant"
+          class="variants"
         >
           <div
-            class="Tooltip"
-          >
-            <button
-              class="MuiButtonBase-root Thumbnail"
-              style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="accessibility-text"
-              >
-                Black
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-        </div>
-        <div
-          class="variant"
-        >
-          <div
-            class="Tooltip"
-          >
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root Thumbnail Thumbnail--selected"
-              href="#"
-              style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
-              tabindex="0"
-            >
-              <span
-                class="accessibility-text"
-              >
-                Brown
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </li>
-    <li>
-      <span
-        class="term"
-      >
-        Size
-      </span>
-      <div
-        class="variants variants--spaced"
-      >
-        <div
-          class="variant"
-        >
-          <div
-            class="Tooltip"
+            class="variant"
           >
             <div
-              class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
+              class="Tooltip"
             >
-              <span
-                class="MuiChip-label"
+              <button
+                class="MuiButtonBase-root Thumbnail"
+                style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
+                tabindex="0"
+                type="button"
               >
-                22cm x 42cm
-              </span>
+                <span
+                  class="accessibility-text"
+                >
+                  Black
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="variant"
+          >
+            <div
+              class="Tooltip"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root Thumbnail Thumbnail--selected"
+                href="#"
+                style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
+                tabindex="0"
+              >
+                <span
+                  class="accessibility-text"
+                >
+                  Brown
+                </span>
+              </a>
             </div>
           </div>
         </div>
+      </li>
+      <li>
+        <span
+          class="term"
+        >
+          Size
+        </span>
         <div
-          class="variant"
+          class="variants variants--spaced"
         >
           <div
-            class="Tooltip"
+            class="variant"
           >
             <div
-              class="MuiChip-root Chip Chip--default Chip--theme-pearl"
-              href="#"
+              class="Tooltip"
             >
-              <span
-                class="MuiChip-label"
+              <div
+                class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
               >
-                12cm x 22cm
-              </span>
+                <span
+                  class="MuiChip-label"
+                >
+                  22cm x 42cm
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="variant"
+          >
+            <div
+              class="Tooltip"
+            >
+              <div
+                class="MuiChip-root Chip Chip--default Chip--theme-pearl"
+                href="#"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  12cm x 22cm
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="variant"
+          >
+            <div
+              class="Tooltip"
+            >
+              <div
+                aria-disabled="true"
+                class="MuiChip-root Chip Chip--default Chip--theme-pearl Mui-disabled"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  30cm x 62cm
+                </span>
+              </div>
             </div>
           </div>
         </div>
-        <div
-          class="variant"
-        >
-          <div
-            class="Tooltip"
-          >
-            <div
-              aria-disabled="true"
-              class="MuiChip-root Chip Chip--default Chip--theme-pearl Mui-disabled"
-            >
-              <span
-                class="MuiChip-label"
-              >
-                30cm x 62cm
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
 </div>
 `;
 
 exports[`ProductOverviewPane component renders correctly if attribute type === chips 1`] = `
-<div
-  class="ProductOverview"
->
-  <svg
-    class="brand-logo"
-  />
-  <h1
-    class="MuiTypography-root heading Typography MuiTypography-h3"
+<div>
+  <div
+    class="ProductOverview"
   >
-    Type S Roof Shingles
-  </h1>
-  <ul
-    class="attributes"
-  >
-    <li>
-      <span
-        class="term"
-      >
-        label
-      </span>
-      <span
-        class="definition"
-      >
-        1394983720195
-      </span>
-    </li>
-    <li>
-      <span
-        class="term"
-      >
-        Size
-      </span>
-      <div
-        class="variants variants--spaced"
-      >
+    <svg
+      class="brand-logo"
+    />
+    <h1
+      class="MuiTypography-root heading Typography MuiTypography-h3"
+    >
+      Type S Roof Shingles
+    </h1>
+    <ul
+      class="attributes"
+    >
+      <li>
+        <span
+          class="term"
+        >
+          label
+        </span>
+        <span
+          class="definition"
+        >
+          1394983720195
+        </span>
+      </li>
+      <li>
+        <span
+          class="term"
+        >
+          Size
+        </span>
         <div
-          class="variant"
+          class="variants variants--spaced"
         >
           <div
-            class="Tooltip"
+            class="variant"
           >
             <div
-              class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
+              class="Tooltip"
             >
-              <span
-                class="MuiChip-label"
+              <div
+                class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
               >
-                22cm x 42cm
-              </span>
+                <span
+                  class="MuiChip-label"
+                >
+                  22cm x 42cm
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="variant"
+          >
+            <div
+              class="Tooltip"
+            >
+              <div
+                aria-disabled="true"
+                class="MuiChip-root Chip Chip--default Chip--theme-pearl Mui-disabled"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  12cm x 22cm
+                </span>
+              </div>
             </div>
           </div>
         </div>
-        <div
-          class="variant"
-        >
-          <div
-            class="Tooltip"
-          >
-            <div
-              aria-disabled="true"
-              class="MuiChip-root Chip Chip--default Chip--theme-pearl Mui-disabled"
-            >
-              <span
-                class="MuiChip-label"
-              >
-                12cm x 22cm
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
 </div>
 `;
 
 exports[`ProductOverviewPane component renders correctly if attributes === undefined 1`] = `
-<div
-  class="ProductOverview"
->
-  <svg
-    class="brand-logo"
-  />
-  <h1
-    class="MuiTypography-root heading Typography MuiTypography-h3"
+<div>
+  <div
+    class="ProductOverview"
   >
-    Type S Roof Shingles
-  </h1>
-  <ul
-    class="attributes"
-  />
+    <svg
+      class="brand-logo"
+    />
+    <h1
+      class="MuiTypography-root heading Typography MuiTypography-h3"
+    >
+      Type S Roof Shingles
+    </h1>
+    <ul
+      class="attributes"
+    />
+  </div>
 </div>
 `;
 
 exports[`ProductOverviewPane component renders correctly if nobb === null 1`] = `
-<div
-  class="ProductOverview"
->
-  <svg
-    class="brand-logo"
-  />
-  <h1
-    class="MuiTypography-root heading Typography MuiTypography-h3"
+<div>
+  <div
+    class="ProductOverview"
   >
-    Type S Roof Shingles
-  </h1>
-  <ul
-    class="attributes"
-  >
-    <li>
-      <span
-        class="term"
-      >
-        Size
-      </span>
-      <span
-        class="definition"
-      >
-        22cm x 42cm
-      </span>
-      <div
-        class="variants"
-      >
+    <svg
+      class="brand-logo"
+    />
+    <h1
+      class="MuiTypography-root heading Typography MuiTypography-h3"
+    >
+      Type S Roof Shingles
+    </h1>
+    <ul
+      class="attributes"
+    >
+      <li>
+        <span
+          class="term"
+        >
+          Size
+        </span>
+        <span
+          class="definition"
+        >
+          22cm x 42cm
+        </span>
         <div
-          class="variant"
+          class="variants"
         >
           <div
-            class="Tooltip"
+            class="variant"
           >
-            <div>
-              thumbnail
+            <div
+              class="Tooltip"
+            >
+              <div>
+                thumbnail
+              </div>
+            </div>
+          </div>
+          <div
+            class="variant"
+          >
+            <div
+              class="Tooltip"
+            >
+              <div>
+                thumbnail
+              </div>
             </div>
           </div>
         </div>
-        <div
-          class="variant"
-        >
-          <div
-            class="Tooltip"
-          >
-            <div>
-              thumbnail
-            </div>
-          </div>
-        </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
 </div>
 `;
 
 exports[`ProductOverviewPane component renders correctly if some variant has isSelected equals false 1`] = `
-<div
-  class="ProductOverview"
->
-  <svg
-    class="brand-logo"
-  />
-  <h1
-    class="MuiTypography-root heading Typography MuiTypography-h3"
+<div>
+  <div
+    class="ProductOverview"
   >
-    Type S Roof Shingles
-  </h1>
-  <ul
-    class="attributes"
-  />
+    <svg
+      class="brand-logo"
+    />
+    <h1
+      class="MuiTypography-root heading Typography MuiTypography-h3"
+    >
+      Type S Roof Shingles
+    </h1>
+    <ul
+      class="attributes"
+    />
+  </div>
 </div>
 `;
 
 exports[`ProductOverviewPane component renders correctly with children 1`] = `
-<div
-  class="ProductOverview"
->
-  <svg
-    class="brand-logo"
-  />
-  <h1
-    class="MuiTypography-root heading Typography MuiTypography-h3"
+<div>
+  <div
+    class="ProductOverview"
   >
-    Type S Roof Shingles
-  </h1>
-  <ul
-    class="attributes"
-  >
-    <li>
-      <span
-        class="term"
-      >
-        label
-      </span>
-      <span
-        class="definition"
-      >
-        1394983720195
-      </span>
-    </li>
-    <li>
-      <span
-        class="term"
-      >
-        Colour
-      </span>
-      <span
-        class="definition"
-      >
-        Brown
-      </span>
-      <div
-        class="variants"
-      >
+    <svg
+      class="brand-logo"
+    />
+    <h1
+      class="MuiTypography-root heading Typography MuiTypography-h3"
+    >
+      Type S Roof Shingles
+    </h1>
+    <ul
+      class="attributes"
+    >
+      <li>
+        <span
+          class="term"
+        >
+          label
+        </span>
+        <span
+          class="definition"
+        >
+          1394983720195
+        </span>
+      </li>
+      <li>
+        <span
+          class="term"
+        >
+          Colour
+        </span>
+        <span
+          class="definition"
+        >
+          Brown
+        </span>
         <div
-          class="variant"
+          class="variants"
         >
           <div
-            class="Tooltip"
-          >
-            <button
-              class="MuiButtonBase-root Thumbnail"
-              style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="accessibility-text"
-              >
-                Black
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-        </div>
-        <div
-          class="variant"
-        >
-          <div
-            class="Tooltip"
-          >
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root Thumbnail Thumbnail--selected"
-              href="#"
-              style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
-              tabindex="0"
-            >
-              <span
-                class="accessibility-text"
-              >
-                Brown
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </li>
-    <li>
-      <span
-        class="term"
-      >
-        Size
-      </span>
-      <div
-        class="variants variants--spaced"
-      >
-        <div
-          class="variant"
-        >
-          <div
-            class="Tooltip"
+            class="variant"
           >
             <div
-              class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
+              class="Tooltip"
             >
-              <span
-                class="MuiChip-label"
+              <button
+                class="MuiButtonBase-root Thumbnail"
+                style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
+                tabindex="0"
+                type="button"
               >
-                22cm x 42cm
-              </span>
+                <span
+                  class="accessibility-text"
+                >
+                  Black
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="variant"
+          >
+            <div
+              class="Tooltip"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root Thumbnail Thumbnail--selected"
+                href="#"
+                style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
+                tabindex="0"
+              >
+                <span
+                  class="accessibility-text"
+                >
+                  Brown
+                </span>
+              </a>
             </div>
           </div>
         </div>
+      </li>
+      <li>
+        <span
+          class="term"
+        >
+          Size
+        </span>
         <div
-          class="variant"
+          class="variants variants--spaced"
         >
           <div
-            class="Tooltip"
+            class="variant"
           >
             <div
-              class="MuiChip-root Chip Chip--default Chip--theme-pearl"
-              href="#"
+              class="Tooltip"
             >
-              <span
-                class="MuiChip-label"
+              <div
+                class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
               >
-                12cm x 22cm
-              </span>
+                <span
+                  class="MuiChip-label"
+                >
+                  22cm x 42cm
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="variant"
+          >
+            <div
+              class="Tooltip"
+            >
+              <div
+                class="MuiChip-root Chip Chip--default Chip--theme-pearl"
+                href="#"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  12cm x 22cm
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="variant"
+          >
+            <div
+              class="Tooltip"
+            >
+              <div
+                aria-disabled="true"
+                class="MuiChip-root Chip Chip--default Chip--theme-pearl Mui-disabled"
+              >
+                <span
+                  class="MuiChip-label"
+                >
+                  30cm x 62cm
+                </span>
+              </div>
             </div>
           </div>
         </div>
-        <div
-          class="variant"
-        >
-          <div
-            class="Tooltip"
-          >
-            <div
-              aria-disabled="true"
-              class="MuiChip-root Chip Chip--default Chip--theme-pearl Mui-disabled"
-            >
-              <span
-                class="MuiChip-label"
-              >
-                30cm x 62cm
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </li>
-  </ul>
-  <div>
-    Some container
+      </li>
+    </ul>
+    <div>
+      Some container
+    </div>
+    <p>
+      some text
+    </p>
   </div>
-  <p>
-    some text
-  </p>
 </div>
 `;
 
 exports[`ProductOverviewPane component renders correctly with empty variants 1`] = `
-<div
-  class="ProductOverview"
->
-  <svg
-    class="brand-logo"
-  />
-  <h1
-    class="MuiTypography-root heading Typography MuiTypography-h3"
+<div>
+  <div
+    class="ProductOverview"
   >
-    Type S Roof Shingles
-  </h1>
-  <ul
-    class="attributes"
-  >
-    <li>
-      <span
-        class="term"
-      >
-        label
-      </span>
-      <span
-        class="definition"
-      >
-        1394983720195
-      </span>
-    </li>
-  </ul>
+    <svg
+      class="brand-logo"
+    />
+    <h1
+      class="MuiTypography-root heading Typography MuiTypography-h3"
+    >
+      Type S Roof Shingles
+    </h1>
+    <ul
+      class="attributes"
+    >
+      <li>
+        <span
+          class="term"
+        >
+          label
+        </span>
+        <span
+          class="definition"
+        >
+          1394983720195
+        </span>
+      </li>
+    </ul>
+  </div>
 </div>
 `;

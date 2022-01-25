@@ -41,7 +41,7 @@ describe("Pagination component", () => {
     const { container, queryByLabelText } = render(
       <Pagination page={1} count={9} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(queryByLabelText(firstPageLabel)).toBeFalsy();
     expect(queryByLabelText(lastPageLabel)).toBeFalsy();
   });
@@ -60,7 +60,7 @@ describe("Pagination component", () => {
       ((page10Button as Element)?.parentElement as HTMLElement)
         ?.previousSibling;
     const ellipsis = ellipsisContainer?.firstChild?.firstChild as HTMLElement;
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(queryByLabelText(firstPageLabel)).toBeTruthy();
     expect(queryByLabelText(lastPageLabel)).toBeTruthy();
     expect(queryByLabelText(prevPageLabel)).toBeTruthy();
@@ -76,7 +76,7 @@ describe("Pagination component", () => {
     const { container, queryByLabelText } = render(
       <Pagination page={1} count={10} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(queryByLabelText(firstPageLabel)).toBeFalsy();
     expect(queryByLabelText(lastPageLabel)).toBeFalsy();
     expect(queryByLabelText(prevPageLabel)).toBeTruthy();
@@ -90,7 +90,7 @@ describe("Pagination component", () => {
     );
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const currentPage = queryByLabelText("page 4");
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(queryByLabelText(firstPageLabel)).toBeFalsy();
     expect(queryByLabelText(lastPageLabel)).toBeFalsy();
     expect(queryByLabelText(prevPageLabel)).toBeTruthy();
@@ -103,7 +103,7 @@ describe("Pagination component", () => {
     const { container, queryByLabelText } = render(
       <Pagination page={4} count={5} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(queryByLabelText(firstPageLabel)).toBeFalsy();
     expect(queryByLabelText(lastPageLabel)).toBeFalsy();
   });
@@ -113,7 +113,7 @@ describe("Pagination component", () => {
     const { container, queryByLabelText } = render(
       <Pagination page={1} count={5} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(queryByLabelText(firstPageLabel)).toBeFalsy();
     expect(queryByLabelText(lastPageLabel)).toBeFalsy();
   });
@@ -136,7 +136,7 @@ describe("Pagination component", () => {
     const { container } = render(<Pagination page={1} count={2} />);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const paginationContainer = container.querySelector(".MuiPagination-ul");
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(paginationContainer?.childNodes[1].childNodes.length).toBe(0);
     expect(paginationContainer?.childNodes[2].childNodes.length).toBe(0);
   });
@@ -148,7 +148,7 @@ describe("Pagination component", () => {
     );
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const paginationContainer = container.querySelector(".MuiPagination-ul");
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(queryByText(1)).toBeTruthy();
     expect(paginationContainer?.childNodes[3].childNodes.length).toBe(0);
     expect(paginationContainer?.childNodes[4].childNodes.length).toBe(0);
@@ -163,7 +163,7 @@ describe("Pagination component", () => {
     const { container, queryByLabelText } = render(<Pagination page={1} />);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const paginationContainer = container.querySelector(".MuiPagination-ul");
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(paginationContainer?.children.length).toBe(3);
     expect(queryByLabelText("page 1")).toBeTruthy();
   });

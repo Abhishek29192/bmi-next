@@ -28,7 +28,7 @@ describe("CardRadioGroup component", () => {
         </CardRadioGroup.Item>
       </CardRadioGroup>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with initial value", () => {
@@ -54,7 +54,7 @@ describe("CardRadioGroup component", () => {
         </CardRadioGroup.Item>
       </CardRadioGroup>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("calls onChange", () => {

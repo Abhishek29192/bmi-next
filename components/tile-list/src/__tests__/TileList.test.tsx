@@ -16,7 +16,7 @@ describe("TileList component", () => {
         </TileList.Item>
       </TileList>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with pagination", () => {
     const { container } = render(
@@ -32,7 +32,7 @@ describe("TileList component", () => {
         </TileList.Item>
       </TileList>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("shows more tiles on 'Show more' click", () => {
     const { container, getByRole } = render(
@@ -49,7 +49,7 @@ describe("TileList component", () => {
       </TileList>
     );
     fireEvent.click(getByRole("button"));
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("render correctly when onClick is defined", () => {
     const onClick = jest.fn();
@@ -58,7 +58,7 @@ describe("TileList component", () => {
         <Typography>Text 1</Typography>
       </TileList.Item>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(container.getElementsByClassName("Tile--clickable").length).toBe(1);
     fireEvent.click(getByText("Text 1"));
     expect(onClick).toHaveBeenCalledTimes(1);

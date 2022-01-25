@@ -30,7 +30,7 @@ const LinkCardWithTransition = ({
 describe("LinkCard component", () => {
   it("renders correctly closed variant", () => {
     const { container } = render(<LinkCard title="test">test</LinkCard>);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders on open variant", () => {
@@ -39,7 +39,7 @@ describe("LinkCard component", () => {
         test
       </LinkCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("onCloseClick for item", () => {
     const onCloseClick = jest.fn();
@@ -51,7 +51,7 @@ describe("LinkCard component", () => {
     const item = container.getElementsByClassName("item")[0];
     fireEvent.click(item);
     expect(onCloseClick).toHaveBeenCalledTimes(1);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders onEnterd transition onClick ", async () => {
@@ -59,9 +59,9 @@ describe("LinkCard component", () => {
     const { container, getAllByText } = render(
       <LinkCardWithTransition onExpandCompleted={onExpandCompleted} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     fireEvent.click(getAllByText("test")[0]);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     await waitFor(() => {
       expect(onExpandCompleted).toHaveBeenCalledTimes(1);
     });

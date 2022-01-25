@@ -10,7 +10,7 @@ describe("AnchorLink component", () => {
         BMI Group
       </AnchorLink>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders disabled correctly", () => {
@@ -19,7 +19,7 @@ describe("AnchorLink component", () => {
         BMI Group
       </AnchorLink>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders leading icon correctly", () => {
@@ -28,7 +28,7 @@ describe("AnchorLink component", () => {
         BMI Group
       </AnchorLink>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders trailing icon correctly", () => {
@@ -37,7 +37,7 @@ describe("AnchorLink component", () => {
         BMI Group
       </AnchorLink>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders icon disabled correctly", () => {
@@ -46,7 +46,7 @@ describe("AnchorLink component", () => {
         BMI Group
       </AnchorLink>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders multi-line with icon correctly", () => {
@@ -60,14 +60,14 @@ describe("AnchorLink component", () => {
         </p>
       </AnchorLink>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with a specified color", () => {
     const { container } = render(
       <AnchorLink color="white">BMI Group</AnchorLink>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders within a dark color pair context", () => {
@@ -76,7 +76,7 @@ describe("AnchorLink component", () => {
         <AnchorLink color="white">BMI Group</AnchorLink>
       </ColorPairContext.Provider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders within a light color pair context", () => {
@@ -85,7 +85,7 @@ describe("AnchorLink component", () => {
         <AnchorLink color="white">BMI Group</AnchorLink>
       </ColorPairContext.Provider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders only with data from context", () => {
@@ -94,7 +94,7 @@ describe("AnchorLink component", () => {
         <AnchorLink>BMI Group</AnchorLink>
       </ColorPairContext.Provider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with rest props", () => {
@@ -103,7 +103,7 @@ describe("AnchorLink component", () => {
         Test
       </AnchorLink>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with children component", () => {
@@ -112,14 +112,14 @@ describe("AnchorLink component", () => {
         <div>Test</div>
       </AnchorLink>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with className", () => {
     const { container } = render(
       <AnchorLink className="test-className">Test</AnchorLink>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with iconInverted", () => {
@@ -128,6 +128,6 @@ describe("AnchorLink component", () => {
         Test
       </AnchorLink>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

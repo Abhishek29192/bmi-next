@@ -20,7 +20,7 @@ describe("ToggleCard component", () => {
         </ToggleCard.Paragraph>
       </ToggleCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with no title", () => {
     const { container } = render(
@@ -33,7 +33,7 @@ describe("ToggleCard component", () => {
         </ToggleCard.Paragraph>
       </ToggleCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders a disabled card", () => {
@@ -52,14 +52,14 @@ describe("ToggleCard component", () => {
         </ToggleCard.Paragraph>
       </ToggleCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders a card containing title only", () => {
     const { container } = render(
       <ToggleCard id="A Unique ID" title="Title only" />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders card with illustrated image", () => {
     const { container } = render(
@@ -69,6 +69,6 @@ describe("ToggleCard component", () => {
         illustratedImage={svgImage}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

@@ -48,7 +48,7 @@ describe("SpotlightHero component", () => {
         </Typography>
       </SpotlightHero>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with deprecated imageSource", () => {
@@ -66,7 +66,7 @@ describe("SpotlightHero component", () => {
         </Typography>
       </SpotlightHero>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with cta", () => {
@@ -85,7 +85,7 @@ describe("SpotlightHero component", () => {
         </Typography>
       </SpotlightHero>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with keyline for brand", () => {
@@ -105,7 +105,7 @@ describe("SpotlightHero component", () => {
         </Typography>
       </SpotlightHero>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders if media !== 'img'", () => {
@@ -128,7 +128,7 @@ describe("SpotlightHero component", () => {
         </Typography>
       </SpotlightHero>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if media does not pass at all", () => {
@@ -142,6 +142,6 @@ describe("SpotlightHero component", () => {
         </Typography>
       </SpotlightHero>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

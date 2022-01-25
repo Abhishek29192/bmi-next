@@ -14,13 +14,13 @@ import {
 const testStorySnapshot = (Story) => {
   const { container } = renderWithI18NProvider(<Story />);
 
-  expect(container.firstChild).toMatchSnapshot();
+  expect(container).toMatchSnapshot();
 };
 
 const storySnapshot = (Story) => () => {
   const { container } = renderWithI18NProvider(<Story />);
 
-  expect(container.firstChild).toMatchSnapshot();
+  expect(container).toMatchSnapshot();
 };
 
 describe("Sidebar component", () => {

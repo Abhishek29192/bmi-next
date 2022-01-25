@@ -12,6 +12,6 @@ describe("MasonryGrid component", () => {
         <div>FOUR</div>
       </MasonryGrid>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

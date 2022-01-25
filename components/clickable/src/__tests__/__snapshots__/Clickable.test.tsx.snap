@@ -1,74 +1,90 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Clickable component renders a component wrapped in withClickable 1`] = `
-<span
-  to="/"
->
-  Custom wrapper: 
-  Hit me
-</span>
+<div>
+  <span
+    to="/"
+  >
+    Custom wrapper: 
+    Hit me
+  </span>
+</div>
 `;
 
 exports[`Clickable component renders a default button 1`] = `
-<button
-  type="button"
->
-  Hit me
-</button>
+<div>
+  <button
+    type="button"
+  >
+    Hit me
+  </button>
+</div>
 `;
 
 exports[`Clickable component renders a download button 1`] = `
-<a
-  download="test-download"
-  href="#"
-  rel="noopener noreferrer"
-  target="_blank"
->
-  Hit me
-</a>
+<div>
+  <a
+    download="test-download"
+    href="#"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Hit me
+  </a>
+</div>
 `;
 
 exports[`Clickable component renders a reset button 1`] = `
-<button
-  type="reset"
->
-  Hit me
-</button>
+<div>
+  <button
+    type="reset"
+  >
+    Hit me
+  </button>
+</div>
 `;
 
-exports[`Clickable component renders a router link 1`] = `null`;
+exports[`Clickable component renders a router link 1`] = `<div />`;
 
 exports[`Clickable component renders a submit button 1`] = `
-<button
-  type="submit"
->
-  Hit me
-</button>
+<div>
+  <button
+    type="submit"
+  >
+    Hit me
+  </button>
+</div>
 `;
 
 exports[`Clickable component renders a with custom className 1`] = `
-<button
-  class="test-class"
-  type="button"
->
-  Hit me
-</button>
+<div>
+  <button
+    class="test-class"
+    type="button"
+  >
+    Hit me
+  </button>
+</div>
 `;
 
 exports[`Clickable component renders an anchor link 1`] = `
-<a
-  href="#"
->
-  Hit me
-</a>
+<div>
+  <a
+    href="#"
+  >
+    Hit me
+  </a>
+</div>
 `;
 
 exports[`Clickable component renders correctly 1`] = `
-<button
-  type="button"
->
-  Hit me
-</button>
+<div>
+  <button
+    type="button"
+  >
+    Hit me
+  </button>
+</div>
 `;
 
 exports[`Clickable component triggers an onClick event 1`] = `

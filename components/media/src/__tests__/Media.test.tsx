@@ -10,7 +10,7 @@ describe("Media component", () => {
         <img />
       </Media>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with className", () => {
@@ -19,7 +19,7 @@ describe("Media component", () => {
         <img />
       </Media>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("returns null if has no children", () => {
@@ -33,7 +33,7 @@ describe("Media component", () => {
         <p>text</p>
       </Media>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if size is not cover", () => {
@@ -42,7 +42,7 @@ describe("Media component", () => {
         <img />
       </Media>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if child youtube video", () => {
@@ -56,7 +56,7 @@ describe("Media component", () => {
         />
       </Media>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("should prevent drag event if child.type is img and isDragEnabled is false", async () => {
@@ -96,10 +96,10 @@ describe("Media component", () => {
       </Media>
     );
 
-    const myEvent = createEvent.dragStart(container.firstChild!);
+    const myEvent = createEvent.dragStart(container);
     myEvent.preventDefault = jest.fn();
 
-    fireEvent(container.firstChild!, myEvent);
+    fireEvent(container, myEvent);
 
     expect(myEvent.preventDefault).toHaveBeenCalledTimes(0);
   });

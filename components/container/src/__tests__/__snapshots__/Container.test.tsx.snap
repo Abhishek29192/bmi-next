@@ -1,37 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Container component allows full-width mode 1`] = `
-<div
-  class="Container Container--full-width"
->
+<div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="Container Container--full-width"
   >
-    Content
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      Content
+    </div>
   </div>
 </div>
 `;
 
 exports[`Container component allows wrapper className 1`] = `
-<div
-  class="Container wrapper-className"
->
+<div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="Container wrapper-className"
   >
-    Content
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      Content
+    </div>
   </div>
 </div>
 `;
 
 exports[`Container component renders correctly 1`] = `
-<div
-  class="Container"
->
+<div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="Container"
   >
-    Content
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      Content
+    </div>
   </div>
 </div>
 `;

@@ -1,135 +1,141 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioPane component renders expanded with children 1`] = `
-<label
-  class="RadioPane"
->
-  <input
-    class="input"
-    name="f1"
-    type="radio"
-    value="v1"
-  />
-  <div
-    aria-disabled="false"
-    class="MuiButtonBase-root pane"
-    role="button"
-    tabindex="-1"
+<div>
+  <label
+    class="RadioPane"
   >
-    <div
-      class="header"
-    >
-      <h6
-        class="MuiTypography-root title Typography MuiTypography-h6"
-      >
-        Value 1
-      </h6>
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root checkedIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-        />
-      </svg>
-    </div>
-    <div
-      class="content"
-    >
-      <hr
-        class="MuiDivider-root hr"
-      />
-      expanded content
-    </div>
-    <span
-      class="MuiTouchRipple-root"
+    <input
+      class="input"
+      name="f1"
+      type="radio"
+      value="v1"
     />
-  </div>
-</label>
+    <div
+      aria-disabled="false"
+      class="MuiButtonBase-root pane"
+      role="button"
+      tabindex="-1"
+    >
+      <div
+        class="header"
+      >
+        <h6
+          class="MuiTypography-root title Typography MuiTypography-h6"
+        >
+          Value 1
+        </h6>
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root checkedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+          />
+        </svg>
+      </div>
+      <div
+        class="content"
+      >
+        <hr
+          class="MuiDivider-root hr"
+        />
+        expanded content
+      </div>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </div>
+  </label>
+</div>
 `;
 
 exports[`RadioPane component renders with className 1`] = `
-<label
-  class="RadioPane custom-classname"
->
-  <input
-    class="input"
-    name="f1"
-    type="radio"
-    value="v1"
-  />
-  <div
-    aria-disabled="false"
-    class="MuiButtonBase-root pane"
-    role="button"
-    tabindex="-1"
+<div>
+  <label
+    class="RadioPane custom-classname"
   >
-    <div
-      class="header"
-    >
-      <h6
-        class="MuiTypography-root title Typography MuiTypography-h6"
-      >
-        Value 1
-      </h6>
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root checkedIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-        />
-      </svg>
-    </div>
-    <span
-      class="MuiTouchRipple-root"
+    <input
+      class="input"
+      name="f1"
+      type="radio"
+      value="v1"
     />
-  </div>
-</label>
+    <div
+      aria-disabled="false"
+      class="MuiButtonBase-root pane"
+      role="button"
+      tabindex="-1"
+    >
+      <div
+        class="header"
+      >
+        <h6
+          class="MuiTypography-root title Typography MuiTypography-h6"
+        >
+          Value 1
+        </h6>
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root checkedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+          />
+        </svg>
+      </div>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </div>
+  </label>
+</div>
 `;
 
 exports[`RadioPane component renders without children 1`] = `
-<label
-  class="RadioPane"
->
-  <input
-    class="input"
-    name="f1"
-    type="radio"
-    value="v1"
-  />
-  <div
-    aria-disabled="false"
-    class="MuiButtonBase-root pane"
-    role="button"
-    tabindex="-1"
+<div>
+  <label
+    class="RadioPane"
   >
-    <div
-      class="header"
-    >
-      <h6
-        class="MuiTypography-root title Typography MuiTypography-h6"
-      >
-        Value 1
-      </h6>
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root checkedIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-        />
-      </svg>
-    </div>
-    <span
-      class="MuiTouchRipple-root"
+    <input
+      class="input"
+      name="f1"
+      type="radio"
+      value="v1"
     />
-  </div>
-</label>
+    <div
+      aria-disabled="false"
+      class="MuiButtonBase-root pane"
+      role="button"
+      tabindex="-1"
+    >
+      <div
+        class="header"
+      >
+        <h6
+          class="MuiTypography-root title Typography MuiTypography-h6"
+        >
+          Value 1
+        </h6>
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root checkedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+          />
+        </svg>
+      </div>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </div>
+  </label>
+</div>
 `;

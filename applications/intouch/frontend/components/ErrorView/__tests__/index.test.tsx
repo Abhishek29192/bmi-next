@@ -17,7 +17,7 @@ describe("ErrorView component", () => {
         </AccountContextWrapper>
       </ApolloProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with title", () => {
@@ -32,7 +32,7 @@ describe("ErrorView component", () => {
         </AccountContextWrapper>
       </ApolloProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with title and message", () => {
@@ -48,6 +48,6 @@ describe("ErrorView component", () => {
         </AccountContextWrapper>
       </ApolloProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

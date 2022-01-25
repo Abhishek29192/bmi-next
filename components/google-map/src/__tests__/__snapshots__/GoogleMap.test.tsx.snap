@@ -1,60 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GoogleMap component invokes APIs and renders correctly 1`] = `
-<div
-  class="GoogleMap"
->
+<div>
   <div
-    class="map"
+    class="GoogleMap"
   >
     <div
-      class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
-      role="progressbar"
-      style="width: 40px; height: 40px;"
+      class="map"
     >
-      <svg
-        class="MuiCircularProgress-svg"
-        viewBox="22 22 44 44"
+      <div
+        class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style="width: 40px; height: 40px;"
       >
-        <circle
-          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
-          cx="44"
-          cy="44"
-          fill="none"
-          r="20.2"
-          stroke-width="3.6"
-        />
-      </svg>
+        <svg
+          class="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20.2"
+            stroke-width="3.6"
+          />
+        </svg>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`GoogleMap component loader renders correctly 1`] = `
-<div
-  class="GoogleMap"
->
+<div>
   <div
-    class="map"
+    class="GoogleMap"
   >
     <div
-      class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
-      role="progressbar"
-      style="width: 40px; height: 40px;"
+      class="map"
     >
-      <svg
-        class="MuiCircularProgress-svg"
-        viewBox="22 22 44 44"
+      <div
+        class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style="width: 40px; height: 40px;"
       >
-        <circle
-          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
-          cx="44"
-          cy="44"
-          fill="none"
-          r="20.2"
-          stroke-width="3.6"
-        />
-      </svg>
+        <svg
+          class="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20.2"
+            stroke-width="3.6"
+          />
+        </svg>
+      </div>
     </div>
   </div>
 </div>

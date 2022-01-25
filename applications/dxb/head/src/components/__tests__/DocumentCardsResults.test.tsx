@@ -20,7 +20,7 @@ describe("Brands component", () => {
     const { container } = render(
       <DocumentCardsResults documents={docs} page={1} documentsPerPage={10} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
 
     const resultsCount = getCount(docs);
     expect(resultsCount).toEqual(2);
@@ -33,6 +33,6 @@ describe("Brands component", () => {
     const { container } = render(
       <DocumentCardsResults documents={docs} page={1} documentsPerPage={10} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

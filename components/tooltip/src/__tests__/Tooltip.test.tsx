@@ -15,7 +15,7 @@ describe("Tooltip component", () => {
 
     const childrenElement = await findByText(childrenText);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
 
     expect(queryByText(title)).toBeFalsy();
     expect(childrenElement).toBeTruthy();

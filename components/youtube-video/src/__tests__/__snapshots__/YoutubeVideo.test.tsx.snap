@@ -114,76 +114,30 @@ exports[`YoutubeVideo component opens dialog on click 1`] = `
 `;
 
 exports[`YoutubeVideo component renders in dialog layout correctly 1`] = `
-<div
-  class="YoutubeVideo"
->
-  <button
-    aria-label="test video"
-    class="thumbnail"
-    type="button"
+<div>
+  <div
+    class="YoutubeVideo"
   >
-    <img
-      alt="test video"
-      class="preview-image"
-      src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
-    />
-    <span
-      class="AlternativeContent"
+    <button
+      aria-label="test video"
+      class="thumbnail"
+      type="button"
     >
-      test video
-    </span>
-    <div
-      aria-disabled="false"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
-      role="button"
-      tabindex="0"
-    >
-      <span
-        class="MuiIconButton-label"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M8 5v14l11-7z"
-          />
-        </svg>
-      </span>
-      <span
-        class="MuiTouchRipple-root"
+      <img
+        alt="test video"
+        class="preview-image"
+        src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
       />
-    </div>
-  </button>
-</div>
-`;
-
-exports[`YoutubeVideo component renders in in-place layout correctly 1`] = `
-<div
-  class="YoutubeVideo YoutubeVideo--in-place"
-/>
-`;
-
-exports[`YoutubeVideo component renders inline layout correctly 1`] = `
-<div
-  class="YoutubeVideo YoutubeVideo--inline"
-  style="--aspect-ratio: 0.5625;"
->
-  <div>
-    <img
-      alt="test inline video"
-      class="preview-image"
-      src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
-    />
-    <div
-      class="overlay"
-    >
-      <button
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 play-button"
+      <span
+        class="AlternativeContent"
+      >
+        test video
+      </span>
+      <div
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
+        role="button"
         tabindex="0"
-        type="button"
       >
         <span
           class="MuiIconButton-label"
@@ -202,19 +156,71 @@ exports[`YoutubeVideo component renders inline layout correctly 1`] = `
         <span
           class="MuiTouchRipple-root"
         />
-      </button>
-      <p
-        class="MuiTypography-root subtitle Typography MuiTypography-body1"
-      />
-    </div>
+      </div>
+    </button>
   </div>
+</div>
+`;
+
+exports[`YoutubeVideo component renders in in-place layout correctly 1`] = `
+<div>
   <div
-    style="opacity: 0; visibility: hidden; transition-delay: 500ms; width: 640px; height: 360px;"
+    class="YoutubeVideo YoutubeVideo--in-place"
+  />
+</div>
+`;
+
+exports[`YoutubeVideo component renders inline layout correctly 1`] = `
+<div>
+  <div
+    class="YoutubeVideo YoutubeVideo--inline"
+    style="--aspect-ratio: 0.5625;"
   >
+    <div>
+      <img
+        alt="test inline video"
+        class="preview-image"
+        src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
+      />
+      <div
+        class="overlay"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 play-button"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M8 5v14l11-7z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <p
+          class="MuiTypography-root subtitle Typography MuiTypography-body1"
+        />
+      </div>
+    </div>
     <div
-      style="width: 100%; height: 100%;"
+      style="opacity: 0; visibility: hidden; transition-delay: 500ms; width: 640px; height: 360px;"
     >
-      <div />
+      <div
+        style="width: 100%; height: 100%;"
+      >
+        <div />
+      </div>
     </div>
   </div>
 </div>

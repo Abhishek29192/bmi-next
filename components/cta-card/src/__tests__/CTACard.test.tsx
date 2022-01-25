@@ -12,7 +12,7 @@ describe("CtaCard component", () => {
         action={{ model: "htmlLink", href: "#" }}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with the clickable area around the heading", () => {
     const { container } = render(
@@ -23,7 +23,7 @@ describe("CtaCard component", () => {
         action={{ model: "htmlLink", href: "#" }}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with deprecated imageSource", () => {
     const { container } = render(
@@ -33,6 +33,6 @@ describe("CtaCard component", () => {
         action={{ model: "htmlLink", href: "#" }}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

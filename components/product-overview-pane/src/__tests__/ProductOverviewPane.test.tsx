@@ -57,7 +57,7 @@ describe("ProductOverviewPane component", () => {
         attributes={attributes}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with children", () => {
@@ -73,7 +73,7 @@ describe("ProductOverviewPane component", () => {
         <p>some text</p>
       </ProductOverviewPane>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with empty variants", () => {
     const { container } = render(
@@ -90,7 +90,7 @@ describe("ProductOverviewPane component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if nobb === null", () => {
@@ -121,7 +121,7 @@ describe("ProductOverviewPane component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if attribute type === chips", () => {
@@ -152,7 +152,7 @@ describe("ProductOverviewPane component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if attributes === undefined", () => {
@@ -166,7 +166,7 @@ describe("ProductOverviewPane component", () => {
         thumbnailComponent={component}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if some variant has isSelected equals false", () => {
@@ -197,7 +197,7 @@ describe("ProductOverviewPane component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   describe("renders tooltips with unavailableMicrocopy when hover attribute ", () => {

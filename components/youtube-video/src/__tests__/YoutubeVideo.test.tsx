@@ -11,7 +11,7 @@ describe("YoutubeVideo component", () => {
       embedHeight: 720
     };
     const { container } = render(<YoutubeVideo layout="dialog" {...props} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders in in-place layout correctly", () => {
     const props = {
@@ -21,7 +21,7 @@ describe("YoutubeVideo component", () => {
       embedHeight: 720
     };
     const { container } = render(<YoutubeVideo layout="in-place" {...props} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders inline layout correctly", () => {
     const props = {
@@ -31,7 +31,7 @@ describe("YoutubeVideo component", () => {
       embedHeight: 720
     };
     const { container } = render(<YoutubeVideo layout="inline" {...props} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("opens dialog on click", () => {
     const props = {

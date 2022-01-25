@@ -88,7 +88,7 @@ describe("ImageGallerySection component", () => {
 
     const { container } = render(<ImageGallerySection data={data} />);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with long description", () => {
@@ -144,6 +144,6 @@ describe("ImageGallerySection component", () => {
     );
 
     expect(getByText("this is a test paragraph")).not.toBeNull();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

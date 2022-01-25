@@ -16,7 +16,7 @@ describe("DownloadList component", () => {
         <button>Download</button>
       </DownloadList>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("triggers an onChange event", async () => {
@@ -116,7 +116,7 @@ describe("DownloadList component", () => {
     };
 
     const { container } = render(<Component />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders DownloadListButton properly without context", () => {
@@ -133,7 +133,7 @@ describe("DownloadList component", () => {
     };
 
     const { container } = render(<Component />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders DownloadListClear properly without context", () => {
@@ -150,6 +150,6 @@ describe("DownloadList component", () => {
     };
 
     const { container } = render(<Component />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

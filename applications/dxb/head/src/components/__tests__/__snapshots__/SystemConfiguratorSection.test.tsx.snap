@@ -2012,20 +2012,22 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
 `;
 
 exports[`SystemConfiguratorSection component renders correctly 1`] = `
-<div
-  class="SystemConfigurator Section Section--white"
->
+<div>
   <div
-    class="Container"
+    class="SystemConfigurator Section Section--white"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
-        System Configurator Section Title
-      </h2>
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          System Configurator Section Title
+        </h2>
+      </div>
     </div>
   </div>
 </div>

@@ -21,7 +21,7 @@ describe("ProductGuaranteeCard Component", () => {
       <ProductGuaranteeCard product={mockProduct} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("should render guarantee pdf download button", () => {

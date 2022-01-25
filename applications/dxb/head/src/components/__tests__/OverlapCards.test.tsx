@@ -205,7 +205,7 @@ describe("OverlapCards component", () => {
         <OverlapCards data={data} />
       </MockSiteContext>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });
 
@@ -217,6 +217,6 @@ describe("IntegratedOverlapCards component", () => {
       </MockSiteContext>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

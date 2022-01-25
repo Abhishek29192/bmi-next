@@ -1,46 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Carousel component doesn't render controls when scroll is finite and pages per slides = total slides 1`] = `
-<div
-  class="wrapper wrapper--with-gutter"
->
+<div>
   <div
-    class="Carousel Carousel--opacity Carousel--with-gutter"
-    data-testid="carousel"
+    class="wrapper wrapper--with-gutter"
   >
     <div
-      style="overflow-x: hidden;"
+      class="Carousel Carousel--opacity Carousel--with-gutter"
+      data-testid="carousel"
     >
       <div
-        class="react-swipeable-view-container"
-        style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+        style="overflow-x: hidden;"
       >
         <div
-          aria-hidden="false"
-          class="Carousel__slide--global"
-          data-swipeable="true"
-          style="width: 100%; flex-shrink: 0; overflow: auto;"
+          class="react-swipeable-view-container"
+          style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
         >
           <div
-            class="page"
+            aria-hidden="false"
+            class="Carousel__slide--global"
+            data-swipeable="true"
+            style="width: 100%; flex-shrink: 0; overflow: auto;"
           >
             <div
-              class="slide"
-              style="width: 33.333333333333336%;"
+              class="page"
             >
-              First slide
-            </div>
-            <div
-              class="slide"
-              style="width: 33.333333333333336%;"
-            >
-              Second slide
-            </div>
-            <div
-              class="slide"
-              style="width: 33.333333333333336%;"
-            >
-              Third slide
+              <div
+                class="slide"
+                style="width: 33.333333333333336%;"
+              >
+                First slide
+              </div>
+              <div
+                class="slide"
+                style="width: 33.333333333333336%;"
+              >
+                Second slide
+              </div>
+              <div
+                class="slide"
+                style="width: 33.333333333333336%;"
+              >
+                Third slide
+              </div>
             </div>
           </div>
         </div>
@@ -51,6 +53,333 @@ exports[`Carousel component doesn't render controls when scroll is finite and pa
 `;
 
 exports[`Carousel component navigates to next page 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -10,11 +10,11 @@
+          <div
+            style=\\"overflow-x: hidden;\\"
+          >
+            <div
+              class=\\"react-swipeable-view-container\\"
+-             style=\\"flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;\\"
++             style=\\"flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; transform: translate(-400%, 0);\\"
+            >
+              <div
+                aria-hidden=\\"false\\"
+                class=\\"Carousel__slide--global\\"
+                data-swipeable=\\"true\\"
+@@ -25,11 +25,11 @@
+                >
+                  <div
+                    class=\\"slide\\"
+                    style=\\"width: 100%;\\"
+                  >
+-                   First slide
++                   Second slide
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+@@ -66,16 +66,21 @@
+          >
+            <span
+              class=\\"sliding-slot\\"
+            >
+              <span
+-               class=\\"numbers\\"
++               class=\\"numbers numbers--up\\"
++             >
++               <span
++                 class=\\"number\\"
+                >
++                 01
++               </span>
+                <span
+                  class=\\"number number--active\\"
+                >
+-                 01
++                 02
+                </span>
+              </span>
+            </span>
+            <span
+              class=\\"total\\""
+`;
+
+exports[`Carousel component navigates to previous page 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -10,11 +10,11 @@
+          <div
+            style=\\"overflow-x: hidden;\\"
+          >
+            <div
+              class=\\"react-swipeable-view-container\\"
+-             style=\\"flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;\\"
++             style=\\"flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; transform: translate(-200%, 0);\\"
+            >
+              <div
+                aria-hidden=\\"false\\"
+                class=\\"Carousel__slide--global\\"
+                data-swipeable=\\"true\\"
+@@ -25,11 +25,11 @@
+                >
+                  <div
+                    class=\\"slide\\"
+                    style=\\"width: 100%;\\"
+                  >
+-                   First slide
++                   Third slide
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+@@ -66,14 +66,19 @@
+          >
+            <span
+              class=\\"sliding-slot\\"
+            >
+              <span
+-               class=\\"numbers\\"
++               class=\\"numbers numbers--down\\"
+              >
+                <span
+                  class=\\"number number--active\\"
++               >
++                 03
++               </span>
++               <span
++                 class=\\"number\\"
+                >
+                  01
+                </span>
+              </span>
+            </span>"
+`;
+
+exports[`Carousel component renders correctly 1`] = `
+<div>
+  <div
+    class="wrapper"
+  >
+    <div
+      class="Carousel"
+      data-testid="carousel"
+    >
+      <div
+        style="overflow-x: hidden;"
+      >
+        <div
+          class="react-swipeable-view-container"
+          style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+        >
+          <div
+            aria-hidden="false"
+            class="Carousel__slide--global"
+            data-swipeable="true"
+            style="width: 100%; flex-shrink: 0; overflow: auto;"
+          >
+            <div
+              class="page"
+            >
+              <div
+                class="slide"
+                style="width: 100%;"
+              >
+                First slide
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="SlideControls"
+    >
+      <button
+        aria-label="previous"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root chevron"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+      <span
+        class="middle-container"
+      >
+        <span
+          class="sliding-slot"
+        >
+          <span
+            class="numbers"
+          >
+            <span
+              class="number number--active"
+            >
+              01
+            </span>
+          </span>
+        </span>
+        <span
+          class="total"
+        >
+          03
+        </span>
+      </span>
+      <button
+        aria-label="next"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root chevron"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Carousel component renders correctly with arrow controls 1`] = `
+<div>
+  <div
+    class="wrapper"
+  >
+    <div
+      class="Carousel Carousel--opacity"
+      data-testid="carousel"
+    >
+      <div
+        style="overflow-x: hidden;"
+      >
+        <div
+          class="react-swipeable-view-container"
+          style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+        >
+          <div
+            aria-hidden="false"
+            class="Carousel__slide--global"
+            data-swipeable="true"
+            style="width: 100%; flex-shrink: 0; overflow: auto;"
+          >
+            <div
+              class="page"
+            >
+              <div
+                class="slide"
+                style="width: 33.333333333333336%;"
+              >
+                First slide
+              </div>
+              <div
+                class="slide"
+                style="width: 33.333333333333336%;"
+              >
+                Second slide
+              </div>
+              <div
+                class="slide"
+                style="width: 33.333333333333336%;"
+              >
+                Third slide
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      aria-label="Move left"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-contained-113 ArrowControl ArrowControl--left"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root chevron"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <button
+      aria-label="Move right"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-contained-113 ArrowControl ArrowControl--right"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root chevron"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Carousel component triggers an onPageChange event 1`] = `Array []`;
+
+exports[`Carousel component works when controlled 1`] = `
 "Snapshot Diff:
 - First value
 + Second value
@@ -105,327 +434,4 @@ exports[`Carousel component navigates to next page 1`] = `
           </span>
           <span
             class=\\"total\\""
-`;
-
-exports[`Carousel component navigates to previous page 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -9,11 +9,11 @@
-        <div
-          style=\\"overflow-x: hidden;\\"
-        >
-          <div
-            class=\\"react-swipeable-view-container\\"
--           style=\\"flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;\\"
-+           style=\\"flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; transform: translate(-200%, 0);\\"
-          >
-            <div
-              aria-hidden=\\"false\\"
-              class=\\"Carousel__slide--global\\"
-              data-swipeable=\\"true\\"
-@@ -24,11 +24,11 @@
-              >
-                <div
-                  class=\\"slide\\"
-                  style=\\"width: 100%;\\"
-                >
--                 First slide
-+                 Third slide
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-@@ -65,14 +65,19 @@
-        >
-          <span
-            class=\\"sliding-slot\\"
-          >
-            <span
--             class=\\"numbers\\"
-+             class=\\"numbers numbers--down\\"
-            >
-              <span
-                class=\\"number number--active\\"
-+             >
-+               03
-+             </span>
-+             <span
-+               class=\\"number\\"
-              >
-                01
-              </span>
-            </span>
-          </span>"
-`;
-
-exports[`Carousel component renders correctly 1`] = `
-<div
-  class="wrapper"
->
-  <div
-    class="Carousel"
-    data-testid="carousel"
-  >
-    <div
-      style="overflow-x: hidden;"
-    >
-      <div
-        class="react-swipeable-view-container"
-        style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
-      >
-        <div
-          aria-hidden="false"
-          class="Carousel__slide--global"
-          data-swipeable="true"
-          style="width: 100%; flex-shrink: 0; overflow: auto;"
-        >
-          <div
-            class="page"
-          >
-            <div
-              class="slide"
-              style="width: 100%;"
-            >
-              First slide
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="SlideControls"
-  >
-    <button
-      aria-label="previous"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
-      tabindex="0"
-      type="button"
-    >
-      <span
-        class="MuiIconButton-label"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root chevron"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
-          />
-        </svg>
-      </span>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </button>
-    <span
-      class="middle-container"
-    >
-      <span
-        class="sliding-slot"
-      >
-        <span
-          class="numbers"
-        >
-          <span
-            class="number number--active"
-          >
-            01
-          </span>
-        </span>
-      </span>
-      <span
-        class="total"
-      >
-        03
-      </span>
-    </span>
-    <button
-      aria-label="next"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
-      tabindex="0"
-      type="button"
-    >
-      <span
-        class="MuiIconButton-label"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root chevron"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
-          />
-        </svg>
-      </span>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </button>
-  </div>
-</div>
-`;
-
-exports[`Carousel component renders correctly with arrow controls 1`] = `
-<div
-  class="wrapper"
->
-  <div
-    class="Carousel Carousel--opacity"
-    data-testid="carousel"
-  >
-    <div
-      style="overflow-x: hidden;"
-    >
-      <div
-        class="react-swipeable-view-container"
-        style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
-      >
-        <div
-          aria-hidden="false"
-          class="Carousel__slide--global"
-          data-swipeable="true"
-          style="width: 100%; flex-shrink: 0; overflow: auto;"
-        >
-          <div
-            class="page"
-          >
-            <div
-              class="slide"
-              style="width: 33.333333333333336%;"
-            >
-              First slide
-            </div>
-            <div
-              class="slide"
-              style="width: 33.333333333333336%;"
-            >
-              Second slide
-            </div>
-            <div
-              class="slide"
-              style="width: 33.333333333333336%;"
-            >
-              Third slide
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <button
-    aria-label="Move left"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-contained-113 ArrowControl ArrowControl--left"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="MuiIconButton-label"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root chevron"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
-        />
-      </svg>
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
-  <button
-    aria-label="Move right"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-contained-113 ArrowControl ArrowControl--right"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="MuiIconButton-label"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root chevron"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
-        />
-      </svg>
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
-</div>
-`;
-
-exports[`Carousel component triggers an onPageChange event 1`] = `Array []`;
-
-exports[`Carousel component works when controlled 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -8,11 +8,11 @@
-      <div
-        style=\\"overflow-x: hidden;\\"
-      >
-        <div
-          class=\\"react-swipeable-view-container\\"
--         style=\\"flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;\\"
-+         style=\\"flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; transform: translate(-400%, 0);\\"
-        >
-          <div
-            aria-hidden=\\"false\\"
-            class=\\"Carousel__slide--global\\"
-            data-swipeable=\\"true\\"
-@@ -23,11 +23,11 @@
-            >
-              <div
-                class=\\"slide\\"
-                style=\\"width: 100%;\\"
-              >
--               First slide
-+               Second slide
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-@@ -64,16 +64,21 @@
-      >
-        <span
-          class=\\"sliding-slot\\"
-        >
-          <span
--           class=\\"numbers\\"
-+           class=\\"numbers numbers--up\\"
-+         >
-+           <span
-+             class=\\"number\\"
-            >
-+             01
-+           </span>
-            <span
-              class=\\"number number--active\\"
-            >
--             01
-+             02
-            </span>
-          </span>
-        </span>
-        <span
-          class=\\"total\\""
 `;

@@ -1,963 +1,981 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pagination component covers test for count is not provided 1`] = `
-<nav
-  aria-label="pagination navigation"
-  class="MuiPagination-root"
->
-  <ul
-    class="MuiPagination-ul"
+<div>
+  <nav
+    aria-label="pagination navigation"
+    class="MuiPagination-root"
   >
-    <li>
-      <button
-        aria-label="Go to previous page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
-        disabled=""
-        tabindex="-1"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+    <ul
+      class="MuiPagination-ul"
+    >
+      <li>
+        <button
+          aria-label="Go to previous page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="button"
         >
-          <path
-            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-          />
-        </svg>
-      </button>
-    </li>
-    <li>
-      <button
-        aria-current="true"
-        aria-label="page 1"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
-        tabindex="0"
-        type="button"
-      >
-        1
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to next page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
-        disabled=""
-        tabindex="-1"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+            />
+          </svg>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="true"
+          aria-label="page 1"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+          tabindex="0"
+          type="button"
         >
-          <path
-            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          1
+          <span
+            class="MuiTouchRipple-root"
           />
-        </svg>
-      </button>
-    </li>
-  </ul>
-</nav>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to next page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+            />
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
 `;
 
 exports[`Pagination component renders all buttons without go-to-first, go-to-last double arrow buttons 1`] = `
-<nav
-  aria-label="pagination navigation"
-  class="MuiPagination-root"
->
-  <ul
-    class="MuiPagination-ul"
+<div>
+  <nav
+    aria-label="pagination navigation"
+    class="MuiPagination-root"
   >
-    <li>
-      <button
-        aria-label="Go to previous page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
-        disabled=""
-        tabindex="-1"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+    <ul
+      class="MuiPagination-ul"
+    >
+      <li>
+        <button
+          aria-label="Go to previous page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="button"
         >
-          <path
-            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-          />
-        </svg>
-      </button>
-    </li>
-    <li>
-      <button
-        aria-current="true"
-        aria-label="page 1"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
-        tabindex="0"
-        type="button"
-      >
-        1
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 2"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        2
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 3"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        3
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 4"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        4
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 5"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        5
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to next page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+            />
+          </svg>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="true"
+          aria-label="page 1"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+          tabindex="0"
+          type="button"
         >
-          <path
-            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          1
+          <span
+            class="MuiTouchRipple-root"
           />
-        </svg>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-  </ul>
-</nav>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 2"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          2
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 3"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          3
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 4"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          4
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 5"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          5
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to next page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
 `;
 
 exports[`Pagination component renders correctly under hideAllPages condition 1`] = `
-<nav
-  aria-label="pagination navigation"
-  class="MuiPagination-root"
->
-  <ul
-    class="MuiPagination-ul"
+<div>
+  <nav
+    aria-label="pagination navigation"
+    class="MuiPagination-root"
   >
-    <li>
-      <button
-        aria-label="Go to previous page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
-        disabled=""
-        tabindex="-1"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+    <ul
+      class="MuiPagination-ul"
+    >
+      <li>
+        <button
+          aria-label="Go to previous page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="button"
         >
-          <path
-            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-          />
-        </svg>
-      </button>
-    </li>
-    <li />
-    <li />
-    <li>
-      <button
-        aria-label="Go to next page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+            />
+          </svg>
+        </button>
+      </li>
+      <li />
+      <li />
+      <li>
+        <button
+          aria-label="Go to next page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
         >
-          <path
-            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root"
           />
-        </svg>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-  </ul>
-</nav>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
 `;
 
 exports[`Pagination component renders correctly under reducedMode 1`] = `
-<nav
-  aria-label="pagination navigation"
-  class="MuiPagination-root"
->
-  <ul
-    class="MuiPagination-ul"
+<div>
+  <nav
+    aria-label="pagination navigation"
+    class="MuiPagination-root"
   >
-    <li>
-      <button
-        aria-label="Go to first page"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 PaginationItem PaginationItem--first MuiPaginationItem-root MuiPaginationItem-page Mui-disabled Mui-disabled Mui-disabled"
-        disabled=""
-        page="1"
-        shape="round"
-        tabindex="-1"
-        type="first"
-      >
-        <span
-          class="MuiIconButton-label"
+    <ul
+      class="MuiPagination-ul"
+    >
+      <li>
+        <button
+          aria-label="Go to first page"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 PaginationItem PaginationItem--first MuiPaginationItem-root MuiPaginationItem-page Mui-disabled Mui-disabled Mui-disabled"
+          disabled=""
+          page="1"
+          shape="round"
+          tabindex="-1"
+          type="first"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              style="font-size: 16px;"
+            />
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to previous page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="button"
         >
           <svg
-            style="font-size: 16px;"
-          />
-        </span>
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to previous page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
-        disabled=""
-        tabindex="-1"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+            />
+          </svg>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="true"
+          aria-label="page 1"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+          tabindex="0"
+          type="button"
         >
-          <path
-            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+          1
+          <span
+            class="MuiTouchRipple-root"
           />
-        </svg>
-      </button>
-    </li>
-    <li>
-      <button
-        aria-current="true"
-        aria-label="page 1"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
-        tabindex="0"
-        type="button"
-      >
-        1
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li />
-    <li />
-    <li />
-    <li />
-    <li>
-      <button
-        aria-label="Go to next page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-          />
-        </svg>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to last page"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 PaginationItem PaginationItem--last MuiPaginationItem-root MuiPaginationItem-page"
-        page="7"
-        shape="round"
-        tabindex="0"
-        type="last"
-      >
-        <span
-          class="MuiIconButton-label"
+        </button>
+      </li>
+      <li />
+      <li />
+      <li />
+      <li />
+      <li>
+        <button
+          aria-label="Go to next page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
         >
           <svg
-            style="font-size: 16px;"
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root"
           />
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-  </ul>
-</nav>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to last page"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 PaginationItem PaginationItem--last MuiPaginationItem-root MuiPaginationItem-page"
+          page="7"
+          shape="round"
+          tabindex="0"
+          type="last"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              style="font-size: 16px;"
+            />
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
 `;
 
 exports[`Pagination component renders with only prev and next buttons 1`] = `
-<nav
-  aria-label="pagination navigation"
-  class="MuiPagination-root"
->
-  <ul
-    class="MuiPagination-ul"
+<div>
+  <nav
+    aria-label="pagination navigation"
+    class="MuiPagination-root"
   >
-    <li>
-      <button
-        aria-label="Go to previous page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
-        disabled=""
-        tabindex="-1"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+    <ul
+      class="MuiPagination-ul"
+    >
+      <li>
+        <button
+          aria-label="Go to previous page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="button"
         >
-          <path
-            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-          />
-        </svg>
-      </button>
-    </li>
-    <li />
-    <li />
-    <li />
-    <li />
-    <li>
-      <button
-        aria-label="Go to next page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+            />
+          </svg>
+        </button>
+      </li>
+      <li />
+      <li />
+      <li />
+      <li />
+      <li>
+        <button
+          aria-label="Go to next page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
         >
-          <path
-            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root"
           />
-        </svg>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-  </ul>
-</nav>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
 `;
 
 exports[`Pagination component renders with only prev, next and current page button only 1`] = `
-<nav
-  aria-label="pagination navigation"
-  class="MuiPagination-root"
->
-  <ul
-    class="MuiPagination-ul"
+<div>
+  <nav
+    aria-label="pagination navigation"
+    class="MuiPagination-root"
   >
-    <li>
-      <button
-        aria-label="Go to previous page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+    <ul
+      class="MuiPagination-ul"
+    >
+      <li>
+        <button
+          aria-label="Go to previous page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
         >
-          <path
-            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root"
           />
-        </svg>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li />
-    <li />
-    <li>
-      <button
-        aria-current="true"
-        aria-label="page 4"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
-        tabindex="0"
-        type="button"
-      >
-        4
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li />
-    <li />
-    <li>
-      <button
-        aria-label="Go to next page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+        </button>
+      </li>
+      <li />
+      <li />
+      <li>
+        <button
+          aria-current="true"
+          aria-label="page 4"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+          tabindex="0"
+          type="button"
         >
-          <path
-            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          4
+          <span
+            class="MuiTouchRipple-root"
           />
-        </svg>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-  </ul>
-</nav>
+        </button>
+      </li>
+      <li />
+      <li />
+      <li>
+        <button
+          aria-label="Go to next page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
 `;
 
 exports[`Pagination component renders with page buttons, go-to-first, go-to-last double arrow buttons and ellipses with >= 10 pages 1`] = `
-<nav
-  aria-label="pagination navigation"
-  class="MuiPagination-root"
->
-  <ul
-    class="MuiPagination-ul"
+<div>
+  <nav
+    aria-label="pagination navigation"
+    class="MuiPagination-root"
   >
-    <li>
-      <button
-        aria-label="Go to first page"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 PaginationItem PaginationItem--first MuiPaginationItem-root MuiPaginationItem-page Mui-disabled Mui-disabled Mui-disabled"
-        disabled=""
-        page="1"
-        shape="round"
-        tabindex="-1"
-        type="first"
-      >
-        <span
-          class="MuiIconButton-label"
+    <ul
+      class="MuiPagination-ul"
+    >
+      <li>
+        <button
+          aria-label="Go to first page"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 PaginationItem PaginationItem--first MuiPaginationItem-root MuiPaginationItem-page Mui-disabled Mui-disabled Mui-disabled"
+          disabled=""
+          page="1"
+          shape="round"
+          tabindex="-1"
+          type="first"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              style="font-size: 16px;"
+            />
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to previous page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+            />
+          </svg>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="true"
+          aria-label="page 1"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+          tabindex="0"
+          type="button"
+        >
+          1
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 2"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          2
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 3"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          3
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 4"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          4
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 5"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          5
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <div
+          class="PaginationItem MuiPaginationItem-root"
         >
           <svg
             style="font-size: 16px;"
           />
-        </span>
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to previous page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
-        disabled=""
-        tabindex="-1"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+        </div>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 10"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
         >
-          <path
-            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+          10
+          <span
+            class="MuiTouchRipple-root"
           />
-        </svg>
-      </button>
-    </li>
-    <li>
-      <button
-        aria-current="true"
-        aria-label="page 1"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
-        tabindex="0"
-        type="button"
-      >
-        1
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 2"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        2
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 3"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        3
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 4"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        4
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 5"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        5
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <div
-        class="PaginationItem MuiPaginationItem-root"
-      >
-        <svg
-          style="font-size: 16px;"
-        />
-      </div>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 10"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        10
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to next page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-          />
-        </svg>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to last page"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 PaginationItem PaginationItem--last MuiPaginationItem-root MuiPaginationItem-page"
-        page="10"
-        shape="round"
-        tabindex="0"
-        type="last"
-      >
-        <span
-          class="MuiIconButton-label"
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to next page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
         >
           <svg
-            style="font-size: 16px;"
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root"
           />
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-  </ul>
-</nav>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to last page"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 PaginationItem PaginationItem--last MuiPaginationItem-root MuiPaginationItem-page"
+          page="10"
+          shape="round"
+          tabindex="0"
+          type="last"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              style="font-size: 16px;"
+            />
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
 `;
 
 exports[`Pagination component renders without first and last page buttons 1`] = `
-<nav
-  aria-label="pagination navigation"
-  class="MuiPagination-root"
->
-  <ul
-    class="MuiPagination-ul"
+<div>
+  <nav
+    aria-label="pagination navigation"
+    class="MuiPagination-root"
   >
-    <li>
-      <button
-        aria-label="Go to previous page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+    <ul
+      class="MuiPagination-ul"
+    >
+      <li>
+        <button
+          aria-label="Go to previous page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
         >
-          <path
-            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root"
           />
-        </svg>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 1"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        1
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 2"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        2
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 3"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        3
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-current="true"
-        aria-label="page 4"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
-        tabindex="0"
-        type="button"
-      >
-        4
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 5"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        5
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to next page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 1"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
         >
-          <path
-            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          1
+          <span
+            class="MuiTouchRipple-root"
           />
-        </svg>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-  </ul>
-</nav>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 2"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          2
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 3"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          3
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="true"
+          aria-label="page 4"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+          tabindex="0"
+          type="button"
+        >
+          4
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 5"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          5
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to next page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
 `;
 
 exports[`Pagination component renders without go-to-first, go-to-last double arrow buttons with less than 10 pages 1`] = `
-<nav
-  aria-label="pagination navigation"
-  class="MuiPagination-root"
->
-  <ul
-    class="MuiPagination-ul"
+<div>
+  <nav
+    aria-label="pagination navigation"
+    class="MuiPagination-root"
   >
-    <li>
-      <button
-        aria-label="Go to previous page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
-        disabled=""
-        tabindex="-1"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+    <ul
+      class="MuiPagination-ul"
+    >
+      <li>
+        <button
+          aria-label="Go to previous page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="button"
         >
-          <path
-            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-          />
-        </svg>
-      </button>
-    </li>
-    <li>
-      <button
-        aria-current="true"
-        aria-label="page 1"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
-        tabindex="0"
-        type="button"
-      >
-        1
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 2"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        2
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 3"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        3
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 4"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        4
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 5"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        5
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 6"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        6
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 7"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        7
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 8"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        8
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to page 9"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        9
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="Go to next page"
-        class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
-        tabindex="0"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiPaginationItem-icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+            />
+          </svg>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="true"
+          aria-label="page 1"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+          tabindex="0"
+          type="button"
         >
-          <path
-            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          1
+          <span
+            class="MuiTouchRipple-root"
           />
-        </svg>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </li>
-  </ul>
-</nav>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 2"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          2
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 3"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          3
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 4"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          4
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 5"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          5
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 6"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          6
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 7"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          7
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 8"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          8
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to page 9"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          9
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label="Go to next page"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiPaginationItem-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
 `;
