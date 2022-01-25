@@ -1,20 +1,16 @@
 import mockConsole from "jest-mock-console";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import {
-  mockRequest,
-  mockResponse,
-  mockResponses
-} from "../../../../../../libraries/fetch-mocks/src/index";
+import { mockRequest, mockResponse, mockResponses } from "@bmi/fetch-mocks";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
-const getProducts = jest.fn();
-const getSystems = jest.fn();
-jest.mock("../pim", () => ({
-  getProducts: () => getProducts(),
-  getSystems: () => getSystems()
+const getProductsByMessageId = jest.fn();
+const getSystemsByMessageId = jest.fn();
+jest.mock("@bmi/pim-api", () => ({
+  getProductsByMessageId: () => getProductsByMessageId(),
+  getSystemsByMessageId: () => getSystemsByMessageId()
 }));
 
 const pubsubTopicPublisher = jest.fn();
@@ -63,8 +59,8 @@ describe("handleMessage", () => {
 
     await handleRequest(req, res);
 
-    expect(getProducts).toHaveBeenCalledTimes(0);
-    expect(getSystems).toHaveBeenCalledTimes(0);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toHaveBeenCalledWith(500);
@@ -86,8 +82,8 @@ describe("handleMessage", () => {
 
     await handleRequest(req, res);
 
-    expect(getProducts).toHaveBeenCalledTimes(0);
-    expect(getSystems).toHaveBeenCalledTimes(0);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveBeenCalledTimes(0);
     expect(res.sendStatus).toHaveBeenCalledWith(500);
@@ -101,8 +97,8 @@ describe("handleMessage", () => {
 
     await handleRequest(req, res);
 
-    expect(getProducts).toHaveBeenCalledTimes(0);
-    expect(getSystems).toHaveBeenCalledTimes(0);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveBeenCalledTimes(0);
     expect(res.status).toHaveBeenCalledWith(404);
@@ -124,8 +120,8 @@ describe("handleMessage", () => {
     expect(console.error).toHaveBeenCalledWith(
       new Error("[PIM] Unrecognised itemType [TEST]")
     );
-    expect(getProducts).toHaveBeenCalledTimes(0);
-    expect(getSystems).toHaveBeenCalledTimes(0);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveBeenCalledTimes(0);
     expect(res.status).toHaveBeenCalledWith(200);
@@ -147,8 +143,8 @@ describe("handleMessage", () => {
     expect(console.error).toHaveBeenCalledWith(
       new Error("[PIM] Undercognised message type [TEST]")
     );
-    expect(getProducts).toHaveBeenCalledTimes(0);
-    expect(getSystems).toHaveBeenCalledTimes(0);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveBeenCalledTimes(0);
     expect(res.status).toHaveBeenCalledWith(200);
@@ -163,7 +159,7 @@ describe("handleMessage", () => {
       })
     });
     const res = mockResponse();
-    getProducts
+    getProductsByMessageId
       .mockResolvedValueOnce({
         totalPageCount: 2,
         products: [{ name: "Test Product 1" }]
@@ -188,8 +184,8 @@ describe("handleMessage", () => {
 
     await handleRequest(req, res);
 
-    expect(getProducts).toHaveBeenCalledTimes(2);
-    expect(getSystems).toHaveBeenCalledTimes(0);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith(
       Buffer.from(
@@ -239,14 +235,14 @@ describe("handleMessage", () => {
       })
     });
     const res = mockResponse();
-    getProducts.mockResolvedValueOnce({
+    getProductsByMessageId.mockResolvedValueOnce({
       totalPageCount: 1
     });
 
     await handleRequest(req, res);
 
-    expect(getProducts).toHaveBeenCalledTimes(1);
-    expect(getSystems).toHaveBeenCalledTimes(0);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(1);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.status).toHaveBeenCalledWith(200);
@@ -261,7 +257,7 @@ describe("handleMessage", () => {
       })
     });
     const res = mockResponse();
-    getProducts
+    getProductsByMessageId
       .mockResolvedValueOnce({
         totalPageCount: 2,
         products: [{ name: "Test Product 1" }]
@@ -286,8 +282,8 @@ describe("handleMessage", () => {
 
     await handleRequest(req, res);
 
-    expect(getProducts).toHaveBeenCalledTimes(2);
-    expect(getSystems).toHaveBeenCalledTimes(0);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith(
       Buffer.from(
@@ -337,14 +333,14 @@ describe("handleMessage", () => {
       })
     });
     const res = mockResponse();
-    getProducts.mockResolvedValueOnce({
+    getProductsByMessageId.mockResolvedValueOnce({
       totalPageCount: 1
     });
 
     await handleRequest(req, res);
 
-    expect(getProducts).toHaveBeenCalledTimes(1);
-    expect(getSystems).toHaveBeenCalledTimes(0);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(1);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.status).toHaveBeenCalledWith(200);
@@ -359,7 +355,7 @@ describe("handleMessage", () => {
       })
     });
     const res = mockResponse();
-    getSystems
+    getSystemsByMessageId
       .mockResolvedValueOnce({
         totalPageCount: 2,
         systems: [{ name: "Test System 1" }]
@@ -384,8 +380,8 @@ describe("handleMessage", () => {
 
     await handleRequest(req, res);
 
-    expect(getProducts).toHaveBeenCalledTimes(0);
-    expect(getSystems).toHaveBeenCalledTimes(2);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith(
       Buffer.from(
@@ -435,14 +431,14 @@ describe("handleMessage", () => {
       })
     });
     const res = mockResponse();
-    getSystems.mockResolvedValueOnce({
+    getSystemsByMessageId.mockResolvedValueOnce({
       totalPageCount: 1
     });
 
     await handleRequest(req, res);
 
-    expect(getProducts).toHaveBeenCalledTimes(0);
-    expect(getSystems).toHaveBeenCalledTimes(1);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(1);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.status).toHaveBeenCalledWith(200);
@@ -457,7 +453,7 @@ describe("handleMessage", () => {
       })
     });
     const res = mockResponse();
-    getSystems
+    getSystemsByMessageId
       .mockResolvedValueOnce({
         totalPageCount: 2,
         systems: [{ name: "Test System 1" }]
@@ -482,8 +478,8 @@ describe("handleMessage", () => {
 
     await handleRequest(req, res);
 
-    expect(getProducts).toHaveBeenCalledTimes(0);
-    expect(getSystems).toHaveBeenCalledTimes(2);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith(
       Buffer.from(
@@ -533,14 +529,14 @@ describe("handleMessage", () => {
       })
     });
     const res = mockResponse();
-    getSystems.mockResolvedValueOnce({
+    getSystemsByMessageId.mockResolvedValueOnce({
       totalPageCount: 1
     });
 
     await handleRequest(req, res);
 
-    expect(getProducts).toHaveBeenCalledTimes(0);
-    expect(getSystems).toHaveBeenCalledTimes(1);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(1);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.status).toHaveBeenCalledWith(200);
@@ -555,7 +551,7 @@ describe("handleMessage", () => {
       })
     });
     const res = mockResponse();
-    getProducts
+    getProductsByMessageId
       .mockResolvedValueOnce({
         totalPageCount: 2,
         products: [{ name: "Test Product 1" }]
@@ -581,8 +577,8 @@ describe("handleMessage", () => {
 
     await handleRequest(req, res);
 
-    expect(getProducts).toHaveBeenCalledTimes(2);
-    expect(getSystems).toHaveBeenCalledTimes(0);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith(
       Buffer.from(
@@ -632,7 +628,7 @@ describe("handleMessage", () => {
       })
     });
     const res = mockResponse();
-    getProducts
+    getProductsByMessageId
       .mockResolvedValueOnce({
         totalPageCount: 2,
         products: [{ name: "Test Product 1" }]
@@ -650,8 +646,8 @@ describe("handleMessage", () => {
 
     await handleRequest(req, res);
 
-    expect(getProducts).toHaveBeenCalledTimes(2);
-    expect(getSystems).toHaveBeenCalledTimes(0);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith(
       Buffer.from(
@@ -693,7 +689,7 @@ describe("handleMessage", () => {
       })
     });
     const res = mockResponse();
-    getProducts
+    getProductsByMessageId
       .mockResolvedValueOnce({
         totalPageCount: 2,
         products: [{ name: "Test Product 1" }]
@@ -720,8 +716,8 @@ describe("handleMessage", () => {
 
     await handleRequest(req, res);
 
-    expect(getProducts).toHaveBeenCalledTimes(2);
-    expect(getSystems).toHaveBeenCalledTimes(0);
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith(
       Buffer.from(

@@ -1,12 +1,8 @@
 import { PubSub, Topic } from "@google-cloud/pubsub";
 import { Request, Response } from "express";
-import { error, info } from "./logger";
-import {
-  fetchData,
-  PimTypes,
-  ProductsApiResponse,
-  SystemsApiResponse
-} from "./pim";
+import { error, info } from "@bmi/functions-logger";
+import { fetchData, PimTypes } from "@bmi/pim-api";
+import { ProductsApiResponse, SystemsApiResponse } from "@bmi/pim-types";
 import { FullFetchRequest } from "./types";
 
 const { TRANSITIONAL_TOPIC_NAME, GCP_PROJECT_ID } = process.env;

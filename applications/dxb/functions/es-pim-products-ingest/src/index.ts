@@ -1,7 +1,7 @@
+import { getEsClient } from "@bmi/functions-es-client";
+import { Product as PIMProduct, System } from "@bmi/pim-types";
 import { updateElasticSearch } from "./elasticsearch";
-import { getEsClient } from "./es-client";
 import { ProductVariant } from "./es-model";
-import { Product as PIMProduct, System } from "./pim";
 import { transformProduct } from "./transformProducts";
 import { EsSystem, transformSystem } from "./transformSystems";
 import { MessageFunction, ProductMessage, SystemMessage } from "./types";

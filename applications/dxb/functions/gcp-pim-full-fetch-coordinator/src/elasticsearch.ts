@@ -1,5 +1,5 @@
-import { getEsClient } from "./es-client";
-import { debug, info } from "./logger";
+import { debug, info } from "@bmi/functions-logger";
+import { getEsClient } from "@bmi/functions-es-client";
 
 const { ES_INDEX_PREFIX } = process.env;
 

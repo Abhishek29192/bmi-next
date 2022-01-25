@@ -1,5 +1,5 @@
+import { createImage } from "@bmi/pim-types";
 import { EsSystem } from "../../transformSystems";
-import createImage from "./ImageHelper";
 
 export const createEsSystem = (esSystem?: Partial<EsSystem>): EsSystem => ({
   approvalStatus: "approved",

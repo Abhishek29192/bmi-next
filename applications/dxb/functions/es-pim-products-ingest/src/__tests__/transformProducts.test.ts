@@ -1,17 +1,17 @@
 import mockConsole from "jest-mock-console";
-import { ProductVariant } from "../es-model";
-import { Product } from "../pim";
 import {
+  Product,
   createAppearanceAttributesClassification,
   createFeature,
   createFeatureValue,
   createGeneralInformationClassification,
   createMeasurementsClassification,
-  createScoringWeightAttributesClassification
-} from "./helpers/ClassificationHelper";
-import createVariantOption from "./helpers/VariantOptionHelper";
-import createPimProduct from "./helpers/PimProductHelper";
-import createCategory from "./helpers/CategoryHelper";
+  createScoringWeightAttributesClassification,
+  createVariantOption,
+  createProduct as createPimProduct,
+  createCategory
+} from "@bmi/pim-types";
+import { ProductVariant } from "../es-model";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 

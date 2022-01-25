@@ -3,11 +3,7 @@ import type { HttpFunction } from "@google-cloud/functions-framework/build/src/f
 import { protos } from "@google-cloud/secret-manager";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
-import {
-  mockRequest,
-  mockResponse,
-  mockResponses
-} from "../../../../../../libraries/fetch-mocks/src/index";
+import { mockRequest, mockResponse, mockResponses } from "@bmi/fetch-mocks";
 import responses from "./responses.json";
 
 const fetchMock = fetchMockJest.sandbox();

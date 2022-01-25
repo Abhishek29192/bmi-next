@@ -7,7 +7,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "webpack --mode=production",
+    "check:ts": "tsc",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=optInEmailMarketing --port=9050"
   },
@@ -17,6 +18,7 @@
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
+    "@bmi/fetch-mocks": "0.0.0",
     "env-cmd": "^10.1.0",
     "js-yaml": "^4.0.0"
   }

@@ -1,7 +1,7 @@
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
 import { PubSub, Topic } from "@google-cloud/pubsub";
-import { getProducts, getSystems } from "./pim";
+import { getProductsByMessageId, getSystemsByMessageId } from "@bmi/pim-api";
 import { itemType as ItemType, messageType as MessageType } from "./types";
 
 const { TRANSITIONAL_TOPIC_NAME, GCP_PROJECT_ID, BUILD_TRIGGER_ENDPOINT } =
@@ -60,7 +60,11 @@ async function* getProductsFromMessage(messageId: string, messageData: any) {
   let currentPage = 0;
 
   while (currentPage < totalPageCount) {
-    const messageResponse = await getProducts(messageId, token, currentPage);
+    const messageResponse = await getProductsByMessageId(
+      messageId,
+      token,
+      currentPage
+    );
 
     // eslint-disable-next-line no-console
     console.log(
@@ -96,7 +100,11 @@ async function* getSystemsFromMessage(messageId: string, messageData: any) {
   let currentPage = 0;
 
   while (currentPage < totalPageCount) {
-    const messageResponse = await getSystems(messageId, token, currentPage);
+    const messageResponse = await getSystemsByMessageId(
+      messageId,
+      token,
+      currentPage
+    );
 
     // eslint-disable-next-line no-console
     console.log(

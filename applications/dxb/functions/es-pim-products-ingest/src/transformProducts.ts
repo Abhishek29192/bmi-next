@@ -5,7 +5,7 @@ import {
   Feature,
   Product as PIMProduct,
   VariantOption as PIMVariant
-} from "./pim";
+} from "@bmi/pim-types";
 import type { ProductVariant as ESProduct } from "./es-model";
 import {
   findProductBrandLogoCode,

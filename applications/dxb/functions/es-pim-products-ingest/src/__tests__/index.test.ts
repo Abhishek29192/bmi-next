@@ -1,13 +1,16 @@
 import { RequestParams } from "@elastic/elasticsearch";
 import mockConsole from "jest-mock-console";
+import {
+  Product,
+  System,
+  createProduct as createPimProduct,
+  createSystem
+} from "@bmi/pim-types";
 import { ProductVariant } from "../es-model";
-import { Product, System } from "../pim";
 import { ProductMessage, SystemMessage } from "../types";
 import { EsSystem } from "../transformSystems";
 import createProductVariant from "./helpers/ProductVariantHelper";
-import createPimProduct from "./helpers/PimProductHelper";
 import { createEsSystem } from "./helpers/EsSystemHelper";
-import createSystem from "./helpers/SystemHelper";
 
 const { ES_INDEX_PREFIX } = process.env;
 
@@ -29,7 +32,7 @@ const getEsClient = jest.fn();
 const ping = jest.fn();
 const bulk = jest.fn();
 const count = jest.fn();
-jest.mock("../es-client", () => {
+jest.mock("@bmi/functions-es-client", () => {
   return { getEsClient: (...args: any[]) => getEsClient(...args) };
 });
 

@@ -4,7 +4,8 @@
   "license": "BMI-DXB",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "webpack --mode=production",
+    "check:ts": "tsc",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=build --port=9057"
   },

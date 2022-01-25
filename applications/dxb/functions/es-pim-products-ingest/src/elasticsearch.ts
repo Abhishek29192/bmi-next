@@ -1,39 +1,9 @@
-import { ResponseError } from "@elastic/elasticsearch/lib/errors";
-import { getEsClient } from "./es-client";
+import { getEsClient, BulkApiResponse } from "@bmi/functions-es-client";
 import { Operation, ProductVariant } from "./es-model";
 import { EsSystem } from "./transformSystems";
 import { DeleteOperation, IndexOperation } from "./types";
 
 const { ES_INDEX_PREFIX, BATCH_SIZE = "300" } = process.env;
-
-type BulkApiResponseAction = {
-  _index: string;
-  _type: string;
-  _id: string;
-  _version: number;
-  result: string;
-  _shards: {
-    total: number;
-    successful: number;
-    failed: number;
-  };
-  status: number;
-  _seq_no: number;
-  _primary_term: number;
-  error?: ResponseError;
-};
-
-type BulkApiResponseItem = {
-  index?: BulkApiResponseAction;
-  delete?: BulkApiResponseAction;
-};
-
-type BulkApiResponse = {
-  body: {
-    errors: boolean;
-    items: BulkApiResponseItem[];
-  };
-};
 
 const getChunks = <T extends ProductVariant | EsSystem>(
   items: readonly T[]

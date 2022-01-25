@@ -1,0 +1,18 @@
+{
+  "name": "@bmi/pim-api",
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "private": true,
+  "main": "./src/index",
+  "scripts": {
+    "check:ts": "tsc"
+  },
+  "dependencies": {
+    "@bmi/pim-types": "0.0.0",
+    "@google-cloud/secret-manager": "^3.7.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@bmi/fetch-mocks": "0.0.0"
+  }
+}

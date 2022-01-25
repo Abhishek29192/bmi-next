@@ -4,7 +4,7 @@ import mockConsole from "jest-mock-console";
 import fetchMockJest from "fetch-mock-jest";
 import { Request } from "express";
 
-import { mockResponse } from "../../../../../../libraries/fetch-mocks/src/index";
+import { mockResponse } from "@bmi/fetch-mocks";
 import { youtubeCache } from "../index";
 import { getById, saveById, getYoutubeDetails } from "../db";
 import { getSecrets } from "../config";

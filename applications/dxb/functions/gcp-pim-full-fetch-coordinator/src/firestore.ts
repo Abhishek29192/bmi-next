@@ -1,6 +1,6 @@
 import admin from "firebase-admin";
 import { DocumentData, Firestore, Query } from "@google-cloud/firestore";
-import { info } from "./logger";
+import { info } from "@bmi/functions-logger";
 
 export enum FirestoreCollections {
   Categories = "root/categories",

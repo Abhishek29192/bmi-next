@@ -7,7 +7,7 @@ import {
 
 const getEsClient = jest.fn();
 const esDelete = jest.fn();
-jest.mock("../es-client", () => {
+jest.mock("@bmi/functions-es-client", () => {
   return { getEsClient: (...args: any[]) => getEsClient(...args) };
 });
 
