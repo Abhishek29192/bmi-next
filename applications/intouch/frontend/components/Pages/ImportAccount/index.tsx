@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { get } from "lodash";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import Typography from "@bmi/typography";
@@ -98,9 +97,9 @@ const ImportAccount = () => {
           </Form.ButtonWrapper>
         </Form>
       </Grid>
-      {importResult?.title ? (
+      {importResult.title ? (
         <Grid className={styles.importContent} xs={12} spacing={3} container>
-          {importResult?.title && (
+          {importResult.title && (
             <div className={styles.alert}>
               <AlertBanner severity={importResult?.severity}>
                 <AlertBanner.Title>{t(importResult?.title)}</AlertBanner.Title>
@@ -108,13 +107,13 @@ const ImportAccount = () => {
             </div>
           )}
 
-          {importResult?.companies?.length > 0 ? (
+          {importResult.companies?.length > 0 ? (
             <>
               <Typography variant="h3" hasUnderline>
                 {t(isDryRun ? "dryRunTitle" : "companiesImported")}
               </Typography>
               <div className={styles.list}>
-                {importResult?.companies.slice(0, 50)?.map((company, index) => (
+                {importResult.companies.slice(0, 50)?.map((company, index) => (
                   <Grid
                     key={`company-${index}`}
                     style={{ marginTop: 30 }}
@@ -229,10 +228,9 @@ const ImportAccount = () => {
                               "coordinates.y",
                               "coordinates.x"
                             ].map((field) => {
-                              return !get(
-                                company,
-                                `registeredAddress[${field}]`
-                              ) ? null : (
+                              return !company.registeredAddress[
+                                `${field}`
+                              ] ? null : (
                                 <div className={styles.field}>
                                   <Typography
                                     key={`${company?.name}-${field}`}
@@ -247,10 +245,7 @@ const ImportAccount = () => {
                                     key={`${company?.name}-${field}-value`}
                                     variant="body1"
                                   >
-                                    {get(
-                                      company,
-                                      `registeredAddress[${field}]`
-                                    )}
+                                    {company.registeredAddress[`${field}`]}
                                   </Typography>
                                 </div>
                               );
@@ -265,12 +260,12 @@ const ImportAccount = () => {
             </>
           ) : null}
 
-          {importResult?.accounts?.length > 0 ? (
+          {importResult.accounts?.length > 0 ? (
             <>
               <Typography key="accounts" variant="h5">
                 Accounts
               </Typography>
-              {importResult?.accounts.slice(0, 50).map((account, index) => (
+              {importResult.accounts.slice(0, 50).map((account, index) => (
                 <div key={`account-${index}`} className={styles.list}>
                   {[
                     "email",
@@ -307,14 +302,15 @@ const ImportAccount = () => {
             </>
           ) : null}
 
-          {importResult?.auth0Job ? (
+          {importResult.auth0Job &&
+          Object.keys(importResult.auth0Job).length ? (
             <>
               <Typography variant="h3" hasUnderline>
                 {t("auth0Job")}
               </Typography>
               <div className={styles.auth0Job}>
                 <Typography variant="body1" hasUnderline>
-                  {t("auth0JobText")} {importResult?.auth0Job?.id}
+                  {t("auth0JobText")} {importResult.auth0Job?.id}
                 </Typography>
               </div>
             </>

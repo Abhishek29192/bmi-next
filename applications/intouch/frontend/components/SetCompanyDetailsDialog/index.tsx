@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
-import { get } from "lodash";
 import Grid from "@bmi/grid";
 import Form from "@bmi/form";
 import Dialog from "@bmi/dialog";
@@ -93,7 +92,7 @@ export const SetCompanyDetailsDialog = ({
       name: fieldName,
       label: t(`company-page:edit_dialog.form.fields.${fieldName}`),
       // eslint-disable-next-line security/detect-object-injection
-      defaultValue: get(company, fieldName, ""),
+      defaultValue: (company && company[`${fieldName}`]) || "",
       fullWidth: true,
       fieldIsRequiredError: t("common:error_messages.required")
     }),

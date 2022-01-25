@@ -81,10 +81,16 @@ export const innerGetServerSideProps = async (
 
   if (now >= session.accessTokenExpiresAt * 1000) {
     try {
-      const newAccessToken = await auth0.getAccessToken(req, res, {
-        refresh: true
-      });
-      accessToken = newAccessToken?.accessToken;
+      const { accessToken: newAccessToken } = await auth0.getAccessToken(
+        req,
+        res,
+        {
+          refresh: true
+        }
+      );
+      if (newAccessToken) {
+        accessToken = newAccessToken;
+      }
     } catch (error) {
       return {
         redirect: {
@@ -164,24 +170,26 @@ export const innerGetServerSideProps = async (
   } catch (error) {
     const { networkError } = error;
 
-    logger.error("Generic error", networkError?.result?.message || error);
+    if (networkError) {
+      logger.error("Generic error", networkError?.result?.message || error);
 
-    if (networkError?.result) {
-      if (networkError?.result?.message === "Jwt issuer is not configured") {
-        return {
-          redirect: {
-            permanent: false,
-            destination: `/api/auth/logout`
-          }
-        };
-      } else {
-        if (resolvedUrl?.indexOf("/api-error") === -1) {
+      if (networkError?.result) {
+        if (networkError?.result?.message === "Jwt issuer is not configured") {
           return {
             redirect: {
               permanent: false,
-              destination: `/api-error?message=genericError`
+              destination: `/api/auth/logout`
             }
           };
+        } else {
+          if (resolvedUrl?.indexOf("/api-error") === -1) {
+            return {
+              redirect: {
+                permanent: false,
+                destination: `/api-error?message=genericError`
+              }
+            };
+          }
         }
       }
     }
