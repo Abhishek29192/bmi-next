@@ -1,6 +1,6 @@
 .ProductLeadBlock {
   :global {
-    .MuiBox-root {
+    [class*="MuiBox-root"] {
       padding: 0px;
     }
   }

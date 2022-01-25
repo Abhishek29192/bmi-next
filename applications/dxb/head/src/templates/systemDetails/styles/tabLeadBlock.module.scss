@@ -2,7 +2,7 @@
 
 .sdpTabLeadBlock {
   :global {
-    .MuiBox-root {
+    [class*="MuiBox-root"] {
       padding-top: 0;
     }
     [class*="Section-module"] {

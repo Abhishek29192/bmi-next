@@ -46,7 +46,8 @@ export const useAccordionStyles = makeStyles(
       backgroundColor: variables["color-white"],
       borderTop: "1px",
       borderTopStyle: "solid",
-      borderTopColor: variables["color-storm"]
+      borderTopColor: variables["color-storm"],
+      padding: "0px"
     },
     "no-inner-padding": {
       "& .MuiAccordionDetails-root": {
@@ -54,7 +55,10 @@ export const useAccordionStyles = makeStyles(
       }
     },
     summaryRoot: {
-      minHeight: "48px"
+      minHeight: "48px",
+      "&:nth-child(1)": {
+        minHeight: "48px"
+      }
     },
     summaryExpanded: {
       minHeight: "revert",
