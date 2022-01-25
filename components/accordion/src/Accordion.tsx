@@ -46,8 +46,7 @@ export const useAccordionStyles = makeStyles(
       backgroundColor: variables["color-white"],
       borderTop: "1px",
       borderTopStyle: "solid",
-      borderTopColor: variables["color-storm"],
-      padding: "0px"
+      borderTopColor: variables["color-storm"]
     },
     "no-inner-padding": {
       "& .MuiAccordionDetails-root": {
