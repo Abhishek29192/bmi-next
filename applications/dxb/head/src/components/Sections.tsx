@@ -20,7 +20,7 @@ import ImageGallerySection, {
 import PromoSection, { Data as PromoSectionData } from "./PromoSection";
 import ServiceLocatorSection, {
   Data as ServiceLocatorSectionData
-} from "./ServiceLocatorSection";
+} from "./service-locator-section/index";
 import SyndicateSection, {
   Data as SyndicateSectionData
 } from "./SyndicateSection";
