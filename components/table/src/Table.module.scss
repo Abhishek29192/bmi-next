@@ -5,34 +5,31 @@
 
   &--no-border {
     border: 0;
+    tbody tr td {
+      border-bottom: 0px;
+    }
   }
 
   &--row-even-color {
-    :global {
-      .MuiTableBody-root .MuiTableRow-root:nth-child(even) {
-        background-color: $color-pearl;
-      }
+    border-top: 1px solid $color-storm;
+    tbody tr:nth-child(even) {
+      background-color: $color-pearl;
     }
   }
 
   &--row-odd-color {
-    :global {
-      .MuiTableBody-root .MuiTableRow-root:nth-child(odd) {
-        background-color: $color-pearl;
-      }
+    border-top: none;
+    tbody tr:nth-child(odd) {
+      background-color: $color-pearl;
     }
   }
 
   &--row-no-color {
-    :global {
-      .MuiTableBody-root {
-        .MuiTableRow-root {
-          border-top: 1px solid $color-storm;
+    tbody tr {
+      border-top: 1px solid $color-storm;
 
-          &:first-child {
-            border-top: none;
-          }
-        }
+      &:first-child {
+        border-top: none;
       }
     }
   }
