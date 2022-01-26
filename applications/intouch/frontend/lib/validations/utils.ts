@@ -1,4 +1,3 @@
-import { get } from "lodash";
 import validator from "validator";
 import { ValidationResult } from "@bmi/form";
 
@@ -11,9 +10,15 @@ export const validateObject = (
   object: { [key: string]: any },
   mandatoryFields: string[]
 ): ValidateObjectResult => {
-  const missingFields = mandatoryFields.filter(
-    (mandatoryField) => !get(object, mandatoryField)
-  );
+  const getNestedValue = (object, keyString) => {
+    const keys = keyString.split(".");
+    return keys.length <= 1
+      ? object[`${keys}`]
+      : getNestedValue(object[`${keys[0]}`], keys[1]);
+  };
+  const missingFields = mandatoryFields.filter((mandatoryField) => {
+    return !getNestedValue(object, mandatoryField);
+  });
   return {
     result: missingFields.length === 0,
     missingFields

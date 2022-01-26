@@ -1,5 +1,4 @@
 import React from "react";
-import { get } from "lodash";
 import { useTranslation } from "next-i18next";
 import { Guarantee } from "@bmi/intouch-api-types";
 import Form, { FormProps } from "@bmi/form";
@@ -28,10 +27,10 @@ export const getFieldProps = (t, fieldName: string) => ({
 
 export const getValue = (project, fieldName) => {
   if (["startDate", "endDate"].includes(fieldName)) {
-    return getDateOnlyString(get(project, fieldName));
+    return getDateOnlyString(project[`${fieldName}`]);
   }
 
-  return get(project, fieldName);
+  return project[`${fieldName}`];
 };
 
 // If there is a guarantee present, cannot edit these fields
