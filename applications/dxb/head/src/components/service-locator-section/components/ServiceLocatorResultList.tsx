@@ -6,6 +6,7 @@ import Logo, {
 } from "@bmi/logo";
 import CompanyDetails from "@bmi/company-details";
 import Typography from "@bmi/typography";
+import { SVGImport } from "@bmi/svg-import";
 import React from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
