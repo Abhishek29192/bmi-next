@@ -11,12 +11,12 @@ exports[`Upload component render correctly with error 1`] = `
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-302 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-314 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-305"
+            class="MuiButton-label buttonStyles-label-317"
           >
             <svg
               aria-hidden="true"
@@ -69,7 +69,7 @@ exports[`Upload component render correctly with error 1`] = `
         </div>
         <button
           aria-label="Remove file"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-313 iconButtonStyles-medium-319 iconButtonStyles-text-315 delete-icon"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-325 iconButtonStyles-medium-331 iconButtonStyles-text-327 delete-icon"
           data-testid="file-delete"
           tabindex="0"
           type="button"
@@ -109,12 +109,12 @@ exports[`Upload component render correctly with error 2`] = `
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-302 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-314 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-305"
+            class="MuiButton-label buttonStyles-label-317"
           >
             <svg
               aria-hidden="true"
@@ -157,12 +157,12 @@ exports[`Upload component render correctly with value 1`] = `
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-282 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-294 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-285"
+            class="MuiButton-label buttonStyles-label-297"
           >
             <svg
               aria-hidden="true"
@@ -215,7 +215,7 @@ exports[`Upload component render correctly with value 1`] = `
         </div>
         <button
           aria-label="Remove file"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-293 iconButtonStyles-medium-299 iconButtonStyles-text-295 delete-icon"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-305 iconButtonStyles-medium-311 iconButtonStyles-text-307 delete-icon"
           data-testid="file-delete"
           tabindex="0"
           type="button"
@@ -264,7 +264,7 @@ exports[`Upload component render correctly with value 1`] = `
         </div>
         <button
           aria-label="Remove file"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-293 iconButtonStyles-medium-299 iconButtonStyles-text-295 delete-icon"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-305 iconButtonStyles-medium-311 iconButtonStyles-text-307 delete-icon"
           data-testid="file-delete"
           tabindex="0"
           type="button"
@@ -352,12 +352,12 @@ exports[`Upload component renders correctly on mobile 1`] = `
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-242 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-254 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-245"
+            class="MuiButton-label buttonStyles-label-257"
           >
             <svg
               aria-hidden="true"
