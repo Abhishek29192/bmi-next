@@ -50,12 +50,12 @@
     .MuiAccordionSummary-root.Mui-disabled {
       opacity: 1;
 
-      .MuiAccordionSummary-expandIcon {
+      [class*="MuiAccordionSummary-expandIcon"] {
         display: none;
       }
     }
 
-    .MuiAccordionDetails-root {
+    [class*="MuiAccordionDetails-root"] {
       flex-flow: column;
     }
   }

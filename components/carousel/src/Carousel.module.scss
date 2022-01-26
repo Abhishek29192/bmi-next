@@ -15,7 +15,7 @@ body {
     }
 
     :global {
-      .react-swipeable-view-container {
+      [class*="react-swipeable-view-container"] {
         height: 100%;
       }
     }

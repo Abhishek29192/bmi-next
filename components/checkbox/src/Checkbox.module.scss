@@ -5,7 +5,7 @@
     [class*="MuiCheckbox-colorPrimary"] {
       color: $color-theme-inter;
 
-      &.Mui-disabled {
+      & [class*="Mui-disabled"] {
         color: rgba($color-theme-inter-rgb, 0.25);
       }
     }
