@@ -133,6 +133,142 @@ exports[`Hero component Hero component with keyline renders level 0 with keyline
 </div>
 `;
 
+exports[`Hero component Hero component with keyline renders level 1 with keyline for brand  1`] = `
+<div>
+  <div
+    class="Hero Hero--keyline Hero--light Hero--slim Hero--lvl-3"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root container MuiContainer-maxWidthXl"
+      >
+        <div
+          class="wrapper"
+        >
+          <div
+            class="content"
+          >
+            <h1
+              class="MuiTypography-root title title--truncated Typography Typography--underline MuiTypography-h1"
+            >
+              H1 Heading
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Hero component Hero component with keyline renders level 1 with keyline for brand if brand 1`] = `
+<div>
+  <div
+    class="Hero Hero--keyline Hero--light Hero--slim Hero--lvl-3"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root container MuiContainer-maxWidthXl"
+      >
+        <div
+          class="wrapper"
+        >
+          <div
+            class="content"
+          >
+            <h1
+              class="MuiTypography-root title title--truncated Typography Typography--underline MuiTypography-h1"
+            >
+              H1 Heading
+            </h1>
+            <div
+              class="text"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
+            </div>
+          </div>
+          <div
+            class="SlideControls SlideControls--light controls"
+          >
+            <span
+              class="middle-container"
+            >
+              <span
+                class="sliding-slot"
+              >
+                <span
+                  class="numbers"
+                >
+                  <span
+                    class="number number--active"
+                  >
+                    01
+                  </span>
+                </span>
+              </span>
+              <span
+                class="total"
+              >
+                01
+              </span>
+            </span>
+          </div>
+          <div
+            class="children"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="image-carousel"
+    >
+      <div
+        class="wrapper"
+      >
+        <div
+          class="Carousel Carousel--swipable"
+          data-testid="carousel"
+        >
+          <div
+            style="overflow-x: hidden;"
+          >
+            <div
+              class="react-swipeable-view-container"
+              style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+            >
+              <div
+                aria-hidden="false"
+                class="Carousel__slide--global"
+                data-swipeable="true"
+                style="width: 100%; flex-shrink: 0; overflow: auto;"
+              >
+                <div
+                  class="page"
+                >
+                  <div
+                    class="slide"
+                    style="width: 100%;"
+                  >
+                    <div
+                      class="image"
+                      style="background-image: url(path-to-image);"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Hero component Hero component with keyline renders level 1 with keyline  1`] = `
 <div>
   <div
@@ -413,10 +549,19 @@ exports[`Hero component renders level 2 1`] = `
             >
               H1 Heading
             </h1>
+            <div
+              class="text"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div
+      class="image"
+      style="background-image: url(path-to-image);"
+    />
   </div>
 </div>
 `;

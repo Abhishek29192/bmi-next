@@ -7,6 +7,7 @@ import FormSection, { Data, FormInputs, InputWidthType } from "../FormSection";
 import { DataTypeEnum } from "../Link";
 import { SiteContextProvider } from "../Site";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
+import { ConfigProviderMock } from "./utils/ConfigProviderMock";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -143,7 +144,6 @@ jest.mock("react-google-recaptcha-v3", () => ({
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT = "GATSBY_GCP_FORM_SUBMIT_ENDPOINT";
 const onSuccess = jest.fn();
 jest.spyOn(Gatsby, "navigate").mockImplementation();
 axios.CancelToken.source = jest.fn().mockReturnValue({
@@ -153,7 +153,6 @@ axios.CancelToken.source = jest.fn().mockReturnValue({
 
 afterEach(() => {
   jest.restoreAllMocks();
-  delete process.env.GATSBY_PREVIEW;
 });
 
 describe("FormSection component", () => {
@@ -302,10 +301,11 @@ describe("FormSection component", () => {
   });
 
   it("test submit when preview is on", () => {
-    process.env.GATSBY_PREVIEW = "GATSBY_PREVIEW";
     jest.spyOn(window, "alert").mockImplementation();
     const { container } = render(
-      <FormSection data={data} backgroundColor="white" />
+      <ConfigProviderMock customConfig={{ isPreviewMode: "GATSBY_PREVIEW" }}>
+        <FormSection data={data} backgroundColor="white" />
+      </ConfigProviderMock>
     );
     fireEvent.submit(container.querySelector("form"));
     expect(window.alert).toHaveBeenCalledWith(
@@ -326,13 +326,19 @@ describe("FormSection component", () => {
     };
     jest.spyOn(Gatsby, "navigate").mockImplementation();
     const { container } = render(
-      <MockSiteContext>
-        <FormSection
-          data={specificData}
-          backgroundColor="white"
-          onSuccess={onSuccess}
-        />
-      </MockSiteContext>
+      <ConfigProviderMock
+        customConfig={{
+          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+        }}
+      >
+        <MockSiteContext>
+          <FormSection
+            data={specificData}
+            backgroundColor="white"
+            onSuccess={onSuccess}
+          />
+        </MockSiteContext>
+      </ConfigProviderMock>
     );
 
     const textInput = container.querySelector(`input[name="text"]`);
@@ -374,13 +380,19 @@ describe("FormSection component", () => {
     };
     jest.spyOn(Gatsby, "navigate").mockImplementation();
     const { container } = render(
-      <MockSiteContext>
-        <FormSection
-          data={specificData}
-          backgroundColor="white"
-          onSuccess={jest.fn()}
-        />
-      </MockSiteContext>
+      <ConfigProviderMock
+        customConfig={{
+          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+        }}
+      >
+        <MockSiteContext>
+          <FormSection
+            data={specificData}
+            backgroundColor="white"
+            onSuccess={jest.fn()}
+          />
+        </MockSiteContext>
+      </ConfigProviderMock>
     );
 
     const textInput = container.querySelector(`input[name="text"]`);

@@ -383,6 +383,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const isFeaturesArrayExist = features?.length > 0;
   const isKeyFeatureBlockVisible = isFeaturesArrayExist || featuresLink;
+  const isHeroKeyLine = Boolean(
+    convertStrToBool(brandProviderToggler) && brandLogo
+  );
   return (
     <Page
       brand={brandLogo}
@@ -404,7 +407,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
             breadcrumbsNode,
             heroLevel,
             brandLogo,
-            heroType
+            heroType,
+            {
+              isHeroKeyLine: isHeroKeyLine,
+              isSpotlightHeroKeyLine: isHeroKeyLine
+            }
           )}
           <Section backgroundColor="white">
             <LeadBlock>

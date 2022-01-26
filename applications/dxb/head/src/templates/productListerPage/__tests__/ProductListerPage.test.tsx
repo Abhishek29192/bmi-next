@@ -27,8 +27,8 @@ import {
 import { Data as SiteData } from "../../../components/Site";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import * as elasticSearch from "../../../utils/elasticSearch";
-import { ConfigProviderMock } from "./utils/ConfigProviderMock";
-import { IEnvConfig } from "../../contexts/ConfigProvider";
+import { ConfigProviderMock } from "../../../components/__tests__/utils/ConfigProviderMock";
+import { IEnvConfig } from "../../../contexts/ConfigProvider";
 
 window.alert = jest.fn();
 type Data = PageInfoData &
@@ -937,13 +937,13 @@ describe("ProductListerPage template", () => {
   });
 
   it("should prevent fetch products on GATSBY_PREVIEW", async () => {
-    process.env.GATSBY_PREVIEW = "GATSBY_PREVIEW";
     jest.spyOn(window, "alert").mockImplementation();
     const products = new Array(30).fill(productWithVariantAndBase);
     pageData.initialProducts = [...products];
     const { getByLabelText } = renderWithStylesAndLocationProvider(
       pageData,
-      pageContext
+      pageContext,
+      { isPreviewMode: "true" }
     );
     fireEvent.click(getByLabelText("Go to next page"));
 

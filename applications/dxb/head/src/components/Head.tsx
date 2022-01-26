@@ -75,7 +75,6 @@ export const Head = ({
 
   const isScriptOnetrustEnabled = Boolean(!isPreview && scriptOnetrust);
   const isScriptGAenabled = Boolean(!isPreview && scriptGA);
-  const enableTagManagerId = Boolean(!isPreview && googleTagManagerID);
   const enableHotjar = Boolean(!isPreview && scriptHotJar);
   const enableGOptimize = Boolean(!isPreview && scriptGOptLoad);
   const enableHubSpot = Boolean(!isPreview && hubSpotId);
@@ -135,6 +134,13 @@ export const Head = ({
 
       {isScriptOnetrustEnabled && (
         <script
+          type="text/javascript"
+          src={`https://cdn.cookielaw.org/consent/${scriptOnetrust}/OtAutoBlock.js`}
+        />
+      )}
+
+      {isScriptOnetrustEnabled && (
+        <script
           src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
           type="text/javascript"
           charSet="UTF-8"
@@ -142,22 +148,27 @@ export const Head = ({
         />
       )}
       {isScriptOnetrustEnabled && (
-        <script type="text/javascript">{`function OptanonWrapper() {}`}</script>
+        <script type="text/javascript" async>
+          {`function OptanonWrapper() {}`}
+        </script>
       )}
 
-      {enableTagManagerId && (
+      {enableGOptimize && (
         <style>{`.async-hide { opacity: 0 !important}`}</style>
       )}
 
-      {enableTagManagerId && (
-        <script>{`(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+      {enableGOptimize && (
+        <script
+          async
+        >{`(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
           h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
           (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
         })(window,document.documentElement,'async-hide','dataLayer',4000,
           {'${googleTagManagerID}':true});`}</script>
       )}
+
       {isScriptGAenabled && (
-        <script>
+        <script async>
           {`<!-- Global site tag (gtag.js) - Google Analytics -->
             window.dataLayer = window.dataLayer || []; 
             function gtag(){dataLayer.push(arguments);} 
@@ -173,16 +184,16 @@ export const Head = ({
       )}
 
       {enableHotjar && (
-        <script>
+        <script async>
           {`<!-- Hotjar Tracking Code for https://www.bmigroup.com/no -->
-              (function(h,o,t,j,a,r){
-                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                h._hjSettings={hjid:${scriptHotJar},hjsv:6};
-                a=o.getElementsByTagName('head')[0];
-                r=o.createElement('script');r.async=1;
-                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                a.appendChild(r);
-            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
+                (function(h,o,t,j,a,r){
+                  h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                  h._hjSettings={hjid:${scriptHotJar},hjsv:6};
+                  a=o.getElementsByTagName('head')[0];
+                  r=o.createElement('script');r.async=1;
+                  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                  a.appendChild(r);
+              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
         </script>
       )}
       {enableHotjar && (

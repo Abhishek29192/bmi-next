@@ -30,18 +30,15 @@ describe("Search Page Template", () => {
     productFilters: [filter]
   };
   const locationSpy = jest.spyOn(window, "location", "get");
-  const OLD_ENV = process.env;
 
   jest.setTimeout(10000);
 
   beforeEach(() => {
     jest.resetModules();
-    process.env = { ...OLD_ENV };
   });
 
   afterEach(() => {
     jest.clearAllMocks();
-    process.env = OLD_ENV;
   });
 
   it("render correctly", () => {
@@ -277,20 +274,21 @@ describe("Search Page Template", () => {
     jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(2);
     jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(1);
     const { container, getByText } = renderWithRouter(
-      <SearchPage
-        data={data}
-        pageContext={{
-          variantCodeToPathMap: null,
-          siteId: "siteId",
-          countryCode: "en",
-          categoryCode: "categoryCode",
-          pimClassificationCatalogueNamespace: "nameSpace"
-        }}
-      />
+      <ConfigProvider customConfig={{ isPreviewMode: "true" }}>
+        <SearchPage
+          data={data}
+          pageContext={{
+            variantCodeToPathMap: null,
+            siteId: "siteId",
+            countryCode: "en",
+            categoryCode: "categoryCode",
+            pimClassificationCatalogueNamespace: "nameSpace"
+          }}
+        />
+      </ConfigProvider>
     );
 
     const alertSpy = jest.spyOn(window, "alert");
-    process.env.GATSBY_PREVIEW = "true";
 
     await waitFor(() =>
       expect(getByText("MC: searchPage.helperText")).toBeTruthy()

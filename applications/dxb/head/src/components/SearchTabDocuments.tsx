@@ -22,8 +22,6 @@ import DocumentResultsFooter from "./DocumentResultsFooter";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
-const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
-  +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
 
 // Creates filters from aggregations
 // Requires contentful asset types for the localised labels

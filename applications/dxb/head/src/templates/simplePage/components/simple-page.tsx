@@ -27,16 +27,14 @@ import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../../../components/ShareWidgetSection";
 import { Data as LinkData } from "../../../components/Link";
-import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
-import { convertStrToBool } from "../utils/convertStrToBool";
-import { useConfig } from "../contexts/ConfigProvider";
-} from "../../../components/ShareWidgetSection";
+import { useConfig } from "../../../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../../../utils/breadcrumbUtils";
 import {
   generateHeroLevel,
   generateHeroProps
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
+import { convertStrToBool } from "../../../utils/convertStrToBool";
 
 export type Data = PageInfoData &
   PageData & {
@@ -118,6 +116,10 @@ const SimplePage = ({ data, pageContext }: Props) => {
     path: data.contentfulSimplePage.path
   };
 
+  const isHeroKeyLine = Boolean(
+    convertStrToBool(brandProviderToggler) && brandLogo
+  );
+
   return (
     <Page
       brand={brandLogo}
@@ -127,7 +129,9 @@ const SimplePage = ({ data, pageContext }: Props) => {
       variantCodeToPathMap={pageContext.variantCodeToPathMap}
       ogImageUrl={featuredMedia?.image?.file.url}
     >
-      {renderHero(heroProps, breadcrumbsNode, heroLevel, brandLogo, heroType)}
+      {renderHero(heroProps, breadcrumbsNode, heroLevel, brandLogo, heroType, {
+        isHeroKeyLine: isHeroKeyLine
+      })}
       <TableOfContent
         renderLink={(sectionId, title) => (
           <AnchorLink
