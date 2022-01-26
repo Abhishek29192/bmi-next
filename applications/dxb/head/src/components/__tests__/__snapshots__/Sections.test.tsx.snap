@@ -229,7 +229,7 @@ HTMLCollection [
                         role="region"
                       >
                         <div
-                          class="MuiAccordionDetails-root accordionStyles-details-3 accordionStyles-details-11"
+                          class="MuiAccordionDetails-root accordionStyles-details-3"
                         >
                           <div
                             class="RichText"
@@ -288,10 +288,10 @@ HTMLCollection [
                   class="Container"
                 >
                   <div
-                    class="MuiContainer-root tabStyles-ContainerRoot-12 MuiContainer-maxWidthXl"
+                    class="MuiContainer-root tabStyles-ContainerRoot-8 MuiContainer-maxWidthXl"
                   >
                     <div
-                      class="MuiTabs-root tabStyles-TabsRoot-13"
+                      class="MuiTabs-root tabStyles-TabsRoot-9"
                     >
                       <div
                         class="MuiTabs-scrollable"
@@ -309,7 +309,7 @@ HTMLCollection [
                           <button
                             aria-controls="tabpanel-hello"
                             aria-selected="true"
-                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 Mui-selected"
+                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-10 Mui-selected"
                             data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
                             id="tab-hello"
                             role="tab"
@@ -327,7 +327,7 @@ HTMLCollection [
                           </button>
                         </div>
                         <span
-                          class="PrivateTabIndicator-root-15 PrivateTabIndicator-colorPrimary-16 MuiTabs-indicator"
+                          class="PrivateTabIndicator-root-11 PrivateTabIndicator-colorPrimary-12 MuiTabs-indicator"
                           style="left: 0px; width: 0px;"
                         />
                       </div>
@@ -343,7 +343,7 @@ HTMLCollection [
                 role="tabpanel"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-19 TabPanelBox"
+                  class="MuiBox-root MuiBox-root-15 TabPanelBox"
                 >
                   <div
                     class="RichText"
@@ -529,7 +529,7 @@ HTMLCollection [
                     >
                       <a
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-outlined MuiButton-outlinedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-16 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card Label\\",\\"action\\":\\"contact-us\\"}"
                         data-testid="card-link"
                         href="/uk/contact-us"
@@ -537,10 +537,10 @@ HTMLCollection [
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-23"
+                          class="MuiButton-label buttonStyles-label-19"
                         >
                           <span
-                            class="MuiButton-startIcon buttonStyles-startIcon-24 MuiButton-iconSizeMedium"
+                            class="MuiButton-startIcon buttonStyles-startIcon-20 MuiButton-iconSizeMedium"
                           >
                             <svg
                               aria-hidden="true"
@@ -566,14 +566,14 @@ HTMLCollection [
             </div>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 link MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-16 MuiButton-contained buttonStyles-contained-18 link MuiButton-containedPrimary"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/contact-us\\",\\"label\\":\\"Contact us\\"}"
               href="/uk/contact-us"
               role="button"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-23"
+                class="MuiButton-label buttonStyles-label-19"
               >
                 Contact us
                 <span
@@ -700,13 +700,13 @@ HTMLCollection [
                     >
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-outlined MuiButton-outlinedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-16 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-23"
+                          class="MuiButton-label buttonStyles-label-19"
                         >
                           Go to page title
                         </span>
@@ -764,13 +764,13 @@ HTMLCollection [
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 MuiButton-containedPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-16 MuiButton-contained buttonStyles-contained-18 MuiButton-containedPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1 \\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                     href="link-to-page"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-23"
+                      class="MuiButton-label buttonStyles-label-19"
                     >
                       string
                     </span>
@@ -807,7 +807,7 @@ HTMLCollection [
                     </span>
                     <div
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-31 iconButtonStyles-medium-37 iconButtonStyles-contained-32 play-button"
+                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-27 iconButtonStyles-medium-33 iconButtonStyles-contained-28 play-button"
                       role="button"
                       tabindex="0"
                     >
@@ -1135,10 +1135,10 @@ HTMLCollection [
                     </div>
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-40 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-36 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-42 PrivateNotchedOutline-legendNotched-43"
+                        class="PrivateNotchedOutline-legendLabelled-38 PrivateNotchedOutline-legendNotched-39"
                       >
                         <span>
                           findARoofer.companyFieldLabel
@@ -1179,16 +1179,16 @@ HTMLCollection [
                 </div>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-16 MuiButton-text buttonStyles-text-17 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
                 disabled=""
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-23"
+                  class="MuiButton-label buttonStyles-label-19"
                 >
                   <span
-                    class="MuiButton-startIcon buttonStyles-startIcon-24 MuiButton-iconSizeMedium"
+                    class="MuiButton-startIcon buttonStyles-startIcon-20 MuiButton-iconSizeMedium"
                   >
                     <svg
                       aria-hidden="true"
@@ -1205,9 +1205,6 @@ HTMLCollection [
                 </span>
               </button>
             </div>
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-            />
           </div>
           <div
             class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -1219,10 +1216,10 @@ HTMLCollection [
                 class="Container"
               >
                 <div
-                  class="MuiContainer-root tabStyles-ContainerRoot-12 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root tabStyles-ContainerRoot-8 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-root tabStyles-TabsRoot-13"
+                    class="MuiTabs-root tabStyles-TabsRoot-9"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed"
@@ -1236,7 +1233,7 @@ HTMLCollection [
                         <button
                           aria-controls="tabpanel-list"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 Mui-selected MuiTab-fullWidth"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-10 Mui-selected MuiTab-fullWidth"
                           id="tab-list"
                           role="tab"
                           tabindex="0"
@@ -1254,7 +1251,7 @@ HTMLCollection [
                         <button
                           aria-controls="tabpanel-map"
                           aria-selected="false"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 MuiTab-fullWidth"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-10 MuiTab-fullWidth"
                           id="tab-map"
                           role="tab"
                           tabindex="-1"
@@ -1271,7 +1268,7 @@ HTMLCollection [
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-15 PrivateTabIndicator-colorPrimary-16 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-11 PrivateTabIndicator-colorPrimary-12 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -1287,7 +1284,7 @@ HTMLCollection [
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-44 TabPanelBox"
+                class="MuiBox-root MuiBox-root-40 TabPanelBox"
               >
                 <div
                   class="list"
@@ -1318,7 +1315,7 @@ HTMLCollection [
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-45 TabPanelBox"
+                class="MuiBox-root MuiBox-root-41 TabPanelBox"
               >
                 <div
                   class="map"
@@ -1442,10 +1439,10 @@ HTMLCollection [
                     </div>
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-40 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-36 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-42 PrivateNotchedOutline-legendNotched-43"
+                        class="PrivateNotchedOutline-legendLabelled-38 PrivateNotchedOutline-legendNotched-39"
                       >
                         <span>
                           findARoofer.companyFieldLabel
@@ -1486,16 +1483,16 @@ HTMLCollection [
                 </div>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-text buttonStyles-text-21 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-16 MuiButton-text buttonStyles-text-17 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
                 disabled=""
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-23"
+                  class="MuiButton-label buttonStyles-label-19"
                 >
                   <span
-                    class="MuiButton-startIcon buttonStyles-startIcon-24 MuiButton-iconSizeMedium"
+                    class="MuiButton-startIcon buttonStyles-startIcon-20 MuiButton-iconSizeMedium"
                   >
                     <svg
                       aria-hidden="true"
@@ -1568,10 +1565,10 @@ HTMLCollection [
                 class="Container"
               >
                 <div
-                  class="MuiContainer-root tabStyles-ContainerRoot-12 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root tabStyles-ContainerRoot-8 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-root tabStyles-TabsRoot-13"
+                    class="MuiTabs-root tabStyles-TabsRoot-9"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed"
@@ -1585,7 +1582,7 @@ HTMLCollection [
                         <button
                           aria-controls="tabpanel-list"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 Mui-selected MuiTab-fullWidth"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-10 Mui-selected MuiTab-fullWidth"
                           id="tab-list"
                           role="tab"
                           tabindex="0"
@@ -1603,7 +1600,7 @@ HTMLCollection [
                         <button
                           aria-controls="tabpanel-map"
                           aria-selected="false"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 MuiTab-fullWidth"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-10 MuiTab-fullWidth"
                           id="tab-map"
                           role="tab"
                           tabindex="-1"
@@ -1620,7 +1617,7 @@ HTMLCollection [
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-15 PrivateTabIndicator-colorPrimary-16 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-11 PrivateTabIndicator-colorPrimary-12 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -1636,7 +1633,7 @@ HTMLCollection [
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-46 TabPanelBox"
+                class="MuiBox-root MuiBox-root-42 TabPanelBox"
               >
                 <div
                   class="list"
@@ -1644,6 +1641,7 @@ HTMLCollection [
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                     data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                    data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="item"
@@ -1697,15 +1695,15 @@ HTMLCollection [
                                 >
                                   <a
                                     aria-disabled="false"
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 cta-button MuiButton-containedPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
+                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-16 MuiButton-contained buttonStyles-contained-18 cta-button MuiButton-containedPrimary"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
                                     href="https://www.google.com/maps/dir//address%201/"
                                     rel="noopener noreferrer"
                                     tabindex="0"
                                     target="_blank"
                                   >
                                     <span
-                                      class="MuiButton-label buttonStyles-label-23"
+                                      class="MuiButton-label buttonStyles-label-19"
                                     >
                                       findARoofer.getDirectionsLabel
                                     </span>
@@ -1741,7 +1739,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"tel:phone 1\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof\\",\\"action\\":\\"tel:phone 1\\"}"
                                       href="tel:phone 1"
                                     >
                                       <span>
@@ -1777,7 +1775,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"mailto:test@test.com\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof\\",\\"action\\":\\"mailto:test@test.com\\"}"
                                       href="mailto:test@test.com"
                                     >
                                       <span>
@@ -1813,7 +1811,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"www.test.com\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof\\",\\"action\\":\\"www.test.com\\"}"
                                       href="www.test.com"
                                     >
                                       <span>
@@ -1877,6 +1875,7 @@ HTMLCollection [
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                     data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                    data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="item"
@@ -1930,15 +1929,15 @@ HTMLCollection [
                                 >
                                   <a
                                     aria-disabled="false"
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 cta-button MuiButton-containedPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
+                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-16 MuiButton-contained buttonStyles-contained-18 cta-button MuiButton-containedPrimary"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
                                     href="https://www.google.com/maps/dir//address%201/"
                                     rel="noopener noreferrer"
                                     tabindex="0"
                                     target="_blank"
                                   >
                                     <span
-                                      class="MuiButton-label buttonStyles-label-23"
+                                      class="MuiButton-label buttonStyles-label-19"
                                     >
                                       findARoofer.getDirectionsLabel
                                     </span>
@@ -1974,7 +1973,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"tel:phone 1\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof\\",\\"action\\":\\"tel:phone 1\\"}"
                                       href="tel:phone 1"
                                     >
                                       <span>
@@ -2010,7 +2009,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"mailto:test@test.com\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof\\",\\"action\\":\\"mailto:test@test.com\\"}"
                                       href="mailto:test@test.com"
                                     >
                                       <span>
@@ -2046,7 +2045,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"www.test.com\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof\\",\\"action\\":\\"www.test.com\\"}"
                                       href="www.test.com"
                                     >
                                       <span>
@@ -2119,7 +2118,7 @@ HTMLCollection [
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-47 TabPanelBox"
+                class="MuiBox-root MuiBox-root-43 TabPanelBox"
               >
                 <div
                   class="map"
@@ -2203,7 +2202,7 @@ HTMLCollection [
                   class="overlay"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-31 iconButtonStyles-medium-37 iconButtonStyles-contained-32 play-button"
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-27 iconButtonStyles-medium-33 iconButtonStyles-contained-28 play-button"
                     tabindex="0"
                     type="button"
                   >
@@ -2279,13 +2278,13 @@ HTMLCollection [
                     class="Container"
                   >
                     <div
-                      class="MuiContainer-root tabStyles-ContainerRoot-12 MuiContainer-maxWidthXl"
+                      class="MuiContainer-root tabStyles-ContainerRoot-8 MuiContainer-maxWidthXl"
                     >
                       <div
                         class="Container"
                       >
                         <div
-                          class="MuiContainer-root MuiTabs-root tabStyles-TabsRoot-13 MuiContainer-maxWidthXl"
+                          class="MuiContainer-root MuiTabs-root tabStyles-TabsRoot-9 MuiContainer-maxWidthXl"
                         >
                           <div
                             class="MuiTabs-scrollable"
@@ -2303,7 +2302,7 @@ HTMLCollection [
                               <button
                                 aria-controls="tabpanel-0"
                                 aria-selected="true"
-                                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 Mui-selected"
+                                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-10 Mui-selected"
                                 data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"Team Category 1\\",\\"action\\":\\"Selector – Tabs\\"}"
                                 id="tab-0"
                                 role="tab"
@@ -2321,7 +2320,7 @@ HTMLCollection [
                               </button>
                             </div>
                             <span
-                              class="PrivateTabIndicator-root-15 PrivateTabIndicator-colorPrimary-16 MuiTabs-indicator"
+                              class="PrivateTabIndicator-root-11 PrivateTabIndicator-colorPrimary-12 MuiTabs-indicator"
                               style="left: 0px; width: 0px;"
                             />
                           </div>
@@ -2338,7 +2337,7 @@ HTMLCollection [
                   role="tabpanel"
                 >
                   <div
-                    class="MuiBox-root MuiBox-root-48 TabPanelBox"
+                    class="MuiBox-root MuiBox-root-44 TabPanelBox"
                   >
                     <div
                       class="Container"
@@ -2462,13 +2461,13 @@ HTMLCollection [
                     class="Container"
                   >
                     <div
-                      class="MuiContainer-root tabStyles-ContainerRoot-12 MuiContainer-maxWidthXl"
+                      class="MuiContainer-root tabStyles-ContainerRoot-8 MuiContainer-maxWidthXl"
                     >
                       <div
                         class="Container"
                       >
                         <div
-                          class="MuiContainer-root MuiTabs-root tabStyles-TabsRoot-13 MuiContainer-maxWidthXl"
+                          class="MuiContainer-root MuiTabs-root tabStyles-TabsRoot-9 MuiContainer-maxWidthXl"
                         >
                           <div
                             class="MuiTabs-scrollable"
@@ -2486,7 +2485,7 @@ HTMLCollection [
                               <button
                                 aria-controls="tabpanel-0"
                                 aria-selected="true"
-                                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 Mui-selected"
+                                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-10 Mui-selected"
                                 data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"Team Category 1\\",\\"action\\":\\"Selector – Tabs\\"}"
                                 id="tab-0"
                                 role="tab"
@@ -2505,7 +2504,7 @@ HTMLCollection [
                               <button
                                 aria-controls="tabpanel-1"
                                 aria-selected="false"
-                                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14"
+                                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-10"
                                 data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"Team Category 2\\",\\"action\\":\\"Selector – Tabs\\"}"
                                 id="tab-1"
                                 role="tab"
@@ -2523,7 +2522,7 @@ HTMLCollection [
                               </button>
                             </div>
                             <span
-                              class="PrivateTabIndicator-root-15 PrivateTabIndicator-colorPrimary-16 MuiTabs-indicator"
+                              class="PrivateTabIndicator-root-11 PrivateTabIndicator-colorPrimary-12 MuiTabs-indicator"
                               style="left: 0px; width: 0px;"
                             />
                           </div>
@@ -2540,7 +2539,7 @@ HTMLCollection [
                   role="tabpanel"
                 >
                   <div
-                    class="MuiBox-root MuiBox-root-49 TabPanelBox"
+                    class="MuiBox-root MuiBox-root-45 TabPanelBox"
                   >
                     <div
                       class="Container"
@@ -2632,7 +2631,7 @@ HTMLCollection [
                   role="tabpanel"
                 >
                   <div
-                    class="MuiBox-root MuiBox-root-50 TabPanelBox"
+                    class="MuiBox-root MuiBox-root-46 TabPanelBox"
                   >
                     <div
                       class="Container"
@@ -2734,13 +2733,13 @@ HTMLCollection [
             </h2>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-outlined buttonStyles-opaqueOutlined-27 link MuiButton-outlinedPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-16 MuiButton-outlined buttonStyles-opaqueOutlined-23 link MuiButton-outlinedPrimary"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"link-to-page\\",\\"label\\":\\"string\\"}"
               href="link-to-page"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-23"
+                class="MuiButton-label buttonStyles-label-19"
               >
                 string
               </span>
@@ -2801,10 +2800,10 @@ HTMLCollection [
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-40 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-36 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-42"
+                        class="PrivateNotchedOutline-legendLabelled-38"
                       >
                         <span>
                           First name
@@ -2838,10 +2837,10 @@ HTMLCollection [
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-40 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-36 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-42"
+                        class="PrivateNotchedOutline-legendLabelled-38"
                       >
                         <span>
                           Second name
@@ -2875,10 +2874,10 @@ HTMLCollection [
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-40 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-36 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-42"
+                        class="PrivateNotchedOutline-legendLabelled-38"
                       >
                         <span>
                           Email address
@@ -2912,10 +2911,10 @@ HTMLCollection [
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-40 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-36 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-42"
+                        class="PrivateNotchedOutline-legendLabelled-38"
                       >
                         <span>
                           Company name(if Applicable)
@@ -2949,10 +2948,10 @@ HTMLCollection [
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-40 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-36 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-42"
+                        class="PrivateNotchedOutline-legendLabelled-38"
                       >
                         <span>
                           Telephone
@@ -3008,10 +3007,10 @@ HTMLCollection [
                     </svg>
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-40 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-36 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-42"
+                        class="PrivateNotchedOutline-legendLabelled-38"
                       >
                         <span>
                           Type of query
@@ -3036,12 +3035,12 @@ HTMLCollection [
                     >
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-16 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-23"
+                          class="MuiButton-label buttonStyles-label-19"
                         >
                           <svg
                             aria-hidden="true"
@@ -3100,10 +3099,10 @@ HTMLCollection [
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-40 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-36 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-42"
+                        class="PrivateNotchedOutline-legendLabelled-38"
                       >
                         <span>
                           Your message
@@ -3124,13 +3123,13 @@ HTMLCollection [
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-51 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-47 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
-                          class="PrivateSwitchBase-input-54"
+                          class="PrivateSwitchBase-input-50"
                           data-indeterminate="false"
                           name="send-copy"
                           type="checkbox"
@@ -3170,13 +3169,13 @@ HTMLCollection [
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-51 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-47 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
-                          class="PrivateSwitchBase-input-54"
+                          class="PrivateSwitchBase-input-50"
                           data-indeterminate="false"
                           name="sign-up"
                           type="checkbox"
@@ -3216,13 +3215,13 @@ HTMLCollection [
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-51 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-47 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
-                          class="PrivateSwitchBase-input-54"
+                          class="PrivateSwitchBase-input-50"
                           data-indeterminate="false"
                           name="data-protection"
                           type="checkbox"
@@ -3273,13 +3272,13 @@ HTMLCollection [
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-51 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-47 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
-                          class="PrivateSwitchBase-input-54"
+                          class="PrivateSwitchBase-input-50"
                           data-indeterminate="false"
                           name="gdpr"
                           type="checkbox"
@@ -3315,14 +3314,14 @@ HTMLCollection [
               <button
                 aria-action="Form section"
                 aria-label="children"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-16 MuiButton-contained buttonStyles-contained-18 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
                 data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Form section\\"}"
                 disabled=""
                 tabindex="-1"
                 type="submit"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-23"
+                  class="MuiButton-label buttonStyles-label-19"
                 >
                   Submit
                   <span
@@ -3406,21 +3405,21 @@ HTMLCollection [
             style="margin-top: 40px;"
           >
             <div
-              class="accordionStyles-root-55"
+              class="accordionStyles-root-51"
             >
               <div
-                class="MuiPaper-root MuiAccordion-root accordionStyles-item-56 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                class="MuiPaper-root MuiAccordion-root accordionStyles-item-52 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
               >
                 <div
                   aria-disabled="false"
                   aria-expanded="false"
-                  class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-59"
+                  class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-55"
                   data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Accordion\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiAccordionSummary-content accordionStyles-summaryContent-61"
+                    class="MuiAccordionSummary-content accordionStyles-summaryContent-57"
                   >
                     <h3
                       class="MuiTypography-root Typography MuiTypography-h6"
@@ -3466,7 +3465,7 @@ HTMLCollection [
                         role="region"
                       >
                         <div
-                          class="MuiAccordionDetails-root accordionStyles-details-57 accordionStyles-details-65"
+                          class="MuiAccordionDetails-root accordionStyles-details-53"
                         >
                           <div
                             class="RichText"
@@ -3525,10 +3524,10 @@ HTMLCollection [
                   class="Container"
                 >
                   <div
-                    class="MuiContainer-root tabStyles-ContainerRoot-66 MuiContainer-maxWidthXl"
+                    class="MuiContainer-root tabStyles-ContainerRoot-58 MuiContainer-maxWidthXl"
                   >
                     <div
-                      class="MuiTabs-root tabStyles-TabsRoot-67"
+                      class="MuiTabs-root tabStyles-TabsRoot-59"
                     >
                       <div
                         class="MuiTabs-scrollable"
@@ -3546,7 +3545,7 @@ HTMLCollection [
                           <button
                             aria-controls="tabpanel-hello"
                             aria-selected="true"
-                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-68 Mui-selected"
+                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-60 Mui-selected"
                             data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
                             id="tab-hello"
                             role="tab"
@@ -3564,7 +3563,7 @@ HTMLCollection [
                           </button>
                         </div>
                         <span
-                          class="PrivateTabIndicator-root-69 PrivateTabIndicator-colorPrimary-70 MuiTabs-indicator"
+                          class="PrivateTabIndicator-root-61 PrivateTabIndicator-colorPrimary-62 MuiTabs-indicator"
                           style="left: 0px; width: 0px;"
                         />
                       </div>
@@ -3580,7 +3579,7 @@ HTMLCollection [
                 role="tabpanel"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-73 TabPanelBox"
+                  class="MuiBox-root MuiBox-root-65 TabPanelBox"
                 >
                   <div
                     class="RichText"
@@ -3642,21 +3641,21 @@ HTMLCollection [
             style="margin-top: 40px;"
           >
             <div
-              class="accordionStyles-root-74"
+              class="accordionStyles-root-66"
             >
               <div
-                class="MuiPaper-root MuiAccordion-root accordionStyles-item-75 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                class="MuiPaper-root MuiAccordion-root accordionStyles-item-67 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
               >
                 <div
                   aria-disabled="false"
                   aria-expanded="false"
-                  class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-78"
+                  class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-70"
                   data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Accordion\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiAccordionSummary-content accordionStyles-summaryContent-80"
+                    class="MuiAccordionSummary-content accordionStyles-summaryContent-72"
                   >
                     <h3
                       class="MuiTypography-root Typography MuiTypography-h6"
@@ -3702,7 +3701,7 @@ HTMLCollection [
                         role="region"
                       >
                         <div
-                          class="MuiAccordionDetails-root accordionStyles-details-76 accordionStyles-details-84"
+                          class="MuiAccordionDetails-root accordionStyles-details-68"
                         >
                           <div
                             class="RichText"
@@ -3761,10 +3760,10 @@ HTMLCollection [
                   class="Container"
                 >
                   <div
-                    class="MuiContainer-root tabStyles-ContainerRoot-85 MuiContainer-maxWidthXl"
+                    class="MuiContainer-root tabStyles-ContainerRoot-73 MuiContainer-maxWidthXl"
                   >
                     <div
-                      class="MuiTabs-root tabStyles-TabsRoot-86"
+                      class="MuiTabs-root tabStyles-TabsRoot-74"
                     >
                       <div
                         class="MuiTabs-scrollable"
@@ -3782,7 +3781,7 @@ HTMLCollection [
                           <button
                             aria-controls="tabpanel-hello"
                             aria-selected="true"
-                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-87 Mui-selected"
+                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-75 Mui-selected"
                             data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
                             id="tab-hello"
                             role="tab"
@@ -3800,7 +3799,7 @@ HTMLCollection [
                           </button>
                         </div>
                         <span
-                          class="PrivateTabIndicator-root-88 PrivateTabIndicator-colorPrimary-89 MuiTabs-indicator"
+                          class="PrivateTabIndicator-root-76 PrivateTabIndicator-colorPrimary-77 MuiTabs-indicator"
                           style="left: 0px; width: 0px;"
                         />
                       </div>
@@ -3816,7 +3815,7 @@ HTMLCollection [
                 role="tabpanel"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-92 TabPanelBox"
+                  class="MuiBox-root MuiBox-root-80 TabPanelBox"
                 >
                   <div
                     class="RichText"

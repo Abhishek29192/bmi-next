@@ -449,10 +449,7 @@ export const calculateCenter = (
   );
 };
 
-export const useScrollTo = (
-  isOpen: boolean,
-  linkCardElement: React.MutableRefObject<HTMLElement>
-) => {
+export const useScrollTo = (isOpen: boolean, linkCardElement: any) => {
   const [hasCardExpansionCompleted, setCardExpansionCompleted] =
     useState(false);
   useEffect(() => {
