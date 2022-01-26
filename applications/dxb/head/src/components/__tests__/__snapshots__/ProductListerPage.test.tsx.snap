@@ -2983,7 +2983,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                 role="region"
                               >
                                 <div
-                                  class="MuiAccordionDetails-root accordionStyles-details"
+                                  class="MuiAccordionDetails-root accordionStyles-details accordionStyles-details"
                                 >
                                   <div
                                     class="list"
@@ -4209,7 +4209,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                 role="region"
                               >
                                 <div
-                                  class="MuiAccordionDetails-root accordionStyles-details"
+                                  class="MuiAccordionDetails-root accordionStyles-details accordionStyles-details"
                                 >
                                   <div
                                     class="list"
@@ -5484,7 +5484,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                 role="region"
                               >
                                 <div
-                                  class="MuiAccordionDetails-root accordionStyles-details"
+                                  class="MuiAccordionDetails-root accordionStyles-details accordionStyles-details"
                                 >
                                   <div
                                     class="list"
@@ -13071,7 +13071,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                                 role="region"
                               >
                                 <div
-                                  class="MuiAccordionDetails-root accordionStyles-details"
+                                  class="MuiAccordionDetails-root accordionStyles-details accordionStyles-details"
                                 >
                                   <div
                                     class="list"
@@ -14297,7 +14297,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                                 role="region"
                               >
                                 <div
-                                  class="MuiAccordionDetails-root accordionStyles-details"
+                                  class="MuiAccordionDetails-root accordionStyles-details accordionStyles-details"
                                 >
                                   <div
                                     class="list"
@@ -15572,7 +15572,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                                 role="region"
                               >
                                 <div
-                                  class="MuiAccordionDetails-root accordionStyles-details"
+                                  class="MuiAccordionDetails-root accordionStyles-details accordionStyles-details"
                                 >
                                   <div
                                     class="list"

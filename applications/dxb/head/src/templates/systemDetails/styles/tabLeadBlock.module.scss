@@ -10,12 +10,12 @@
         padding-top: 48px;
       }
     }
-    .MuiGrid-root {
+    [class*="MuiGrid-root"] {
       margin-top: 0;
       padding-top: 0;
       padding-bottom: 0;
     }
-    [class*="TabsBar"] .MuiContainer-root {
+    [class*="TabsBar"] [class*="MuiContainer-root"] {
       @media (min-width: $breakpoint-xl) {
         padding-left: 24px;
         padding-right: 24px;

@@ -15,20 +15,20 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
           class="SystemDetailsTechnicalSpec"
         >
           <div
-            class="accordionStyles-root-8 accordionStyles-no-inner-padding-11"
+            class="accordionStyles-root-15 accordionStyles-no-inner-padding-18"
           >
             <div
-              class="MuiPaper-root MuiAccordion-root accordionStyles-item-9 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiAccordion-root accordionStyles-item-16 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
             >
               <div
                 aria-disabled="false"
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-12 Mui-expanded accordionStyles-summaryExpanded-13"
+                class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-19 Mui-expanded accordionStyles-summaryExpanded-20"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="MuiAccordionSummary-content accordionStyles-summaryContent-14 Mui-expanded accordionStyles-summaryExpanded-13"
+                  class="MuiAccordionSummary-content accordionStyles-summaryContent-21 Mui-expanded accordionStyles-summaryExpanded-20"
                 >
                   <h6
                     class="MuiTypography-root Typography MuiTypography-h6"
@@ -39,7 +39,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                 <div
                   aria-disabled="false"
                   aria-hidden="true"
-                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-13 MuiIconButton-edgeEnd"
+                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-20 MuiIconButton-edgeEnd"
                 >
                   <span
                     class="MuiIconButton-label"
@@ -121,17 +121,17 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
               </div>
             </div>
             <div
-              class="MuiPaper-root MuiAccordion-root accordionStyles-item-9 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiAccordion-root accordionStyles-item-16 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
             >
               <div
                 aria-disabled="false"
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-12 Mui-expanded accordionStyles-summaryExpanded-13"
+                class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-19 Mui-expanded accordionStyles-summaryExpanded-20"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="MuiAccordionSummary-content accordionStyles-summaryContent-14 Mui-expanded accordionStyles-summaryExpanded-13"
+                  class="MuiAccordionSummary-content accordionStyles-summaryContent-21 Mui-expanded accordionStyles-summaryExpanded-20"
                 >
                   <h6
                     class="MuiTypography-root Typography MuiTypography-h6"
@@ -142,7 +142,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                 <div
                   aria-disabled="false"
                   aria-hidden="true"
-                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-13 MuiIconButton-edgeEnd"
+                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-20 MuiIconButton-edgeEnd"
                 >
                   <span
                     class="MuiIconButton-label"
