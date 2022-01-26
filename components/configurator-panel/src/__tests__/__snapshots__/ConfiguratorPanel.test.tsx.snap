@@ -1,68 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ConfiguratorPanel component renders collapsed 1`] = `
-<div
-  class="ConfiguratorPanel"
->
+<div>
   <div
-    class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
+    class="ConfiguratorPanel"
   >
     <div
-      aria-disabled="false"
-      aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root summary"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root panel MuiPaper-elevation0"
     >
-      <div
-        class="MuiAccordionSummary-content"
-      >
-        <h3
-          class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
-        >
-          Question One
-        </h3>
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-root MuiCollapse-hidden"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiAccordionSummary-root summary"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content"
+        >
+          <h3
+            class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+          >
+            Question One
+          </h3>
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-hidden"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
-            />
+              role="region"
+            >
+              <div
+                class="MuiAccordionDetails-root details"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -72,68 +74,70 @@ exports[`ConfiguratorPanel component renders collapsed 1`] = `
 `;
 
 exports[`ConfiguratorPanel component renders correctly 1`] = `
-<div
-  class="ConfiguratorPanel"
->
+<div>
   <div
-    class="MuiPaper-root MuiAccordion-root panel Mui-expanded MuiPaper-elevation0"
+    class="ConfiguratorPanel"
   >
     <div
-      aria-disabled="false"
-      aria-expanded="true"
-      class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-expanded"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root panel Mui-expanded MuiPaper-elevation0"
     >
-      <div
-        class="MuiAccordionSummary-content Mui-expanded"
-      >
-        <h3
-          class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
-        >
-          Question One
-        </h3>
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-root MuiCollapse-entered"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="true"
+        class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-expanded"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content Mui-expanded"
+        >
+          <h3
+            class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+          >
+            Question One
+          </h3>
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-entered"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
-            />
+              role="region"
+            >
+              <div
+                class="MuiAccordionDetails-root details"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -143,82 +147,84 @@ exports[`ConfiguratorPanel component renders correctly 1`] = `
 `;
 
 exports[`ConfiguratorPanel component renders disabled 1`] = `
-<div
-  class="ConfiguratorPanel"
->
+<div>
   <div
-    class="MuiPaper-root MuiAccordion-root panel Mui-expanded Mui-disabled MuiPaper-elevation0"
+    class="ConfiguratorPanel"
   >
     <div
-      aria-disabled="true"
-      aria-expanded="true"
-      class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-disabled Mui-expanded Mui-disabled"
-      role="button"
-      tabindex="-1"
+      class="MuiPaper-root MuiAccordion-root panel Mui-expanded Mui-disabled MuiPaper-elevation0"
     >
       <div
-        class="MuiAccordionSummary-content Mui-expanded"
-      >
-        <h3
-          class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
-        >
-          Question One
-        </h3>
-      </div>
-      <div
-        aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-root MuiCollapse-entered"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-disabled="true"
+        aria-expanded="true"
+        class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-disabled Mui-expanded Mui-disabled"
+        role="button"
+        tabindex="-1"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content Mui-expanded"
+        >
+          <h3
+            class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+          >
+            Question One
+          </h3>
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-entered"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
               <div
-                class="content"
+                class="MuiAccordionDetails-root details"
               >
-                Expanded with child content
+                <div
+                  class="content"
+                >
+                  Expanded with child content
+                </div>
+                <button>
+                  Option 1
+                </button>
+                <button>
+                  Option 2
+                </button>
+                <button>
+                  Option 3
+                </button>
               </div>
-              <button>
-                Option 1
-              </button>
-              <button>
-                Option 2
-              </button>
-              <button>
-                Option 3
-              </button>
             </div>
           </div>
         </div>
@@ -229,72 +235,74 @@ exports[`ConfiguratorPanel component renders disabled 1`] = `
 `;
 
 exports[`ConfiguratorPanel component renders expanded with child content 1`] = `
-<div
-  class="ConfiguratorPanel"
->
+<div>
   <div
-    class="MuiPaper-root MuiAccordion-root panel Mui-expanded MuiPaper-elevation0"
+    class="ConfiguratorPanel"
   >
     <div
-      aria-disabled="false"
-      aria-expanded="true"
-      class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-expanded"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root panel Mui-expanded MuiPaper-elevation0"
     >
-      <div
-        class="MuiAccordionSummary-content Mui-expanded"
-      >
-        <h3
-          class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
-        >
-          Question One
-        </h3>
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-root MuiCollapse-entered"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="true"
+        class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-expanded"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content Mui-expanded"
+        >
+          <h3
+            class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+          >
+            Question One
+          </h3>
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-entered"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
               <div
-                class="content"
+                class="MuiAccordionDetails-root details"
               >
-                Expanded with child content
+                <div
+                  class="content"
+                >
+                  Expanded with child content
+                </div>
               </div>
             </div>
           </div>
@@ -306,82 +314,84 @@ exports[`ConfiguratorPanel component renders expanded with child content 1`] = `
 `;
 
 exports[`ConfiguratorPanel component renders expanded with child content and options 1`] = `
-<div
-  class="ConfiguratorPanel"
->
+<div>
   <div
-    class="MuiPaper-root MuiAccordion-root panel Mui-expanded MuiPaper-elevation0"
+    class="ConfiguratorPanel"
   >
     <div
-      aria-disabled="false"
-      aria-expanded="true"
-      class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-expanded"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root panel Mui-expanded MuiPaper-elevation0"
     >
-      <div
-        class="MuiAccordionSummary-content Mui-expanded"
-      >
-        <h3
-          class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
-        >
-          Question One
-        </h3>
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-root MuiCollapse-entered"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="true"
+        class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-expanded"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content Mui-expanded"
+        >
+          <h3
+            class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+          >
+            Question One
+          </h3>
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-entered"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
               <div
-                class="content"
+                class="MuiAccordionDetails-root details"
               >
-                Expanded with child content
+                <div
+                  class="content"
+                >
+                  Expanded with child content
+                </div>
+                <button>
+                  Option 1
+                </button>
+                <button>
+                  Option 2
+                </button>
+                <button>
+                  Option 3
+                </button>
               </div>
-              <button>
-                Option 1
-              </button>
-              <button>
-                Option 2
-              </button>
-              <button>
-                Option 3
-              </button>
             </div>
           </div>
         </div>
@@ -392,87 +402,89 @@ exports[`ConfiguratorPanel component renders expanded with child content and opt
 `;
 
 exports[`ConfiguratorPanel component renders with title with selected option title 1`] = `
-<div
-  class="ConfiguratorPanel"
->
+<div>
   <div
-    class="MuiPaper-root MuiAccordion-root panel Mui-expanded Mui-disabled MuiPaper-elevation0"
+    class="ConfiguratorPanel"
   >
     <div
-      aria-disabled="true"
-      aria-expanded="true"
-      class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-disabled Mui-expanded Mui-disabled"
-      role="button"
-      tabindex="-1"
+      class="MuiPaper-root MuiAccordion-root panel Mui-expanded Mui-disabled MuiPaper-elevation0"
     >
       <div
-        class="MuiAccordionSummary-content Mui-expanded"
-      >
-        <h3
-          class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
-        >
-          Question one: 
-          <span
-            class="selected-title"
-          >
-            Answer One
-          </span>
-        </h3>
-      </div>
-      <div
-        aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-root MuiCollapse-entered"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-disabled="true"
+        aria-expanded="true"
+        class="MuiButtonBase-root MuiAccordionSummary-root summary Mui-disabled Mui-expanded Mui-disabled"
+        role="button"
+        tabindex="-1"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content Mui-expanded"
+        >
+          <h3
+            class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+          >
+            Question one: 
+            <span
+              class="selected-title"
+            >
+              Answer One
+            </span>
+          </h3>
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-entered"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
               <div
-                class="content"
+                class="MuiAccordionDetails-root details"
               >
-                Expanded with child content
+                <div
+                  class="content"
+                >
+                  Expanded with child content
+                </div>
+                <button>
+                  Option 1
+                </button>
+                <button>
+                  Option 2
+                </button>
+                <button>
+                  Option 3
+                </button>
               </div>
-              <button>
-                Option 1
-              </button>
-              <button>
-                Option 2
-              </button>
-              <button>
-                Option 3
-              </button>
             </div>
           </div>
         </div>

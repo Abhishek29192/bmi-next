@@ -1,60 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProjectsInsight component renders correctly 1`] = `
-<div
-  class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
->
+<div>
   <div
-    class="MuiCardContent-root"
+    class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
   >
-    <h4
-      class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-      style="font-size: 1.25rem;"
-    >
-      projectInsight
-    </h4>
     <div
-      class="body"
+      class="MuiCardContent-root"
     >
-      <h2
-        class="MuiTypography-root Typography MuiTypography-h2"
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        style="font-size: 1.25rem;"
       >
-        0
-      </h2>
+        projectInsight
+      </h4>
       <div
-        style="margin-bottom: 1.5rem;"
+        class="body"
       >
-        <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+        <h2
+          class="MuiTypography-root Typography MuiTypography-h2"
         >
-          daysRemaining
-        </h6>
+          0
+        </h2>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
-        />
+          style="margin-bottom: 1.5rem;"
+        >
+          <h6
+            class="MuiTypography-root Typography MuiTypography-h6"
+          >
+            daysRemaining
+          </h6>
+          <div
+            class="MuiTypography-root Typography MuiTypography-body1"
+          />
+        </div>
       </div>
-    </div>
-    <div
-      class="body"
-    >
-      <h2
-        class="MuiTypography-root certificate certificate--warning Typography MuiTypography-h2"
-        data-testid="certified-installers"
-      >
-        0
-      </h2>
       <div
-        style="margin-bottom: 1.5rem;"
+        class="body"
       >
-        <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+        <h2
+          class="MuiTypography-root certificate certificate--warning Typography MuiTypography-h2"
+          data-testid="certified-installers"
         >
-          certifiedInstallers
-        </h6>
+          0
+        </h2>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          style="margin-bottom: 1.5rem;"
         >
-          noCertifiedInstallers
+          <h6
+            class="MuiTypography-root Typography MuiTypography-h6"
+          >
+            certifiedInstallers
+          </h6>
+          <div
+            class="MuiTypography-root Typography MuiTypography-body1"
+          >
+            noCertifiedInstallers
+          </div>
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@ describe("ExpandableLinksTextCard component", () => {
         openButton={<Button>Open</Button>}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with more than 3 links", () => {
@@ -35,7 +35,7 @@ describe("ExpandableLinksTextCard component", () => {
         openButton={<Button>Open</Button>}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with download action model", () => {
@@ -50,7 +50,7 @@ describe("ExpandableLinksTextCard component", () => {
         separator={1}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with closeButton", () => {
@@ -70,6 +70,6 @@ describe("ExpandableLinksTextCard component", () => {
 
     fireEvent.click(getByText("Open"));
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

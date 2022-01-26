@@ -34,7 +34,7 @@ describe("ProjectsHeader component", () => {
     const { container } = renderWithI18NProvider(
       <ProjectsHeader {...projectHeaderData} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("should show guarante event button if the user is super admin", () => {
     renderWithUserProvider(

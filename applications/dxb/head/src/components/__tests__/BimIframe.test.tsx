@@ -6,7 +6,7 @@ import BimIframe, { getBimIframeUrl } from "../BimIframe";
 describe("BimIframe component", () => {
   it("renders correctly", () => {
     const { container } = render(<BimIframe url="https://google.com" />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });
 

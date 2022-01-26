@@ -57,7 +57,7 @@ describe("QuantityTable component", () => {
         remove="Remove"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });
 

@@ -146,7 +146,7 @@ describe("Footer component", () => {
         logo={BmiIcon}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders in a bigger breakpoint", () => {
     // @ts-ignore Only used for testing.
@@ -159,6 +159,6 @@ describe("Footer component", () => {
         logo={BmiIcon}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

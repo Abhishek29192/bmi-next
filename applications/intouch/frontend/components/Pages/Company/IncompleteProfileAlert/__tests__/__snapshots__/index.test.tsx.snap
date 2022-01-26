@@ -1,57 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CompanyIncompleteProfile should match snapshot 1`] = `
-<div
-  class="Alert ColorPair ColorPair--alert"
->
+<div>
   <div
-    class="actions"
+    class="Alert ColorPair ColorPair--alert"
   >
     <div
-      class="closeButtonContainer"
+      class="actions"
     >
-      <button
-        aria-label="incompleteProfile.closeAlertAccessibilityLabel"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
-        data-testid="CloseButton"
-        tabindex="0"
-        type="button"
+      <div
+        class="closeButtonContainer"
       >
-        <span
-          class="MuiIconButton-label"
+        <button
+          aria-label="incompleteProfile.closeAlertAccessibilityLabel"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
+          data-testid="CloseButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              style="width: 24px; height: 24px;"
+            />
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h5
+          class="MuiTypography-root title Typography MuiTypography-h5"
         >
           <svg
-            style="width: 24px; height: 24px;"
-          />
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-    </div>
-  </div>
-  <div
-    class="Container"
-  >
-    <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
-    >
-      <h5
-        class="MuiTypography-root title Typography MuiTypography-h5"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root icon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
-          />
-        </svg>
-        incompleteProfile.warning
-      </h5>
-      incompleteProfile.fields.phone, incompleteProfile.fields.aboutUs, incompleteProfile.fields.tradingAddress
+            aria-hidden="true"
+            class="MuiSvgIcon-root icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+            />
+          </svg>
+          incompleteProfile.warning
+        </h5>
+        incompleteProfile.fields.phone, incompleteProfile.fields.aboutUs, incompleteProfile.fields.tradingAddress
+      </div>
     </div>
   </div>
 </div>

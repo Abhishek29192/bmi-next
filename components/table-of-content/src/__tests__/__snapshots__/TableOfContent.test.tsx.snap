@@ -17,50 +17,52 @@ exports[`TableOfContent component renders anchor correctly without the context  
 `;
 
 exports[`TableOfContent component renders correctly 1`] = `
-<div
-  class="TOC"
->
-  <div>
-    <div
-      class="link"
-    >
-      <span>
-        div with text
-         - 
-        div-with-text
-      </span>
+<div>
+  <div
+    class="TOC"
+  >
+    <div>
+      <div
+        class="link"
+      >
+        <span>
+          div with text
+           - 
+          div-with-text
+        </span>
+      </div>
+      <div
+        class="link"
+      >
+        <span>
+          div with single paragraph
+           - 
+          div-with-single-paragraph
+        </span>
+      </div>
     </div>
     <div
-      class="link"
+      id="div-with-text"
+      style="margin-top: -150px; padding-top: 150px;"
     >
-      <span>
-        div with single paragraph
-         - 
-        div-with-single-paragraph
-      </span>
+      <h2>
+        section with text
+      </h2>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem, enim.
+      </p>
     </div>
-  </div>
-  <div
-    id="div-with-text"
-    style="margin-top: -150px; padding-top: 150px;"
-  >
-    <h2>
-      section with text
-    </h2>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem, enim.
-    </p>
-  </div>
-  <div
-    id="div-with-single-paragraph"
-    style="margin-top: -150px; padding-top: 150px;"
-  >
-    <h2>
-      section with single paragraph
-    </h2>
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing.
-    </p>
+    <div
+      id="div-with-single-paragraph"
+      style="margin-top: -150px; padding-top: 150px;"
+    >
+      <h2>
+        section with single paragraph
+      </h2>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing.
+      </p>
+    </div>
   </div>
 </div>
 `;

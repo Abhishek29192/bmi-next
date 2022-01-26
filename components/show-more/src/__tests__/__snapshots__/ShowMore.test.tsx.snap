@@ -2,106 +2,116 @@
 
 exports[`ShowMore component renders correctly 1`] = `
 <div>
-  <div />
-  <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-4"
+  <div>
+    <div />
+    <button
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
+      tabindex="0"
+      type="button"
     >
-      Show more
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
+      <span
+        class="MuiButton-label buttonStyles-label-4"
+      >
+        Show more
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
 </div>
 `;
 
 exports[`ShowMore component renders correctly when trigger button is clicked 1`] = `
 <div>
   <div>
-    Show more content
-  </div>
-  <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 MuiButton-containedPrimary"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-44"
+    <div>
+      Show more content
+    </div>
+    <button
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 MuiButton-containedPrimary"
+      tabindex="0"
+      type="button"
     >
-      Trigger
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
+      <span
+        class="MuiButton-label buttonStyles-label-44"
+      >
+        Trigger
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
 </div>
 `;
 
 exports[`ShowMore component renders correctly with close button 1`] = `
 <div>
   <div>
-    Show more content
-  </div>
-  <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 MuiButton-containedPrimary"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-64"
+    <div>
+      Show more content
+    </div>
+    <button
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 MuiButton-containedPrimary"
+      tabindex="0"
+      type="button"
     >
-      Close
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
+      <span
+        class="MuiButton-label buttonStyles-label-64"
+      >
+        Close
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
 </div>
 `;
 
 exports[`ShowMore component renders correctly with close button is clicked 1`] = `
 <div>
-  <div />
-  <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-contained buttonStyles-contained-83 MuiButton-containedPrimary"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-84"
+  <div>
+    <div />
+    <button
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-contained buttonStyles-contained-83 MuiButton-containedPrimary"
+      tabindex="0"
+      type="button"
     >
-      Trigger
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
+      <span
+        class="MuiButton-label buttonStyles-label-84"
+      >
+        Trigger
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
 </div>
 `;
 
 exports[`ShowMore component renders correctly with content expanded 1`] = `
 <div>
   <div>
-    Show more content
-  </div>
-  <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 MuiButton-containedPrimary"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-24"
+    <div>
+      Show more content
+    </div>
+    <button
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 MuiButton-containedPrimary"
+      tabindex="0"
+      type="button"
     >
-      Show more
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
+      <span
+        class="MuiButton-label buttonStyles-label-24"
+      >
+        Show more
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
 </div>
 `;

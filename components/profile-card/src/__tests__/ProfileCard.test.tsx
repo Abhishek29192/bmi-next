@@ -23,7 +23,7 @@ describe("ProfileCard component", () => {
         </ProfileCard.Row>
       </ProfileCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly without an image", () => {
@@ -42,7 +42,7 @@ describe("ProfileCard component", () => {
         </ProfileCard.Row>
       </ProfileCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders an element if the image source is a component", () => {

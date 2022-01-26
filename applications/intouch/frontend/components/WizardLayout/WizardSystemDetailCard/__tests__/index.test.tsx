@@ -22,7 +22,7 @@ describe("WizardSystemDetailCard", () => {
         products={[]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("should render with  products", () => {
@@ -33,7 +33,7 @@ describe("WizardSystemDetailCard", () => {
         products={products}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("should render with onDelete", () => {
@@ -45,7 +45,7 @@ describe("WizardSystemDetailCard", () => {
         onDeleteClick={() => {}}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("should trigger onDelete", () => {

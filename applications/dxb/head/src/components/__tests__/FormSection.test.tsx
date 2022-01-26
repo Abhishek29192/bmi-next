@@ -158,9 +158,11 @@ afterEach(() => {
 
 describe("FormSection component", () => {
   it("renders correctly", () => {
-    const wrapper = render(<FormSection data={data} backgroundColor="white" />);
+    const { container } = render(
+      <FormSection data={data} backgroundColor="white" />
+    );
 
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("test flow when gtm data passed from outside", () => {
@@ -203,7 +205,7 @@ describe("FormSection component", () => {
       target: { value: "test-email" }
     });
     fireEvent.blur(emailInput);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("test handleEmailValidation with correct email", () => {
@@ -227,7 +229,7 @@ describe("FormSection component", () => {
       target: { value: "test@gmail.com" }
     });
     fireEvent.blur(emailInput);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("test upload input with large file", async () => {
@@ -252,7 +254,7 @@ describe("FormSection component", () => {
         files: [{ name: "fileName", size: 10485761, type: "pdf" }]
       }
     });
-    expect(await waitFor(() => container.firstChild)).toMatchSnapshot();
+    expect(await waitFor(() => container)).toMatchSnapshot();
   });
 
   it("test upload input with small file", async () => {
@@ -277,7 +279,7 @@ describe("FormSection component", () => {
         files: [{ name: "fileName", size: 200, type: "pdf" }]
       }
     });
-    expect(await waitFor(() => container.firstChild)).toMatchSnapshot();
+    expect(await waitFor(() => container)).toMatchSnapshot();
   });
 
   it("test upload input with no maxSize", () => {
@@ -296,7 +298,7 @@ describe("FormSection component", () => {
     const { container } = render(
       <FormSection data={specificData} backgroundColor="white" />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("test submit when preview is on", () => {
@@ -449,7 +451,7 @@ describe("FormSection component", () => {
     const { container } = render(
       <FormSection data={specificData} backgroundColor="white" />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("test convertMarkdownLinksToAnchorLinks function with link in label", () => {
@@ -481,7 +483,7 @@ describe("FormSection component", () => {
     );
     expect(ExternalLinkLabel).toHaveAttribute("rel");
     expect(InternalLinkLabel).not.toHaveAttribute("rel");
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });
 
@@ -491,7 +493,7 @@ describe("Hubspot FormSection component", () => {
       <FormSection data={dataHubSpot} backgroundColor="white" />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("test submit when preview is on", () => {
@@ -500,6 +502,6 @@ describe("Hubspot FormSection component", () => {
     const { container } = render(
       <FormSection data={dataHubSpot} backgroundColor="white" />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

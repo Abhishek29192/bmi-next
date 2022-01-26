@@ -29,7 +29,7 @@ describe("LocationCard component", () => {
         footNote="Monday - Friday, 9:00 - 17:00"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if isFlat === true", () => {
@@ -59,6 +59,6 @@ describe("LocationCard component", () => {
         footNote="Monday - Friday, 9:00 - 17:00"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

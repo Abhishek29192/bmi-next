@@ -20,7 +20,7 @@ describe("Villain component", () => {
         interdum nibh, quis dictum nulla.
       </Villain>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders reversed", () => {
     const { container } = render(
@@ -37,7 +37,7 @@ describe("Villain component", () => {
         interdum nibh, quis dictum nulla.
       </Villain>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders full size", () => {
     const { container } = render(
@@ -55,7 +55,7 @@ describe("Villain component", () => {
         interdum nibh, quis dictum nulla.
       </Villain>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders full size and reversed", () => {
     const { container } = render(
@@ -74,7 +74,7 @@ describe("Villain component", () => {
         interdum nibh, quis dictum nulla.
       </Villain>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly on reversed when screen size is larger than sm ", () => {
     Object.defineProperty(window, "matchMedia", {
@@ -95,6 +95,6 @@ describe("Villain component", () => {
         Lorem ipsum dolor sit amet.
       </Villain>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

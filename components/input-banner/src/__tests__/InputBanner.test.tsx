@@ -12,7 +12,7 @@ describe("InputBanner component", () => {
         inputCallToAction="CTA"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("onSubmit works", async () => {
@@ -94,7 +94,7 @@ describe("InputBanner component", () => {
         inputGroupSuffix={<div>inputGroupSuffix</div>}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if buttonComponent is passed", () => {
@@ -107,6 +107,6 @@ describe("InputBanner component", () => {
         buttonComponent={() => <button>buttonComponent</button>}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

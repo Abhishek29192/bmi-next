@@ -12,7 +12,7 @@ describe("ExploreBar component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with multiple links", () => {
     const { container } = render(
@@ -35,7 +35,7 @@ describe("ExploreBar component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with different heading", () => {
     const { container } = render(
@@ -46,7 +46,7 @@ describe("ExploreBar component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with a link using a component", () => {
     const Link = React.forwardRef(({ children, ...props }: any, ref) => (
@@ -67,6 +67,6 @@ describe("ExploreBar component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

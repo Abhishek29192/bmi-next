@@ -18,7 +18,7 @@ describe("CompanyReport Component", () => {
       <CompanyReport />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("should export button click", () => {

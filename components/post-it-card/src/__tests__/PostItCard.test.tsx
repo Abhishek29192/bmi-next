@@ -18,7 +18,7 @@ describe("PostItCard component", () => {
         </PostItCard.Section>
       </PostItCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with different color pair", () => {
@@ -36,6 +36,6 @@ describe("PostItCard component", () => {
         </PostItCard.Section>
       </PostItCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

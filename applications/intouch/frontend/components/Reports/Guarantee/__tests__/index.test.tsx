@@ -18,7 +18,7 @@ describe("GuaranteeReport Component", () => {
       <GuaranteeReport />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("should export button click", () => {
     renderAsReal({ account: { role: "SUPER_ADMIN " } })(<GuaranteeReport />);

@@ -20,7 +20,7 @@ describe("ExpandableCard component", () => {
         footer="consectetur adipiscing elit"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with no footer", () => {
     const { container } = render(
@@ -30,7 +30,7 @@ describe("ExpandableCard component", () => {
         body="Sit dolor amet"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("triggers a onClick event", async () => {
     const onClick = jest.fn();
@@ -74,7 +74,7 @@ describe("ExpandableCard component", () => {
         isExpanded
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("it expands the card when changing isExpanded", () => {
     const title = "Lorem Ipsum";
@@ -99,7 +99,7 @@ describe("ExpandableCard component", () => {
     transitionEndEvent.propertyName = "height";
     fireEvent(getByText(title), transitionEndEvent);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
 
     rerender(
       <ExpandableCard
@@ -114,7 +114,7 @@ describe("ExpandableCard component", () => {
     transitionEndEvent.propertyName = "height";
     fireEvent(getByText(title), transitionEndEvent);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("it triggers an onAnimationEnd event", () => {
     const onAnimationEnd = jest.fn();
@@ -182,13 +182,13 @@ describe("ExpandableCard component", () => {
         />
       );
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("renders with one card expanded", () => {
       const { container } = render(<ExpandableCard.List items={items} />);
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
     it("handles multiple cards expanded by default", () => {
       const { container } = render(
@@ -205,7 +205,7 @@ describe("ExpandableCard component", () => {
         />
       );
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
     it("sets the clicked card to expanded", () => {
       const { container, getByText } = render(
@@ -214,7 +214,7 @@ describe("ExpandableCard component", () => {
 
       fireEvent.click(getByText("Lorem Ipsum 1"));
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
     it("doesn't re-expand an expanded card", () => {
       const { container, getByText } = render(
@@ -223,7 +223,7 @@ describe("ExpandableCard component", () => {
 
       fireEvent.click(getByText("Lorem Ipsum 0"));
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
     it("closes the opened card", () => {
       const closeLabel = "Close me";
@@ -244,7 +244,7 @@ describe("ExpandableCard component", () => {
 
       fireEvent.click(getByLabelText(closeLabel));
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 });

@@ -19,7 +19,7 @@ describe("Carousel component", () => {
         <Carousel.Controls />
       </Carousel>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("navigates to next page", () => {
     const nextLabel = "next";
@@ -33,13 +33,11 @@ describe("Carousel component", () => {
         </Carousel>
       </div>
     );
-    const containerBeforeClick = container.firstChild!.cloneNode(true);
+    const containerBeforeClick = container!.cloneNode(true);
 
     fireEvent.click(getByLabelText(nextLabel));
 
-    expect(
-      snapshotDiff(containerBeforeClick, container.firstChild)
-    ).toMatchSnapshot();
+    expect(snapshotDiff(containerBeforeClick, container)).toMatchSnapshot();
   });
   it("navigates to previous page", () => {
     const previousLabel = "previous";
@@ -53,13 +51,11 @@ describe("Carousel component", () => {
         </Carousel>
       </div>
     );
-    const containerBeforeClick = container.firstChild!.cloneNode(true);
+    const containerBeforeClick = container!.cloneNode(true);
 
     fireEvent.click(getByLabelText(previousLabel));
 
-    expect(
-      snapshotDiff(containerBeforeClick, container.firstChild)
-    ).toMatchSnapshot();
+    expect(snapshotDiff(containerBeforeClick, container)).toMatchSnapshot();
   });
   it("works when controlled", () => {
     const { container, rerender } = render(
@@ -70,7 +66,7 @@ describe("Carousel component", () => {
         <Carousel.Controls />
       </Carousel>
     );
-    const containerBeforeClick = container.firstChild!.cloneNode(true);
+    const containerBeforeClick = container!.cloneNode(true);
 
     rerender(
       <Carousel initialPage={1}>
@@ -81,9 +77,7 @@ describe("Carousel component", () => {
       </Carousel>
     );
 
-    expect(
-      snapshotDiff(containerBeforeClick, container.firstChild)
-    ).toMatchSnapshot();
+    expect(snapshotDiff(containerBeforeClick, container)).toMatchSnapshot();
   });
   // TODO: The way react-swiplable-views tests this is forcing the function call
   // which is not ideal. I wasn't able to figure out what event would trigger the function.
@@ -148,7 +142,7 @@ describe("Carousel component", () => {
         <Carousel.Controls type="arrows" />
       </Carousel>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("doesn't render controls when scroll is finite and pages per slides = total slides", () => {
     const { container } = render(
@@ -167,7 +161,7 @@ describe("Carousel component", () => {
         <Carousel.Controls type="arrows" />
       </Carousel>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   describe("getPageFromAbsoluteIndex function", () => {

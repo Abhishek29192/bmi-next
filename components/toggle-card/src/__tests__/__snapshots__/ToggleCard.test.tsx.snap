@@ -1,162 +1,172 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ToggleCard component renders a card containing title only 1`] = `
-<div
-  aria-disabled="false"
-  class="MuiButtonBase-root ToggleCard"
-  id="A Unique ID"
-  role="button"
-  tabindex="0"
->
+<div>
   <div
-    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+    aria-disabled="false"
+    class="MuiButtonBase-root ToggleCard"
+    id="A Unique ID"
+    role="button"
+    tabindex="0"
   >
-    <h6
-      class="MuiTypography-root title title--only Typography MuiTypography-h6"
+    <div
+      class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
     >
-      Title only
-    </h6>
+      <h6
+        class="MuiTypography-root title title--only Typography MuiTypography-h6"
+      >
+        Title only
+      </h6>
+    </div>
+    <span
+      class="MuiTouchRipple-root"
+    />
   </div>
-  <span
-    class="MuiTouchRipple-root"
-  />
 </div>
 `;
 
 exports[`ToggleCard component renders a disabled card 1`] = `
-<div
-  aria-disabled="true"
-  class="MuiButtonBase-root ToggleCard ToggleCard--disabled Mui-disabled"
-  id="Another Unique ID"
-  role="button"
-  tabindex="-1"
->
+<div>
   <div
-    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+    aria-disabled="true"
+    class="MuiButtonBase-root ToggleCard ToggleCard--disabled Mui-disabled"
+    id="Another Unique ID"
+    role="button"
+    tabindex="-1"
   >
     <div
-      class="image"
-      style="background-image: url(path-to-image);"
-    />
-    <h6
-      class="MuiTypography-root title Typography MuiTypography-h6"
+      class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
     >
-      Curabitur posuere varius erat
-    </h6>
-    <p
-      class="MuiTypography-root paragraph Typography MuiTypography-body1"
-    >
-      Asfalt underlagsbelegg med selvklebende omlegg. Kategori: Bra
-    </p>
-    <p
-      class="MuiTypography-root paragraph Typography MuiTypography-body1"
-    >
-      Nobb: 
-      <strong>
-        123456789
-      </strong>
-    </p>
+      <div
+        class="image"
+        style="background-image: url(path-to-image);"
+      />
+      <h6
+        class="MuiTypography-root title Typography MuiTypography-h6"
+      >
+        Curabitur posuere varius erat
+      </h6>
+      <p
+        class="MuiTypography-root paragraph Typography MuiTypography-body1"
+      >
+        Asfalt underlagsbelegg med selvklebende omlegg. Kategori: Bra
+      </p>
+      <p
+        class="MuiTypography-root paragraph Typography MuiTypography-body1"
+      >
+        Nobb: 
+        <strong>
+          123456789
+        </strong>
+      </p>
+    </div>
   </div>
 </div>
 `;
 
 exports[`ToggleCard component renders card with illustrated image 1`] = `
-<div
-  aria-disabled="false"
-  class="MuiButtonBase-root ToggleCard"
-  id="A Unique ID"
-  role="button"
-  tabindex="0"
->
+<div>
   <div
-    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+    aria-disabled="false"
+    class="MuiButtonBase-root ToggleCard"
+    id="A Unique ID"
+    role="button"
+    tabindex="0"
   >
-    <svg
-      preserveAspectRatio="xMidYMid"
-    />
-    <h6
-      class="MuiTypography-root title Typography MuiTypography-h6"
+    <div
+      class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
     >
-      Title only
-    </h6>
+      <svg
+        preserveAspectRatio="xMidYMid"
+      />
+      <h6
+        class="MuiTypography-root title Typography MuiTypography-h6"
+      >
+        Title only
+      </h6>
+    </div>
+    <span
+      class="MuiTouchRipple-root"
+    />
   </div>
-  <span
-    class="MuiTouchRipple-root"
-  />
 </div>
 `;
 
 exports[`ToggleCard component renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  class="MuiButtonBase-root ToggleCard"
-  id="A Unique ID"
-  role="button"
-  tabindex="0"
->
+<div>
   <div
-    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+    aria-disabled="false"
+    class="MuiButtonBase-root ToggleCard"
+    id="A Unique ID"
+    role="button"
+    tabindex="0"
   >
     <div
-      class="image"
-      style="background-image: url(path-to-image);"
+      class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <div
+        class="image"
+        style="background-image: url(path-to-image);"
+      />
+      <h6
+        class="MuiTypography-root title Typography MuiTypography-h6"
+      >
+        Curabitur posuere varius erat
+      </h6>
+      <p
+        class="MuiTypography-root paragraph Typography MuiTypography-body1"
+      >
+        Asfalt underlagsbelegg med selvklebende omlegg. Kategori: Bra
+      </p>
+      <p
+        class="MuiTypography-root paragraph Typography MuiTypography-body1"
+      >
+        Nobb: 
+        <strong>
+          123456789
+        </strong>
+      </p>
+    </div>
+    <span
+      class="MuiTouchRipple-root"
     />
-    <h6
-      class="MuiTypography-root title Typography MuiTypography-h6"
-    >
-      Curabitur posuere varius erat
-    </h6>
-    <p
-      class="MuiTypography-root paragraph Typography MuiTypography-body1"
-    >
-      Asfalt underlagsbelegg med selvklebende omlegg. Kategori: Bra
-    </p>
-    <p
-      class="MuiTypography-root paragraph Typography MuiTypography-body1"
-    >
-      Nobb: 
-      <strong>
-        123456789
-      </strong>
-    </p>
   </div>
-  <span
-    class="MuiTouchRipple-root"
-  />
 </div>
 `;
 
 exports[`ToggleCard component renders correctly with no title 1`] = `
-<div
-  aria-disabled="false"
-  class="MuiButtonBase-root ToggleCard"
-  id="A Unique ID"
-  role="button"
-  tabindex="0"
->
+<div>
   <div
-    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+    aria-disabled="false"
+    class="MuiButtonBase-root ToggleCard"
+    id="A Unique ID"
+    role="button"
+    tabindex="0"
   >
     <div
-      class="image"
-      style="background-image: url(path-to-image);"
+      class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <div
+        class="image"
+        style="background-image: url(path-to-image);"
+      />
+      <p
+        class="MuiTypography-root paragraph Typography MuiTypography-body1"
+      >
+        Asfalt underlagsbelegg med selvklebende omlegg. Kategori: Bra
+      </p>
+      <p
+        class="MuiTypography-root paragraph Typography MuiTypography-body1"
+      >
+        Nobb: 
+        <strong>
+          123456789
+        </strong>
+      </p>
+    </div>
+    <span
+      class="MuiTouchRipple-root"
     />
-    <p
-      class="MuiTypography-root paragraph Typography MuiTypography-body1"
-    >
-      Asfalt underlagsbelegg med selvklebende omlegg. Kategori: Bra
-    </p>
-    <p
-      class="MuiTypography-root paragraph Typography MuiTypography-body1"
-    >
-      Nobb: 
-      <strong>
-        123456789
-      </strong>
-    </p>
   </div>
-  <span
-    class="MuiTouchRipple-root"
-  />
 </div>
 `;

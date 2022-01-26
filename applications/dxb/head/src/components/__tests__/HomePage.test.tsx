@@ -237,7 +237,7 @@ describe("HomePage template", () => {
       <HomePage data={hpData} pageContext={pageContext} />
     );
     expect(slide.path).toContain("/en");
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders homepage correctly when not using countryCode", () => {
@@ -252,6 +252,6 @@ describe("HomePage template", () => {
       <HomePage data={hpData} pageContext={pageContext} />
     );
     expect(slide.path).not.toContain("/en");
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

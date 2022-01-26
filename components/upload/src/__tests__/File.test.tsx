@@ -42,7 +42,7 @@ describe("Upload component", () => {
         errorMessage={"Upload failed"}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("should execute api request with headers", async () => {
@@ -244,7 +244,7 @@ describe("Upload component", () => {
         errorMessage={"Upload failed"}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly if an error recieved in API response", async () => {
     axios.post = jest.fn().mockResolvedValue({
@@ -278,6 +278,6 @@ describe("Upload component", () => {
         errorMessage="Upload failed"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

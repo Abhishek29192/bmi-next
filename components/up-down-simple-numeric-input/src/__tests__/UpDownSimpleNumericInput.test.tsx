@@ -8,7 +8,7 @@ describe("UpDownSimpleNumericInput component", () => {
     const { container } = render(
       <UpDownSimpleNumericInput name="Counter" onChange={onInputMock} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders variant with buttons on the side", () => {
     const onInputMock = jest.fn();
@@ -19,7 +19,7 @@ describe("UpDownSimpleNumericInput component", () => {
         buttonPlacement="right"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders variant with step set to a pre-defined value", () => {
     const onInputMock = jest.fn();
@@ -31,7 +31,7 @@ describe("UpDownSimpleNumericInput component", () => {
         step={stepValue}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("should trigger handleIncrement function on click button Up", () => {
     const onInputMock = jest.fn();

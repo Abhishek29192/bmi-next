@@ -1,25 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HidePrint component renders correctly 1`] = `
-<div
-  class="HidePrint"
->
-  Lorem Ipsum
+<div>
+  <div
+    class="HidePrint"
+  >
+    Lorem Ipsum
+  </div>
 </div>
 `;
 
 exports[`HidePrint component renders with custom className 1`] = `
-<div
-  class="test HidePrint"
->
-  Lorem Ipsum
+<div>
+  <div
+    class="test HidePrint"
+  >
+    Lorem Ipsum
+  </div>
 </div>
 `;
 
 exports[`HidePrint component renders with custom component 1`] = `
-<span
-  class="HidePrint"
->
-  Lorem Ipsum
-</span>
+<div>
+  <span
+    class="HidePrint"
+  >
+    Lorem Ipsum
+  </span>
+</div>
 `;

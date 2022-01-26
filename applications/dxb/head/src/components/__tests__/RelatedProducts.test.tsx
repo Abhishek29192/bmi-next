@@ -16,7 +16,7 @@ describe("RelatedProducts component", () => {
         products={prods}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with no variants", () => {
@@ -44,7 +44,7 @@ describe("RelatedProducts component", () => {
         products={prods}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with products", () => {
@@ -61,7 +61,7 @@ describe("RelatedProducts component", () => {
         products={prods}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with products without categories", () => {
@@ -74,7 +74,7 @@ describe("RelatedProducts component", () => {
         products={prods}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   // TODO: What on earth is going on here?!
@@ -119,7 +119,7 @@ describe("RelatedProducts component", () => {
         products={prods}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with scoringweight", () => {
@@ -197,7 +197,7 @@ describe("RelatedProducts component", () => {
         products={prods}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   // TODO: improve test to check order correctly
@@ -276,7 +276,7 @@ describe("RelatedProducts component", () => {
         products={prods}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   // TODO: improve test to check order correctly
@@ -355,7 +355,7 @@ describe("RelatedProducts component", () => {
         products={prods}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   // TODO: improve test to check order correctly
@@ -434,7 +434,7 @@ describe("RelatedProducts component", () => {
         products={prods}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with GATSBY_HIDE_RECOMMENDED_PRODUCTS = true", () => {
@@ -452,6 +452,6 @@ describe("RelatedProducts component", () => {
         products={prods}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

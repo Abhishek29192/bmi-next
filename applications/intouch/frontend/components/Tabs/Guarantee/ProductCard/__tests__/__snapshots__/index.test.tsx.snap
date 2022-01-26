@@ -2,58 +2,60 @@
 
 exports[`ProductCard component renders correctly 1`] = `
 <div>
-  <table
-    class="MuiTable-root Table Table--row-even-color"
-  >
-    <thead
-      class="MuiTableHead-root ColorPair ColorPair--pearl"
+  <div>
+    <table
+      class="MuiTable-root Table Table--row-even-color"
     >
-      <tr
-        class="MuiTableRow-root MuiTableRow-head"
+      <thead
+        class="MuiTableHead-root ColorPair ColorPair--pearl"
       >
-        <th
-          class="MuiTableCell-root MuiTableCell-head"
-          scope="col"
+        <tr
+          class="MuiTableRow-root MuiTableRow-head"
         >
-          productDetails.name
-        </th>
-        <th
-          class="MuiTableCell-root MuiTableCell-head"
-          scope="col"
-        >
-          productDetails.family
-        </th>
-        <th
-          class="MuiTableCell-root MuiTableCell-head"
-          scope="col"
-        >
-          productDetails.brand
-        </th>
-      </tr>
-    </thead>
-    <tbody
-      class="MuiTableBody-root"
-    >
-      <tr
-        class="MuiTableRow-root"
+          <th
+            class="MuiTableCell-root MuiTableCell-head"
+            scope="col"
+          >
+            productDetails.name
+          </th>
+          <th
+            class="MuiTableCell-root MuiTableCell-head"
+            scope="col"
+          >
+            productDetails.family
+          </th>
+          <th
+            class="MuiTableCell-root MuiTableCell-head"
+            scope="col"
+          >
+            productDetails.brand
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class="MuiTableBody-root"
       >
-        <td
-          class="MuiTableCell-root MuiTableCell-body"
+        <tr
+          class="MuiTableRow-root"
         >
-          name
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-body"
-        >
-          family
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-body"
-        >
-          brand
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          <td
+            class="MuiTableCell-root MuiTableCell-body"
+          >
+            name
+          </td>
+          <td
+            class="MuiTableCell-root MuiTableCell-body"
+          >
+            family
+          </td>
+          <td
+            class="MuiTableCell-root MuiTableCell-body"
+          >
+            brand
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 `;

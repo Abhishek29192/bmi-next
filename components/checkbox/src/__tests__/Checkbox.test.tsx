@@ -6,7 +6,7 @@ import { Checkbox as ActualCheckbox } from "../Checkbox";
 describe("Checkbox component", () => {
   it("renders correctly", () => {
     const { container } = render(<Checkbox name="Test checkbox" />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with additional props", () => {
     const { container } = render(
@@ -16,7 +16,7 @@ describe("Checkbox component", () => {
         data-testid="test-id"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with label", () => {
     const { container } = render(
@@ -25,7 +25,7 @@ describe("Checkbox component", () => {
         label="Send a copy of this message to my email address"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with disabled state", () => {
     const { container } = render(
@@ -35,7 +35,7 @@ describe("Checkbox component", () => {
         label="Send a copy of this message to my email address"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("calls onChange handler", async () => {
     const label = "test-label";
@@ -72,7 +72,7 @@ describe("Checkbox component", () => {
       />
     );
     fireEvent.blur(getByLabelText(label));
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders custom error", async () => {
     const { container } = render(

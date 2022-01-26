@@ -1,18 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Bullets component renders correctly 1`] = `
-<ul
-  class="Bullets"
->
-  <li
-    class="MuiTypography-root li Typography MuiTypography-body1"
+<div>
+  <ul
+    class="Bullets"
   >
-    First Item.
-  </li>
-  <li
-    class="MuiTypography-root li Typography MuiTypography-body1"
-  >
-    Second Item.
-  </li>
-</ul>
+    <li
+      class="MuiTypography-root li Typography MuiTypography-body1"
+    >
+      First Item.
+    </li>
+    <li
+      class="MuiTypography-root li Typography MuiTypography-body1"
+    >
+      Second Item.
+    </li>
+  </ul>
+</div>
 `;

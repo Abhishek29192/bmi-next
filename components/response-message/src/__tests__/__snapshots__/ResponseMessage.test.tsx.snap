@@ -1,79 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ResponseMessage component renders correctly 1`] = `
-<div
-  class="ResponseMessage"
->
-  <svg
-    aria-hidden="true"
-    class="MuiSvgIcon-root icon"
-    focusable="false"
-    viewBox="0 0 24 24"
+<div>
+  <div
+    class="ResponseMessage"
   >
-    <path
-      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
-    />
-  </svg>
-  <h2
-    class="MuiTypography-root title Typography MuiTypography-h2"
-  >
-    Thank you!
-  </h2>
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+      />
+    </svg>
+    <h2
+      class="MuiTypography-root title Typography MuiTypography-h2"
+    >
+      Thank you!
+    </h2>
+  </div>
 </div>
 `;
 
 exports[`ResponseMessage component renders correctly with children 1`] = `
-<div
-  class="ResponseMessage"
->
-  <svg
-    aria-hidden="true"
-    class="MuiSvgIcon-root icon"
-    focusable="false"
-    viewBox="0 0 24 24"
+<div>
+  <div
+    class="ResponseMessage"
   >
-    <path
-      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
-    />
-  </svg>
-  <h2
-    class="MuiTypography-root title Typography MuiTypography-h2"
-  >
-    Thank you!
-  </h2>
-  <p
-    class="MuiTypography-root Typography MuiTypography-body1"
-    style="padding: 10px 0px;"
-  >
-    Your email has been sent.
-  </p>
-  <p
-    class="MuiTypography-root Typography MuiTypography-body1"
-    style="padding: 10px 0px;"
-  >
-    We'll get back to you as soon as we can.
-  </p>
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+      />
+    </svg>
+    <h2
+      class="MuiTypography-root title Typography MuiTypography-h2"
+    >
+      Thank you!
+    </h2>
+    <p
+      class="MuiTypography-root Typography MuiTypography-body1"
+      style="padding: 10px 0px;"
+    >
+      Your email has been sent.
+    </p>
+    <p
+      class="MuiTypography-root Typography MuiTypography-body1"
+      style="padding: 10px 0px;"
+    >
+      We'll get back to you as soon as we can.
+    </p>
+  </div>
 </div>
 `;
 
 exports[`ResponseMessage component renders correctly with error 1`] = `
-<div
-  class="ResponseMessage"
->
-  <svg
-    aria-hidden="true"
-    class="MuiSvgIcon-root icon icon--error"
-    focusable="false"
-    viewBox="0 0 24 24"
+<div>
+  <div
+    class="ResponseMessage"
   >
-    <path
-      d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
-    />
-  </svg>
-  <h2
-    class="MuiTypography-root title Typography MuiTypography-h2"
-  >
-    Error
-  </h2>
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root icon icon--error"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+      />
+    </svg>
+    <h2
+      class="MuiTypography-root title Typography MuiTypography-h2"
+    >
+      Error
+    </h2>
+  </div>
 </div>
 `;

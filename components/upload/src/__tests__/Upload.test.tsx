@@ -43,7 +43,7 @@ describe("Upload component", () => {
         microcopyProvider={{ test: "test" }}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with buttonLabel", () => {
@@ -58,7 +58,7 @@ describe("Upload component", () => {
         microcopyProvider={{ test: "test" }}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with defaultExpanded", () => {
@@ -74,7 +74,7 @@ describe("Upload component", () => {
         microcopyProvider={{ test: "test" }}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with description", () => {
     const { container } = render(
@@ -89,7 +89,7 @@ describe("Upload component", () => {
         microcopyProvider={{ test: "test" }}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with restricted file types", () => {
     const { container } = render(
@@ -104,7 +104,7 @@ describe("Upload component", () => {
         microcopyProvider={{ test: "test" }}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("onChange handler is called", async () => {
     axios.post = jest.fn().mockResolvedValue({
@@ -366,7 +366,7 @@ describe("Upload component", () => {
       />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("onFilesChange handler is called", async () => {
     const onFilesChange = jest.fn((files) => {});
@@ -408,7 +408,7 @@ describe("Upload component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("render correctly with error", async () => {
@@ -434,7 +434,7 @@ describe("Upload component", () => {
       }
     });
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
 
     const deleteButton = await waitFor(() => getByTestId("file-delete"));
 
@@ -463,6 +463,6 @@ describe("Upload component", () => {
         />
       </FormContext.Provider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

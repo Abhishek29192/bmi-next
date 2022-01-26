@@ -6,7 +6,7 @@ import LanguageSelection from "../";
 describe("LanguageSelection component", () => {
   it("renders correctly", () => {
     const { container } = render(<LanguageSelection languages={languages} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("accepts introduction text", () => {
@@ -16,7 +16,7 @@ describe("LanguageSelection component", () => {
         languages={languages}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("accepts a url to the icon", () => {
@@ -42,7 +42,7 @@ describe("LanguageSelection component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if forceMobile", () => {
@@ -69,6 +69,6 @@ describe("LanguageSelection component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

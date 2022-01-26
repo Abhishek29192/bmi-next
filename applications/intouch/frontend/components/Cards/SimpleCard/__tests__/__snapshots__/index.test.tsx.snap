@@ -1,15 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SimpleCard component renders correctly 1`] = `
-<div
-  class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
->
+<div>
   <div
-    class="MuiCardContent-root"
+    class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
   >
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita amet vel iste! Saepe iusto quod, dolor perspiciatis dolorem blanditiis quidem sit doloremque similique architecto repellat ipsa illum mollitia perferendis! Eius.
-    </p>
+    <div
+      class="MuiCardContent-root"
+    >
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita amet vel iste! Saepe iusto quod, dolor perspiciatis dolorem blanditiis quidem sit doloremque similique architecto repellat ipsa illum mollitia perferendis! Eius.
+      </p>
+    </div>
   </div>
 </div>
 `;

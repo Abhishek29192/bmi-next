@@ -1,63 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
-<div
-  class="DocumentSimpleTableResults"
->
-  <div>
-    <table
-      class="MuiTable-root Table Table--row-no-color"
-    >
-      <thead
-        class="MuiTableHead-root ColorPair ColorPair--pearl"
+<div>
+  <div
+    class="DocumentSimpleTableResults"
+  >
+    <div>
+      <table
+        class="MuiTable-root Table Table--row-no-color"
       >
-        <tr
-          class="MuiTableRow-root MuiTableRow-head"
+        <thead
+          class="MuiTableHead-root ColorPair ColorPair--pearl"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-head"
-            scope="col"
+          <tr
+            class="MuiTableRow-root MuiTableRow-head"
           >
-            MC: documentLibrary.headers.title
-          </th>
-          <th
-            class="MuiTableCell-root MuiTableCell-head table-header"
-            scope="col"
-          >
-            MC: documentLibrary.headers.download
-          </th>
-          <th
-            class="MuiTableCell-root MuiTableCell-head table-header"
-            scope="col"
-          >
-            MC: documentLibrary.headers.add
-          </th>
-        </tr>
-      </thead>
-      <tbody
-        class="MuiTableBody-root"
-      />
-    </table>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
+              MC: documentLibrary.headers.title
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head table-header"
+              scope="col"
+            >
+              MC: documentLibrary.headers.download
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head table-header"
+              scope="col"
+            >
+              MC: documentLibrary.headers.add
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="MuiTableBody-root"
+        />
+      </table>
+    </div>
   </div>
 </div>
 `;
 
 exports[`DocumentResults component cards: renders correctly 1`] = `
-<div
-  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
-/>
+<div>
+  <div
+    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+  />
+</div>
 `;
 
 exports[`DocumentResults component technicalTable: renders correctly 1`] = `
-<div
-  class="DocumentTechnicalTableResults"
->
+<div>
   <div
-    class="accordion-div"
+    class="DocumentTechnicalTableResults"
   >
     <div
-      class="accordionStyles-root-1"
-    />
+      class="accordion-div"
+    >
+      <div
+        class="accordionStyles-root-1"
+      />
+    </div>
   </div>
 </div>
 `;

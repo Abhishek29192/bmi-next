@@ -18,7 +18,7 @@ describe("ProductReport Component", () => {
       <ProductReport />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("should export button click", () => {
     renderAsReal({ account: { role: "SUPER_ADMIN " } })(<ProductReport />);

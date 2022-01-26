@@ -21,7 +21,7 @@ describe("CourseDescription component", () => {
         </CourseDescription>
       </I18nextProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("should not show technology button if technology not exist", () => {
@@ -40,6 +40,6 @@ describe("CourseDescription component", () => {
         </CourseDescription>
       </I18nextProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

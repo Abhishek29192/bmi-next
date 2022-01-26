@@ -28,7 +28,7 @@ describe("Breadcrumbs component", () => {
         <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>
       </Breadcrumbs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly only one item", () => {
@@ -39,7 +39,7 @@ describe("Breadcrumbs component", () => {
         </Breadcrumbs.Item>
       </Breadcrumbs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders dark themed correctly", () => {
@@ -58,7 +58,7 @@ describe("Breadcrumbs component", () => {
         <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>
       </Breadcrumbs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders on a small breakpoint", () => {
@@ -80,7 +80,7 @@ describe("Breadcrumbs component", () => {
         <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>
       </Breadcrumbs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders on a large breakpoint", () => {
@@ -102,7 +102,7 @@ describe("Breadcrumbs component", () => {
         <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>
       </Breadcrumbs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly more than 5 items - small screens", () => {
@@ -137,6 +137,6 @@ describe("Breadcrumbs component", () => {
         </Breadcrumbs.Item>
       </Breadcrumbs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

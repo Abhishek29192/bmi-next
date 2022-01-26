@@ -14,6 +14,6 @@ describe("Brands component", () => {
     ];
 
     const { container } = render(<Brands data={brandData} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

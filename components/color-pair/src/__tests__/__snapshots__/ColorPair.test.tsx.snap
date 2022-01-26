@@ -1,59 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ColorPair component creates the right context value - dark theme 1`] = `
-<div
-  class="ColorPair ColorPair--black"
->
-  <span>
-    type: 
-    dark
-    , theme: 
-    black
-  </span>
+<div>
+  <div
+    class="ColorPair ColorPair--black"
+  >
+    <span>
+      type: 
+      dark
+      , theme: 
+      black
+    </span>
+  </div>
 </div>
 `;
 
 exports[`ColorPair component creates the right context value - light theme 1`] = `
-<div
-  class="ColorPair ColorPair--white"
->
-  <span>
-    type: 
-    light
-    , theme: 
-    white
-  </span>
+<div>
+  <div
+    class="ColorPair ColorPair--white"
+  >
+    <span>
+      type: 
+      light
+      , theme: 
+      white
+    </span>
+  </div>
 </div>
 `;
 
 exports[`ColorPair component renders correctly 1`] = `
-<div
-  class="ColorPair ColorPair--white"
->
-  Lorem ipsum
+<div>
+  <div
+    class="ColorPair ColorPair--white"
+  >
+    Lorem ipsum
+  </div>
 </div>
 `;
 
 exports[`ColorPair component renders with a custom component 1`] = `
-<span
-  class="ColorPair ColorPair--teal-500"
->
-  Lorem ipsum
-</span>
+<div>
+  <span
+    class="ColorPair ColorPair--teal-500"
+  >
+    Lorem ipsum
+  </span>
+</div>
 `;
 
 exports[`ColorPair component renders with a custom element 1`] = `
-<span
-  class="ColorPair ColorPair--teal-500"
->
-  Lorem ipsum
-</span>
+<div>
+  <span
+    class="ColorPair ColorPair--teal-500"
+  >
+    Lorem ipsum
+  </span>
+</div>
 `;
 
 exports[`ColorPair component renders with a theme 1`] = `
-<div
-  class="ColorPair ColorPair--teal-500"
->
-  Lorem ipsum
+<div>
+  <div
+    class="ColorPair ColorPair--teal-500"
+  >
+    Lorem ipsum
+  </div>
 </div>
 `;

@@ -105,6 +105,6 @@ describe("Footer component", () => {
         />
       </MockSiteContext>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

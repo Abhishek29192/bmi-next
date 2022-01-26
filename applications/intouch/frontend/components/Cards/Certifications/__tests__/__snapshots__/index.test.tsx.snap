@@ -1,48 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CertificationsCard matches snapshot 1`] = `
-<div
-  class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
->
+<div>
   <div
-    class="MuiCardContent-root"
+    class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
   >
-    <h4
-      class="MuiTypography-root Typography MuiTypography-h4"
-      style="margin-bottom: 1.5rem; font-size: 1.2rem;"
-    >
-      BMI Certifications
-    </h4>
     <div
-      class="certificationsItemList"
+      class="MuiCardContent-root"
     >
-      <div
-        class="certificationsItem"
-        data-testid="certifications-item"
+      <h4
+        class="MuiTypography-root Typography MuiTypography-h4"
+        style="margin-bottom: 1.5rem; font-size: 1.2rem;"
       >
-        <svg
-          class="certificationsItemIcon"
-        />
-        <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
-          style="margin-top: 0.5rem;"
-        >
-          certifications.pitched
-        </h6>
-      </div>
+        BMI Certifications
+      </h4>
       <div
-        class="certificationsItem"
-        data-testid="certifications-item"
+        class="certificationsItemList"
       >
-        <svg
-          class="certificationsItemIcon"
-        />
-        <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
-          style="margin-top: 0.5rem;"
+        <div
+          class="certificationsItem"
+          data-testid="certifications-item"
         >
-          certifications.flat
-        </h6>
+          <svg
+            class="certificationsItemIcon"
+          />
+          <h6
+            class="MuiTypography-root Typography MuiTypography-h6"
+            style="margin-top: 0.5rem;"
+          >
+            certifications.pitched
+          </h6>
+        </div>
+        <div
+          class="certificationsItem"
+          data-testid="certifications-item"
+        >
+          <svg
+            class="certificationsItemIcon"
+          />
+          <h6
+            class="MuiTypography-root Typography MuiTypography-h6"
+            style="margin-top: 0.5rem;"
+          >
+            certifications.flat
+          </h6>
+        </div>
       </div>
     </div>
   </div>

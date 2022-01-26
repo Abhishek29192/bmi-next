@@ -39,6 +39,6 @@ describe("CompanyIncompleteProfile", () => {
         missingFields={["phone", "aboutUs", "tradingAddress"]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

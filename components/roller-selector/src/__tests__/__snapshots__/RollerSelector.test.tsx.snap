@@ -1,72 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RollerSelector component renders correctly 1`] = `
-<button
-  class="MuiButtonBase-root RollerSelector"
-  tabindex="0"
-  type="button"
->
-  Lorem ipsum sit dolor
-  <svg
-    aria-hidden="true"
-    class="MuiSvgIcon-root icon"
-    focusable="false"
-    viewBox="0 0 24 24"
+<div>
+  <button
+    class="MuiButtonBase-root RollerSelector"
+    tabindex="0"
+    type="button"
   >
-    <path
-      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+    Lorem ipsum sit dolor
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root"
     />
-  </svg>
-  <span
-    class="MuiTouchRipple-root"
-  />
-</button>
+  </button>
+</div>
 `;
 
 exports[`RollerSelector component renders selected 1`] = `
-<button
-  class="MuiButtonBase-root RollerSelector RollerSelector--selected"
-  tabindex="0"
-  type="button"
->
-  Lorem ipsum sit dolor
-  <svg
-    aria-hidden="true"
-    class="MuiSvgIcon-root icon"
-    focusable="false"
-    viewBox="0 0 24 24"
+<div>
+  <button
+    class="MuiButtonBase-root RollerSelector RollerSelector--selected"
+    tabindex="0"
+    type="button"
   >
-    <path
-      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+    Lorem ipsum sit dolor
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root"
     />
-  </svg>
-  <span
-    class="MuiTouchRipple-root"
-  />
-</button>
+  </button>
+</div>
 `;
 
 exports[`RollerSelector component renders with custom className 1`] = `
-<button
-  class="MuiButtonBase-root testing RollerSelector"
-  tabindex="0"
-  type="button"
->
-  Lorem ipsum sit dolor
-  <svg
-    aria-hidden="true"
-    class="MuiSvgIcon-root icon"
-    focusable="false"
-    viewBox="0 0 24 24"
+<div>
+  <button
+    class="MuiButtonBase-root testing RollerSelector"
+    tabindex="0"
+    type="button"
   >
-    <path
-      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+    Lorem ipsum sit dolor
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root"
     />
-  </svg>
-  <span
-    class="MuiTouchRipple-root"
-  />
-</button>
+  </button>
+</div>
 `;
 
 exports[`RollerSelector component triggers an onClick event 1`] = `Array []`;

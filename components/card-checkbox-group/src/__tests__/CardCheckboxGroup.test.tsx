@@ -28,7 +28,7 @@ describe("CardCheckboxGroup component", () => {
         </CardCheckboxGroup.Item>
       </CardCheckboxGroup>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with initial value", () => {
@@ -54,7 +54,7 @@ describe("CardCheckboxGroup component", () => {
         </CardCheckboxGroup.Item>
       </CardCheckboxGroup>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with nonlabel string", () => {
@@ -83,7 +83,7 @@ describe("CardCheckboxGroup component", () => {
     );
     fireEvent.click(screen.getByText("arktis"));
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("calls onChange", () => {

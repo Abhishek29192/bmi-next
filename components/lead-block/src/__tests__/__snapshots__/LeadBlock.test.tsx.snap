@@ -1,83 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LeadBlock component renders correctly 1`] = `
-<div
-  class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
->
+<div>
   <div
-    class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+    class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="LeadBlockContentSection"
-    >
-      Content section 1 - body
-    </div>
-    <div
-      class="LeadBlockContentSection"
-    >
-      <h5
-        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
-      >
-        Content section 2 - heading
-      </h5>
-      Content section 2 - body
-    </div>
-    <div
-      class="LeadBlockContentSection"
-    >
-      <h5
-        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
-      >
-        Content section 3 - heading
-      </h5>
-      Content section 3 - body
-    </div>
-  </div>
-  <div
-    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
-  >
-    <div
-      class="ColorPair ColorPair--pearl"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="PostItCard"
+        class="LeadBlockContentSection"
+      >
+        Content section 1 - body
+      </div>
+      <div
+        class="LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          Content section 2 - heading
+        </h5>
+        Content section 2 - body
+      </div>
+      <div
+        class="LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          Content section 3 - heading
+        </h5>
+        Content section 3 - body
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+    >
+      <div
+        class="ColorPair ColorPair--pearl"
       >
         <div
-          class="section"
+          class="PostItCard"
         >
-          <h4
-            class="MuiTypography-root Typography MuiTypography-h4"
-          >
-            Card heading 1
-          </h4>
           <div
-            class="content"
+            class="section"
           >
-            Card content 1
+            <h4
+              class="MuiTypography-root Typography MuiTypography-h4"
+            >
+              Card heading 1
+            </h4>
+            <div
+              class="content"
+            >
+              Card content 1
+            </div>
+            <div
+              class="action"
+            >
+              Card action 1
+            </div>
           </div>
           <div
-            class="action"
+            class="section"
           >
-            Card action 1
-          </div>
-        </div>
-        <div
-          class="section"
-        >
-          <h5
-            class="MuiTypography-root Typography MuiTypography-h5"
-          >
-            Card heading 2
-          </h5>
-          <div
-            class="content"
-          >
-            Card content 2
-          </div>
-          <div
-            class="action"
-          >
-            Card action 2
+            <h5
+              class="MuiTypography-root Typography MuiTypography-h5"
+            >
+              Card heading 2
+            </h5>
+            <div
+              class="content"
+            >
+              Card content 2
+            </div>
+            <div
+              class="action"
+            >
+              Card action 2
+            </div>
           </div>
         </div>
       </div>
@@ -87,64 +89,66 @@ exports[`LeadBlock component renders correctly 1`] = `
 `;
 
 exports[`LeadBlock component renders width card theme 1`] = `
-<div
-  class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
->
+<div>
   <div
-    class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+    class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="LeadBlockContentSection"
-    >
-      Content section 1 - body
-    </div>
-    <div
-      class="LeadBlockContentSection"
-    >
-      <h5
-        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
-      >
-        Content section 2 - heading
-      </h5>
-      Content section 2 - body
-    </div>
-    <div
-      class="LeadBlockContentSection"
-    >
-      <h5
-        class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
-      >
-        Content section 3 - heading
-      </h5>
-      Content section 3 - body
-    </div>
-  </div>
-  <div
-    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
-  >
-    <div
-      class="ColorPair ColorPair--blue-900"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="PostItCard"
+        class="LeadBlockContentSection"
+      >
+        Content section 1 - body
+      </div>
+      <div
+        class="LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          Content section 2 - heading
+        </h5>
+        Content section 2 - body
+      </div>
+      <div
+        class="LeadBlockContentSection"
+      >
+        <h5
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+        >
+          Content section 3 - heading
+        </h5>
+        Content section 3 - body
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+    >
+      <div
+        class="ColorPair ColorPair--blue-900"
       >
         <div
-          class="section"
+          class="PostItCard"
         >
-          <h4
-            class="MuiTypography-root Typography MuiTypography-h4"
-          >
-            Card heading 1
-          </h4>
           <div
-            class="content"
+            class="section"
           >
-            Card content 1
-          </div>
-          <div
-            class="action"
-          >
-            Card action 1
+            <h4
+              class="MuiTypography-root Typography MuiTypography-h4"
+            >
+              Card heading 1
+            </h4>
+            <div
+              class="content"
+            >
+              Card content 1
+            </div>
+            <div
+              class="action"
+            >
+              Card action 1
+            </div>
           </div>
         </div>
       </div>

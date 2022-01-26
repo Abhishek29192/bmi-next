@@ -56,7 +56,7 @@ describe("SitemapSection component", () => {
     };
 
     const { container } = render(<SitemapSection data={data} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if incomplete", () => {
@@ -65,6 +65,6 @@ describe("SitemapSection component", () => {
     } as NavigationData;
 
     const { container } = render(<SitemapSection data={data} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

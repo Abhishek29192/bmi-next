@@ -10,13 +10,13 @@ import ColorPair, {
 describe("ColorPair component", () => {
   it("renders correctly", () => {
     const { container } = render(<ColorPair>Lorem ipsum</ColorPair>);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with a theme", () => {
     const { container } = render(
       <ColorPair theme="teal-500">Lorem ipsum</ColorPair>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with a custom element", () => {
     const { container } = render(
@@ -24,7 +24,7 @@ describe("ColorPair component", () => {
         Lorem ipsum
       </ColorPair>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with a custom component", () => {
     const CustomComponent = withColorPair((props) => (
@@ -33,7 +33,7 @@ describe("ColorPair component", () => {
     const { container } = render(
       <CustomComponent theme="teal-500">Lorem ipsum</CustomComponent>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("creates the right context value - light theme", () => {
     const { container } = render(
@@ -48,7 +48,7 @@ describe("ColorPair component", () => {
       </ColorPair>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("creates the right context value - dark theme", () => {
     const { container } = render(
@@ -63,7 +63,7 @@ describe("ColorPair component", () => {
       </ColorPair>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("exports the correct available themes", () => {
     expect(availableThemes).toEqual([

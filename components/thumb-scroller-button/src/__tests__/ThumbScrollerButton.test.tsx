@@ -10,7 +10,7 @@ describe("ThumbScrollerButton component", () => {
         onClick={() => console.log("Right clicked!")}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly when direction is left", () => {
     const { container } = render(
@@ -19,7 +19,7 @@ describe("ThumbScrollerButton component", () => {
         onClick={() => console.log("Left clicked!")}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly when className is provided", () => {
     const { container } = render(
@@ -29,7 +29,7 @@ describe("ThumbScrollerButton component", () => {
         onClick={() => console.log("Left clicked!")}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(container.querySelectorAll(".testClass").length).toBe(1);
   });
 });

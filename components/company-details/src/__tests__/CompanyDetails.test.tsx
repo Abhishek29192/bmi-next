@@ -9,7 +9,7 @@ describe("CompanyDetails component", () => {
         <p>Summary</p>
       </CompanyDetails>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with no details and no name", () => {
@@ -117,6 +117,6 @@ describe("CompanyDetails component", () => {
         <p>Summary</p>
       </CompanyDetails>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

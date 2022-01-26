@@ -36,7 +36,7 @@ describe("TableOfContent component", () => {
         </TableOfContent.Anchor>
       </TableOfContent>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with default value of renderLink being undefined", () => {
     const { container } = render(

@@ -31,7 +31,7 @@ describe("ProductGuarantee Component", () => {
       <ProductGuarantee guarantees={mockProductGuarantees} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly when pdf available", () => {
@@ -50,7 +50,7 @@ describe("ProductGuarantee Component", () => {
       <ProductGuarantee guarantees={mockProductGuarantees} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders multiple guarantee", () => {
@@ -76,6 +76,6 @@ describe("ProductGuarantee Component", () => {
       <ProductGuarantee guarantees={mockProductGuarantees} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

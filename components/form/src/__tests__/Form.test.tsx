@@ -28,7 +28,7 @@ describe("Form component", () => {
         <Form.SubmitButton>Submit</Form.SubmitButton>
       </Form>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with a multiple buttons", () => {
@@ -43,7 +43,7 @@ describe("Form component", () => {
         </Form.ButtonWrapper>
       </Form>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with a right aligned button", () => {
@@ -57,7 +57,7 @@ describe("Form component", () => {
         </Form.ButtonWrapper>
       </Form>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("test submit form", () => {
@@ -119,7 +119,7 @@ describe("Form component", () => {
         defaultValue="Value"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     const input = getByTestId("id");
     fireEvent.change(input, { target: { value: "Text" } });
     expect(onChange).toHaveBeenCalled();
@@ -134,7 +134,7 @@ describe("Form component", () => {
     const { getByTestId, container } = render(
       <WithFormControlComponent name="test" defaultValue="Value" />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     const input = getByTestId("id");
     fireEvent.change(input, { target: { value: "Text" } });
     expect(onChange).not.toHaveBeenCalled();
@@ -183,6 +183,6 @@ describe("Form component", () => {
     const { container } = render(
       <WithFormControlComponent name="test" isRequired={true} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

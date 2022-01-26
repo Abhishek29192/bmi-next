@@ -1,105 +1,107 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProductGuaranteeCard Component renders correctly 1`] = `
-<div
-  class="productCard"
->
+<div>
   <div
-    class="productCard__title"
+    class="productCard"
   >
-    <h2
-      class="MuiTypography-root Typography MuiTypography-h6"
+    <div
+      class="productCard__title"
     >
-      product_name
-    </h2>
-  </div>
-  <div
-    class="productCard__description"
-  >
-    <h6
-      class="MuiTypography-root Typography MuiTypography-subtitle2"
-    />
-  </div>
-  <div>
-    <table
-      class="MuiTable-root Table Table--row-even-color"
-    >
-      <thead
-        class="MuiTableHead-root ColorPair ColorPair--pearl"
+      <h2
+        class="MuiTypography-root Typography MuiTypography-h6"
       >
-        <tr
-          class="MuiTableRow-root MuiTableRow-head"
-        >
-          <th
-            class="MuiTableCell-root MuiTableCell-head"
-            scope="col"
-          >
-            productDetails.name
-          </th>
-          <th
-            class="MuiTableCell-root MuiTableCell-head"
-            scope="col"
-          >
-            productDetails.family
-          </th>
-          <th
-            class="MuiTableCell-root MuiTableCell-head"
-            scope="col"
-          >
-            productDetails.brand
-          </th>
-        </tr>
-      </thead>
-      <tbody
-        class="MuiTableBody-root"
-      >
-        <tr
-          class="MuiTableRow-root"
-        >
-          <td
-            class="MuiTableCell-root MuiTableCell-body"
-          >
-            product_name
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body"
-          >
-            famil
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body"
-          >
-            brand
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div
-    class="productCard__footer"
-    data-testid="guarantee-pdf-item"
-  >
-    <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
-      disabled=""
-      rel="noopener noreferrer"
-      tabindex="-1"
-      target="_blank"
-      type="button"
+        product_name
+      </h2>
+    </div>
+    <div
+      class="productCard__description"
     >
-      <span
-        class="MuiButton-label buttonStyles-label-4"
+      <h6
+        class="MuiTypography-root Typography MuiTypography-subtitle2"
+      />
+    </div>
+    <div>
+      <table
+        class="MuiTable-root Table Table--row-even-color"
+      >
+        <thead
+          class="MuiTableHead-root ColorPair ColorPair--pearl"
+        >
+          <tr
+            class="MuiTableRow-root MuiTableRow-head"
+          >
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
+              productDetails.name
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
+              productDetails.family
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
+              productDetails.brand
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="MuiTableBody-root"
+        >
+          <tr
+            class="MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            >
+              product_name
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            >
+              famil
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            >
+              brand
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      class="productCard__footer"
+      data-testid="guarantee-pdf-item"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+        disabled=""
+        rel="noopener noreferrer"
+        tabindex="-1"
+        target="_blank"
+        type="button"
       >
         <span
-          class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+          class="MuiButton-label buttonStyles-label-4"
         >
-          <svg
-            class="productCard__logo"
-          />
+          <span
+            class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+          >
+            <svg
+              class="productCard__logo"
+            />
+          </span>
+          generatingPdf
         </span>
-        generatingPdf
-      </span>
-    </button>
+      </button>
+    </div>
   </div>
 </div>
 `;

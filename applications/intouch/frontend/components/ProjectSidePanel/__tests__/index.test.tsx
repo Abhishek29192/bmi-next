@@ -39,7 +39,7 @@ describe("ProjectSidePanel component", () => {
         </AccountContextWrapper>
       </I18nProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("shows ALL projects by default", () => {
@@ -93,7 +93,7 @@ describe("ProjectSidePanel component", () => {
         </AccountContextWrapper>
       </I18nProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("should show project side panel footer if user company admin", () => {

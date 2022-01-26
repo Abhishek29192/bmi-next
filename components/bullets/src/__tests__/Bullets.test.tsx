@@ -10,6 +10,6 @@ describe("Bullets component", () => {
         <Bullets.Item>Second Item.</Bullets.Item>
       </Bullets>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

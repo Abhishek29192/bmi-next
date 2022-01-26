@@ -61,7 +61,7 @@ describe("ServiceLocatorSection component", () => {
         <ServiceLocatorSection data={data} />
       </LocationProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   describe("renders single service", () => {
@@ -84,7 +84,7 @@ describe("ServiceLocatorSection component", () => {
           <ServiceLocatorSection data={data} />
         </LocationProvider>
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("with empty service type", () => {
@@ -104,7 +104,7 @@ describe("ServiceLocatorSection component", () => {
       const { container } = renderWithRouter(
         <ServiceLocatorSection data={data} />
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("with single service type", () => {
@@ -124,7 +124,7 @@ describe("ServiceLocatorSection component", () => {
       const { container } = renderWithRouter(
         <ServiceLocatorSection data={data} />
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("with multiple service type", () => {
@@ -144,7 +144,7 @@ describe("ServiceLocatorSection component", () => {
       const { container } = renderWithRouter(
         <ServiceLocatorSection data={data} />
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -169,7 +169,7 @@ describe("ServiceLocatorSection component", () => {
       const { container } = renderWithRouter(
         <ServiceLocatorSection data={data} />
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("with single service type", () => {
@@ -200,7 +200,7 @@ describe("ServiceLocatorSection component", () => {
       const { container } = renderWithRouter(
         <ServiceLocatorSection data={data} />
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("for Branches", () => {
@@ -236,7 +236,7 @@ describe("ServiceLocatorSection component", () => {
       const { container } = renderWithRouter(
         <ServiceLocatorSection data={data} />
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("for Merchant", () => {
@@ -274,7 +274,7 @@ describe("ServiceLocatorSection component", () => {
       const { container } = renderWithRouter(
         <ServiceLocatorSection data={data} />
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("for Branches with invalid service type", () => {
@@ -306,7 +306,7 @@ describe("ServiceLocatorSection component", () => {
       const { container } = renderWithRouter(
         <ServiceLocatorSection data={data} />
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("for Merchant with invalid service type", () => {
@@ -338,7 +338,7 @@ describe("ServiceLocatorSection component", () => {
       const { container } = renderWithRouter(
         <ServiceLocatorSection data={data} />
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("for Merchants", () => {
@@ -371,7 +371,7 @@ describe("ServiceLocatorSection component", () => {
       const { container } = renderWithRouter(
         <ServiceLocatorSection data={data} />
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("with no fields for invalid type", () => {
@@ -405,7 +405,7 @@ describe("ServiceLocatorSection component", () => {
       const { container } = renderWithRouter(
         <ServiceLocatorSection data={data} />
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("with multiple service type", () => {
@@ -436,7 +436,7 @@ describe("ServiceLocatorSection component", () => {
       const { container } = renderWithRouter(
         <ServiceLocatorSection data={data} />
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("with ALL service type", () => {
@@ -479,7 +479,7 @@ describe("ServiceLocatorSection component", () => {
       const { container } = renderWithRouter(
         <ServiceLocatorSection data={data} />
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -633,7 +633,7 @@ describe("ServiceLocatorSection component", () => {
     const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const rooferButton = wrapper.getByText("roofer 1");
     rooferButton.click();
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it("selects and unselects service", () => {
@@ -654,7 +654,7 @@ describe("ServiceLocatorSection component", () => {
     const rooferButton = wrapper.getByText("roofer 1");
     rooferButton.click();
     rooferButton.click();
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it("filters roofers using chip click", () => {
@@ -695,7 +695,7 @@ describe("ServiceLocatorSection component", () => {
       name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
     });
     chipButton.click();
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it("filters branch using chip click", () => {
@@ -732,7 +732,7 @@ describe("ServiceLocatorSection component", () => {
       name: `MC: findABranch.filters.${camelCase(branchTypes[0])}`
     });
     chipButton.click();
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it("filters merchant using chip click", () => {
@@ -769,7 +769,7 @@ describe("ServiceLocatorSection component", () => {
       name: `MC: findAMerchant.filters.${camelCase(merchantTypes[0])}`
     });
     chipButton.click();
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it("click and unclick chip", () => {
@@ -867,7 +867,7 @@ describe("ServiceLocatorSection component", () => {
     chipButton3.click();
     chipButton4.click();
     chipButton5.click();
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it("filters using pre selected chips", () => {
@@ -932,7 +932,7 @@ describe("ServiceLocatorSection component", () => {
     };
 
     const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it("can selects all chips by default", () => {
@@ -967,7 +967,7 @@ describe("ServiceLocatorSection component", () => {
     };
 
     const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it("filters using autocomplete", () => {
@@ -1035,7 +1035,7 @@ describe("ServiceLocatorSection component", () => {
     const closeButton = wrapper.getByLabelText("MC: global.close");
     closeButton.click();
 
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   describe("when showDefaultResultList is false", () => {
@@ -1111,7 +1111,7 @@ describe("ServiceLocatorSection component", () => {
         wrapper.container.querySelector(".tabs .tab-panel .list")
       ).toBeFalsy();
       expect(text).toBeFalsy();
-      expect(wrapper.container.firstChild).toMatchSnapshot();
+      expect(wrapper.container).toMatchSnapshot();
     });
   });
 
@@ -1419,7 +1419,7 @@ describe("ServiceLocatorSection component", () => {
         "MC: findARoofer.locationFieldLabel"
       );
       expect(googleAutoCompleteInput).toBeDefined();
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
     it("should execute GoogleAutocomplete onChange event when location changed", async () => {
       jest.spyOn(GoogleMockApi, "loadGoogleApi").mockImplementation();
@@ -1520,7 +1520,7 @@ describe("ServiceLocatorSection component", () => {
         fireEvent.click(optionList.children[0]);
       });
       expect(googleAutoCompleteInput.value).toBe("Lundvegen, Hamar, Norway");
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 });

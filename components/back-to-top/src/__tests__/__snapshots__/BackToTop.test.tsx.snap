@@ -1,129 +1,137 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BackToTop component handles button click 1`] = `
-<div
-  class="BackToTop"
->
-  <button
-    aria-hidden="false"
-    aria-label="back-to-top"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 button MuiButton-containedPrimary"
-    tabindex="0"
-    type="button"
+<div>
+  <div
+    class="BackToTop"
   >
-    <span
-      class="MuiButton-label buttonStyles-label-64"
+    <button
+      aria-hidden="false"
+      aria-label="back-to-top"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 button MuiButton-containedPrimary"
+      tabindex="0"
+      type="button"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root icon"
-        focusable="false"
-        viewBox="0 0 24 24"
+      <span
+        class="MuiButton-label buttonStyles-label-64"
       >
-        <path
-          d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
-        />
-      </svg>
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
 </div>
 `;
 
 exports[`BackToTop component handles scroll 1`] = `
-<div
-  class="BackToTop BackToTop--hidden"
->
-  <button
-    aria-hidden="true"
-    aria-label="back-to-top"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 button MuiButton-containedPrimary"
-    tabindex="-1"
-    type="button"
+<div>
+  <div
+    class="BackToTop BackToTop--hidden"
   >
-    <span
-      class="MuiButton-label buttonStyles-label-44"
+    <button
+      aria-hidden="true"
+      aria-label="back-to-top"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 button MuiButton-containedPrimary"
+      tabindex="-1"
+      type="button"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root icon"
-        focusable="false"
-        viewBox="0 0 24 24"
+      <span
+        class="MuiButton-label buttonStyles-label-44"
       >
-        <path
-          d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
-        />
-      </svg>
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
 </div>
 `;
 
 exports[`BackToTop component renders correctly 1`] = `
-<div
-  class="BackToTop BackToTop--hidden"
->
-  <button
-    aria-hidden="true"
-    aria-label="back-to-top"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 button MuiButton-containedPrimary"
-    tabindex="-1"
-    type="button"
+<div>
+  <div
+    class="BackToTop BackToTop--hidden"
   >
-    <span
-      class="MuiButton-label buttonStyles-label-4"
+    <button
+      aria-hidden="true"
+      aria-label="back-to-top"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 button MuiButton-containedPrimary"
+      tabindex="-1"
+      type="button"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root icon"
-        focusable="false"
-        viewBox="0 0 24 24"
+      <span
+        class="MuiButton-label buttonStyles-label-4"
       >
-        <path
-          d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
-        />
-      </svg>
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
 </div>
 `;
 
 exports[`BackToTop component renders correctly with className 1`] = `
-<div
-  class="classname BackToTop BackToTop--hidden"
->
-  <button
-    aria-hidden="true"
-    aria-label="back-to-top"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 button MuiButton-containedPrimary"
-    tabindex="-1"
-    type="button"
+<div>
+  <div
+    class="classname BackToTop BackToTop--hidden"
   >
-    <span
-      class="MuiButton-label buttonStyles-label-24"
+    <button
+      aria-hidden="true"
+      aria-label="back-to-top"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 button MuiButton-containedPrimary"
+      tabindex="-1"
+      type="button"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root icon"
-        focusable="false"
-        viewBox="0 0 24 24"
+      <span
+        class="MuiButton-label buttonStyles-label-24"
       >
-        <path
-          d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
-        />
-      </svg>
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
 </div>
 `;

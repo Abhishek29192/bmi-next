@@ -23,6 +23,6 @@ describe("DocumentSimpleTableResultsMobile component", () => {
       <DocumentSimpleTableResultsMobile documents={[document]} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

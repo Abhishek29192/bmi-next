@@ -330,14 +330,14 @@ describe("RichText component", () => {
 
   it("renders correctly", () => {
     const { container } = render(<RichText document={document} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders when dialog clicked", () => {
     const { container, getByText } = render(<RichText document={document} />);
     const openDialogButton = getByText("Open dialog");
     openDialogButton.click();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("closes dialog", () => {
@@ -348,7 +348,7 @@ describe("RichText component", () => {
     openDialogButton.click();
     const closeDialogButton = getByRole("button", { name: "Close" });
     closeDialogButton.click();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("falls back with incorrect data", () => {
@@ -389,11 +389,11 @@ describe("RichText component", () => {
     };
 
     const { container } = render(<RichText document={document} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with no data", () => {
     const { container } = render(<RichText />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

@@ -56,7 +56,7 @@ describe("EqualHeights component", () => {
       global.dispatchEvent(new Event("resize"));
       fireEvent.click(screen.getByRole("button"));
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
     it("should get the biggest height of added elements and if it's not equal with current height of elements set new height value to all added elements", () => {
       let count = 0;
@@ -74,7 +74,7 @@ describe("EqualHeights component", () => {
       const { container } = render(
         <EqualHeights>{mockElements(false)}</EqualHeights>
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -82,7 +82,7 @@ describe("EqualHeights component", () => {
     it("should call addRef method from default context", () => {
       const { container } = render(<>{mockElements()}</>);
       fireEvent.click(screen.getByRole("button"));
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 });

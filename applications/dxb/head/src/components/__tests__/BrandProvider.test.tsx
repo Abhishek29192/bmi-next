@@ -19,24 +19,26 @@ describe("BrandProvider", () => {
   });
 
   it("renders", () => {
-    const view = render(<BrandProvider>Test</BrandProvider>);
-    expect(view.container.firstChild).toMatchSnapshot();
+    const { container } = render(<BrandProvider>Test</BrandProvider>);
+    expect(container).toMatchSnapshot();
   });
 
   it("renders without BrandProvider", () => {
     process.env.GATSBY_ENABLE_BRAND_PROVIDER = "false";
-    const view = render(<BrandProvider>Test</BrandProvider>);
-    expect(view.container.firstChild).toMatchSnapshot();
+    const { container } = render(<BrandProvider>Test</BrandProvider>);
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with brand", () => {
-    const view = render(<BrandProvider brand="Braas">Test</BrandProvider>);
-    expect(view.container.firstChild).toMatchSnapshot();
+    const { container } = render(
+      <BrandProvider brand="Braas">Test</BrandProvider>
+    );
+    expect(container).toMatchSnapshot();
   });
 
   it("renders without brand", () => {
-    const view = render(<BrandProvider>Without brand</BrandProvider>);
-    expect(view.container.firstChild).toMatchSnapshot();
+    const { container } = render(<BrandProvider>Without brand</BrandProvider>);
+    expect(container).toMatchSnapshot();
   });
 
   it("adds brand className only when brand is provided", () => {

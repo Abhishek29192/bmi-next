@@ -11,7 +11,7 @@ describe("ThemeProvider component", () => {
         <span>Test</span>
       </ThemeProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });
 

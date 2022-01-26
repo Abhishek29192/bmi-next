@@ -10,7 +10,7 @@ describe("ShowMore component", () => {
         Show more content
       </ShowMore>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with content expanded", () => {
@@ -19,7 +19,7 @@ describe("ShowMore component", () => {
         Show more content
       </ShowMore>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly when trigger button is clicked", () => {
@@ -32,7 +32,7 @@ describe("ShowMore component", () => {
     const triggerButton = getByText("Trigger");
     fireEvent.click(triggerButton);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with close button", () => {
@@ -48,7 +48,7 @@ describe("ShowMore component", () => {
     const triggerButton = getByText("Trigger");
     fireEvent.click(triggerButton);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with close button is clicked", () => {
@@ -65,6 +65,6 @@ describe("ShowMore component", () => {
     const triggerButton = getByText("Close");
     fireEvent.click(triggerButton);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

@@ -7,7 +7,7 @@ describe("RadioPane component", () => {
     const { container } = render(
       <RadioPane name="f1" value="v1" title={"Value 1"} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with className", () => {
@@ -19,7 +19,7 @@ describe("RadioPane component", () => {
         className={"custom-classname"}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders expanded with children", () => {
@@ -28,6 +28,6 @@ describe("RadioPane component", () => {
         expanded content
       </RadioPane>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

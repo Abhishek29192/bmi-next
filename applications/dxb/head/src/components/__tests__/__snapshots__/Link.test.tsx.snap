@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Link component Link function HubSpot CTA renders correctly 1`] = `
-<button
-  action="[object Object]"
-  type="button"
->
-  String
-</button>
+<div>
+  <button
+    action="[object Object]"
+    type="button"
+  >
+    String
+  </button>
+</div>
 `;
 
 exports[`Link component Link function ensure clicking Calculator link works 1`] = `[Function]`;
@@ -20,12 +22,14 @@ exports[`Link component Link function ensure clicking link works 1`] = `[Functio
 exports[`Link component Link function handles parameters being non-null properly 1`] = `[Function]`;
 
 exports[`Link component Link function returns a Link correctly 1`] = `
-<button
-  action="[object Object]"
-  type="button"
->
-  string
-</button>
+<div>
+  <button
+    action="[object Object]"
+    type="button"
+  >
+    string
+  </button>
+</div>
 `;
 
 exports[`Link component Link function returns a Link correctly with Dialog promo 1`] = `[Function]`;

@@ -18,7 +18,7 @@ describe("Autocomplete component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with start icon", () => {
@@ -37,7 +37,7 @@ describe("Autocomplete component", () => {
         startAdornmentIcon="HardHatHead"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with all data option component", () => {
@@ -51,13 +51,13 @@ describe("Autocomplete component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with partial data option component", () => {
     const { container } = render(
       <Autocomplete.Option text="text" secondaryText="secondaryText" />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

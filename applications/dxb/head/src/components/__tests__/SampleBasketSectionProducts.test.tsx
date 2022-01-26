@@ -72,7 +72,7 @@ describe("SampleBasketSectionProducts component", () => {
         <SampleBasketSectionProducts />
       </BasketContextProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("should remove sample", () => {

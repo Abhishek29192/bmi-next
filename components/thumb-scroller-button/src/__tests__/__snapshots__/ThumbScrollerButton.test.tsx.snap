@@ -1,67 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ThumbScrollerButton component renders correctly 1`] = `
-<button
-  class="MuiButtonBase-root ThumbScrollerButton ThumbScrollerButton--right"
-  tabindex="-1"
-  type="button"
->
-  <svg
-    aria-hidden="true"
-    class="MuiSvgIcon-root icon"
-    focusable="false"
-    viewBox="0 0 24 24"
+<div>
+  <button
+    class="MuiButtonBase-root ThumbScrollerButton ThumbScrollerButton--right"
+    tabindex="-1"
+    type="button"
   >
-    <path
-      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root"
     />
-  </svg>
-  <span
-    class="MuiTouchRipple-root"
-  />
-</button>
+  </button>
+</div>
 `;
 
 exports[`ThumbScrollerButton component renders correctly when className is provided 1`] = `
-<button
-  class="MuiButtonBase-root testClass ThumbScrollerButton ThumbScrollerButton--left"
-  tabindex="-1"
-  type="button"
->
-  <svg
-    aria-hidden="true"
-    class="MuiSvgIcon-root icon"
-    focusable="false"
-    viewBox="0 0 24 24"
+<div>
+  <button
+    class="MuiButtonBase-root testClass ThumbScrollerButton ThumbScrollerButton--left"
+    tabindex="-1"
+    type="button"
   >
-    <path
-      d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root"
     />
-  </svg>
-  <span
-    class="MuiTouchRipple-root"
-  />
-</button>
+  </button>
+</div>
 `;
 
 exports[`ThumbScrollerButton component renders correctly when direction is left 1`] = `
-<button
-  class="MuiButtonBase-root ThumbScrollerButton ThumbScrollerButton--left"
-  tabindex="-1"
-  type="button"
->
-  <svg
-    aria-hidden="true"
-    class="MuiSvgIcon-root icon"
-    focusable="false"
-    viewBox="0 0 24 24"
+<div>
+  <button
+    class="MuiButtonBase-root ThumbScrollerButton ThumbScrollerButton--left"
+    tabindex="-1"
+    type="button"
   >
-    <path
-      d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root"
     />
-  </svg>
-  <span
-    class="MuiTouchRipple-root"
-  />
-</button>
+  </button>
+</div>
 `;

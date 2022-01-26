@@ -7,6 +7,6 @@ describe("AlternativeContent component", () => {
     const { container } = render(
       <AlternativeContent>Lorem Ipsum</AlternativeContent>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

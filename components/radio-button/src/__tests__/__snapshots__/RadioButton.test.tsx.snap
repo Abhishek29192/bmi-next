@@ -1,64 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioButton component render with prefix 1`] = `
-<div
-  class="RadioButton"
->
-  <input
-    class="input"
-    id="radio-color-Grey"
-    name="color"
-    type="radio"
-    value="Grey"
-  />
-  <label
-    class="label"
-    for="radio-color-Grey"
+<div>
+  <div
+    class="RadioButton"
   >
-    <div
-      style="min-height: 100%; min-width: 72px; background-color: rgb(217, 216, 216);"
+    <input
+      class="input"
+      id="radio-color-Grey"
+      name="color"
+      type="radio"
+      value="Grey"
     />
-    <div
-      aria-disabled="false"
-      class="MuiButtonBase-root text"
-      role="button"
-      tabindex="-1"
+    <label
+      class="label"
+      for="radio-color-Grey"
     >
-      Grey
-      <span
-        class="MuiTouchRipple-root"
+      <div
+        style="min-height: 100%; min-width: 72px; background-color: rgb(217, 216, 216);"
       />
-    </div>
-  </label>
+      <div
+        aria-disabled="false"
+        class="MuiButtonBase-root text"
+        role="button"
+        tabindex="-1"
+      >
+        Grey
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </label>
+  </div>
 </div>
 `;
 
 exports[`RadioButton component renders correctly 1`] = `
-<div
-  class="RadioButton"
->
-  <input
-    class="input"
-    id="radio-deckType-Combustible (timber/plywood)"
-    name="deckType"
-    type="radio"
-    value="Combustible (timber/plywood)"
-  />
-  <label
-    class="label"
-    for="radio-deckType-Combustible (timber/plywood)"
+<div>
+  <div
+    class="RadioButton"
   >
-    <div
-      aria-disabled="false"
-      class="MuiButtonBase-root text"
-      role="button"
-      tabindex="-1"
+    <input
+      class="input"
+      id="radio-deckType-Combustible (timber/plywood)"
+      name="deckType"
+      type="radio"
+      value="Combustible (timber/plywood)"
+    />
+    <label
+      class="label"
+      for="radio-deckType-Combustible (timber/plywood)"
     >
-      Combustible (timber/plywood)
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </div>
-  </label>
+      <div
+        aria-disabled="false"
+        class="MuiButtonBase-root text"
+        role="button"
+        tabindex="-1"
+      >
+        Combustible (timber/plywood)
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </label>
+  </div>
 </div>
 `;

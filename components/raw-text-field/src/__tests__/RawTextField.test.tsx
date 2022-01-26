@@ -13,7 +13,7 @@ describe("RawTextField component", () => {
         onChange={console.log}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if error is true", () => {
@@ -27,7 +27,7 @@ describe("RawTextField component", () => {
         onChange={console.log}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with leftAdornment", () => {
@@ -41,7 +41,7 @@ describe("RawTextField component", () => {
         onChange={console.log}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with rightAdornment", () => {
@@ -55,7 +55,7 @@ describe("RawTextField component", () => {
         onChange={console.log}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("does not display rightAdornment if provided and error is true", () => {
@@ -70,7 +70,7 @@ describe("RawTextField component", () => {
         onChange={console.log}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if variant === hybrid", () => {
@@ -84,7 +84,7 @@ describe("RawTextField component", () => {
         onChange={console.log}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if variant === outlined", () => {
@@ -98,7 +98,7 @@ describe("RawTextField component", () => {
         onChange={console.log}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if isTextArea is true", () => {
@@ -112,7 +112,7 @@ describe("RawTextField component", () => {
         onChange={console.log}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly if isRequired is true", () => {
     const { container } = render(
@@ -125,7 +125,7 @@ describe("RawTextField component", () => {
         onChange={console.log}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if helperText is populated", () => {
@@ -139,7 +139,7 @@ describe("RawTextField component", () => {
         onChange={console.log}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly if errorText is populated", () => {
@@ -154,7 +154,7 @@ describe("RawTextField component", () => {
         onChange={console.log}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("execute onChange correctly", () => {

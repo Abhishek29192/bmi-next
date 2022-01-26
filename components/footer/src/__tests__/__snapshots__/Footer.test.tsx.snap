@@ -1,554 +1,556 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer component renders correctly 1`] = `
-<div
-  class="Footer"
->
+<div>
   <div
-    class="Container"
+    class="Footer"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item"
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
         >
-          <h4
-            class="MuiTypography-root Typography MuiTypography-h4"
+          <div
+            class="MuiGrid-root item MuiGrid-item"
           >
-            Get in touch
-          </h4>
-          <nav>
-            <ul
-              class="list"
+            <h4
+              class="MuiTypography-root Typography MuiTypography-h4"
             >
-              <li
-                class="list-item"
+              Get in touch
+            </h4>
+            <nav>
+              <ul
+                class="list"
               >
-                <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  href="tel:+4401234567890"
-                  tabindex="0"
+                <li
+                  class="list-item"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-4"
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                    href="tel:+4401234567890"
+                    tabindex="0"
                   >
                     <span
-                      class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                      class="MuiButton-label buttonStyles-label-4"
+                    >
+                      <span
+                        class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                          />
+                        </svg>
+                      </span>
+                      +44 (0) 1234567890
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
+                <li
+                  class="list-item"
+                >
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                    href="mailto:info@bmigroup.com"
+                    tabindex="0"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-4"
+                    >
+                      <span
+                        class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                          />
+                        </svg>
+                      </span>
+                      info@bmigroup.com
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
+                <li
+                  class="list-item list-item--icon"
+                >
+                  <a
+                    aria-disabled="false"
+                    aria-label="Facebook"
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButtonStyles-textDark-15 icon-link"
+                    href="https://facebook.com/bmigroup"
+                    tabindex="0"
+                  >
+                    <span
+                      class="MuiIconButton-label"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root icon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                          d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"
                         />
                       </svg>
                     </span>
-                    +44 (0) 1234567890
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-              <li
-                class="list-item"
-              >
-                <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  href="mailto:info@bmigroup.com"
-                  tabindex="0"
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
+                <li
+                  class="list-item list-item--icon"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-4"
+                  <a
+                    aria-disabled="false"
+                    aria-label="LinkedIn"
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButtonStyles-textDark-15 icon-link"
+                    href="https://linkedin.com/bmigroup"
+                    tabindex="0"
                   >
                     <span
-                      class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                      class="MuiIconButton-label"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root icon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                          d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
                         />
                       </svg>
                     </span>
-                    info@bmigroup.com
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-              <li
-                class="list-item list-item--icon"
-              >
-                <a
-                  aria-disabled="false"
-                  aria-label="Facebook"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButtonStyles-textDark-15 icon-link"
-                  href="https://facebook.com/bmigroup"
-                  tabindex="0"
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
+                <li
+                  class="list-item list-item--icon"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <a
+                    aria-disabled="false"
+                    aria-label="Youtube"
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButtonStyles-textDark-15 icon-link"
+                    href="https://youtube.com/bmigroup"
+                    tabindex="0"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <span
+                      class="MuiIconButton-label"
                     >
-                      <path
-                        d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-              <li
-                class="list-item list-item--icon"
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item"
+          >
+            <h4
+              class="MuiTypography-root Typography MuiTypography-h4"
+            >
+              About BMI
+            </h4>
+            <nav>
+              <ul
+                class="list"
               >
-                <a
-                  aria-disabled="false"
-                  aria-label="LinkedIn"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButtonStyles-textDark-15 icon-link"
-                  href="https://linkedin.com/bmigroup"
-                  tabindex="0"
+                <li
+                  class="list-item"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <span
+                      class="MuiButton-label buttonStyles-label-4"
                     >
-                      <path
-                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-              <li
-                class="list-item list-item--icon"
-              >
-                <a
-                  aria-disabled="false"
-                  aria-label="Youtube"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButtonStyles-textDark-15 icon-link"
-                  href="https://youtube.com/bmigroup"
-                  tabindex="0"
+                      Our Story
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li
+                  class="list-item"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <span
+                      class="MuiButton-label buttonStyles-label-4"
                     >
-                      <path
-                        d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-            </ul>
-          </nav>
+                      Our Brands
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-4"
+                    >
+                      Diversity
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-4"
+                    >
+                      BMI's CSR Statement
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item"
+          >
+            <h4
+              class="MuiTypography-root Typography MuiTypography-h4"
+            >
+              Partner program
+            </h4>
+            <nav>
+              <ul
+                class="list"
+              >
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-4"
+                    >
+                      BMI RoofPro
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-4"
+                    >
+                      Team Icopal
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-4"
+                    >
+                      Training
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-4"
+                    >
+                      Brand Central
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item"
+          >
+            <h4
+              class="MuiTypography-root Typography MuiTypography-h4"
+            >
+              Careers
+            </h4>
+            <nav>
+              <ul
+                class="list"
+              >
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-4"
+                    >
+                      Career Development
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-4"
+                    >
+                      Diversity
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item"
+          class="secondary-navigation"
         >
-          <h4
-            class="MuiTypography-root Typography MuiTypography-h4"
+          <div
+            class="logo"
           >
-            About BMI
-          </h4>
-          <nav>
-            <ul
-              class="list"
-            >
-              <li
-                class="list-item"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiButton-label buttonStyles-label-4"
-                  >
-                    Our Story
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-              <li
-                class="list-item"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiButton-label buttonStyles-label-4"
-                  >
-                    Our Brands
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-              <li
-                class="list-item"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiButton-label buttonStyles-label-4"
-                  >
-                    Diversity
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-              <li
-                class="list-item"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiButton-label buttonStyles-label-4"
-                  >
-                    BMI's CSR Statement
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item"
-        >
-          <h4
-            class="MuiTypography-root Typography MuiTypography-h4"
+            <svg />
+          </div>
+          <ul
+            class="list list--inline"
           >
-            Partner program
-          </h4>
-          <nav>
-            <ul
-              class="list"
+            <li
+              class="list-item"
             >
-              <li
-                class="list-item"
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
+                <span
+                  class="MuiButton-label buttonStyles-label-4"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-4"
-                  >
-                    BMI RoofPro
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-              <li
-                class="list-item"
+                  Legal
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
+            <li
+              class="list-item"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
+                <span
+                  class="MuiButton-label buttonStyles-label-4"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-4"
-                  >
-                    Team Icopal
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-              <li
-                class="list-item"
+                  Imprint
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
+            <li
+              class="list-item"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
+                <span
+                  class="MuiButton-label buttonStyles-label-4"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-4"
-                  >
-                    Training
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-              <li
-                class="list-item"
+                  UK Tax Strategy
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
+            <li
+              class="list-item"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
+                <span
+                  class="MuiButton-label buttonStyles-label-4"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-4"
-                  >
-                    Brand Central
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item"
-        >
-          <h4
-            class="MuiTypography-root Typography MuiTypography-h4"
-          >
-            Careers
-          </h4>
-          <nav>
-            <ul
-              class="list"
+                  UK Modern Slavery Act
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
+            <li
+              class="list-item"
             >
-              <li
-                class="list-item"
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
+                <span
+                  class="MuiButton-label buttonStyles-label-4"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-4"
-                  >
-                    Career Development
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-              <li
-                class="list-item"
+                  Cookie Policy
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
+            <li
+              class="list-item"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
+                <span
+                  class="MuiButton-label buttonStyles-label-4"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-4"
-                  >
-                    Diversity
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-      <div
-        class="secondary-navigation"
-      >
-        <div
-          class="logo"
-        >
-          <svg />
-        </div>
-        <ul
-          class="list list--inline"
-        >
-          <li
-            class="list-item"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
+                  Priority Notice
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
+            <li
+              class="list-item"
             >
-              <span
-                class="MuiButton-label buttonStyles-label-4"
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
               >
-                Legal
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
-          <li
-            class="list-item"
+                <span
+                  class="MuiButton-label buttonStyles-label-4"
+                >
+                  Sitemap
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
+          </ul>
+          <div
+            class="standard-logo"
           >
-            <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label buttonStyles-label-4"
-              >
-                Imprint
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
-          <li
-            class="list-item"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label buttonStyles-label-4"
-              >
-                UK Tax Strategy
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
-          <li
-            class="list-item"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label buttonStyles-label-4"
-              >
-                UK Modern Slavery Act
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
-          <li
-            class="list-item"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label buttonStyles-label-4"
-              >
-                Cookie Policy
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
-          <li
-            class="list-item"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label buttonStyles-label-4"
-              >
-                Priority Notice
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
-          <li
-            class="list-item"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label buttonStyles-label-4"
-              >
-                Sitemap
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
-        </ul>
-        <div
-          class="standard-logo"
-        >
-          <svg />
+            <svg />
+          </div>
         </div>
       </div>
     </div>
@@ -557,554 +559,556 @@ exports[`Footer component renders correctly 1`] = `
 `;
 
 exports[`Footer component renders in a bigger breakpoint 1`] = `
-<div
-  class="Footer"
->
+<div>
   <div
-    class="Container"
+    class="Footer"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item"
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
         >
-          <h4
-            class="MuiTypography-root Typography MuiTypography-h4"
+          <div
+            class="MuiGrid-root item MuiGrid-item"
           >
-            Get in touch
-          </h4>
-          <nav>
-            <ul
-              class="list"
+            <h4
+              class="MuiTypography-root Typography MuiTypography-h4"
             >
-              <li
-                class="list-item"
+              Get in touch
+            </h4>
+            <nav>
+              <ul
+                class="list"
               >
-                <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-                  href="tel:+4401234567890"
-                  tabindex="0"
+                <li
+                  class="list-item"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-24"
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                    href="tel:+4401234567890"
+                    tabindex="0"
                   >
                     <span
-                      class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                      class="MuiButton-label buttonStyles-label-24"
+                    >
+                      <span
+                        class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                          />
+                        </svg>
+                      </span>
+                      +44 (0) 1234567890
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
+                <li
+                  class="list-item"
+                >
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                    href="mailto:info@bmigroup.com"
+                    tabindex="0"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-24"
+                    >
+                      <span
+                        class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                          />
+                        </svg>
+                      </span>
+                      info@bmigroup.com
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
+                <li
+                  class="list-item list-item--icon"
+                >
+                  <a
+                    aria-disabled="false"
+                    aria-label="Facebook"
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButtonStyles-textDark-35 icon-link"
+                    href="https://facebook.com/bmigroup"
+                    tabindex="0"
+                  >
+                    <span
+                      class="MuiIconButton-label"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root icon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                          d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"
                         />
                       </svg>
                     </span>
-                    +44 (0) 1234567890
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-              <li
-                class="list-item"
-              >
-                <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-                  href="mailto:info@bmigroup.com"
-                  tabindex="0"
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
+                <li
+                  class="list-item list-item--icon"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-24"
+                  <a
+                    aria-disabled="false"
+                    aria-label="LinkedIn"
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButtonStyles-textDark-35 icon-link"
+                    href="https://linkedin.com/bmigroup"
+                    tabindex="0"
                   >
                     <span
-                      class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                      class="MuiIconButton-label"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root icon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                          d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
                         />
                       </svg>
                     </span>
-                    info@bmigroup.com
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-              <li
-                class="list-item list-item--icon"
-              >
-                <a
-                  aria-disabled="false"
-                  aria-label="Facebook"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButtonStyles-textDark-35 icon-link"
-                  href="https://facebook.com/bmigroup"
-                  tabindex="0"
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
+                <li
+                  class="list-item list-item--icon"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <a
+                    aria-disabled="false"
+                    aria-label="Youtube"
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButtonStyles-textDark-35 icon-link"
+                    href="https://youtube.com/bmigroup"
+                    tabindex="0"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <span
+                      class="MuiIconButton-label"
                     >
-                      <path
-                        d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-              <li
-                class="list-item list-item--icon"
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item"
+          >
+            <h4
+              class="MuiTypography-root Typography MuiTypography-h4"
+            >
+              About BMI
+            </h4>
+            <nav>
+              <ul
+                class="list"
               >
-                <a
-                  aria-disabled="false"
-                  aria-label="LinkedIn"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButtonStyles-textDark-35 icon-link"
-                  href="https://linkedin.com/bmigroup"
-                  tabindex="0"
+                <li
+                  class="list-item"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <span
+                      class="MuiButton-label buttonStyles-label-24"
                     >
-                      <path
-                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-              <li
-                class="list-item list-item--icon"
-              >
-                <a
-                  aria-disabled="false"
-                  aria-label="Youtube"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButtonStyles-textDark-35 icon-link"
-                  href="https://youtube.com/bmigroup"
-                  tabindex="0"
+                      Our Story
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li
+                  class="list-item"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <span
+                      class="MuiButton-label buttonStyles-label-24"
                     >
-                      <path
-                        d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-            </ul>
-          </nav>
+                      Our Brands
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-24"
+                    >
+                      Diversity
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-24"
+                    >
+                      BMI's CSR Statement
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item"
+          >
+            <h4
+              class="MuiTypography-root Typography MuiTypography-h4"
+            >
+              Partner program
+            </h4>
+            <nav>
+              <ul
+                class="list"
+              >
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-24"
+                    >
+                      BMI RoofPro
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-24"
+                    >
+                      Team Icopal
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-24"
+                    >
+                      Training
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-24"
+                    >
+                      Brand Central
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item"
+          >
+            <h4
+              class="MuiTypography-root Typography MuiTypography-h4"
+            >
+              Careers
+            </h4>
+            <nav>
+              <ul
+                class="list"
+              >
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-24"
+                    >
+                      Career Development
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li
+                  class="list-item"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-24"
+                    >
+                      Diversity
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item"
+          class="secondary-navigation"
         >
-          <h4
-            class="MuiTypography-root Typography MuiTypography-h4"
+          <div
+            class="logo"
           >
-            About BMI
-          </h4>
-          <nav>
-            <ul
-              class="list"
-            >
-              <li
-                class="list-item"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiButton-label buttonStyles-label-24"
-                  >
-                    Our Story
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-              <li
-                class="list-item"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiButton-label buttonStyles-label-24"
-                  >
-                    Our Brands
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-              <li
-                class="list-item"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiButton-label buttonStyles-label-24"
-                  >
-                    Diversity
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-              <li
-                class="list-item"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiButton-label buttonStyles-label-24"
-                  >
-                    BMI's CSR Statement
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item"
-        >
-          <h4
-            class="MuiTypography-root Typography MuiTypography-h4"
+            <svg />
+          </div>
+          <ul
+            class="list list--inline"
           >
-            Partner program
-          </h4>
-          <nav>
-            <ul
-              class="list"
+            <li
+              class="list-item"
             >
-              <li
-                class="list-item"
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
+                <span
+                  class="MuiButton-label buttonStyles-label-24"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-24"
-                  >
-                    BMI RoofPro
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-              <li
-                class="list-item"
+                  Legal
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
+            <li
+              class="list-item"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
+                <span
+                  class="MuiButton-label buttonStyles-label-24"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-24"
-                  >
-                    Team Icopal
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-              <li
-                class="list-item"
+                  Imprint
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
+            <li
+              class="list-item"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
+                <span
+                  class="MuiButton-label buttonStyles-label-24"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-24"
-                  >
-                    Training
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-              <li
-                class="list-item"
+                  UK Tax Strategy
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
+            <li
+              class="list-item"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
+                <span
+                  class="MuiButton-label buttonStyles-label-24"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-24"
-                  >
-                    Brand Central
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item"
-        >
-          <h4
-            class="MuiTypography-root Typography MuiTypography-h4"
-          >
-            Careers
-          </h4>
-          <nav>
-            <ul
-              class="list"
+                  UK Modern Slavery Act
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
+            <li
+              class="list-item"
             >
-              <li
-                class="list-item"
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
+                <span
+                  class="MuiButton-label buttonStyles-label-24"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-24"
-                  >
-                    Career Development
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-              <li
-                class="list-item"
+                  Cookie Policy
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
+            <li
+              class="list-item"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
               >
-                <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-                  tabindex="0"
-                  type="button"
+                <span
+                  class="MuiButton-label buttonStyles-label-24"
                 >
-                  <span
-                    class="MuiButton-label buttonStyles-label-24"
-                  >
-                    Diversity
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-      <div
-        class="secondary-navigation"
-      >
-        <div
-          class="logo"
-        >
-          <svg />
-        </div>
-        <ul
-          class="list list--inline"
-        >
-          <li
-            class="list-item"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
+                  Priority Notice
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
+            <li
+              class="list-item"
             >
-              <span
-                class="MuiButton-label buttonStyles-label-24"
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                tabindex="0"
+                type="button"
               >
-                Legal
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
-          <li
-            class="list-item"
+                <span
+                  class="MuiButton-label buttonStyles-label-24"
+                >
+                  Sitemap
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </li>
+          </ul>
+          <div
+            class="standard-logo"
           >
-            <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label buttonStyles-label-24"
-              >
-                Imprint
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
-          <li
-            class="list-item"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label buttonStyles-label-24"
-              >
-                UK Tax Strategy
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
-          <li
-            class="list-item"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label buttonStyles-label-24"
-              >
-                UK Modern Slavery Act
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
-          <li
-            class="list-item"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label buttonStyles-label-24"
-              >
-                Cookie Policy
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
-          <li
-            class="list-item"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label buttonStyles-label-24"
-              >
-                Priority Notice
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
-          <li
-            class="list-item"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label buttonStyles-label-24"
-              >
-                Sitemap
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
-        </ul>
-        <div
-          class="standard-logo"
-        >
-          <svg />
+            <svg />
+          </div>
         </div>
       </div>
     </div>

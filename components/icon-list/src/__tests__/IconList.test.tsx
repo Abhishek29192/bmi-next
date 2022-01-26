@@ -14,7 +14,7 @@ describe("IconList component", () => {
         </IconList.Item>
       </IconList>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with multiple children", () => {
     const { container } = render(
@@ -51,7 +51,7 @@ describe("IconList component", () => {
         </IconList.Item>
       </IconList>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with custom component", () => {
     const { container } = render(
@@ -63,7 +63,7 @@ describe("IconList component", () => {
         </IconList.Item>
       </IconList>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders compact list correctly", () => {
     const { container } = render(
@@ -73,6 +73,6 @@ describe("IconList component", () => {
         <IconList.Item title="Title 3" isCompact />
       </IconList>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });
