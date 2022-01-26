@@ -7,12 +7,12 @@
       border-radius: 3px 3px 0 0;
       overflow: hidden;
 
-      .MuiTable-root,
-      .MuiTableRow-head {
+      [class*="MuiTable-root"],
+      [class*="MuiTableRow-head"] {
         border-color: transparent;
       }
 
-      .MuiTableCell-root {
+      [class*="MuiTableCell-root"] {
         color: $color-slate;
       }
     }

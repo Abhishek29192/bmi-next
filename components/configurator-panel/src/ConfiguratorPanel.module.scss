@@ -15,12 +15,12 @@
     color: $color-slate;
 
     :global {
-      .MuiAccordionSummary-content {
+      [class*="MuiAccordionSummary-content"] {
         margin-top: 32px;
         margin-bottom: 32px;
       }
 
-      .MuiAccordionSummary-expandIcon {
+      [class*="MuiAccordionSummary-expandIcon"] {
         font-size: 1.33rem;
       }
     }

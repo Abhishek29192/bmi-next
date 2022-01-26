@@ -39,24 +39,24 @@
   }
 
   :global {
-    .MuiTableRow-head {
+    [class*="MuiTableRow-head"] {
       border: 1px solid $color-storm;
     }
 
-    .MuiTableCell-head {
+    [class*="MuiTableCell-head"] {
       color: inherit;
       padding: 16px;
       font-weight: bold;
     }
 
-    .MuiTableCell-body {
+    [class*="MuiTableCell-body"] {
       padding: 1rem 16px 0.67rem;
       vertical-align: top;
       border: 0;
     }
 
-    .MuiTableCell-head,
-    .MuiTableCell-body {
+    [class*="MuiTableCell-head"],
+    [class*="MuiTableCell-body"] {
       font-size: 16px;
       @media (min-width: $breakpoint-lg) {
         font-size: 18px;

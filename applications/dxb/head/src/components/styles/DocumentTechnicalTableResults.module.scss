@@ -11,10 +11,10 @@
   }
 
   :global {
-    .MuiFormControlLabel-root {
+    [class*="MuiFormControlLabel-root"] {
       margin-right: 0;
     }
-    .MuiAccordionDetails-root {
+    [class*="MuiAccordionDetails-root"] {
       padding: 0px 15px;
     }
   }

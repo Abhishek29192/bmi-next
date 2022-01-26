@@ -13,13 +13,13 @@
     border-radius: 0;
 
     :global {
-      .MuiCardHeader-root {
+      [class*="MuiCardHeader-root"] {
         padding: 30px 30px 10px;
       }
-      .MuiCardContent-root {
+      [class*="MuiCardContent-root"] {
         padding: 10px 30px 30px;
       }
-      .MuiCardHeader-action {
+      [class*="MuiCardHeader-action"] {
         margin-top: -24px;
         margin-right: -24px;
       }
