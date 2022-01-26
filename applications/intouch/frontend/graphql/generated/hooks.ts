@@ -1981,6 +1981,14 @@ export const GetTeamsReportDocument = gql`
         migratedToAuth0
         createdAt
         updatedAt
+        companyMembers {
+          nodes {
+            company {
+              name
+              tier
+            }
+          }
+        }
       }
     }
   }

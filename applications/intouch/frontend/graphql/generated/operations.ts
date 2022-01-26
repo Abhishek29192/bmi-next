@@ -2177,7 +2177,22 @@ export type GetTeamsReportQuery = { readonly __typename?: "Query" } & {
           | "migratedToAuth0"
           | "createdAt"
           | "updatedAt"
-        >
+        > & {
+            readonly companyMembers: {
+              readonly __typename?: "CompanyMembersConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "CompanyMember" } & {
+                  readonly company?: SchemaTypes.Maybe<
+                    { readonly __typename?: "Company" } & Pick<
+                      SchemaTypes.Company,
+                      "name" | "tier"
+                    >
+                  >;
+                }
+              >;
+            };
+          }
       >;
     }
   >;

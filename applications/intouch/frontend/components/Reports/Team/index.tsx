@@ -9,10 +9,23 @@ import { useMarketContext } from "../../../context/MarketContext";
 import { ReportProps } from "../types";
 import styles from "./styles.module.scss";
 
+const getDataFromCompanyMember = ({
+  nodes
+}: GetTeamsReportQuery["accounts"]["nodes"][0]["companyMembers"]) => {
+  return nodes.length ? nodes[0].company : undefined;
+};
+
 const getReportData = (teams: GetTeamsReportQuery["accounts"]) => {
   return [...teams.nodes].map((team) => {
-    const { __typename, photo, ...rest } = team;
-    return rest;
+    const { __typename, photo, companyMembers, ...rest } = team;
+    const companyData = {
+      ...getDataFromCompanyMember(companyMembers)
+    };
+    return {
+      ...rest,
+      companyName: companyData.name || null,
+      companyTier: companyData.tier || null
+    };
   });
 };
 
@@ -68,6 +81,14 @@ export const GET_TEAMS_REPORT = gql`
         migratedToAuth0
         createdAt
         updatedAt
+        companyMembers {
+          nodes {
+            company {
+              name
+              tier
+            }
+          }
+        }
       }
     }
   }
