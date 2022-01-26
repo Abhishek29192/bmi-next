@@ -1,7 +1,5 @@
 "use strict";
 
-const path = require("path");
-
 module.exports = {
   entry: "./src/index.ts",
   module: {
@@ -18,7 +16,6 @@ module.exports = {
   },
   output: {
     filename: "index.js",
-    path: path.resolve(__dirname, "dist"),
     library: {
       type: "commonjs"
     }
