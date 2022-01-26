@@ -43,7 +43,7 @@ export const useAccordionStyles = makeStyles(
           borderBottomRightRadius: "4px"
         }
       },
-      details: (prop: any) => {
+      details: (prop: { noInnerPadding?: boolean }) => {
         return {
           backgroundColor: variables["color-white"],
           borderTop: "1px",
@@ -134,7 +134,7 @@ const AccordionItem = ({
   setExpanded,
   ...props
 }: AccordionItemProps) => {
-  const classes = useAccordionStyles();
+  const classes = useAccordionStyles({});
   const handleChange = (
     event: React.ChangeEvent<{}>,
     expandedState: boolean
@@ -168,9 +168,10 @@ export type AccordionSummaryProps = ExpansionPanelSummaryProps & {
 const AccordionSummary = ({
   children,
   expandIcon = <ExpandMoreIcon />,
+  noInnerPadding,
   ...other
 }: AccordionSummaryProps) => {
-  const classes = useAccordionStyles();
+  const classes = useAccordionStyles({ noInnerPadding });
   return (
     <MaterialAccordionSummary
       expandIcon={expandIcon}
