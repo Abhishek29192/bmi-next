@@ -7476,6 +7476,11 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
+"@types/javascript-time-ago@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@types/javascript-time-ago/-/javascript-time-ago-2.0.3.tgz#0cb6afd91f0a8fd876b4d7ffae1d080f2d8e8193"
+  integrity sha512-G6SdYh6gHxgCTU0s4cMIRHwRO4p3f7jQSZbDPfUOZpUAG1od3rTjT0e8rxGThUiTTWQHwpBRws8eHO8D2QqfkA==
+
 "@types/jest-when@^2.7.3":
   version "2.7.3"
   resolved "https://registry.yarnpkg.com/@types/jest-when/-/jest-when-2.7.3.tgz#40735b320d8655ebff01123cb58afbdaf8274658"

@@ -336,15 +336,5 @@ export const nextStep: HttpFunction = async (request, response) => {
       );
   }
 
-  if (nextStep.__typename === "TitleWithContent") {
-    return response.status(200).send(transformNextStepData(nextStep));
-  }
-
-  return response
-    .status(400)
-    .send(
-      generateError(
-        `__typename ${nextStep.__typename} is not a valid content type (SystemConfiguratorBlock or TitleWithContent)`
-      )
-    );
+  return response.status(200).send(transformNextStepData(nextStep));
 };

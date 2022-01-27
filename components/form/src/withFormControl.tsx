@@ -15,10 +15,7 @@ export type Props<I extends InputValue> = {
   name: string;
 };
 
-const withFormControl = <
-  P extends Record<string, unknown>,
-  I extends InputValue
->(
+const withFormControl = <P, I extends InputValue>(
   WrappedComponent: ElementType<any>
 ) => {
   const FormControl = ({

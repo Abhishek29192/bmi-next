@@ -454,6 +454,8 @@ const Carousel = ({
             disabled={isSwipeDisabled}
             onChangeIndex={handleStepChange}
             slideClassName="Carousel__slide--global"
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore TS doesn't get this variable when `autoPlay` util wraps it.
             onSwitching={(index: number, type: "move" | "end") => {
               if (!wrapper.current || !hasOpacityAnimation) {
                 return;

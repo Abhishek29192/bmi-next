@@ -154,7 +154,8 @@ const FlatRoofCalculator = ({
   navigate,
   urlPrefix = "/3d/"
 }: Props) => {
-  const typeTree = tree.paths.find(({ option }) => option === type)?.target;
+  const typeTree = tree.paths.find(({ option }) => option === type)
+    ?.target as Tree;
 
   const [{ systemName, submittedValues }, setResult] = useState<{
     systemName: string | null;

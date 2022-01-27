@@ -276,7 +276,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       (key) => activeFilters[key]
     );
     if (filteredChips.length > 0) {
-      let queryParams = new URLSearchParams(windowLocation.search);
+      const queryParams = new URLSearchParams(windowLocation.search);
       queryParams.set(QUERY_CHIP_FILTER_KEY, filteredChips.join(","));
       history.replaceState(null, null, "?" + queryParams.toString());
     }

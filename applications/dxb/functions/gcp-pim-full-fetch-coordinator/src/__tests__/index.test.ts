@@ -7,7 +7,7 @@ import {
   createSystemsApiResponse
 } from "@bmi/pim-types";
 import { ElasticsearchIndexes } from "../elasticsearch";
-import { FirestoreCollections } from "../firestore";
+import { FirestoreCollections } from "../firestoreCollections";
 
 const deleteElasticSearchIndex = jest.fn();
 jest.mock("../elasticsearch", () => {

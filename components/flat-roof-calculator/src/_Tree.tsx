@@ -91,7 +91,7 @@ const populateFieldOptions = (
   tree: CalculatorDataTree,
   fields = new Map<string, string[]>()
 ) => {
-  let currentLevel: (CalculatorDataTree | string)[] = [tree];
+  let currentLevel: CalculatorDataTree[] = [tree];
   let nextLevel: Path[] = [];
 
   let current;
@@ -130,7 +130,9 @@ const populateFieldOptions = (
       }
 
       // Switch to next level
-      currentLevel = nextLevel.map(({ target }) => target);
+      currentLevel = nextLevel.map(
+        ({ target }) => target as CalculatorDataTree
+      );
       nextLevel = [];
     }
   }
