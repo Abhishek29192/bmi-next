@@ -200,73 +200,79 @@ export const bulkImport = async (args, context: PostGraphileContext) => {
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   // System
-  try {
-    const { rows } = await pgClient.query(
-      pgFormat(
-        `INSERT INTO system (market_id, technology, bmi_ref, name, description, maximum_validity_years, published) VALUES %L 
-          ON CONFLICT (bmi_ref) DO UPDATE SET 
-            technology = excluded.technology,
-            bmi_ref = excluded.bmi_ref,
-            name = excluded.name,
-            description = excluded.description,
-            maximum_validity_years = excluded.maximum_validity_years,
-            published = excluded.published RETURNING *;
-          `,
-        systems.map((item) => Object.values(item))
-      )
-    );
+  if (systems.length) {
+    try {
+      const { rows } = await pgClient.query(
+        pgFormat(
+          `INSERT INTO system (market_id, technology, bmi_ref, name, description, maximum_validity_years, published) VALUES %L 
+            ON CONFLICT (bmi_ref) DO UPDATE SET 
+              technology = excluded.technology,
+              bmi_ref = excluded.bmi_ref,
+              name = excluded.name,
+              description = excluded.description,
+              maximum_validity_years = excluded.maximum_validity_years,
+              published = excluded.published RETURNING *;
+            `,
+          systems.map((item) => Object.values(item))
+        )
+      );
 
-    logger.info(`${rows.length} systems imported`);
-  } catch (error) {
-    logger.error("System import failed:", error.stack);
-    await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
-    throw error;
+      logger.info(`${rows.length} systems imported`);
+    } catch (error) {
+      logger.error("System import failed:", error.stack);
+      await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
+      throw error;
+    }
   }
 
   // Products
-  try {
-    const { rows } = await pgClient.query(
-      pgFormat(
-        `INSERT INTO product (market_id, technology, bmi_ref, brand, name, description, family, published, maximum_validity_years ) VALUES %L
-          ON CONFLICT (bmi_ref) DO UPDATE SET
-          technology = excluded.technology,
-          bmi_ref = excluded.bmi_ref,
-          brand = excluded.brand,
-          name = excluded.name,
-          description = excluded.description,
-          family = excluded.family,
-          published = excluded.published,
-          maximum_validity_years = excluded.maximum_validity_years RETURNING *;
-          `,
-        products.map((item) => Object.values(item))
-      )
-    );
+  if (products.length) {
+    try {
+      const { rows } = await pgClient.query(
+        pgFormat(
+          `INSERT INTO product (market_id, technology, bmi_ref, brand, name, description, family, published, maximum_validity_years ) VALUES %L
+            ON CONFLICT (bmi_ref) DO UPDATE SET
+            technology = excluded.technology,
+            bmi_ref = excluded.bmi_ref,
+            brand = excluded.brand,
+            name = excluded.name,
+            description = excluded.description,
+            family = excluded.family,
+            published = excluded.published,
+            maximum_validity_years = excluded.maximum_validity_years RETURNING *;
+            `,
+          products.map((item) => Object.values(item))
+        )
+      );
 
-    logger.info(`${rows.length} products imported`);
-  } catch (error) {
-    logger.error("Products import failed:", error.stack);
-    await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
-    throw error;
+      logger.info(`${rows.length} products imported`);
+    } catch (error) {
+      logger.error("Products import failed:", error.stack);
+      await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
+      throw error;
+    }
   }
 
-  try {
-    const { rows } = await pgClient.query(
-      pgFormat(
-        `INSERT INTO system_member (system_bmi_ref, product_bmi_ref, market_id) VALUES %L
-          ON CONFLICT (system_bmi_ref, product_bmi_ref, market_id) DO UPDATE SET
-          market_id = excluded.market_id,
-          system_bmi_ref = excluded.system_bmi_ref,
-          product_bmi_ref = excluded.product_bmi_ref RETURNING *;
-        `,
-        systemMember.map((item) => Object.values(item))
-      )
-    );
+  if (systemMember.length) {
+    try {
+      const { rows } = await pgClient.query(
+        pgFormat(
+          `INSERT INTO system_member (system_bmi_ref, product_bmi_ref, market_id) VALUES %L
+            ON CONFLICT (system_bmi_ref, product_bmi_ref, market_id) DO UPDATE SET
+            market_id = excluded.market_id,
+            system_bmi_ref = excluded.system_bmi_ref,
+            product_bmi_ref = excluded.product_bmi_ref RETURNING *;
+          `,
+          systemMember.map((item) => Object.values(item))
+        )
+      );
 
-    logger.info(`${rows.length} system members imported`);
-  } catch (error) {
-    logger.error("System Members import failed:", error.stack);
-    await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
-    throw error;
+      logger.info(`${rows.length} system members imported`);
+    } catch (error) {
+      logger.error("System Members import failed:", error.stack);
+      await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
+      throw error;
+    }
   }
 
   await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
