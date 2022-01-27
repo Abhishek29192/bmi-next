@@ -80,13 +80,13 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
               <button
                 class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
                 tabindex="0"
-              type="button"
-            />
+                type="button"
+              />
               <button
                 class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
                 tabindex="0"
-              type="button"
-            >
+                type="button"
+              >
                 <span
                   class="MuiTouchRipple-root"
                 />
@@ -119,7 +119,7 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
         <p
           class="MuiTypography-root keyAssetTypesDownload Typography MuiTypography-body1"
         >
-          This site is protected by reCAPTCHA and the Google
+          This site is protected by reCAPTCHA and the Google 
           <a
             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/privacy"
@@ -130,7 +130,7 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
               Privacy Policy
             </span>
           </a>
-           and
+           and 
           <a
             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/terms"
@@ -229,13 +229,13 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
               <button
                 class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
                 tabindex="0"
-              type="button"
-            />
+                type="button"
+              />
               <button
                 class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
                 tabindex="0"
-              type="button"
-            >
+                type="button"
+              >
                 <span
                   class="MuiTouchRipple-root"
                 />

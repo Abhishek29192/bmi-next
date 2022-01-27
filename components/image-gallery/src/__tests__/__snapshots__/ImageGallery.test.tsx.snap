@@ -10,106 +10,107 @@ exports[`ImageGallery component renders caption of first image when caption is p
     >
       <div
         class="caption"
-    >
-      <p
-        class="MuiTypography-root caption-text Typography MuiTypography-h6"
       >
-        <span
-          class="LinesEllipsis  Truncate"
+        <p
+          class="MuiTypography-root caption-text Typography MuiTypography-h6"
         >
-          test caption : renders this caption from first image as this is default active index!!
-          <wbr />
-        </span>
-      </p>
+          <span
+            class="LinesEllipsis  Truncate"
+          >
+            test caption : renders this caption from first image as this is default active index!!
+            <wbr />
+          </span>
+        </p>
+      </div>
     </div>
-  </div>
-  <div
-    class="thumbnails"
-  >
-    <button
-      class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
-      tabindex="-1"
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root icon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-        />
-      </svg>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </button>
-    <button
-      class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
-      tabindex="-1"
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root icon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-        />
-      </svg>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </button>
     <div
-      class="scroller"
-      style="margin-right: 0%;"
+      class="thumbnails"
     >
       <button
-        class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-        style="background-image: url(path-to-image);"
-        tabindex="0"
+        class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+        tabindex="-1"
         type="button"
       >
-        <span
-          class="accessibility-text"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          Demo Tiles
-        </span>
-      </button>
-      <button
-        class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-        style="background-image: url(path-to-image);"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="accessibility-text"
-        >
-          Demo Tiles Black
-        </span>
+          <path
+            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+          />
+        </svg>
         <span
           class="MuiTouchRipple-root"
         />
       </button>
       <button
-        class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-        style="background-image: url(path-to-image);"
-        tabindex="0"
+        class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+        tabindex="-1"
         type="button"
       >
-        <span
-          class="accessibility-text"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          Demo house
-        </span>
+          <path
+            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          />
+        </svg>
         <span
           class="MuiTouchRipple-root"
         />
-      </button></div>
+      </button>
+      <div
+        class="scroller"
+        style="margin-right: 0%;"
+      >
+        <button
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+          style="background-image: url(path-to-image);"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="accessibility-text"
+          >
+            Demo Tiles
+          </span>
+        </button>
+        <button
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+          style="background-image: url(path-to-image);"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="accessibility-text"
+          >
+            Demo Tiles Black
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+          style="background-image: url(path-to-image);"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="accessibility-text"
+          >
+            Demo house
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -181,9 +182,9 @@ exports[`ImageGallery component renders correctly with default layout 1`] = `
           type="button"
         >
           <img
-          alt="Lorem ipsum"
+            alt="Lorem ipsum"
             class="Media"
-          src="path-to-image"
+            src="path-to-image"
           />
         </button>
         <button
@@ -193,9 +194,9 @@ exports[`ImageGallery component renders correctly with default layout 1`] = `
           type="button"
         >
           <img
-          alt="Lorem ipsum"
+            alt="Lorem ipsum"
             class="Media"
-          src="path-to-image"
+            src="path-to-image"
           />
           <span
             class="MuiTouchRipple-root"
@@ -208,9 +209,9 @@ exports[`ImageGallery component renders correctly with default layout 1`] = `
           type="button"
         >
           <img
-          alt="Lorem ipsum"
+            alt="Lorem ipsum"
             class="Media"
-          src="path-to-image"
+            src="path-to-image"
           />
           <span
             class="MuiTouchRipple-root"
@@ -230,79 +231,79 @@ exports[`ImageGallery component renders correctly with short layout 1`] = `
     <div
       class="image-wrapper"
     />
-  <div
-    class="thumbnails"
-  >
-    <button
-      class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
-      tabindex="-1"
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root icon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-        />
-      </svg>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </button>
-    <button
-      class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
-      tabindex="-1"
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root icon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-        />
-      </svg>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </button>
     <div
-      class="scroller"
-      style="margin-right: 0%;"
+      class="thumbnails"
     >
       <button
-        class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-        style="background-image: url(path-to-image);"
-        tabindex="0"
+        class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+        tabindex="-1"
         type="button"
       >
-        <span
-          class="accessibility-text"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          Demo Tiles
-        </span>
-      </button>
-      <button
-        class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="accessibility-text"
-        >
-          Demo Tiles Black
-        </span>
+          <path
+            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+          />
+        </svg>
         <span
           class="MuiTouchRipple-root"
         />
       </button>
       <button
-        class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+        class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+      <div
+        class="scroller"
+        style="margin-right: 0%;"
+      >
+        <button
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+          style="background-image: url(path-to-image);"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="accessibility-text"
+          >
+            Demo Tiles
+          </span>
+        </button>
+        <button
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="accessibility-text"
+          >
+            Demo Tiles Black
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
           tabindex="0"
           type="button"
         >
@@ -344,8 +345,8 @@ exports[`ImageGallery component renders without a thumbnail when one image is pa
       class="image-wrapper"
     >
       <img
-      alt="Lorem ipsum"
-      class="main-image-wrapper main-image-wrapper--default Media Media--contain"
+        alt="Lorem ipsum"
+        class="main-image-wrapper main-image-wrapper--default Media Media--contain"
         src="path-to-image"
       />
     </div>

@@ -23,10 +23,6 @@ describe("ImageGallery component", () => {
     const { container } = render(<ImageGallery images={images} />);
     expect(container).toMatchSnapshot();
   });
-
-    const { container } = render(<ImageGallery images={images} />);
-    expect(container).toMatchSnapshot();
-  });
   it("renders null when no images are passed", () => {
     const { container } = render(<ImageGallery images={[]} />);
     expect(container).toMatchSnapshot();
@@ -44,7 +40,6 @@ describe("ImageGallery component", () => {
     );
     expect(container).toMatchSnapshot();
   });
-
   it("renders correctly with short layout", () => {
     const images = [
       {

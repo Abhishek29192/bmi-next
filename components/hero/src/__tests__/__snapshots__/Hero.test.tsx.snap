@@ -121,12 +121,7 @@ exports[`Hero component renders level 0 with keyline for brand  1`] = `
                   <div
                     class="slide"
                     style="width: 100%;"
-                  >
-                    <div
-                      class="image"
-                      style="background-image: url(path-to-image);"
-                    />
-                  </div>
+                  />
                 </div>
               </div>
             </div>
@@ -354,56 +349,58 @@ exports[`Hero component renders level 3 1`] = `
 `;
 
 exports[`Hero component renders with no underline for brand 1`] = `
-<div
-  class="Hero Hero--slim Hero--carousel Hero--keyline"
->
+<div>
   <div
-    class="Container"
+    class="Hero Hero--slim Hero--carousel Hero--keyline"
   >
     <div
-      class="MuiContainer-root container MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="wrapper"
+        class="MuiContainer-root container MuiContainer-maxWidthXl"
       >
         <div
           class="wrapper"
         >
           <div
-            class="Carousel Carousel--opacity Carousel--swipable"
-            data-testid="carousel"
+            class="wrapper"
           >
             <div
-              style="overflow-x: hidden;"
+              class="Carousel Carousel--opacity Carousel--swipable"
+              data-testid="carousel"
             >
               <div
-                class="react-swipeable-view-container"
-                style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+                style="overflow-x: hidden;"
               >
                 <div
-                  aria-hidden="false"
-                  class="Carousel__slide--global"
-                  data-swipeable="true"
-                  style="width: 100%; flex-shrink: 0; overflow: auto;"
+                  class="react-swipeable-view-container"
+                  style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
                 >
                   <div
-                    class="page"
+                    aria-hidden="false"
+                    class="Carousel__slide--global"
+                    data-swipeable="true"
+                    style="width: 100%; flex-shrink: 0; overflow: auto;"
                   >
                     <div
-                      class="slide"
-                      style="width: 100%;"
+                      class="page"
                     >
                       <div
-                        class="content"
+                        class="slide"
+                        style="width: 100%;"
                       >
-                        <h1
-                          class="MuiTypography-root title title--truncated Typography MuiTypography-h1"
-                        >
-                          Title
-                        </h1>
                         <div
-                          class="text-no-underline"
-                        />
+                          class="content"
+                        >
+                          <h1
+                            class="MuiTypography-root title title--truncated Typography MuiTypography-h1"
+                          >
+                            Title
+                          </h1>
+                          <div
+                            class="text-no-underline"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -411,69 +408,69 @@ exports[`Hero component renders with no underline for brand 1`] = `
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="SlideControls SlideControls--light controls"
-        >
-          <span
-            class="middle-container"
+          <div
+            class="SlideControls SlideControls--light controls"
           >
             <span
-              class="sliding-slot"
+              class="middle-container"
             >
               <span
-                class="numbers"
+                class="sliding-slot"
               >
                 <span
-                  class="number number--active"
+                  class="numbers"
                 >
-                  01
+                  <span
+                    class="number number--active"
+                  >
+                    01
+                  </span>
                 </span>
               </span>
+              <span
+                class="total"
+              >
+                01
+              </span>
             </span>
-            <span
-              class="total"
-            >
-              01
-            </span>
-          </span>
+          </div>
+          <div
+            class="children"
+          />
         </div>
-        <div
-          class="children"
-        />
       </div>
     </div>
-  </div>
-  <div
-    class="image-carousel"
-  >
     <div
-      class="wrapper"
+      class="image-carousel"
     >
       <div
-        class="Carousel Carousel--swipable"
-        data-testid="carousel"
+        class="wrapper"
       >
         <div
-          style="overflow-x: hidden;"
+          class="Carousel Carousel--swipable"
+          data-testid="carousel"
         >
           <div
-            class="react-swipeable-view-container"
-            style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+            style="overflow-x: hidden;"
           >
             <div
-              aria-hidden="false"
-              class="Carousel__slide--global"
-              data-swipeable="true"
-              style="width: 100%; flex-shrink: 0; overflow: auto;"
+              class="react-swipeable-view-container"
+              style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
             >
               <div
-                class="page"
+                aria-hidden="false"
+                class="Carousel__slide--global"
+                data-swipeable="true"
+                style="width: 100%; flex-shrink: 0; overflow: auto;"
               >
                 <div
-                  class="slide"
-                  style="width: 100%;"
-                />
+                  class="page"
+                >
+                  <div
+                    class="slide"
+                    style="width: 100%;"
+                  />
+                </div>
               </div>
             </div>
           </div>
