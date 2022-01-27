@@ -202,6 +202,12 @@ const Page = ({
 
         {enableOnetrust && (
           <script
+            type="text/javascript"
+            src={`https://cdn.cookielaw.org/consent/${scriptOnetrust}/OtAutoBlock.js`}
+          />
+        )}
+        {enableOnetrust && (
+          <script
             src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
             type="text/javascript"
             charSet="UTF-8"
