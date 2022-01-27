@@ -1,0 +1,22 @@
+{
+  "name": "@bmi/media-gallery",
+  "private": true,
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@bmi/media": "0.0.0",
+    "@bmi/styles": "0.0.0",
+    "@bmi/thumb-scroller-button": "0.0.0",
+    "@bmi/thumbnail": "0.0.0",
+    "@bmi/truncate": "0.0.0",
+    "@material-ui/core": "^4.10.2",
+    "classnames": "^2.2.6",
+    "react": "^16.13.1"
+  }
+}

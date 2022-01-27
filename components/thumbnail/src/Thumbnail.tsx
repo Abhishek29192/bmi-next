@@ -3,6 +3,7 @@ import classnames from "classnames";
 import { withClickable } from "@bmi/clickable";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import Media, { AcceptedNode } from "@bmi/media";
+import Icon, { iconMap } from "@bmi/icon";
 import styles from "./Thumbnail.module.scss";
 
 export enum StateEnum {
@@ -22,6 +23,7 @@ export type Props = ButtonBaseProps & {
   imageSource?: string;
   color?: string;
   size?: SizeEnum;
+  isVideo: boolean;
 };
 
 const Thumbnail = ({
@@ -32,6 +34,7 @@ const Thumbnail = ({
   state = StateEnum.ENABLED,
   size = SizeEnum.SMALL,
   className,
+  isVideo = false,
   ...rest
 }: Props) => {
   const classList = classnames(
@@ -55,6 +58,10 @@ const Thumbnail = ({
         <span className={styles["accessibility-text"]}>{altText}</span>
       )}
       {media && <Media>{media}</Media>}
+      <span className={styles["accessibility-text"]}>{altText}</span>
+      {isVideo && (
+        <Icon source={iconMap.PlayArrow} className={styles["play-icon"]} />
+      )}
     </ButtonBase>
   );
 };

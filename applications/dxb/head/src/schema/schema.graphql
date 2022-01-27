@@ -489,6 +489,10 @@ union ContentfulRichTextReference =
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
 
+union ContentfulMediasTypes =
+    ContentfulImage
+  | ContentfulVideo
+
 """
 Represents a lead block section post it card type.
 """
@@ -727,7 +731,7 @@ type ContentfulImageGallerySection implements Node {
 
   "The images for this section."
   # TODO: Check if the @link is needed.
-  medias: [ContentfulImage] @link(from: "medias___NODE")
+  medias: [ContentfulMediasTypes] @link(from: "medias___NODE")
 }
 
 """

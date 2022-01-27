@@ -196,6 +196,7 @@ describe("Sections component", () => {
             subtitle: "page subtitle",
             date: null,
             featuredMedia: {
+              __typename: "ContentfulImage",
               type: null,
               altText: "Lorem ipsum",
               caption: null,
@@ -260,6 +261,7 @@ describe("Sections component", () => {
           hubSpotCTAID: null
         },
         featuredVideo: {
+          __typename: "ContentfulVideo",
           title: "Video",
           label: "Video",
           subtitle: null,
@@ -279,6 +281,7 @@ describe("Sections component", () => {
         brandLogo: null,
         tags: null,
         featuredMedia: {
+          __typename: "ContentfulImage",
           altText: null,
           type: null,
           image: {
@@ -325,6 +328,7 @@ describe("Sections component", () => {
         longDescription: null,
         medias: [
           {
+            __typename: "ContentfulImage",
             type: null,
             altText: "Lorem ipsum",
             caption: null,
@@ -416,6 +420,7 @@ describe("Sections component", () => {
           references: []
         },
         video: {
+          __typename: "ContentfulVideo",
           title: "Video title",
           label: "Video label",
           youtubeId: "A-RfHC91Ewc",

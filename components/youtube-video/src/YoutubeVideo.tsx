@@ -60,7 +60,7 @@ const playerStyle: CSSProperties = {
   transform: "translate(-50%, -50%)"
 };
 
-const getValidPrevieImage = (
+const getValidPreviewImage = (
   previewImageSource: string | React.ReactNode,
   label: React.ReactNode
 ) => {
@@ -105,7 +105,7 @@ const DialogVideo = ({
   if (calculatedHeight == 0 && height == 0) {
     calculatedHeight = window.innerHeight - 120;
   }
-  const validImageComponent = getValidPrevieImage(previewImageSource, label);
+  const validImageComponent = getValidPreviewImage(previewImageSource, label);
   return (
     <div className={classnames(styles["YoutubeVideo"], className)}>
       <Clickable
@@ -198,7 +198,7 @@ const InlineVideo = ({
   embedHeight = 9
 }: Props) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const validImageComponent = getValidPrevieImage(previewImageSource, label);
+  const validImageComponent = getValidPreviewImage(previewImageSource, label);
   return (
     <div
       className={classnames(
