@@ -1,9 +1,39 @@
+import { ResponseError } from "@elastic/elasticsearch/lib/errors";
 import { getEsClient } from "./es-client";
 import { Operation, ProductVariant } from "./es-model";
 import { EsSystem } from "./transformSystems";
 import { DeleteOperation, IndexOperation } from "./types";
 
 const { ES_INDEX_PREFIX, BATCH_SIZE = "300" } = process.env;
+
+type BulkApiResponseAction = {
+  _index: string;
+  _type: string;
+  _id: string;
+  _version: number;
+  result: string;
+  _shards: {
+    total: number;
+    successful: number;
+    failed: number;
+  };
+  status: number;
+  _seq_no: number;
+  _primary_term: number;
+  error?: ResponseError;
+};
+
+type BulkApiResponseItem = {
+  index?: BulkApiResponseAction;
+  delete?: BulkApiResponseAction;
+};
+
+type BulkApiResponse = {
+  body: {
+    errors: boolean;
+    items: BulkApiResponseItem[];
+  };
+};
 
 const getChunks = <T extends ProductVariant | EsSystem>(
   items: readonly T[]
@@ -83,17 +113,27 @@ export const updateElasticSearch = async (
   // (partially or fully) requests and need to make sure this is working before
   // we make it asynchronous again.
   for (let bulkOperation of bulkOperations) {
-    const response = await client.bulk({
+    const response: BulkApiResponse = await client.bulk({
       index,
       refresh: true,
       body: bulkOperation
     });
 
-    // eslint-disable-next-line no-console
-    console.info(`Response status: [${response.body.status}]`);
     if (response.body.errors) {
-      // eslint-disable-next-line no-console
-      console.error("ERROR", JSON.stringify(response.body.errors, null, 2));
+      response.body.items
+        .filter((item) => item.index?.error || item.delete?.error)
+        .forEach((item) => {
+          // eslint-disable-next-line no-console
+          console.error(
+            `Failed to index ${
+              item.index ? item.index._id : item.delete!._id
+            } with error ${
+              item.index
+                ? JSON.stringify(item.index.error, null, 2)
+                : JSON.stringify(item.delete!.error, null, 2)
+            }`
+          );
+        });
     }
   }
 
