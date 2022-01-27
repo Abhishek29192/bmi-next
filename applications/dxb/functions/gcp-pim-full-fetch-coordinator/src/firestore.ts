@@ -1,6 +1,6 @@
 import admin from "firebase-admin";
 import { DocumentData, Firestore, Query } from "@google-cloud/firestore";
-import { info } from "@bmi/functions-logger";
+import logger from "@bmi/functions-logger";
 
 export enum FirestoreCollections {
   Categories = "root/categories",
@@ -23,7 +23,7 @@ async function deleteQueryBatch(db: Firestore, query: Query<DocumentData>) {
     });
     await batch.commit();
 
-    info({ message: `Deleted a batch of ${batchSize}` });
+    logger.info({ message: `Deleted a batch of ${batchSize}` });
     snapshot = await query.get();
     batchSize = snapshot.size;
   }
@@ -42,5 +42,5 @@ export async function deleteFirestoreCollection(
 
   await deleteQueryBatch(db, query);
 
-  info({ message: `Deleted all data for ${collectionPath}` });
+  logger.info({ message: `Deleted all data for ${collectionPath}` });
 }

@@ -17,7 +17,6 @@
     "@bmi/pim-api": "0.0.0",
     "@bmi/pim-types": "0.0.0",
     "@elastic/elasticsearch": "^7.8.0",
-    "@google-cloud/secret-manager": "^3.7.1",
     "firebase-admin": "^10.0.2",
     "node-fetch": "^2.6.1"
   },

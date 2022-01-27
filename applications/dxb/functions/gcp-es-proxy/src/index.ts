@@ -1,3 +1,4 @@
+import logger from "@bmi/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch, { RequestInit } from "node-fetch";
 
@@ -16,16 +17,16 @@ export const proxy: HttpFunction = async (req, res) => {
     const errMethod = {
       error: req.method + " request method is not supported. Use GET or POST."
     };
-    // eslint-disable-next-line no-console
-    console.error("ERROR: " + req.method + " request method is not supported.");
+    logger.error({
+      message: `ERROR: ${req.method} request method is not supported.`
+    });
     return res.status(400).send(JSON.stringify(errMethod));
   } else {
-    // eslint-disable-next-line no-console
-    console.info("req.method: " + req.method);
-    // eslint-disable-next-line no-console
-    console.info("req.url: " + req.url);
-    // eslint-disable-next-line no-console
-    console.info("req.body: ", JSON.stringify(req.body, undefined, 2));
+    logger.info({ message: `req.method: ${req.method}` });
+    logger.info({ message: `req.url: ${req.url}` });
+    logger.info({
+      message: `req.body: ${JSON.stringify(req.body, undefined, 2)}`
+    });
 
     const requestHeaders: { [key: string]: string } = {};
     req.header("accept") && (requestHeaders["accept"] = req.header("accept")!);
@@ -53,16 +54,14 @@ export const proxy: HttpFunction = async (req, res) => {
 
     try {
       const response = await fetch(ES_HOST + req.url, requestInit);
-      // eslint-disable-next-line no-console
-      console.debug(response);
+      logger.debug({ message: JSON.stringify(response, undefined, 2) });
       res.status(response.status);
       for (let [key, value] of response.headers.entries()) {
         res.setHeader(key, value);
       }
       return response.body.pipe(res);
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
+      logger.error({ message: error.message });
       return res.status(500).send("Request to Elasticsearch failed.");
     }
   }

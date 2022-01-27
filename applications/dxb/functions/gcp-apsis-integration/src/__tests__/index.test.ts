@@ -1,7 +1,6 @@
 import { escape } from "querystring";
 import { IncomingHttpHeaders } from "http";
 import { Request, Response } from "express";
-import { protos } from "@google-cloud/secret-manager";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
 import {
@@ -22,14 +21,9 @@ const mockRequest = (
   headers: IncomingHttpHeaders = { "X-Recaptcha-Token": validToken }
 ): Partial<Request> => fetchMockRequest("POST", headers, "/", body);
 
-const accessSecretVersion = jest.fn();
-jest.mock("@google-cloud/secret-manager", () => {
-  const mSecretManagerServiceClient = jest.fn(() => ({
-    accessSecretVersion: (
-      request: protos.google.cloud.secretmanager.v1.IAccessSecretVersionRequest
-    ) => accessSecretVersion(request)
-  }));
-  return { SecretManagerServiceClient: mSecretManagerServiceClient };
+const getSecret = jest.fn();
+jest.mock("@bmi/functions-secret-client", () => {
+  return { getSecret };
 });
 
 const oAuthEndpoint = `${process.env.APSIS_API_BASE_URL}/oauth/token`;
@@ -56,10 +50,14 @@ const getCreateSubscriptionEndpoint = (payloadEmail: string): string => {
   }/subscriptions`;
 };
 
-const optInEmailMarketing = (
+const optInEmailMarketing = async (
   request: Partial<Request>,
   response: Partial<Response>
-) => require("../index").optInEmailMarketing(request, response);
+) =>
+  (await import("../index")).optInEmailMarketing(
+    request as Request,
+    response as Response
+  );
 
 beforeAll(() => {
   mockConsole();
@@ -72,6 +70,20 @@ beforeEach(() => {
 });
 
 describe("Invalid environment variables", () => {
+  it("should return 500 if APSIS_CLIENT_SECRET is not set", async () => {
+    const apsisClientSecret = process.env.APSIS_CLIENT_SECRET;
+    delete process.env.APSIS_CLIENT_SECRET;
+
+    const res = mockResponse();
+
+    await optInEmailMarketing(mockRequest(), res);
+
+    expect(getSecret).toBeCalledTimes(0);
+    expect(fetchMock).toHaveFetchedTimes(0);
+    expect(res.sendStatus).toBeCalledWith(500);
+
+    process.env.APSIS_CLIENT_SECRET = apsisClientSecret;
+  });
   it("should return 500 if APSIS_TARGET_EMAIL_ATTRIBUTE_ID is not set", async () => {
     const apsisTargetEmailAttributeId =
       process.env.APSIS_TARGET_EMAIL_ATTRIBUTE_ID;
@@ -81,7 +93,7 @@ describe("Invalid environment variables", () => {
 
     await optInEmailMarketing(mockRequest(), res);
 
-    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
@@ -97,9 +109,9 @@ describe("Invalid environment variables", () => {
 
     await optInEmailMarketing(mockRequest(), res);
 
-    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
-    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
@@ -115,13 +127,30 @@ describe("Invalid environment variables", () => {
 
     await optInEmailMarketing(mockRequest(), res);
 
-    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
-    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.APSIS_TARGET_GDPR_2_ATTRIBUTE_ID = apsisTargetGdpr2AttributeId;
+  });
+
+  it("should return 500 if RECAPTCHA_SECRET_KEY is not set", async () => {
+    const recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY;
+    delete process.env.RECAPTCHA_SECRET_KEY;
+
+    const res = mockResponse();
+
+    await optInEmailMarketing(mockRequest(), res);
+
+    expect(getSecret).toBeCalledTimes(0);
+    expect(fetchMock).toHaveFetchedTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
+    expect(fetchMock).toHaveFetchedTimes(0);
+    expect(res.sendStatus).toBeCalledWith(500);
+
+    process.env.RECAPTCHA_SECRET_KEY = recaptchaSecretKey;
   });
 });
 
@@ -134,7 +163,7 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
     await optInEmailMarketing(req, res);
 
-    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "POST");
     expect(res.set).toBeCalledWith("Access-Control-Allow-Headers", [
@@ -142,8 +171,7 @@ describe("Making an OPTIONS request as part of CORS", () => {
       "X-Recaptcha-Token"
     ]);
     expect(res.set).toBeCalledWith("Access-Control-Max-Age", "3600");
-    expect(res.status).toBeCalledWith(204);
-    expect(res.send).toBeCalledWith("");
+    expect(res.sendStatus).toBeCalledWith(204);
   });
 });
 
@@ -218,7 +246,7 @@ describe("Making a POST request", () => {
 
     await optInEmailMarketing(req, res);
 
-    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Token not provided."));
@@ -228,41 +256,15 @@ describe("Making a POST request", () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    accessSecretVersion.mockImplementationOnce(() => {
-      throw new Error("Expected Error");
+    getSecret.mockRejectedValueOnce(() => {
+      new Error("Expected Error");
     });
 
     await optInEmailMarketing(req, res);
 
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(500);
-    expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
-  });
-
-  it("returns status code 500 when the payload is undefined for ReCaptcha secret", async () => {
-    const req = mockRequest();
-    const res = mockResponse();
-
-    accessSecretVersion.mockResolvedValueOnce([{}]);
-
-    await optInEmailMarketing(req, res);
-
-    expect(res.status).toBeCalledWith(500);
-    expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
-  });
-
-  it("returns status code 500 when the data is undefined for ReCaptcha secret", async () => {
-    const req = mockRequest();
-    const res = mockResponse();
-
-    accessSecretVersion.mockResolvedValueOnce([{ payload: {} }]);
-
-    await optInEmailMarketing(req, res);
-
     expect(res.status).toBeCalledWith(500);
     expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
   });
@@ -271,9 +273,7 @@ describe("Making a POST request", () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    accessSecretVersion.mockResolvedValueOnce([
-      { payload: { data: recaptchaSecret } }
-    ]);
+    getSecret.mockResolvedValueOnce(recaptchaSecret);
 
     mockResponses(fetchMock, {
       url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
@@ -283,9 +283,7 @@ describe("Making a POST request", () => {
 
     await optInEmailMarketing(req, res);
 
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
@@ -299,9 +297,7 @@ describe("Making a POST request", () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    accessSecretVersion.mockResolvedValueOnce([
-      { payload: { data: recaptchaSecret } }
-    ]);
+    getSecret.mockResolvedValueOnce(recaptchaSecret);
 
     mockResponses(fetchMock, {
       url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
@@ -312,9 +308,7 @@ describe("Making a POST request", () => {
 
     await optInEmailMarketing(req, res);
 
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
@@ -328,9 +322,7 @@ describe("Making a POST request", () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    accessSecretVersion.mockResolvedValueOnce([
-      { payload: { data: recaptchaSecret } }
-    ]);
+    getSecret.mockResolvedValueOnce(recaptchaSecret);
 
     mockResponses(fetchMock, {
       url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
@@ -343,9 +335,7 @@ describe("Making a POST request", () => {
 
     await optInEmailMarketing(req, res);
 
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
@@ -359,9 +349,7 @@ describe("Making a POST request", () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    accessSecretVersion.mockResolvedValueOnce([
-      { payload: { data: recaptchaSecret } }
-    ]);
+    getSecret.mockResolvedValueOnce(recaptchaSecret);
 
     mockResponses(fetchMock, {
       url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
@@ -374,9 +362,7 @@ describe("Making a POST request", () => {
 
     await optInEmailMarketing(req, res);
 
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
@@ -395,9 +381,7 @@ describe("Making a POST request", () => {
     );
     const res = mockResponse();
 
-    accessSecretVersion.mockResolvedValueOnce([
-      { payload: { data: recaptchaSecret } }
-    ]);
+    getSecret.mockResolvedValueOnce(recaptchaSecret);
 
     mockResponses(fetchMock, {
       url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
@@ -410,9 +394,7 @@ describe("Making a POST request", () => {
 
     await optInEmailMarketing(req, res);
 
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
       { method: "POST" }
@@ -435,90 +417,20 @@ describe("Making a POST request", () => {
       })
     });
 
-    accessSecretVersion
-      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockImplementationOnce(() => {
-        throw new Error("Expected Error");
+    getSecret
+      .mockResolvedValueOnce(recaptchaSecret)
+      .mockRejectedValueOnce(() => {
+        new Error("Expected Error");
       });
 
     await optInEmailMarketing(req, res);
 
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
-    });
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.sendStatus).toBeCalledWith(500);
-  });
-
-  it("returns status code 500 when the payload is undefined for APSIS secret", async () => {
-    const req = mockRequest();
-    const res = mockResponse();
-
-    mockResponses(fetchMock, {
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      method: "POST",
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
-
-    accessSecretVersion
-      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockResolvedValueOnce([{}]);
-
-    await optInEmailMarketing(req, res);
-
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
-    );
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
-    });
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.sendStatus).toBeCalledWith(500);
-  });
-
-  it("returns status code 500 when the data is undefined for APSIS secret", async () => {
-    const req = mockRequest();
-    const res = mockResponse();
-
-    mockResponses(fetchMock, {
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      method: "POST",
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
-
-    accessSecretVersion
-      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockResolvedValueOnce([{ payload: {} }]);
-
-    await optInEmailMarketing(req, res);
-
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
-    );
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
   });
@@ -527,9 +439,9 @@ describe("Making a POST request", () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    accessSecretVersion
-      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+    getSecret
+      .mockResolvedValueOnce(recaptchaSecret)
+      .mockResolvedValueOnce(apsisClientSecret);
 
     mockResponses(
       fetchMock,
@@ -554,19 +466,15 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
     expect(fetchMock).toHaveFetchedTimes(2);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
-        client_id: "",
+        client_id: process.env.APSIS_CLIENT_ID,
         client_secret: apsisClientSecret,
         grant_type: "client_credentials"
       },
@@ -588,9 +496,9 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    accessSecretVersion
-      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+    getSecret
+      .mockResolvedValueOnce(recaptchaSecret)
+      .mockResolvedValueOnce(apsisClientSecret);
 
     mockResponses(
       fetchMock,
@@ -622,19 +530,15 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
     expect(fetchMock).toHaveFetchedTimes(3);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
-        client_id: "",
+        client_id: process.env.APSIS_CLIENT_ID,
         client_secret: apsisClientSecret,
         grant_type: "client_credentials"
       },
@@ -665,9 +569,9 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    accessSecretVersion
-      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+    getSecret
+      .mockResolvedValueOnce(recaptchaSecret)
+      .mockResolvedValueOnce(apsisClientSecret);
 
     mockResponses(
       fetchMock,
@@ -704,19 +608,15 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
     expect(fetchMock).toHaveFetchedTimes(4);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
-        client_id: "",
+        client_id: process.env.APSIS_CLIENT_ID,
         client_secret: apsisClientSecret,
         grant_type: "client_credentials"
       },
@@ -762,9 +662,9 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    accessSecretVersion
-      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+    getSecret
+      .mockResolvedValueOnce(recaptchaSecret)
+      .mockResolvedValueOnce(apsisClientSecret);
 
     mockResponses(
       fetchMock,
@@ -806,19 +706,15 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
     expect(fetchMock).toHaveFetchedTimes(5);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
-        client_id: "",
+        client_id: process.env.APSIS_CLIENT_ID,
         client_secret: apsisClientSecret,
         grant_type: "client_credentials"
       },
@@ -880,9 +776,9 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    accessSecretVersion
-      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+    getSecret
+      .mockResolvedValueOnce(recaptchaSecret)
+      .mockResolvedValueOnce(apsisClientSecret);
 
     mockResponses(
       fetchMock,
@@ -922,19 +818,15 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
     expect(fetchMock).toHaveFetchedTimes(5);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
-        client_id: "",
+        client_id: process.env.APSIS_CLIENT_ID,
         client_secret: apsisClientSecret,
         grant_type: "client_credentials"
       },
@@ -996,9 +888,9 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    accessSecretVersion
-      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+    getSecret
+      .mockResolvedValueOnce(recaptchaSecret)
+      .mockResolvedValueOnce(apsisClientSecret);
 
     mockResponses(
       fetchMock,
@@ -1039,19 +931,15 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
     expect(fetchMock).toHaveFetchedTimes(5);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
-        client_id: "",
+        client_id: process.env.APSIS_CLIENT_ID,
         client_secret: apsisClientSecret,
         grant_type: "client_credentials"
       },
@@ -1116,9 +1004,9 @@ describe("Making a POST request", () => {
     );
     const res = mockResponse();
 
-    accessSecretVersion
-      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+    getSecret
+      .mockResolvedValueOnce(recaptchaSecret)
+      .mockResolvedValueOnce(apsisClientSecret);
 
     mockResponses(
       fetchMock,
@@ -1159,19 +1047,15 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
     expect(fetchMock).toHaveFetchedTimes(5);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
-        client_id: "",
+        client_id: process.env.APSIS_CLIENT_ID,
         client_secret: apsisClientSecret,
         grant_type: "client_credentials"
       },
@@ -1233,9 +1117,9 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    accessSecretVersion
-      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+    getSecret
+      .mockResolvedValueOnce(recaptchaSecret)
+      .mockResolvedValueOnce(apsisClientSecret);
 
     mockResponses(
       fetchMock,
@@ -1276,19 +1160,15 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
     expect(fetchMock).toHaveFetchedTimes(5);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
-        client_id: "",
+        client_id: process.env.APSIS_CLIENT_ID,
         client_secret: apsisClientSecret,
         grant_type: "client_credentials"
       },
@@ -1356,9 +1236,7 @@ describe("Making a POST request", () => {
     );
     const res = mockResponse();
 
-    accessSecretVersion
-      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+    getSecret.mockResolvedValueOnce(recaptchaSecret);
 
     mockResponses(
       fetchMock,
@@ -1408,9 +1286,7 @@ describe("Making a POST request", () => {
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
     expect(fetchMock).toHaveFetchedTimes(1);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}0.9`,
       { method: "POST" }
@@ -1420,24 +1296,24 @@ describe("Making a POST request", () => {
       "X-Recaptcha-Token": `${validToken}1.0`
     });
 
+    getSecret
+      .mockResolvedValueOnce(recaptchaSecret)
+      .mockResolvedValueOnce(apsisClientSecret);
+
     await optInEmailMarketing(passReq, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
     expect(fetchMock).toHaveFetchedTimes(6);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}1.0`,
       { method: "POST" }
     );
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
-        client_id: "",
+        client_id: process.env.APSIS_CLIENT_ID,
         client_secret: apsisClientSecret,
         grant_type: "client_credentials"
       },
@@ -1491,125 +1367,6 @@ describe("Making a POST request", () => {
     process.env.RECAPTCHA_MINIMUM_SCORE = recaptchaMinimumScore;
   });
 
-  it("only gets Recaptcha secret and APSIS client secret once regardless of number of requests", async () => {
-    const payloadEmail = "a@a.com";
-    const oAuthToken = "fdfdsfsdfdfdadsfdsfafsafds";
-    const req = mockRequest({
-      email: payloadEmail,
-      gdpr_1: true,
-      gdpr_2: true
-    });
-    const res = mockResponse();
-
-    accessSecretVersion
-      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
-
-    mockResponses(
-      fetchMock,
-      {
-        method: "POST",
-        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-        body: JSON.stringify({
-          success: true,
-          score: process.env.RECAPTCHA_MINIMUM_SCORE
-        })
-      },
-      {
-        method: "POST",
-        url: oAuthEndpoint,
-        body: JSON.stringify({
-          access_token: oAuthToken
-        })
-      },
-      {
-        method: "PATCH",
-        url: getCreateProfileEndpoint(payloadEmail),
-        body: ""
-      },
-      {
-        method: "POST",
-        url: getCreateConsentEndpoint(payloadEmail),
-        body: ""
-      },
-      {
-        method: "POST",
-        url: getCreateSubscriptionEndpoint(payloadEmail),
-        body: JSON.stringify({ id: "abcdafsdfsfsdfsdf" })
-      }
-    );
-
-    await optInEmailMarketing(req, res);
-    await optInEmailMarketing(req, res);
-
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.sendStatus).toBeCalledWith(200);
-    expect(fetchMock).toHaveFetchedTimes(10);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
-    );
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
-    });
-    expect(fetchMock).toHaveFetched(oAuthEndpoint, {
-      body: {
-        client_id: "",
-        client_secret: apsisClientSecret,
-        grant_type: "client_credentials"
-      },
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      method: "POST"
-    });
-    expect(fetchMock).toHaveFetched(getCreateProfileEndpoint(payloadEmail), {
-      body: { "9820534": "a@a.com", "312460234": true, "312461234": true },
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${oAuthToken}`,
-        "Content-Type": "application/json"
-      },
-      method: "PATCH"
-    });
-    expect(fetchMock).toHaveFetched(getCreateConsentEndpoint(payloadEmail), {
-      body: {
-        section_discriminator: "usercreated.sections.fulq3a5aou",
-        consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
-        topic_discriminator:
-          "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24",
-        type: "opt-in"
-      },
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${oAuthToken}`,
-        "Content-Type": "application/json"
-      },
-      method: "POST"
-    });
-    expect(fetchMock).toHaveFetched(
-      getCreateSubscriptionEndpoint(payloadEmail),
-      {
-        body: {
-          consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
-          topic_discriminator:
-            "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"
-        },
-        headers: {
-          Accept: "application/json",
-          Authorization: "Bearer fdfdsfsdfdfdadsfdsfafsafds",
-          "Content-Type": "application/json"
-        },
-        method: "POST"
-      }
-    );
-    expect(accessSecretVersion).toBeCalledTimes(2);
-  });
-
   it("sends first name attribute to apsis profile if name is posted in payload", async () => {
     const payloadName = "My Name";
     const payloadEmail = "test@test.com";
@@ -1622,9 +1379,9 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    accessSecretVersion
-      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+    getSecret
+      .mockResolvedValueOnce(recaptchaSecret)
+      .mockResolvedValueOnce(apsisClientSecret);
 
     mockResponses(
       fetchMock,
@@ -1688,9 +1445,9 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    accessSecretVersion
-      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
-      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+    getSecret
+      .mockResolvedValueOnce(recaptchaSecret)
+      .mockResolvedValueOnce(apsisClientSecret);
 
     mockResponses(
       fetchMock,

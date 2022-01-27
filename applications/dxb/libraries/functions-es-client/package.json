@@ -6,5 +6,8 @@
   "main": "./src/index",
   "scripts": {
     "check:ts": "tsc"
+  },
+  "dependencies": {
+    "@bmi/functions-secret-client": "0.0.0"
   }
 }

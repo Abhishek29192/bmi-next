@@ -11,9 +11,9 @@ beforeEach(() => {
 });
 
 describe("info", () => {
-  it("should log at the info level", () => {
-    const { info } = require("..");
-    info({ message: "info-message", some: "extra-property" });
+  it("should log at the info level", async () => {
+    const logger = (await import("..")).default;
+    logger.info({ message: "info-message", some: "extra-property" });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "INFO",
@@ -23,10 +23,10 @@ describe("info", () => {
     );
   });
 
-  it("should set the trace key if initialize called before", () => {
-    const { info, initialize } = require("..");
-    initialize("trace-key");
-    info({ message: "initialize-info", some: "extra-property" });
+  it("should set the trace key if initialize called before", async () => {
+    const logger = (await import("..")).default;
+    logger.initialize("trace-key");
+    logger.info({ message: "initialize-info", some: "extra-property" });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "INFO",
@@ -39,9 +39,9 @@ describe("info", () => {
 });
 
 describe("debug", () => {
-  it("should log at the debug level", () => {
-    const { debug } = require("..");
-    debug({ message: "debug-message", some: "extra-property" });
+  it("should log at the debug level", async () => {
+    const logger = (await import("..")).default;
+    logger.debug({ message: "debug-message", some: "extra-property" });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "DEBUG",
@@ -51,10 +51,10 @@ describe("debug", () => {
     );
   });
 
-  it("should set the trace key if initialize called before", () => {
-    const { debug, initialize } = require("..");
-    initialize("trace-key");
-    debug({ message: "initialize-debug", some: "extra-property" });
+  it("should set the trace key if initialize called before", async () => {
+    const logger = (await import("..")).default;
+    logger.initialize("trace-key");
+    logger.debug({ message: "initialize-debug", some: "extra-property" });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "DEBUG",
@@ -67,9 +67,9 @@ describe("debug", () => {
 });
 
 describe("notice", () => {
-  it("should log at the notice level", () => {
-    const { notice } = require("..");
-    notice({ message: "notice-message", some: "extra-property" });
+  it("should log at the notice level", async () => {
+    const logger = (await import("..")).default;
+    logger.notice({ message: "notice-message", some: "extra-property" });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "NOTICE",
@@ -79,10 +79,10 @@ describe("notice", () => {
     );
   });
 
-  it("should set the trace key if initialize called before", () => {
-    const { initialize, notice } = require("..");
-    initialize("trace-key");
-    notice({ message: "initialize-notice", some: "extra-property" });
+  it("should set the trace key if initialize called before", async () => {
+    const logger = (await import("..")).default;
+    logger.initialize("trace-key");
+    logger.notice({ message: "initialize-notice", some: "extra-property" });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "NOTICE",
@@ -95,9 +95,9 @@ describe("notice", () => {
 });
 
 describe("warning", () => {
-  it("should log at the warning level", () => {
-    const { warning } = require("..");
-    warning({ message: "warning-message", some: "extra-property" });
+  it("should log at the warning level", async () => {
+    const logger = (await import("..")).default;
+    logger.warning({ message: "warning-message", some: "extra-property" });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "WARNING",
@@ -107,10 +107,10 @@ describe("warning", () => {
     );
   });
 
-  it("should set the trace key if initialize called before", () => {
-    const { initialize, warning } = require("..");
-    initialize("trace-key");
-    warning({ message: "initialize-warning", some: "extra-property" });
+  it("should set the trace key if initialize called before", async () => {
+    const logger = (await import("..")).default;
+    logger.initialize("trace-key");
+    logger.warning({ message: "initialize-warning", some: "extra-property" });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "WARNING",
@@ -123,9 +123,9 @@ describe("warning", () => {
 });
 
 describe("error", () => {
-  it("should log at the error level", () => {
-    const { error } = require("..");
-    error({ message: "error-message", some: "extra-property" });
+  it("should log at the error level", async () => {
+    const logger = (await import("..")).default;
+    logger.error({ message: "error-message", some: "extra-property" });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "ERROR",
@@ -135,10 +135,10 @@ describe("error", () => {
     );
   });
 
-  it("should set the trace key if initialize called before", () => {
-    const { error, initialize } = require("..");
-    initialize("trace-key");
-    error({ message: "initialize-error", some: "extra-property" });
+  it("should set the trace key if initialize called before", async () => {
+    const logger = (await import("..")).default;
+    logger.initialize("trace-key");
+    logger.error({ message: "initialize-error", some: "extra-property" });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "ERROR",
@@ -151,9 +151,9 @@ describe("error", () => {
 });
 
 describe("critical", () => {
-  it("should log at the critical level", () => {
-    const { critical } = require("..");
-    critical({ message: "critical-message", some: "extra-property" });
+  it("should log at the critical level", async () => {
+    const logger = (await import("..")).default;
+    logger.critical({ message: "critical-message", some: "extra-property" });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "CRITICAL",
@@ -163,10 +163,10 @@ describe("critical", () => {
     );
   });
 
-  it("should set the trace key if initialize called before", () => {
-    const { critical, initialize } = require("..");
-    initialize("trace-key");
-    critical({ message: "initialize-critical", some: "extra-property" });
+  it("should set the trace key if initialize called before", async () => {
+    const logger = (await import("..")).default;
+    logger.initialize("trace-key");
+    logger.critical({ message: "initialize-critical", some: "extra-property" });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "CRITICAL",
@@ -179,9 +179,9 @@ describe("critical", () => {
 });
 
 describe("alert", () => {
-  it("should log at the alert level", () => {
-    const { alert } = require("..");
-    alert({ message: "alert-message", some: "extra-property" });
+  it("should log at the alert level", async () => {
+    const logger = (await import("..")).default;
+    logger.alert({ message: "alert-message", some: "extra-property" });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "ALERT",
@@ -191,10 +191,10 @@ describe("alert", () => {
     );
   });
 
-  it("should set the trace key if initialize called before", () => {
-    const { alert, initialize } = require("..");
-    initialize("trace-key");
-    alert({ message: "initialize-alert", some: "extra-property" });
+  it("should set the trace key if initialize called before", async () => {
+    const logger = (await import("..")).default;
+    logger.initialize("trace-key");
+    logger.alert({ message: "initialize-alert", some: "extra-property" });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "ALERT",
@@ -207,9 +207,9 @@ describe("alert", () => {
 });
 
 describe("emergency", () => {
-  it("should log at the emergency level", () => {
-    const { emergency } = require("..");
-    emergency({ message: "emergency-message", some: "extra-property" });
+  it("should log at the emergency level", async () => {
+    const logger = (await import("..")).default;
+    logger.emergency({ message: "emergency-message", some: "extra-property" });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "EMERGENCY",
@@ -219,10 +219,13 @@ describe("emergency", () => {
     );
   });
 
-  it("should set the trace key if initialize called before", () => {
-    const { emergency, initialize } = require("..");
-    initialize("trace-key");
-    emergency({ message: "initialize-emergency", some: "extra-property" });
+  it("should set the trace key if initialize called before", async () => {
+    const logger = (await import("..")).default;
+    logger.initialize("trace-key");
+    logger.emergency({
+      message: "initialize-emergency",
+      some: "extra-property"
+    });
     expect(console.log).toHaveBeenCalledWith(
       JSON.stringify({
         severity: "EMERGENCY",

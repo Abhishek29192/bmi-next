@@ -15,6 +15,7 @@
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=proxy --port=9052"
   },
   "dependencies": {
+    "@bmi/functions-logger": "0.0.0",
     "@google-cloud/functions-framework": "^1.7.1",
     "node-fetch": "^2.6.1",
     "uuid": "^8.3.2"

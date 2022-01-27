@@ -1,3 +1,4 @@
+import logger from "@bmi/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
 import { PubSub, Topic } from "@google-cloud/pubsub";
@@ -30,11 +31,9 @@ const publishMessage = async (
 
   try {
     const messageId = await getTopicPublisher().publish(messageBuffer);
-    // eslint-disable-next-line no-console
-    console.log(`PUB SUB MESSAGE PUBLISHED: ${messageId}`);
+    logger.info({ message: `PUB SUB MESSAGE PUBLISHED: ${messageId}` });
   } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error(err);
+    logger.error({ message: err.message });
   }
 };
 
@@ -66,23 +65,20 @@ async function* getProductsFromMessage(messageId: string, messageData: any) {
       currentPage
     );
 
-    // eslint-disable-next-line no-console
-    console.log(
-      "Message page:",
-      JSON.stringify({
+    logger.info({
+      message: `Message page: ${JSON.stringify({
         currentPage: messageResponse.currentPage,
         productsCount: (messageResponse.products || []).length,
         // products: messageResponse.products,
         totalPageCount: messageResponse.totalPageCount,
         totalProductCount: messageResponse.totalProductCount
-      })
-    );
-    // eslint-disable-next-line no-console
-    console.log(
-      `[${type}][${itemType}]: [${(messageResponse.products || [])
+      })}`
+    });
+    logger.info({
+      message: `[${type}][${itemType}]: [${(messageResponse.products || [])
         .map(({ code }: any) => code)
         .join(", ")}]`
-    );
+    });
 
     yield { items: messageResponse.products };
 
@@ -106,23 +102,20 @@ async function* getSystemsFromMessage(messageId: string, messageData: any) {
       currentPage
     );
 
-    // eslint-disable-next-line no-console
-    console.log(
-      "Message page:",
-      JSON.stringify({
+    logger.info({
+      message: `Message page: ${JSON.stringify({
         currentPage: messageResponse.currentPage,
         systemsCount: (messageResponse.systems || []).length,
         // products: messageResponse.products,
         totalPageCount: messageResponse.totalPageCount,
         totalSystemCount: messageResponse.totalSystemsCount
-      })
-    );
-    // eslint-disable-next-line no-console
-    console.log(
-      `[${type}][${itemType}]: [${(messageResponse.systems || [])
+      })}`
+    });
+    logger.info({
+      message: `[${type}][${itemType}]: [${(messageResponse.systems || [])
         .map(({ code }) => code)
         .join(", ")}]`
-    );
+    });
 
     yield { items: messageResponse.systems };
 
@@ -133,26 +126,22 @@ async function* getSystemsFromMessage(messageId: string, messageData: any) {
 
 export const handleRequest: HttpFunction = async (req, res) => {
   if (!BUILD_TRIGGER_ENDPOINT) {
-    // eslint-disable-next-line no-console
-    console.error("BUILD_TRIGGER_ENDPOINT has not been set.");
+    logger.error({ message: "BUILD_TRIGGER_ENDPOINT has not been set." });
     return res.sendStatus(500);
   }
 
   if (!TRANSITIONAL_TOPIC_NAME) {
-    // eslint-disable-next-line no-console
-    console.error("TRANSITIONAL_TOPIC_NAME has not been set.");
+    logger.error({ message: "TRANSITIONAL_TOPIC_NAME has not been set." });
     return res.sendStatus(500);
   }
 
   if (!req.body) {
-    // eslint-disable-next-line no-console
-    console.log("No data received");
+    logger.info({ message: "No data received" });
     res.status(404).send("not-ok");
     return;
   }
 
-  // eslint-disable-next-line no-console
-  console.log(`Received: ${JSON.stringify(req.body, null, 2)}`);
+  logger.info({ message: `Received: ${JSON.stringify(req.body, null, 2)}` });
 
   const { message } = req.body;
 
@@ -160,8 +149,9 @@ export const handleRequest: HttpFunction = async (req, res) => {
     Buffer.from(message.data, "base64").toString("ascii")
   );
 
-  // eslint-disable-next-line no-console
-  console.log("Message data:", message.messageId, messageData);
+  logger.info({
+    message: `Message data: ${message.messageId}, ${messageData}`
+  });
 
   try {
     const { type, itemType } = messageData;
@@ -210,8 +200,7 @@ export const handleRequest: HttpFunction = async (req, res) => {
       body: JSON.stringify({ data: "filler data" })
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error);
+    logger.error({ message: error.message });
   }
 
   res.status(200).send("ok");

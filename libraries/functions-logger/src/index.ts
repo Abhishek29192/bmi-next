@@ -36,56 +36,68 @@ export type LogMessage = {
  *
  * @param traceId key to use for tracing the logs
  */
-export const initialize = (traceId: string) => {
+const initialize = (traceId: string) => {
   globalLogFields[
     "logging.googleapis.com/trace"
   ] = `projects/${process.env.GCP_PROJECT_ID}/traces/${traceId}`;
 };
 
-export const info = (logMessage: LogMessage) => {
+const info = (logMessage: LogMessage) => {
   console.log(
     JSON.stringify({ severity: "INFO", ...globalLogFields, ...logMessage })
   );
 };
 
-export const debug = (logMessage: LogMessage) => {
+const debug = (logMessage: LogMessage) => {
   console.log(
     JSON.stringify({ severity: "DEBUG", ...globalLogFields, ...logMessage })
   );
 };
 
-export const notice = (logMessage: LogMessage) => {
+const notice = (logMessage: LogMessage) => {
   console.log(
     JSON.stringify({ severity: "NOTICE", ...globalLogFields, ...logMessage })
   );
 };
 
-export const warning = (logMessage: LogMessage) => {
+const warning = (logMessage: LogMessage) => {
   console.log(
     JSON.stringify({ severity: "WARNING", ...globalLogFields, ...logMessage })
   );
 };
 
-export const error = (logMessage: LogMessage) => {
+const error = (logMessage: LogMessage) => {
   console.log(
     JSON.stringify({ severity: "ERROR", ...globalLogFields, ...logMessage })
   );
 };
 
-export const critical = (logMessage: LogMessage) => {
+const critical = (logMessage: LogMessage) => {
   console.log(
     JSON.stringify({ severity: "CRITICAL", ...globalLogFields, ...logMessage })
   );
 };
 
-export const alert = (logMessage: LogMessage) => {
+const alert = (logMessage: LogMessage) => {
   console.log(
     JSON.stringify({ severity: "ALERT", ...globalLogFields, ...logMessage })
   );
 };
 
-export const emergency = (logMessage: LogMessage) => {
+const emergency = (logMessage: LogMessage) => {
   console.log(
     JSON.stringify({ severity: "EMERGENCY", ...globalLogFields, ...logMessage })
   );
+};
+
+export default {
+  initialize,
+  info,
+  debug,
+  notice,
+  warning,
+  error,
+  critical,
+  alert,
+  emergency
 };

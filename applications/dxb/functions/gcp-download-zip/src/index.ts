@@ -1,14 +1,15 @@
+import logger from "@bmi/functions-logger";
+import { getSecret } from "@bmi/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
 import { Storage } from "@google-cloud/storage";
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import archiver from "archiver";
 import { verifyOrigins } from "./verify";
 
 const {
   GCS_NAME,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- is being used in an optional chain, but eslint isn't detecting it
   DXB_VALID_HOSTS,
-  SECRET_MAN_GCP_PROJECT_NAME,
   RECAPTCHA_SECRET_KEY,
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
@@ -20,33 +21,21 @@ const validHosts =
 const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE || "1.0");
 const recaptchaTokenHeader = "X-Recaptcha-Token";
 
-let recaptchaSecretKeyCache: string;
-const secretManagerClient = new SecretManagerServiceClient();
-
 type Document = {
   name?: string;
   href?: string;
 };
 
-const getRecaptchaSecretKey = async () => {
-  if (!recaptchaSecretKeyCache) {
-    const recaptchaSecretKey = await secretManagerClient.accessSecretVersion({
-      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
-
-    if (!recaptchaSecretKey[0].payload?.data) {
-      throw Error("Unable to get ReCaptcha secret key");
-    }
-
-    recaptchaSecretKeyCache = recaptchaSecretKey[0].payload.data.toString();
-  }
-  return recaptchaSecretKeyCache;
-};
-
 export const download: HttpFunction = async (request, response) => {
+  if (!RECAPTCHA_SECRET_KEY) {
+    logger.error({
+      message: "RECAPTCHA_SECRET_KEY was not provided"
+    });
+    return response.sendStatus(500);
+  }
+
   if (!bucket) {
-    // eslint-disable-next-line no-console
-    console.error("Unable to connect to a storage bucket");
+    logger.error({ message: "Unable to connect to a storage bucket" });
     return response.sendStatus(500);
   }
 
@@ -63,13 +52,11 @@ export const download: HttpFunction = async (request, response) => {
     return response.status(204).send("");
   } else {
     if (!request.body) {
-      // eslint-disable-next-line no-console
-      console.error("Invalid request.");
+      logger.error({ message: "Invalid request." });
       return response.status(400).send("Invalid request.");
     }
     if (!request.body.documents?.length) {
-      // eslint-disable-next-line no-console
-      console.error("List of documents not provided.");
+      logger.error({ message: "List of documents not provided." });
       return response.status(400).send("List of documents not provided.");
     }
     const recaptchaToken =
@@ -77,20 +64,17 @@ export const download: HttpFunction = async (request, response) => {
       request.headers[recaptchaTokenHeader] ||
       request.headers[recaptchaTokenHeader.toLowerCase()];
     if (!recaptchaToken) {
-      // eslint-disable-next-line no-console
-      console.error("Token not provided.");
+      logger.error({ message: "Token not provided." });
       return response.status(400).send("Token not provided.");
     }
 
     if (request.body.documents.find((values: Document) => !values.name)) {
-      // eslint-disable-next-line no-console
-      console.error("Missing name(s).");
+      logger.error({ message: "Missing name(s)." });
       return response.status(400).send("Missing name(s).");
     }
 
     if (request.body.documents.find((values: Document) => !values.href)) {
-      // eslint-disable-next-line no-console
-      console.error("Missing HREF(s).");
+      logger.error({ message: "Missing HREF(s)." });
       return response.status(400).send("Missing HREF(s).");
     }
 
@@ -100,34 +84,34 @@ export const download: HttpFunction = async (request, response) => {
         validHosts
       )
     ) {
-      // eslint-disable-next-line no-console
-      console.error("Invalid host(s).");
+      logger.error({ message: "Invalid host(s)." });
       return response.status(400).send("Invalid host(s).");
     }
 
     try {
       const recaptchaResponse = await fetch(
-        `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getRecaptchaSecretKey()}&response=${recaptchaToken}`,
+        `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getSecret(
+          RECAPTCHA_SECRET_KEY
+        )}&response=${recaptchaToken}`,
         { method: "POST" }
       );
       if (!recaptchaResponse.ok) {
-        // eslint-disable-next-line no-console
-        console.error(
-          `Recaptcha check failed with status ${recaptchaResponse.status}.`
-        );
+        logger.error({
+          message: `Recaptcha check failed with status ${recaptchaResponse.status} ${recaptchaResponse.statusText}.`
+        });
         return response.status(400).send("Recaptcha check failed.");
       }
       const json = await recaptchaResponse.json();
       if (!json.success || json.score < minimumScore) {
-        // eslint-disable-next-line no-console
-        console.error(
-          `Recaptcha check failed with error ${JSON.stringify(json)}.`
-        );
+        logger.error({
+          message: `Recaptcha check failed with error ${JSON.stringify(json)}.`
+        });
         return response.status(400).send("Recaptcha check failed.");
       }
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(`Recaptcha request failed with error ${error}.`);
+      logger.error({
+        message: `Recaptcha request failed with error ${error}.`
+      });
       return response.status(500).send("Recaptcha request failed.");
     }
 
@@ -144,8 +128,7 @@ export const download: HttpFunction = async (request, response) => {
 
       // good practice to catch this error explicitly
       archive.on("error", function (err) {
-        // eslint-disable-next-line no-console
-        console.error(`archive error: ${err}`);
+        logger.error({ message: `archive error: ${err}` });
         throw err;
       });
 
@@ -155,17 +138,15 @@ export const download: HttpFunction = async (request, response) => {
         request.body.documents.map(async ({ name, href }: Document) => {
           const response = await fetch(href!);
           if (!response.ok) {
-            // eslint-disable-next-line no-console
-            console.error(
-              `Got a non-ok response back from document fetch (${response.status}). Not throwing an error to allow other documents to be downloaded.`
-            );
+            logger.error({
+              message: `Got a non-ok response back from document fetch (${response.status}). Not throwing an error to allow other documents to be downloaded.`
+            });
           }
           const buffer = await response.buffer();
           archive.append(buffer, { name: name! });
         })
       ).catch((err) => {
-        // eslint-disable-next-line no-console
-        console.error(err);
+        logger.error({ message: err.message });
         return response
           .status(500)
           .send("Failed to add a doument to the zip file.");
@@ -185,8 +166,7 @@ export const download: HttpFunction = async (request, response) => {
       let url = zipFile.publicUrl();
       return response.send({ url: url });
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(error);
+      logger.error({ message: error.message });
       return response.status(500).send(error);
     }
   }

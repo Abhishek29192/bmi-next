@@ -1,172 +1,25 @@
+import logger from "@bmi/functions-logger";
+import { getSecret } from "@bmi/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import QueryString from "qs";
 import fetch from "node-fetch";
-import { EntryFields } from "contentful";
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import { Answer, NextStep, Type, Response } from "./types";
 
 const {
   CONTENTFUL_DELIVERY_TOKEN_SECRET,
   CONTENTFUL_ENVIRONMENT,
   CONTENTFUL_SPACE_ID,
-  SECRET_MAN_GCP_PROJECT_NAME,
   RECAPTCHA_SECRET_KEY,
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
 
-const secretManagerClient = new SecretManagerServiceClient();
 export const recaptchaTokenHeader = "X-Recaptcha-Token";
-const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
-
-export type Answer = {
-  nextStep: NextStep | null;
-};
-
-export type NextStep = Entry | TitleWithContent;
-
-type Entry = {
-  __typename: "SystemConfiguratorBlock";
-  sys: {
-    id: string;
-  };
-  title: string;
-  type: string;
-  description: {
-    json: EntryFields.RichText;
-    links: {
-      assets: {
-        block: Asset[];
-      };
-    };
-  } | null;
-} & Partial<Question> &
-  Partial<Result>;
-
-type Result = {
-  recommendedSystems: string[] | null;
-};
-
-type Question = {
-  answersCollection: {
-    total: number;
-    items: Entry[];
-  } | null;
-};
-
-type TitleWithContent = {
-  __typename: "TitleWithContent";
-  sys: {
-    id: string;
-  };
-  title: string;
-};
-
-type Asset = {
-  __typename: "Asset";
-  sys: {
-    id: string;
-  };
-  title: string | null;
-  url: string | null;
-  contentType: string | null;
-};
-
-type Type = "Question" | "Result";
-
-type ResponseRichText = {
-  raw: string;
-  references: Array<{
-    __typename: "ContentfulAsset";
-    contentful_id: string;
-    id: string;
-    title: string | null;
-    file: {
-      url: string;
-      contentType: string;
-    };
-  }>;
-};
-
-export type Response = {
-  contentful_id: string;
-  id: string;
-  title: string;
-} & (
-  | {
-      __typename: `ContentfulSystemConfiguratorBlock`;
-      type: string;
-      description: ResponseRichText | null;
-      answers: Response[];
-      recommendedSystems: string[] | null;
-    }
-  | {
-      __typename: `ContentfulTitleWithContent`;
-      type: null;
-      answers: null;
-      recommendedSystems: null;
-    }
-);
+const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE || "1.0");
 
 const nextStepMap: Record<Type, "answersCollection" | "recommendedSystems"> = {
   Question: "answersCollection",
   Result: "recommendedSystems"
 };
-
-type SecretRef = "contentfulDeliveryToken" | "recaptchaKey";
-
-const memoisedGetSecret = () => {
-  let cache = {};
-
-  const secretsMap = {
-    contentfulDeliveryToken: CONTENTFUL_DELIVERY_TOKEN_SECRET,
-    recaptchaKey: RECAPTCHA_SECRET_KEY
-  };
-
-  return async (secretRef: SecretRef): Promise<string> => {
-    // eslint-disable-next-line security/detect-object-injection
-    if (cache[secretRef]) {
-      // eslint-disable-next-line security/detect-object-injection
-      return cache[secretRef];
-    }
-    /* istanbul ignore next */
-    if (process.env.NODE_ENV === "development") {
-      const devSecretsMap = {
-        contentfulDeliveryToken:
-          process.env.DEV_CONTENTFUL_DELIVERY_TOKEN_SECRET,
-        recaptchaKey: process.env.DEV_RECAPTCHA_SECRET_KEY
-      };
-
-      // eslint-disable-next-line security/detect-object-injection
-      const developmentSecret = devSecretsMap[secretRef];
-
-      // eslint-disable-next-line security/detect-object-injection
-      cache[secretRef] = developmentSecret;
-
-      return developmentSecret;
-    }
-
-    const [secretResponse] = await secretManagerClient.accessSecretVersion({
-      // eslint-disable-next-line security/detect-object-injection
-      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${secretsMap[secretRef]}/versions/latest`
-    });
-
-    if (
-      !secretResponse ||
-      !secretResponse.payload ||
-      !secretResponse.payload.data
-    ) {
-      throw Error(`Unable to get ${secretRef} secret key.`);
-    }
-
-    const secret = secretResponse.payload.data.toString();
-
-    // eslint-disable-next-line security/detect-object-injection
-    cache[secretRef] = secret;
-
-    return secret;
-  };
-};
-
-const getSecret = memoisedGetSecret();
 
 const transformNextStepData = (nextStepData: NextStep): Response => {
   const { sys, title } = nextStepData;
@@ -195,16 +48,19 @@ const transformNextStepData = (nextStepData: NextStep): Response => {
           id: blockAsset.sys.id,
           title: blockAsset.title,
           file: {
-            url: blockAsset.url,
-            contentType: blockAsset.contentType
+            url: blockAsset.url!,
+            contentType: blockAsset.contentType!
           }
         }))
       },
       type,
       answers:
-        answersCollection &&
-        answersCollection.items.map((answer) => transformNextStepData(answer)),
-      recommendedSystems
+        (answersCollection &&
+          answersCollection.items.map((answer) =>
+            transformNextStepData(answer)
+          )) ||
+        null,
+      recommendedSystems: recommendedSystems || null
     };
   }
 
@@ -216,20 +72,16 @@ const transformNextStepData = (nextStepData: NextStep): Response => {
 
 const runQuery = async (
   query: string,
-  variables: QueryString.ParsedQs,
-  spaceId: string = CONTENTFUL_SPACE_ID,
-  environment: string = CONTENTFUL_ENVIRONMENT
+  variables: QueryString.ParsedQs
 ): Promise<Answer> => {
   let contentfulDeliveryTokenSecret;
 
-  try {
-    contentfulDeliveryTokenSecret = await getSecret("contentfulDeliveryToken");
-  } catch (error) {
-    throw Error(error.message);
-  }
+  contentfulDeliveryTokenSecret = await getSecret(
+    CONTENTFUL_DELIVERY_TOKEN_SECRET!
+  );
 
   return fetch(
-    `https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/${environment}`,
+    `https://graphql.contentful.com/content/v1/spaces/${CONTENTFUL_SPACE_ID}/environments/${CONTENTFUL_ENVIRONMENT}`,
     {
       method: "POST",
       headers: {
@@ -254,15 +106,14 @@ const runQuery = async (
 
 const generateError = (message: string) => {
   const error = Error(message);
-  // eslint-disable-next-line no-console
-  console.error(error);
+  logger.error({ message: error.message });
 
   return error;
 };
 
 const PAGE_SIZE = 9;
 
-export const query = (page) => `
+export const query = (page: number) => `
 query NextStep($answerId: String!, $locale: String!) {
   systemConfiguratorBlock(id: $answerId, locale: $locale) {
     nextStep {
@@ -330,6 +181,28 @@ fragment RichTextFragment on SystemConfiguratorBlockDescription {
 `;
 
 export const nextStep: HttpFunction = async (request, response) => {
+  if (!CONTENTFUL_DELIVERY_TOKEN_SECRET) {
+    logger.error({
+      message: "CONTENTFUL_DELIVERY_TOKEN_SECRET has not been set"
+    });
+    return response.sendStatus(500);
+  }
+
+  if (!CONTENTFUL_ENVIRONMENT) {
+    logger.error({ message: "CONTENTFUL_ENVIRONMENT has not been set" });
+    return response.sendStatus(500);
+  }
+
+  if (!CONTENTFUL_SPACE_ID) {
+    logger.error({ message: "CONTENTFUL_SPACE_ID has not been set" });
+    return response.sendStatus(500);
+  }
+
+  if (!RECAPTCHA_SECRET_KEY) {
+    logger.error({ message: "RECAPTCHA_SECRET_KEY has not been set" });
+    return response.sendStatus(500);
+  }
+
   response.set("Access-Control-Allow-Origin", "*");
   response.set("Access-Control-Allow-Methods", "GET");
 
@@ -362,7 +235,7 @@ export const nextStep: HttpFunction = async (request, response) => {
   let recaptchaKeySecret;
 
   try {
-    recaptchaKeySecret = await getSecret("recaptchaKey");
+    recaptchaKeySecret = await getSecret(RECAPTCHA_SECRET_KEY);
   } catch (error) {
     return response.status(500).send(generateError(error.message));
   }
@@ -379,15 +252,13 @@ export const nextStep: HttpFunction = async (request, response) => {
     }
     const json = await recaptchaResponse.json();
     if (!json.success || json.score < minimumScore) {
-      // eslint-disable-next-line no-console
-      console.error(
-        `Recaptcha check failed with error ${JSON.stringify(json)}.`
-      );
+      logger.error({
+        message: `Recaptcha check failed with error ${JSON.stringify(json)}.`
+      });
       return response.status(400).send(Error("Recaptcha check failed."));
     }
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(`Recaptcha request failed with error ${error}.`);
+    logger.error({ message: `Recaptcha request failed with error ${error}.` });
     return response.status(500).send(Error("Recaptcha request failed."));
   }
   const { answerId, locale } = request.query;
@@ -410,8 +281,7 @@ export const nextStep: HttpFunction = async (request, response) => {
     try {
       data = await runQuery(query(page), { answerId, locale });
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
+      logger.error({ message: error.message });
       return response.status(500).send(error);
     }
 

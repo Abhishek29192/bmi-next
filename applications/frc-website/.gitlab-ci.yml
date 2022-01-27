@@ -13,7 +13,7 @@ build_frc_website:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @bmi/head check:ts
+    - yarn workspace @bmi/frc-website check:ts
     - yarn workspace @bmi/frc-website build
   artifacts:
     paths:

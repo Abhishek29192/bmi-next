@@ -1,13 +1,13 @@
+import logger from "@bmi/functions-logger";
+import { getSecret } from "@bmi/functions-secret-client";
 import fetch from "node-fetch";
 import { Storage } from "@google-cloud/storage/build/src/storage";
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import { filterFunctionMetadata } from "./filter";
 import { FunctionMetadata } from "./types";
 
 const storage = new Storage();
 const {
   GCP_STORAGE_NAME,
-  SECRET_MAN_GCP_PROJECT_NAME,
   TRIGGER_SECRET,
   TRIGGER_API_KEY_SECRET,
   FUNCTIONS_METADATA_FOLDER,
@@ -15,30 +15,15 @@ const {
   FUNCTIONS_SOURCE_FOLDER,
   GCP_PROJECT_NAME
 } = process.env;
-const secretManagerClient = new SecretManagerServiceClient();
 const bucket = GCP_STORAGE_NAME && storage.bucket(GCP_STORAGE_NAME);
 const triggerNameRegex = `${FUNCTIONS_SOURCE_FOLDER}/(.*).zip`;
 
-async function triggerCloudBuild(requests: FunctionMetadata[], source: string) {
-  const secret = await secretManagerClient.accessSecretVersion({
-    name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${TRIGGER_SECRET}/versions/latest`
-  });
-
-  if (!secret[0].payload?.data) {
-    throw Error("Unable to get trigger secret");
-  }
-
-  const secretText = secret[0].payload.data.toString();
-
-  const apiKeySecret = await secretManagerClient.accessSecretVersion({
-    name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${TRIGGER_API_KEY_SECRET}/versions/latest`
-  });
-
-  if (!apiKeySecret[0].payload?.data) {
-    throw Error("Unable to get trigger API key");
-  }
-
-  const apiKey = apiKeySecret[0].payload.data.toString();
+const triggerCloudBuild = async (
+  requests: FunctionMetadata[],
+  source: string
+) => {
+  const secretText = await getSecret(TRIGGER_SECRET!);
+  const apiKey = await getSecret(TRIGGER_API_KEY_SECRET!);
 
   const triggerName = `${source}-trigger`;
   const url = `https://cloudbuild.googleapis.com/v1/projects/${GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiKey}&secret=${secretText}`;
@@ -51,28 +36,34 @@ async function triggerCloudBuild(requests: FunctionMetadata[], source: string) {
       headers: { "Content-Type": "application/json" }
     });
     if (!response.ok) {
-      // eslint-disable-next-line no-console
-      console.error(
-        `Build trigger error: ${response.status} ${response.statusText}`
-      );
+      logger.error({
+        message: `Build trigger error: ${response.status} ${response.statusText}`
+      });
     }
   }
-}
+};
 
 export const deploy = async (file: { bucket: string; name: string }) => {
   if (!bucket) {
     throw Error("Unable to connect to a storage bucket");
   }
 
-  // eslint-disable-next-line no-console
-  console.log(`Bucket: ${file.bucket}`);
-  // eslint-disable-next-line no-console
-  console.log(`File: ${file.name}`);
+  if (!TRIGGER_SECRET) {
+    throw Error("TRIGGER_SECRET has not been set");
+  }
+
+  if (!TRIGGER_API_KEY_SECRET) {
+    throw Error("TRIGGER_API_KEY_SECRET has not been set");
+  }
+
+  logger.info({ message: `Bucket: ${file.bucket}` });
+  logger.info({ message: `File: ${file.name}` });
 
   const match = file.name.match(triggerNameRegex);
   if (!match) {
-    // eslint-disable-next-line no-console
-    console.warn("Invalid source folder recieved. Skipping the deployment.");
+    logger.warning({
+      message: "Invalid source folder recieved. Skipping the deployment."
+    });
     return;
   }
 
@@ -81,24 +72,24 @@ export const deploy = async (file: { bucket: string; name: string }) => {
   );
 
   if (!(await metadataFile.exists())) {
-    // eslint-disable-next-line no-console
-    console.warn("Metadata file not found. Skipping the deployment.");
+    logger.warning({
+      message: "Metadata file not found. Skipping the deployment."
+    });
     return;
   }
 
-  // eslint-disable-next-line no-console
-  console.log(`file: ${metadataFile.name}`);
+  logger.info({ message: `file: ${metadataFile.name}` });
   try {
     const fileContent = await metadataFile.download();
     const metadata = filterFunctionMetadata(fileContent, file.name);
     if (metadata) {
       await triggerCloudBuild(metadata, match[1]);
     } else {
-      // eslint-disable-next-line no-console
-      console.warn(`Metadata file not found for ${file.name} source`);
+      logger.warning({
+        message: `Metadata file not found for ${file.name} source`
+      });
     }
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error);
+    logger.error({ message: error.message });
   }
 };

@@ -1,4 +1,5 @@
 import { getEsClient } from "@bmi/functions-es-client";
+import logger from "@bmi/functions-logger";
 import { Product as PIMProduct, System } from "@bmi/pim-types";
 import { updateElasticSearch } from "./elasticsearch";
 import { ProductVariant } from "./es-model";
@@ -11,11 +12,9 @@ const pingEsCluster = async () => {
   const client = await getEsClient();
   client.ping((error) => {
     if (error) {
-      // eslint-disable-next-line no-console
-      console.error("Elasticsearch cluster is down!");
+      logger.error({ message: "Elasticsearch cluster is down!" });
     } else {
-      // eslint-disable-next-line no-console
-      console.info("Elasticsearch is connected");
+      logger.info({ message: "Elasticsearch is connected" });
     }
   });
 };
@@ -35,10 +34,8 @@ const buildEsSystems = (systems: readonly System[]): EsSystem[] => {
 };
 
 export const handleMessage: MessageFunction = async (data, context) => {
-  // eslint-disable-next-line no-console
-  console.info("data", data);
-  // eslint-disable-next-line no-console
-  console.info("context", context);
+  logger.info({ message: `data: ${data}` });
+  logger.info({ message: `context: ${context}` });
 
   await pingEsCluster();
 
@@ -49,16 +46,16 @@ export const handleMessage: MessageFunction = async (data, context) => {
 
   const { type, itemType, items } = message;
   if (!items) {
-    // eslint-disable-next-line no-console
-    console.warn("No items received");
+    logger.warning({ message: "No items received" });
     return;
   }
 
-  // eslint-disable-next-line no-console
-  console.info("Received message", {
-    type,
-    itemType,
-    itemsCount: items.length
+  logger.info({
+    message: `Received message: {
+    type: ${type},
+    itemType: ${itemType},
+    itemsCount: ${items.length}
+  }`
   });
 
   const esDocuments: (ProductVariant | EsSystem)[] =
@@ -67,8 +64,7 @@ export const handleMessage: MessageFunction = async (data, context) => {
       : buildEsSystems(items as System[]);
 
   if (esDocuments.length === 0) {
-    // eslint-disable-next-line no-console
-    console.warn(`ES Products not found. Ignoring the ${type}.`);
+    logger.warning({ message: `ES Products not found. Ignoring the ${type}.` });
     return;
   }
 
@@ -80,7 +76,6 @@ export const handleMessage: MessageFunction = async (data, context) => {
       await updateElasticSearch(itemType, esDocuments, "delete");
       break;
     default:
-      // eslint-disable-next-line no-console
-      console.error(`[ERROR]: Unrecognised message type [${type}]`);
+      logger.error({ message: `[ERROR]: Unrecognised message type [${type}]` });
   }
 };

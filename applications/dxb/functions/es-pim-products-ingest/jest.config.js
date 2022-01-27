@@ -1,6 +1,6 @@
 "use strict";
 
-const sharedConfig = require("../../../../jest.config");
+const sharedConfig = require("../jest.config");
 
 module.exports = {
   ...sharedConfig,
@@ -9,7 +9,6 @@ module.exports = {
   collectCoverageFrom: [
     "<rootDir>/applications/dxb/functions/es-pim-products-ingest/src/**/*.{ts,tsx,js}"
   ],
-  testEnvironment: "node",
   coverageThreshold: {
     global: {
       ...sharedConfig.coverageThreshold.global,

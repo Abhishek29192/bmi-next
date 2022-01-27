@@ -1,6 +1,6 @@
 import { PubSub, Topic } from "@google-cloud/pubsub";
 import { Request, Response } from "express";
-import { error, info } from "@bmi/functions-logger";
+import logger from "@bmi/functions-logger";
 import { fetchData, PimTypes } from "@bmi/pim-api";
 import { ProductsApiResponse, SystemsApiResponse } from "@bmi/pim-types";
 import { FullFetchRequest } from "./types";
@@ -27,7 +27,7 @@ async function publishMessage(
     itemType === PimTypes.Products
       ? (apiResponse as ProductsApiResponse).products
       : (apiResponse as SystemsApiResponse).systems;
-  info({
+  logger.info({
     message: `Publishing UPDATED ${items.length} ${itemType.toUpperCase()}`
   });
   const messageBuffer = Buffer.from(
@@ -40,7 +40,7 @@ async function publishMessage(
   );
 
   const messageId = await getTopicPublisher().publish(messageBuffer);
-  info({ message: `Published: ${messageId}` });
+  logger.info({ message: `Published: ${messageId}` });
 }
 
 /**
@@ -54,33 +54,33 @@ const handleRequest = async (
   res: Response
 ) => {
   if (!GCP_PROJECT_ID) {
-    // eslint-disable-next-line no-console
-    console.error("GCP_PROJECT_ID has not been set.");
+    logger.error({ message: "GCP_PROJECT_ID has not been set." });
     return res.sendStatus(500);
   }
 
   if (!TRANSITIONAL_TOPIC_NAME) {
-    // eslint-disable-next-line no-console
-    console.error("TRANSITIONAL_TOPIC_NAME has not been set.");
+    logger.error({ message: "TRANSITIONAL_TOPIC_NAME has not been set." });
     return res.sendStatus(500);
   }
 
   const body = req.body;
 
   if (!body) {
-    error({ message: "type, startPage and numberOfPages was not provided." });
+    logger.error({
+      message: "type, startPage and numberOfPages was not provided."
+    });
     res
       .status(400)
       .send({ error: "type, startPage and numberOfPages was not provided." });
     return;
   }
   if (!body.type) {
-    error({ message: "type was not provided." });
+    logger.error({ message: "type was not provided." });
     res.status(400).send({ error: "type was not provided." });
     return;
   }
   if ((!body.startPage && body.startPage !== 0) || body.startPage < 0) {
-    error({
+    logger.error({
       message: "startPage must be a number greater than or equal to 0."
     });
     res.status(400).send({
@@ -89,7 +89,7 @@ const handleRequest = async (
     return;
   }
   if (!body.numberOfPages || body.numberOfPages < 1) {
-    error({ message: "numberOfPages must be a number greater than 0." });
+    logger.error({ message: "numberOfPages must be a number greater than 0." });
     res
       .status(400)
       .send({ error: "numberOfPages must be a number greater than 0." });
