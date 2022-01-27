@@ -2863,6 +2863,7 @@ export type GetMarketsByDomainQuery = { readonly __typename?: "Query" } & {
           | "merchandisingUrl"
           | "projectsEnabled"
           | "gtag"
+          | "gtagMarketMedia"
           | "sendName"
           | "sendMailbox"
           | "locationBiasRadiusKm"

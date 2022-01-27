@@ -15,6 +15,7 @@ export const queryMarketsByDomain = gql`
         merchandisingUrl
         projectsEnabled
         gtag
+        gtagMarketMedia
         sendName
         sendMailbox
         locationBiasRadiusKm

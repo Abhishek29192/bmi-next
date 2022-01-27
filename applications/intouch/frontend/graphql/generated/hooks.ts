@@ -3523,6 +3523,7 @@ export const GetMarketsByDomainDocument = gql`
         merchandisingUrl
         projectsEnabled
         gtag
+        gtagMarketMedia
         sendName
         sendMailbox
         locationBiasRadiusKm
