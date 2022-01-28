@@ -905,6 +905,7 @@ export const UpdateMarketDocument = gql`
             projectsEnabled
             locationBiasRadiusKm
             gtag
+            gtagMarketMedia
           }
         }
       }
@@ -3994,6 +3995,7 @@ export const MarketsDocument = gql`
         merchandisingUrl
         projectsEnabled
         gtag
+        gtagMarketMedia
         locationBiasRadiusKm
       }
     }

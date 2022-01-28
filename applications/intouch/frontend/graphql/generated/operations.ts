@@ -586,6 +586,7 @@ export type UpdateMarketMutation = { readonly __typename?: "Mutation" } & {
                   | "projectsEnabled"
                   | "locationBiasRadiusKm"
                   | "gtag"
+                  | "gtagMarketMedia"
                 >
               >;
             }
@@ -3237,6 +3238,7 @@ export type MarketsQuery = { readonly __typename?: "Query" } & {
           | "merchandisingUrl"
           | "projectsEnabled"
           | "gtag"
+          | "gtagMarketMedia"
           | "locationBiasRadiusKm"
         >
       >;
