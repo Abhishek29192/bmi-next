@@ -905,6 +905,7 @@ export const UpdateMarketDocument = gql`
             projectsEnabled
             locationBiasRadiusKm
             gtag
+            gtagMarketMedia
           }
         }
       }
@@ -3531,6 +3532,7 @@ export const GetMarketsByDomainDocument = gql`
         merchandisingUrl
         projectsEnabled
         gtag
+        gtagMarketMedia
         sendName
         sendMailbox
         locationBiasRadiusKm
@@ -4001,6 +4003,7 @@ export const MarketsDocument = gql`
         merchandisingUrl
         projectsEnabled
         gtag
+        gtagMarketMedia
         locationBiasRadiusKm
       }
     }

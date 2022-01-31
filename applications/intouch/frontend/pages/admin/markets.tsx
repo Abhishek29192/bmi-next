@@ -81,6 +81,7 @@ export const markets = gql`
         merchandisingUrl
         projectsEnabled
         gtag
+        gtagMarketMedia
         locationBiasRadiusKm
       }
     }
