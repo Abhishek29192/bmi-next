@@ -1,0 +1,14 @@
+{
+  "name": "@bmi/functions-secret-client",
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "private": true,
+  "main": "./src/index",
+  "scripts": {
+    "check:ts": "tsc",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
+  },
+  "dependencies": {
+    "@google-cloud/secret-manager": "^3.7.1"
+  }
+}

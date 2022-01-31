@@ -1,5 +1,14 @@
 import mockConsole from "jest-mock-console";
-
+import {
+  Classification,
+  createVariantOption,
+  createProduct as createPimProduct,
+  createClassification,
+  createFeature,
+  createFeatureValue,
+  createFeatureUnit,
+  createMeasurementsClassification
+} from "@bmi/pim-types";
 import {
   ESIndexObject,
   groupBy,
@@ -8,15 +17,6 @@ import {
   getSizeLabel,
   mapProductClassifications
 } from "../CLONE";
-import { Classification } from "../pim";
-import createVariantOption from "./helpers/VariantOptionHelper";
-import createPimProduct from "./helpers/PimProductHelper";
-import createClassification, {
-  createFeature,
-  createFeatureValue,
-  createFeatureUnit,
-  createMeasurementsClassification
-} from "./helpers/ClassificationHelper";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 

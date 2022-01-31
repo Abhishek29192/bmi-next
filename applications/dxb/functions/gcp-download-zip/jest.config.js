@@ -1,6 +1,6 @@
 "use strict";
 
-const sharedConfig = require("../../../../jest.config");
+const sharedConfig = require("../jest.config");
 
 module.exports = {
   ...sharedConfig,
@@ -9,7 +9,6 @@ module.exports = {
   collectCoverageFrom: [
     "<rootDir>/applications/dxb/functions/gcp-download-zip/src/**/*.{ts,tsx,js}"
   ],
-  testEnvironment: "node",
   coverageThreshold: {
     global: {
       ...sharedConfig.coverageThreshold.global,

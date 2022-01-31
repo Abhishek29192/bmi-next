@@ -4,11 +4,13 @@
   "license": "BMI-DXB",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "webpack --mode=production",
+    "check:ts": "tsc",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=build --port=9057"
   },
   "dependencies": {
+    "@bmi/functions-logger": "0.0.0",
     "@google-cloud/functions-framework": "^1.7.1",
     "@google-cloud/monitoring": "^2.3.2",
     "node-fetch": "^2.6.1"

@@ -1,5 +1,5 @@
 /* eslint-disable security/detect-object-injection */
-import { Product, Classification, Category } from "./pim";
+import { Product, Classification, Category } from "@bmi/pim-types";
 
 type CategoryPath = readonly Category[];
 
@@ -123,6 +123,7 @@ export const mapProductClassifications = (
   const MEASUREMENTS = "measurements";
   const GENERAL_INFORMATION = "generalInformation";
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- eslint doesn't pick up that it's being used
   const FEATURES = {
     SCORE_WEIGHT: `${classificationNamepace}/${SCORE_WEIGHT}.scoringweight`,
     TEXTURE_FAMILY: `${classificationNamepace}/${APPEARANCE}.texturefamily`,
@@ -138,6 +139,7 @@ export const mapProductClassifications = (
   return Object.entries(allProducts).reduce<ClassificationsPerProductMap>(
     (carry, [productCode, product]) => {
       (product.classifications || []).forEach((classification) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars -- eslint doesn't pick up that it's being used
         const { code, features } = classification;
         if (code === MEASUREMENTS) {
           features?.forEach(({ code, name, featureValues, featureUnit }) => {

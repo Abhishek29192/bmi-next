@@ -1,19 +1,17 @@
 import mockConsole from "jest-mock-console";
 import { Request, Response } from "express";
+import { mockRequest, mockResponse } from "@bmi/fetch-mocks";
+import { PimTypes } from "@bmi/pim-api";
 import {
-  mockRequest,
-  mockResponse
-} from "../../../../../../libraries/fetch-mocks/src/index";
-import { PimTypes } from "../pim";
-import { createFullFetchRequest } from "./helpers/fullFetchHelper";
-import {
+  createProduct,
   createProductsApiResponse,
   createSystemsApiResponse
-} from "./helpers/pimHelper";
+} from "@bmi/pim-types";
+import { createFullFetchRequest } from "./helpers/fullFetchHelper";
 
 const fetchData = jest.fn();
-jest.mock("../pim", () => {
-  const pim = jest.requireActual("../pim");
+jest.mock("@bmi/pim-api", () => {
+  const pim = jest.requireActual("@bmi/pim-api");
   return {
     ...pim,
     fetchData: (...args: any) => fetchData(...args)
@@ -293,10 +291,10 @@ describe("handleRequest", () => {
 
   it("should publish data from multiple pages to pub/sub", async () => {
     const productsApiResponse1 = createProductsApiResponse({
-      products: [{ id: 1 }]
+      products: [createProduct({ code: "1" })]
     });
     const productsApiResponse2 = createProductsApiResponse({
-      products: [{ id: 2 }]
+      products: [createProduct({ code: "2" })]
     });
     fetchData
       .mockReturnValueOnce(productsApiResponse1)

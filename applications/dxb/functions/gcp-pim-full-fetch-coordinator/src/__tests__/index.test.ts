@@ -1,17 +1,13 @@
 import mockConsole from "jest-mock-console";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import {
-  mockResponse,
-  mockRequest,
-  mockResponses
-} from "../../../../../../libraries/fetch-mocks/src/index";
-import { ElasticsearchIndexes } from "../elasticsearch";
-import { FirestoreCollections } from "../firestore";
+import { mockResponse, mockRequest, mockResponses } from "@bmi/fetch-mocks";
 import {
   createProductsApiResponse,
   createSystemsApiResponse
-} from "./helpers/pimHelper";
+} from "@bmi/pim-types";
+import { ElasticsearchIndexes } from "../elasticsearch";
+import { FirestoreCollections } from "../firestore";
 
 const deleteElasticSearchIndex = jest.fn();
 jest.mock("../elasticsearch", () => {
@@ -38,8 +34,8 @@ jest.mock("../firestore", () => {
 });
 
 const fetchData = jest.fn();
-jest.mock("../pim", () => {
-  const pim = jest.requireActual("../pim");
+jest.mock("@bmi/pim-api", () => {
+  const pim = jest.requireActual("@bmi/pim-api");
   return {
     ...pim,
     fetchData: (...args: any) => fetchData(...args)

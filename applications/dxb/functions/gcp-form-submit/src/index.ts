@@ -1,7 +1,8 @@
+import logger from "@bmi/functions-logger";
+import { getSecret } from "@bmi/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { MailService } from "@sendgrid/mail";
 import { createClient } from "contentful-management";
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import { Environment } from "contentful-management/dist/typings/entities/environment";
 import fetch from "node-fetch";
 
@@ -11,7 +12,6 @@ const {
   SENDGRID_API_KEY_SECRET,
   SENDGRID_FROM_EMAIL,
   CONTENTFUL_MANAGEMENT_TOKEN_SECRET,
-  SECRET_MAN_GCP_PROJECT_NAME,
   RECAPTCHA_SECRET_KEY,
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
@@ -21,23 +21,12 @@ const recaptchaTokenHeader = "X-Recaptcha-Token";
 
 let contentfulEnvironmentCache: Environment | undefined;
 let sendGridClientCache: MailService | undefined;
-let recaptchaSecretKeyCache: string | undefined;
-const secretManagerClient = new SecretManagerServiceClient();
 
 const getContentfulEnvironment = async () => {
   if (!contentfulEnvironmentCache) {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- For some reason, eslint doesn't always like optional chained calls
-    const managementTokenSecret = await secretManagerClient.accessSecretVersion(
-      {
-        name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
-      }
+    const managementToken = await getSecret(
+      CONTENTFUL_MANAGEMENT_TOKEN_SECRET!
     );
-    const managementToken = managementTokenSecret[0].payload?.data?.toString();
-    if (!managementToken) {
-      // eslint-disable-next-line no-console
-      console.error("Unable to find contentful management token");
-      return;
-    }
     const client = createClient({ accessToken: managementToken });
     const space = await client.getSpace(CONTENTFUL_SPACE_ID!);
     contentfulEnvironmentCache = await space.getEnvironment(
@@ -49,52 +38,43 @@ const getContentfulEnvironment = async () => {
 
 const getSendGridClient = async () => {
   if (!sendGridClientCache) {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- For some reason, eslint doesn't always like optional chained calls
-    const apiKeySecret = await secretManagerClient.accessSecretVersion({
-      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${SENDGRID_API_KEY_SECRET}/versions/latest`
-    });
-
-    const apiKey = apiKeySecret[0].payload?.data?.toString();
-    if (!apiKey) {
-      return;
-    }
+    const apiKey = await getSecret(SENDGRID_API_KEY_SECRET!);
     sendGridClientCache = new MailService();
     sendGridClientCache.setApiKey(apiKey);
   }
   return sendGridClientCache;
 };
 
-const getRecaptchaSecretKey = async () => {
-  if (!recaptchaSecretKeyCache) {
-    const recaptchaSecretKey = await secretManagerClient.accessSecretVersion({
-      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
-
-    if (!recaptchaSecretKey[0].payload?.data) {
-      throw Error("Unable to get ReCaptcha secret key");
-    }
-
-    recaptchaSecretKeyCache = recaptchaSecretKey[0].payload.data.toString();
-  }
-  return recaptchaSecretKeyCache;
-};
-
 export const submit: HttpFunction = async (request, response) => {
+  if (!CONTENTFUL_MANAGEMENT_TOKEN_SECRET) {
+    logger.error({
+      message: "CONTENTFUL_MANAGEMENT_TOKEN_SECRET has not been set"
+    });
+    return response.sendStatus(500);
+  }
+
   if (!CONTENTFUL_SPACE_ID) {
-    // eslint-disable-next-line no-console
-    console.error("CONTENTFUL_SPACE_ID has not been set");
+    logger.error({ message: "CONTENTFUL_SPACE_ID has not been set" });
     return response.sendStatus(500);
   }
 
   if (!CONTENTFUL_ENVIRONMENT) {
-    // eslint-disable-next-line no-console
-    console.error("CONTENTFUL_ENVIRONMENT has not been set");
+    logger.error({ message: "CONTENTFUL_ENVIRONMENT has not been set" });
+    return response.sendStatus(500);
+  }
+
+  if (!RECAPTCHA_SECRET_KEY) {
+    logger.error({ message: "RECAPTCHA_SECRET_KEY has not been set" });
+    return response.sendStatus(500);
+  }
+
+  if (!SENDGRID_API_KEY_SECRET) {
+    logger.error({ message: "SENDGRID_API_KEY_SECRET has not been set" });
     return response.sendStatus(500);
   }
 
   if (!SENDGRID_FROM_EMAIL) {
-    // eslint-disable-next-line no-console
-    console.error("SENDGRID_FROM_EMAIL has not been set");
+    logger.error({ message: "SENDGRID_FROM_EMAIL has not been set" });
     return response.sendStatus(500);
   }
 
@@ -112,8 +92,7 @@ export const submit: HttpFunction = async (request, response) => {
   } else {
     try {
       if (!request.body) {
-        // eslint-disable-next-line no-console
-        console.error("Invalid request.");
+        logger.error({ message: "Invalid request." });
         return response.status(400).send(Error("Invalid request."));
       }
 
@@ -134,52 +113,42 @@ export const submit: HttpFunction = async (request, response) => {
         request.headers[recaptchaTokenHeader] ||
         request.headers[recaptchaTokenHeader.toLowerCase()];
       if (!recaptchaToken) {
-        // eslint-disable-next-line no-console
-        console.error("Token not provided.");
+        logger.error({ message: "Token not provided." });
         return response.status(400).send(Error("Token not provided."));
       }
 
       try {
         const recaptchaResponse = await fetch(
-          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getRecaptchaSecretKey()}&response=${recaptchaToken}`,
+          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getSecret(
+            RECAPTCHA_SECRET_KEY
+          )}&response=${recaptchaToken}`,
           { method: "POST" }
         );
         if (!recaptchaResponse.ok) {
-          // eslint-disable-next-line no-console
-          console.error(
-            `Recaptcha check failed with status ${recaptchaResponse.status}.`
-          );
+          logger.error({
+            message: `Recaptcha check failed with status ${recaptchaResponse.status} ${recaptchaResponse.statusText}.`
+          });
           return response.status(400).send(Error("Recaptcha check failed."));
         }
         const json = await recaptchaResponse.json();
         if (!json.success || json.score < minimumScore) {
-          // eslint-disable-next-line no-console
-          console.error(
-            `Recaptcha check failed with error ${JSON.stringify(json)}.`
-          );
+          logger.error({
+            message: `Recaptcha check failed with error ${JSON.stringify(
+              json
+            )}.`
+          });
           return response.status(400).send(Error("Recaptcha check failed."));
         }
       } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(`Recaptcha request failed with error ${error}.`);
+        logger.error({
+          message: `Recaptcha request failed with error ${error}.`
+        });
         return response.status(500).send(Error("Recaptcha request failed."));
       }
 
       const environment = await getContentfulEnvironment();
-      if (!environment) {
-        // eslint-disable-next-line no-console
-        console.error(
-          "Contentful environment client could not be instantiated."
-        );
-        return response.sendStatus(500);
-      }
 
       const sendgridClient = await getSendGridClient();
-      if (!sendgridClient) {
-        // eslint-disable-next-line no-console
-        console.error("Send grid client could not be instantiated.");
-        return response.sendStatus(500);
-      }
 
       const assets: any[] =
         files && files.length
@@ -227,8 +196,7 @@ export const submit: HttpFunction = async (request, response) => {
 
       return response.sendStatus(200);
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
+      logger.error({ message: error.message });
       return response.sendStatus(500);
     }
   }

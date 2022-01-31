@@ -1,7 +1,8 @@
 import { escape } from "querystring";
+import logger from "@bmi/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import { getSecret } from "@bmi/functions-secret-client";
 
 type RequestRedirect = "error" | "follow" | "manual";
 
@@ -18,7 +19,6 @@ const {
   APSIS_TARGET_GDPR_2_ATTRIBUTE_ID,
   APSIS_TARGET_FIRST_NAME_ATTRIBUTE_ID,
   APSIS_TARGET_CHANNEL,
-  SECRET_MAN_GCP_PROJECT_NAME,
   RECAPTCHA_SECRET_KEY,
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
@@ -28,39 +28,9 @@ const recaptchaTokenHeader = "X-Recaptcha-Token";
 
 const apsisAudianceBase = `${APSIS_API_BASE_URL}/audience`;
 
-let recaptchaSecretKeyCache: string;
-let apsisClientSecretCache: string;
-const secretManagerClient = new SecretManagerServiceClient();
-
-const getRecaptchaSecretKey = async () => {
-  if (!recaptchaSecretKeyCache) {
-    const recaptchaSecretKey = await secretManagerClient.accessSecretVersion({
-      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
-
-    if (!recaptchaSecretKey[0].payload?.data) {
-      throw Error("Unable to get ReCaptcha secret key");
-    }
-
-    recaptchaSecretKeyCache = recaptchaSecretKey[0].payload.data.toString();
-  }
-  return recaptchaSecretKeyCache;
-};
-
 const getAuthToken = async () => {
-  if (!apsisClientSecretCache) {
-    const apsisSecret = await secretManagerClient.accessSecretVersion({
-      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${APSIS_CLIENT_SECRET}/versions/latest`
-    });
+  const apsisClientSecret = await getSecret(APSIS_CLIENT_SECRET!);
 
-    if (!apsisSecret[0].payload?.data) {
-      throw Error("Unable to get APSIS client secret");
-    }
-
-    apsisClientSecretCache = apsisSecret[0].payload.data.toString();
-  }
-
-  const redirect: RequestRedirect = "follow";
   var requestOptions = {
     method: "POST",
     headers: {
@@ -69,22 +39,21 @@ const getAuthToken = async () => {
     },
     body: JSON.stringify({
       client_id: APSIS_CLIENT_ID,
-      client_secret: apsisClientSecretCache,
+      client_secret: apsisClientSecret,
       grant_type: "client_credentials"
     }),
-    redirect
+    redirect: "follow" as RequestRedirect
   };
+
   const response = await fetch(
     `${APSIS_API_BASE_URL}/oauth/token`,
     requestOptions
   );
 
   if (!response.ok) {
-    // eslint-disable-next-line no-console
-    console.error(
-      `Request to get OAuth token failed with status ${response.status}`,
-      response.statusText
-    );
+    logger.error({
+      message: `Request to get OAuth token failed with status ${response.status} ${response.statusText}`
+    });
     throw new Error(response.statusText);
   }
 
@@ -124,11 +93,9 @@ const createProfile = async (
   });
 
   if (!response.ok) {
-    // eslint-disable-next-line no-console
-    console.error(
-      `Request to get Create Profile failed with status ${response.status}`,
-      response.statusText
-    );
+    logger.error({
+      message: `Request to get Create Profile failed with status ${response.status} ${response.statusText}`
+    });
     throw new Error(response.statusText);
   }
 };
@@ -154,11 +121,9 @@ const createConsent = async (access_token: string, email: string) => {
   });
 
   if (!response.ok) {
-    // eslint-disable-next-line no-console
-    console.error(
-      `Request to get Create Consent failed with status ${response.status}`,
-      response.statusText
-    );
+    logger.error({
+      message: `Request to get Create Consent failed with status ${response.status} ${response.statusText}`
+    });
     throw new Error(response.statusText);
   }
 };
@@ -182,11 +147,9 @@ const createSubscription = async (access_token: string, email: string) => {
   });
 
   if (!response.ok) {
-    // eslint-disable-next-line no-console
-    console.error(
-      `Request to get Create Subscription failed with status ${response.status}`,
-      response.statusText
-    );
+    logger.error({
+      message: `Request to get Create Subscription failed with status ${response.status} ${response.statusText}`
+    });
     throw new Error(response.statusText);
   }
 
@@ -203,21 +166,38 @@ const validateGDPR = (gdpr_1: boolean, gdpr_2: boolean) => {
 };
 
 export const optInEmailMarketing: HttpFunction = async (request, response) => {
+  if (!APSIS_CLIENT_SECRET) {
+    logger.error({
+      message: "APSIS_CLIENT_SECRET was not provided"
+    });
+    return response.sendStatus(500);
+  }
+
   if (!APSIS_TARGET_EMAIL_ATTRIBUTE_ID) {
-    // eslint-disable-next-line no-console
-    console.error("APSIS_TARGET_EMAIL_ATTRIBUTE_ID was not provided");
+    logger.error({
+      message: "APSIS_TARGET_EMAIL_ATTRIBUTE_ID was not provided"
+    });
     return response.sendStatus(500);
   }
 
   if (!APSIS_TARGET_GDPR_1_ATTRIBUTE_ID) {
-    // eslint-disable-next-line no-console
-    console.error("APSIS_TARGET_GDPR_1_ATTRIBUTE_ID was not provided");
+    logger.error({
+      message: "APSIS_TARGET_GDPR_1_ATTRIBUTE_ID was not provided"
+    });
     return response.sendStatus(500);
   }
 
   if (!APSIS_TARGET_GDPR_2_ATTRIBUTE_ID) {
-    // eslint-disable-next-line no-console
-    console.error("APSIS_TARGET_GDPR_2_ATTRIBUTE_ID was not provided");
+    logger.error({
+      message: "APSIS_TARGET_GDPR_2_ATTRIBUTE_ID was not provided"
+    });
+    return response.sendStatus(500);
+  }
+
+  if (!RECAPTCHA_SECRET_KEY) {
+    logger.error({
+      message: "RECAPTCHA_SECRET_KEY was not provided"
+    });
     return response.sendStatus(500);
   }
 
@@ -232,7 +212,7 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
     ]);
     response.set("Access-Control-Max-Age", "3600");
 
-    return response.status(204).send("");
+    return response.sendStatus(204);
   } else {
     try {
       const {
@@ -248,34 +228,36 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
         request.headers[recaptchaTokenHeader] ||
         request.headers[recaptchaTokenHeader.toLowerCase()];
       if (!recaptchaToken) {
-        // eslint-disable-next-line no-console
-        console.error("Token not provided.");
+        logger.error({ message: "Token not provided." });
         return response.status(400).send(Error("Token not provided."));
       }
 
       try {
         const recaptchaResponse = await fetch(
-          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getRecaptchaSecretKey()}&response=${recaptchaToken}`,
+          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getSecret(
+            RECAPTCHA_SECRET_KEY
+          )}&response=${recaptchaToken}`,
           { method: "POST" }
         );
         if (!recaptchaResponse.ok) {
-          // eslint-disable-next-line no-console
-          console.error(
-            `Recaptcha check failed with status ${recaptchaResponse.status}.`
-          );
+          logger.error({
+            message: `Recaptcha check failed with status ${recaptchaResponse.status} ${recaptchaResponse.statusText}.`
+          });
           return response.status(400).send(Error("Recaptcha check failed."));
         }
         const json = await recaptchaResponse.json();
         if (!json.success || json.score < minimumScore) {
-          // eslint-disable-next-line no-console
-          console.error(
-            `Recaptcha check failed with error ${JSON.stringify(json)}.`
-          );
+          logger.error({
+            message: `Recaptcha check failed with error ${JSON.stringify(
+              json
+            )}.`
+          });
           return response.status(400).send(Error("Recaptcha check failed."));
         }
       } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(`Recaptcha request failed with error ${error}.`);
+        logger.error({
+          message: `Recaptcha request failed with error ${error}.`
+        });
         return response.status(500).send(Error("Recaptcha request failed."));
       }
 
@@ -295,8 +277,7 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
         return response.sendStatus(200);
       }
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(`APSIS integration Error occured`, error);
+      logger.error({ message: `APSIS integration Error occured ${error}` });
       return response.sendStatus(500);
     }
   }

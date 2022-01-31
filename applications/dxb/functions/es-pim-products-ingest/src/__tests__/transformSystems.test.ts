@@ -1,6 +1,5 @@
+import { Category, createSystem } from "@bmi/pim-types";
 import { transformSystem } from "../transformSystems";
-import type { Category } from "../pim";
-import createSystem from "./helpers/SystemHelper";
 
 describe("transformSystem", () => {
   it("should transform system to object", () => {

@@ -1,5 +1,5 @@
-import { getEsClient } from "./es-client";
-import { debug, info } from "./logger";
+import logger from "@bmi/functions-logger";
+import { getEsClient } from "@bmi/functions-es-client";
 
 const { ES_INDEX_PREFIX } = process.env;
 
@@ -14,7 +14,9 @@ export const deleteElasticSearchIndex = async (index: ElasticsearchIndexes) => {
     index: `${ES_INDEX_PREFIX}${index}`,
     ignore_unavailable: true
   });
-  debug(response);
+  logger.debug(response);
 
-  info({ message: `Successfully deleted index: ${ES_INDEX_PREFIX}${index}` });
+  logger.info({
+    message: `Successfully deleted index: ${ES_INDEX_PREFIX}${index}`
+  });
 };

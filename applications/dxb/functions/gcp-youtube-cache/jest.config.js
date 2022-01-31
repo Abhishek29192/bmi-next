@@ -1,6 +1,6 @@
 "use strict";
 
-const sharedConfig = require("../../../../jest.config");
+const sharedConfig = require("../jest.config");
 
 module.exports = {
   ...sharedConfig,
@@ -9,13 +9,12 @@ module.exports = {
   collectCoverageFrom: [
     "<rootDir>/applications/dxb/functions/gcp-youtube-cache/src/**/*.{ts,tsx,js}"
   ],
-  testEnvironment: "node",
   coverageThreshold: {
     global: {
-      statements: "40",
-      branches: "50",
-      functions: "25",
-      lines: "40"
+      statements: "62",
+      branches: "88",
+      functions: "33",
+      lines: "62"
     }
   }
 };

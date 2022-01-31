@@ -1,3 +1,4 @@
+import logger from "@bmi/functions-logger";
 import type { EventFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { config } from "dotenv";
 import admin from "firebase-admin";
@@ -30,8 +31,7 @@ const setItemsInFirestore = async (collectionPath: string, item: any) => {
 
     batch.set(docRef, item);
 
-    // eslint-disable-next-line no-console
-    console.log(`Set ${docPath}`);
+    logger.info({ message: `Set ${docPath}` });
   });
 
   await batch.commit();
@@ -46,8 +46,7 @@ const deleteItemsFromFirestore = async (collectionPath: string, items: any) => {
 
     batch.delete(docRef);
 
-    // eslint-disable-next-line no-console
-    console.log(`Delete ${docPath}`);
+    logger.info({ message: `Delete ${docPath}` });
   });
 
   await batch.commit();
@@ -58,12 +57,11 @@ export const handleMessage: EventFunction = async ({ data }: any) => {
     ? JSON.parse(Buffer.from(data, "base64").toString())
     : {};
 
-  // eslint-disable-next-line no-console
-  console.log(
-    `WRITE: Received message [${message.type}][${message.itemType}]: ${
+  logger.info({
+    message: `WRITE: Received message [${message.type}][${message.itemType}]: ${
       (message.items || []).length
     }`
-  );
+  });
 
   const { type, itemType, items } = message;
   // eslint-disable-next-line security/detect-object-injection

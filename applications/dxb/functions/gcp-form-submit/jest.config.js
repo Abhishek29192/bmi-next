@@ -1,6 +1,6 @@
 "use strict";
 
-const sharedConfig = require("../../../../jest.config");
+const sharedConfig = require("../jest.config");
 
 module.exports = {
   ...sharedConfig,
@@ -8,6 +8,5 @@ module.exports = {
   roots: ["<rootDir>/applications/dxb/functions/gcp-form-submit/src"],
   collectCoverageFrom: [
     "<rootDir>/applications/dxb/functions/gcp-form-submit/src/**/*.{ts,tsx,js}"
-  ],
-  testEnvironment: "node"
+  ]
 };

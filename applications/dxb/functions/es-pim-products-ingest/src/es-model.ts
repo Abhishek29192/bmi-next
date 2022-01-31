@@ -1,4 +1,9 @@
-import type { ApprovalStatus, Classification, Image, Product } from "./pim";
+import type {
+  ApprovalStatus,
+  Classification,
+  Image,
+  Product
+} from "@bmi/pim-types";
 
 export type Operation = "index" | "delete" | "create" | "update";
 

@@ -1,0 +1,11 @@
+test_pim-api:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/pim-api"
+    ROOT_DIR: "applications/dxb/libraries/pim-api"
+
+build_pim-api:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/pim-api"
+    ROOT_DIR: "applications/dxb/libraries/pim-api"

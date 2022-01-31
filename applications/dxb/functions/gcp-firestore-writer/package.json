@@ -7,14 +7,15 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "webpack --mode=production",
+    "check:ts": "tsc",
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=handleMessage"
   },
   "dependencies": {
-    "@firebase/app-types": "^0.6.1",
+    "@bmi/functions-logger": "0.0.0",
     "@google-cloud/functions-framework": "^1.7.1",
     "dotenv": "^8.2.0",
-    "firebase-admin": "^9.2.0",
+    "firebase-admin": "^10.0.2",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
