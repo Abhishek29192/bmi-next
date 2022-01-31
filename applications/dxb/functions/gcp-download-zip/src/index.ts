@@ -1,8 +1,9 @@
+import { Writable } from "stream";
 import logger from "@bmi/functions-logger";
 import { getSecret } from "@bmi/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
-import { Storage } from "@google-cloud/storage";
+import { File, Storage } from "@google-cloud/storage";
 import archiver from "archiver";
 import { verifyOrigins } from "./verify";
 
@@ -117,23 +118,32 @@ export const download: HttpFunction = async (request, response) => {
 
     response.setHeader("Content-type", "application/json");
 
+    let zipFile: File;
+    let zipFileWriteStream: Writable;
     try {
       const fileName = Date.now();
-      const zipFile = bucket.file(`${fileName}.zip`);
-      const zipFileWriteStream = zipFile.createWriteStream();
-
-      const archive = archiver("zip", {
-        zlib: { level: 9 } // Sets the compression level.
+      zipFile = bucket.file(`${fileName}.zip`);
+      zipFileWriteStream = zipFile.createWriteStream();
+    } catch (error) {
+      logger.error({
+        message: `Failed to create zip file stream: ${error.message}`
       });
+      return response.status(500).send(error);
+    }
 
-      // good practice to catch this error explicitly
-      archive.on("error", function (err) {
-        logger.error({ message: `archive error: ${err}` });
-        throw err;
-      });
+    const archive = archiver("zip", {
+      zlib: { level: 9 } // Sets the compression level.
+    });
 
-      archive.pipe(zipFileWriteStream);
+    // istanbul ignore next: good practice to catch this error explicitly but cannot be tested
+    archive.on("error", (err) => {
+      logger.error({ message: `archive error: ${err}` });
+      throw err;
+    });
 
+    archive.pipe(zipFileWriteStream);
+
+    try {
       await Promise.all(
         request.body.documents.map(async ({ name, href }: Document) => {
           const response = await fetch(href!);
@@ -141,33 +151,35 @@ export const download: HttpFunction = async (request, response) => {
             logger.error({
               message: `Got a non-ok response back from document fetch (${response.status}). Not throwing an error to allow other documents to be downloaded.`
             });
+            return;
           }
           const buffer = await response.buffer();
           archive.append(buffer, { name: name! });
         })
-      ).catch((err) => {
-        logger.error({ message: err.message });
-        return response
-          .status(500)
-          .send("Failed to add a doument to the zip file.");
-      });
-
-      const promise = new Promise((resolve, reject) =>
-        zipFileWriteStream.on("finish", resolve).on("error", reject)
       );
-
-      // finalize the archive (ie we are done appending files but streams have to finish yet)
-      // 'close', 'end' or 'finish' may be fired right after calling this method
-      // so register to them beforehand
-      archive.finalize();
-
-      await promise;
-
-      let url = zipFile.publicUrl();
-      return response.send({ url: url });
-    } catch (error) {
-      logger.error({ message: `Failed to return zip file: ${error.message}` });
-      return response.status(500).send(error);
+    } catch (err) {
+      logger.error({ message: err.message });
+      return response
+        .status(500)
+        .send("Failed to add a doument to the zip file.");
     }
+
+    const promise = new Promise((resolve, reject) =>
+      zipFileWriteStream
+        .on("finish", () => resolve)
+        .on("end", resolve)
+        .on("close", resolve)
+        .on("error", reject)
+    );
+
+    // finalize the archive (ie we are done appending files but streams have to finish yet)
+    // 'close', 'end' or 'finish' may be fired right after calling this method
+    // so register to them beforehand
+    archive.finalize();
+
+    await promise;
+
+    let url = zipFile.publicUrl();
+    return response.send({ url: url });
   }
 };
