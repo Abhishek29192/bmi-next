@@ -78,6 +78,9 @@ export const markets = gql`
         doceboInstallersBranchId
         doceboCompanyAdminBranchId
         doceboCatalogueId
+        doceboCatalogueIdT2
+        doceboCatalogueIdT3
+        doceboCatalogueIdT4
         merchandisingUrl
         projectsEnabled
         gtag
