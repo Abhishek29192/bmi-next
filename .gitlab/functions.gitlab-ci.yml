@@ -21,7 +21,6 @@
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace $WORKSPACE check:ts
-    - yarn workspace $WORKSPACE build
     - rm -rf $ROOT_DIR/dist
     - yarn workspace $WORKSPACE build
   artifacts:
@@ -50,8 +49,8 @@
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
   script:
-    - cd $ROOT_DIR
-    - zip -r $CI_PROJECT_DIR/dist/functions/$FUNCTION_NAME.zip dist/
+    - cd $ROOT_DIR/dist
+    - zip -r $CI_PROJECT_DIR/dist/functions/$FUNCTION_NAME.zip index.js
     - cd $CI_PROJECT_DIR
   artifacts:
     paths:
