@@ -443,6 +443,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"

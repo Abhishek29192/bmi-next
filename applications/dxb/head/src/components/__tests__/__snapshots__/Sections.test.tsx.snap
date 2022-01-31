@@ -1205,9 +1205,6 @@ HTMLCollection [
                 </span>
               </button>
             </div>
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-            />
           </div>
           <div
             class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -1644,6 +1641,7 @@ HTMLCollection [
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                     data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                    data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="item"
@@ -1698,7 +1696,7 @@ HTMLCollection [
                                   <a
                                     aria-disabled="false"
                                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 cta-button MuiButton-containedPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
                                     href="https://www.google.com/maps/dir//address%201/"
                                     rel="noopener noreferrer"
                                     tabindex="0"
@@ -1741,7 +1739,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"tel:phone 1\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof\\",\\"action\\":\\"tel:phone 1\\"}"
                                       href="tel:phone 1"
                                     >
                                       <span>
@@ -1777,7 +1775,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"mailto:test@test.com\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof\\",\\"action\\":\\"mailto:test@test.com\\"}"
                                       href="mailto:test@test.com"
                                     >
                                       <span>
@@ -1813,7 +1811,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Roofer\\",\\"action\\":\\"www.test.com\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof\\",\\"action\\":\\"www.test.com\\"}"
                                       href="www.test.com"
                                     >
                                       <span>
@@ -1877,6 +1875,7 @@ HTMLCollection [
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                     data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                    data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="item"
@@ -1931,7 +1930,7 @@ HTMLCollection [
                                   <a
                                     aria-disabled="false"
                                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 cta-button MuiButton-containedPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
                                     href="https://www.google.com/maps/dir//address%201/"
                                     rel="noopener noreferrer"
                                     tabindex="0"
@@ -1974,7 +1973,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"tel:phone 1\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof\\",\\"action\\":\\"tel:phone 1\\"}"
                                       href="tel:phone 1"
                                     >
                                       <span>
@@ -2010,7 +2009,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"mailto:test@test.com\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof\\",\\"action\\":\\"mailto:test@test.com\\"}"
                                       href="mailto:test@test.com"
                                     >
                                       <span>
@@ -2046,7 +2045,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Roofer\\",\\"action\\":\\"www.test.com\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof\\",\\"action\\":\\"www.test.com\\"}"
                                       href="www.test.com"
                                     >
                                       <span>

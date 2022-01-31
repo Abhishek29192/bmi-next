@@ -1,15 +1,15 @@
 import React from "react";
 import ServiceLocatorSection, {
   Data as serviceLocatorDataType
-} from "../ServiceLocatorSection";
+} from "../index";
 import {
   rooferTypes,
   branchTypes,
   merchantTypes,
   EntryTypeEnum
-} from "../Service";
-import createService from "../../__tests__/ServiceHelper";
-import { renderWithRouter } from "../../test/renderWithRouter";
+} from "../../Service";
+import createService from "../../../__tests__/ServiceHelper";
+import { renderWithRouter } from "../../../test/renderWithRouter";
 
 jest.mock("@reach/router", () => ({
   ...(jest.requireActual("@reach/router") as {}),

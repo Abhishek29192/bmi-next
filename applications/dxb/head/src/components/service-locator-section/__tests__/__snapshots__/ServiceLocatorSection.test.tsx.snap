@@ -443,6 +443,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -839,9 +840,6 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                 </span>
               </button>
             </div>
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-            />
           </div>
           <div
             class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -929,6 +927,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
                     data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                    data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="item"
@@ -959,8 +958,8 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                       </svg>
                     </div>
                     <div
-                      class="MuiCollapse-root details MuiCollapse-entered"
-                      style="min-height: 0px;"
+                      class="MuiCollapse-root details"
+                      style="min-height: 0px; height: 0px; transition-duration: 300ms;"
                     >
                       <div
                         class="MuiCollapse-wrapper"
@@ -1114,6 +1113,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
                     data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                    data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="item"
@@ -1144,8 +1144,8 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                       </svg>
                     </div>
                     <div
-                      class="MuiCollapse-root details MuiCollapse-entered"
-                      style="min-height: 0px;"
+                      class="MuiCollapse-root details"
+                      style="min-height: 0px; height: 0px; transition-duration: 300ms;"
                     >
                       <div
                         class="MuiCollapse-wrapper"
@@ -1910,6 +1910,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -1971,6 +1972,9 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                                   >
                                     MC: findARoofer.getDirectionsLabel
                                   </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
                                 </button>
                               </div>
                               <div
@@ -2112,6 +2116,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Flat roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -2173,6 +2178,9 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                                   >
                                     MC: findARoofer.getDirectionsLabel
                                   </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
                                 </button>
                               </div>
                               <div
@@ -2314,6 +2322,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 3 - address 1 - Pitched roof - Bitumen roofs - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -2375,6 +2384,9 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                                   >
                                     MC: findARoofer.getDirectionsLabel
                                   </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
                                 </button>
                               </div>
                               <div
@@ -2516,6 +2528,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 4 - address 1 - Pitched roof - Tile roofs - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -2577,6 +2590,9 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                                   >
                                     MC: findARoofer.getDirectionsLabel
                                   </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
                                 </button>
                               </div>
                               <div
@@ -2718,6 +2734,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 5 - address 1 - Pitched roof - Roof coaters - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -3108,9 +3125,6 @@ exports[`ServiceLocatorSection component close button 1`] = `
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -3198,6 +3212,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -3259,6 +3274,9 @@ exports[`ServiceLocatorSection component close button 1`] = `
                                   >
                                     MC: findARoofer.getDirectionsLabel
                                   </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
                                 </button>
                               </div>
                               <div
@@ -3380,6 +3398,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -3441,6 +3460,9 @@ exports[`ServiceLocatorSection component close button 1`] = `
                                   >
                                     MC: findARoofer.getDirectionsLabel
                                   </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
                                 </button>
                               </div>
                               <div
@@ -3753,9 +3775,6 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                 </span>
               </button>
             </div>
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-            />
           </div>
           <div
             class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -3843,6 +3862,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                     data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                    data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="item"
@@ -4090,9 +4110,6 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
           class="MuiGrid-root controls MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-end"
         >
           <div
-            class="MuiGrid-root search MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
-          />
-          <div
             class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
           >
             <div
@@ -4224,6 +4241,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 9 - address 1 - Branch - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -4341,6 +4359,9 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                                   >
                                     MC: findARoofer.getDirectionsLabel
                                   </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
                                 </button>
                               </div>
                             </dl>
@@ -4698,6 +4719,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 9 - address 1 - Merchant - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -4813,6 +4835,9 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                                   >
                                     MC: findARoofer.getDirectionsLabel
                                   </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
                                 </button>
                               </div>
                             </dl>
@@ -5184,6 +5209,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -5245,6 +5271,9 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                                   >
                                     MC: findARoofer.getDirectionsLabel
                                   </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
                                 </button>
                               </div>
                               <div
@@ -5574,9 +5603,6 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -5727,14 +5753,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
         </h2>
         <div
           class="MuiGrid-root controls MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-end"
-        >
-          <div
-            class="MuiGrid-root search MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
-          />
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
-        </div>
+        />
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
         >
@@ -5821,6 +5840,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 7 - address 1 - Branch - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -5978,6 +5998,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 8 - address 1 - Branch - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -6184,14 +6205,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
         </h2>
         <div
           class="MuiGrid-root controls MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-end"
-        >
-          <div
-            class="MuiGrid-root search MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
-          />
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
-        </div>
+        />
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
         >
@@ -6278,6 +6292,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 7 - address 1 - Branch - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -6435,6 +6450,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 8 - address 1 - Branch - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -6780,9 +6796,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -6870,6 +6883,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 7 - address 1 - Merchant - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -7025,6 +7039,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 8 - address 1 - Merchant - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -7368,9 +7383,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -7458,6 +7470,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 7 - address 1 - Merchant - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -7613,6 +7626,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 8 - address 1 - Branch - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -7956,9 +7970,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -8046,6 +8057,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -8201,6 +8213,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -8718,6 +8731,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -8923,6 +8937,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -9316,9 +9331,6 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -9406,6 +9418,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -9591,6 +9604,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -10096,6 +10110,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -10301,6 +10316,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -10694,9 +10710,6 @@ exports[`ServiceLocatorSection component renders multiple services with no field
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -10784,6 +10797,7 @@ exports[`ServiceLocatorSection component renders multiple services with no field
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -10863,6 +10877,7 @@ exports[`ServiceLocatorSection component renders multiple services with no field
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -11130,9 +11145,6 @@ exports[`ServiceLocatorSection component renders multiple services with single s
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -11220,6 +11232,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -11425,6 +11438,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -11818,9 +11832,6 @@ exports[`ServiceLocatorSection component renders single service with No service 
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -11908,6 +11919,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -12281,9 +12293,6 @@ exports[`ServiceLocatorSection component renders single service with empty servi
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -12371,6 +12380,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -12764,9 +12774,6 @@ exports[`ServiceLocatorSection component renders single service with multiple se
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -12854,6 +12861,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -13247,9 +13255,6 @@ exports[`ServiceLocatorSection component renders single service with single serv
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -13337,6 +13342,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -13731,9 +13737,6 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                 </span>
               </button>
             </div>
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-            />
           </div>
           <div
             class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -13821,6 +13824,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                     data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                    data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="item"
@@ -14198,9 +14202,6 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                 </span>
               </button>
             </div>
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-            />
           </div>
           <div
             class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -14288,6 +14289,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                     data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                    data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="item"
@@ -14473,6 +14475,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                     data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"some other name - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                    data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="item"
@@ -14876,9 +14879,6 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -14964,8 +14964,9 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                 class="list"
               >
                 <div
-                  class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
+                  class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -14996,8 +14997,8 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="MuiCollapse-root details MuiCollapse-entered"
-                    style="min-height: 0px;"
+                    class="MuiCollapse-root details"
+                    style="min-height: 0px; height: 0px; transition-duration: 300ms;"
                   >
                     <div
                       class="MuiCollapse-wrapper"
@@ -15027,6 +15028,9 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                                   >
                                     MC: findARoofer.getDirectionsLabel
                                   </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
                                 </button>
                               </div>
                               <div
@@ -15168,220 +15172,6 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                   <div
                     class="map"
                   />
-                  <div
-                    class="popup"
-                  >
-                    <div
-                      class="MuiPaper-root MuiCard-root product-details-card MuiPaper-elevation1 MuiPaper-rounded"
-                    >
-                      <div
-                        class="MuiCardHeader-root"
-                      >
-                        <div
-                          class="MuiCardHeader-content"
-                        >
-                          <span
-                            class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
-                          >
-                            roofer 1
-                          </span>
-                        </div>
-                        <div
-                          class="MuiCardHeader-action"
-                        >
-                          <button
-                            aria-label="MC: global.close"
-                            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-668 iconButtonStyles-medium-674 iconButtonStyles-text-670 product-details-card__close-button"
-                            tabindex="0"
-                            type="button"
-                          >
-                            <span
-                              class="MuiIconButton-label"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                                />
-                              </svg>
-                            </span>
-                          </button>
-                        </div>
-                      </div>
-                      <div
-                        class="MuiCardContent-root"
-                      >
-                        <div
-                          class="CompanyDetails"
-                        >
-                          <div
-                            class="scrollbar-container ps"
-                          >
-                            <dl
-                              class="list"
-                            >
-                              <address
-                                class="row"
-                              >
-                                <dt
-                                  class="term"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root icon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                                    />
-                                  </svg>
-                                  <span
-                                    class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-                                  >
-                                    MC: global.address
-                                  </span>
-                                </dt>
-                                <dd
-                                  class="description"
-                                >
-                                  address 1
-                                </dd>
-                              </address>
-                              <div
-                                class="row, row--cta"
-                              >
-                                <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-657 MuiButton-contained buttonStyles-contained-659 cta-button MuiButton-containedPrimary"
-                                  tabindex="0"
-                                  type="button"
-                                >
-                                  <span
-                                    class="MuiButton-label buttonStyles-label-660"
-                                  >
-                                    MC: findARoofer.getDirectionsLabel
-                                  </span>
-                                </button>
-                              </div>
-                              <div
-                                class="row"
-                              >
-                                <dt
-                                  class="term"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root icon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-                                    />
-                                  </svg>
-                                  <span
-                                    class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-                                  >
-                                    MC: global.telephone
-                                  </span>
-                                </dt>
-                                <dd
-                                  class="description"
-                                >
-                                  phone 1
-                                </dd>
-                              </div>
-                              <div
-                                class="row"
-                              >
-                                <dt
-                                  class="term"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root icon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
-                                    />
-                                  </svg>
-                                  <span
-                                    class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-                                  >
-                                    MC: global.email
-                                  </span>
-                                </dt>
-                                <dd
-                                  class="description"
-                                >
-                                  test@test.com
-                                </dd>
-                              </div>
-                              <div
-                                class="row"
-                              >
-                                <dt
-                                  class="term"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root icon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
-                                    />
-                                  </svg>
-                                  <span
-                                    class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-                                  >
-                                    MC: findARoofer.websiteLabel
-                                  </span>
-                                </dt>
-                                <dd
-                                  class="description"
-                                >
-                                  MC: findARoofer.websiteLabel
-                                </dd>
-                              </div>
-                            </dl>
-                            <p
-                              class="MuiTypography-root Typography MuiTypography-body1"
-                            >
-                              roofer summary
-                            </p>
-                            <div
-                              class="ps__rail-x"
-                              style="left: 0px; top: 0px;"
-                            >
-                              <div
-                                class="ps__thumb-x"
-                                style="left: 0px; width: 0px;"
-                                tabindex="0"
-                              />
-                            </div>
-                            <div
-                              class="ps__rail-y"
-                              style="top: 0px; left: 0px;"
-                            >
-                              <div
-                                class="ps__thumb-y"
-                                style="top: 0px; height: 0px;"
-                                tabindex="0"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -15550,9 +15340,6 @@ exports[`ServiceLocatorSection component selects service 1`] = `
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -15640,6 +15427,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -15670,8 +15458,8 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="MuiCollapse-root details MuiCollapse-entered"
-                    style="min-height: 0px;"
+                    class="MuiCollapse-root details"
+                    style="min-height: 0px; height: 0px; transition-duration: 300ms;"
                   >
                     <div
                       class="MuiCollapse-wrapper"
@@ -15701,6 +15489,9 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                                   >
                                     MC: findARoofer.getDirectionsLabel
                                   </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
                                 </button>
                               </div>
                               <div
@@ -15883,6 +15674,9 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                                 />
                               </svg>
                             </span>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
                           </button>
                         </div>
                       </div>
@@ -15939,6 +15733,9 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                                   >
                                     MC: findARoofer.getDirectionsLabel
                                   </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
                                 </button>
                               </div>
                               <div
@@ -16234,9 +16031,6 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                 </span>
               </button>
             </div>
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-            />
           </div>
           <div
             class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -16324,6 +16118,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                   <div
                     class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                     data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                    data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
                       class="item"
@@ -17199,6 +16994,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"FK Bygg as - Helgerødveien 130, 3233 Sandefjord, Norway - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -17352,6 +17148,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"GL Bygg AS - Lundvegen 8, 2316 Hamar, Norway - Flachdachsysteme - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -17507,6 +17304,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"Harviken Bygg AS - Vindheiavegen 27, 2406 Elverum, Norway - Pitched roof - Bitumen roofs - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"
@@ -17885,9 +17683,6 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -18177,9 +17972,6 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
               </span>
             </button>
           </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-          />
         </div>
         <div
           class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
@@ -18267,6 +18059,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
                     class="item"

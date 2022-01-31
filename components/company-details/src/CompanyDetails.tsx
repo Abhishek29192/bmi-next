@@ -166,7 +166,7 @@ const CompanyDetails = ({ name, details, children }: Props) => {
         </Typography>
       )}
       <PerfectScrollbar>
-        {details.length ? (
+        {details?.length ? (
           <dl className={styles["list"]}>
             {details.map((detail, index) => (
               <DetailsItem key={index} {...detail} />
