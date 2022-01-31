@@ -19,6 +19,11 @@ package_gcp-pim-full-fetch-coordinator:
   variables:
     FUNCTION_NAME: "gcp-pim-full-fetch-coordinator"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch-coordinator"
+  script:
+    - cd $ROOT_DIR/dist
+    - mv dist/function/package.json package.json
+    - zip -r $CI_PROJECT_DIR/dist/functions/$FUNCTION_NAME.zip dist protos package.json
+    - cd $CI_PROJECT_DIR
 
 deploy_gcp-pim-full-fetch-coordinator:
   extends: .deploy_function

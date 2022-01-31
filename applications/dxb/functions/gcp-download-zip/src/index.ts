@@ -166,7 +166,7 @@ export const download: HttpFunction = async (request, response) => {
       let url = zipFile.publicUrl();
       return response.send({ url: url });
     } catch (error) {
-      logger.error({ message: error.message });
+      logger.error({ message: `Failed to return zip file: ${error.message}` });
       return response.status(500).send(error);
     }
   }
