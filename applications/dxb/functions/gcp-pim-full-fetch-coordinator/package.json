@@ -22,7 +22,9 @@
   },
   "devDependencies": {
     "@google-cloud/functions-framework": "^1.7.1",
+    "copy-webpack-plugin": "^10.2.4",
     "env-cmd": "^10.1.0",
+    "generate-package-json-webpack-plugin": "^2.6.0",
     "js-yaml": "^4.0.0"
   }
 }
