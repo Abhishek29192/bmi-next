@@ -94,6 +94,40 @@ describe("youtubeCache", function () {
     process.env.FIRESTORE_ROOT_COLLECTION = firestoreRootCollection;
   });
 
+  test("should return 500 if BEARER_TOKEN_SECRET is not set", async () => {
+    const bearerTokenSecret = process.env.BEARER_TOKEN_SECRET;
+    delete process.env.BEARER_TOKEN_SECRET;
+
+    const { res } = await createRequest(youtubeId, bearerToken);
+
+    expect(res.sendStatus).toBeCalledWith(
+      Status.HTTP_500_INTERNAL_SERVER_ERROR
+    );
+    expect(getSecret).not.toHaveBeenCalled();
+    expect(getById).toHaveBeenCalledTimes(0);
+    expect(saveById).toHaveBeenCalledTimes(0);
+    expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
+
+    process.env.BEARER_TOKEN_SECRET = bearerTokenSecret;
+  });
+
+  test("should return 500 if GOOGLE_YOUTUBE_API_KEY_SECRET is not set", async () => {
+    const googleYoutubeApiKeySecret = process.env.GOOGLE_YOUTUBE_API_KEY_SECRET;
+    delete process.env.GOOGLE_YOUTUBE_API_KEY_SECRET;
+
+    const { res } = await createRequest(youtubeId, bearerToken);
+
+    expect(res.sendStatus).toBeCalledWith(
+      Status.HTTP_500_INTERNAL_SERVER_ERROR
+    );
+    expect(getSecret).not.toHaveBeenCalled();
+    expect(getById).toHaveBeenCalledTimes(0);
+    expect(saveById).toHaveBeenCalledTimes(0);
+    expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
+
+    process.env.GOOGLE_YOUTUBE_API_KEY_SECRET = googleYoutubeApiKeySecret;
+  });
+
   test("should ask for a defaultYoutubeId", async () => {
     getSecret.mockResolvedValue(bearerToken);
 
@@ -103,7 +137,7 @@ describe("youtubeCache", function () {
     expect(res.send).toBeCalledWith({
       message: "youtubeId query param is required."
     });
-    expect(getSecret).toHaveBeenCalledWith("bearerTokenSecret");
+    expect(getSecret).toHaveBeenCalledWith(process.env.BEARER_TOKEN_SECRET);
     expect(getById).toHaveBeenCalledTimes(0);
     expect(saveById).toHaveBeenCalledTimes(0);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
@@ -118,7 +152,7 @@ describe("youtubeCache", function () {
     expect(res.send).toBeCalledWith({
       message: "Something went wrong, try again later."
     });
-    expect(getSecret).toHaveBeenCalledWith("bearerTokenSecret");
+    expect(getSecret).toHaveBeenCalledWith(process.env.BEARER_TOKEN_SECRET);
     expect(getById).toHaveBeenCalledTimes(0);
     expect(saveById).toHaveBeenCalledTimes(0);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
@@ -133,7 +167,7 @@ describe("youtubeCache", function () {
     expect(res.send).toBeCalledWith({
       message: "Please provide a valid access token."
     });
-    expect(getSecret).toHaveBeenCalledWith("bearerTokenSecret");
+    expect(getSecret).toHaveBeenCalledWith(process.env.BEARER_TOKEN_SECRET);
     expect(getById).toHaveBeenCalledTimes(0);
     expect(saveById).toHaveBeenCalledTimes(0);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
@@ -147,7 +181,7 @@ describe("youtubeCache", function () {
 
     expect(res.status).toBeCalledWith(Status.HTTP_200_OK);
     expect(res.send).toBeCalledWith(mockYoutubeDetails);
-    expect(getSecret).toHaveBeenCalledWith("bearerTokenSecret");
+    expect(getSecret).toHaveBeenCalledWith(process.env.BEARER_TOKEN_SECRET);
     expect(getById).toHaveBeenCalledTimes(1);
     expect(saveById).toHaveBeenCalledTimes(0);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
@@ -164,7 +198,7 @@ describe("youtubeCache", function () {
 
     expect(res.status).toBeCalledWith(Status.HTTP_201_CREATED);
     expect(res.send).toBeCalledWith(mockYoutubeDetails);
-    expect(getSecret).toHaveBeenCalledWith("bearerTokenSecret");
+    expect(getSecret).toHaveBeenCalledWith(process.env.BEARER_TOKEN_SECRET);
     expect(getById).toHaveBeenCalledTimes(1);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(1);
     expect(saveById).toHaveBeenCalledTimes(1);
@@ -183,7 +217,7 @@ describe("youtubeCache", function () {
     expect(res.send).toBeCalledWith({
       message: 'Youtube video with id: "foo" not found.'
     });
-    expect(getSecret).toHaveBeenCalledWith("bearerTokenSecret");
+    expect(getSecret).toHaveBeenCalledWith(process.env.BEARER_TOKEN_SECRET);
     expect(getById).toHaveBeenCalledTimes(1);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(1);
     expect(saveById).toHaveBeenCalledTimes(0);
@@ -201,7 +235,7 @@ describe("youtubeCache", function () {
     expect(res.send).toBeCalledWith({
       message: "Something went wrong, try again later."
     });
-    expect(getSecret).toHaveBeenCalledWith("bearerTokenSecret");
+    expect(getSecret).toHaveBeenCalledWith(process.env.BEARER_TOKEN_SECRET);
     expect(getById).toHaveBeenCalledTimes(1);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
     expect(saveById).toHaveBeenCalledTimes(0);
