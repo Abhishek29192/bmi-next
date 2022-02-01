@@ -2,7 +2,11 @@ import { getSecret } from "@bmi/functions-secret-client";
 import { google, youtube_v3 } from "googleapis";
 import admin from "firebase-admin";
 
-const { GCP_PROJECT_ID, FIRESTORE_ROOT_COLLECTION } = process.env;
+const {
+  GCP_PROJECT_ID,
+  FIRESTORE_ROOT_COLLECTION,
+  GOOGLE_YOUTUBE_API_KEY_SECRET
+} = process.env;
 
 admin.initializeApp({
   databaseURL: `https://${GCP_PROJECT_ID}.firebaseio.com`
@@ -24,7 +28,7 @@ export const getYoutubeDetails = async (
 ): Promise<youtube_v3.Schema$VideoListResponse> => {
   const youtube = google.youtube({
     version: "v3",
-    auth: await getSecret("googleYoutubeApiKeySecret")
+    auth: await getSecret(GOOGLE_YOUTUBE_API_KEY_SECRET!)
   });
   const { data } = await youtube.videos.list({
     part: ["player"],
