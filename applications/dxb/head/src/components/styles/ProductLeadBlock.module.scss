@@ -15,6 +15,14 @@
       padding-right: 10px;
       display: inline-block;
     }
+    .inline-link {
+      padding-top: 10px;
+      color: #0072b0;
+      &:hover {
+        color: #005b8c;
+      }
+      transition: color ease-out 0.25s;
+    }
   }
   .document-library {
     padding-top: 32px;

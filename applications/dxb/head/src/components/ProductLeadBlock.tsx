@@ -10,6 +10,7 @@ import Tab, { TabProps } from "@material-ui/core/Tab";
 import DownloadList from "@bmi/download-list";
 import Icon from "@bmi/icon";
 import ImageGallery, { Image } from "@bmi/image-gallery";
+import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
 import RichText, { RichTextData } from "./RichText";
@@ -64,6 +65,23 @@ const ProductLeadBlock = ({
   const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
   const resultsElement = useRef<HTMLDivElement>(null);
 
+  const isInternalLink = (url: string): boolean => {
+    try {
+      const linkUrl = new URL(url);
+      return (
+        linkUrl.host === window.location.host || linkUrl.host === "bmigroup.com"
+      );
+    } catch (e) {
+      return false;
+    }
+  };
+
+  const isImageAsset = (asset: Asset) => {
+    return (
+      asset.realFileName?.indexOf(".jpg") > -1 ||
+      asset.realFileName?.indexOf(".png") > -1
+    );
+  };
   const isPDFAsset = (asset: Asset) => {
     return (
       asset.url?.indexOf(".pdf") > -1 ||
@@ -71,11 +89,11 @@ const ProductLeadBlock = ({
     );
   };
 
-  const guaranteesDocuments = (guaranteesAndWarranties || []).filter((item) =>
-    isPDFAsset(item)
+  const guaranteesAndWarrantiesLinks = (guaranteesAndWarranties || []).filter(
+    (item) => !isPDFAsset(item) && !isImageAsset(item)
   );
-  const guaranteesImages = (guaranteesAndWarranties || []).filter(
-    (item) => !isPDFAsset(item)
+  const guaranteesImages = guaranteesAndWarranties?.filter((item) =>
+    isImageAsset(item)
   );
 
   const awardsDocs = (awardsAndCertificates || []).filter((item) =>
@@ -96,6 +114,7 @@ const ProductLeadBlock = ({
     window.scrollTo(0, scrollY);
     setPage(page);
   };
+  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
   return (
     <div className={styles["ProductLeadBlock"]}>
@@ -130,7 +149,7 @@ const ProductLeadBlock = ({
                       microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES
                     )}
                   </LeadBlock.Content.Heading>
-                  {guaranteesImages.map((item, i) => (
+                  {guaranteesImages?.map((item, i) => (
                     <img
                       key={`guarentee-img-${i}`}
                       src={item.url}
@@ -138,26 +157,27 @@ const ProductLeadBlock = ({
                       className={styles["image"]}
                     />
                   ))}
-                  {guaranteesImages.length > 0 &&
-                    guaranteesDocuments.length > 0 && <br />}
-                  {guaranteesDocuments.map((item, i) => (
-                    <span
-                      className={styles["document"]}
-                      key={`guarentee-doc-${i}`}
-                    >
-                      <Button
-                        variant="outlined"
+                  {guaranteesAndWarrantiesLinks?.map((item, i) => (
+                    <div key={`link-${i}`}>
+                      <GTMAnchorLink
                         action={{
                           model: "htmlLink",
                           href: item.url,
-                          target: "_blank",
-                          rel: "noopener noreferrer"
+                          ...(isInternalLink(item.url)
+                            ? {}
+                            : { target: "_blank", rel: "noreferrer noopener" })
                         }}
-                        endIcon={<Launch />}
+                        gtm={{
+                          id: "cta-click1",
+                          label: item.name,
+                          action: item.url
+                        }}
+                        iconEnd
+                        className={styles["inline-link"]}
                       >
                         {item.name}
-                      </Button>
-                    </span>
+                      </GTMAnchorLink>
+                    </div>
                   ))}
                 </LeadBlock.Content.Section>
               )}
