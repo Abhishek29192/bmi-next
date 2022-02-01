@@ -20,6 +20,7 @@
     "build:redirects-website": "yarn workspace @bmi/redirects-website run build",
     "build:redirects-website-fr-siplast": "yarn workspace @bmi/redirects-website-fr-siplast run build",
     "build:redirects-website-fr-monier": "yarn workspace @bmi/redirects-website-fr-monier run build",
+    "build:redirects-website-italy": "yarn workspace @bmi/redirects-website-italy run build",
     "coverage:components": "yarn test:components --coverage",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "test": "jest --coverage --reporters=default --reporters=jest-junit",
