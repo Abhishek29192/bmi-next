@@ -408,7 +408,7 @@ Array [
         },
       ],
     },
-    "brandCode": "BMI-brand-code",
+    "brandCode": undefined,
     "categories": Array [
       Object {
         "code": "code",
@@ -965,7 +965,7 @@ Array [
         },
       ],
     },
-    "brandCode": "BMI-brand-code",
+    "brandCode": undefined,
     "categories": Array [
       Object {
         "code": "code",
@@ -1339,7 +1339,7 @@ Array [
         },
       ],
     },
-    "brandCode": "BMI-brand-code",
+    "brandCode": undefined,
     "categories": Array [
       Object {
         "code": "code",
@@ -2180,7 +2180,7 @@ Array [
         },
       ],
     },
-    "brandCode": "BMI-brand-code",
+    "brandCode": undefined,
     "categories": Array [
       Object {
         "code": "code",
@@ -2676,7 +2676,7 @@ Array [
         },
       ],
     },
-    "brandCode": "BMI-brand-code",
+    "brandCode": undefined,
     "categories": Array [
       Object {
         "code": "code",
@@ -3362,7 +3362,7 @@ Array [
         },
       ],
     },
-    "brandCode": "BMI-brand-code",
+    "brandCode": undefined,
     "categories": Array [
       Object {
         "code": "code",

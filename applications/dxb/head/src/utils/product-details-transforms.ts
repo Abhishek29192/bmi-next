@@ -113,7 +113,7 @@ export const findMasterImageUrl = (images: readonly Image[] | null): string =>
   )?.url;
 
 export const findProductBrandLogoCode = (product: Product) =>
-  product.categories.find((category) => category.categoryType === "Brands")
+  product.categories.find((category) => category.categoryType === "Brand")
     ?.code;
 
 export const transformImages = (
