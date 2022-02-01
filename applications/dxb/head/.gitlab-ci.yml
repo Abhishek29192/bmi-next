@@ -45,6 +45,7 @@ wait_until_head_deployed_to_gatsby:
         - components/**/*
         - libraries/**/*
   needs: []
+  cache: {}
   timeout: 15m
   before_script:
     - apt-get update
