@@ -20,5 +20,9 @@ module.exports = {
       type: "commonjs"
     }
   },
-  target: "node"
+  target: "node",
+  devtool:
+    process.env.NODE_ENV === "production"
+      ? "source-map"
+      : "eval-cheap-module-source-map"
 };

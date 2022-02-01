@@ -126,60 +126,113 @@ export const download: HttpFunction = async (request, response) => {
       zipFileWriteStream = zipFile.createWriteStream();
     } catch (error) {
       logger.error({
-        message: `Failed to create zip file stream: ${error.message}`
+        message: `Failed to create zip file stream: ${error}`
       });
       return response.status(500).send(error);
     }
+
+    const zipStreamPromise = new Promise<void>((resolve, reject) =>
+      zipFileWriteStream
+        .on("finish", () => {
+          logger.info({ message: "Zip stream finish." });
+          resolve();
+        })
+        .on(
+          "end",
+          // istanbul ignore next: cannot be tested
+          () => {
+            logger.info({ message: "Zip stream end." });
+            resolve();
+          }
+        )
+        .on("close", () => {
+          logger.info({ message: "Zip stream close." });
+          resolve();
+        })
+        .on(
+          "error",
+          // istanbul ignore next: cannot be tested
+          (error) => {
+            logger.error({ message: `Zip stream error: ${error}` });
+            reject(error);
+          }
+        )
+    );
 
     const archive = archiver("zip", {
       zlib: { level: 9 } // Sets the compression level.
     });
 
-    // istanbul ignore next: good practice to catch this error explicitly but cannot be tested
-    archive.on("error", (err) => {
-      logger.error({ message: `archive error: ${err}` });
-      throw err;
-    });
+    const archivePromise = new Promise<void>((resolve, reject) =>
+      archive
+        .on("finish", () => {
+          logger.info({ message: "Archive finish." });
+          resolve();
+        })
+        .on("end", () => {
+          logger.info({ message: "Archive end." });
+          resolve();
+        })
+        .on(
+          "close",
+          // istanbul ignore next: cannot be tested
+          () => {
+            logger.info({ message: "Archive close." });
+            resolve();
+          }
+        )
+        .on(
+          "error",
+          // istanbul ignore next: cannot be tested
+          (error) => {
+            logger.error({ message: `Archive error: ${error}` });
+            reject(error);
+          }
+        )
+    );
 
     archive.pipe(zipFileWriteStream);
 
     try {
       await Promise.all(
         request.body.documents.map(async ({ name, href }: Document) => {
-          const response = await fetch(href!);
-          if (!response.ok) {
+          const fetchResponse = await fetch(href!);
+          if (!fetchResponse.ok) {
             logger.error({
-              message: `Got a non-ok response back from document fetch (${response.status}). Not throwing an error to allow other documents to be downloaded.`
+              message: `Got a non-ok response back from document fetch (${fetchResponse.status}). Not throwing an error to allow other documents to be downloaded.`
             });
             return;
           }
-          const buffer = await response.buffer();
+          logger.info({ message: `Appending ${name} to zip.` });
+          const buffer = await fetchResponse.buffer();
           archive.append(buffer, { name: name! });
+          logger.info({ message: `Appended ${name} to zip.` });
         })
       );
-    } catch (err) {
-      logger.error({ message: err.message });
+    } catch (error) {
+      logger.error({
+        message: `Failed to add a document to the zip file: ${error}`
+      });
       return response
         .status(500)
         .send("Failed to add a doument to the zip file.");
     }
 
-    const promise = new Promise((resolve, reject) =>
-      zipFileWriteStream
-        .on("finish", () => resolve)
-        .on("end", resolve)
-        .on("close", resolve)
-        .on("error", reject)
-    );
+    logger.info({ message: "Appended all files to the zip file." });
 
     // finalize the archive (ie we are done appending files but streams have to finish yet)
     // 'close', 'end' or 'finish' may be fired right after calling this method
     // so register to them beforehand
-    archive.finalize();
+    await archive.finalize();
 
-    await promise;
+    logger.info({ message: "Archive finalized." });
 
+    await archivePromise;
+    await zipStreamPromise;
+
+    logger.info({ message: "Getting zip file public URL." });
     let url = zipFile.publicUrl();
+    logger.info({ message: `Zip file created at: ${url}` });
     return response.send({ url: url });
   }
 };
