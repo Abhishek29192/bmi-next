@@ -15,7 +15,7 @@ export type Data = {
   otherInformation: RichTextData | null;
 };
 
-type Details = [DetailProps, ...DetailProps[]];
+type Details = readonly [DetailProps, ...DetailProps[]];
 
 export const getDetails = (
   address: string | null,
