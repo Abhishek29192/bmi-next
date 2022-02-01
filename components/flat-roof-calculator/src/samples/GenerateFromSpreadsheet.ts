@@ -1,4 +1,6 @@
 /* eslint-disable no-undef */
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck -- No idea what this is for
 
 const PRODUCTS_SHEET = "Products";
 const DECISIONS_SHEET = "Decisions";
