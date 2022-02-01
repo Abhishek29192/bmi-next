@@ -1,0 +1,145 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[build]
+  # nothing to build here, this instance is for redirects only
+  ignore = "git diff --quiet HEAD^ HEAD sub_dir/"
+
+  publish = "public/"
+
+  # Default build command.
+  command = "yarn workspace @bmi/redirects-website run build"
+
+  # Directory with the serverless Lambda functions to deploy to AWS.
+  functions = "functions/"
+
+  # Global environment variables.
+  environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true", YARN_FLAGS="--frozen-lockfile", NETLIFY_YARN_WORKSPACES="true", NETLIFY_USE_YARN="true" }
+
+[[plugins]]
+  # enable Gatsby.js incremental builds plugin.
+  package = "netlify-plugin-gatsby-cache"
+
+[build.processing]
+  skip_processing = true
+
+
+
+#bmi academie  redirect
+
+[[redirects]]
+ from="/centro-formazione-professionale-tetto-academy/"
+ to="https://www.bmigroup.com/it/professionisti/bmi-academy/academy"
+ force=true
+
+[[redirects]]
+ from="/formazione-professionale-ingegneri-geometri-imprese-rivendite/"
+ to="https://www.bmigroup.com/it/professionisti/bmi-academy/corsi-formazione-professionale"
+ force=true
+
+[[redirects]]
+ from="/corsi-architetti-ingegneri-geometri/"
+ to="https://www.bmigroup.com/it/professionisti/bmi-academy/corsi-formazione-professionale/"
+ force=true
+
+[[redirects]]
+ from="/corsi-imprese-artigiani-carpentieri/"
+ to="https://www.bmigroup.com/it/professionisti/bmi-academy/corsi-formazione-professionale/"
+ force=true
+
+[[redirects]]
+ from="/docenti-bmi-academy/"
+ to="https://www.bmigroup.com/it/professionisti/bmi-academy/docenti-bmi-academy"
+ force=true
+
+[[redirects]]
+ from="/contattaci/"
+ to="https://www.bmigroup.com/it/professionisti/bmi-academy/contatta-bmi-academy/"
+ force=true
+
+
+
+# fallback
+
+[[redirects]]
+ from="/it"
+ to="https://www.bmigroup.com/it"
+ force=true
+
+
+
+#roof.bmigroup.com redirects
+
+[[redirects]]
+ from="/it/scarica-guida-bonus-rifacimento-tetto"
+ to="https://tettiecoperture.bmigroup.com/it/scarica-guida-bonus-rifacimento-tetto"
+ force=true
+
+[[redirects]]
+ from="/it/survey-fascicolo-tecnico-del-tetto"
+ to="https://tettiecoperture.bmigroup.com/it/survey-fascicolo-tecnico-del-tetto"
+ force=true
+
+[[redirects]]
+ from="/it/scarica-guida-sistema-tetto-bmi"
+ to="https://tettiecoperture.bmigroup.com/it/scarica-guida-sistema-tetto-bmi"
+ force=true
+
+[[redirects]]
+ from="/it/scarica-fascicolo-tecnico-bmi-expert"
+ to="https://tettiecoperture.bmigroup.com/it/scarica-fascicolo-tecnico-bmi-expert"
+ force=true
+
+[[redirects]]
+ from="/it/scarica-fascicolo-tecnico-bmi-expert-edicom"
+ to="https://tettiecoperture.bmigroup.com/it/scarica-fascicolo-tecnico-edicom-bmi-expert"
+ force=true
+
+[[redirects]]
+ from="/it/devi-rifare-il-tetto-contattaci-per-un-preventivo"
+ to="https://tettiecoperture.bmigroup.com/it/devi-rifare-il-tetto-contattaci-per-un-preventivo"
+ force=true
+
+[[redirects]]
+ from="/it/scarica-check-list-realizzare-preventivo-ristrutturazione-tetto"
+ to="https://tettiecoperture.bmigroup.com/it/scarica-check-list-realizzare-preventivo-ristrutturazione-tetto"
+ force=true
+
+[[redirects]]
+ from="/it/contatta-installatore-tetto-certificato-bmi-roofpro"
+ to="https://tettiecoperture.bmigroup.com/it/contatta-installatore-tetto-certificato-bmi-roofpro"
+ force=true
+
+[[redirects]]
+ from="/it/chiedi-consulenza-gratuita-di-progettazione-bmi-expert"
+ to="https://tettiecoperture.bmigroup.com/it/chiedi-consulenza-gratuita-di-progettazione-bmi-expert"
+ force=true
+
+[[redirects]]
+ from="https://www.bmigroup.com/it/thearchitecteffect/download?__hstc=24525925.8373275e7816ef64c139cb96b252f1be.1591360697375.1593440271311.1593447882682.12&__hssc=24525925.7.1593447882682&__hsfp=2585151190#id=scarica-la-ricerca"
+ to="https://share.hsforms.com/1UpN-ISMjQJG6mbbSlC1AuA5fsl7"
+ force=true
+
+[[redirects]]
+ from="/it/ristrutturazione-tetto"
+ to="https://tettiecoperture.bmigroup.com/it/ristrutturazione-tetto"
+ force=true
+
+
+
+#[[redirects]]
+# from="/:slug"
+# to="https://tettiecoperture.bmigroup.com/:slug"
+# force=true
+
+#[[redirects]]
+# from="http://roof.bmigroup.com/:slug"
+# to="https://tettiecoperture.bmigroup.com/:slug"
+# force=true
+
+
+
+[[redirects]]
+ from="/"
+ to="https://www.bmigroup.com/it/professionisti/bmi-academy"
+ force=true
