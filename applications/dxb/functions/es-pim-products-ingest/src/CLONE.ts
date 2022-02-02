@@ -11,9 +11,8 @@ export type ProductCategoryTree = {
 };
 
 export const findProductBrandLogoCode = (product: Product) =>
-  product.categories?.find(
-    (category) => category.parentCategoryCode === "BMI_Brands"
-  )?.code;
+  product.categories?.find((category) => category.categoryType === "Brand")
+    ?.code;
 
 // NOTE: Figuring out the category paths is kind of naive.
 // I believe it works with the assumptions that PIM are working with

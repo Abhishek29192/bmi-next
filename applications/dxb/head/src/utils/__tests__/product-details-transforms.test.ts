@@ -2560,7 +2560,7 @@ describe("product-details-transforms tests", () => {
             categories: [
               createCategory({
                 code: "ICOPAL",
-                parentCategoryCode: "NOT_BMI_BRANDS_CATEGORY"
+                parentCategoryCode: "NOT_BRANDS_CATEGORY"
               })
             ]
           })
@@ -2575,7 +2575,7 @@ describe("product-details-transforms tests", () => {
             categories: [
               createCategory({
                 code: "ICOPAL",
-                categoryType: "Brands"
+                categoryType: "Brand"
               })
             ]
           })

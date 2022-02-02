@@ -7,7 +7,7 @@ describe("transformSystem", () => {
     const { approvalStatus, type, images, code, name, shortDescription } =
       system;
     const brand = system.categories.find(
-      ({ parentCategoryCode }) => parentCategoryCode === "BMI_Brands"
+      ({ categoryType }) => categoryType === "Brand"
     )?.code;
 
     expect(transformSystem(system)).toStrictEqual({
@@ -42,7 +42,7 @@ describe("transformSystem", () => {
       categoryType: "Brand",
       code: "MONARFLEX",
       name: "Monarflex",
-      parentCategoryCode: "BMI_Brands"
+      parentCategoryCode: "NOT_NEEDED_Brands"
     };
 
     const system = createSystem({ categories: [brandCategory] });
@@ -65,7 +65,7 @@ describe("transformSystem", () => {
       categoryType: "Category",
       code: "MONARFLEX",
       name: "Monarflex",
-      parentCategoryCode: "BMI_Brands"
+      parentCategoryCode: "NOT_NEEDED_Brands"
     };
 
     const system = createSystem({ categories: [brandCategory] });
