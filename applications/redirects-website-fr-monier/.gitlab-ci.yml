@@ -1,0 +1,34 @@
+build_redirects_website:
+  stage: build
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master')) || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/redirects-website-fr-monier/**/*
+        - package.json
+        - "**/package.json"
+  needs:
+    - install
+  variables:
+    GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn workspace @bmi/redirects-website-fr-monier build
+  artifacts:
+    paths:
+      - applications/redirects-website-fr-monier/public
+  cache:
+    - key:
+        files:
+          - yarn.lock
+      policy: pull
+      untracked: false
+      paths:
+        - "**/node_modules"
+        - ".yarn_cache"
+    - key: build_redirects_website
+      policy: pull-push
+      untracked: false
+      paths:
+        - "applications/redirects-website-fr-monier/.cache"
+        - "applications/redirects-website-fr-monier/public"

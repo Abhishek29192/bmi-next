@@ -1,0 +1,2220 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[build]
+  # nothing to build here, this instance is for redirects only
+  ignore = "git diff --quiet HEAD^ HEAD sub_dir/"
+
+  publish = "public/"
+
+  # Default build command.
+  command = "yarn workspace @bmi/redirects-website-fr-siplast run build"
+
+  # Directory with the serverless Lambda functions to deploy to AWS.
+  functions = "functions/"
+
+  # Global environment variables.
+  environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true", YARN_FLAGS="--frozen-lockfile", NETLIFY_YARN_WORKSPACES="true", NETLIFY_USE_YARN="true" }
+
+[[plugins]]
+  # enable Gatsby.js incremental builds plugin.
+  package = "netlify-plugin-gatsby-cache"
+
+[build.processing]
+  skip_processing = true
+
+
+
+
+
+[[redirects]]
+ from="/wp-content/uploads/2021/09/Guide-de-choix-isolation.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/09/FT-Systeme-stop.pdf"
+ to="https://www.bmigroup.com/fr/p/tuile-canal-stop-rouge-terre-cuite-2614383309/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/09/FT-Occitane.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/occitane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/09/FT-Medoc-patinee.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/canal/medoc-patinee-posifix-medoc/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/09/FT-Medoc.pdf"
+ to="https://www.bmigroup.com/fr/p/canal-medoc-paille-rose-terre-cuite-4253482948/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/09/FT-Galleane-10-Patinee.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/galleane-10-patinee/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/09/FT-Fontenelle.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/petit-moule/fontenelle/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/09/FT-Chartreuse.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/petit-moule/chartreuse/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/09/CP-BMI-Academy-2021-1.pdf"
+ to="https://www.bmigroup.com/fr/presse-actualites/communiques-de-presse/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/09/BMI-AeroDek_AeroDek-Robust-Plus.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/09/ATEx_a_2883_V1_ClimaFirst-ClimaFirstPlus_signee.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/08/THERMAZONE-DOC-COMMERCIALE.pdf"
+ to="https://www.bmigroup.com/fr/documentation/brochures-commerciales/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/08/BMI-OPERA-DE-TOULON.pdf"
+ to="https://www.bmigroup.com/fr/documentation/brochures-commerciales/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/08/B4-0123_Brochure-MEO-Thermazone.pdf"
+ to="https://www.bmigroup.com/fr/documentation/notices-de-pose/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/07/SPANFLEX-SPANALU-OK.pdf"
+ to="https://www.bmigroup.com/fr/documentation/brochures-commerciales/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/07/Rapport-Developpement-Durable-Filiere-Terre-Cuite-2020.pdf"
+ to="https://www.bmigroup.com/fr/documentation/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/07/FT-Maizieres-1.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-faible-relief/maizieres/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/07/Catalogue-Formations.pdf"
+ to="https://www.bmigroup.com/fr/professionnels/vous-former-bmi-academy/formations-toit-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/Guide-de-choix-fixations.pdf"
+ to="https://www.bmigroup.com/fr/documentation/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/FT-Romane.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/romane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/DUROVENT-3-VOLETS-VDEF.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/Demande-detude-Thermazone-Clima-Comfort-et-Clima-First.docx"
+ to="https://www.bmigroup.com/fr/documentation/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/Acermi-Clima-First-16-131-1196.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/022-BMI-AeroDek-Quadro-Plus-S-FR.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/022-BMI-AeroDek-Quadro-Plus-S-FR.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/021-BMI-AeroDek-Quadro-Plus-P-FR.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/020-BMI-AeroDek-Firenze-Plus-P-FR.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/019-BMI-AeroDek-Firenze-Plus-FR.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/018-BMI-AeroDek-Firenze-FR.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/017-BMI-AeroDek-Robust-Plus-FR.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/016-BMI-AeroDek-Robust-FR.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/015-BMI-AeroDek-Unique-Plus-S-FR.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/014-BMI-AeroDek-Unique-Plus-P-FR.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/013-BMI-AeroDek-Tradition-Plus-FR.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/06/012-BMI-AeroDek-Tradition-FR.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/05/Mise-en-oeuvre-Wakaflex.pdf"
+ to="https://www.bmigroup.com/fr/documentation/notices-de-pose/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/05/CP-AERODEK-VDEF.pdf"
+ to="https://www.bmigroup.com/fr/presse-actualites/communiques-de-presse/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/04/noue-profilo.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/04/Les-closoirs-souples-ventiles-BMI-MONIER.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/04/Guide-de-choix-clima.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/04/FT-Gallo-Romane.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/gallo-romane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/04/FT-Feriane.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/feriane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/04/DoP-Clima-First-1080.CPR_.2013.TZ_CF.002-1.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/04/CGV-2021-Version-Finale-Monier-et-Icopal-ENGLISH-1.pdf"
+ to="https://www.bmigroup.com/fr/a-propos/conditions-generales-de-vente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/04/CGV-2021-Version-Finale-Monier-et-Icopal-1.pdf"
+ to="https://www.bmigroup.com/fr/a-propos/conditions-generales-de-vente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/04/1.1.00173.2021.MRPI-EPD.AeroDek-Unique-Plus-P-0.42-mm.FINAL_.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/04/1.1.00171.2021.MRPI-EPD.AeroDek-Tradition-Plus-0.60-mm.FINAL_.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/04/1.1.00169.2021.MRPI-EPD.AeroDek-Quadro-Plus-P-0.75-mm.FINAL-1.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/QB35_BMI-MONIER_005-2_METALROLL_V02.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/QB35_BMI-MONIER_005-1_FIGAROLL-PLUS_V02.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/La-collection-Bardage-de-BMI-Monier.pdf"
+ to="https://www.bmigroup.com/fr/documentation/brochures-commerciales/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Vieille-France.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-beton/plates-beton/vieille-france/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Signy.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-aspect-plat/signy/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Regence.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/petit-moule/regence/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Plate-de-pays.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/plates/plate-de-pays/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Perspective.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-beton/tuile-beton-grand-moule-faible-relief/perspective/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Nobilee.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-beton/grand-moule-aspect-plat-beton/nobilee/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Medievale.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-beton/plates-beton/medievale/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Marseille.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-faible-relief/marseille/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Losangee.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-faible-relief/losangee/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Innotech.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-beton/grand-moule-aspect-plat-beton/innotech/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Galleane-12.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/galleane-12/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Galleane-10.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/galleane-10/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Double-romane.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-beton/tuile-beton-grand-moule-faible-relief/double-romane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Canal-midi-patinee.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/canal/canal-midi-patinee-posifix-midi/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Canal-midi.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/canal/canal-midi-posifix-midi/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Canal-40.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/canal/canal-40/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/FT-Abeille.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/abeille/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/CP-Nomination-Viola-FERRARRIO-_BMI-Group.pdf"
+ to="https://www.bmigroup.com/fr/presse-actualites/communiques-de-presse/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/CP_9-Juillet-2020_Solution-BIM_Nouveaux-objets-BIM-Monier-pour-les-toits-en-pente.pdf"
+ to="https://www.bmigroup.com/fr/presse-actualites/communiques-de-presse/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/Communique-de-presse-2020-01-_-Aguila.pdf"
+ to="https://www.bmigroup.com/fr/presse-actualites/communiques-de-presse/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/BMI-Monier_Communique-de-presse-2020-05-_-Tuiles-Beton-Nouvelles-FDES.pdf"
+ to="https://www.bmigroup.com/fr/presse-actualites/communiques-de-presse/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/BMI-Monier_Communique-de-presse-2020-04-_-Tuiles-beton-Le-retour-en-grace-dun-materiau.pdf"
+ to="https://www.bmigroup.com/fr/presse-actualites/communiques-de-presse/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/03/BMI-Monier_Communique-de-presse-2019-05-_-Tuilerie-Verberie-40ans.pdf"
+ to="https://www.bmigroup.com/fr/presse-actualites/communiques-de-presse/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/Siplast3318-AeroDek-Manuel-UniquePlusP-24p-05012021-mail.pdf"
+ to="https://www.bmigroup.com/fr/documentation/notices-de-pose/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/Siplast3318-AeroDek-Manuel-TraditionPlus-24p-05012021-mail-1.pdf"
+ to="https://www.bmigroup.com/fr/documentation/notices-de-pose/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/Siplast3318-AeroDek-Manuel-QuadroPlusP-24p-05012021-mail.pdf"
+ to="https://www.bmigroup.com/fr/documentation/notices-de-pose/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/PLATE-DE-PAYS-V2.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/plates/plate-de-pays/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/DoP-Vaporoll-Spanflex300_EN-13859-1_v1.docx.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/DoP-Vaporoll-Spanflex200_EN-13859-1_v1.docx.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/DoP-TUILES-TERRE-CUITE_EN-1304_v1.docx.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/DoP-TUILES-BETON_EN-490_v1.docx.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/DoP-SpanAlu300_EN-13859-1_v1.docx.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/DoP-Divoroll-SpirtechClima2S_EN13859-1_v1.docx.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/DoP-Divoroll-Spirtech300_EN13859-1_v1.docx.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/DoP-Divoroll-Spirtech200_EN-13859-1_v1.docx.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/DoP-Divoroll-Spirtech110_EN-13859-1_v1.docx.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/DoP-Divoroll-Ecotech-200FR_EN-13859-1_v1.docx.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/DoP-Clima-Comfort-1003.CPR_.2013.CC.001.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/02/AF1152442_V1.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/Vaporoll-Span-Flex-300.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/QB-14-117-Divoroll-Spitech-200-200-BBC.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/Nuancier-Aerodek.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/Manuel-de-pose-UniquePlusP.pdf"
+ to="https://www.bmigroup.com/fr/documentation/notices-de-pose/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/Manuel-de-pose-Tradition-Plus.pdf"
+ to="https://www.bmigroup.com/fr/documentation/notices-de-pose/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/Manuel-de-pose-Quadro-Plus-P.pdf"
+ to="https://www.bmigroup.com/fr/documentation/notices-de-pose/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/Light-brochure-BMI-AeroDek_2020.pdf"
+ to="https://www.bmigroup.com/fr/documentation/brochures-commerciales/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/FT-aeroDek-Unique-plus-OK-BD.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-metalliques/unique-plus-p/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/Fiche-Technique-AeroDek-Unique-plus.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-metalliques/unique-plus-p/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/Fiche-Technique-AeroDek-Tradition-plus.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-metalliques/tradition-plus/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/Fiche-Technique-AeroDek-Robuste-plus.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-metalliques/robuste-plus/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/Fiche-Technique-AeroDek-Quadro-plus-S-accoustique.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-metalliques/quadro-plus-s-acoustique/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/Fiche-Technique-AeroDek-Quadro-plus-P.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-metalliques/unique-plus-p/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/Fiche-Technique-AeroDek-Firenze-plus.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-metalliques/firenze-robuste-plus/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/Divoroll-Spirtech-300-300-BBC.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2021/01/AF1162536_V1.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/12/MON005_FICHE-TEND_Fontenelle_BAT2.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/12/MON005_FICHE-TEND_CLIMA-CONFORT_VDEF.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/12/Fiche-Tendance-Opal.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/12/FICHE-TEND_SIGNY_A4_BD.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/12/FICHE-TEND_PLEIN-CIEL_A4_BD.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/12/FICHE-TEND_FERIANE-A4_BD.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/12/FICHE-TEND_CMP_A4_BD-1.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/12/011-BMI-AeroDek-Quadro-Acoustic-S-fr.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/11/Standard-Industries-Code-of-Conduct_English-3.pdf"
+ to="https://www.bmigroup.com/fr/a-propos/code-de-conduite/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/11/QB_14-118_signe-1.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/11/QB_14-118_signe.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/11/QB_14-117_signe-1.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/11/certificat-QB-ecotech-200FR-1.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/11/Anti-Corruption-Policy_English_compressed.pdf"
+ to="https://www.bmigroup.com/fr/a-propos/code-de-conduite/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/10/Fiche-technique-DIVOROLL-SPIRTECH-CLIMA-SUN-2S.pdf"
+ to="https://www.bmigroup.com/fr/p/spirtech-sun-200-bbc-confort-d-ete-double-bande-adhesive-integree-487641927/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/10/Fiche_technique_VAPOROLL_SPAN_FLEX_200.pdf"
+ to="https://www.bmigroup.com/fr/p/vaporoll-span-flex-200-3783009331/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/10/BROCHURE-BARDAGE.pdf"
+ to="https://www.bmigroup.com/fr/documentation/brochures-commerciales/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/10/Brochure_Solutions_pour_les_maisons_individuelles.pdf"
+ to="https://www.bmigroup.com/fr/documentation/brochures-commerciales/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/09/REGLEMENTATION-2020.pdf"
+ to="https://www.bmigroup.com/fr/documentation/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/07/Kit-de-traversée-écran-universel.pdf"
+ to="https://www.bmigroup.com/fr/composants/aeration/aguila/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/07/Brochure-Aguila.pdf"
+ to="https://www.bmigroup.com/fr/composants/aeration/aguila/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/07/BMI-MONIER-BROCHURE-BETON.pdf"
+ to="https://www.bmigroup.com/fr/documentation/brochures-commerciales/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/05/FDES-Tuile-canal-et-tuile-plate-terre-cuite-1.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fdes/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/05/FDES-Tuile-à-emboitement-terre-cuite-1.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fdes/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/05/FDES-Tuile-à-emboitement-terre-cuite.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fdes/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/04/Protocole-de-sécurité-Monier.pdf"
+ to="https://www.bmigroup.com/fr/documentation/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/04/FUNIPROFIL.pdf"
+ to="https://www.bmigroup.com/fr/p/funiprofil-universel-closoir-rigide-ventile-1m-pvc-1940082242/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/03/WAKAFLEX-LEAFLET.pdf"
+ to="https://www.bmigroup.com/fr/p/wakaflex-14-pib-2704737722/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/03/FDES_Tuile_beton.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fdes/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/02/DOCUMENTATION-TECHNIQUE-PLEIN-CIEL.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-beton/tuiles-beton-grand-moule-fort-galbe/plein-ciel/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2020/01/Documentation-technique-FRANCHE-COMTE.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-faible-relief/franche-comte/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2019/12/DOCUMENTATION-TECHNIQUE-POSTEL-20.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/petit-moule/postel-20/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2019/09/BELMONT-V2.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-faible-relief/belmont/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2019/07/certificat-QB-ecotech-200FR-1.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2019/06/SIGNY-ANGLAIS-V2.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-aspect-plat/signy/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2019/06/PLATE-DE-PAYS-3-VOLETS-ANGLAIS-V3.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/plates/plate-de-pays/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2019/06/OCCITANE-3-VOLETS-ANGLAIS-V2.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/occitane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2019/06/MARSEILLE-3-VOLETS-ANGLAIS-V2.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-faible-relief/marseille/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2019/06/BELMONT-ANGLAIS-V2.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-faible-relief/belmont/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2019/02/Annonce-Technicien-Maintenance-Projets-Verberie.pdf"
+ to="https://www.bmigroup.com/fr/bmi-monier/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2019/02/Annonce-externe-Responsable-de-fabrication.pdf"
+ to="https://www.bmigroup.com/fr/bmi-monier/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2019/01/Annonce-Expert-Technique-Monier-Nord-Ouest.pdf"
+ to="https://www.bmigroup.com/fr/bmi-monier/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2019/01/2019-01-Annonce-Contrat-dalternance-HSE-1.pdf"
+ to="https://www.bmigroup.com/fr/bmi-monier/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/10/NOVEANE_Documentation_Technique.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/noveane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/10/NOVEANE_BROCHURE_COMMERCIALE.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/noveane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/07/Fiche-technique-INNOFIX.pdf"
+ to="https://www.bmigroup.com/fr/p/innofix-bleu-tuiles-innotech-nobilee-stylea-sur-liteaux-25x38-ou-38x38-acier-inoxydable-1653051803/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/06/Brochure_Commerciale_Fériane_BD.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/feriane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/03/PLEIN-CIEL-ANGLAIS-2016.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-beton/tuiles-beton-grand-moule-fort-galbe/plein-ciel/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/03/OCCITANE-ESPAGNOL-2016.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/occitane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/03/GALLO-ROMANE-ESPAGNOL-2016.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/gallo-romane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/03/GALLO-ROMANE-ANGLAIS-2016.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/gallo-romane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/03/GALLEANE-12-ANGLAIS-2016.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/galleane-12/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/03/GALLEANE-10-ESPAGNOL-2016.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/galleane-10/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/03/GALLEANE-10-ANGLAIS-2016.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/galleane-10/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/03/FONTENELLE-ANGLAIS-2016.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/petit-moule/fontenelle/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/03/FERIANE-ESPAGNOL-2016.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/feriane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/03/FERIANE-ANGLAIS-2016.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/feriane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/03/CANAL-MIDI-ESPAGNOL-2016.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/canal/canal-midi-posifix-midi/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/03/CANAL-MIDI-ANGLAIS-2016.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/canal/canal-midi-posifix-midi/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/03/BELMONT-ESPAGNOL-2016.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-faible-relief/belmont/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/02/TuilesTerreCuite_DemarcheHQE_FFTB.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/02/TuilesBeton_DemarcheHQE_FFB.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/02/SPIRTECH_BBC.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/02/QB_14-118_signe.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/02/QB_14-117_signe.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/02/OPAL.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/plates/opal/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/02/NOUES_VARIO.pdf"
+ to="https://www.bmigroup.com/fr/p/vario-3-bande-de-noue-aluminium-3-plis-reversible-aluminium-3424082960/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/02/MarquageCE-NF_TuilesTerreCuite_FFTB.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/02/MarquageCE-NF_TuilesBeton_FFB.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/02/LIVRET_ENTRETIEN_TOITURE.pdf"
+ to="https://www.bmigroup.com/fr/particuliers/entretenir-sa-toiture/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/02/GAMME-SPIRTECH.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/02/EUROPANNETON.pdf"
+ to="https://www.bmigroup.com/fr/p/europanneton-abo-acier-inoxydable-3098712324/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/02/ECOTECH_200.pdf"
+ to="https://www.bmigroup.com/fr/p/ecotech-200-3310101440/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/02/DTA_Plein_Ciel_120920_180912-.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/02/DTA_5-11-2243_Perspective_validite_301118.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/01/PALETTE_RECYCLEE_MONIER.pdf"
+ to="https://www.bmigroup.com/fr/professionnels/palettes-recyclees/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/01/NOUES_VARIO.pdf"
+ to="https://www.bmigroup.com/fr/p/vario-3-bande-de-noue-aluminium-3-plis-reversible-aluminium-3424082960/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/01/Note_de_prescriptions_MONIER_2018.pdf"
+ to="https://www.bmigroup.com/fr/documentation/notes-de-prescription/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/01/DoP_STYLEA.pdf"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2018/01/Documentation-technique-ARPEGE.pdf"
+ to="https://www.bmigroup.com/fr/p/tuile-arpege-2686113754/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2017/12/TRADIPANNE.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-beton/tuile-beton-grand-moule-faible-relief/tradipanne/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2017/12/POSTEL-20-3-VOLETS.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/petit-moule/postel-20/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2017/12/PLEIN-CIEL.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-beton/tuiles-beton-grand-moule-fort-galbe/plein-ciel/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2017/12/Fiche_Technique_STYLEA.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-beton/grand-moule-aspect-plat-beton/stylea/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2017/12/Fiche_Technique_Fériane.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/feriane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2017/12/DOCUMENTATION-TECHNIQUE-SIGNY.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-aspect-plat/signy/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2017/12/DOCUMENTATION-TECHNIQUE-PLATE-DE-PAYS.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/plates/plate-de-pays/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2017/12/Documentation-technique-DOUBLE-ROMANE.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-beton/tuile-beton-grand-moule-faible-relief/double-romane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2017/12/DOCUMENTATION-TECHNIQUE-BELMONT-2.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-faible-relief/belmont/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2017/11/Documentation_Nouveau_Conditionnement.pdf"
+ to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/wp-content/uploads/2017/11/Brochure-Plate-de-Pays.pdf"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/plates/plate-de-pays/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/tva-taux-reduit/"
+ to="https://www.bmigroup.com/fr/particuliers/aide-fiscales/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/trouver-un-distributeur/"
+ to="https://www.bmigroup.com/fr/trouver-un-distributeur/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/traitement-rives-laterales-et-rives-de-tete/"
+ to="https://www.bmigroup.com/fr/professionnels/faq-support-technique/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/traitement-de-legout-de-toiture/"
+ to="https://www.bmigroup.com/fr/professionnels/faq-support-technique/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/toiture-complete"
+ to="https://www.bmigroup.com/fr/contacts/formulaire-de-contact/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/telechargement/qb_14-118_signe/"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/telechargement/"
+ to="https://www.bmigroup.com/fr/documentation/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/solutions-bim/"
+ to="https://www.bmigroup.com/fr/professionnels/solutions-bim/bibliotheque-des-objets-bim-toit-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/sitemap_index.xml"
+ to="https://www.bmigroup.com/fr/sitemap/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/sitemap.xml"
+ to="https://www.bmigroup.com/fr/sitemap/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/ses-fonctions/"
+ to="https://www.bmigroup.com/fr/particuliers/les-fonctions-du-toit/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/services"
+ to="https://www.bmigroup.com/fr/particuliers/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/reglementation/"
+ to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/realisation-du-faitage-et-des-aretiers/"
+ to="https://www.bmigroup.com/fr/particuliers/questions-frequentes-particuliers/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/realisation-abergement-cheminee/"
+ to="https://www.bmigroup.com/fr/particuliers/questions-frequentes-particuliers/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/project-type-sitemap.xml"
+ to="https://www.bmigroup.com/fr/sitemap/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produits/wakaflex"
+ to="https://www.bmigroup.com/fr/p/wakaflex-14-pib-2704737722/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produits/signy"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-aspect-plat/signy/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produits/page"
+ to="https://www.bmigroup.com/fr/produits-et-solutions/toiture-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produits/page/*"
+ to="https://www.bmigroup.com/fr/produits-et-solutions/toiture-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produits/opal"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/plates/opal/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produits/fontenelle"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/petit-moule/fontenelle/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produits/figaroll-plus"
+ to="https://www.bmigroup.com/fr/p/figaroll-plus-34-38cm-polypropyl%C3%A8ne-3214508051/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produits/feriane"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/feriane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produits/clima-comfort"
+ to="https://www.bmigroup.com/fr/isolation-thermique-par-lexterieur/thermazone-clima-comfort/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produits/"
+ to="https://www.bmigroup.com/fr/produits-et-solutions/toiture-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/wakaflex/"
+ to="https://www.bmigroup.com/fr/p/wakaflex-14-pib-2704737722/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/vieille-france/"
+ to="https://www.bmigroup.com/fr/tuiles-beton/plates-beton/vieille-france/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/vaporoll-vapotech-300-bbc/"
+ to="https://www.bmigroup.com/fr/p/vapotech-300-bbc-double-bande-adhesive-integree-2805989345/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/vaporoll-span-flex-300/"
+ to="https://www.bmigroup.com/fr/p/span-flex-300-3381775977/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/vaporoll-span-flex-200/"
+ to="https://www.bmigroup.com/fr/p/vaporoll-span-flex-200-3783009331/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/unique-plus-p/"
+ to="https://www.bmigroup.com/fr/tuiles-metalliques/unique-plus-p/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/tuiles-transparentes/"
+ to="https://www.bmigroup.com/fr/p/tuile-en-plexiglas-double-romane-verre-1411857119/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/tradition-plus/"
+ to="https://www.bmigroup.com/fr/tuiles-metalliques/tradition-plus/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/tradipanne/"
+ to="https://www.bmigroup.com/fr/tuiles-beton/tuile-beton-grand-moule-faible-relief/tradipanne/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/systeme-stop/"
+ to="https://www.bmigroup.com/fr/p/tuile-canal-stop-rouge-terre-cuite-2614383309/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/stylea/"
+ to="https://www.bmigroup.com/fr/tuiles-beton/grand-moule-aspect-plat-beton/stylea/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/spirtech-sun200-bbc/"
+ to="https://www.bmigroup.com/fr/p/spirtech-sun-200-bbc-confort-d-ete-double-bande-adhesive-integree-487641927/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/spirtech-300-bbc/"
+ to="https://www.bmigroup.com/fr/p/spirtech-300-bbc-double-bande-adhesive-integree-3524475444/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/spirtech-110/"
+ to="https://www.bmigroup.com/fr/p/spirtech-110-1840020458/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/span-flex-300/"
+ to="https://www.bmigroup.com/fr/p/span-flex-300-3381775977/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/span-flex-200/"
+ to="https://www.bmigroup.com/fr/p/vaporoll-span-flex-200-3783009331/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/span-alu-300/"
+ to="https://www.bmigroup.com/fr/p/span-alu-300-confort-d-ete-2708558316/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/signy/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-aspect-plat/signy/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/romane/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/romane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/robuste-plus"
+ to="https://www.bmigroup.com/fr/tuiles-metalliques/robuste-plus/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/regence/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/petit-moule/regence/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/quadro-plus-s/"
+ to="https://www.bmigroup.com/fr/tuiles-metalliques/quadro-plus-s-acoustique/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/quadro-plus-p/"
+ to="https://www.bmigroup.com/fr/tuiles-metalliques/quadro-plus-p/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/postel-20/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/petit-moule/postel-20/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/plein-ciel/"
+ to="https://www.bmigroup.com/fr/tuiles-beton/tuiles-beton-grand-moule-fort-galbe/plein-ciel/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/plate-de-pays/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/plates/plate-de-pays/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/perspective/"
+ to="https://www.bmigroup.com/fr/tuiles-beton/tuile-beton-grand-moule-faible-relief/perspective/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/peigne-degout-75/"
+ to="https://www.bmigroup.com/fr/p/peigne-degout-75-3237844302/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/peigne-degout-100/"
+ to="https://www.bmigroup.com/fr/p/peigne-degout-100-2384017668/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/ornements/"
+ to="https://www.bmigroup.com/fr/composants/ornements/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/opal/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/plates/opal/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/occitane/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/occitane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/noveane/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/noveane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/noue-vario/"
+ to="https://www.bmigroup.com/fr/p/vario-3-bande-de-noue-aluminium-3-plis-reversible-aluminium-3424082960/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/noue-profilo/"
+ to="https://www.bmigroup.com/fr/p/profilo-noue-autoportante-acier-galvanis%C3%A9-975540859/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/nobilee/"
+ to="https://www.bmigroup.com/fr/tuiles-beton/grand-moule-aspect-plat-beton/nobilee/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/metalroll/"
+ to="https://www.bmigroup.com/fr/p/metalroll-26-32cm-polypropyl%C3%A8ne-4050022195/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/medoc-posifix-medoc/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/canal/medoc-posifix-medoc/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/medoc-patinee/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/canal/medoc-patinee-posifix-medoc/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/medievale/"
+ to="https://www.bmigroup.com/fr/tuiles-beton/plates-beton/medievale/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/marseille/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-faible-relief/marseille/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/maizieres/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-faible-relief/maizieres/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/losangee/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-faible-relief/losangee/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/liteau-degout-ventile-sans-peigne/"
+ to="https://www.bmigroup.com/fr/p/liteau-degout-ventile-sans-peigne-pvc-2291382998/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/liteau-degout-ventile-avec-peigne-copie/"
+ to="https://www.bmigroup.com/fr/p/liteau-degout-ventile-avec-peigne-pvc-937893803/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/innotech/"
+ to="https://www.bmigroup.com/fr/tuiles-beton/grand-moule-aspect-plat-beton/innotech/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/gallo-romane/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/gallo-romane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/galleane-12/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/galleane-12/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/galleane-10-patinee/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/galleane-10-patinee/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/galleane-10/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/galleane-10/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/funiprofil/"
+ to="https://www.bmigroup.com/fr/p/funiprofil-universel-closoir-rigide-ventile-1m-pvc-1940082242/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/franche-comte/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-faible-relief/franche-comte/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/fontenelle/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/petit-moule/fontenelle/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/fixations/"
+ to="https://www.bmigroup.com/fr/composants/fixations/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/firenze-plus/"
+ to="https://www.bmigroup.com/fr/tuiles-metalliques/firenze-robuste-plus/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/figaroll-plus/"
+ to="https://www.bmigroup.com/fr/p/figaroll-plus-34-38cm-polypropyl%C3%A8ne-3214508051/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/feriane/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/feriane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/ecotech-200/"
+ to="https://www.bmigroup.com/fr/p/ecotech-200-3310101440/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/eclairement/"
+ to="https://www.bmigroup.com/fr/composants/eclairement/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/dryroll/"
+ to="https://www.bmigroup.com/fr/p/dryroll-295-butyle-3558816358/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/double-romane/"
+ to="https://www.bmigroup.com/fr/tuiles-beton/tuile-beton-grand-moule-faible-relief/double-romane/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/divoroll-spirtech-clima-sun-plus-2s/"
+ to="https://www.bmigroup.com/fr/p/spirtech-sun-200-bbc-confort-d-ete-double-bande-adhesive-integree-487641927/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/divoroll-spirtech-300-bbc/"
+ to="https://www.bmigroup.com/fr/p/spirtech-300-bbc-double-bande-adhesive-integree-3524475444/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/divoroll-spirtech-300/"
+ to="https://www.bmigroup.com/fr/p/spirtech-300-4024504819/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/divoroll-spirtech-200bbc/"
+ to="https://www.bmigroup.com/fr/p/spirtech-sun-200-bbc-confort-d-ete-double-bande-adhesive-integree-487641927/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/divoroll-spirtech-200/"
+ to="https://www.bmigroup.com/fr/p/divoroll-spirtech-200-1259730200/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/divoroll-spirtech-110/"
+ to="https://www.bmigroup.com/fr/p/spirtech-110-1840020458/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/divoroll-ecotech-200-fr/"
+ to="https://www.bmigroup.com/fr/p/divoroll-ecotech-200-fr-490330919/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/crochets-de-securite/"
+ to="https://www.bmigroup.com/fr/composants/securite-crochets-arret-neige/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/crochets-arret-neige/"
+ to="https://www.bmigroup.com/fr/composants/securite-crochets-arret-neige/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/clima-first-plus/"
+ to="https://www.bmigroup.com/fr/isolation-thermique-par-lexterieur/thermazone-clima-first-plus/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/clima-first/"
+ to="https://www.bmigroup.com/fr/p/clima-first-sarking-160-mm-pir-315745331/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/clima-comfort-sun/"
+ to="https://www.bmigroup.com/fr/isolation-thermique-par-lexterieur/thermazone-clima-comfort-sun/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/clima-comfort/"
+ to="https://www.bmigroup.com/fr/isolation-thermique-par-lexterieur/thermazone-clima-comfort/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/chartreuse/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/petit-moule/chartreuse/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/canal-midi-posifix-midi/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/canal/canal-midi-posifix-midi/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/canal-midi-patinee-posifix-midi/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/canal/canal-midi-patinee-posifix-midi/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/canal-40/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/canal/canal-40/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/belmont/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-faible-relief/belmont/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/arpege/"
+ to="https://www.bmigroup.com/fr/p/tuile-arpege-2686113754/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/aeration-terre-cuite/"
+ to="https://www.bmigroup.com/fr/composants/aeration/aguila/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/aeration/"
+ to="https://www.bmigroup.com/fr/composants/aeration/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/accessoires-pour-abergements/"
+ to="https://www.bmigroup.com/fr/composants/abergements/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/produit/abeille/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/grand-moule-fort-galbe/abeille/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/product-sitemap.xml"
+ to="https://www.bmigroup.com/fr/sitemap/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/product_cat-sitemap.xml"
+ to="https://www.bmigroup.com/fr/sitemap/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/post-sitemap.xml"
+ to="https://www.bmigroup.com/fr/sitemap/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/pose-dun-ecran-de-sous-toiture/"
+ to="https://www.bmigroup.com/fr/professionnels/faq-support-technique/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/pose-des-tuiles-et-des-rives/"
+ to="https://www.bmigroup.com/fr/professionnels/faq-support-technique/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/portfolio-sitemap.xml"
+ to="https://www.bmigroup.com/fr/sitemap/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/politique-de-confidentialite"
+ to="https://www.bmigroup.com/fr/a-propos/code-de-conduite/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/palettes-recyclees/"
+ to="https://www.bmigroup.com/fr/professionnels/palettes-recyclees/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/page-sitemap.xml"
+ to="https://www.bmigroup.com/fr/sitemap/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nous-contacter"
+ to="https://www.bmigroup.com/fr/contacts/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/notes-de-prescriptions/"
+ to="https://www.bmigroup.com/fr/documentation/notes-de-prescription/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nos-implantations/"
+ to="https://www.bmigroup.com/fr/contacts/implantations-usines-et-depots/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/monier-en-france/"
+ to="https://www.bmigroup.com/fr/bmi-monier/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/monier-compagnons-devoir-renforcent-collaboration/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/mise-en-oeuvre-noue-profilo-2/"
+ to="https://www.bmigroup.com/fr/professionnels/faq-support-technique/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/mise-en-oeuvre-kit-traversee-ecran-2/"
+ to="https://www.bmigroup.com/fr/professionnels/faq-support-technique/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/mise-en-oeuvre-durovent/"
+ to="https://www.bmigroup.com/fr/professionnels/faq-support-technique/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/mise-en-oeuvre-closoir/"
+ to="https://www.bmigroup.com/fr/professionnels/faq-support-technique/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/mise-en-oeuvre-aguila"
+ to="https://www.bmigroup.com/fr/professionnels/faq-support-technique/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/mise-en-oeuvre/"
+ to="https://www.bmigroup.com/fr/professionnels/faq-support-technique/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/mentions-legales"
+ to="https://www.bmigroup.com/fr/mentions-legales/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/maprimerenov/"
+ to="https://www.bmigroup.com/fr/particuliers/aide-fiscales/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/lexique/"
+ to="https://www.bmigroup.com/fr/particuliers/lexique/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/leco-pret-a-taux-zero/"
+ to="https://www.bmigroup.com/fr/particuliers/aide-fiscales/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/jopte-pour-le-photovoltaique/"
+ to="https://www.bmigroup.com/fr/bmi-monier/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/jisole/"
+ to="https://www.bmigroup.com/fr/particuliers/j-isole/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/je-renove/"
+ to="https://www.bmigroup.com/fr/particuliers/je-renove/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/je-construis/"
+ to="https://www.bmigroup.com/fr/particuliers/je-fais-construire/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/inspirations/"
+ to="https://www.bmigroup.com/fr/inspirations/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/garanties/"
+ to="https://www.bmigroup.com/fr/particuliers/garanties/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/galbe/tuiles-plates/"
+ to="https://www.bmigroup.com/fr/produits-et-solutions/toiture-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/galbe/tuiles-fort-galbe/"
+ to="https://www.bmigroup.com/fr/produits-et-solutions/toiture-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/galbe/tuiles-faible-relief/"
+ to="https://www.bmigroup.com/fr/produits-et-solutions/toiture-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/galbe/tuiles-canal/"
+ to="https://www.bmigroup.com/fr/produits-et-solutions/toiture-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/galbe/tuiles-aspect-plat/"
+ to="https://www.bmigroup.com/fr/produits-et-solutions/toiture-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/faq-professionnels/"
+ to="https://www.bmigroup.com/fr/professionnels/faq-support-technique/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/faq-particuliers/"
+ to="https://www.bmigroup.com/fr/particuliers/questions-frequentes-particuliers/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/faq/"
+ to="https://www.bmigroup.com/fr/particuliers/questions-frequentes-particuliers/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/export/"
+ to="https://www.bmigroup.com/fr/bmi-monier/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/entretenir/"
+ to="https://www.bmigroup.com/fr/particuliers/entretenir-sa-toiture/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/emploi/"
+ to="https://www.bmigroup.com/fr/carriere/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/dop-marquage-ce/"
+ to="https://www.bmigroup.com/fr/documentation/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diagnostiquer/"
+ to="https://www.bmigroup.com/fr/particuliers/diagnostiquer-son-toit/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact-formation"
+ to="https://www.bmigroup.com/fr/professionnels/vous-former-bmi-academy/formations-toit-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contactez-nous/"
+ to="https://www.bmigroup.com/fr/contacts/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contactez-nous"
+ to="https://www.bmigroup.com/fr/contacts/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/conseils-de-pose/"
+ to="https://www.bmigroup.com/fr/professionnels/support-technique/mise-en-oeuvre/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/communiques-de-presse-test-1"
+ to="https://www.bmigroup.com/fr/presse-actualites/communiques-de-presse/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/communiques-de-presse/"
+ to="https://www.bmigroup.com/fr/presse-actualites/communiques-de-presse/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/collection-bardage"
+ to="https://www.bmigroup.com/fr/tuile-en-bardage/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/certificats-deconomie-denergie/"
+ to="https://www.bmigroup.com/fr/particuliers/aide-fiscales/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category-sitemap.xml"
+ to="https://www.bmigroup.com/fr/sitemap/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/webinar/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/usine/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/tuile-terre-cuite/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/savoir-faire/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/salons/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/ressources-humaines/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/performance/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/nouveau/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/nos-partenariats/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/inspirations/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/innovation/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/gamme-tuiles-beton/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/formation/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/fdes/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/expertise/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/conditionnement/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/concours/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/composant/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/coloris/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/collaboration/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/bim/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/architecte/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/aeration/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/category/actualite/"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/tuiles/tuiles-terre-cuite/page/3/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/tuiles/tuiles-terre-cuite/page/2/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/tuiles/tuiles-terre-cuite/page/1/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/tuiles/tuiles-terre-cuite/"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/tuiles/tuiles-metaliques/"
+ to="https://www.bmigroup.com/fr/tuiles-metalliques/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/tuiles/tuiles-beton/"
+ to="https://www.bmigroup.com/fr/tuiles-beton/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/tuiles/page/4/"
+ to="https://www.bmigroup.com/fr/produits-et-solutions/toiture-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/tuiles/page/3/"
+ to="https://www.bmigroup.com/fr/produits-et-solutions/toiture-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/tuiles/page/2/"
+ to="https://www.bmigroup.com/fr/produits-et-solutions/toiture-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/tuiles/page/1/"
+ to="https://www.bmigroup.com/fr/produits-et-solutions/toiture-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/tuiles/"
+ to="https://www.bmigroup.com/fr/produits-et-solutions/toiture-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/isolation/"
+ to="https://www.bmigroup.com/fr/isolation-thermique-par-lexterieur/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/securite/"
+ to="https://www.bmigroup.com/fr/composants/securite-crochets-arret-neige/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/page/3/"
+ to="https://www.bmigroup.com/fr/composants/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/page/2/"
+ to="https://www.bmigroup.com/fr/composants/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/page/1/"
+ to="https://www.bmigroup.com/fr/composants/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/ornements/"
+ to="https://www.bmigroup.com/fr/composants/ornements/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/noues/"
+ to="https://www.bmigroup.com/fr/composants/noue/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/fixations/"
+ to="https://www.bmigroup.com/fr/composants/fixations/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/egouts/"
+ to="https://www.bmigroup.com/fr/composants/egouts/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/ecrans-souples/hpv/"
+ to="https://www.bmigroup.com/fr/sous-toiture/ecrans-hpv/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/ecrans-souples/ecrans-pare-vapeur/"
+ to="https://www.bmigroup.com/fr/sous-toiture/pare-vapeur/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/ecrans-souples/ecrans-non-hpv/"
+ to="https://www.bmigroup.com/fr/sous-toiture/ecrans-non-hpv/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/ecrans-souples/"
+ to="https://www.bmigroup.com/fr/sous-toiture/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/eclairement/"
+ to="https://www.bmigroup.com/fr/composants/eclairement/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/closoirs/"
+ to="https://www.bmigroup.com/fr/composants/closoirs/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/aeration/"
+ to="https://www.bmigroup.com/fr/composants/aeration/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/abergements/"
+ to="https://www.bmigroup.com/fr/composants/abergements/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/composants/"
+ to="https://www.bmigroup.com/fr/composants/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/catalogue-generale-2021/"
+ to="https://www.bmigroup.com/fr/documentation/guide-monier/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/catalogue-general-2021"
+ to="https://www.bmigroup.com/fr/documentation/guide-monier/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/canal-midi-patinee-posifix-midi"
+ to="https://www.bmigroup.com/fr/tuiles-terre-cuite/canal/canal-midi-patinee-posifix-midi/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/campagne-toiture-complete"
+ to="https://www.bmigroup.com/fr/bmi-monier/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/bmi-group/"
+ to="https://www.bmigroup.com/fr/a-propos/le-groupe-bmi/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/bmi-academy-formation"
+ to="https://www.bmigroup.com/fr/professionnels/vous-former-bmi-academy/formations-toit-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/bmi-academy/monier.fr/contact-formation/"
+ to="https://www.bmigroup.com/fr/professionnels/vous-former-bmi-academy/formations-toit-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/bmi-academy"
+ to="https://www.bmigroup.com/fr/professionnels/vous-former-bmi-academy/formations-toit-en-pente/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/author/nathalie/"
+ to="https://www.bmigroup.com/fr/bmi-monier/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/author/contrib_monier/"
+ to="https://www.bmigroup.com/fr/bmi-monier/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/attachment-sitemap2.xml"
+ to="https://www.bmigroup.com/fr/sitemap/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/attachment-sitemap1.xml"
+ to="https://www.bmigroup.com/fr/sitemap/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/aides-fiscales"
+ to="https://www.bmigroup.com/fr/particuliers/aide-fiscales/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/aerodek"
+ to="https://www.bmigroup.com/fr/tuiles-metalliques/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/actualites/*"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/2017/*"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/2018/*"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/2019/*"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/2020/*"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/2021/*"
+ to="https://www.bmigroup.com/fr/presse-actualites/actualites/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/politique-de-confidentialite/"
+ to="https://www.bmigroup.com/fr/parametres-de-confidentialite/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/mentions-legales/"
+ to="https://www.bmigroup.com/fr/mentions-legales/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/tuiles/tuiles-terre-cuite/"
+ to="https://www.bmigroup.com/fr/produits-et-solutions/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/categorie-produit/tuiles/tuiles-beton/"
+ to="https://www.bmigroup.com/fr/produits-et-solutions/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+
+
+
+
+
+# if no redirects are found, fall back to relevant brand page
+
+[[redirects]]
+ from="/"
+ to="https://www.bmigroup.com/fr/bmi-monier/?utm_source=monier.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
