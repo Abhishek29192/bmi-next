@@ -42,7 +42,7 @@ const guaranteesAndWarrantiesAssets: Asset[] = [
   {
     assetType: "GUARANTIES",
     name: "external",
-    url: "facebook.com"
+    url: "http://facebook.com"
   }
 ];
 describe("ProductLeadBlock tests", () => {
@@ -94,7 +94,7 @@ describe("ProductLeadBlock tests", () => {
     const productBlock = queryByTestId("technicalDrawings");
     expect(productBlock).toBe(null);
   });
-  it("should render guarantees & warranties images & only links on on about tab", () => {
+  it("should render guarantees & warranties images & links on on about tab", () => {
     const { container } = render(
       <ProductLeadBlock
         documents={[]}

@@ -24,6 +24,7 @@ import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { Asset, Classification } from "./types/pim";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
 import BimIframe from "./BimIframe";
+import { getClickableActionFromUrl } from "./Link";
 
 const BlueCheckIcon = (
   <Icon source={CheckIcon} style={{ color: "var(--color-theme-accent-300)" }} />
@@ -60,21 +61,10 @@ const ProductLeadBlock = ({
   classificationNamespace,
   techDrawings
 }: Props) => {
-  const { getMicroCopy } = useSiteContext();
+  const { getMicroCopy, countryCode } = useSiteContext();
   const [page, setPage] = useState(1);
   const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
   const resultsElement = useRef<HTMLDivElement>(null);
-
-  const isInternalLink = (url: string): boolean => {
-    try {
-      const linkUrl = new URL(url);
-      return (
-        linkUrl.host === window.location.host || linkUrl.host === "bmigroup.com"
-      );
-    } catch (e) {
-      return false;
-    }
-  };
 
   const isImageAsset = (asset: Asset) => {
     return (
@@ -160,13 +150,13 @@ const ProductLeadBlock = ({
                   {guaranteesAndWarrantiesLinks?.map((item, i) => (
                     <div key={`link-${i}`}>
                       <GTMAnchorLink
-                        action={{
-                          model: "htmlLink",
-                          href: item.url,
-                          ...(isInternalLink(item.url)
-                            ? {}
-                            : { target: "_blank", rel: "noreferrer noopener" })
-                        }}
+                        action={getClickableActionFromUrl(
+                          null,
+                          item.url,
+                          countryCode,
+                          null,
+                          item.name
+                        )}
                         gtm={{
                           id: "cta-click1",
                           label: item.name,

@@ -31,6 +31,9 @@ export enum DataTypeEnum {
 export const isExternalUrl = (url: string): boolean => {
   try {
     const linkUrl = new URL(url);
+    if (linkUrl.host === "bmigroup.com") {
+      return false;
+    }
     return linkUrl.host !== window.location.host;
   } catch (e) {
     return false;

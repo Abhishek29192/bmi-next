@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductLeadBlock tests should render guarantees & warranties images & only links on on about tab 1`] = `
+exports[`ProductLeadBlock tests should render guarantees & warranties images & links on on about tab 1`] = `
 <div>
   <div
     class="ProductLeadBlock"
@@ -145,9 +145,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & o
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover inline-link Anchorlink MuiTypography-colorPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read more about guarantees\\",\\"action\\":\\"http://localhost:8000/other\\"}"
-                    href="http://localhost:8000/other"
-                    rel="noreferrer noopener"
-                    target="_blank"
+                    type="button"
                   >
                     <span>
                       Read more about guarantees
@@ -163,7 +161,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & o
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover inline-link Anchorlink MuiTypography-colorPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read more about Warranties\\",\\"action\\":\\"http://bmigroup.com\\"}"
-                    href="http://bmigroup.com"
+                    type="button"
                   >
                     <span>
                       Read more about Warranties
@@ -178,10 +176,8 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & o
                 <div>
                   <a
                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover inline-link Anchorlink MuiTypography-colorPrimary"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"external\\",\\"action\\":\\"facebook.com\\"}"
-                    href="facebook.com"
-                    rel="noreferrer noopener"
-                    target="_blank"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"external\\",\\"action\\":\\"http://facebook.com\\"}"
+                    type="button"
                   >
                     <span>
                       external
