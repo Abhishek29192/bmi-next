@@ -482,7 +482,25 @@ describe("transformProduct", () => {
         process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE;
       delete process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE;
 
-      const product = createPimProduct();
+      const product = createPimProduct({
+        categories: [
+          createCategory({
+            parentCategoryCode: "",
+            code: "parent-category-code"
+          }),
+          createCategory(),
+          createCategory({ categoryType: "ProductFamily" }),
+          createCategory({ categoryType: "ProductLine" }),
+          createCategory({
+            parentCategoryCode: "BMI_Brands",
+            code: "BMI-brand-code"
+          }),
+          createCategory({
+            categoryType: "Brand",
+            code: "BMI-brand-code"
+          })
+        ]
+      });
 
       expect(transformProduct(product)).toMatchSnapshot();
 

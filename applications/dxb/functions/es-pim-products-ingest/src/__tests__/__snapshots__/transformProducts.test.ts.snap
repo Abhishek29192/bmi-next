@@ -9,6 +9,12 @@ Array [
         "name": "name",
       },
     ],
+    "Brand": Array [
+      Object {
+        "code": "BMI-brand-code",
+        "name": "name",
+      },
+    ],
     "Category": Array [
       Object {
         "code": "parent-category-code",
@@ -105,6 +111,20 @@ Array [
         },
         "name": "name",
         "parentCategoryCode": "BMI_Brands",
+      },
+      Object {
+        "categoryType": "Brand",
+        "code": "BMI-brand-code",
+        "image": Object {
+          "allowedToDownload": true,
+          "fileSize": 10,
+          "mime": "image/png",
+          "name": "name",
+          "realFileName": "real-file-name.png",
+          "url": "http://localhost:8000",
+        },
+        "name": "name",
+        "parentCategoryCode": "parent-category-code",
       },
     ],
     "appearanceAttributes.colourfamily": Array [
@@ -204,6 +224,20 @@ Array [
           },
           "name": "name",
           "parentCategoryCode": "BMI_Brands",
+        },
+        Object {
+          "categoryType": "Brand",
+          "code": "BMI-brand-code",
+          "image": Object {
+            "allowedToDownload": true,
+            "fileSize": 10,
+            "mime": "image/png",
+            "name": "name",
+            "realFileName": "real-file-name.png",
+            "url": "http://localhost:8000",
+          },
+          "name": "name",
+          "parentCategoryCode": "parent-category-code",
         },
       ],
       "classifications": Array [
@@ -408,7 +442,7 @@ Array [
         },
       ],
     },
-    "brandCode": undefined,
+    "brandCode": "BMI-brand-code",
     "categories": Array [
       Object {
         "code": "code",
@@ -657,6 +691,10 @@ Array [
       },
       Object {
         "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "BMI-brand-code",
         "name": "name",
       },
     ],
