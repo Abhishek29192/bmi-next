@@ -90,6 +90,7 @@ export const TrainingSidePanel = ({
               onClick={() => {
                 onCourseSelected && onCourseSelected(courseId);
               }}
+              testId="filterResult"
             >
               <Typography style={{ textTransform: "capitalize" }}>
                 {t(`training-page:type.${trainingType}`)}
@@ -102,9 +103,7 @@ export const TrainingSidePanel = ({
                     className={styles.technologyIcon}
                   />
                 )}
-                {t(
-                  `training-page:${courseEnrollments?.nodes[0]?.status || ""}`
-                )}
+                {t(`training-page:${courseEnrollments.nodes[0]?.status || ""}`)}
               </Typography>
             </FilterResult>
           );

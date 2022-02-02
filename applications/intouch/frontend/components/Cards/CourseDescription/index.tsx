@@ -31,7 +31,7 @@ export const CourseDescription = ({
   const { t } = useTranslation("training-page");
 
   return (
-    <SimpleCard>
+    <SimpleCard data-testid="courseDescription">
       <Typography variant="h4" hasUnderline>
         {title}
       </Typography>

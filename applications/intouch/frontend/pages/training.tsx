@@ -57,25 +57,25 @@ const TrainingPage = ({ trainingData, globalPageData }: PageProps) => {
   const sidePanelHandler = (courseId: number) => {
     const activeCourse = courseCatalogues.nodes.find(
       ({ course }) => course.courseId === courseId
-    )?.course as Course;
+    )!.course as Course;
     setActiveCourse(activeCourse);
   };
 
   const enrolledCourses = sortCourses(
     courseCatalogues.nodes.filter(
-      (c) => c.course.courseEnrollments?.nodes[0]?.status === "enrolled"
+      (c) => c.course.courseEnrollments.nodes[0]?.status === "enrolled"
     )
   );
   const completedCourses = sortCourses(
     courseCatalogues.nodes.filter(
-      (c) => c.course.courseEnrollments?.nodes[0]?.status === "completed"
+      (c) => c.course.courseEnrollments.nodes[0]?.status === "completed"
     )
   );
   const orderedCourses = sortCourses(
     courseCatalogues.nodes.filter(
       (c) =>
         !["enrolled", "completed"].includes(
-          c.course.courseEnrollments?.nodes[0]?.status
+          c.course.courseEnrollments.nodes[0]?.status
         )
     )
   );
