@@ -11,7 +11,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import classnames from "classnames";
 import React, { CSSProperties, useContext, useEffect, useState } from "react";
 import ReactPlayer from "react-player/youtube";
-import { YoutubeContext } from "@bmi/media-gallery/src/MediaGallery";
+import { YoutubeContext } from "@bmi/media-gallery";
 import { getDefaultPreviewImageSource, getVideoURL } from "./utils";
 import styles from "./YoutubeVideo.module.scss";
 

@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
 import classnames from "classnames";
 import { withClickable } from "@bmi/clickable";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
@@ -11,6 +11,7 @@ export enum StateEnum {
   DISABLED = "disabled",
   SELECTED = "selected"
 }
+
 export enum SizeEnum {
   SMALL = "small",
   LARGE = "large"
@@ -24,7 +25,7 @@ export type Props = ButtonBaseProps & {
   color?: string;
   size?: SizeEnum;
   isVideo: boolean;
-  openYoutubeVideo?: (e: ChangeEvent<{}>) => void;
+  openYoutubeVideo?: (e: React.MouseEvent<SVGElement>) => void;
 };
 
 const Thumbnail = ({
@@ -60,7 +61,6 @@ const Thumbnail = ({
         <span className={styles["accessibility-text"]}>{altText}</span>
       )}
       {media && <Media>{media}</Media>}
-      <span className={styles["accessibility-text"]}>{altText}</span>
       {isVideo && (
         <Icon
           source={iconMap.PlayArrow}

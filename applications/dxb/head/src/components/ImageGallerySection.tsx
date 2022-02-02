@@ -29,7 +29,7 @@ type GallerySectionVideo = Omit<ContenfulVideoData, "previewMedia"> & {
   };
 };
 
-type GallerySectionMedias = GallerySectionImage | GallerySectionVideo; //TODO add PimSECTIONVIDEO
+type GallerySectionMedias = GallerySectionImage | GallerySectionVideo;
 export type Data = {
   __typename: "ContentfulImageGallerySection";
   title: string | null;
@@ -40,23 +40,24 @@ export type Data = {
 export const transformMediaSrc = (
   media: GallerySectionMedias[] = []
 ): MediaData[] => {
-  // this conditions makes like that because ts doesn't recognized different types of union GallerySectionMedias
   return media.map((item) => {
-    if (item.__typename === "ContentfulImage") {
-      return {
-        media: renderImage(item),
-        thumbnail: item.image.thumbnail.src || null,
-        caption: item.caption?.caption || undefined,
-        isVideo: false
-      };
-    }
-    if (item.__typename === "ContentfulVideo") {
-      return {
-        media: renderVideo(item),
-        thumbnail: item.previewMedia.image.thumbnail.src || null,
-        caption: item.subtitle || undefined,
-        isVideo: true
-      };
+    switch (item.__typename) {
+      case "ContentfulImage":
+        return {
+          media: renderImage(item),
+          thumbnail: item.image.thumbnail.src || null,
+          caption: item.caption?.caption || undefined,
+          altText: item.altText || undefined,
+          isVideo: false
+        };
+      case "ContentfulVideo":
+        return {
+          media: renderVideo(item),
+          thumbnail: item.previewMedia?.image?.thumbnail?.src || null,
+          caption: item.subtitle || undefined,
+          altText: item.previewMedia?.altText || undefined,
+          isVideo: true
+        };
     }
   });
 };
@@ -91,9 +92,9 @@ const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
           <MediaGallery
             media={transformMediaSrc(medias)}
             mediaSize="cover"
-            thumbnailComponent={(props: ThumbnailProps) => {
-              return <GTMThumbnail gtm={{ id: "image-gallery1" }} {...props} />;
-            }}
+            thumbnailComponent={(props: ThumbnailProps) => (
+              <GTMThumbnail gtm={{ id: "image-gallery1" }} {...props} />
+            )}
           />
         </Grid>
       </Grid>

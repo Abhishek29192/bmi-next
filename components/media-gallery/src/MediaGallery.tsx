@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState } from "react";
 import classnames from "classnames";
 import Media from "@bmi/media";
 import Typography from "@bmi/typography";
@@ -7,16 +7,22 @@ import DesktopThumbnails from "./_DesktopThumbnails";
 import MobileThumbnails from "./_MobileThumbnails";
 import { Media as MediaData } from "./types";
 import styles from "./MediaGallery.module.scss";
+import { YoutubeContext } from "./context";
 
 type Props = {
   media: readonly MediaData[];
   mediaSize?: "cover" | "contain";
-  thumbnailComponent?: React.ComponentType<any>; // TODO
+  thumbnailComponent?: React.ComponentType<any>;
   layout?: "default" | "short";
   className?: string;
 };
 
-export const YoutubeContext = createContext(false);
+const renderThumbnails = () => {
+  const isTouchDevice =
+    typeof document !== `undefined` &&
+    "ontouchstart" in document.documentElement;
+  return isTouchDevice ? MobileThumbnails : DesktopThumbnails;
+};
 const renderMedia = (
   { media }: MediaData,
   mediaSize: Props["mediaSize"],
@@ -51,44 +57,32 @@ const MediaGallery = ({
   }
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
   const [showYouTubeVideo, setShowYouTubeVideo] = useState<boolean>(false);
-  let isTouchDevice =
-    typeof document !== `undefined` &&
-    "ontouchstart" in document.documentElement;
-  const Thumbnails = isTouchDevice ? MobileThumbnails : DesktopThumbnails;
-  const onPlayIconClick = (e) => {
+  const Thumbnails = renderThumbnails();
+  const onPlayIconClick = (e: React.MouseEvent<SVGElement>) => {
     e.stopPropagation();
     setShowYouTubeVideo(true);
   };
 
-  const onThumbnailClick = (e, index) => {
+  const onThumbnailClick = (e: Event, index: number) => {
     e.preventDefault();
     setActiveImageIndex(index);
     setShowYouTubeVideo(false);
   };
+  const currentMedia = media[Number(activeImageIndex)];
   return (
     <div className={classnames(styles["MediaGallery"], className)}>
       <div className={styles["image-wrapper"]}>
-        {/* eslint-disable-next-line security/detect-object-injection */}
         <YoutubeContext.Provider value={showYouTubeVideo}>
-          {renderMedia(media[`${activeImageIndex}`], mediaSize, layout)}
+          {renderMedia(currentMedia, mediaSize, layout)}
         </YoutubeContext.Provider>
-        {/* eslint-disable-next-line security/detect-object-injection */}
-        {media[activeImageIndex].caption ? (
+        {currentMedia.caption ? (
           <div className={styles["caption"]}>
             <Typography
               variant="h6"
               component="p"
               className={styles["caption-text"]}
             >
-              <Truncate lines="2">
-                {
-                  // eslint-disable-next-line security/detect-object-injection
-                  (media[activeImageIndex] &&
-                    // eslint-disable-next-line security/detect-object-injection
-                    media[activeImageIndex].caption) ||
-                    ""
-                }
-              </Truncate>
+              <Truncate lines="2">{currentMedia.caption}</Truncate>
             </Typography>
           </div>
         ) : null}

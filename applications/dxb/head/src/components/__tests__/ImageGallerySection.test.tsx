@@ -53,8 +53,6 @@ describe("ImageGallerySection component", () => {
           image: {
             thumbnail: {
               src: "//image.asset.jpg"
-              //label: "altText",
-              //action: "imageSource"
             },
             gatsbyImageData: {
               images: {
@@ -107,8 +105,6 @@ describe("ImageGallerySection component", () => {
           image: {
             thumbnail: {
               src: "//image.asset.jpg"
-              // label: "altText",
-              // action: "imageSource"
             },
             gatsbyImageData: {
               images: {
