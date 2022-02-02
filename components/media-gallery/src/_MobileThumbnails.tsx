@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, ChangeEvent } from "react";
 import classnames from "classnames";
 import DefaultThumbnail from "@bmi/thumbnail";
 import styles from "./MediaGallery.module.scss";
@@ -8,8 +8,9 @@ type Props = {
   images: readonly MediaData[];
   /** The index to identify the active thumbnail */
   activeImageIndex: number;
-  onThumbnailClick: (index: number) => void;
+  onThumbnailClick: (e, index: number) => void;
   component?: React.ComponentType<any>; // TODO
+  openYoutubeVideo?: (e: ChangeEvent<{}>) => void;
 };
 
 const THUMBNAIL_WIDTH = 86;
@@ -18,6 +19,7 @@ const Thumbnails = ({
   images,
   activeImageIndex,
   onThumbnailClick,
+  openYoutubeVideo,
   component: Thumbnail = DefaultThumbnail
 }: Props) => {
   let debouncer: NodeJS.Timeout;
@@ -82,10 +84,11 @@ const Thumbnails = ({
               key={`thumbnail-${index}`}
               imageSource={thumbnail}
               state={activeImageIndex === index ? "selected" : "enabled"}
-              onClick={() => onThumbnailClick(index)}
+              onClick={(e) => onThumbnailClick(e, index)}
               className={styles["thumbnail"]}
               size="large"
               isVideo={isVideo}
+              openYoutubeVideo={openYoutubeVideo}
             />
           );
         })}

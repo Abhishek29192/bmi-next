@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import classnames from "classnames";
 import Media from "@bmi/media";
 import Typography from "@bmi/typography";
@@ -16,6 +16,7 @@ type Props = {
   className?: string;
 };
 
+export const YoutubeContext = createContext(false);
 const renderMedia = (
   { media }: MediaData,
   mediaSize: Props["mediaSize"],
@@ -49,16 +50,28 @@ const MediaGallery = ({
     return null;
   }
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
+  const [showYouTubeVideo, setShowYouTubeVideo] = useState<boolean>(false);
   let isTouchDevice =
     typeof document !== `undefined` &&
     "ontouchstart" in document.documentElement;
   const Thumbnails = isTouchDevice ? MobileThumbnails : DesktopThumbnails;
+  const onPlayIconClick = (e) => {
+    e.stopPropagation();
+    setShowYouTubeVideo(true);
+  };
 
+  const onThumbnailClick = (e, index) => {
+    e.preventDefault();
+    setActiveImageIndex(index);
+    setShowYouTubeVideo(false);
+  };
   return (
     <div className={classnames(styles["MediaGallery"], className)}>
       <div className={styles["image-wrapper"]}>
         {/* eslint-disable-next-line security/detect-object-injection */}
-        {renderMedia(media[activeImageIndex], mediaSize, layout)}
+        <YoutubeContext.Provider value={showYouTubeVideo}>
+          {renderMedia(media[`${activeImageIndex}`], mediaSize, layout)}
+        </YoutubeContext.Provider>
         {/* eslint-disable-next-line security/detect-object-injection */}
         {media[activeImageIndex].caption ? (
           <div className={styles["caption"]}>
@@ -85,7 +98,8 @@ const MediaGallery = ({
           images={media}
           component={thumbnailComponent}
           activeImageIndex={activeImageIndex}
-          onThumbnailClick={setActiveImageIndex}
+          onThumbnailClick={onThumbnailClick}
+          openYoutubeVideo={onPlayIconClick}
         />
       )}
     </div>

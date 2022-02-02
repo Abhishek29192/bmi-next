@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, ChangeEvent } from "react";
 import classnames from "classnames";
 import DefaultThumbnail from "@bmi/thumbnail";
 import ThumbScrollerButton from "@bmi/thumb-scroller-button";
@@ -9,7 +9,8 @@ type Props = {
   images: readonly MediaData[];
   /** The index to identify the active thumbnail */
   activeImageIndex: number;
-  onThumbnailClick: (index: number) => void;
+  onThumbnailClick: (e: ChangeEvent<{}>, index: number) => void;
+  openYoutubeVideo?: (e: ChangeEvent<{}>) => void;
   component?: React.ComponentType<any>; // TODO
 };
 
@@ -19,6 +20,7 @@ const Thumbnails = ({
   images,
   activeImageIndex,
   onThumbnailClick,
+  openYoutubeVideo,
   component: Thumbnail = DefaultThumbnail
 }: Props) => {
   const thumbnailsRef = useRef<HTMLDivElement>(null);
@@ -107,10 +109,11 @@ const Thumbnails = ({
               key={`thumbnail-${index}`}
               imageSource={thumbnail}
               state={activeImageIndex === index ? "selected" : "enabled"}
-              onClick={() => onThumbnailClick(index)}
+              onClick={(e) => onThumbnailClick(e, index)}
               className={styles["thumbnail"]}
               size="large"
               isVideo={isVideo}
+              openYoutubeVideo={openYoutubeVideo}
             />
           );
         })}
