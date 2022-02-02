@@ -2224,14 +2224,14 @@ Represents a binary file in a space. An asset can be any file type.
 type Asset {
   sys: Sys!
   contentfulMetadata: ContentfulMetadata!
-  title: String
-  description: String
-  contentType: String
-  fileName: String
-  size: Int
-  url(transform: ImageTransformOptions): String
-  width: Int
-  height: Int
+  title(locale: String): String
+  description(locale: String): String
+  contentType(locale: String): String
+  fileName(locale: String): String
+  size(locale: String): Int
+  url(transform: ImageTransformOptions, locale: String): String
+  width(locale: String): Int
+  height(locale: String): Int
   linkedFrom(allowedLocales: [String]): AssetLinkingCollections
 }
 
@@ -2318,24 +2318,6 @@ type AssetLinkingCollections {
     preview: Boolean
     locale: String
   ): EntryCollection
-  guaranteeTemplateCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-  ): GuaranteeTemplateCollection
-  guaranteeTypeCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-  ): GuaranteeTypeCollection
-  mediaToolCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-  ): MediaToolCollection
   carouselItemCollection(
     skip: Int = 0
     limit: Int = 100
@@ -2354,6 +2336,24 @@ type AssetLinkingCollections {
     preview: Boolean
     locale: String
   ): PartnerBrandCollection
+  mediaToolCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+  ): MediaToolCollection
+  guaranteeTypeCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+  ): GuaranteeTypeCollection
+  guaranteeTemplateCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+  ): GuaranteeTemplateCollection
 }
 
 enum AssetOrder {
@@ -2468,7 +2468,7 @@ enum BusinessType {
 }
 
 """
-Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel)
+Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carousel)
 """
 type Carousel implements Entry {
   sys: Sys!
@@ -2514,7 +2514,7 @@ input CarouselFilter {
 }
 
 """
-Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem)
+Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem)
 """
 type CarouselItem implements Entry {
   sys: Sys!
@@ -2524,6 +2524,8 @@ type CarouselItem implements Entry {
   image(preview: Boolean, locale: String): Asset
   body(locale: String): String
   cta(locale: String): String
+  customUrl(locale: String): String
+  customUrlButtonText(locale: String): String
   audienceTiers(locale: String): [String]
 }
 
@@ -2559,6 +2561,20 @@ input CarouselItemFilter {
   cta_not_in: [String]
   cta_contains: String
   cta_not_contains: String
+  customUrl_exists: Boolean
+  customUrl: String
+  customUrl_not: String
+  customUrl_in: [String]
+  customUrl_not_in: [String]
+  customUrl_contains: String
+  customUrl_not_contains: String
+  customUrlButtonText_exists: Boolean
+  customUrlButtonText: String
+  customUrlButtonText_not: String
+  customUrlButtonText_in: [String]
+  customUrlButtonText_not_in: [String]
+  customUrlButtonText_contains: String
+  customUrlButtonText_not_contains: String
   audienceTiers_exists: Boolean
   audienceTiers_contains_all: [String]
   audienceTiers_contains_some: [String]
@@ -2587,6 +2603,10 @@ enum CarouselItemOrder {
   header_DESC
   cta_ASC
   cta_DESC
+  customUrl_ASC
+  customUrl_DESC
+  customUrlButtonText_ASC
+  customUrlButtonText_DESC
   sys_id_ASC
   sys_id_DESC
   sys_publishedAt_ASC
@@ -6697,7 +6717,7 @@ input CompanyTradingAddressIdFkeyInverseInput {
 }
 
 """
-Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails)
+Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contactDetails)
 """
 type ContactDetails implements Entry {
   sys: Sys!
@@ -6786,7 +6806,7 @@ enum ContactDetailsOrder {
 }
 
 """
-A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contentArticle)
+A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contentArticle)
 """
 type ContentArticle implements Entry {
   sys: Sys!
@@ -12015,7 +12035,7 @@ enum EntryOrder {
 }
 
 """
-A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory)
+A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/evidenceCategory)
 """
 type EvidenceCategory implements Entry {
   sys: Sys!
@@ -15045,7 +15065,7 @@ input GuaranteeSystemBmiRefFkeySystemCreateInput {
 }
 
 """
-A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate)
+A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate)
 """
 type GuaranteeTemplate implements Entry {
   sys: Sys!
@@ -15382,7 +15402,7 @@ enum GuaranteeTemplateOrder {
 }
 
 """
-A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType)
+A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType)
 """
 type GuaranteeType implements Entry {
   sys: Sys!
@@ -15630,6 +15650,7 @@ enum ImageFormat {
   WebP image format.
   """
   WEBP
+  AVIF
 }
 
 enum ImageResizeFocus {
@@ -17030,7 +17051,7 @@ input MarketCondition {
 }
 
 """
-[See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent)
+[See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent)
 """
 type MarketContent implements Entry {
   sys: Sys!
@@ -17916,7 +17937,7 @@ enum MarketsOrderBy {
 }
 
 """
-A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaFolder)
+A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaFolder)
 """
 type MediaFolder implements Entry {
   sys: Sys!
@@ -17969,18 +17990,18 @@ type MediaFolderLinkingCollections {
     preview: Boolean
     locale: String
   ): EntryCollection
-  marketContentCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-  ): MarketContentCollection
   mediaFolderCollection(
     skip: Int = 0
     limit: Int = 100
     preview: Boolean
     locale: String
   ): MediaFolderCollection
+  marketContentCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+  ): MarketContentCollection
 }
 
 enum MediaFolderOrder {
@@ -17997,7 +18018,7 @@ enum MediaFolderOrder {
 }
 
 """
-Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool)
+Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaTool)
 """
 type MediaTool implements Entry {
   sys: Sys!
@@ -18070,7 +18091,7 @@ enum MediaToolOrder {
 }
 
 """
-A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate)
+A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/messageTemplate)
 """
 type MessageTemplate implements Entry {
   sys: Sys!
@@ -18162,7 +18183,7 @@ enum MessageTemplateOrder {
 }
 
 """
-Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration)
+Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/migration)
 """
 type Migration implements Entry {
   sys: Sys!
@@ -20976,7 +20997,7 @@ type PageInfo {
 }
 
 """
-MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand)
+MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/partnerBrand)
 """
 type PartnerBrand implements Entry {
   sys: Sys!
@@ -28298,7 +28319,7 @@ enum Tier {
 }
 
 """
-A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit)
+A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit)
 """
 type TierBenefit implements Entry {
   sys: Sys!
@@ -28410,7 +28431,7 @@ type Token {
 }
 
 """
-[See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent)
+[See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent)
 """
 type TrainingContent implements Entry {
   sys: Sys!

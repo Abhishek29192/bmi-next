@@ -246,6 +246,12 @@ const gates = {
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
       INSTALLER: true
+    },
+    CTA_CUSTOM: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: true
     }
   }
 };
