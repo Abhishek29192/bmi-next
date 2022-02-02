@@ -88,10 +88,7 @@ describe("General Error", () => {
         keyAssetTypes: null
       },
       headScripts: null,
-      scriptGA: null,
       scriptOnetrust: null,
-      scriptHotJar: null,
-      scriptGOptLoad: null,
       regions: [
         {
           label: "Europe",
