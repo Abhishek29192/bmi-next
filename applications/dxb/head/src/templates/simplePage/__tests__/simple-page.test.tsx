@@ -39,7 +39,7 @@ const renderWithStylesAndLocationProvider = (
   pageContext: PageContextType
 ): RenderResult => {
   return render(
-    <ConfigProviderMock customConfig={{ brandProviderToggler: "true" }}>
+    <ConfigProviderMock customConfig={{ brandProviderToggler: true }}>
       <ProvideStyles>
         <LocationProvider history={history}>
           <SimplePage data={pageData} pageContext={pageContext} />

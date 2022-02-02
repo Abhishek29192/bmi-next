@@ -28,7 +28,7 @@ import { Data as SiteData } from "../../../components/Site";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import * as elasticSearch from "../../../utils/elasticSearch";
 import { ConfigProviderMock } from "../../../components/__tests__/utils/ConfigProviderMock";
-import { IEnvConfig } from "../../../contexts/ConfigProvider";
+import { EnvConfig } from "../../../contexts/ConfigProvider";
 
 window.alert = jest.fn();
 type Data = PageInfoData &
@@ -277,7 +277,7 @@ function mockUseDimensions({
 }
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));
-let isLegacyFiltersUsing = "true";
+let isLegacyFiltersUsing = true;
 
 const mockQueryES = jest
   .spyOn(elasticSearch, "queryElasticSearch")
@@ -293,14 +293,14 @@ const mockQueryES = jest
 const renderWithStylesAndLocationProvider = (
   pageData: any,
   pageContext: PageContextType,
-  mockEnvVariables?: Partial<IEnvConfig["config"]>
+  mockEnvVariables?: Partial<EnvConfig["config"]>
 ): RenderResult => {
   const defaultPageEnvVars = {
     isLegacyFiltersUsing: isLegacyFiltersUsing,
     gatsbyReCaptchaKey: "test",
     visualizerAssetUrl: "est-test-page",
-    brandProviderToggler: "true"
-  } as Partial<IEnvConfig["config"]>;
+    brandProviderToggler: true
+  } as Partial<EnvConfig["config"]>;
   const res = { ...defaultPageEnvVars, ...mockEnvVariables };
   return render(
     <ConfigProviderMock customConfig={res}>
@@ -334,7 +334,7 @@ beforeEach(() => {
 describe("ProductListerPage template", () => {
   describe("New plpFilters tests", () => {
     beforeEach(() => {
-      isLegacyFiltersUsing = "false";
+      isLegacyFiltersUsing = false;
     });
 
     describe("ProductListerPage without initialProducts without BrandProvider", () => {
@@ -344,7 +344,7 @@ describe("ProductListerPage template", () => {
         const { container, findByText } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext,
-          { brandProviderToggler: "false", isLegacyFiltersUsing: "false" }
+          { brandProviderToggler: false, isLegacyFiltersUsing: false }
         );
         await findByText(heroTitle);
         await waitFor(() => expect(container.parentElement).toMatchSnapshot());
@@ -547,7 +547,7 @@ describe("ProductListerPage template", () => {
   // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
   describe("ProductListerPage Legacy ProductFilters tests", () => {
     beforeEach(() => {
-      isLegacyFiltersUsing = "true";
+      isLegacyFiltersUsing = true;
     });
     describe("ProductListerPage without initialProducts without BrandProvider", () => {
       it("renders basic ProductListerPage", async () => {
@@ -556,7 +556,7 @@ describe("ProductListerPage template", () => {
         const { container, findByText } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext,
-          { brandProviderToggler: "false" }
+          { brandProviderToggler: false }
         );
         await findByText(heroTitle);
         await waitFor(() => expect(container.parentElement).toMatchSnapshot());
@@ -757,7 +757,7 @@ describe("ProductListerPage template", () => {
     const { container, findByText } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext,
-      { isPreviewMode: "true" }
+      { isPreviewMode: true }
     );
     await findByText(heroTitle);
     expect(container.parentElement).toMatchSnapshot();
@@ -943,7 +943,7 @@ describe("ProductListerPage template", () => {
     const { getByLabelText } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext,
-      { isPreviewMode: "true" }
+      { isPreviewMode: true }
     );
     fireEvent.click(getByLabelText("Go to next page"));
 

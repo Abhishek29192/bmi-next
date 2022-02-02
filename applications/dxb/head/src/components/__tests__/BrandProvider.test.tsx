@@ -18,7 +18,7 @@ describe("BrandProvider", () => {
 
   it("renders without BrandProvider", () => {
     const { container } = render(
-      <ConfigProviderMock customConfig={{ brandProviderToggler: "false" }}>
+      <ConfigProviderMock customConfig={{ brandProviderToggler: false }}>
         <BrandProvider>Test</BrandProvider>
       </ConfigProviderMock>
     );

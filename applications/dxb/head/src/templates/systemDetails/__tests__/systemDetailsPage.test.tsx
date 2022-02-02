@@ -10,7 +10,7 @@ import { Asset, AssetAssetType, System } from "../../../components/types/pim";
 import createSystemDetails from "../../../test/systemDetailsMockData";
 import "@testing-library/jest-dom";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
-import { IEnvConfig } from "../../../contexts/ConfigProvider";
+import { EnvConfig } from "../../../contexts/ConfigProvider";
 
 const systemPageId = "1234";
 const siteId = "1234";
@@ -26,11 +26,11 @@ const systemDetailsMockData = createSystemDetails();
 jest.mock("gatsby");
 
 const withProviders = ({
-  customConfig = { brandProviderToggler: "true" },
+  customConfig = { brandProviderToggler: true },
   routerObject,
   renderComponent
 }: {
-  customConfig?: Partial<IEnvConfig["config"]>;
+  customConfig?: Partial<EnvConfig["config"]>;
   routerObject?: { route?: string; history?: History };
   renderComponent: React.ReactElement;
 }) => {

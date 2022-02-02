@@ -303,7 +303,7 @@ describe("FormSection component", () => {
   it("test submit when preview is on", () => {
     jest.spyOn(window, "alert").mockImplementation();
     const { container } = render(
-      <ConfigProviderMock customConfig={{ isPreviewMode: "GATSBY_PREVIEW" }}>
+      <ConfigProviderMock customConfig={{ isPreviewMode: true }}>
         <FormSection data={data} backgroundColor="white" />
       </ConfigProviderMock>
     );

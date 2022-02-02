@@ -34,7 +34,6 @@ import {
   generateHeroProps
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
-import { convertStrToBool } from "../../../utils/convertStrToBool";
 
 export type Data = PageInfoData &
   PageData & {
@@ -116,9 +115,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
     path: data.contentfulSimplePage.path
   };
 
-  const isHeroKeyLine = Boolean(
-    convertStrToBool(brandProviderToggler) && brandLogo
-  );
+  const isHeroKeyLine = Boolean(brandProviderToggler && brandLogo);
 
   return (
     <Page

@@ -24,7 +24,7 @@ describe("DocumentResultsFooter component", () => {
     name2: createContentfulDocument()
   };
   const mockConfig = (
-    isPreviewMode = "false",
+    isPreviewMode = false,
     documentDownloadEndpoint = "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
   ) => ({
     isPreviewMode,
@@ -72,7 +72,7 @@ describe("DocumentResultsFooter component", () => {
   it("should prevent download on GATSBY_PREVIEW", async () => {
     jest.spyOn(window, "alert").mockImplementation();
 
-    await handleDownloadClick(list, token, mockConfig("true"), resetList);
+    await handleDownloadClick(list, token, mockConfig(true), resetList);
 
     expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
     expect(window.alert).toHaveBeenCalledWith(

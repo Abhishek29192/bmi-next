@@ -45,7 +45,6 @@ import KeyAssetTypesDownloadSection from "../components/KeyAssetTypesDownloadSec
 import { getAssetsIframeUrl } from "../components/AssetsIframe";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { combineVariantClassifications } from "../utils/filters";
-import { convertStrToBool } from "../utils/convertStrToBool";
 import { useConfig } from "../contexts/ConfigProvider";
 import { microCopy } from "../constants/microCopies";
 import { filterAndTransformVideoData, transformMediaSrc } from "../utils/media";
@@ -169,7 +168,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     );
 
   const getSampleOrderAllowed = () => {
-    if (convertStrToBool(isSampleOrderingEnabled)) {
+    if (isSampleOrderingEnabled) {
       return (
         selfProduct.isSampleOrderAllowed ??
         product.isSampleOrderAllowed ??

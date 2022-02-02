@@ -21,7 +21,6 @@ import {
   groupProductsByCategory,
   mapClassificationValues
 } from "../utils/product-details-transforms";
-import { convertStrToBool } from "../utils/convertStrToBool";
 import { useConfig } from "../contexts/ConfigProvider";
 import { renderMedia } from "../utils/renderMedia";
 import { Product, VariantOption } from "./types/pim"; // Hmmmmmm
@@ -203,7 +202,7 @@ const RelatedProducts = ({
 
   const productGroups = groupProductsByCategory(products);
 
-  const isRelatedProductsHide = convertStrToBool(isRecomendedProductsHide);
+  const isRelatedProductsHide = isRecomendedProductsHide;
 
   if (!Object.keys(productGroups).length || isRelatedProductsHide) {
     return null;

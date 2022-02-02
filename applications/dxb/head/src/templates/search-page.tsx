@@ -26,7 +26,6 @@ import SearchTabPanelPages, {
   getCount as getPagesCount
 } from "../components/SearchTabPages";
 import { useConfig } from "../contexts/ConfigProvider";
-import { convertStrToBool } from "../utils/convertStrToBool";
 
 export type Props = {
   // TODO: pageContext is/should be the same for all pages, same type
@@ -64,14 +63,13 @@ const SearchPage = ({ pageContext, data }: Props) => {
   const {
     config: { isPreviewMode }
   } = useConfig();
-  const isPreview = convertStrToBool(isPreviewMode);
 
   const { countryCode, resources } = contentfulSite;
   const getMicroCopy = generateGetMicroCopy(resources.microCopy);
   const defaultTitle = getMicroCopy(microCopy.SEARCH_PAGE_TITLE);
 
   const queryString = useMemo(() => {
-    if (isPreview) {
+    if (isPreviewMode) {
       return null;
     }
 
@@ -295,7 +293,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
           query={areTabsResolved ? queryString : ""}
           searchPageSearchTips={resources.searchPageSearchTips}
           searchPageSidebarItems={resources.searchPageSidebarItems}
-          handleSubmit={isPreview && handleSubmit}
+          handleSubmit={isPreviewMode && handleSubmit}
         />
       </Section>
       {pageHasResults ? (

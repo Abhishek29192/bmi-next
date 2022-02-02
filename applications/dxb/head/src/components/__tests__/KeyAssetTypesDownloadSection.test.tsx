@@ -115,7 +115,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
     ];
 
     const mockConfig = (
-      isPreviewMode = "false",
+      isPreviewMode = false,
       documentDownloadEndpoint = "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
     ) => ({
       isPreviewMode,
@@ -164,7 +164,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
     it("should prevent download on GATSBY_PREVIEW", async () => {
       jest.spyOn(window, "alert").mockImplementation();
 
-      await handleDownloadClick(list, token, mockConfig("true"));
+      await handleDownloadClick(list, token, mockConfig(true));
 
       expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
       expect(window.alert).toHaveBeenCalledWith(

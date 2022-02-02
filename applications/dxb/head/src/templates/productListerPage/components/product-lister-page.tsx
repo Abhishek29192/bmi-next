@@ -62,7 +62,6 @@ import {
 import { renderHero } from "../../../utils/heroTypesUI";
 import { microCopy } from "../../../constants/microCopies";
 import { useConfig } from "../../../contexts/ConfigProvider";
-import { convertStrToBool } from "../../../utils/convertStrToBool";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -181,9 +180,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   //TODO: Remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch code
   // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
   const getResolvedFilters = () => {
-    return isLegacyFiltersUsing === "true"
-      ? resolvedFilters
-      : resolvedNewPLPFilters;
+    return isLegacyFiltersUsing ? resolvedFilters : resolvedNewPLPFilters;
   };
 
   const [filters, setFilters] = useState(getResolvedFilters());
@@ -219,7 +216,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
     if (result && result.aggregations) {
       setFilters(
-        isLegacyFiltersUsing === "true"
+        isLegacyFiltersUsing
           ? xferFilterValue(
               newFilters,
               disableFiltersFromAggregations(filters, result.aggregations)
@@ -269,7 +266,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       return;
     }
 
-    if (convertStrToBool(isPreviewMode)) {
+    if (isPreviewMode) {
       alert("You cannot search on the preview environment.");
       return;
     }
@@ -278,16 +275,15 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     //TODO: remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch of code
     // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
-    const query =
-      isLegacyFiltersUsing === "true"
-        ? compileElasticSearchQuery(filters, categoryCodes, page, pageSize)
-        : compileESQueryPLP({
-            filters, //these are updated filters with user's selection from UI!
-            allowFilterBy,
-            categoryCodes,
-            page,
-            pageSize
-          });
+    const query = isLegacyFiltersUsing
+      ? compileElasticSearchQuery(filters, categoryCodes, page, pageSize)
+      : compileESQueryPLP({
+          filters, //these are updated filters with user's selection from UI!
+          allowFilterBy,
+          categoryCodes,
+          page,
+          pageSize
+        });
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
@@ -318,10 +314,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     if (results && results.aggregations) {
       // TODO: Remove 'GATSBY_USE_LEGACY_FILTERS' branch of code
       // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
-      const newFilters =
-        isLegacyFiltersUsing === "true"
-          ? disableFiltersFromAggregations(filters, results.aggregations)
-          : disableFiltersFromAggregationsPLP(filters, results.aggregations);
+      const newFilters = isLegacyFiltersUsing
+        ? disableFiltersFromAggregations(filters, results.aggregations)
+        : disableFiltersFromAggregationsPLP(filters, results.aggregations);
 
       setFilters(newFilters);
     }
@@ -383,9 +378,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const isFeaturesArrayExist = features?.length > 0;
   const isKeyFeatureBlockVisible = isFeaturesArrayExist || featuresLink;
-  const isHeroKeyLine = Boolean(
-    convertStrToBool(brandProviderToggler) && brandLogo
-  );
+  const isHeroKeyLine = Boolean(brandProviderToggler && brandLogo);
   return (
     <Page
       brand={brandLogo}

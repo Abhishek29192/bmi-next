@@ -1,12 +1,13 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext } from "react";
+import { convertStrToBool } from "../utils/convertStrToBool";
 
-export interface IEnvConfig {
+export interface EnvConfig {
   config: {
-    isPreviewMode?: string | undefined;
+    isPreviewMode?: boolean;
     googleTagManagerID?: string;
     hubSpotId?: string;
-    isSchemaORGActivated?: string | undefined;
-    brandProviderToggler?: string | undefined;
+    isSchemaORGActivated?: boolean;
+    brandProviderToggler?: boolean;
     gatsbyReCaptchaKey?: string;
     gatsbyReCaptchaNet?: string;
     visualizerAssetUrl?: string;
@@ -15,29 +16,32 @@ export interface IEnvConfig {
     gcpFormSubmitEndpoint?: string;
     hubspotApiUrl?: string;
     gcpApsisEndpoint?: string;
-    isCountryCodeProhibited?: string | undefined;
+    isCountryCodeProhibited?: boolean;
     webtoolsCalculatorDataUrl?: string;
-    isWebToolsCalculatorEnabled?: string | undefined;
-    webToolsCalculatorApsisEndpoint?: string | undefined;
+    isWebToolsCalculatorEnabled?: boolean;
+    webToolsCalculatorApsisEndpoint?: string;
     documentDownloadMaxLimit?: string;
-    isRecomendedProductsHide?: string | undefined;
+    isRecomendedProductsHide?: boolean;
     googleApiKey?: string;
     esIndexNameSystem?: string;
-    isDevMode?: string | undefined;
+    isDevMode?: boolean;
     gcpSystemConfiguratorEndpoint?: string;
-    isSampleOrderingEnabled?: string | undefined;
-    isLegacyFiltersUsing?: string | undefined;
+    isSampleOrderingEnabled?: boolean;
+    isLegacyFiltersUsing?: boolean;
   };
-  updateConfig?: (param: ConfigType) => void;
 }
 
-export const envConfig = {
+export const envConfig: EnvConfig = {
   config: {
-    isPreviewMode: process.env.GATSBY_PREVIEW,
+    isPreviewMode: convertStrToBool(process.env.GATSBY_PREVIEW),
     googleTagManagerID: process.env.GOOGLE_TAGMANAGER_ID,
     hubSpotId: process.env.GATSBY_HUBSPOT_ID,
-    isSchemaORGActivated: process.env.GATSBY_SCHEMA_ORG_ACTIVATED,
-    brandProviderToggler: process.env.GATSBY_ENABLE_BRAND_PROVIDER,
+    isSchemaORGActivated: convertStrToBool(
+      process.env.GATSBY_SCHEMA_ORG_ACTIVATED
+    ),
+    brandProviderToggler: convertStrToBool(
+      process.env.GATSBY_ENABLE_BRAND_PROVIDER
+    ),
     gatsbyReCaptchaKey: process.env.GATSBY_RECAPTCHA_KEY,
     gatsbyReCaptchaNet: process.env.GATSBY_RECAPTCHA_NET,
     visualizerAssetUrl: process.env.GATSBY_VISUALISER_ASSETS_URL,
@@ -46,33 +50,39 @@ export const envConfig = {
     gcpFormSubmitEndpoint: process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT,
     hubspotApiUrl: process.env.GATSBY_HUBSPOT_API_URL,
     gcpApsisEndpoint: process.env.GATSBY_GCP_APSIS_ENDPOINT,
-    isCountryCodeProhibited: process.env.GATSBY_DONT_USE_COUNTRY_CODE,
+    isCountryCodeProhibited: convertStrToBool(
+      process.env.GATSBY_DONT_USE_COUNTRY_CODE
+    ),
     webtoolsCalculatorDataUrl: process.env.GATSBY_WEBTOOLS_CALCULATOR_DATA_URL,
-    isWebToolsCalculatorEnabled: process.env.GATSBY_ENABLE_WEBTOOLS_CALCULATOR,
+    isWebToolsCalculatorEnabled: convertStrToBool(
+      process.env.GATSBY_ENABLE_WEBTOOLS_CALCULATOR
+    ),
     webToolsCalculatorApsisEndpoint:
       process.env.GATSBY_WEBTOOLS_CALCULATOR_APSIS_ENDPOINT,
     documentDownloadMaxLimit: process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT,
-    isRecomendedProductsHide: process.env.GATSBY_HIDE_RECOMMENDED_PRODUCTS,
+    isRecomendedProductsHide: convertStrToBool(
+      process.env.GATSBY_HIDE_RECOMMENDED_PRODUCTS
+    ),
     googleApiKey: process.env.GATSBY_GOOGLE_API_KEY,
     esIndexNameSystem: process.env.GATSBY_ES_INDEX_NAME_SYSTEMS,
-    isDevMode: (process.env.NODE_ENV === "development").toString(),
+    isDevMode: process.env.NODE_ENV === "development",
     gcpSystemConfiguratorEndpoint:
       process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT,
-    isSampleOrderingEnabled: process.env.GATSBY_ENABLE_SAMPLE_ORDERING,
-    isLegacyFiltersUsing: process.env.GATSBY_USE_LEGACY_FILTERS
+    isSampleOrderingEnabled: convertStrToBool(
+      process.env.GATSBY_ENABLE_SAMPLE_ORDERING
+    ),
+    isLegacyFiltersUsing: convertStrToBool(
+      process.env.GATSBY_USE_LEGACY_FILTERS
+    )
   }
-} as IEnvConfig;
-
-type ConfigType = IEnvConfig["config"];
+};
 
 interface ConfigContextValues {
-  config: IEnvConfig["config"];
-  updateConfig?: IEnvConfig["updateConfig"];
+  config: EnvConfig["config"];
 }
 
 const ConfigContext = createContext<ConfigContextValues>({
-  config: {},
-  updateConfig: () => {}
+  config: {}
 });
 
 export const ConfigProvider = ({
@@ -81,17 +91,10 @@ export const ConfigProvider = ({
 }: {
   configObject: ConfigContextValues;
   children: React.ReactChild | React.ReactChildren;
-}) => {
-  const [config, setUpdateConfig] = useState(configObject.config);
-  const updateConfig = (updatedConfig: ConfigType) => {
-    setUpdateConfig({ ...config, ...updatedConfig });
-  };
-
-  return (
-    <ConfigContext.Provider value={{ config, updateConfig }}>
-      {children}
-    </ConfigContext.Provider>
-  );
-};
+}) => (
+  <ConfigContext.Provider value={configObject}>
+    {children}
+  </ConfigContext.Provider>
+);
 
 export const useConfig = () => useContext(ConfigContext);

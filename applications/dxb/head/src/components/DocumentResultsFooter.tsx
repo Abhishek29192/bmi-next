@@ -10,8 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import classnames from "classnames";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
-import { IEnvConfig, useConfig } from "../contexts/ConfigProvider";
-import { convertStrToBool } from "../utils/convertStrToBool";
+import { EnvConfig, useConfig } from "../contexts/ConfigProvider";
 import { devLog } from "../utils/devLog";
 import { microCopy } from "../constants/microCopies";
 import createAssetFileCountMap, {
@@ -42,7 +41,7 @@ type Props = {
   onDownloadClick?: (
     list: Record<string, any>,
     token: string,
-    config: Partial<IEnvConfig["config"]>,
+    config: Partial<EnvConfig["config"]>,
     callback?: () => void
   ) => void;
 };
@@ -52,7 +51,7 @@ const GTMButton = withGTM<ButtonProps>(Button);
 export const handleDownloadClick = async (
   list: Record<string, any>,
   token: string,
-  config: Partial<IEnvConfig["config"]>,
+  config: Partial<EnvConfig["config"]>,
   callback?: () => void
 ) => {
   const { isPreviewMode, documentDownloadEndpoint } = config;
@@ -63,7 +62,7 @@ export const handleDownloadClick = async (
     return;
   }
 
-  if (convertStrToBool(isPreviewMode)) {
+  if (isPreviewMode) {
     alert("You cannot download documents on the preview enviornment.");
     callback();
 
