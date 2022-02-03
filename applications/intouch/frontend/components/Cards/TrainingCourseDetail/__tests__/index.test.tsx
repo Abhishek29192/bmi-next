@@ -78,7 +78,7 @@ describe("TrainingCourseDetail component", () => {
           <TrainingCourseDetail course={course} lmsUrl="/api/docebo-sso" />
         </I18nextProvider>
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("with enrollment", () => {
@@ -90,7 +90,7 @@ describe("TrainingCourseDetail component", () => {
           />
         </I18nextProvider>
       );
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 });

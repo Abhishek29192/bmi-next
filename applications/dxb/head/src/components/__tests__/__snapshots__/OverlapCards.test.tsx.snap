@@ -1,314 +1,316 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`IntegratedOverlapCards component renders correctly 1`] = `
-<div
-  class="OverlapCards"
->
+<div>
   <div
-    class="Container"
+    class="OverlapCards"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
-        >
-          <a
-            aria-disabled="false"
-            class="MuiButtonBase-root Card"
-            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
-            href="/uk/some-page"
-            role="button"
-            tabindex="0"
-          >
-            <div
-              class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
-            >
-              <section
-                class="top-box"
-              >
-                <h5
-                  class="MuiTypography-root heading Typography MuiTypography-h5"
-                >
-                  Call to action
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root icon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                    />
-                  </svg>
-                </h5>
-              </section>
-              <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained image Media"
-                data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
-              >
-                <div
-                  style="max-width: 948px; display: block;"
-                >
-                  <img
-                    alt=""
-                    aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                    style="max-width: 100%; display: block; position: static;"
-                  />
-                </div>
-                <div
-                  aria-hidden="true"
-                  data-placeholder-image=""
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                />
-                <picture>
-                  <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="Lorem ipsum"
-                    data-gatsby-image-ssr=""
-                    data-main-image=""
-                    data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                    decoding="async"
-                    draggable="false"
-                    loading="lazy"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                  />
-                </picture>
-                <noscript />
-                <script
-                  type="module"
-                >
-                  const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                </script>
-              </div>
-            </div>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </a>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
-        >
-          <a
-            aria-disabled="false"
-            class="MuiButtonBase-root Card"
-            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
-            href="/uk/some-page"
-            role="button"
-            tabindex="0"
-          >
-            <div
-              class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
-            >
-              <section
-                class="top-box"
-              >
-                <h5
-                  class="MuiTypography-root heading Typography MuiTypography-h5"
-                >
-                  Call to action
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root icon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                    />
-                  </svg>
-                </h5>
-              </section>
-              <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained image Media"
-                data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
-              >
-                <div
-                  style="max-width: 948px; display: block;"
-                >
-                  <img
-                    alt=""
-                    aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                    style="max-width: 100%; display: block; position: static;"
-                  />
-                </div>
-                <div
-                  aria-hidden="true"
-                  data-placeholder-image=""
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                />
-                <picture>
-                  <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="Lorem ipsum"
-                    data-gatsby-image-ssr=""
-                    data-main-image=""
-                    data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                    decoding="async"
-                    draggable="false"
-                    loading="lazy"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                  />
-                </picture>
-                <noscript />
-                <script
-                  type="module"
-                >
-                  const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                </script>
-              </div>
-            </div>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </a>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
         >
           <div
-            class="Card"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root Card"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
+              href="/uk/some-page"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+              >
+                <section
+                  class="top-box"
+                >
+                  <h5
+                    class="MuiTypography-root heading Typography MuiTypography-h5"
+                  >
+                    Call to action
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root icon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                      />
+                    </svg>
+                  </h5>
+                </section>
+                <div
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained image Media"
+                  data-gatsby-image-wrapper=""
+                  style="overflow: hidden; display: inline-block;"
+                >
+                  <div
+                    style="max-width: 948px; display: block;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      style="max-width: 100%; display: block; position: static;"
+                    />
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    data-placeholder-image=""
+                    style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+                  />
+                  <picture>
+                    <source
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Lorem ipsum"
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      decoding="async"
+                      draggable="false"
+                      loading="lazy"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                    />
+                  </picture>
+                  <noscript />
+                  <script
+                    type="module"
+                  >
+                    const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                  </script>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root Card"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
+              href="/uk/some-page"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+              >
+                <section
+                  class="top-box"
+                >
+                  <h5
+                    class="MuiTypography-root heading Typography MuiTypography-h5"
+                  >
+                    Call to action
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root icon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                      />
+                    </svg>
+                  </h5>
+                </section>
+                <div
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained image Media"
+                  data-gatsby-image-wrapper=""
+                  style="overflow: hidden; display: inline-block;"
+                >
+                  <div
+                    style="max-width: 948px; display: block;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      style="max-width: 100%; display: block; position: static;"
+                    />
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    data-placeholder-image=""
+                    style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+                  />
+                  <picture>
+                    <source
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Lorem ipsum"
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      decoding="async"
+                      draggable="false"
+                      loading="lazy"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                    />
+                  </picture>
+                  <noscript />
+                  <script
+                    type="module"
+                  >
+                    const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                  </script>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
           >
             <div
-              class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+              class="Card"
             >
-              <a
-                aria-disabled="false"
-                class="MuiButtonBase-root top-box"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card with Video\\",\\"action\\":\\"/uk/some-page\\"}"
-                href="/uk/some-page"
-                role="button"
-                tabindex="0"
-              >
-                <h5
-                  class="MuiTypography-root heading Typography MuiTypography-h5"
-                >
-                  Card with Video
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root icon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                    />
-                  </svg>
-                </h5>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </a>
               <div
-                class="image Media"
+                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
               >
-                <div
-                  class="YoutubeVideo"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root top-box"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card with Video\\",\\"action\\":\\"/uk/some-page\\"}"
+                  href="/uk/some-page"
+                  role="button"
+                  tabindex="0"
                 >
-                  <button
-                    aria-label="video label"
-                    class="thumbnail"
-                    type="button"
+                  <h5
+                    class="MuiTypography-root heading Typography MuiTypography-h5"
                   >
-                    <div
-                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained preview-image"
-                      data-gatsby-image-wrapper=""
-                      style="overflow: hidden; display: inline-block;"
+                    Card with Video
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root icon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                      />
+                    </svg>
+                  </h5>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+                <div
+                  class="image Media"
+                >
+                  <div
+                    class="YoutubeVideo"
+                  >
+                    <button
+                      aria-label="video label"
+                      class="thumbnail"
+                      type="button"
                     >
                       <div
-                        style="max-width: 948px; display: block;"
+                        class="gatsby-image-wrapper gatsby-image-wrapper-constrained preview-image"
+                        data-gatsby-image-wrapper=""
+                        style="overflow: hidden; display: inline-block;"
                       >
-                        <img
-                          alt=""
+                        <div
+                          style="max-width: 948px; display: block;"
+                        >
+                          <img
+                            alt=""
+                            aria-hidden="true"
+                            role="presentation"
+                            src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                            style="max-width: 100%; display: block; position: static;"
+                          />
+                        </div>
+                        <div
                           aria-hidden="true"
-                          role="presentation"
-                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                          style="max-width: 100%; display: block; position: static;"
+                          data-placeholder-image=""
+                          style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+                        />
+                        <picture>
+                          <source
+                            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                            sizes="(min-width: 948px) 948px, 100vw"
+                            type="image/webp"
+                          />
+                          <img
+                            alt="Lorem ipsum"
+                            data-gatsby-image-ssr=""
+                            data-main-image=""
+                            data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                            decoding="async"
+                            draggable="false"
+                            loading="lazy"
+                            sizes="(min-width: 948px) 948px, 100vw"
+                            style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                          />
+                        </picture>
+                        <noscript />
+                        <script
+                          type="module"
+                        >
+                          const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                        </script>
+                      </div>
+                      <span
+                        class="AlternativeContent"
+                      >
+                        video label
+                      </span>
+                      <div
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 play-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiIconButton-label"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M8 5v14l11-7z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
                         />
                       </div>
-                      <div
-                        aria-hidden="true"
-                        data-placeholder-image=""
-                        style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                      />
-                      <picture>
-                        <source
-                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                          sizes="(min-width: 948px) 948px, 100vw"
-                          type="image/webp"
-                        />
-                        <img
-                          alt="Lorem ipsum"
-                          data-gatsby-image-ssr=""
-                          data-main-image=""
-                          data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                          decoding="async"
-                          draggable="false"
-                          loading="lazy"
-                          sizes="(min-width: 948px) 948px, 100vw"
-                          style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                        />
-                      </picture>
-                      <noscript />
-                      <script
-                        type="module"
-                      >
-                        const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                      </script>
-                    </div>
-                    <span
-                      class="AlternativeContent"
-                    >
-                      video label
-                    </span>
-                    <div
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 play-button"
-                      role="button"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiIconButton-label"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M8 5v14l11-7z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </div>
-                  </button>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -321,314 +323,316 @@ exports[`IntegratedOverlapCards component renders correctly 1`] = `
 `;
 
 exports[`OverlapCards component renders correctly 1`] = `
-<div
-  class="OverlapCards"
->
+<div>
   <div
-    class="Container"
+    class="OverlapCards"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
-        >
-          <a
-            aria-disabled="false"
-            class="MuiButtonBase-root Card"
-            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
-            href="/uk/some-page"
-            role="button"
-            tabindex="0"
-          >
-            <div
-              class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
-            >
-              <section
-                class="top-box"
-              >
-                <h5
-                  class="MuiTypography-root heading Typography MuiTypography-h5"
-                >
-                  Call to action
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root icon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                    />
-                  </svg>
-                </h5>
-              </section>
-              <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained image Media"
-                data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
-              >
-                <div
-                  style="max-width: 948px; display: block;"
-                >
-                  <img
-                    alt=""
-                    aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                    style="max-width: 100%; display: block; position: static;"
-                  />
-                </div>
-                <div
-                  aria-hidden="true"
-                  data-placeholder-image=""
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                />
-                <picture>
-                  <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="Lorem ipsum"
-                    data-gatsby-image-ssr=""
-                    data-main-image=""
-                    data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                    decoding="async"
-                    draggable="false"
-                    loading="lazy"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                  />
-                </picture>
-                <noscript />
-                <script
-                  type="module"
-                >
-                  const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                </script>
-              </div>
-            </div>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </a>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
-        >
-          <a
-            aria-disabled="false"
-            class="MuiButtonBase-root Card"
-            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
-            href="/uk/some-page"
-            role="button"
-            tabindex="0"
-          >
-            <div
-              class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
-            >
-              <section
-                class="top-box"
-              >
-                <h5
-                  class="MuiTypography-root heading Typography MuiTypography-h5"
-                >
-                  Call to action
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root icon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                    />
-                  </svg>
-                </h5>
-              </section>
-              <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained image Media"
-                data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
-              >
-                <div
-                  style="max-width: 948px; display: block;"
-                >
-                  <img
-                    alt=""
-                    aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                    style="max-width: 100%; display: block; position: static;"
-                  />
-                </div>
-                <div
-                  aria-hidden="true"
-                  data-placeholder-image=""
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                />
-                <picture>
-                  <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="Lorem ipsum"
-                    data-gatsby-image-ssr=""
-                    data-main-image=""
-                    data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                    decoding="async"
-                    draggable="false"
-                    loading="lazy"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                  />
-                </picture>
-                <noscript />
-                <script
-                  type="module"
-                >
-                  const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                </script>
-              </div>
-            </div>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </a>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
         >
           <div
-            class="Card"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root Card"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
+              href="/uk/some-page"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+              >
+                <section
+                  class="top-box"
+                >
+                  <h5
+                    class="MuiTypography-root heading Typography MuiTypography-h5"
+                  >
+                    Call to action
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root icon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                      />
+                    </svg>
+                  </h5>
+                </section>
+                <div
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained image Media"
+                  data-gatsby-image-wrapper=""
+                  style="overflow: hidden; display: inline-block;"
+                >
+                  <div
+                    style="max-width: 948px; display: block;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      style="max-width: 100%; display: block; position: static;"
+                    />
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    data-placeholder-image=""
+                    style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+                  />
+                  <picture>
+                    <source
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Lorem ipsum"
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      decoding="async"
+                      draggable="false"
+                      loading="lazy"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                    />
+                  </picture>
+                  <noscript />
+                  <script
+                    type="module"
+                  >
+                    const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                  </script>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root Card"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
+              href="/uk/some-page"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+              >
+                <section
+                  class="top-box"
+                >
+                  <h5
+                    class="MuiTypography-root heading Typography MuiTypography-h5"
+                  >
+                    Call to action
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root icon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                      />
+                    </svg>
+                  </h5>
+                </section>
+                <div
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained image Media"
+                  data-gatsby-image-wrapper=""
+                  style="overflow: hidden; display: inline-block;"
+                >
+                  <div
+                    style="max-width: 948px; display: block;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      style="max-width: 100%; display: block; position: static;"
+                    />
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    data-placeholder-image=""
+                    style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+                  />
+                  <picture>
+                    <source
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Lorem ipsum"
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      decoding="async"
+                      draggable="false"
+                      loading="lazy"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                    />
+                  </picture>
+                  <noscript />
+                  <script
+                    type="module"
+                  >
+                    const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                  </script>
+                </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
           >
             <div
-              class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+              class="Card"
             >
-              <a
-                aria-disabled="false"
-                class="MuiButtonBase-root top-box"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card with Video\\",\\"action\\":\\"/uk/some-page\\"}"
-                href="/uk/some-page"
-                role="button"
-                tabindex="0"
-              >
-                <h5
-                  class="MuiTypography-root heading Typography MuiTypography-h5"
-                >
-                  Card with Video
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root icon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                    />
-                  </svg>
-                </h5>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </a>
               <div
-                class="image Media"
+                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
               >
-                <div
-                  class="YoutubeVideo"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root top-box"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card with Video\\",\\"action\\":\\"/uk/some-page\\"}"
+                  href="/uk/some-page"
+                  role="button"
+                  tabindex="0"
                 >
-                  <button
-                    aria-label="video label"
-                    class="thumbnail"
-                    type="button"
+                  <h5
+                    class="MuiTypography-root heading Typography MuiTypography-h5"
                   >
-                    <div
-                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained preview-image"
-                      data-gatsby-image-wrapper=""
-                      style="overflow: hidden; display: inline-block;"
+                    Card with Video
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root icon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                      />
+                    </svg>
+                  </h5>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+                <div
+                  class="image Media"
+                >
+                  <div
+                    class="YoutubeVideo"
+                  >
+                    <button
+                      aria-label="video label"
+                      class="thumbnail"
+                      type="button"
                     >
                       <div
-                        style="max-width: 948px; display: block;"
+                        class="gatsby-image-wrapper gatsby-image-wrapper-constrained preview-image"
+                        data-gatsby-image-wrapper=""
+                        style="overflow: hidden; display: inline-block;"
                       >
-                        <img
-                          alt=""
+                        <div
+                          style="max-width: 948px; display: block;"
+                        >
+                          <img
+                            alt=""
+                            aria-hidden="true"
+                            role="presentation"
+                            src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                            style="max-width: 100%; display: block; position: static;"
+                          />
+                        </div>
+                        <div
                           aria-hidden="true"
-                          role="presentation"
-                          src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                          style="max-width: 100%; display: block; position: static;"
+                          data-placeholder-image=""
+                          style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+                        />
+                        <picture>
+                          <source
+                            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                            sizes="(min-width: 948px) 948px, 100vw"
+                            type="image/webp"
+                          />
+                          <img
+                            alt="Lorem ipsum"
+                            data-gatsby-image-ssr=""
+                            data-main-image=""
+                            data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                            data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                            decoding="async"
+                            draggable="false"
+                            loading="lazy"
+                            sizes="(min-width: 948px) 948px, 100vw"
+                            style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                          />
+                        </picture>
+                        <noscript />
+                        <script
+                          type="module"
+                        >
+                          const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                        </script>
+                      </div>
+                      <span
+                        class="AlternativeContent"
+                      >
+                        video label
+                      </span>
+                      <div
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiIconButton-label"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M8 5v14l11-7z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
                         />
                       </div>
-                      <div
-                        aria-hidden="true"
-                        data-placeholder-image=""
-                        style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                      />
-                      <picture>
-                        <source
-                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                          sizes="(min-width: 948px) 948px, 100vw"
-                          type="image/webp"
-                        />
-                        <img
-                          alt="Lorem ipsum"
-                          data-gatsby-image-ssr=""
-                          data-main-image=""
-                          data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                          data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                          decoding="async"
-                          draggable="false"
-                          loading="lazy"
-                          sizes="(min-width: 948px) 948px, 100vw"
-                          style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                        />
-                      </picture>
-                      <noscript />
-                      <script
-                        type="module"
-                      >
-                        const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                      </script>
-                    </div>
-                    <span
-                      class="AlternativeContent"
-                    >
-                      video label
-                    </span>
-                    <div
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
-                      role="button"
-                      tabindex="0"
-                    >
-                      <span
-                        class="MuiIconButton-label"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M8 5v14l11-7z"
-                          />
-                        </svg>
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </div>
-                  </button>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

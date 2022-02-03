@@ -7,20 +7,20 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
       class="ProductTechnicalSpec"
     >
       <div
-        class="Accordion Accordion--no-inner-padding"
+        class="accordionStyles-root-15 accordionStyles-no-inner-padding-18"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-16 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="true"
-            class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-19 Mui-expanded accordionStyles-summaryExpanded-20"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content Mui-expanded"
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-21 Mui-expanded accordionStyles-summaryExpanded-20"
             >
               <h6
                 class="MuiTypography-root Typography MuiTypography-h6"
@@ -31,7 +31,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
             <div
               aria-disabled="false"
               aria-hidden="true"
-              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-20 MuiIconButton-edgeEnd"
             >
               <span
                 class="MuiIconButton-label"
@@ -53,7 +53,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-entered"
+            class="MuiCollapse-root MuiCollapse-entered"
             style="min-height: 0px;"
           >
             <div
@@ -113,17 +113,17 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
           </div>
         </div>
         <div
-          class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-16 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="true"
-            class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-19 Mui-expanded accordionStyles-summaryExpanded-20"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content Mui-expanded"
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-21 Mui-expanded accordionStyles-summaryExpanded-20"
             >
               <h6
                 class="MuiTypography-root Typography MuiTypography-h6"
@@ -134,7 +134,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
             <div
               aria-disabled="false"
               aria-hidden="true"
-              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-20 MuiIconButton-edgeEnd"
             >
               <span
                 class="MuiIconButton-label"
@@ -156,7 +156,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-entered"
+            class="MuiCollapse-root MuiCollapse-entered"
             style="min-height: 0px;"
           >
             <div
@@ -228,20 +228,20 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
       class="ProductTechnicalSpec"
     >
       <div
-        class="Accordion Accordion--no-inner-padding"
+        class="accordionStyles-root-1 accordionStyles-no-inner-padding-4"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-2 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="true"
-            class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5 Mui-expanded accordionStyles-summaryExpanded-6"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content Mui-expanded"
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-7 Mui-expanded accordionStyles-summaryExpanded-6"
             >
               <h6
                 class="MuiTypography-root Typography MuiTypography-h6"
@@ -252,7 +252,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
             <div
               aria-disabled="false"
               aria-hidden="true"
-              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-6 MuiIconButton-edgeEnd"
             >
               <span
                 class="MuiIconButton-label"
@@ -274,7 +274,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-entered"
+            class="MuiCollapse-root MuiCollapse-entered"
             style="min-height: 0px;"
           >
             <div
@@ -320,17 +320,17 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
           </div>
         </div>
         <div
-          class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-2 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="true"
-            class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5 Mui-expanded accordionStyles-summaryExpanded-6"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content Mui-expanded"
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-7 Mui-expanded accordionStyles-summaryExpanded-6"
             >
               <h6
                 class="MuiTypography-root Typography MuiTypography-h6"
@@ -341,7 +341,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
             <div
               aria-disabled="false"
               aria-hidden="true"
-              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-6 MuiIconButton-edgeEnd"
             >
               <span
                 class="MuiIconButton-label"
@@ -363,7 +363,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-entered"
+            class="MuiCollapse-root MuiCollapse-entered"
             style="min-height: 0px;"
           >
             <div

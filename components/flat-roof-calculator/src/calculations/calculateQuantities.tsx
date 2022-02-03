@@ -13,6 +13,7 @@ export const calculateQuantities = (
   calculators: Calculators,
   products: Product[]
 ): ResultProduct[] => {
+  // eslint-disable-next-line security/detect-object-injection
   const calculations = calculators[systemName];
 
   if (!calculations) {

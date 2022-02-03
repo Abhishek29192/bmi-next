@@ -6,12 +6,14 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "webpack --mode=production",
+    "check:ts": "tsc",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=handleRequest --port=9058"
   },
   "dependencies": {
-    "@google-cloud/secret-manager": "^3.7.1",
+    "@bmi/functions-logger": "0.0.0",
+    "@bmi/functions-secret-client": "0.0.0",
     "@google-cloud/storage": "^5.7.0",
     "joi": "^17.4.0",
     "node-fetch": "^2.6.1"

@@ -6,7 +6,7 @@ import LanguageSelection, {
   LanguageSelectionList
 } from "@bmi/language-selection";
 import { BMI as BmiIcon } from "@bmi/logo";
-import Clickable, { ClickableProps, ClickableAction } from "@bmi/clickable";
+import Clickable, { ClickableAction, ClickableProps } from "@bmi/clickable";
 import Navigation, {
   LinkList,
   NavigationList,
@@ -14,21 +14,17 @@ import Navigation, {
 } from "@bmi/navigation";
 import Container from "@bmi/container";
 import Typography from "@bmi/typography";
-import {
-  Backdrop,
-  Paper,
-  Slide,
-  Tab as DefaultTab,
-  Tabs
-} from "@material-ui/core";
-import {
-  Close,
-  KeyboardArrowDown,
-  Menu,
-  Search as SearchIcon,
-  ShoppingCartOutlined,
-  ChevronLeft
-} from "@material-ui/icons";
+import DefaultTab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import Backdrop from "@material-ui/core/Backdrop";
+import Paper from "@material-ui/core/Paper";
+import Slide from "@material-ui/core/Slide";
+import ChevronLeft from "@material-ui/icons/ChevronLeft";
+import Close from "@material-ui/icons/Close";
+import KeyboardArrowDown from "@material-ui/icons/KeyboardArrowDown";
+import Menu from "@material-ui/icons/Menu";
+import SearchIcon from "@material-ui/icons/Search";
+import ShoppingCartOutlined from "@material-ui/icons/ShoppingCartOutlined";
 import classnames from "classnames";
 import React, { forwardRef } from "react";
 import styles from "./Header.module.scss";
@@ -95,7 +91,7 @@ const Header = ({
   languageLabel,
   languageIntroduction
 }: HeaderProps) => {
-  const $body =
+  const body =
     typeof document !== "undefined"
       ? document.querySelector("body")
       : undefined;
@@ -111,10 +107,11 @@ const Header = ({
   const elementWidths = getElementWidths(navigation);
 
   const amendClassList = (classValue: string, method: "add" | "remove") => {
-    if (!$body) {
+    if (!body) {
       return;
     }
-    $body.classList[method](classValue);
+    // eslint-disable-next-line security/detect-object-injection
+    body.classList[method](classValue);
   };
 
   const handleChange = (_event: React.ChangeEvent<{}>, newValue: any) => {
@@ -234,11 +231,16 @@ const Header = ({
                   {language.icon &&
                     (typeof language.icon === "string" ? (
                       <img
+                        width="20px"
+                        height="16px"
                         className={styles["language-icon"]}
                         src={language.icon}
+                        alt={language.label}
                       />
                     ) : (
                       <Icon
+                        width="20px"
+                        height="16px"
                         source={language.icon}
                         className={styles["language-icon"]}
                       />

@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
 import Table from "@bmi/table";
 import Button from "@bmi/button";
 import { ProjectMember, Technology } from "@bmi/intouch-api-types";
 import DeleteIcon from "@material-ui/icons/Delete";
-import Check from "@material-ui/icons/Check";
-import AddIcon from "@material-ui/icons/Add";
+import CheckBoxOutlineBlank from "@material-ui/icons/CheckBoxOutlineBlank";
+import CheckBox from "@material-ui/icons/CheckBox";
 import classnames from "classnames";
+import AccessControl from "../../../lib/permissions/AccessControl";
 import TeamMemberCertification from "./TeamMemberCertifications";
 import styles from "./styles.module.scss";
 
 type TeamMemberItemProps = {
   member: ProjectMember;
+  loading: boolean;
   onDeleteClick?: () => void;
   canNominateProjectResponsible?: boolean;
   isSomeResponsibleInstaller?: boolean;
@@ -23,10 +25,18 @@ export const TeamMemberItem = ({
   onDeleteClick,
   canNominateProjectResponsible,
   isSomeResponsibleInstaller,
-  onResponsibleInstallerChange
+  onResponsibleInstallerChange,
+  loading
 }: TeamMemberItemProps) => {
   const { account, isResponsibleInstaller } = member;
+  const [deletingId, setDeletingId] = useState(null);
   const { t } = useTranslation("common");
+
+  const onInternalDelete = (id) => {
+    setDeletingId(id);
+    onDeleteClick();
+  };
+
   return (
     <Table.Row
       data-testid="team-item"
@@ -60,16 +70,21 @@ export const TeamMemberItem = ({
           )}
         />
       </Table.Cell>
-      <Table.Cell>
-        <Button
-          data-testid="team-member-delete"
-          variant="text"
-          isIconButton
-          onClick={onDeleteClick}
-        >
-          <DeleteIcon color="primary" />
-        </Button>
-      </Table.Cell>
+      <AccessControl dataModel="project" action="removeTeamMember">
+        <Table.Cell>
+          <Button
+            key={`delete-btn-member-${member.accountId}`}
+            data-testid="team-member-delete"
+            variant="text"
+            isIconButton
+            onClick={() => onInternalDelete(member.accountId)}
+            disabled={deletingId === member.accountId && loading}
+            className={styles.deleteButton}
+          >
+            <DeleteIcon color="primary" />
+          </Button>
+        </Table.Cell>
+      </AccessControl>
     </Table.Row>
   );
 };
@@ -85,9 +100,9 @@ const responsibleStatusIcons: Record<
   React.ReactElement | null
 > = {
   NONE_RESPONSIBLE: null,
-  SELECTED_RESPONSIBLE: <Check style={{ color: "green" }} />,
-  ADD_RESPONSIBLE: <AddIcon color="action" />,
-  REMOVE_RESPONSIBLE: <Check style={{ color: "green" }} />
+  SELECTED_RESPONSIBLE: <CheckBox style={{ color: "green" }} />,
+  ADD_RESPONSIBLE: <CheckBoxOutlineBlank color="action" />,
+  REMOVE_RESPONSIBLE: <CheckBox style={{ color: "green" }} />
 };
 
 const ResponsibleInstaller = ({

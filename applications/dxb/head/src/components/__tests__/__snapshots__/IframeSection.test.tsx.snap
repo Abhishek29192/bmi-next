@@ -1,39 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`IframeSection component renders correctly 1`] = `
-<div
-  class="IframeSection Section Section--pearl"
->
+<div>
   <div
-    class="Container"
+    class="IframeSection Section Section--pearl"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
-      <h2
-        class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
-      >
-        iFrame Section
-      </h2>
       <div
-        class="summary"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
-        <div
-          class="RichText"
+        <h2
+          class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
         >
-          <p
-            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+          iFrame Section
+        </h2>
+        <div
+          class="summary"
+        >
+          <div
+            class="RichText"
           >
-            Summary
-          </p>
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            >
+              Summary
+            </p>
+          </div>
         </div>
+        <iframe
+          class="iFrame"
+          height="450px"
+          src="https://google.co.uk"
+          width="100%"
+        />
       </div>
-      <iframe
-        class="iFrame"
-        height="450px"
-        src="https://google.co.uk"
-        width="100%"
-      />
     </div>
   </div>
 </div>

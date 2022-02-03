@@ -6,6 +6,7 @@ import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import { Product, SystemLayer } from "../../components/types/pim";
 import { useSiteContext } from "../../components/Site";
 import withGTM from "../../utils/google-tag-manager";
+import { microCopy } from "../../constants/microCopies";
 
 type Props = {
   systemLayers: SystemLayer[];
@@ -70,7 +71,7 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                     {layer.relatedOptionalProducts?.length > 0 && (
                       <Grid item xs={12} md={12} lg={12}>
                         <Typography variant="h5">
-                          {getMicroCopy("sdp.optionalProductsTitle")}
+                          {getMicroCopy(microCopy.SDP_OPTIONAL_PRODUCTS_TITLE)}
                         </Typography>
                       </Grid>
                     )}

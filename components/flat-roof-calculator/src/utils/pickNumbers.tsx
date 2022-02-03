@@ -11,6 +11,7 @@ export const pickNumbers = <T extends object, K extends keyof T>(
   options.reduce(
     (acc, v) => ({
       ...acc,
+      // eslint-disable-next-line security/detect-object-injection
       [v]: getNumber(obj[v])
     }),
     {}

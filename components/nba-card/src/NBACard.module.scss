@@ -13,7 +13,7 @@
   text-align: left;
 
   :global {
-    .MuiLink-root {
+    [class*="MuiLink-root"] {
       text-decoration: none;
     }
   }

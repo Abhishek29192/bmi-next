@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import { withClickable } from "@bmi/clickable";
-import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
+import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import styles from "./Thumbnail.module.scss";
 
 export type Props = ButtonBaseProps & {

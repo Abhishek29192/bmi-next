@@ -31,7 +31,26 @@ describe("ProductGuarantee Component", () => {
       <ProductGuarantee guarantees={mockProductGuarantees} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly when pdf available", () => {
+    const mockProductGuarantees: GetProjectQuery["project"]["guarantees"]["nodes"] =
+      [
+        {
+          id: 1,
+          guaranteeReferenceCode: "FLAT_PRODUCT",
+          coverage: "PRODUCT",
+          status: "APPROVED",
+          productByProductBmiRef: mockProduct
+        }
+      ];
+
+    const { container } = renderWithI18NProvider(
+      <ProductGuarantee guarantees={mockProductGuarantees} />
+    );
+
+    expect(container).toMatchSnapshot();
   });
 
   it("renders multiple guarantee", () => {
@@ -57,6 +76,6 @@ describe("ProductGuarantee Component", () => {
       <ProductGuarantee guarantees={mockProductGuarantees} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

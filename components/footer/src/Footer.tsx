@@ -3,6 +3,7 @@ import DefaultButton, { ClickableAction } from "@bmi/button";
 import Container from "@bmi/container";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
+import { SVGImport } from "@bmi/svg-import";
 import classnames from "classnames";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";

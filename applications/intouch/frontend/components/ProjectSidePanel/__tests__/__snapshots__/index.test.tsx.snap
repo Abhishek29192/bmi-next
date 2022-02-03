@@ -1,536 +1,540 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProjectSidePanel component renders correctly 1`] = `
-<div
-  class="main"
->
+<div>
   <div
-    class="sidePanel"
+    class="main"
   >
     <div
-      class="filters"
+      class="sidePanel"
     >
-      <nav>
-        <div
-          class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
-        >
-          <label
-            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-            data-shrink="false"
-            for="filter"
-            id="filter-label"
-          >
-            search.inputLabel
-          </label>
+      <div
+        class="filters"
+      >
+        <nav>
           <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
           >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-              id="filter"
-              name="filter"
-              type="text"
-              value=""
-            />
-            <div
-              class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              data-shrink="false"
+              for="filter"
+              id="filter-label"
             >
+              search.inputLabel
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                id="filter"
+                name="filter"
+                type="text"
+                value=""
+              />
+              <div
+                class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
+              </div>
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-3"
+                >
+                  <span>
+                    search.inputLabel
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </nav>
+        <div
+          class="filterButtons"
+        >
+          <span>
+            Show me
+            :
+          </span>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-6 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              filters.labels.ALL
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-7 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              filters.labels.NOT_STARTED
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-8 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              filters.labels.IN_PROGRESS
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-9 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              filters.labels.COMPLETED
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-10 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              filters.labels.FLAT
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-11 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              filters.labels.PITCHED
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        class="results"
+      >
+        <div>
+          <button
+            class="MuiButtonBase-root MuiCardActionArea-root"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="MuiCardContent-root main"
+            >
+              <h6
+                class="MuiTypography-root title Typography MuiTypography-h6"
+              >
+                test
+              </h6>
+              <div>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  LONDON, N11 111
+                </p>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                  style="display: flex;"
+                >
+                  <svg
+                    class="technologyIcon"
+                  />
+                  filters.labels.IN_PROGRESS
+                </p>
+              </div>
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root"
+                class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
                 focusable="false"
+                style="font-size: 36px;"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
                 />
               </svg>
             </div>
-            <fieldset
-              aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
-            >
-              <legend
-                class="PrivateNotchedOutline-legendLabelled-3"
-              >
-                <span>
-                  search.inputLabel
-                </span>
-              </legend>
-            </fieldset>
-          </div>
+            <span
+              class="MuiCardActionArea-focusHighlight"
+            />
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
         </div>
-      </nav>
+      </div>
       <div
-        class="filterButtons"
+        class="footerBtn"
       >
-        <span>
-          Show me
-          :
-        </span>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-6 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            filters.labels.ALL
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-7 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            filters.labels.NOT_STARTED
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-8 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            filters.labels.IN_PROGRESS
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-9 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            filters.labels.COMPLETED
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-10 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            filters.labels.FLAT
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-11 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            filters.labels.PITCHED
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+        <div />
       </div>
-    </div>
-    <div
-      class="results"
-    >
-      <div>
-        <button
-          class="MuiButtonBase-root MuiCardActionArea-root"
-          tabindex="0"
-          type="button"
-        >
-          <div
-            class="MuiCardContent-root main"
-          >
-            <h6
-              class="MuiTypography-root title Typography MuiTypography-h6"
-            >
-              test
-            </h6>
-            <div>
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-              >
-                LONDON, N11 111
-              </p>
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-                style="display: flex;"
-              >
-                <svg
-                  class="technologyIcon"
-                />
-                filters.labels.IN_PROGRESS
-              </p>
-            </div>
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
-              focusable="false"
-              style="font-size: 36px;"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-              />
-            </svg>
-          </div>
-          <span
-            class="MuiCardActionArea-focusHighlight"
-          />
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-    </div>
-    <div
-      class="footerBtn"
-    >
-      <div />
     </div>
   </div>
 </div>
 `;
 
 exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
-<div
-  class="main"
->
+<div>
   <div
-    class="sidePanel"
+    class="main"
   >
     <div
-      class="filters"
+      class="sidePanel"
     >
-      <nav>
-        <div
-          class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
-        >
-          <label
-            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-            data-shrink="false"
-            for="filter"
-            id="filter-label"
-          >
-            search.inputLabel
-          </label>
+      <div
+        class="filters"
+      >
+        <nav>
           <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
           >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-              id="filter"
-              name="filter"
-              type="text"
-              value=""
-            />
-            <div
-              class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              data-shrink="false"
+              for="filter"
+              id="filter-label"
             >
+              search.inputLabel
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                id="filter"
+                name="filter"
+                type="text"
+                value=""
+              />
+              <div
+                class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
+              </div>
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-12 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-14"
+                >
+                  <span>
+                    search.inputLabel
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </nav>
+        <div
+          class="filterButtons"
+        >
+          <span>
+            Show me
+            :
+          </span>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-17 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              filters.labels.ALL
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-18 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              filters.labels.NOT_STARTED
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-19 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              filters.labels.IN_PROGRESS
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-20 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              filters.labels.COMPLETED
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-21 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              filters.labels.FLAT
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-22 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              filters.labels.PITCHED
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        class="results"
+      >
+        <div>
+          <button
+            class="MuiButtonBase-root MuiCardActionArea-root"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="MuiCardContent-root main"
+            >
+              <h6
+                class="MuiTypography-root title Typography MuiTypography-h6"
+              >
+                test 1
+              </h6>
+              <div>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  LONDON, N11 111
+                </p>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                  style="display: flex;"
+                >
+                  <svg
+                    class="technologyIcon"
+                  />
+                  filters.labels.COMPLETED
+                </p>
+              </div>
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root"
+                class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
                 focusable="false"
+                style="font-size: 36px;"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
                 />
               </svg>
             </div>
-            <fieldset
-              aria-hidden="true"
-              class="PrivateNotchedOutline-root-12 MuiOutlinedInput-notchedOutline"
-            >
-              <legend
-                class="PrivateNotchedOutline-legendLabelled-14"
-              >
-                <span>
-                  search.inputLabel
-                </span>
-              </legend>
-            </fieldset>
-          </div>
+            <span
+              class="MuiCardActionArea-focusHighlight"
+            />
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
         </div>
-      </nav>
+        <div>
+          <button
+            class="MuiButtonBase-root MuiCardActionArea-root"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="MuiCardContent-root main"
+            >
+              <h6
+                class="MuiTypography-root title Typography MuiTypography-h6"
+              >
+                test 2
+              </h6>
+              <div>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  LONDON, N11 111
+                </p>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                  style="display: flex;"
+                >
+                  <svg
+                    class="technologyIcon"
+                  />
+                  filters.labels.IN_PROGRESS
+                </p>
+              </div>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
+                focusable="false"
+                style="font-size: 36px;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                />
+              </svg>
+            </div>
+            <span
+              class="MuiCardActionArea-focusHighlight"
+            />
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div>
+          <button
+            class="MuiButtonBase-root MuiCardActionArea-root"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="MuiCardContent-root main"
+            >
+              <h6
+                class="MuiTypography-root title Typography MuiTypography-h6"
+              >
+                test 3
+              </h6>
+              <div>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  LONDON, N11 111
+                </p>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                  style="display: flex;"
+                >
+                  <svg
+                    class="technologyIcon"
+                  />
+                  filters.labels.NOT_STARTED
+                </p>
+              </div>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
+                focusable="false"
+                style="font-size: 36px;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                />
+              </svg>
+            </div>
+            <span
+              class="MuiCardActionArea-focusHighlight"
+            />
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
       <div
-        class="filterButtons"
+        class="footerBtn"
       >
-        <span>
-          Show me
-          :
-        </span>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-17 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            filters.labels.ALL
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-18 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            filters.labels.NOT_STARTED
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-19 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            filters.labels.IN_PROGRESS
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-20 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            filters.labels.COMPLETED
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-21 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            filters.labels.FLAT
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-22 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            filters.labels.PITCHED
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+        <div />
       </div>
-    </div>
-    <div
-      class="results"
-    >
-      <div>
-        <button
-          class="MuiButtonBase-root MuiCardActionArea-root"
-          tabindex="0"
-          type="button"
-        >
-          <div
-            class="MuiCardContent-root main"
-          >
-            <h6
-              class="MuiTypography-root title Typography MuiTypography-h6"
-            >
-              test 1
-            </h6>
-            <div>
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-              >
-                LONDON, N11 111
-              </p>
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-                style="display: flex;"
-              >
-                <svg
-                  class="technologyIcon"
-                />
-                filters.labels.COMPLETED
-              </p>
-            </div>
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
-              focusable="false"
-              style="font-size: 36px;"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-              />
-            </svg>
-          </div>
-          <span
-            class="MuiCardActionArea-focusHighlight"
-          />
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-      <div>
-        <button
-          class="MuiButtonBase-root MuiCardActionArea-root"
-          tabindex="0"
-          type="button"
-        >
-          <div
-            class="MuiCardContent-root main"
-          >
-            <h6
-              class="MuiTypography-root title Typography MuiTypography-h6"
-            >
-              test 2
-            </h6>
-            <div>
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-              >
-                LONDON, N11 111
-              </p>
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-                style="display: flex;"
-              >
-                <svg
-                  class="technologyIcon"
-                />
-                filters.labels.IN_PROGRESS
-              </p>
-            </div>
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
-              focusable="false"
-              style="font-size: 36px;"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-              />
-            </svg>
-          </div>
-          <span
-            class="MuiCardActionArea-focusHighlight"
-          />
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-      <div>
-        <button
-          class="MuiButtonBase-root MuiCardActionArea-root"
-          tabindex="0"
-          type="button"
-        >
-          <div
-            class="MuiCardContent-root main"
-          >
-            <h6
-              class="MuiTypography-root title Typography MuiTypography-h6"
-            >
-              test 3
-            </h6>
-            <div>
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-              >
-                LONDON, N11 111
-              </p>
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-                style="display: flex;"
-              >
-                <svg
-                  class="technologyIcon"
-                />
-                filters.labels.NOT_STARTED
-              </p>
-            </div>
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
-              focusable="false"
-              style="font-size: 36px;"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-              />
-            </svg>
-          </div>
-          <span
-            class="MuiCardActionArea-focusHighlight"
-          />
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-    </div>
-    <div
-      class="footerBtn"
-    >
-      <div />
     </div>
   </div>
 </div>

@@ -8,13 +8,11 @@ const fs = require("fs");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const findUp = require("find-up");
 require("graphql-import-node");
-const jsonfile = require("jsonfile");
 const toml = require("toml");
 const { getPathWithCountryCode } = require("./src/utils/path");
 const typeDefs = require("./src/schema/schema.graphql");
 const resolvers = require("./src/schema/resolvers");
 const { createSystemPages } = require("./src/gatsby/systemDetailsPages");
-
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
 });
@@ -32,6 +30,7 @@ const createProductPages = async (
   variantCodeToPathMap
 ) => {
   if (!pimClassificationCatalogueNamespace) {
+    // eslint-disable-next-line no-console
     console.warn(
       "createProductPages: You have to provide a PIM_CLASSIFICATION_CATALOGUE_NAMESPACE in your env file"
     );
@@ -81,6 +80,7 @@ const createProductPages = async (
       const component = componentMap[product.__typename];
 
       if (!component) {
+        // eslint-disable-next-line no-console
         console.warn(
           `CreatePage: Could not map the page to any component. Make sure you handle the __typename [${product.__typename}] with a template.`
         );
@@ -167,13 +167,15 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
 
   const componentMap = {
-    ContentfulSimplePage: path.resolve("./src/templates/simple-page.tsx"),
+    ContentfulSimplePage: path.resolve(
+      "./src/templates/simplePage/components/simple-page.tsx"
+    ),
     ContentfulHomePage: path.resolve("./src/templates/home-page.tsx"),
     ContentfulContactUsPage: path.resolve(
       "./src/templates/contact-us-page.tsx"
     ),
     ContentfulProductListerPage: path.resolve(
-      "./src/templates/product-lister-page.tsx"
+      "./src/templates/productListerPage/components/product-lister-page.tsx"
     ),
     ContentfulDocumentLibraryPage: path.resolve(
       "./src/templates/document-library-page.tsx"
@@ -240,6 +242,7 @@ exports.createPages = async ({ graphql, actions }) => {
         const component = componentMap[page.__typename];
 
         if (!component) {
+          // eslint-disable-next-line no-console
           console.warn(
             "CreatePage: Could not map the page to any component. Make sure you handle the __typename with a template."
           );
@@ -265,21 +268,6 @@ exports.createPages = async ({ graphql, actions }) => {
         });
       })
     );
-
-    if (process.env.NODE_ENV === "development") {
-      const dataFilePath = "./.temp/microCopyKeys.json";
-
-      await createPage({
-        path: getPathWithCountryCode(site.countryCode, `global-reources/`),
-        component: path.resolve("./src/templates/_global-resources.tsx"),
-        context: {
-          siteId: site.id,
-          micropCopyData: fs.existsSync(path.join(__dirname, dataFilePath))
-            ? jsonfile.readFileSync(path.join(__dirname, dataFilePath))
-            : null
-        }
-      });
-    }
 
     await createPage({
       path: getPathWithCountryCode(site.countryCode, `search`),
@@ -336,7 +324,7 @@ exports.createPages = async ({ graphql, actions }) => {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     const redirectsToml = fs.readFileSync(redirectsTomlFile);
 
-    const redirects = toml.parse(redirectsToml);
+    const redirects = toml.parse(redirectsToml.toString());
     redirects.redirects.forEach((redirect) =>
       createRedirect({
         fromPath: redirect.from,
@@ -363,6 +351,7 @@ const areValuesEqual = (a, b) => {
 
 const areDeepEqualObjects = (a, b) =>
   Object.keys(a).length === Object.keys(b).length &&
+  // eslint-disable-next-line security/detect-object-injection
   Object.keys(a).every((key) => areValuesEqual(a[key], b[key]));
 
 exports.onCreateWebpackConfig = ({ actions, stage, getConfig, rules }) => {
@@ -407,5 +396,5 @@ exports.createSchemaCustomization = ({ actions }) => {
 };
 
 exports.createResolvers = ({ createResolvers }) => {
-  createResolvers(resolvers);
+  createResolvers(resolvers.default);
 };

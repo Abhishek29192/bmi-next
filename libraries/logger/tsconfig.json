@@ -3,8 +3,6 @@
   "compilerOptions": {
     "noEmit": false,
     "outDir": "dist",
-    "composite": true,
-    "strict": true,
-    "strictNullChecks": true
+    "composite": true
   }
 }

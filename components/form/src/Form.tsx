@@ -5,7 +5,7 @@ import styles from "./Form.module.scss";
 import SubmitButton from "./_SubmitButton";
 import { InputValue } from "./withFormControl";
 
-type Values = Record<string, InputValue | undefined>;
+export type Values = Record<string, InputValue | undefined>;
 type ValidationPasses = false | "" | null | undefined;
 export type ValidationResult = string | ValidationPasses;
 type Errors = Record<string, ValidationResult>;
@@ -22,11 +22,11 @@ type ContextType = {
   updateFormState: (fieldValues: Values, fieldErrors: Errors) => void;
   hasBeenSubmitted: boolean;
   submitButtonDisabled: boolean;
-  values: object;
+  values: Values;
 };
 
 export const FormContext = React.createContext<ContextType>({
-  updateFormState: (fieldValues, fieldErrors) => {},
+  updateFormState: () => {},
   hasBeenSubmitted: false,
   submitButtonDisabled: false,
   values: {}

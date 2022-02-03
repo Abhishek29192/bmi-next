@@ -104,6 +104,7 @@ const SolutionGuaranteeAlert = ({
         </Typography>
       )}
       <Typography variant="body1">
+        {/* eslint-disable-next-line security/detect-object-injection */}
         {t(`${SolutionGuaranteeValidationErrorMessage[validationError]}`)}
       </Typography>
     </AlertBanner>

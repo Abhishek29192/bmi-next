@@ -37,7 +37,7 @@ describe("TrainingSidePanel component", () => {
         <TrainingSidePanel courseCatalog={courseCatalog} />
       </I18nProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly when no courseCatalog is passed", () => {
     const { container } = render(
@@ -45,7 +45,7 @@ describe("TrainingSidePanel component", () => {
         <TrainingSidePanel courseCatalog={[]} />
       </I18nProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly when no technology is passed", () => {
     const courseCatalog = [
@@ -65,6 +65,6 @@ describe("TrainingSidePanel component", () => {
         <TrainingSidePanel courseCatalog={courseCatalog} />
       </I18nProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

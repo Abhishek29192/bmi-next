@@ -2,11 +2,11 @@
 import path from "path";
 import fs from "fs";
 import mockConsole from "jest-mock-console";
-import { protos } from "@google-cloud/secret-manager";
 import fetchMockJest from "fetch-mock-jest";
 import { when } from "jest-when";
-// Needed until we upgrade to yarn 2 or use an NPM registry - https://github.com/yarnpkg/yarn/issues/6323
-import { mockResponses } from "../../../../libraries/fetch-mocks/src/index";
+import { mockResponses } from "@bmi/fetch-mocks";
+
+jest.mock("@bmi/functions-logger");
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -15,14 +15,9 @@ const resourcesBasePath = `${path.resolve(__dirname)}/resources`;
 const apiSecret = "api_secret";
 const trigger_secret = "trigger_secret";
 
-const accessSecretVersion = jest.fn();
-jest.mock("@google-cloud/secret-manager", () => {
-  const mSecretManagerServiceClient = jest.fn(() => ({
-    accessSecretVersion: (
-      request: protos.google.cloud.secretmanager.v1.IAccessSecretVersionRequest
-    ) => accessSecretVersion(request)
-  }));
-  return { SecretManagerServiceClient: mSecretManagerServiceClient };
+const getSecret = jest.fn();
+jest.mock("@bmi/functions-secret-client", () => {
+  return { getSecret };
 });
 
 const downloadFile = jest.fn();
@@ -94,9 +89,55 @@ describe("When GCP_STORAGE_NAME is not provided", () => {
     expect(fileExists).toBeCalledTimes(0);
     expect(downloadFile).toBeCalledTimes(0);
     expect(filterFunctionMetadata).toBeCalledTimes(0);
-    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     process.env.GCP_STORAGE_NAME = gcpStorageName;
+  });
+});
+
+describe("When TRIGGER_SECRET is not provided", () => {
+  const validFile = "sources/gcp-download-zip.zip";
+  it("throws an error", async () => {
+    const triggerApiSecret = process.env.TRIGGER_SECRET;
+    delete process.env.TRIGGER_SECRET;
+
+    try {
+      await deploy({ name: validFile });
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect(error.message).toEqual("TRIGGER_SECRET has not been set");
+    }
+
+    expect(file).toBeCalledTimes(0);
+    expect(fileExists).toBeCalledTimes(0);
+    expect(downloadFile).toBeCalledTimes(0);
+    expect(filterFunctionMetadata).toBeCalledTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
+    expect(fetchMock).toHaveFetchedTimes(0);
+    process.env.TRIGGER_SECRET = triggerApiSecret;
+  });
+});
+
+describe("When TRIGGER_API_KEY_SECRET is not provided", () => {
+  const validFile = "sources/gcp-download-zip.zip";
+  it("throws an error", async () => {
+    const triggerApiKeySecret = process.env.TRIGGER_API_KEY_SECRET;
+    delete process.env.TRIGGER_API_KEY_SECRET;
+
+    try {
+      await deploy({ name: validFile });
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect(error.message).toEqual("TRIGGER_API_KEY_SECRET has not been set");
+    }
+
+    expect(file).toBeCalledTimes(0);
+    expect(fileExists).toBeCalledTimes(0);
+    expect(downloadFile).toBeCalledTimes(0);
+    expect(filterFunctionMetadata).toBeCalledTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
+    expect(fetchMock).toHaveFetchedTimes(0);
+    process.env.TRIGGER_API_KEY_SECRET = triggerApiKeySecret;
   });
 });
 
@@ -110,7 +151,7 @@ describe("When function is called for an invalid file", () => {
     expect(fileExists).toBeCalledTimes(0);
     expect(downloadFile).toBeCalledTimes(0);
     expect(filterFunctionMetadata).toBeCalledTimes(0);
-    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
   });
 });
@@ -126,7 +167,7 @@ describe("When function is called with a valid file", () => {
     expect(fileExists).toBeCalledTimes(1);
     expect(downloadFile).toBeCalledTimes(0);
     expect(filterFunctionMetadata).toBeCalledTimes(0);
-    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
   });
 
@@ -142,11 +183,11 @@ describe("When function is called with a valid file", () => {
     expect(fileExists).toBeCalledTimes(1);
     expect(downloadFile).toBeCalledTimes(1);
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
-    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
   });
 
-  it("Does nothing if trigger secret returned with undefined payload from secret manager", async () => {
+  it("Does nothing if getSecret throws error for trigger secret", async () => {
     fileExists.mockResolvedValue(true);
     const fileContents = [Buffer.of()];
     downloadFile.mockResolvedValue(fileContents);
@@ -154,11 +195,9 @@ describe("When function is called with a valid file", () => {
       function2Metadata,
       function3Metadata
     ]);
-    when(accessSecretVersion)
-      .calledWith({
-        name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_SECRET}/versions/latest`
-      })
-      .mockReturnValue([{}]);
+    when(getSecret)
+      .calledWith(process.env.TRIGGER_SECRET)
+      .mockRejectedValue(Error("Expected error"));
 
     await deploy({ name: validFile });
 
@@ -166,14 +205,11 @@ describe("When function is called with a valid file", () => {
     expect(fileExists).toBeCalledTimes(1);
     expect(downloadFile).toBeCalledTimes(1);
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_SECRET}/versions/latest`
-    });
-    expect(accessSecretVersion).toBeCalledTimes(1);
+    expect(getSecret).toBeCalledWith(process.env.TRIGGER_SECRET);
     expect(fetchMock).toHaveFetchedTimes(0);
   });
 
-  it("Does nothing if trigger secret returned with undefined data from secret manager", async () => {
+  it("Does nothing if getSecret throws error for trigger API key secret", async () => {
     fileExists.mockResolvedValue(true);
     const fileContents = [Buffer.of()];
     downloadFile.mockResolvedValue(fileContents);
@@ -181,11 +217,12 @@ describe("When function is called with a valid file", () => {
       function2Metadata,
       function3Metadata
     ]);
-    when(accessSecretVersion)
-      .calledWith({
-        name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_SECRET}/versions/latest`
-      })
-      .mockReturnValue([{ payload: {} }]);
+    when(getSecret)
+      .calledWith(process.env.TRIGGER_SECRET)
+      .mockReturnValue(apiSecret);
+    when(getSecret)
+      .calledWith(process.env.TRIGGER_API_KEY_SECRET)
+      .mockRejectedValue(Error("Expected error"));
 
     await deploy({ name: validFile });
 
@@ -193,78 +230,8 @@ describe("When function is called with a valid file", () => {
     expect(fileExists).toBeCalledTimes(1);
     expect(downloadFile).toBeCalledTimes(1);
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_SECRET}/versions/latest`
-    });
-    expect(accessSecretVersion).toBeCalledTimes(1);
-    expect(fetchMock).toHaveFetchedTimes(0);
-  });
-
-  it("Does nothing if trigger API key returned with undefined payload from secret manager", async () => {
-    fileExists.mockResolvedValue(true);
-    const fileContents = [Buffer.of()];
-    downloadFile.mockResolvedValue(fileContents);
-    filterFunctionMetadata.mockReturnValue([
-      function2Metadata,
-      function3Metadata
-    ]);
-    when(accessSecretVersion)
-      .calledWith({
-        name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_SECRET}/versions/latest`
-      })
-      .mockReturnValue([{ payload: { data: apiSecret } }]);
-    when(accessSecretVersion)
-      .calledWith({
-        name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_API_KEY_SECRET}/versions/latest`
-      })
-      .mockReturnValue([{}]);
-
-    await deploy({ name: validFile });
-
-    expect(file).toBeCalledTimes(1);
-    expect(fileExists).toBeCalledTimes(1);
-    expect(downloadFile).toBeCalledTimes(1);
-    expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_SECRET}/versions/latest`
-    });
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_API_KEY_SECRET}/versions/latest`
-    });
-    expect(fetchMock).toHaveFetchedTimes(0);
-  });
-
-  it("Does nothing if trigger API key returned with undefined data from secret manager", async () => {
-    fileExists.mockResolvedValue(true);
-    const fileContents = [Buffer.of()];
-    downloadFile.mockResolvedValue(fileContents);
-    filterFunctionMetadata.mockReturnValue([
-      function2Metadata,
-      function3Metadata
-    ]);
-    when(accessSecretVersion)
-      .calledWith({
-        name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_SECRET}/versions/latest`
-      })
-      .mockReturnValue([{ payload: { data: apiSecret } }]);
-    when(accessSecretVersion)
-      .calledWith({
-        name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_API_KEY_SECRET}/versions/latest`
-      })
-      .mockReturnValue([{ payload: {} }]);
-
-    await deploy({ name: validFile });
-
-    expect(file).toBeCalledTimes(1);
-    expect(fileExists).toBeCalledTimes(1);
-    expect(downloadFile).toBeCalledTimes(1);
-    expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_SECRET}/versions/latest`
-    });
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_API_KEY_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.TRIGGER_SECRET);
+    expect(getSecret).toBeCalledWith(process.env.TRIGGER_API_KEY_SECRET);
     expect(fetchMock).toHaveFetchedTimes(0);
   });
 
@@ -276,16 +243,12 @@ describe("When function is called with a valid file", () => {
       function2Metadata,
       function3Metadata
     ]);
-    when(accessSecretVersion)
-      .calledWith({
-        name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_SECRET}/versions/latest`
-      })
-      .mockReturnValue([{ payload: { data: trigger_secret } }]);
-    when(accessSecretVersion)
-      .calledWith({
-        name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_API_KEY_SECRET}/versions/latest`
-      })
-      .mockReturnValue([{ payload: { data: apiSecret } }]);
+    when(getSecret)
+      .calledWith(process.env.TRIGGER_SECRET)
+      .mockReturnValue(trigger_secret);
+    when(getSecret)
+      .calledWith(process.env.TRIGGER_API_KEY_SECRET)
+      .mockReturnValue(apiSecret);
     const triggerName = "gcp-download-zip-trigger";
 
     mockResponses(fetchMock, {
@@ -302,12 +265,8 @@ describe("When function is called with a valid file", () => {
     expect(fileExists).toBeCalledTimes(1);
     expect(downloadFile).toBeCalledTimes(1);
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_SECRET}/versions/latest`
-    });
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_API_KEY_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.TRIGGER_SECRET);
+    expect(getSecret).toBeCalledWith(process.env.TRIGGER_API_KEY_SECRET);
     expect(fetchMock).toHaveFetchedTimes(
       1,
       `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
@@ -335,16 +294,12 @@ describe("When function is called with a valid file", () => {
       function2Metadata,
       function3Metadata
     ]);
-    when(accessSecretVersion)
-      .calledWith({
-        name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_SECRET}/versions/latest`
-      })
-      .mockReturnValue([{ payload: { data: trigger_secret } }]);
-    when(accessSecretVersion)
-      .calledWith({
-        name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_API_KEY_SECRET}/versions/latest`
-      })
-      .mockReturnValue([{ payload: { data: apiSecret } }]);
+    when(getSecret)
+      .calledWith(process.env.TRIGGER_SECRET)
+      .mockReturnValue(trigger_secret);
+    when(getSecret)
+      .calledWith(process.env.TRIGGER_API_KEY_SECRET)
+      .mockReturnValue(apiSecret);
     const triggerName = "gcp-download-zip-trigger";
 
     mockResponses(fetchMock, {
@@ -360,12 +315,8 @@ describe("When function is called with a valid file", () => {
     expect(fileExists).toBeCalledTimes(1);
     expect(downloadFile).toBeCalledTimes(1);
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_SECRET}/versions/latest`
-    });
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.TRIGGER_API_KEY_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.TRIGGER_SECRET);
+    expect(getSecret).toBeCalledWith(process.env.TRIGGER_API_KEY_SECRET);
     expect(fetchMock).toHaveFetchedTimes(
       1,
       `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,

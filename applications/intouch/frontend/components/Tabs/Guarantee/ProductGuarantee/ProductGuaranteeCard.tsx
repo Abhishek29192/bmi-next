@@ -28,27 +28,27 @@ const ProductGuaranteeCard = ({
         <Typography variant="subtitle2">{description}</Typography>
       </div>
       <ProductCard products={[product]} />
-      {guaranteeFileUrl && (
-        <div
-          className={styles.productCard__footer}
-          data-testid="guarantee-pdf-item"
+
+      <div
+        className={styles.productCard__footer}
+        data-testid="guarantee-pdf-item"
+      >
+        <Button
+          variant="outlined"
+          action={{
+            model: "htmlLink",
+            href: guaranteeFileUrl,
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }}
+          disabled={!guaranteeFileUrl}
+          startIcon={
+            <Icon className={styles.productCard__logo} source={FilePDF} />
+          }
         >
-          <Button
-            variant="outlined"
-            action={{
-              model: "htmlLink",
-              href: guaranteeFileUrl,
-              target: "_blank",
-              rel: "noopener noreferrer"
-            }}
-            startIcon={
-              <Icon className={styles.productCard__logo} source={FilePDF} />
-            }
-          >
-            {t("common:Download")}
-          </Button>
-        </div>
-      )}
+          {guaranteeFileUrl ? t("common:Download") : t("common:generatingPdf")}
+        </Button>
+      </div>
     </div>
   );
 };

@@ -1,56 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Hero component renders level 0 with keyline for brand  1`] = `
-<div
-  class="Hero Hero--slim Hero--carousel Hero--keyline"
->
+<div>
   <div
-    class="Container"
+    class="Hero Hero--slim Hero--carousel Hero--keyline"
   >
     <div
-      class="MuiContainer-root container MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="wrapper"
+        class="MuiContainer-root container MuiContainer-maxWidthXl"
       >
         <div
           class="wrapper"
         >
           <div
-            class="Carousel Carousel--opacity Carousel--swipable"
-            data-testid="carousel"
+            class="wrapper"
           >
             <div
-              style="overflow-x: hidden;"
+              class="Carousel Carousel--opacity Carousel--swipable"
+              data-testid="carousel"
             >
               <div
-                class="react-swipeable-view-container"
-                style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+                style="overflow-x: hidden;"
               >
                 <div
-                  aria-hidden="false"
-                  class="Carousel__slide--global"
-                  data-swipeable="true"
-                  style="width: 100%; flex-shrink: 0; overflow: auto;"
+                  class="react-swipeable-view-container"
+                  style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
                 >
                   <div
-                    class="page"
+                    aria-hidden="false"
+                    class="Carousel__slide--global"
+                    data-swipeable="true"
+                    style="width: 100%; flex-shrink: 0; overflow: auto;"
                   >
                     <div
-                      class="slide"
-                      style="width: 100%;"
+                      class="page"
                     >
                       <div
-                        class="content"
+                        class="slide"
+                        style="width: 100%;"
                       >
-                        <h1
-                          class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
-                        >
-                          Title
-                        </h1>
                         <div
-                          class="text"
-                        />
+                          class="content"
+                        >
+                          <h1
+                            class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+                          >
+                            Title
+                          </h1>
+                          <div
+                            class="text"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -58,73 +60,73 @@ exports[`Hero component renders level 0 with keyline for brand  1`] = `
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="SlideControls SlideControls--light controls"
-        >
-          <span
-            class="middle-container"
+          <div
+            class="SlideControls SlideControls--light controls"
           >
             <span
-              class="sliding-slot"
+              class="middle-container"
             >
               <span
-                class="numbers"
+                class="sliding-slot"
               >
                 <span
-                  class="number number--active"
+                  class="numbers"
                 >
-                  01
+                  <span
+                    class="number number--active"
+                  >
+                    01
+                  </span>
                 </span>
               </span>
+              <span
+                class="total"
+              >
+                01
+              </span>
             </span>
-            <span
-              class="total"
-            >
-              01
-            </span>
-          </span>
+          </div>
+          <div
+            class="children"
+          />
         </div>
-        <div
-          class="children"
-        />
       </div>
     </div>
-  </div>
-  <div
-    class="image-carousel"
-  >
     <div
-      class="wrapper"
+      class="image-carousel"
     >
       <div
-        class="Carousel Carousel--swipable"
-        data-testid="carousel"
+        class="wrapper"
       >
         <div
-          style="overflow-x: hidden;"
+          class="Carousel Carousel--swipable"
+          data-testid="carousel"
         >
           <div
-            class="react-swipeable-view-container"
-            style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+            style="overflow-x: hidden;"
           >
             <div
-              aria-hidden="false"
-              class="Carousel__slide--global"
-              data-swipeable="true"
-              style="width: 100%; flex-shrink: 0; overflow: auto;"
+              class="react-swipeable-view-container"
+              style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
             >
               <div
-                class="page"
+                aria-hidden="false"
+                class="Carousel__slide--global"
+                data-swipeable="true"
+                style="width: 100%; flex-shrink: 0; overflow: auto;"
               >
                 <div
-                  class="slide"
-                  style="width: 100%;"
+                  class="page"
                 >
                   <div
-                    class="image"
-                    style="background-image: url(path-to-image);"
-                  />
+                    class="slide"
+                    style="width: 100%;"
+                  >
+                    <div
+                      class="image"
+                      style="background-image: url(path-to-image);"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -137,117 +139,123 @@ exports[`Hero component renders level 0 with keyline for brand  1`] = `
 `;
 
 exports[`Hero component renders level 1 1`] = `
-<div
-  class="Hero Hero--lvl-1"
->
+<div>
   <div
-    class="Container"
+    class="Hero Hero--lvl-1"
   >
     <div
-      class="MuiContainer-root container MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="wrapper"
+        class="MuiContainer-root container MuiContainer-maxWidthXl"
       >
         <div
-          class="content"
+          class="wrapper"
         >
-          <h1
-            class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
-          >
-            H1 Heading
-          </h1>
           <div
-            class="text"
+            class="content"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
+            <h1
+              class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+            >
+              H1 Heading
+            </h1>
+            <div
+              class="text"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <img
+      alt="Lorem ipsum"
+      class="image Media"
+      src="path-to-image"
+    />
   </div>
-  <img
-    alt="Lorem ipsum"
-    class="image Media"
-    src="path-to-image"
-  />
 </div>
 `;
 
 exports[`Hero component renders level 1 with CTA 1`] = `
-<div
-  class="Hero Hero--lvl-1"
->
+<div>
   <div
-    class="Container"
+    class="Hero Hero--lvl-1"
   >
     <div
-      class="MuiContainer-root container MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="wrapper"
+        class="MuiContainer-root container MuiContainer-maxWidthXl"
       >
         <div
-          class="content"
+          class="wrapper"
         >
-          <h1
-            class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
-          >
-            H1 Heading
-          </h1>
           <div
-            class="text"
+            class="content"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
-          </div>
-          <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-outlinedDarkBg-7 cta MuiButton-outlinedPrimary"
-            label="CTA action"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label buttonStyles-label-4"
+            <h1
+              class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
             >
-              CTA action
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
+              H1 Heading
+            </h1>
+            <div
+              class="text"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
+            </div>
+            <button
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-outlinedDarkBg-7 cta MuiButton-outlinedPrimary"
+              label="CTA action"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label buttonStyles-label-4"
+              >
+                CTA action
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>
+    <img
+      alt="Lorem ipsum"
+      class="image Media"
+      src="path-to-image"
+    />
   </div>
-  <img
-    alt="Lorem ipsum"
-    class="image Media"
-    src="path-to-image"
-  />
 </div>
 `;
 
 exports[`Hero component renders level 1 with keyline for brand  1`] = `
-<div
-  class="Hero Hero--keyline Hero--light Hero--slim Hero--lvl-3"
->
+<div>
   <div
-    class="Container"
+    class="Hero Hero--keyline Hero--light Hero--slim Hero--lvl-3"
   >
     <div
-      class="MuiContainer-root container MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="wrapper"
+        class="MuiContainer-root container MuiContainer-maxWidthXl"
       >
         <div
-          class="content"
+          class="wrapper"
         >
-          <h1
-            class="MuiTypography-root title title--truncated Typography Typography--underline MuiTypography-h1"
+          <div
+            class="content"
           >
-            H1 Heading
-          </h1>
+            <h1
+              class="MuiTypography-root title title--truncated Typography Typography--underline MuiTypography-h1"
+            >
+              H1 Heading
+            </h1>
+          </div>
         </div>
       </div>
     </div>
@@ -256,26 +264,28 @@ exports[`Hero component renders level 1 with keyline for brand  1`] = `
 `;
 
 exports[`Hero component renders level 1 with keyline for brand if brand 1`] = `
-<div
-  class="Hero Hero--keyline Hero--light Hero--slim Hero--lvl-3"
->
+<div>
   <div
-    class="Container"
+    class="Hero Hero--keyline Hero--light Hero--slim Hero--lvl-3"
   >
     <div
-      class="MuiContainer-root container MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="wrapper"
+        class="MuiContainer-root container MuiContainer-maxWidthXl"
       >
         <div
-          class="content"
+          class="wrapper"
         >
-          <h1
-            class="MuiTypography-root title title--truncated Typography Typography--underline MuiTypography-h1"
+          <div
+            class="content"
           >
-            H1 Heading
-          </h1>
+            <h1
+              class="MuiTypography-root title title--truncated Typography Typography--underline MuiTypography-h1"
+            >
+              H1 Heading
+            </h1>
+          </div>
         </div>
       </div>
     </div>
@@ -284,26 +294,28 @@ exports[`Hero component renders level 1 with keyline for brand if brand 1`] = `
 `;
 
 exports[`Hero component renders level 2 1`] = `
-<div
-  class="Hero Hero--slim Hero--lvl-2"
->
+<div>
   <div
-    class="Container"
+    class="Hero Hero--slim Hero--lvl-2"
   >
     <div
-      class="MuiContainer-root container MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="wrapper"
+        class="MuiContainer-root container MuiContainer-maxWidthXl"
       >
         <div
-          class="content"
+          class="wrapper"
         >
-          <h1
-            class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+          <div
+            class="content"
           >
-            H1 Heading
-          </h1>
+            <h1
+              class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+            >
+              H1 Heading
+            </h1>
+          </div>
         </div>
       </div>
     </div>
@@ -312,26 +324,28 @@ exports[`Hero component renders level 2 1`] = `
 `;
 
 exports[`Hero component renders level 3 1`] = `
-<div
-  class="Hero Hero--light Hero--slim Hero--lvl-3"
->
+<div>
   <div
-    class="Container"
+    class="Hero Hero--light Hero--slim Hero--lvl-3"
   >
     <div
-      class="MuiContainer-root container MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="wrapper"
+        class="MuiContainer-root container MuiContainer-maxWidthXl"
       >
         <div
-          class="content"
+          class="wrapper"
         >
-          <h1
-            class="MuiTypography-root title title--truncated Typography Typography--underline MuiTypography-h1"
+          <div
+            class="content"
           >
-            H1 Heading
-          </h1>
+            <h1
+              class="MuiTypography-root title title--truncated Typography Typography--underline MuiTypography-h1"
+            >
+              H1 Heading
+            </h1>
+          </div>
         </div>
       </div>
     </div>
@@ -340,133 +354,139 @@ exports[`Hero component renders level 3 1`] = `
 `;
 
 exports[`Hero component renders with deprecated imageSource - not string 1`] = `
-<div
-  class="Hero Hero--lvl-1"
->
+<div>
   <div
-    class="Container"
+    class="Hero Hero--lvl-1"
   >
     <div
-      class="MuiContainer-root container MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="wrapper"
-      >
-        <div
-          class="content"
-        >
-          <h1
-            class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
-          >
-            H1 Heading
-          </h1>
-          <div
-            class="text"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="image"
-  >
-    <img
-      src="path-to-image"
-    />
-  </div>
-</div>
-`;
-
-exports[`Hero component renders with deprecated imageSource 1`] = `
-<div
-  class="Hero Hero--lvl-1"
->
-  <div
-    class="Container"
-  >
-    <div
-      class="MuiContainer-root container MuiContainer-maxWidthXl"
-    >
-      <div
-        class="wrapper"
-      >
-        <div
-          class="content"
-        >
-          <h1
-            class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
-          >
-            H1 Heading
-          </h1>
-          <div
-            class="text"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="image"
-    style="background-image: url(path-to-image);"
-  />
-</div>
-`;
-
-exports[`Hero component renders with no underline for brand 1`] = `
-<div
-  class="Hero Hero--slim Hero--carousel Hero--keyline"
->
-  <div
-    class="Container"
-  >
-    <div
-      class="MuiContainer-root container MuiContainer-maxWidthXl"
-    >
-      <div
-        class="wrapper"
+        class="MuiContainer-root container MuiContainer-maxWidthXl"
       >
         <div
           class="wrapper"
         >
           <div
-            class="Carousel Carousel--opacity Carousel--swipable"
-            data-testid="carousel"
+            class="content"
+          >
+            <h1
+              class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+            >
+              H1 Heading
+            </h1>
+            <div
+              class="text"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="image"
+    >
+      <img
+        src="path-to-image"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Hero component renders with deprecated imageSource 1`] = `
+<div>
+  <div
+    class="Hero Hero--lvl-1"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root container MuiContainer-maxWidthXl"
+      >
+        <div
+          class="wrapper"
+        >
+          <div
+            class="content"
+          >
+            <h1
+              class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+            >
+              H1 Heading
+            </h1>
+            <div
+              class="text"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="image"
+      style="background-image: url(path-to-image);"
+    />
+  </div>
+</div>
+`;
+
+exports[`Hero component renders with no underline for brand 1`] = `
+<div>
+  <div
+    class="Hero Hero--slim Hero--carousel Hero--keyline"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root container MuiContainer-maxWidthXl"
+      >
+        <div
+          class="wrapper"
+        >
+          <div
+            class="wrapper"
           >
             <div
-              style="overflow-x: hidden;"
+              class="Carousel Carousel--opacity Carousel--swipable"
+              data-testid="carousel"
             >
               <div
-                class="react-swipeable-view-container"
-                style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+                style="overflow-x: hidden;"
               >
                 <div
-                  aria-hidden="false"
-                  class="Carousel__slide--global"
-                  data-swipeable="true"
-                  style="width: 100%; flex-shrink: 0; overflow: auto;"
+                  class="react-swipeable-view-container"
+                  style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
                 >
                   <div
-                    class="page"
+                    aria-hidden="false"
+                    class="Carousel__slide--global"
+                    data-swipeable="true"
+                    style="width: 100%; flex-shrink: 0; overflow: auto;"
                   >
                     <div
-                      class="slide"
-                      style="width: 100%;"
+                      class="page"
                     >
                       <div
-                        class="content"
+                        class="slide"
+                        style="width: 100%;"
                       >
-                        <h1
-                          class="MuiTypography-root title title--truncated Typography MuiTypography-h1"
-                        >
-                          Title
-                        </h1>
                         <div
-                          class="text-no-underline"
-                        />
+                          class="content"
+                        >
+                          <h1
+                            class="MuiTypography-root title title--truncated Typography MuiTypography-h1"
+                          >
+                            Title
+                          </h1>
+                          <div
+                            class="text-no-underline"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -474,73 +494,73 @@ exports[`Hero component renders with no underline for brand 1`] = `
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="SlideControls SlideControls--light controls"
-        >
-          <span
-            class="middle-container"
+          <div
+            class="SlideControls SlideControls--light controls"
           >
             <span
-              class="sliding-slot"
+              class="middle-container"
             >
               <span
-                class="numbers"
+                class="sliding-slot"
               >
                 <span
-                  class="number number--active"
+                  class="numbers"
                 >
-                  01
+                  <span
+                    class="number number--active"
+                  >
+                    01
+                  </span>
                 </span>
               </span>
+              <span
+                class="total"
+              >
+                01
+              </span>
             </span>
-            <span
-              class="total"
-            >
-              01
-            </span>
-          </span>
+          </div>
+          <div
+            class="children"
+          />
         </div>
-        <div
-          class="children"
-        />
       </div>
     </div>
-  </div>
-  <div
-    class="image-carousel"
-  >
     <div
-      class="wrapper"
+      class="image-carousel"
     >
       <div
-        class="Carousel Carousel--swipable"
-        data-testid="carousel"
+        class="wrapper"
       >
         <div
-          style="overflow-x: hidden;"
+          class="Carousel Carousel--swipable"
+          data-testid="carousel"
         >
           <div
-            class="react-swipeable-view-container"
-            style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+            style="overflow-x: hidden;"
           >
             <div
-              aria-hidden="false"
-              class="Carousel__slide--global"
-              data-swipeable="true"
-              style="width: 100%; flex-shrink: 0; overflow: auto;"
+              class="react-swipeable-view-container"
+              style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
             >
               <div
-                class="page"
+                aria-hidden="false"
+                class="Carousel__slide--global"
+                data-swipeable="true"
+                style="width: 100%; flex-shrink: 0; overflow: auto;"
               >
                 <div
-                  class="slide"
-                  style="width: 100%;"
+                  class="page"
                 >
                   <div
-                    class="image"
-                    style="background-image: url(path-to-image);"
-                  />
+                    class="slide"
+                    style="width: 100%;"
+                  >
+                    <div
+                      class="image"
+                      style="background-image: url(path-to-image);"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

@@ -1,19 +1,20 @@
-import React, { createContext, useState, ReactNode } from "react";
+import React, { createContext, Suspense, useState } from "react";
 import queryString from "query-string";
-import Visualiser, {
-  Parameters,
-  tilesSetData,
-  sidingsSetData
-} from "@bmi/visualiser";
-import { navigate, graphql } from "gatsby";
+import { Parameters } from "@bmi/visualiser/src/Visualiser";
+import sidingsSetData from "@bmi/visualiser/data/sidings.json";
+import tilesSetData from "@bmi/visualiser/data/tiles.json";
+import { Tile } from "@bmi/visualiser/src/Types";
+import { graphql, navigate } from "gatsby";
 import { navigate as navigateWithParams, useLocation } from "@reach/router";
 import { devLog } from "../utils/devLog";
 import { getProductUrl } from "../utils/product-details-transforms";
-import { pushToDataLayer, GTMContext } from "../utils/google-tag-manager";
+import { GTMContext, pushToDataLayer } from "../utils/google-tag-manager";
 import { useSiteContext } from "./Site";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "./ShareWidgetSection";
+
+const Visualiser = React.lazy(() => import("@bmi/visualiser"));
 
 type Context = {
   isOpen: boolean;
@@ -119,6 +120,7 @@ const VisualiserProvider = ({
 
     pushToDataLayer({
       event: "dxb.button_click",
+      // eslint-disable-next-line security/detect-object-injection
       id: GtmEventsMap[type],
       label,
       action: productPath ? productPath : calculatePathFromData(params)
@@ -154,22 +156,26 @@ const VisualiserProvider = ({
     <VisualiserContext.Provider value={{ isOpen, open }}>
       {children}
 
-      <Visualiser
-        open={isOpen}
-        contentSource={contentSource}
-        onChange={(params) => handleOnChange(params)}
-        onClose={() => setIsOpen(false)}
-        tiles={tilesSetData}
-        sidings={sidingsSetData}
-        {...parsedQueryParameters}
-        {...parameters}
-        shareWidget={
-          shareWidgetData ? (
-            <ShareWidgetSectionWithContext data={shareWidgetData} />
-          ) : undefined
-        }
-        onClick={handleOnClick}
-      />
+      {!(typeof window === "undefined") && isOpen ? (
+        <Suspense fallback={<div>Loading...</div>}>
+          <Visualiser
+            open={isOpen}
+            contentSource={contentSource}
+            onChange={(params) => handleOnChange(params)}
+            onClose={() => setIsOpen(false)}
+            tiles={tilesSetData.tiles as Tile[]}
+            sidings={sidingsSetData.sidings}
+            {...parsedQueryParameters}
+            {...parameters}
+            shareWidget={
+              shareWidgetData ? (
+                <ShareWidgetSectionWithContext data={shareWidgetData} />
+              ) : undefined
+            }
+            onClick={handleOnClick}
+          />
+        </Suspense>
+      ) : undefined}
     </VisualiserContext.Provider>
   );
 };

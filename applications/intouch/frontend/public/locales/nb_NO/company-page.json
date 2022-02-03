@@ -1,160 +1,165 @@
 {
-  "titleMember": "Bedrift",
-  "titleAdmin": "Bedrifter",
+  "businessType": {
+    "ARCHITECT": "Arkitekt",
+    "CONTRACTOR": "Håndverker",
+    "CORP_DEVELOPER": "Eiendomsutvikler",
+    "MERCHANT": "Forhandler"
+  },
+  "certificationsTitle": "BMI -sertifiseringer",
+  "companyActions": {
+    "activate": "Aktiver selskapet",
+    "deactivate": "Deaktiver selskapet"
+  },
+  "companyActionsTitle": "Selskapets handlinger",
+  "companyOperations": "Operasjonstype",
+  "companyOperationsSuffix": "Taktype",
   "details": {
-    "title": "Firmadetaljer",
-    "name": "Firmanavn",
     "aboutUs": "Om oss",
-    "tradingAddress": "Adresse til hovedkontoret",
-    "owner": "Bedriftseier",
     "contactDetails": "Kontaktopplysninger",
-    "registeredDetails": "Registrerte detaljer",
+    "name": "Firmanavn",
+    "owner": "Bedriftseier",
+    "phone": "Telefon",
     "referenceNumber": "Firmaets referansenummer",
     "registeredAddress": "Registrert adresse",
+    "registeredDetails": "Registrerte detaljer",
     "taxNumber": "Bedriftens VAT-nummer",
-    "phone": "Telefon"
+    "title": "Firmadetaljer",
+    "tradingAddress": "Adresse til hovedkontoret"
+  },
+  "document": {
+    "addDocument": "Legg til dokument",
+    "confirmDialog": {
+      "body": "Slett dokument?",
+      "cancelLabel": "Avbryt",
+      "confirmLabel": "Bekrefte",
+      "title": "Firmadokument"
+    },
+    "headers": {
+      "date": "Dato",
+      "document": "Dokument",
+      "download": "NEDLASTING"
+    },
+    "noContent": "Ingen dokumenter lastet opp ennå",
+    "title": "Firmadokumenter",
+    "uploadDialog": {
+      "buttonLabel": "Last opp filer",
+      "cancelLabel": "Avbryt",
+      "confirmLabel": "Last opp filer",
+      "evidence_category": "Beviskategori",
+      "fileAlreadyExisting": "Filnavnet finnes allerede",
+      "fileValidationMessage": "Du kan ikke laste opp filer som er større enn {{fileSize}}",
+      "genericError": "Generisk feil",
+      "instruction": "Du kan legge til filer",
+      "microcopy": {
+        "browse": "Bla gjennom",
+        "drop": "Miste"
+      },
+      "title": "Dokumentopplasting"
+    }
+  },
+  "edit_dialog": {
+    "form": {
+      "actions": {
+        "cancel": "Avbryt",
+        "submit": "Lagre og lukk"
+      },
+      "fields": {
+        "aboutUs": "Om oss (valgfri)",
+        "businessType": "Selskapsform",
+        "facebook": "Facebook profil (valgfri)",
+        "linkedIn": "Linkedin-profil (valgfri)",
+        "logo": {
+          "alt_text": "Firma logo",
+          "buttons": {
+            "remove": "Fjern",
+            "upload": "Last opp nytt bilde"
+          },
+          "fileSizeMessage": "Maks filstørrelse 3 mb.",
+          "fileTypesMessage": "Du kan laste opp jpg-, gif- eller png -filer.",
+          "label": "Logo"
+        },
+        "name": "Registrert navn",
+        "ownerFullname": "Navn (valgfri)",
+        "operationTypes": "Operasjonstyper",
+        "ownerEmail": "E-mail adresse (valgfri)",
+        "ownerPhone": "Telefon (valgfri)",
+        "phone": "Telefon (valgfri)",
+        "publicEmail": "E-mail adresse (valgfri)",
+        "registeredAddress": {
+          "coordinates": {
+            "x": "Breddegrad",
+            "y": "Lengdegrad"
+          },
+          "country": "Land",
+          "firstLine": "Adresse linje 1",
+          "postcode": "Postnummer/ Sted",
+          "region": "Område",
+          "secondLine": "Adresse linje 2",
+          "town": "By"
+        },
+        "taxNumber": "Bedriftens VAT-nummer",
+        "tier": "Nivå",
+        "tradingAddress": {
+          "autocomplete": "Postnummer, by eller gate",
+          "coordinates": {
+            "x": "Breddegrad",
+            "y": "Lengdegrad"
+          },
+          "country": "Land",
+          "firstLine": "Adresse linje 1",
+          "postcode": "Postnummer/ Sted",
+          "region": "Område",
+          "secondLine": "Adresse linje 2",
+          "town": "By"
+        },
+        "website": "Firma nettside (valgfri)"
+      },
+      "maxCharacters": "Maks 255 tegn"
+    },
+    "sections": {
+      "contact_details": "Kontaktopplysninger",
+      "owner_details": "Bedriftseier detaljer",
+      "registered_details": "Registrerte detaljer",
+      "trading_address": "Handelsadresse",
+      "trading_address_description": "Vennligst oppgi din handelsadresse for å vises på BMIGroup.com 'Finn din takpartner' lokalisator for at bygningseiere kan kontakte deg om dine tjenester",
+      "trading_address_fields_heading": "Kontaktopplysninger"
+    },
+    "title": "Registrerte detaljer"
+  },
+  "errorCompanyNameUniqueViolation": "Navnet er allerede brukt",
+  "errorCompanyReferenceUniqueViolation": "Nummeret er allerede brukt",
+  "errorUniqueViolation": "Ikke unikt",
+  "incompleteProfile": {
+    "closeAlertAccessibilityLabel": "Lukk",
+    "fields": {
+      "aboutUs": "Beskrivelse",
+      "logo": "Logo",
+      "phone": "Telefon",
+      "publicEmail": "Email",
+      "tradingAddress": "Adresse til hovedkontoret"
+    },
+    "warning": "For å ta del av BMI Finn din takpartner, vennligst oppgi nødvendig informasjon som er oppført nedenfor."
   },
   "noCompanies": "Markedet har ingen selskaper ennå",
+  "operationTypes": {
+    "BITUMEN": "bitumen",
+    "COATER": "Takmålning",
+    "FLAT": "Flatt tak",
+    "GREEN": "Grønn",
+    "PITCHED": "Skråtak",
+    "SOLAR": "Solar PV tak",
+    "TILE": "Flis"
+  },
+  "register_dialog": {
+    "title": "Registrer"
+  },
+  "report": "Last ned selskapsliste",
   "search": {
     "inputLabel": "Search for a company",
     "profileComplete": "Profilen er fullført",
     "profileIncomplete": "Profilen er ufullstendig"
   },
   "supportTitle": "Kontakt BMI RoofPro -teamet",
-  "certificationsTitle": "BMI -sertifiseringer",
-  "incompleteProfile": {
-    "fields": {
-      "phone": "Telefon",
-      "publicEmail": "Email",
-      "aboutUs": "Beskrivelse",
-      "tradingAddress": "Adresse til hovedkontoret",
-      "logo": "Logo"
-    },
-    "warning": "For å ta del av BMI Finn din takpartner, vennligst oppgi nødvendig informasjon som er oppført nedenfor.",
-    "closeAlertAccessibilityLabel": "Lukk"
-  },
-  "businessType": {
-    "CONTRACTOR": "Entreprenør",
-    "ARCHITECT": "Arkitekt",
-    "MERCHANT": "Kjøpmann",
-    "CORP_DEVELOPER": "Utvikler"
-  },
-  "companyOperations": "Operasjonstype",
-  "companyOperationsSuffix": "Taktype",
-  "operationTypes": {
-    "FLAT": "Flate tak",
-    "PITCHED": "Skråtak",
-    "SOLAR": "Solar PV tak",
-    "BITUMEN": "bitumen",
-    "TILE": "Flis",
-    "COATER": "Takmålning",
-    "GREEN": "Grønn"
-  },
-  "companyActionsTitle": "Selskapets handlinger",
-  "companyActions": {
-    "activate": "Aktiver selskapet",
-    "deactivate": "Deaktiver selskapet"
-  },
-  "register_dialog": {
-    "title": "Registrer"
-  },
-  "edit_dialog": {
-    "title": "Registrerte detaljer",
-    "sections": {
-      "registered_details": "Registrerte detaljer",
-      "trading_address": "Handelsadresse",
-      "trading_address_fields_heading": "Kontaktopplysninger",
-      "trading_address_description": "Vennligst oppgi din handelsadresse for å vises på BMIGroup.com 'Finn din takpartner' lokalisator for at bygningseiere kan kontakte deg om dine tjenester",
-      "contact_details": "Kontaktopplysninger",
-      "owner_details": "Bedriftseier detaljer"
-    },
-    "form": {
-      "fields": {
-        "name": "Registrert navn",
-        "registeredAddress": {
-          "firstLine": "Adresse linje 1",
-          "secondLine": "Adresse linje 2 (valgfri)",
-          "town": "By",
-          "postcode": "Postnummer/ Sted",
-          "region": "Område (valgfri)",
-          "country": "Land",
-          "coordinates": {
-            "x": "Breddegrad",
-            "y": "Lengdegrad"
-          }
-        },
-        "tradingAddress": {
-          "autocomplete": "Postnummer, by eller gate",
-          "firstLine": "Adresse linje 1 (valgfri)",
-          "secondLine": "Adresse linje 2 (valgfri)",
-          "town": "By (valgfri)",
-          "postcode": "Postnummer/ Sted (valgfri)",
-          "region": "Område (valgfri)",
-          "country": "Land (valgfri)",
-          "coordinates": {
-            "x": "Breddegrad",
-            "y": "Lengdegrad"
-          }
-        },
-        "logo": {
-          "label": "Logo (valgfri)",
-          "alt_text": "Firma logo",
-          "buttons": {
-            "upload": "Last opp nytt bilde",
-            "remove": "Fjern"
-          },
-          "fileTypesMessage": "Du kan laste opp jpg-, gif- eller png -filer.",
-          "fileSizeMessage": "Maks filstørrelse 3 mb."
-        },
-        "taxNumber": "Bedriftens VAT-nummer",
-        "businessType": "Selskapsform",
-        "operationTypes": "Operasjonstyper",
-        "tier": "Nivå",
-        "aboutUs": "Om oss (valgfri)",
-        "phone": "Telefon (valgfri)",
-        "website": "Firma nettside (valgfri)",
-        "facebook": "Facebook profil (valgfri)",
-        "publicEmail": "E-mail adresse (valgfri)",
-        "linkedIn": "Linkedin-profil (valgfri)",
-        "ownerPhone": "Telefon (valgfri)",
-        "ownerEmail": "E-mail adresse (valgfri)"
-      },
-      "actions": {
-        "submit": "Lagre og lukk",
-        "cancel": "Avbryt"
-      }
-    }
-  },
-  "report": "Last ned selskapsliste",
-  "document": {
-    "title": "Firmadokumenter",
-    "noContent": "Ingen dokumenter lastet opp ennå",
-    "addDocument": "Legg til dokument",
-    "headers": {
-      "document": "Dokument",
-      "date": "Dato",
-      "download": "NEDLASTING"
-    },
-    "uploadDialog": {
-      "title": "Dokumentopplasting",
-      "buttonLabel": "Last opp filer",
-      "microcopy": {
-        "drop": "Miste",
-        "browse": "Bla gjennom"
-      },
-      "instruction": "Du kan legge til filer",
-      "confirmLabel": "Last opp filer",
-      "cancelLabel": "Avbryt",
-      "fileValidationMessage": "Du kan ikke laste opp filer som er større enn {{fileSize}}"
-    },
-    "confirmDialog": {
-      "title": "Firmadokument",
-      "body": "Slett dokument?",
-      "confirmLabel": "Bekrefte",
-      "cancelLabel": "Avbryt"
-    }
-  },
-  "errorCompanyNameUniqueViolation": "Firma med samme navn eksisterer allerede",
-  "errorCompanyReferenceUniqueViolation": "Firma med referansenummeret eksisterer allerede",
-  "errorUniqueViolation": "Unikt bruddproblem"
+  "titleAdmin": "Bedrifter",
+  "titleMember": "Bedrift"
 }

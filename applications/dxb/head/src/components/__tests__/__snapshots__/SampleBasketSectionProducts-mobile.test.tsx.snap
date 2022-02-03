@@ -1,209 +1,211 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SampleBasketSectionProducts component render correctly on mobile devices renders correctly for mobile 1`] = `
-<div
-  class="SampleBasketSectionProducts"
->
-  <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
-    tabindex="0"
-    type="button"
+<div>
+  <div
+    class="SampleBasketSectionProducts"
   >
-    <img
-      alt="sample"
-      class="product-image header-picture Media"
-      style="object-fit: contain; object-position: center;"
-    />
-    <div
-      class="body"
+    <button
+      class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
+      tabindex="0"
+      type="button"
     >
-      <h4
-        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+      <img
+        alt="sample"
+        class="product-image header-picture Media"
+        style="object-fit: contain; object-position: center;"
       />
       <div
-        class="children text children--without-margin"
+        class="body"
       >
+        <h4
+          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+        />
         <div
-          class="product"
+          class="children text children--without-margin"
         >
           <div
-            class="product-description"
+            class="product"
           >
-            <p
-              class="MuiTypography-root product-title Typography MuiTypography-body1"
+            <div
+              class="product-description"
             >
-              sample
-            </p>
-            <p
-              class="MuiTypography-root product-color Typography MuiTypography-body1"
-            />
-            <p
-              class="MuiTypography-root product-size Typography MuiTypography-body1"
-            />
-          </div>
-          <button
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 product-button"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiIconButton-label"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
+              <p
+                class="MuiTypography-root product-title Typography MuiTypography-body1"
               >
-                <path
-                  d="M19 13H5v-2h14v2z"
-                />
-              </svg>
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
+                sample
+              </p>
+              <p
+                class="MuiTypography-root product-color Typography MuiTypography-body1"
+              />
+              <p
+                class="MuiTypography-root product-size Typography MuiTypography-body1"
+              />
+            </div>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 product-button"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 13H5v-2h14v2z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
-  <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
-    tabindex="0"
-    type="button"
-  >
-    <img
-      alt="sample"
-      class="product-image header-picture Media"
-      style="object-fit: contain; object-position: center;"
-    />
-    <div
-      class="body"
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <button
+      class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
+      tabindex="0"
+      type="button"
     >
-      <h4
-        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+      <img
+        alt="sample"
+        class="product-image header-picture Media"
+        style="object-fit: contain; object-position: center;"
       />
       <div
-        class="children text children--without-margin"
+        class="body"
       >
+        <h4
+          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+        />
         <div
-          class="product"
+          class="children text children--without-margin"
         >
           <div
-            class="product-description"
+            class="product"
           >
-            <p
-              class="MuiTypography-root product-title Typography MuiTypography-body1"
+            <div
+              class="product-description"
             >
-              sample
-            </p>
-            <p
-              class="MuiTypography-root product-color Typography MuiTypography-body1"
-            />
-            <p
-              class="MuiTypography-root product-size Typography MuiTypography-body1"
-            />
-          </div>
-          <button
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 product-button"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiIconButton-label"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
+              <p
+                class="MuiTypography-root product-title Typography MuiTypography-body1"
               >
-                <path
-                  d="M19 13H5v-2h14v2z"
-                />
-              </svg>
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
+                sample
+              </p>
+              <p
+                class="MuiTypography-root product-color Typography MuiTypography-body1"
+              />
+              <p
+                class="MuiTypography-root product-size Typography MuiTypography-body1"
+              />
+            </div>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 product-button"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 13H5v-2h14v2z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
-  <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
-    tabindex="0"
-    type="button"
-  >
-    <img
-      alt="sample"
-      class="product-image header-picture Media"
-      style="object-fit: contain; object-position: center;"
-    />
-    <div
-      class="body"
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <button
+      class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
+      tabindex="0"
+      type="button"
     >
-      <h4
-        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+      <img
+        alt="sample"
+        class="product-image header-picture Media"
+        style="object-fit: contain; object-position: center;"
       />
       <div
-        class="children text children--without-margin"
+        class="body"
       >
+        <h4
+          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+        />
         <div
-          class="product"
+          class="children text children--without-margin"
         >
           <div
-            class="product-description"
+            class="product"
           >
-            <p
-              class="MuiTypography-root product-title Typography MuiTypography-body1"
+            <div
+              class="product-description"
             >
-              sample
-            </p>
-            <p
-              class="MuiTypography-root product-color Typography MuiTypography-body1"
-            />
-            <p
-              class="MuiTypography-root product-size Typography MuiTypography-body1"
-            />
-          </div>
-          <button
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 product-button"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiIconButton-label"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
+              <p
+                class="MuiTypography-root product-title Typography MuiTypography-body1"
               >
-                <path
-                  d="M19 13H5v-2h14v2z"
-                />
-              </svg>
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
+                sample
+              </p>
+              <p
+                class="MuiTypography-root product-color Typography MuiTypography-body1"
+              />
+              <p
+                class="MuiTypography-root product-size Typography MuiTypography-body1"
+              />
+            </div>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 product-button"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 13H5v-2h14v2z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
 </div>
 `;

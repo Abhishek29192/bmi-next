@@ -3,14 +3,15 @@ import axios from "axios";
 import MockDate from "mockdate";
 import { render } from "@testing-library/react";
 import KeyAssetTypesDownloadSection, {
-  mapAssetToCommonData,
-  handleDownloadClick
+  handleDownloadClick,
+  mapAssetToCommonData
 } from "../KeyAssetTypesDownloadSection";
 import * as ClientDownloadUtils from "../../utils/client-download";
 import createContentfulDocument from "../../__tests__/ContentfulDocumentHelper";
 import createPimDocument from "../../__tests__/PimDocumentHelper";
 import createPimLinkDocument from "../../__tests__/PimLinkDocumentHelper";
 import createAssetType from "../../__tests__/AssetTypeHelper";
+import { FileContentTypeEnum } from "../types/pim";
 
 jest.mock("axios");
 
@@ -31,7 +32,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
       file: {
         url: "http://doesnot-exist.com/fileName",
         fileName: `fileName.pdf`,
-        contentType: "",
+        contentType: "" as FileContentTypeEnum,
         details: {
           size: 89898
         }
@@ -49,7 +50,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
         file: {
           url: "http://doesnot-exist.com/fileName",
           fileName: "test.pdf",
-          contentType: "application/pdf",
+          contentType: FileContentTypeEnum.APPLICATION_PDF,
           details: {
             size: 89898
           }
@@ -66,7 +67,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
         file: {
           url: "http://doesnot-exist.com/fileName",
           fileName: "test1.pdf",
-          contentType: "application/pdf",
+          contentType: FileContentTypeEnum.APPLICATION_PDF,
           details: {
             size: 89897
           }
@@ -83,7 +84,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
         file: {
           url: "http://doesnot-exist.com/fileName",
           fileName: "test2.pdf",
-          contentType: "application/pdf",
+          contentType: FileContentTypeEnum.APPLICATION_PDF,
           details: {
             size: 89896
           }
@@ -100,7 +101,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
       />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   describe("handleDownloadClick function", () => {

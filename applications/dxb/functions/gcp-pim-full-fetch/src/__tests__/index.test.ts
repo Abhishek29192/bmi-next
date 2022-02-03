@@ -1,16 +1,17 @@
 import mockConsole from "jest-mock-console";
 import { Request, Response } from "express";
+import { mockRequest, mockResponse } from "@bmi/fetch-mocks";
+import { PimTypes } from "@bmi/pim-api";
 import {
-  mockRequest,
-  mockResponse
-} from "../../../../../../libraries/fetch-mocks/src/index";
-import { handleRequest as realHandleRequest } from "..";
+  createProduct,
+  createProductsApiResponse,
+  createSystemsApiResponse
+} from "@bmi/pim-types";
 import { createFullFetchRequest } from "./helpers/fullFetchHelper";
-import { createProductsApiResponse } from "./helpers/pimHelper";
 
 const fetchData = jest.fn();
-jest.mock("../pim", () => {
-  const pim = jest.requireActual("../pim");
+jest.mock("@bmi/pim-api", () => {
+  const pim = jest.requireActual("@bmi/pim-api");
   return {
     ...pim,
     fetchData: (...args: any) => fetchData(...args)
@@ -32,6 +33,8 @@ beforeAll(() => {
 });
 
 beforeEach(() => {
+  process.env.GCP_PROJECT_ID = "TEST_GCP_PROJECT_ID";
+  process.env.TRANSITIONAL_TOPIC_NAME = "TEST_TRANSITIONAL_TOPIC_NAME";
   jest.resetAllMocks();
   jest.resetModules();
 });
@@ -39,9 +42,44 @@ beforeEach(() => {
 const handleRequest = (
   request: Partial<Request>,
   response: Partial<Response>
-) => realHandleRequest(request as Request, response as Response);
+) =>
+  require("../index").handleRequest(request as Request, response as Response);
 
 describe("handleRequest", () => {
+  it("should return 500 if GCP_PROJECT_ID is not set", async () => {
+    const originalGcpProjectId = process.env.GCP_PROJECT_ID;
+    delete process.env.GCP_PROJECT_ID;
+
+    const fullFetchRequest = createFullFetchRequest();
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(fetchData).toHaveBeenCalledTimes(0);
+    expect(publish).toHaveBeenCalledTimes(0);
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+
+    process.env.GCP_PROJECT_ID = originalGcpProjectId;
+  });
+
+  it("should return 500 if TRANSITIONAL_TOPIC_NAME is not set", async () => {
+    const originalTransitionalTopicName = process.env.TRANSITIONAL_TOPIC_NAME;
+    delete process.env.TRANSITIONAL_TOPIC_NAME;
+
+    const fullFetchRequest = createFullFetchRequest();
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(fetchData).toHaveBeenCalledTimes(0);
+    expect(publish).toHaveBeenCalledTimes(0);
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+
+    process.env.TRANSITIONAL_TOPIC_NAME = originalTransitionalTopicName;
+  });
+
   it("should return 400 if body is not provided", async () => {
     const request = mockRequest("POST");
     const response = mockResponse();
@@ -201,7 +239,7 @@ describe("handleRequest", () => {
     );
   });
 
-  it("should publish data to pub/sub", async () => {
+  it("should publish products data to pub/sub", async () => {
     const productsApiResponse = createProductsApiResponse();
     fetchData.mockReturnValue(productsApiResponse);
     const fullFetchRequest = createFullFetchRequest();
@@ -226,12 +264,37 @@ describe("handleRequest", () => {
     expect(response.sendStatus).toHaveBeenCalledWith(200);
   });
 
+  it("should publish systems data to pub/sub", async () => {
+    const systemsApiResponse = createSystemsApiResponse();
+    fetchData.mockReturnValue(systemsApiResponse);
+    const fullFetchRequest = createFullFetchRequest({ type: PimTypes.Systems });
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(fetchData).toHaveBeenCalledWith(
+      fullFetchRequest.type,
+      fullFetchRequest.startPage
+    );
+    expect(publish).toHaveBeenCalledWith(
+      Buffer.from(
+        JSON.stringify({
+          type: "UPDATED",
+          itemType: fullFetchRequest.type.toUpperCase(),
+          items: systemsApiResponse.systems
+        })
+      )
+    );
+    expect(response.sendStatus).toHaveBeenCalledWith(200);
+  });
+
   it("should publish data from multiple pages to pub/sub", async () => {
     const productsApiResponse1 = createProductsApiResponse({
-      products: [{ id: 1 }]
+      products: [createProduct({ code: "1" })]
     });
     const productsApiResponse2 = createProductsApiResponse({
-      products: [{ id: 2 }]
+      products: [createProduct({ code: "2" })]
     });
     fetchData
       .mockReturnValueOnce(productsApiResponse1)

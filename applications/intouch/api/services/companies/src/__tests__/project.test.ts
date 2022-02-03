@@ -290,7 +290,7 @@ describe("Project", () => {
 
         try {
           await actAs(client, account);
-          const { rows: deletedRows } = await client.query(
+          await client.query(
             "delete from project_member where account_id = $1 returning id",
             [otherInstallerAccount.id]
           );

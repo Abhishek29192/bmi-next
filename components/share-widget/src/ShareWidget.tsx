@@ -1,15 +1,13 @@
 import DefaultButton from "@bmi/button";
 import Icon from "@bmi/icon";
 import Typography from "@bmi/typography";
-import { Tooltip } from "@material-ui/core";
-import {
-  Email,
-  Facebook,
-  FileCopyOutlined,
-  LinkedIn,
-  Pinterest,
-  Twitter
-} from "@material-ui/icons";
+import Tooltip from "@material-ui/core/Tooltip";
+import Email from "@material-ui/icons/Email";
+import Facebook from "@material-ui/icons/Facebook";
+import FileCopyOutlined from "@material-ui/icons/FileCopyOutlined";
+import LinkedIn from "@material-ui/icons/LinkedIn";
+import Pinterest from "@material-ui/icons/Pinterest";
+import Twitter from "@material-ui/icons/Twitter";
 import classnames from "classnames";
 import React, { MouseEvent, useEffect, useState } from "react";
 import styles from "./ShareWidget.module.scss";

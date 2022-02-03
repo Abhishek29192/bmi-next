@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo component renders AeroDek correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Awak correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders BMI correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders BMI_Academy_DE correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders BMI_Academy_EN correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders BMIAcademy correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Braas correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Bramac correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Cobert correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Coverland correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Esha correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Everguard correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Everlite correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders GuaranteeProduct correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders GuaranteeSolution correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders GuaranteeSystem correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Icopal correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders IcopalKatto correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Monarflex correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Monarplan correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Monier correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Necoflex correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Ormax correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Redland correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders RoofPro correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders RoofProElite correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders RoofProExpert correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders RoofProPartner correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders RoofProPartnerSmall correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders RoofProServiceTeam correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Sealoflex correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Siplast correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Standard correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders StandardCentred correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders StandardPale correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Sunscape correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Vedag correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Villas correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Wierer correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Wolfin correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;
+
+exports[`Logo component renders Zanda correctly 1`] = `
+<div>
+  <svg />
+</div>
+`;

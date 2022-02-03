@@ -1,7 +1,6 @@
 import { Readable } from "stream";
 import { FetchMockStatic, MockOptions, MockResponseObject } from "fetch-mock";
 import { Request, Response as ExpressResponse } from "express";
-import { Headers } from "node-fetch";
 
 export const mockRequest = (
   method: Request["method"],
@@ -14,11 +13,12 @@ export const mockRequest = (
     headers: headers,
     url: url,
     body: body,
+    // eslint-disable-next-line security/detect-object-injection
     header: jest.fn().mockImplementation((name: string) => headers[name])
   };
 };
 
-export const mockResponse = () => {
+export const mockResponse = (): Partial<ExpressResponse> => {
   const res: Partial<ExpressResponse> = {};
   res.send = jest.fn().mockReturnValue(res);
   res.status = jest.fn().mockReturnValue(res);
@@ -33,6 +33,7 @@ export const mockResponse = () => {
 
 export interface MockedResponse {
   url: MockOptions["url"];
+  requestHeaders?: MockOptions["headers"];
   requestBody?: MockOptions["body"];
   method: MockOptions["method"];
   body?: MockResponseObject["body"] | Response["body"];
@@ -67,6 +68,7 @@ export const mockResponses = (
           !(mockedResponse.body instanceof Readable) && !!mockedResponse.body,
         repeat: mockedResponse.repeat,
         overwriteRoutes: false,
+        headers: mockedResponse.requestHeaders,
         body: mockedResponse.requestBody
       }
     );

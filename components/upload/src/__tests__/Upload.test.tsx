@@ -1,5 +1,6 @@
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
+import { FormContext } from "@bmi/form";
 import mediaQuery from "css-mediaquery";
 import axios from "axios";
 import Upload from "../";
@@ -42,22 +43,9 @@ describe("Upload component", () => {
         microcopyProvider={{ test: "test" }}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
-  it("renders correctly with error", () => {
-    const { container } = render(
-      <Upload
-        id="default-upload"
-        name="default-upload"
-        uri={uri}
-        mapBody={mapBody}
-        mapValue={mapValue}
-        getValidationError={(_) => "This error is always displayed"}
-        microcopyProvider={{ test: "test" }}
-      />
-    );
-    expect(container.firstChild).toMatchSnapshot();
-  });
+
   it("renders correctly with buttonLabel", () => {
     const { container } = render(
       <Upload
@@ -70,7 +58,23 @@ describe("Upload component", () => {
         microcopyProvider={{ test: "test" }}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly with defaultExpanded", () => {
+    const { container } = render(
+      <Upload
+        id="default-upload"
+        name="default-upload"
+        buttonLabel="Choose files"
+        defaultExpanded
+        uri={uri}
+        mapBody={mapBody}
+        mapValue={mapValue}
+        microcopyProvider={{ test: "test" }}
+      />
+    );
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with description", () => {
     const { container } = render(
@@ -85,7 +89,7 @@ describe("Upload component", () => {
         microcopyProvider={{ test: "test" }}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with restricted file types", () => {
     const { container } = render(
@@ -100,7 +104,7 @@ describe("Upload component", () => {
         microcopyProvider={{ test: "test" }}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("onChange handler is called", async () => {
     axios.post = jest.fn().mockResolvedValue({
@@ -116,7 +120,7 @@ describe("Upload component", () => {
       .mockReturnValue({ token: "this", cancel: () => {} });
 
     const onChange = jest.fn();
-    const { getByTestId, container } = render(
+    const { getByTestId } = render(
       <Upload
         id="onchange-mock-upload"
         name="onchange-mock-upload"
@@ -136,12 +140,32 @@ describe("Upload component", () => {
       }
     });
 
-    const deleteButton = await waitFor(() => getByTestId("file-delete"));
-
-    fireEvent.click(deleteButton);
-
-    expect(container.firstChild).toMatchSnapshot();
+    expect(onChange).toHaveBeenCalledTimes(2);
   });
+
+  it("onChange handler is called if event.target.files is null", async () => {
+    const onChange = jest.fn();
+    const { getByTestId } = render(
+      <Upload
+        id="onchange-mock-upload"
+        name="onchange-mock-upload"
+        buttonLabel="Upload here"
+        uri={uri}
+        mapBody={mapBody}
+        mapValue={mapValue}
+        onChange={onChange}
+        microcopyProvider={{ test: "test" }}
+      />
+    );
+    const input = getByTestId("onchange-mock-upload");
+
+    fireEvent.change(input, {
+      target: { files: null }
+    });
+
+    expect(onChange).toHaveBeenCalledTimes(2);
+  });
+
   it("onChange handler is called on file drop", async () => {
     axios.post = jest.fn().mockResolvedValue({
       data: {
@@ -200,7 +224,131 @@ describe("Upload component", () => {
         }
       }
     });
-    expect(await waitFor(() => onChange.mock.calls)).toMatchSnapshot();
+    expect(onChange).toHaveBeenCalledTimes(2);
+  });
+
+  it("onChange handler is called correctly on file drop if file type present among acceptedTypes", async () => {
+    axios.post = jest.fn().mockResolvedValue({
+      data: {
+        sys: {
+          type: "file"
+        }
+      }
+    });
+
+    axios.CancelToken.source = jest
+      .fn()
+      .mockReturnValue({ token: "this", cancel: () => {} });
+
+    const onChange = jest.fn();
+    const id = "drop-upload";
+    const buttonLabel = "Upload here";
+
+    // @ts-ignore Only used for testing.
+    window.matchMedia = createMatchMedia(1280);
+
+    const { getByTestId, getByText } = render(
+      <Upload
+        accept=".pdf"
+        id={id}
+        name={id}
+        buttonLabel={buttonLabel}
+        uri={uri}
+        mapBody={mapBody}
+        mapValue={mapValue}
+        onChange={onChange}
+        microcopyProvider={{ test: "test" }}
+      />
+    );
+
+    const accordionLabel = getByText(buttonLabel);
+
+    fireEvent.click(accordionLabel);
+
+    const dropZone = getByTestId(`drop-zone-${id}`);
+
+    fireEvent.dragEnter(dropZone);
+    fireEvent.dragOver(dropZone);
+    fireEvent.dragLeave(dropZone);
+
+    let file: DataTransferItem = {
+      kind: "file",
+      getAsFile: () => new File([], "example"),
+      getAsString: jest.fn(),
+      webkitGetAsEntry: jest.fn(),
+      type: ".pdf"
+    };
+    fireEvent.drop(dropZone, {
+      dataTransfer: {
+        items: {
+          0: file,
+          length: 1
+        }
+      }
+    });
+    expect(onChange).toHaveBeenCalledTimes(2);
+  });
+
+  it("onChange handler is called correctly on file drop if file type not present among acceptedTypes", async () => {
+    axios.post = jest.fn().mockResolvedValue({
+      data: {
+        sys: {
+          type: "file"
+        }
+      }
+    });
+
+    axios.CancelToken.source = jest
+      .fn()
+      .mockReturnValue({ token: "this", cancel: () => {} });
+
+    const onChange = jest.fn();
+    const id = "drop-upload";
+    const buttonLabel = "Upload here";
+
+    // @ts-ignore Only used for testing.
+    window.matchMedia = createMatchMedia(1280);
+
+    const { getByTestId, getByText } = render(
+      <Upload
+        accept=".pdf"
+        id={id}
+        name={id}
+        buttonLabel={buttonLabel}
+        uri={uri}
+        mapBody={mapBody}
+        mapValue={mapValue}
+        onChange={onChange}
+        microcopyProvider={{ test: "test" }}
+      />
+    );
+
+    const accordionLabel = getByText(buttonLabel);
+
+    fireEvent.click(accordionLabel);
+
+    const dropZone = getByTestId(`drop-zone-${id}`);
+
+    fireEvent.dragEnter(dropZone);
+    fireEvent.dragOver(dropZone);
+    fireEvent.dragLeave(dropZone);
+
+    let file: DataTransferItem = {
+      kind: "file",
+      getAsFile: () => new File([], "example"),
+      getAsString: jest.fn(),
+      webkitGetAsEntry: jest.fn(),
+      type: ""
+    };
+    fireEvent.drop(dropZone, {
+      dataTransfer: {
+        items: {
+          0: file,
+          length: 1
+        }
+      }
+    });
+    expect(onChange).toHaveBeenCalledTimes(2);
   });
   it("renders correctly on mobile", () => {
     // @ts-ignore Only used for testing.
@@ -218,7 +366,7 @@ describe("Upload component", () => {
       />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("onFilesChange handler is called", async () => {
     const onFilesChange = jest.fn((files) => {});
@@ -246,7 +394,7 @@ describe("Upload component", () => {
   });
 
   it("render correctly with value", async () => {
-    const { getAllByTestId } = render(
+    const { container } = render(
       <Upload
         id="onFilesChange-mock-upload"
         name="onFilesChange-mock-upload"
@@ -260,6 +408,61 @@ describe("Upload component", () => {
         ]}
       />
     );
-    expect(getAllByTestId("test-file")).toHaveLength(2);
+    expect(container).toMatchSnapshot();
+  });
+
+  it("render correctly with error", async () => {
+    const { container, getByTestId, rerender } = render(
+      <Upload
+        isRequired
+        fieldIsRequiredError="fieldIsRequiredError"
+        errorText="errorText"
+        id="onFilesChange-mock-upload"
+        name="onFilesChange-mock-upload"
+        buttonLabel="Upload here"
+        error
+        mapBody={mapBody}
+        mapValue={mapValue}
+        microcopyProvider={{ test: "test" }}
+      />
+    );
+    const input = getByTestId("onFilesChange-mock-upload");
+
+    fireEvent.change(input, {
+      target: {
+        files: [new File([], "name", { type: "image" })]
+      }
+    });
+
+    expect(container).toMatchSnapshot();
+
+    const deleteButton = await waitFor(() => getByTestId("file-delete"));
+
+    fireEvent.click(deleteButton);
+
+    rerender(
+      <FormContext.Provider
+        value={{
+          hasBeenSubmitted: true,
+          updateFormState: jest.fn(),
+          submitButtonDisabled: false,
+          values: {}
+        }}
+      >
+        <Upload
+          isRequired
+          fieldIsRequiredError="fieldIsRequiredError"
+          errorText="errorText"
+          id="onFilesChange-mock-upload"
+          name="onFilesChange-mock-upload"
+          buttonLabel="Upload here"
+          error
+          mapBody={mapBody}
+          mapValue={mapValue}
+          microcopyProvider={{ test: "test" }}
+        />
+      </FormContext.Provider>
+    );
+    expect(container).toMatchSnapshot();
   });
 });

@@ -1,4 +1,4 @@
-import { Product as PIMProduct, System } from "./pim";
+import { Product as PIMProduct, System } from "@bmi/pim-types";
 
 type Message = {
   type: string;

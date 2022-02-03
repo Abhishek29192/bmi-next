@@ -1,0 +1,368 @@
+{
+  "CUSTOM": "Bevis for udførelse",
+  "MISCELLANEOUS": "Tilføj dokument",
+  "PROOF_OF_PURCHASE": "Købsdokumentation",
+  "Projects": "Projekter",
+  "addProject": {
+    "cta": "Opret projekt",
+    "dialog": {
+      "form": {
+        "actions": {
+          "submit": "Gem og luk"
+        },
+        "fields": {
+          "description": "Projektbeskrivelse (valgfri)",
+          "endDate": "Slutdato (forventet)",
+          "name": "Projektnavn",
+          "roofArea": "Samlet tagareal (m2)",
+          "siteAddress": {
+            "country": "Land",
+            "firstLine": "Adresselinje 1",
+            "postcode": "Postnummer",
+            "region": "Region (valgfri)",
+            "secondLine": "Adresselinje 2 (valgfri)",
+            "town": "By"
+          },
+          "startDate": "Hvornår",
+          "technology": "Tagtype"
+        },
+        "hints": {
+          "technology": {
+            "FLAT": "Et tag dækket med en bituminøs eller syntetisk membran. Det er normalt vandret og fladt.",
+            "PITCHED": "Et tag dækket med betontagsten, tegltagsten eller ståltag. Normalt er det skrånende."
+          }
+        },
+        "values": {
+          "technology": {
+            "FLAT": "Tagpap",
+            "PITCHED": "Skråt tag"
+          }
+        }
+      },
+      "sections": {
+        "dates": {
+          "title": "Projektperiode"
+        },
+        "projectDetails": {
+          "title": "Projektoplysninger"
+        },
+        "siteAddress": {
+          "title": "Projektadresse"
+        }
+      },
+      "title": "Opret projekt"
+    }
+  },
+  "buildingOwnerDetails": {
+    "address": "Adresse",
+    "company": "Virksomhed",
+    "edit": {
+      "description": "Du kan tilføje detaljer om bygningsejer senere, før du ansøger om garanti.",
+      "form": {
+        "actions": {
+          "submit": "Gem og luk"
+        },
+        "fields": {
+          "buildingOwnerAddress": {
+            "country": "Land",
+            "firstLine": "Adresselinje 1",
+            "postcode": "Postnummer",
+            "region": "Region (valgfri)",
+            "secondLine": "Adresselinje 2 (valgfri)",
+            "town": "By"
+          },
+          "buildingOwnerCompany": "Virksomhedsnavn (valgfri)",
+          "buildingOwnerFirstname": "Fornavn",
+          "buildingOwnerLastname": "Efternavn",
+          "buildingOwnerMail": "E-mail"
+        }
+      },
+      "sections": {
+        "buildingOwnerAddress": {
+          "title": "Adresse"
+        },
+        "contactDetails": {
+          "title": "Kontaktinformation"
+        }
+      },
+      "title": "Ejeroplysninger"
+    },
+    "email": "E-mail",
+    "name": "Navn",
+    "noContent": "Ejeroplysninger er ikke tilføjet projektet",
+    "title": "Ejeroplysninger"
+  },
+  "building_owner": {
+    "address": "Bygningsejerens adresse",
+    "contact_detail": "Bygningsejerens navn",
+    "email": "E-mail til bygningsejer",
+    "title": "Ejeroplysninger"
+  },
+  "filters": {
+    "labels": {
+      "ALL": "Alle",
+      "ASSIGNED": "Tildelt",
+      "COMPLETED": "Færdig",
+      "FLAT": "Fladt tag",
+      "IN_PROGRESS": "I gang",
+      "MY_QUEUE": "Min kø",
+      "NOT_STARTED": "Ikke startet",
+      "PITCHED": "Skråt Tag",
+      "UNASSIGNED": "Ikke tildelt"
+    }
+  },
+  "guarantee": {
+    "incompleteGuaranteeAlert": {
+      "description": "For at tilmelde dig en garanti skal du tilføje en certificeret installatør og uploade det nødvendige bevis for udførelse.",
+      "title": "Oplysninger påkrævet"
+    },
+    "notRequested": "Ikke efterspurgt",
+    "status": {
+      "APPROVED": "Godkendt",
+      "NOT_APPLICABLE": "N/A",
+      "READY": "Parat",
+      "REJECTED": "Vendt tilbage",
+      "REVIEW": "Indsendt",
+      "STARTED": "Startede",
+      "SUBMITTED": "Indsendt"
+    },
+    "type": {
+      "PRODUCT": "Produktgaranti",
+      "SOLUTION": "Løsnings Garanti",
+      "SYSTEM": "System Garanti"
+    }
+  },
+  "guaranteeApplyAlert": {
+    "message": {
+      "buildingOwner": "Ejeroplysninger er ikke fuldstændige",
+      "guaranteeType": "Garantitype er ikke defineret",
+      "projectDetails": "Projektdetaljerne er ikke fuldstændige",
+      "tier": "Du er ikke på et niveau, der understøtter garantier"
+    },
+    "title": "Du kan ikke søge om garanti endnu"
+  },
+  "guaranteeSubmitAlert": {
+    "message": {
+      "buildingOwner": "Ejeroplysninger ufuldstændige",
+      "certification": "Den udpegede ansvarlige installatør skal være certificeret i samme teknologi som projektet (tagpap eller skråt tag)",
+      "guaranteeType": "Garantitype er ikke defineret",
+      "minumumEvidence": "Utilstrækkeligt bevis uploadet",
+      "notApplicable": "Garantien gælder ikke",
+      "projectDetails": "Projektdetaljer ufuldstændige",
+      "responsibleInstaller": "Vælg en ansvarlig installatør, der er certificeret i samme teknologi som projektet (tagpap eller skråt tag)",
+      "tier": "Du er ikke på et niveau, der understøtter garantier"
+    },
+    "title": "Du kan ikke søge om garanti endnu"
+  },
+  "guarantee_tab": {
+    "applyGuarantee": {
+      "defaultDialog": {
+        "confirm_label": "Luk",
+        "description": "BMI-garantien vil være tilgængelig til download på projekter, da den er godkendt.",
+        "title": "Din garanti er blevet behandlet"
+      },
+      "solutionDialog": {
+        "confirm_label": "Luk",
+        "description": "Fuldfør din ansøgning ved at indsende bevis på upload-fanen.",
+        "title": "Ansøgning om garanti startet"
+      }
+    },
+    "apply_guarantee": {
+      "alert": {
+        "selectGuarantee": {
+          "message": "Der er ingen garantier for denne type tag. Kontakt din lokale BMI-administrator for mere information.",
+          "title": "Der er ingen garantitype tilgængelig for denne teknologi"
+        }
+      },
+      "cancel_label": "Annuller",
+      "confirm_label": "Registrer",
+      "message": {
+        "guarantee_exists_error": "Du kan ikke tilmelde dig en BMI Løsnings Garanti for et projekt, der allerede har en BMI-garanti",
+        "not_available_tier": "Denne type garanti er ikke tilgængelig på dit niveau"
+      },
+      "review": {
+        "alert_banner": {
+          "description": "Når garantien er godkendt, modtager bygningsejeren garantidokumentationen automatisk til den oplyste e-mailadresse.",
+          "title": "Behov for at vide"
+        },
+        "header": "Garanti dokumentation",
+        "preferred_language": "Bekræft sprog",
+        "product_title": "Produktdetaljer",
+        "receipt_subTitle": "Købsdokumentation",
+        "receipt_title": "Købsoplysninger",
+        "required": {
+          "evidence": "Kom med bevis",
+          "title": "Udfyld din ansøgning ved at indtaste følgende:"
+        },
+        "responsible_installer": {
+          "description": "Vælg et medlem fra projektteamet, der fungerer som det ansvarlige medlem. Denne person skal have en BMI-certificering i enten skråtag eller fladt tag teknologi, som matcher projektets teknologi.",
+          "title": "Ansvarlig medlem"
+        },
+        "system_title": "Systemdetaljer"
+      },
+      "title": "Ansøg om garanti",
+      "wizard": {
+        "footer": {
+          "goBack": "Tilbage",
+          "next": "Næste",
+          "submit": "Indsend"
+        },
+        "step1": {
+          "subTitle": "Vælg garantitype",
+          "title": "Ansøg om garanti"
+        },
+        "step2": {
+          "inputLabel": "Bekræft sprog",
+          "subTitle": "Vælg det foretrukne sprog til garantidokumentationen",
+          "title": "Ansøg om garanti"
+        },
+        "step3": {
+          "product_subTitle": "Vælg BMI-produktet til garantidokumentationen",
+          "product_title": "Produktgaranti",
+          "solution_subTitle": "Vælg BMI-systemet til garantidokumentationen",
+          "solution_title": "Løsnings Garanti",
+          "system_subTitle": "Vælg BMI-systemet til garantidokumentationen",
+          "system_title": "System Garanti"
+        },
+        "step4": {
+          "subTitle": "Upload en kopi af købsdokumentation for det produkt/de produkter, du vil garantere",
+          "title": "Købsdokumentation"
+        },
+        "step5": {
+          "subTitle": "Gennemgå de oplysninger, du har givet, inden du indsender ansøgningen.",
+          "title": "Anmeldelse"
+        },
+        "stepDefault": {
+          "subTitle": "Ansøgning om garanti",
+          "title": "Ansøgning om garanti"
+        }
+      }
+    },
+    "header": "Ansøg om garanti",
+    "nocontent_message": "Der er ikke tilføjet nogen garanti endnu",
+    "submit_solution": "Anmod om Løsnings Garanti"
+  },
+  "noProjectSelected": {
+    "body1": "Du har ikke valgt et projekt endnu!",
+    "body2": "Vælg knappen \"Opret projekt\" nedenfor for at komme i gang.",
+    "title": "Ingen projekter at vise"
+  },
+  "noProjects": {
+    "body1": "Du har ikke oprettet nogen nye projekter endnu!",
+    "body2": "Vælg knappen \"Opret projekt\" nedenfor for at komme i gang.",
+    "title": "Ingen projekter at vise"
+  },
+  "noteTab": {
+    "addNoteDialog": {
+      "cancel": "Annuller",
+      "detailHeading": "Udfyld venligst detaljerne nedenfor for at dele oplysninger om dette projekt",
+      "send": "Send",
+      "title": "Tilføj note"
+    },
+    "header": "Tilføj note",
+    "noContent": "Der er ikke tilføjet noter til dette projekt",
+    "table": {
+      "author": "Forfatter",
+      "date": "Dato",
+      "note": "Bemærk"
+    }
+  },
+  "productDetails": {
+    "brand": "Mærke",
+    "family": "Familie",
+    "name": "Produkt navn"
+  },
+  "projectActions": {
+    "cta": {
+      "approveGuarantee": "Godkend garanti",
+      "archive": "Arkivprojekt",
+      "requestInformation": "Spørg for mere information",
+      "unarchive": "Off-arkiv projekt"
+    },
+    "heading": "Projekthandlinger"
+  },
+  "projectDetails": {
+    "buildingAddress": "Projektadresse",
+    "code": "Projektkode",
+    "cta": {
+      "ASSIGN_SOLUTION": "Tildel til meg",
+      "NOT_ASSIGNABLE": "Ikke delelig",
+      "REASSIGN_SOLUTION": "Tildel til meg",
+      "UNASSIGN_SOLUTION": "Fjern tildeling",
+      "edit": "Redigere"
+    },
+    "description": "Projektbeskrivelse",
+    "endDate": "Slutdato",
+    "error": "Fejl ved indlæsning af projektoplysninger.",
+    "guaranteeStatus": "Garantistatus",
+    "guaranteeType": "Garanti",
+    "hints": {
+      "projectEditGuaranteeStatus": "Projektoplysninger kan ikke redigeres på grund af garantiens status"
+    },
+    "loading": "Indlæser projektoplysninger",
+    "roofArea": "Samlet tagareal (m2)",
+    "startDate": "Hvornår",
+    "status": "Projektstatus"
+  },
+  "report": {
+    "guarantee": "Download garantirapport",
+    "project": "Download projektrapport"
+  },
+  "responsible_installer": {
+    "address": "Ansvarlig medlems adresse",
+    "contact_detail": "Ansvarlig medlem kontaktinformation",
+    "email": "E-mail til ansvarligt medlem",
+    "title": "Ansvarlig medlem"
+  },
+  "search": {
+    "inputLabel": "Søg efter projekt"
+  },
+  "tabs": {
+    "guarantee": "Garanti",
+    "notes": "Noter",
+    "team": "Team",
+    "uploads": "Uploads"
+  },
+  "teamTab": {
+    "add_team_member_modal": {
+      "cancel_label": "Annuller",
+      "caption": "Tildel teammedlemmer til at arbejde på dette projekt",
+      "confirm_label": "Tilføj team",
+      "table": {
+        "certification": "BMI-certificering",
+        "email": "E-mail",
+        "name": "Navn"
+      },
+      "title": "Tilføj et team-medlem"
+    },
+    "header": "Tilføj team",
+    "noContent": "Ingen teammedlemmer er blevet føjet til dette projekt",
+    "table": {
+      "certification": "BMI-certificering",
+      "remove": "fjern",
+      "responsibleInstaller": "Ansvarlig medlem",
+      "role": "Rolle",
+      "teamMember": "Team-medlem"
+    }
+  },
+  "upload_tab": {
+    "add_evidence_modal": {
+      "button_label": "Upload filer",
+      "cancel_label": "Annuller",
+      "confirm_label": "Upload filer",
+      "evidence_category": "Bevis kategori",
+      "file_validation_message": "Du kan ikke uploade filer større end",
+      "instruction": "Du kan tilføje filer",
+      "microcopy": {
+        "browse": "Gennemse",
+        "drop": "Annuller"
+      },
+      "title": "Tilføj dokumentation"
+    },
+    "header": "Upload fil",
+    "noContent": "Ingen upload endnu",
+    "requirementModal": {
+      "title": "Hvad kræves der?"
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { renderWithI18NProvider, screen } from "../../../../lib/tests/utils";
+import { renderAsReal, screen } from "../../../../lib/tests/utils";
 import SystemReport from "..";
 
 const mockGetSystemReport = jest.fn();
@@ -13,12 +13,14 @@ describe("SystemReport Component", () => {
   });
 
   it("renders correctly", () => {
-    const { container } = renderWithI18NProvider(<SystemReport />);
+    const { container } = renderAsReal({ account: { role: "SUPER_ADMIN " } })(
+      <SystemReport />
+    );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("should export button click", () => {
-    renderWithI18NProvider(<SystemReport />);
+    renderAsReal({ account: { role: "SUPER_ADMIN " } })(<SystemReport />);
 
     const exportButton = screen.getByTestId("export-button");
     exportButton.click();

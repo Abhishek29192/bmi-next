@@ -67,13 +67,13 @@ const ContentArticlePage = ({
 // These should match `ContentArticle.relativePath` in contentful, without the leading `/`.
 // Note that these have to include all paths across markets. This is a workaround.
 // They just happen to have been made the same across markets at the time of writing this.
-const PUBLIC_PAGE_PATHS = ["privacy", "terms"];
+const PUBLIC_PAGE_PATHS = ["privacy", "terms", "cookies"];
 
 export const getServerSideProps = async (context) => {
   const { contentArticleRelativePath } = context.params;
 
   // Only if we're requesting for a public page AND we're not logged in (no session) can we use the public middleware.
-  // otherwise normal middleware.
+  // otherwise use authenticated middleware.
   const auth0 = await getAuth0Instance(context.req, context.res);
   const session: Session = auth0.getSession(context.req, context.res);
   const middleware =
@@ -84,6 +84,12 @@ export const getServerSideProps = async (context) => {
   // account and globalPageData are only available in withPage middleware
   return await middleware(
     async ({ globalPageData, locale, apolloClient, res }) => {
+      const translations = await serverSideTranslations(locale, [
+        "common",
+        "sidebar",
+        "error-page"
+      ]);
+
       const {
         props: {
           data: {
@@ -108,7 +114,8 @@ export const getServerSideProps = async (context) => {
           statusCode,
           {},
           {
-            globalPageData
+            globalPageData,
+            ...translations
           }
         );
       }
@@ -117,7 +124,7 @@ export const getServerSideProps = async (context) => {
         props: {
           title: pageContent.title,
           body: pageContent.body.json,
-          ...(await serverSideTranslations(locale, ["common"]))
+          ...translations
         }
       };
     }

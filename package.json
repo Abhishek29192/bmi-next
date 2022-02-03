@@ -19,19 +19,16 @@
     "build:head": "yarn workspace @bmi/head run build",
     "build:frc-website": "yarn workspace @bmi/frc-website run build",
     "build:redirects-website": "yarn workspace @bmi/redirects-website run build",
+    "build:redirects-website-fr-siplast": "yarn workspace @bmi/redirects-website-fr-siplast run build",
+    "build:redirects-website-fr-monier": "yarn workspace @bmi/redirects-website-fr-monier run build",
     "coverage:components": "yarn test:components --coverage",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "coverage:ts": "typescript-coverage-report",
     "test:components": "jest --config=components/jest.config.js --reporters=default --reporters=jest-junit",
     "workbench": "styleguidist server",
     "workbench:build": "styleguidist build",
-    "run-apollo": "yarn workspace @bmi/apollo-server run start"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && yarn install --frozen-lockfile && find . -type d -name 'node_modules' -prune -false -o -type f -name 'yarn.lock' | sort | xargs sha1sum -b > modules-sha && git add modules-sha",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
+    "run-apollo": "yarn workspace @bmi/apollo-server run start",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -50,6 +47,7 @@
     "@semantic-release/release-notes-generator": "^9.0.1",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^12.1.2",
+    "@testing-library/react-hooks": "^7.0.2",
     "@typescript-eslint/eslint-plugin": "^3.0.2",
     "@typescript-eslint/parser": "^3.0.2",
     "babel-jest": "^27.3.1",
@@ -66,9 +64,10 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.12.0",
     "fetch-mock-jest": "^1.5.1",
     "file-loader": "^6.0.0",
-    "husky": "^4.2.5",
+    "husky": "^7.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
     "jest-css-modules-transform": "^4.3.0",
@@ -87,7 +86,8 @@
     "ts-jest": "^27.0.7",
     "ts-loader": "^7.0.5",
     "typescript": "3.9.10",
-    "typescript-coverage-report": "^0.1.3"
+    "typescript-coverage-report": "^0.1.3",
+    "webpack-cli": "^4.9.2"
   },
   "dependencies": {
     "@types/graphql": "^14.5.0",

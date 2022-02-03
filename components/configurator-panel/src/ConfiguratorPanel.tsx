@@ -1,10 +1,7 @@
-import React, { ReactNode, ChangeEvent } from "react";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  AccordionProps
-} from "@material-ui/core";
+import React, { ChangeEvent, ReactNode } from "react";
+import Accordion, { AccordionProps } from "@material-ui/core/Accordion";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Typography from "@bmi/typography";
 import styles from "./ConfiguratorPanel.module.scss";

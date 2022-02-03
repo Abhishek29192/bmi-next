@@ -7,13 +7,13 @@ describe("ConfiguratorPanel component", () => {
     const { container } = render(
       <ConfiguratorPanel title="Question One" expanded={true} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders collapsed", () => {
     const { container } = render(
       <ConfiguratorPanel title="Question One" expanded={false} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders expanded with child content", () => {
     const { container } = render(
@@ -21,7 +21,7 @@ describe("ConfiguratorPanel component", () => {
         Expanded with child content
       </ConfiguratorPanel>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders expanded with child content and options", () => {
     const { container } = render(
@@ -37,7 +37,7 @@ describe("ConfiguratorPanel component", () => {
         Expanded with child content
       </ConfiguratorPanel>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders disabled", () => {
     const { container } = render(
@@ -54,7 +54,7 @@ describe("ConfiguratorPanel component", () => {
         Expanded with child content
       </ConfiguratorPanel>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with title with selected option title", () => {
     const { container } = render(
@@ -72,6 +72,6 @@ describe("ConfiguratorPanel component", () => {
         Expanded with child content
       </ConfiguratorPanel>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

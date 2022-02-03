@@ -6,11 +6,11 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Button, { ButtonProps } from "@bmi/button";
 import IconList from "@bmi/icon-list";
+import { SVGImport } from "@bmi/svg-import";
 import CheckIcon from "@material-ui/icons/Check";
-import { isEmpty } from "lodash";
 import { useLocation } from "@reach/router";
 import Link, { Data as LinkData } from "../../components/Link";
-import Image, { Data as ImageData } from "../../components/Image";
+import { Data as ImageData } from "../../components/Image";
 import withGTM from "../../utils/google-tag-manager";
 import { useSiteContext } from "../../components/Site";
 import { Category, Classification, Feature } from "../../components/types/pim";
@@ -19,6 +19,8 @@ import {
   SYSTEM_CONFIG_QUERY_KEY_REFERER,
   SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
 } from "../../constants/queryConstants";
+import { microCopy } from "../../constants/microCopies";
+
 import styles from "./styles/leadBlockSection.module.scss";
 
 const BlueCheckIcon = (
@@ -102,7 +104,7 @@ const LeadBlockSection = ({
   }, []);
 
   const backToYourSelectionText = getMicroCopy(
-    "sdp.leadBlock.backToYourSelection"
+    microCopy.SDP_LEAD_BLOCK_BACK_TO_YOUR_SELECTION
   );
   const backToYourSelectionBtnHref = `${prevPagePath}?referer=${referer}`;
   return (
@@ -173,31 +175,30 @@ const LeadBlockSection = ({
             )}
           </LeadBlock.Content.Section>
         </LeadBlock.Content>
-        {uniqueSellingPropositions &&
-          !isEmpty(uniqueSellingPropositions.featureValues) && (
-            <LeadBlock.Card
-              className={styles["card"]}
-              theme="pearl"
-              data-testid="system-attributes-card"
-            >
-              <LeadBlock.Card.Section>
-                <div className={styles["iconList"]}>
-                  <IconList>
-                    {uniqueSellingPropositions.featureValues.map(
-                      ({ value }, id) => (
-                        <IconList.Item
-                          isCompact
-                          icon={BlueCheckIcon}
-                          title={value}
-                          key={`unique-selling-proposition-${id}`}
-                        />
-                      )
-                    )}
-                  </IconList>
-                </div>
-              </LeadBlock.Card.Section>
-            </LeadBlock.Card>
-          )}
+        {uniqueSellingPropositions?.featureValues?.length && (
+          <LeadBlock.Card
+            className={styles["card"]}
+            theme="pearl"
+            data-testid="system-attributes-card"
+          >
+            <LeadBlock.Card.Section>
+              <div className={styles["iconList"]}>
+                <IconList>
+                  {uniqueSellingPropositions.featureValues.map(
+                    ({ value }, id) => (
+                      <IconList.Item
+                        isCompact
+                        icon={BlueCheckIcon}
+                        title={value}
+                        key={`unique-selling-proposition-${id}`}
+                      />
+                    )
+                  )}
+                </IconList>
+              </div>
+            </LeadBlock.Card.Section>
+          </LeadBlock.Card>
+        )}
       </LeadBlock>
     </Section>
   );

@@ -4,6 +4,7 @@
 const fs = require("fs");
 const { promisify } = require("util");
 
+// eslint-disable-next-line security/detect-non-literal-fs-filename
 const writeFile = promisify(fs.writeFile);
 const wsName = process.argv[2];
 const componentsDir = process.cwd() + "/components";
@@ -26,6 +27,7 @@ const componentName = wsName
 
 const componentPath = componentsDir + "/" + wsName;
 
+// eslint-disable-next-line security/detect-non-literal-fs-filename
 if (fs.existsSync(componentPath)) {
   console.error("This component folder already exists");
   process.exit(1);
@@ -48,7 +50,7 @@ const packageContent = `{
     "build": "tsc"
   },
   "dependencies": {
-    "@material-ui/core": "^4.10.1",
+    "@material-ui/core": "^4.12.3",
     "react": "^16.13.1"
   }
 }
@@ -79,7 +81,7 @@ import ${componentName} from "../";
 describe("${componentName} component", () => {
   it("renders correctly", () => {
     const { container } = render(<${componentName} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });
 `;
@@ -102,6 +104,7 @@ const handleError = (err) => {
   }
 };
 
+// eslint-disable-next-line security/detect-non-literal-fs-filename
 fs.mkdirSync(
   `${componentPath}/src/__tests__`,
   { recursive: true },

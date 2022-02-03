@@ -5,6 +5,7 @@ import HidePrint from "@bmi/hide-print";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import { iconMap } from "./Icon";
 import {
   getClickableActionFromUrl,
@@ -17,6 +18,9 @@ const parseNavigation = (
   navigationItems: NavigationData["links"],
   countryCode: string
 ): MenuItem[] => {
+  if (!navigationItems) {
+    return [];
+  }
   return navigationItems.map((navigationItem) => {
     // @ts-ignore I have on idea why, but TS does not understand narrowing the Union here.
     if (navigationItem.links) {
@@ -37,6 +41,7 @@ const parseNavigation = (
 
     return {
       label,
+      // eslint-disable-next-line security/detect-object-injection
       icon: iconName ? iconMap[iconName] : undefined,
       isLabelHidden,
       action: getClickableActionFromUrl(
@@ -57,18 +62,18 @@ type Props = {
 
 const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
   const { countryCode, getMicroCopy } = useSiteContext();
-  const main = parseNavigation(mainNavigation.links, countryCode);
-  const secondary = parseNavigation(secondaryNavigation.links, countryCode);
+  const main = parseNavigation(mainNavigation?.links, countryCode);
+  const secondary = parseNavigation(secondaryNavigation?.links, countryCode);
   const secondaryWithSitemap = [
     ...secondary,
     {
-      label: getMicroCopy("global.sitemap"),
+      label: getMicroCopy(microCopy.GLOBAL_SITEMAP),
       action: getClickableActionFromUrl(
         { path: "sitemap" },
         null,
         countryCode,
         null,
-        getMicroCopy("global.sitemap")
+        getMicroCopy(microCopy.GLOBAL_SITEMAP)
       )
     }
   ];

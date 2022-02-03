@@ -35,6 +35,9 @@ describe("Team page server side props", () => {
         }
       },
       res: {},
+      market: {
+        id: 1
+      },
       locale: {}
     };
   });

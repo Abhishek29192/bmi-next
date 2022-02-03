@@ -1,9 +1,5 @@
 import React, { useContext, useMemo } from "react";
-import {
-  useTheme,
-  createMuiTheme,
-  ThemeProvider
-} from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Container from "@bmi/container";
 import ColorPair, { Colors, darkThemes } from "@bmi/color-pair";
@@ -17,10 +13,6 @@ import styles from "./Villain.module.scss";
 export type Props = {
   children: React.ReactNode;
   title: React.ReactNode;
-  /**
-   * @deprecated Use `media` instead.
-   */
-  imageSource?: string | React.ReactNode;
   media?: React.ReactElement<AcceptedNode>;
   isFullWidth?: boolean;
   isReversed?: boolean;
@@ -35,7 +27,6 @@ const FullSizeVillain = ({
   children,
   title,
   isReversed,
-  imageSource,
   media,
   cta,
   theme
@@ -78,18 +69,6 @@ const FullSizeVillain = ({
             })}
         </div>
       </Container>
-      {imageSource ? (
-        <div
-          style={
-            typeof imageSource === "string"
-              ? { backgroundImage: `url(${imageSource})` }
-              : {}
-          }
-          className={styles["image"]}
-        >
-          {typeof imageSource !== "string" && imageSource}
-        </div>
-      ) : null}
       <Media className={styles["image"]}>{media}</Media>
     </ColorPair>
   );
@@ -99,7 +78,6 @@ const ContainedVillain = ({
   children,
   title,
   isReversed,
-  imageSource,
   media,
   cta,
   theme
@@ -107,18 +85,7 @@ const ContainedVillain = ({
   const defaultTheme = useTheme();
   const hasDarkBg = useIsDarkBg(theme);
 
-  const customBreakpointsTheme = createMuiTheme({
-    ...defaultTheme,
-    breakpoints: {
-      values: {
-        ...defaultTheme.breakpoints.values,
-        sm: parseFloat(styles["breakpoint-sm"]!)
-      }
-    }
-  });
-  const matches: boolean = useMediaQuery(
-    customBreakpointsTheme.breakpoints.up("sm")
-  );
+  const matches: boolean = useMediaQuery(defaultTheme.breakpoints.up("sm"));
   const direction = matches ? "row-reverse" : "column-reverse";
 
   return (
@@ -129,52 +96,34 @@ const ContainedVillain = ({
         isReversed && styles["Villain--reversed"]
       )}
     >
-      <ThemeProvider theme={customBreakpointsTheme}>
-        <Grid
-          container
-          spacing={3}
-          direction={isReversed ? direction : undefined}
-          className={styles["grid"]}
-        >
-          <Grid item xs={12} sm={4}>
-            <ColorPair theme={theme} className={styles["content"]}>
-              <Typography
-                variant="h4"
-                component="h3"
-                className={styles["title"]}
-              >
-                {title}
-              </Typography>
-              <div className={styles["text"]}>{children}</div>
-              {React.isValidElement(cta) &&
-                React.cloneElement(cta, {
-                  className: classnames(styles["cta"], cta.props.className),
-                  hasDarkBackground: hasDarkBg
-                })}
-            </ColorPair>
-          </Grid>
-          <Grid item xs={12} sm={8}>
-            {imageSource ? (
-              <div
-                style={
-                  typeof imageSource === "string"
-                    ? { backgroundImage: `url(${imageSource})` }
-                    : {}
-                }
-                className={styles["image"]}
-              >
-                {typeof imageSource !== "string" && imageSource}
-              </div>
-            ) : null}
-            {media ? (
-              // NOTE: This is necessary to maintain `imageSource`.
-              <div className={styles["image"]}>
-                <Media className={styles["media"]}>{media}</Media>
-              </div>
-            ) : null}
-          </Grid>
+      <Grid
+        container
+        spacing={3}
+        direction={isReversed ? direction : undefined}
+        className={styles["grid"]}
+      >
+        <Grid item xs={12} sm={4}>
+          <ColorPair theme={theme} className={styles["content"]}>
+            <Typography variant="h4" component="h3" className={styles["title"]}>
+              {title}
+            </Typography>
+            <div className={styles["text"]}>{children}</div>
+            {React.isValidElement(cta) &&
+              React.cloneElement(cta, {
+                className: classnames(styles["cta"], cta.props.className),
+                hasDarkBackground: hasDarkBg
+              })}
+          </ColorPair>
         </Grid>
-      </ThemeProvider>
+        <Grid item xs={12} sm={8}>
+          {media ? (
+            // NOTE: This is necessary to maintain `imageSource`.
+            <div className={styles["image"]}>
+              <Media className={styles["media"]}>{media}</Media>
+            </div>
+          ) : null}
+        </Grid>
+      </Grid>
     </div>
   );
 };

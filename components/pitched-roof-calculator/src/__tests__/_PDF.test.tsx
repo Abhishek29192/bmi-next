@@ -152,7 +152,7 @@ describe("PitchedRoofCalculator PDF tool", () => {
       getMicroCopy: (...params) => getMicroCopy(en, ...params)
     });
 
-    expect(file.docDefinition).toMatchSnapshot();
+    expect(file).toMatchSnapshot();
   });
 
   it("avoids rendering empty tables results", () => {
@@ -168,7 +168,7 @@ describe("PitchedRoofCalculator PDF tool", () => {
       getMicroCopy: (...params) => getMicroCopy(en, ...params)
     });
 
-    expect(file.docDefinition).toMatchSnapshot();
+    expect(file).toMatchSnapshot();
   });
 });
 
@@ -176,6 +176,6 @@ describe("PitchedRoofCalculator PDF components", () => {
   it("renders h1 Typograph correctly", () => {
     const file = pdf(<Typography variant="h1">Heading 1</Typography>);
 
-    expect(file.docDefinition).toMatchSnapshot();
+    expect(file).toMatchSnapshot();
   });
 });

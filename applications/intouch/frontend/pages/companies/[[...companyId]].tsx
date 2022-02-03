@@ -33,6 +33,7 @@ type CompaniesPageProps = GlobalPageProps & {
   companies?: GetCompaniesByMarketQuery["companies"]["nodes"];
   companySSR?: GetCompanyQuery["company"];
   contactDetailsCollection: GetCompanyQuery["contactDetailsCollection"];
+  mapsApiKey: string;
 };
 
 const CompaniesPage = ({
@@ -41,6 +42,7 @@ const CompaniesPage = ({
   companySSR,
   contactDetailsCollection,
   globalPageData,
+  mapsApiKey,
   market
 }: CompaniesPageProps) => {
   const { t } = useTranslation("company-page");
@@ -88,6 +90,7 @@ const CompaniesPage = ({
           setCompany(updatedCompany);
           updateCompaniesList();
         }}
+        mapsApiKey={mapsApiKey}
       />
     );
   }, [company]);
@@ -163,13 +166,24 @@ export const getServerSideProps = withPage(
     market,
     params
   }) => {
+    const translations = await serverSideTranslations(locale, [
+      "common",
+      "sidebar",
+      "footer",
+      "company-page",
+      "error-page"
+    ]);
     if (params.companyId) {
       const companyId = parseInt(params.companyId);
 
       if (!can(account, "company", "view", { companyId })) {
         const statusCode = ErrorStatusCode.UNAUTHORISED;
         res.statusCode = statusCode;
-        return generatePageError(statusCode, {}, { globalPageData });
+        return generatePageError(
+          statusCode,
+          {},
+          { globalPageData, ...translations }
+        );
       }
       const {
         props: {
@@ -199,12 +213,8 @@ export const getServerSideProps = withPage(
             : [],
           companySSR: company,
           contactDetailsCollection,
-          ...(await serverSideTranslations(locale, [
-            "common",
-            "sidebar",
-            "footer",
-            "company-page"
-          ]))
+          mapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+          ...translations
         }
       };
     }
@@ -212,7 +222,11 @@ export const getServerSideProps = withPage(
     if (!can(account, "company", "viewAll")) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
-      return generatePageError(statusCode, {}, { globalPageData });
+      return generatePageError(
+        statusCode,
+        {},
+        { globalPageData, ...translations }
+      );
     }
 
     const {
@@ -239,13 +253,9 @@ export const getServerSideProps = withPage(
     return {
       props: {
         companies: sortArrayByField([...companies], "name"),
+        mapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
         contactDetailsCollection,
-        ...(await serverSideTranslations(locale, [
-          "common",
-          "sidebar",
-          "footer",
-          "company-page"
-        ]))
+        ...translations
       }
     };
   }

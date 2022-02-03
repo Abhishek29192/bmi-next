@@ -1,5 +1,5 @@
 import { EntryTypeEnum } from "../components/Service";
-import { Service } from "../components/ServiceLocatorSection";
+import { Service } from "../components/service-locator-section";
 
 const createRoofer = (service?: Partial<Service>): Service => ({
   __typename: "ContentfulService",

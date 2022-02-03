@@ -1,16 +1,24 @@
 import mockConsole from "jest-mock-console";
 import {
+  Classification,
+  createVariantOption,
+  createProduct as createPimProduct,
+  createClassification,
+  createFeature,
+  createFeatureValue,
+  createFeatureUnit,
+  createMeasurementsClassification
+} from "@bmi/pim-types";
+import {
   ESIndexObject,
   groupBy,
   IndexedItemGroup,
   IndexFeatures,
-  getSizeLabel
+  getSizeLabel,
+  mapProductClassifications
 } from "../CLONE";
-import { Classification } from "../pim";
-import createClassification, {
-  createFeature,
-  createFeatureValue
-} from "./helpers/ClassificationHelper";
+
+const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 
 beforeAll(() => {
   mockConsole();
@@ -90,6 +98,112 @@ describe("CLONE tests", () => {
           ).toEqual("5mm x 5cm");
         });
       });
+    });
+
+    it("should return empty object if product.variantOptions.classifications.features === undefined", () => {
+      const product = createPimProduct({
+        variantOptions: [
+          createVariantOption({
+            classifications: [
+              createMeasurementsClassification({
+                features: undefined
+              })
+            ]
+          })
+        ]
+      });
+
+      const mapedProductClassifications = mapProductClassifications(
+        product,
+        PIM_CLASSIFICATION_CATALOGUE_NAMESPACE!
+      );
+
+      expect(mapedProductClassifications).toEqual({});
+    });
+
+    it("should return correct object if product.variantOptions.classifications.features.featureValues === undefined", () => {
+      const product = createPimProduct({
+        variantOptions: [
+          createVariantOption({
+            classifications: [
+              createMeasurementsClassification({
+                features: [
+                  createFeature({
+                    name: "feature",
+                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.length`,
+                    featureValues: undefined,
+                    featureUnit: createFeatureUnit()
+                  })
+                ]
+              })
+            ]
+          })
+        ]
+      });
+      const mapedProductClassifications = mapProductClassifications(
+        product,
+        PIM_CLASSIFICATION_CATALOGUE_NAMESPACE!
+      );
+
+      const expectedObj = {
+        code: {
+          measurements: {
+            length: {
+              name: "feature",
+              value: {
+                unit: "symbol",
+                value: "n/a"
+              }
+            }
+          }
+        }
+      };
+
+      expect(mapedProductClassifications).toEqual(expectedObj);
+    });
+
+    it("should return correct object if product.variantOptions.classifications.features.featureUnit === undefined", () => {
+      const product = createPimProduct({
+        variantOptions: [
+          createVariantOption({
+            classifications: [
+              createMeasurementsClassification({
+                features: [
+                  createFeature({
+                    name: "feature",
+                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.length`,
+                    featureValues: [createFeatureValue()],
+                    featureUnit: undefined
+                  })
+                ]
+              })
+            ]
+          })
+        ]
+      });
+      const mapedProductClassifications = mapProductClassifications(
+        product,
+        PIM_CLASSIFICATION_CATALOGUE_NAMESPACE!
+      );
+
+      const expectedObj = {
+        code: {
+          measurements: {
+            length: {
+              name: "feature",
+              value: {
+                unit: undefined,
+                value: {
+                  code: "code",
+                  value: "value"
+                }
+              }
+            }
+          }
+        }
+      };
+
+      expect(mapedProductClassifications).toEqual(expectedObj);
     });
 
     describe("when withUnit is false tests", () => {
@@ -216,6 +330,27 @@ describe("CLONE tests", () => {
     it("should return empty object when empty array is passed", () => {
       const result: IndexedItemGroup<ESIndexObject> = IndexFeatures("", []);
       expect(result).toEqual({});
+    });
+
+    it("should return correct code value if pimClassificationNameSpace populated as undefined", () => {
+      const code = "pim-namespace/1.0/feature-code-1";
+      const expectedCode = "pim-namespace1.0/feature-code-1";
+      const pimClassificationNameSpace = undefined;
+      const classifications: Array<Classification> = [
+        createClassification({
+          features: [
+            createFeature({
+              code,
+              featureValues: [createFeatureValue()]
+            })
+          ]
+        })
+      ];
+      const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+        pimClassificationNameSpace,
+        classifications
+      );
+      expect(Object.keys(result)[0]).toEqual(expectedCode);
     });
 
     describe("When single classification with NO features is passed", () => {

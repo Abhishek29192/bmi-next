@@ -104,6 +104,7 @@ export const Header = ({
 
     // If open is not passed, toggle state.
     if (typeof open === "undefined") {
+      // eslint-disable-next-line security/detect-object-injection
       open = !state[anchor];
     }
 

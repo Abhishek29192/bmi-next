@@ -136,6 +136,7 @@ const generateAllowFiltersAggs = (allowFilterBy?: string[]): object =>
       const optionKey = allowValueArr[1]?.trim();
       const agg = createAggregation(categoryKey, optionKey);
       if (optionKey) {
+        // eslint-disable-next-line security/detect-object-injection
         const include = acc[categoryKey]?.terms?.include || [];
         // eslint-disable-next-line security/detect-object-injection
         agg[categoryKey].terms.include = [...include, optionKey];

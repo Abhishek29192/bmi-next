@@ -12,6 +12,7 @@ import {
   getCountQuery
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
+import { microCopy } from "../constants/microCopies";
 import PageSummaryCard from "./PageSummaryCard";
 import { useSiteContext } from "./Site";
 import ResultsPagination from "./ResultsPagination";
@@ -26,7 +27,7 @@ const getPagesFilters = (aggregations: any, getMicroCopy) => {
   // TODO: At the moment the tags seem to only be "group" tags
   return [
     {
-      label: getMicroCopy("search.filters.pages.page-type-tag"),
+      label: getMicroCopy(microCopy.SEARCH_FILTERS_PAGES_PAGE_TYPE_TAG),
       name: "page-type-tag",
       value: [],
       options: aggregations.tags.buckets

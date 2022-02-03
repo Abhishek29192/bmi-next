@@ -1,4 +1,5 @@
 import React, { forwardRef, Ref } from "react";
+import { SVGImport } from "@bmi/svg-import";
 
 type Props = React.SVGProps<SVGElement> & {
   source: SVGImport;

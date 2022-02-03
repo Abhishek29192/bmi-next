@@ -41,7 +41,7 @@
   }
 
   :global {
-    .MuiChip-deleteIcon {
+    [class*="MuiChip-deleteIcon"] {
       width: 16px;
       color: $color-theme-inter;
     }

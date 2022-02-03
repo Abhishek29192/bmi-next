@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip component renders correctly 1`] = `
+<div>
+  <div
+    class="test className Tooltip"
+    title="test title"
+  >
+    test children context
+  </div>
+</div>
+`;

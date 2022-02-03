@@ -20,7 +20,7 @@ import ImageGallerySection, {
 import PromoSection, { Data as PromoSectionData } from "./PromoSection";
 import ServiceLocatorSection, {
   Data as ServiceLocatorSectionData
-} from "./ServiceLocatorSection";
+} from "./service-locator-section/index";
 import SyndicateSection, {
   Data as SyndicateSectionData
 } from "./SyndicateSection";
@@ -150,6 +150,7 @@ const Sections = ({
           <Component
             data={section}
             position={startIndex + index}
+            // eslint-disable-next-line security/detect-object-injection
             theme={pageTypenameToThemeMap[pageTypename] || {}}
             key={`section-${index}`}
           />

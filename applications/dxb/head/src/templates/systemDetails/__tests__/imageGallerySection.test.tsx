@@ -4,15 +4,6 @@ import ImageGallerySection from "../imageGallerySection";
 import { Image, ImageAssetTypesEnum } from "../../../components/types/pim";
 
 describe("ImageGallerySection tests", () => {
-  describe("When images are null", () => {
-    it("should render empty section", () => {
-      const { container } = renderWithRouter(
-        <ImageGallerySection images={null} />
-      );
-      expect(container).toMatchSnapshot();
-    });
-  });
-
   describe("When images are empty array", () => {
     it("should render empty section", () => {
       const images: Image[] = [];

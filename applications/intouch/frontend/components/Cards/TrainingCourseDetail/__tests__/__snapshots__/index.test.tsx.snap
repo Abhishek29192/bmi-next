@@ -1,95 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
-<div
-  class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
->
+<div>
   <div
-    class="MuiCardContent-root"
+    class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
   >
-    <h4
-      class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-    >
-      GCP roofing methodology
-    </h4>
     <div
-      class="header"
+      class="MuiCardContent-root"
     >
-      
-      <div>
-        <div
-          class="metadata"
-        >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      >
+        GCP roofing methodology
+      </h4>
+      <div
+        class="header"
+      >
+        
+        <div>
           <div
-            class="type"
+            class="metadata"
           >
-            type.classroom
-          </div>
-          <p
-            class="MuiTypography-root tech Typography MuiTypography-body1"
-          >
-            <svg
-              class="technologyIcon"
-            />
-            technology.OTHER
-          </p>
-          <div
-            class="status"
-          >
+            <div
+              class="type"
+            >
+              type.classroom
+            </div>
             <p
-              class="MuiTypography-root Typography MuiTypography-body1"
-            />
+              class="MuiTypography-root tech Typography MuiTypography-body1"
+            >
+              <svg
+                class="technologyIcon"
+              />
+              technology.OTHER
+            </p>
+            <div
+              class="status"
+            >
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1"
+              />
+            </div>
           </div>
-        </div>
-        <div
-          class="cta"
-        >
-          <a
-            aria-disabled="false"
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
-            href="/api/docebo-sso?path=/learn/course/internal/view/classroom/125/slug"
-            rel="noopener noreferrer"
-            tabindex="0"
-            target="_blank"
+          <div
+            class="cta"
           >
-            <span
-              class="MuiButton-label buttonStyles-label-44"
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
+              href="/api/docebo-sso?path=/learn/course/internal/view/classroom/125/slug"
+              rel="noopener noreferrer"
+              tabindex="0"
+              target="_blank"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-45 MuiButton-iconSizeMedium"
+                class="MuiButton-label buttonStyles-label-44"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
+                <span
+                  class="MuiButton-startIcon buttonStyles-startIcon-45 MuiButton-iconSizeMedium"
                 >
-                  <path
-                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
+                </span>
+                viewTraining
               </span>
-              viewTraining
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </a>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="body"
-    >
-      <h5
-        class="MuiTypography-root Typography MuiTypography-h5"
-      >
-        Description
-      </h5>
       <div
-        class="MuiTypography-root Typography MuiTypography-body1"
+        class="body"
       >
-        GCP roofing methodology description
+        <h5
+          class="MuiTypography-root Typography MuiTypography-h5"
+        >
+          Description
+        </h5>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          GCP roofing methodology description
+        </div>
       </div>
     </div>
   </div>
@@ -97,95 +99,97 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
 `;
 
 exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
-<div
-  class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
->
+<div>
   <div
-    class="MuiCardContent-root"
+    class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
   >
-    <h4
-      class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-    >
-      GCP roofing methodology
-    </h4>
     <div
-      class="header"
+      class="MuiCardContent-root"
     >
-      
-      <div>
-        <div
-          class="metadata"
-        >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      >
+        GCP roofing methodology
+      </h4>
+      <div
+        class="header"
+      >
+        
+        <div>
           <div
-            class="type"
+            class="metadata"
           >
-            type.classroom
-          </div>
-          <p
-            class="MuiTypography-root tech Typography MuiTypography-body1"
-          >
-            <svg
-              class="technologyIcon"
-            />
-            technology.OTHER
-          </p>
-          <div
-            class="status"
-          >
+            <div
+              class="type"
+            >
+              type.classroom
+            </div>
             <p
-              class="MuiTypography-root Typography MuiTypography-body1"
-            />
+              class="MuiTypography-root tech Typography MuiTypography-body1"
+            >
+              <svg
+                class="technologyIcon"
+              />
+              technology.OTHER
+            </p>
+            <div
+              class="status"
+            >
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1"
+              />
+            </div>
           </div>
-        </div>
-        <div
-          class="cta"
-        >
-          <a
-            aria-disabled="false"
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary"
-            href="/api/docebo-sso?path=https://intouch.test.com/test-course"
-            rel="noopener noreferrer"
-            tabindex="0"
-            target="_blank"
+          <div
+            class="cta"
           >
-            <span
-              class="MuiButton-label buttonStyles-label-64"
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary"
+              href="/api/docebo-sso?path=https://intouch.test.com/test-course"
+              rel="noopener noreferrer"
+              tabindex="0"
+              target="_blank"
             >
               <span
-                class="MuiButton-startIcon buttonStyles-startIcon-65 MuiButton-iconSizeMedium"
+                class="MuiButton-label buttonStyles-label-64"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
+                <span
+                  class="MuiButton-startIcon buttonStyles-startIcon-65 MuiButton-iconSizeMedium"
                 >
-                  <path
-                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
+                </span>
+                viewTraining
               </span>
-              viewTraining
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </a>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="body"
-    >
-      <h5
-        class="MuiTypography-root Typography MuiTypography-h5"
-      >
-        Description
-      </h5>
       <div
-        class="MuiTypography-root Typography MuiTypography-body1"
+        class="body"
       >
-        GCP roofing methodology description
+        <h5
+          class="MuiTypography-root Typography MuiTypography-h5"
+        >
+          Description
+        </h5>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          GCP roofing methodology description
+        </div>
       </div>
     </div>
   </div>

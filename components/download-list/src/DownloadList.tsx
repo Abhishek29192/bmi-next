@@ -80,7 +80,9 @@ const DownloadListCheckbox = ({
           onChange={(checked: boolean) => {
             updateList(name, checked && value, fileSize);
           }}
+          // eslint-disable-next-line security/detect-object-injection
           disabled={isLoading || list[name] ? isLoading : maxLimitIsReached}
+          // eslint-disable-next-line security/detect-object-injection
           checked={!!list[name]}
           {...rest}
         />

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid component item renders correctly 1`] = `
+<div>
+  <div
+    class="MuiGrid-root item MuiGrid-item"
+  />
+</div>
+`;
+
+exports[`Grid component renders correctly 1`] = `
+<div>
+  <div
+    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+  />
+</div>
+`;
+
+exports[`Grid component renders when centered 1`] = `
+<div>
+  <div
+    class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+  />
+</div>
+`;

@@ -59,6 +59,7 @@ export const ProjectsHeader = ({
     PITCHED: PitchedRoof
   };
 
+  // eslint-disable-next-line security/detect-object-injection
   const StatusIconElement = guaranteeStatusIcons[guaranteeStatus];
 
   return (

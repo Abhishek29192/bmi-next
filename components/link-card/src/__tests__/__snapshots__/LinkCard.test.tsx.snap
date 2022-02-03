@@ -1,93 +1,244 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LinkCard component renders closed variant 1`] = `
-<div
-  class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
->
+exports[`LinkCard component onCloseClick for item 1`] = `
+<div>
   <div
-    class="item"
-  >
-    <h6
-      class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
-    >
-      test
-    </h6>
-    <p
-      class="MuiTypography-root subtitle Typography MuiTypography-body1"
-    />
-  </div>
-  <div
-    class="icon"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root"
-      focusable="false"
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
-      />
-    </svg>
-  </div>
-  <div
-    class="MuiCollapse-container details MuiCollapse-entered"
-    style="min-height: 0px;"
+    class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      class="MuiCollapse-wrapper"
+      class="item"
     >
-      <div
-        class="MuiCollapse-wrapperInner"
+      <h6
+        class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
       >
         test
+      </h6>
+      <p
+        class="MuiTypography-root subtitle Typography MuiTypography-body1"
+      />
+    </div>
+    <div
+      class="icon"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiCollapse-root details MuiCollapse-entered"
+      style="min-height: 0px;"
+    >
+      <div
+        class="MuiCollapse-wrapper"
+      >
+        <div
+          class="MuiCollapse-wrapperInner"
+        >
+          content
+        </div>
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`LinkCard component renders correctly open variant 1`] = `
-<div
-  class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
->
+exports[`LinkCard component renders correctly closed variant 1`] = `
+<div>
   <div
-    class="item"
-  >
-    <h6
-      class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
-    >
-      test
-    </h6>
-    <p
-      class="MuiTypography-root subtitle Typography MuiTypography-body1"
-    />
-  </div>
-  <div
-    class="icon"
-  >
-    <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root"
-      focusable="false"
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
-      />
-    </svg>
-  </div>
-  <div
-    class="MuiCollapse-container details MuiCollapse-hidden"
-    style="min-height: 0px;"
+    class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      class="MuiCollapse-wrapper"
+      class="item"
     >
-      <div
-        class="MuiCollapse-wrapperInner"
+      <h6
+        class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
       >
         test
+      </h6>
+      <p
+        class="MuiTypography-root subtitle Typography MuiTypography-body1"
+      />
+    </div>
+    <div
+      class="icon"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiCollapse-root details MuiCollapse-hidden"
+      style="min-height: 0px;"
+    >
+      <div
+        class="MuiCollapse-wrapper"
+      >
+        <div
+          class="MuiCollapse-wrapperInner"
+        >
+          test
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LinkCard component renders on open variant 1`] = `
+<div>
+  <div
+    class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <div
+      class="item"
+    >
+      <h6
+        class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+      >
+        test
+      </h6>
+      <p
+        class="MuiTypography-root subtitle Typography MuiTypography-body1"
+      />
+    </div>
+    <div
+      class="icon"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiCollapse-root details MuiCollapse-entered"
+      style="min-height: 0px;"
+    >
+      <div
+        class="MuiCollapse-wrapper"
+      >
+        <div
+          class="MuiCollapse-wrapperInner"
+        >
+          test
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LinkCard component renders onEnterd transition onClick  1`] = `
+<div>
+  <div
+    class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <div
+      class="item"
+    >
+      <h6
+        class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+      >
+        test
+      </h6>
+      <p
+        class="MuiTypography-root subtitle Typography MuiTypography-body1"
+      />
+    </div>
+    <div
+      class="icon"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiCollapse-root details MuiCollapse-hidden"
+      style="min-height: 0px;"
+    >
+      <div
+        class="MuiCollapse-wrapper"
+      >
+        <div
+          class="MuiCollapse-wrapperInner"
+        >
+          something
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LinkCard component renders onEnterd transition onClick  2`] = `
+<div>
+  <div
+    class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <div
+      class="item"
+    >
+      <h6
+        class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+      >
+        test
+      </h6>
+      <p
+        class="MuiTypography-root subtitle Typography MuiTypography-body1"
+      />
+    </div>
+    <div
+      class="icon"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiCollapse-root details"
+      style="min-height: 0px; height: 0px; transition-duration: 300ms;"
+    >
+      <div
+        class="MuiCollapse-wrapper"
+      >
+        <div
+          class="MuiCollapse-wrapperInner"
+        >
+          something
+        </div>
       </div>
     </div>
   </div>

@@ -50,12 +50,12 @@ const getProjectDetails = async (
 };
 
 const sendMessage = async (projectId: number, context: PostGraphileContext) => {
-  const { pgClient } = context;
+  const { pgRootPool } = context;
 
-  const projectDetails = await getProjectDetails(projectId, pgClient);
+  const projectDetails = await getProjectDetails(projectId, pgRootPool);
 
   //Get all company admins and send mail
-  const { rows: companyAdmins } = await pgClient.query(
+  const { rows: companyAdmins } = await pgRootPool.query(
     `select account.* from account 
 join company_member on company_member.account_id =account.id 
 where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
@@ -63,7 +63,7 @@ where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
   );
 
   //Get all market admins and send mail
-  const { rows: marketAdmins } = await pgClient.query(
+  const { rows: marketAdmins } = await pgRootPool.query(
     `select account.* from account 
         join market on market.id =account.market_id 
         where market.id=$1 and account.role='MARKET_ADMIN'`,

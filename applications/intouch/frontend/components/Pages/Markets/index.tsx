@@ -55,7 +55,8 @@ const marketKeys = [
     key: "locationBiasRadiusKm",
     label: "Location biasRadius Km"
   },
-  { type: "text", key: "gtag", label: "Gtag" }
+  { type: "text", key: "gtag", label: "Gtag" },
+  { type: "text", key: "gtagMarketMedia", label: "Gtag market media" }
 ];
 
 const getValue = (t, type, value) => {
@@ -154,12 +155,12 @@ const MarketPage = ({ markets }: Props) => {
 
   useEffect(() => {
     const { searched } = filterState;
-    if (searched?.length > 0) {
+    if (searched && searched.length > 0) {
       setFilteredItems((prevStatus) => ({
         ...prevStatus,
         nodes: items.nodes.filter(
           ({ name }) =>
-            name?.toLowerCase().indexOf(searched?.toLowerCase()) !== -1
+            name?.toLowerCase().indexOf(searched.toLowerCase()) !== -1
         )
       }));
     } else {
@@ -178,7 +179,7 @@ const MarketPage = ({ markets }: Props) => {
         searchLabel={t("sidePanel.search.label")}
         noResultLabel={t("sidePanel.search.noResult")}
       >
-        {filteredItems?.nodes.map((item: _Market, index: number) => (
+        {filteredItems.nodes.map((item: _Market, index: number) => (
           <div key={`market-${index}`} onClick={(e) => setSelectedItem(item)}>
             <FilterResult
               testId="list-item"
@@ -351,6 +352,7 @@ export const updateMarket = gql`
             projectsEnabled
             locationBiasRadiusKm
             gtag
+            gtagMarketMedia
           }
         }
       }

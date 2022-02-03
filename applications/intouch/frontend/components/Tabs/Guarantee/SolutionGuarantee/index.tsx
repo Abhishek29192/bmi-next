@@ -1,12 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Table from "@bmi/table";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import Icon, { FilePDF, Arrow } from "@bmi/icon";
-import { ProductRow } from "../ProductRow";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
 import AccessControl from "../../../../lib/permissions/AccessControl";
+import { ProductCard } from "../ProductCard";
 import styles from "./styles.module.scss";
 
 type SolutionGuaranteesProps = {
@@ -99,15 +98,7 @@ const SolutionGuaranteeCard = ({
           </div>
         )}
       </div>
-      <div>
-        <Table>
-          <Table.Body>
-            {products.map((product) => (
-              <ProductRow key={product.id} product={product} />
-            ))}
-          </Table.Body>
-        </Table>
-      </div>
+      <ProductCard products={products} />
     </div>
   );
 };

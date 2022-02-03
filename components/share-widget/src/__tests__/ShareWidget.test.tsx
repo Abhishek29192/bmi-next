@@ -34,13 +34,13 @@ const channels = [
 describe("ShareWidget component", () => {
   it("renders correctly", () => {
     const { container } = render(<ShareWidget channels={channels} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders left aligned", () => {
     const { container } = render(
       <ShareWidget channels={channels} isLeftAligned />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("shares on Facebook", () => {
     window.open = jest.fn();
@@ -50,7 +50,7 @@ describe("ShareWidget component", () => {
     const facebookButton = getByLabelText(channels[4].label);
     fireEvent.click(facebookButton);
     // @todo: Can we check window.open has been called?
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   // @todo: Reinstate email tests when implemented
   // it("renders dialog when email clicked", () => {
@@ -61,6 +61,6 @@ describe("ShareWidget component", () => {
   //   const emailButton = getByLabelText("Share by email");
   //   fireEvent.click(emailButton);
 
-  //   expect(container.firstChild).toMatchSnapshot();
+  //   expect(container).toMatchSnapshot();
   // });
 });

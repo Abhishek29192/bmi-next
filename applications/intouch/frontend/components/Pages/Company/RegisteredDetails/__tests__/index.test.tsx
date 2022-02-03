@@ -109,6 +109,6 @@ describe("CompanyRegisteredDetails", () => {
         </I18nProvider>
       </ApolloProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

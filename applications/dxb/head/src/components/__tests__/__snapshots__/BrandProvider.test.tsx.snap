@@ -1,21 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BrandProvider renders 1`] = `
-<div
-  class=""
-  data-testid="brand-colors-provider"
->
-  Test
+<div>
+  <div
+    class=""
+    data-testid="brand-colors-provider"
+  >
+    Test
+  </div>
 </div>
 `;
 
 exports[`BrandProvider renders with brand 1`] = `
-<div
-  class="BrandRed"
-  data-testid="brand-colors-provider"
->
-  Test
+<div>
+  <div
+    class="BrandRed"
+    data-testid="brand-colors-provider"
+  >
+    Test
+  </div>
 </div>
 `;
 
-exports[`BrandProvider renders without BrandProvider 1`] = `Test`;
+exports[`BrandProvider renders without BrandProvider 1`] = `
+<div>
+  <div
+    class=""
+    data-testid="brand-colors-provider"
+  >
+    Test
+  </div>
+</div>
+`;
+
+exports[`BrandProvider renders without brand 1`] = `
+<div>
+  <div
+    class=""
+    data-testid="brand-colors-provider"
+  >
+    Without brand
+  </div>
+</div>
+`;

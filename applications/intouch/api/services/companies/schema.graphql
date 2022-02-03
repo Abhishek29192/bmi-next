@@ -967,10 +967,49 @@ type Query implements Node {
     productBmiRef: String!
     marketId: Int!
   ): SystemMember
+  currentAccountDoceboId: Int
   currentAccountEmail: String
   currentAccountId: Int
   currentCompany: Int
   currentMarket: Int
+
+  """
+  Reads and enables pagination through a set of `Guarantee`.
+  """
+  guaranteesByMarket(
+    market: Int!
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: GuaranteeFilter
+  ): GuaranteesConnection
   invitedByCompanies(
     """
     Only read the first `n` values of the set.
@@ -1036,6 +1075,44 @@ type Query implements Node {
     filter: IntFilter
   ): IsPartOfProjectConnection
   isProjectEnabledByMarket: Boolean
+
+  """
+  Reads and enables pagination through a set of `Project`.
+  """
+  projectsByMarket(
+    market: Int!
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectFilter
+  ): ProjectsConnection
 
   """
   Reads and enables pagination through a set of `Product`.
@@ -1906,6 +1983,7 @@ type Market implements Node {
   locationBiasRadiusKm: Int
   createdAt: Datetime!
   updatedAt: Datetime!
+  gtagMarketMedia: String
 
   """
   Reads and enables pagination through a set of `Account`.
@@ -8919,6 +8997,7 @@ input updateMarketOnCompanyForCompanyMarketIdFkeyPatch {
   locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
+  gtagMarketMedia: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -9341,6 +9420,7 @@ input updateMarketOnAccountForAccountMarketIdFkeyPatch {
   locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
+  gtagMarketMedia: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -11146,6 +11226,7 @@ input updateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch {
   locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
+  gtagMarketMedia: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -14631,6 +14712,7 @@ input updateMarketOnSystemForSystemMarketIdFkeyPatch {
   locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
+  gtagMarketMedia: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -14994,6 +15076,7 @@ input updateMarketOnProductForProductMarketIdFkeyPatch {
   locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
+  gtagMarketMedia: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -20233,6 +20316,7 @@ input updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch {
   locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
+  gtagMarketMedia: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -20561,6 +20645,7 @@ input MarketPatch {
   locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
+  gtagMarketMedia: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -20649,6 +20734,7 @@ input SystemMemberMarketIdFkeyMarketCreateInput {
   locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
+  gtagMarketMedia: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -21316,6 +21402,7 @@ input ProductMarketIdFkeyMarketCreateInput {
   locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
+  gtagMarketMedia: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -21534,6 +21621,7 @@ input SystemMarketIdFkeyMarketCreateInput {
   locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
+  gtagMarketMedia: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -23094,6 +23182,7 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
+  gtagMarketMedia: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -23790,6 +23879,7 @@ input AccountMarketIdFkeyMarketCreateInput {
   locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
+  gtagMarketMedia: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -23968,6 +24058,7 @@ input CompanyMarketIdFkeyMarketCreateInput {
   locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
+  gtagMarketMedia: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -24739,6 +24830,7 @@ input MarketInput {
   locationBiasRadiusKm: Int
   createdAt: Datetime
   updatedAt: Datetime
+  gtagMarketMedia: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput

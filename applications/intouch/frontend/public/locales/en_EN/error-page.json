@@ -1,7 +1,9 @@
 {
-  "title": "Something went wrong",
   "body": "An error occurred, please contact an administrator",
-  "user_blocked": "User is blocked",
   "errorAlreadyMember": "The user is already a member of another company",
-  "errorInvitationNotFound": "Invitation not found"
+  "errorAuthentication": "Authentication error",
+  "errorInvitationNotFound": "Invitation not found",
+  "errorUserBlocked": "User is blocked",
+  "title": "Something went wrong",
+  "user_blocked": "User is blocked"
 }

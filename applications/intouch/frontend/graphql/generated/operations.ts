@@ -5,7 +5,11 @@ export type AddressLinesFragmentFragment = {
 } & Pick<
   SchemaTypes.Address,
   "id" | "firstLine" | "secondLine" | "town" | "region" | "country" | "postcode"
->;
+> & {
+    readonly coordinates?: SchemaTypes.Maybe<
+      { readonly __typename?: "Point" } & Pick<SchemaTypes.Point, "x" | "y">
+    >;
+  };
 
 export type CompanyCertificationsFragment = {
   readonly __typename?: "Company";
@@ -322,7 +326,14 @@ export type UpdateCompanyDetailsMutation = {
                 | "region"
                 | "country"
                 | "postcode"
-              >
+              > & {
+                  readonly coordinates?: SchemaTypes.Maybe<
+                    { readonly __typename?: "Point" } & Pick<
+                      SchemaTypes.Point,
+                      "x" | "y"
+                    >
+                  >;
+                }
             >;
             readonly companyOperationsByCompany: {
               readonly __typename?: "CompanyOperationsConnection";
@@ -432,7 +443,14 @@ export type CompanyRegisteredDetailsFragmentFragment = {
         | "region"
         | "country"
         | "postcode"
-      >
+      > & {
+          readonly coordinates?: SchemaTypes.Maybe<
+            { readonly __typename?: "Point" } & Pick<
+              SchemaTypes.Point,
+              "x" | "y"
+            >
+          >;
+        }
     >;
     readonly companyOperationsByCompany: {
       readonly __typename?: "CompanyOperationsConnection";
@@ -568,6 +586,7 @@ export type UpdateMarketMutation = { readonly __typename?: "Mutation" } & {
                   | "projectsEnabled"
                   | "locationBiasRadiusKm"
                   | "gtag"
+                  | "gtagMarketMedia"
                 >
               >;
             }
@@ -663,6 +682,7 @@ export type BulkImportMutation = { readonly __typename?: "Mutation" } & {
 
 export type UpdateProductMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.UpdateProductInput;
+  marketId?: SchemaTypes.Maybe<SchemaTypes.Scalars["Int"]>;
 }>;
 
 export type UpdateProductMutation = { readonly __typename?: "Mutation" } & {
@@ -697,6 +717,7 @@ export type UpdateProductMutation = { readonly __typename?: "Mutation" } & {
 
 export type UpdateSystemMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.UpdateSystemInput;
+  marketId?: SchemaTypes.Maybe<SchemaTypes.Scalars["Int"]>;
 }>;
 
 export type UpdateSystemMutation = { readonly __typename?: "Mutation" } & {
@@ -760,7 +781,14 @@ export type CreateProjectMutation = { readonly __typename?: "Mutation" } & {
                 | "region"
                 | "country"
                 | "postcode"
-              >
+              > & {
+                  readonly coordinates?: SchemaTypes.Maybe<
+                    { readonly __typename?: "Point" } & Pick<
+                      SchemaTypes.Point,
+                      "x" | "y"
+                    >
+                  >;
+                }
             >;
             readonly buildingOwnerAddress?: SchemaTypes.Maybe<
               { readonly __typename?: "Address" } & Pick<
@@ -772,7 +800,14 @@ export type CreateProjectMutation = { readonly __typename?: "Mutation" } & {
                 | "region"
                 | "country"
                 | "postcode"
-              >
+              > & {
+                  readonly coordinates?: SchemaTypes.Maybe<
+                    { readonly __typename?: "Point" } & Pick<
+                      SchemaTypes.Point,
+                      "x" | "y"
+                    >
+                  >;
+                }
             >;
             readonly guarantees: {
               readonly __typename?: "GuaranteesConnection";
@@ -982,7 +1017,14 @@ export type UpdateProjectMutation = { readonly __typename?: "Mutation" } & {
                 | "region"
                 | "country"
                 | "postcode"
-              >
+              > & {
+                  readonly coordinates?: SchemaTypes.Maybe<
+                    { readonly __typename?: "Point" } & Pick<
+                      SchemaTypes.Point,
+                      "x" | "y"
+                    >
+                  >;
+                }
             >;
             readonly buildingOwnerAddress?: SchemaTypes.Maybe<
               { readonly __typename?: "Address" } & Pick<
@@ -994,7 +1036,14 @@ export type UpdateProjectMutation = { readonly __typename?: "Mutation" } & {
                 | "region"
                 | "country"
                 | "postcode"
-              >
+              > & {
+                  readonly coordinates?: SchemaTypes.Maybe<
+                    { readonly __typename?: "Point" } & Pick<
+                      SchemaTypes.Point,
+                      "x" | "y"
+                    >
+                  >;
+                }
             >;
             readonly guarantees: {
               readonly __typename?: "GuaranteesConnection";
@@ -1390,7 +1439,14 @@ export type ProjectDetailsFragmentFragment = {
         | "region"
         | "country"
         | "postcode"
-      >
+      > & {
+          readonly coordinates?: SchemaTypes.Maybe<
+            { readonly __typename?: "Point" } & Pick<
+              SchemaTypes.Point,
+              "x" | "y"
+            >
+          >;
+        }
     >;
     readonly buildingOwnerAddress?: SchemaTypes.Maybe<
       { readonly __typename?: "Address" } & Pick<
@@ -1402,7 +1458,14 @@ export type ProjectDetailsFragmentFragment = {
         | "region"
         | "country"
         | "postcode"
-      >
+      > & {
+          readonly coordinates?: SchemaTypes.Maybe<
+            { readonly __typename?: "Point" } & Pick<
+              SchemaTypes.Point,
+              "x" | "y"
+            >
+          >;
+        }
     >;
     readonly guarantees: { readonly __typename?: "GuaranteesConnection" } & {
       readonly nodes: ReadonlyArray<
@@ -1591,7 +1654,14 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
             | "region"
             | "country"
             | "postcode"
-          >
+          > & {
+              readonly coordinates?: SchemaTypes.Maybe<
+                { readonly __typename?: "Point" } & Pick<
+                  SchemaTypes.Point,
+                  "x" | "y"
+                >
+              >;
+            }
         >;
         readonly buildingOwnerAddress?: SchemaTypes.Maybe<
           { readonly __typename?: "Address" } & Pick<
@@ -1603,7 +1673,14 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
             | "region"
             | "country"
             | "postcode"
-          >
+          > & {
+              readonly coordinates?: SchemaTypes.Maybe<
+                { readonly __typename?: "Point" } & Pick<
+                  SchemaTypes.Point,
+                  "x" | "y"
+                >
+              >;
+            }
         >;
         readonly guarantees: {
           readonly __typename?: "GuaranteesConnection";
@@ -1777,7 +1854,7 @@ export type ProjectDetailsProductFragmentFragment = {
 >;
 
 export type GetCompaniesReportQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  marketId: SchemaTypes.Scalars["Int"];
 }>;
 
 export type GetCompaniesReportQuery = { readonly __typename?: "Query" } & {
@@ -1814,7 +1891,14 @@ export type GetCompaniesReportQuery = { readonly __typename?: "Query" } & {
                 | "region"
                 | "country"
                 | "postcode"
-              >
+              > & {
+                  readonly coordinates?: SchemaTypes.Maybe<
+                    { readonly __typename?: "Point" } & Pick<
+                      SchemaTypes.Point,
+                      "x" | "y"
+                    >
+                  >;
+                }
             >;
             readonly tradingAddress?: SchemaTypes.Maybe<
               { readonly __typename?: "Address" } & Pick<
@@ -1852,11 +1936,11 @@ export type GetCompaniesReportQuery = { readonly __typename?: "Query" } & {
 };
 
 export type GetGuaranteesReportQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  market: SchemaTypes.Scalars["Int"];
 }>;
 
 export type GetGuaranteesReportQuery = { readonly __typename?: "Query" } & {
-  readonly guarantees?: SchemaTypes.Maybe<
+  readonly guaranteesByMarket?: SchemaTypes.Maybe<
     { readonly __typename?: "GuaranteesConnection" } & {
       readonly nodes: ReadonlyArray<
         { readonly __typename?: "Guarantee" } & Pick<
@@ -1910,7 +1994,7 @@ export type GetGuaranteesReportQuery = { readonly __typename?: "Query" } & {
 };
 
 export type GetProductsReportQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  marketId?: SchemaTypes.Maybe<SchemaTypes.Scalars["Int"]>;
 }>;
 
 export type GetProductsReportQuery = { readonly __typename?: "Query" } & {
@@ -1936,11 +2020,11 @@ export type GetProductsReportQuery = { readonly __typename?: "Query" } & {
 };
 
 export type GetProjectsReportQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  market: SchemaTypes.Scalars["Int"];
 }>;
 
 export type GetProjectsReportQuery = { readonly __typename?: "Query" } & {
-  readonly projects?: SchemaTypes.Maybe<
+  readonly projectsByMarket?: SchemaTypes.Maybe<
     { readonly __typename?: "ProjectsConnection" } & {
       readonly nodes: ReadonlyArray<
         { readonly __typename?: "Project" } & Pick<
@@ -1967,7 +2051,14 @@ export type GetProjectsReportQuery = { readonly __typename?: "Query" } & {
                 | "region"
                 | "country"
                 | "postcode"
-              >
+              > & {
+                  readonly coordinates?: SchemaTypes.Maybe<
+                    { readonly __typename?: "Point" } & Pick<
+                      SchemaTypes.Point,
+                      "x" | "y"
+                    >
+                  >;
+                }
             >;
             readonly company?: SchemaTypes.Maybe<
               { readonly __typename?: "Company" } & Pick<
@@ -2028,7 +2119,7 @@ export type GetProjectsReportQuery = { readonly __typename?: "Query" } & {
 };
 
 export type GetSystemsReportQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  marketId?: SchemaTypes.Maybe<SchemaTypes.Scalars["Int"]>;
 }>;
 
 export type GetSystemsReportQuery = { readonly __typename?: "Query" } & {
@@ -2063,7 +2154,7 @@ export type GetSystemsReportQuery = { readonly __typename?: "Query" } & {
 };
 
 export type GetTeamsReportQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  marketId: SchemaTypes.Scalars["Int"];
 }>;
 
 export type GetTeamsReportQuery = { readonly __typename?: "Query" } & {
@@ -2079,14 +2170,30 @@ export type GetTeamsReportQuery = { readonly __typename?: "Query" } & {
           | "lastName"
           | "role"
           | "status"
-          | "created"
           | "doceboUserId"
           | "doceboUsername"
           | "photo"
           | "signedPhotoUrl"
           | "migrationId"
           | "migratedToAuth0"
-        >
+          | "createdAt"
+          | "updatedAt"
+        > & {
+            readonly companyMembers: {
+              readonly __typename?: "CompanyMembersConnection";
+            } & {
+              readonly nodes: ReadonlyArray<
+                { readonly __typename?: "CompanyMember" } & {
+                  readonly company?: SchemaTypes.Maybe<
+                    { readonly __typename?: "Company" } & Pick<
+                      SchemaTypes.Company,
+                      "name" | "tier"
+                    >
+                  >;
+                }
+              >;
+            };
+          }
       >;
     }
   >;
@@ -2772,6 +2879,7 @@ export type GetMarketsByDomainQuery = { readonly __typename?: "Query" } & {
           | "merchandisingUrl"
           | "projectsEnabled"
           | "gtag"
+          | "gtagMarketMedia"
           | "sendName"
           | "sendMailbox"
           | "locationBiasRadiusKm"
@@ -3145,6 +3253,7 @@ export type MarketsQuery = { readonly __typename?: "Query" } & {
           | "merchandisingUrl"
           | "projectsEnabled"
           | "gtag"
+          | "gtagMarketMedia"
           | "locationBiasRadiusKm"
         >
       >;
@@ -3153,7 +3262,7 @@ export type MarketsQuery = { readonly __typename?: "Query" } & {
 };
 
 export type ProductsAndSystemsQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  marketId?: SchemaTypes.Maybe<SchemaTypes.Scalars["Int"]>;
 }>;
 
 export type ProductsAndSystemsQuery = { readonly __typename?: "Query" } & {
@@ -3248,7 +3357,14 @@ export type CompanyPageDetailsFragmentFragment = {
         | "region"
         | "country"
         | "postcode"
-      >
+      > & {
+          readonly coordinates?: SchemaTypes.Maybe<
+            { readonly __typename?: "Point" } & Pick<
+              SchemaTypes.Point,
+              "x" | "y"
+            >
+          >;
+        }
     >;
     readonly companyOperationsByCompany: {
       readonly __typename?: "CompanyOperationsConnection";
@@ -3358,7 +3474,14 @@ export type GetCompaniesByMarketQuery = { readonly __typename?: "Query" } & {
                 | "region"
                 | "country"
                 | "postcode"
-              >
+              > & {
+                  readonly coordinates?: SchemaTypes.Maybe<
+                    { readonly __typename?: "Point" } & Pick<
+                      SchemaTypes.Point,
+                      "x" | "y"
+                    >
+                  >;
+                }
             >;
             readonly companyOperationsByCompany: {
               readonly __typename?: "CompanyOperationsConnection";
@@ -3482,7 +3605,14 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
             | "region"
             | "country"
             | "postcode"
-          >
+          > & {
+              readonly coordinates?: SchemaTypes.Maybe<
+                { readonly __typename?: "Point" } & Pick<
+                  SchemaTypes.Point,
+                  "x" | "y"
+                >
+              >;
+            }
         >;
         readonly companyOperationsByCompany: {
           readonly __typename?: "CompanyOperationsConnection";
@@ -3831,11 +3961,11 @@ export type GetUserProfileQuery = { readonly __typename?: "Query" } & {
 };
 
 export type GetProjectsQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  market: SchemaTypes.Scalars["Int"];
 }>;
 
 export type GetProjectsQuery = { readonly __typename?: "Query" } & {
-  readonly projects?: SchemaTypes.Maybe<
+  readonly projectsByMarket?: SchemaTypes.Maybe<
     { readonly __typename?: "ProjectsConnection" } & {
       readonly nodes: ReadonlyArray<
         { readonly __typename?: "Project" } & Pick<
@@ -3872,6 +4002,7 @@ export type GetProjectsQuery = { readonly __typename?: "Query" } & {
 
 export type TeamMembersQueryVariables = SchemaTypes.Exact<{
   expiryDate?: SchemaTypes.Maybe<SchemaTypes.Scalars["Datetime"]>;
+  marketId?: SchemaTypes.Maybe<SchemaTypes.Scalars["Int"]>;
 }>;
 
 export type TeamMembersQuery = { readonly __typename?: "Query" } & {

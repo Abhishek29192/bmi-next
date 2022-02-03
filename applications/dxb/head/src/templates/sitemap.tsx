@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { microCopy } from "../constants/microCopies";
 import { Data as SiteData } from "../components/Site";
 import Page from "../components/Page";
 import SitemapSection from "../components/SitemapSection";
@@ -27,7 +28,7 @@ const Sitemap = ({ data, pageContext }: Props) => {
 
   return (
     <Page
-      title={getMicroCopy("global.sitemap")}
+      title={getMicroCopy(microCopy.GLOBAL_SITEMAP)}
       pageData={{ breadcrumbs: null, inputBanner: null, seo: null, path: null }}
       siteData={siteData}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}

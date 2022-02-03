@@ -13,6 +13,7 @@ import {
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { getPathWithCountryCode } from "../utils/path";
 import { extractFeatureValuesByClassification } from "../utils/features-from-classifications-transfroms";
+import { microCopy } from "../constants/microCopies";
 import RichText, { RichTextData } from "./RichText";
 import SampleBasketSectionProducts from "./SampleBasketSectionProducts";
 import { useSiteContext } from "./Site";
@@ -140,7 +141,7 @@ const SampleBasketSection = ({
         {!isCompleteFormShow && hasSamplesInTheBasket && (
           <div className={styles["complete-button"]}>
             <Button endIcon={<ShoppingCart />} onClick={handleCompleteClick}>
-              {getMicroCopy("pdp.overview.completeSampleOrder")}
+              {getMicroCopy(microCopy.PDP_OVERVIEW_COMPLETE_SAMPLE_ORDER)}
             </Button>
           </div>
         )}

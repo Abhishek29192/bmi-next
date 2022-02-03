@@ -36,6 +36,7 @@ export const removeIrrelevantFilters = (
           // NOTE: all other filters are assumed to be categories
           const aggregationName =
             ES_AGGREGATION_NAMES[filter.name] || "categories";
+          // eslint-disable-next-line security/detect-object-injection
           const buckets = aggregations[aggregationName]?.buckets;
 
           const aggregate = (buckets || []).find(
@@ -60,6 +61,7 @@ export const disableFiltersFromAggregations = (
         // NOTE: all other filters are assumed to be categories
         const aggregationName =
           ES_AGGREGATION_NAMES[filter.name] || "categories";
+        // eslint-disable-next-line security/detect-object-injection
         const buckets = aggregations[aggregationName]?.buckets;
 
         const aggregate = (buckets || []).find(

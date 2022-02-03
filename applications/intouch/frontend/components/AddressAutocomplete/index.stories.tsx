@@ -11,6 +11,7 @@ export const Basic = () => {
     <AddressAutocomplete
       name=""
       fullWidth
+      mapsApiKey=""
       label="Select an address from the menu"
       onAddressSelected={(address) => {
         window.alert(`selected address: ${address.toString()}`);

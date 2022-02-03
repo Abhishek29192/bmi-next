@@ -3,10 +3,12 @@ process.env.CONTENTFUL_MANAGEMENT_TOKEN_SECRET =
   "TEST_CONTENTFUL_MANAGEMENT_TOKEN_SECRET";
 process.env.CONTENTFUL_SPACE_ID = "TEST_CONTENTFUL_SPACE_ID";
 process.env.CONTENTFUL_ENVIRONMENT = "TEST_CONTENTFUL_ENVIRONMENT";
+process.env.CONTENTFUL_DELIVERY_TOKEN_SECRET =
+  "TEST_CONTENTFUL_DELIVERY_TOKEN_SECRET";
 
 process.env.APSIS_API_BASE_URL = "https://api.apsis.one";
-process.env.APSIS_CLIENT_ID = "";
-process.env.APSIS_CLIENT_SECRET = "";
+process.env.APSIS_CLIENT_ID = "TEST_APSIS_CLIENT_ID";
+process.env.APSIS_CLIENT_SECRET = "TEST_APSIS_CLIENT_SECRET";
 
 process.env.APSIS_TARGET_SECTION = "usercreated.sections.fulq3a5aou";
 process.env.APSIS_TARGET_KEYSPACE = "com.keyspaces.email";
@@ -64,3 +66,10 @@ process.env.FIRESTORE_ROOT_COLLECTION = "firestore-root-collection";
 process.env.ES_INDEX_PREFIX = "es-index-prefix";
 process.env.PIM_CLIENT_SECRET = "pim-client-secret";
 process.env.FULL_FETCH_ENDPOINT = "http://localhost:9090";
+process.env.PIM_CLIENT_ID = "TEST_PIM_CLIENT_ID";
+
+process.env.TRANSITIONAL_TOPIC_NAME = "TEST_TRANSITIONAL_TOPIC_NAME";
+
+process.env.BEARER_TOKEN_SECRET = "TEST_BEARER_TOKEN_SECRET";
+process.env.GOOGLE_YOUTUBE_API_KEY_SECRET =
+  "TEST_GOOGLE_YOUTUBE_API_KEY_SECRET";

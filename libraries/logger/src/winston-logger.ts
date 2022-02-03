@@ -90,13 +90,6 @@ const defaultFormat = isProd
     );
 
 const getLogger = (headers: { [key: string]: string }, _module: string) => {
-  const addHeader = winston.format((info) => {
-    info.requestId = headers["x-request-id"] || "";
-    info.accountId = headers["x-authenticated-user-id"] || "";
-    info.module = _module;
-    return info;
-  });
-
   if (!loggerContainer[`${_module}`]) {
     loggerContainer[`${_module}`] = winston.createLogger({
       handleExceptions: true,
@@ -104,14 +97,18 @@ const getLogger = (headers: { [key: string]: string }, _module: string) => {
       transports: [
         isProd ? loggingWinston : new winston.transports.Console({})
       ],
-      format: winston.format.combine(addHeader(), defaultFormat),
+      format: defaultFormat,
       exceptionHandlers: [
         isProd ? loggingWinston : new winston.transports.Console({})
       ]
     });
   }
 
-  return loggerContainer[`${_module}`];
+  return loggerContainer[`${_module}`].child({
+    requestId: headers["x-request-id"] || "",
+    accountId: headers["x-authenticated-user-id"] || "",
+    module: _module
+  });
 };
 
 export default (req: any, res: any, next: any) => {

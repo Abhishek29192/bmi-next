@@ -17,6 +17,7 @@ export type OnCompanyUpdateSuccess = (
 export type EditCompanyDialogProps = {
   company: GetCompanyQuery["company"];
   isOpen: boolean;
+  mapsApiKey: string;
   onCloseClick?: () => void;
   onCompanyUpdateSuccess?: OnCompanyUpdateSuccess;
 };
@@ -25,13 +26,14 @@ export const EditCompanyDialog = ({
   company,
   isOpen,
   onCloseClick,
+  mapsApiKey,
   onCompanyUpdateSuccess
 }: EditCompanyDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
 
   const [errorMessage, setErrorMessage] = useState<string>(null);
 
-  const [updateCompany] = useUpdateCompanyDetailsMutation({
+  const [updateCompany, { loading }] = useUpdateCompanyDetailsMutation({
     onError: (error) => {
       log({
         severity: "ERROR",
@@ -139,6 +141,8 @@ export const EditCompanyDialog = ({
       onCloseClick={onCloseClick}
       onSubmit={onSubmit}
       errorMessage={errorMessage}
+      loading={loading}
+      mapsApiKey={mapsApiKey}
     />
   );
 };

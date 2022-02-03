@@ -2,6 +2,7 @@ import { graphql } from "gatsby";
 import { Data as AssetTypeData } from "./AssetType";
 import { Data as ImageData } from "./Image";
 import { RichTextData } from "./RichText";
+import { FileContentTypeEnum } from "./types/pim";
 
 export type Data = {
   __typename: "ContentfulDocument";
@@ -13,7 +14,7 @@ export type Data = {
     file: {
       url: string;
       fileName: string;
-      contentType: string;
+      contentType: FileContentTypeEnum;
       details: {
         size: number;
       };

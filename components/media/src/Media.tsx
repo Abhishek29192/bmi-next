@@ -20,16 +20,11 @@ type Props = {
 };
 
 const removeImageDrag = (children: React.ReactElement<AcceptedNode>) => {
-  if (children.type === "img") {
-    return React.cloneElement(children, {
-      onDragStart: (e: DragEvent) => {
-        e.preventDefault();
-      }
-    });
-  }
-
-  // NOTE: This shouldn't be necessary.
-  return children;
+  return React.cloneElement(children, {
+    onDragStart: (e: DragEvent) => {
+      e.preventDefault();
+    }
+  });
 };
 
 const renderWrapperNode = (

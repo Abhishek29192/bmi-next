@@ -1,0 +1,151 @@
+@import "@bmi/styles";
+
+.ServiceLocationSection {
+  .body {
+    margin-bottom: 24px;
+  }
+
+  .controls {
+    margin-bottom: 12px;
+  }
+
+  .product-details-card {
+    border-radius: 0;
+
+    :global {
+      [class*="MuiCardHeader-root"] {
+        padding: 30px 30px 10px;
+      }
+      [class*="MuiCardContent-root"] {
+        padding: 10px 30px 30px;
+      }
+      [class*="MuiCardHeader-action"] {
+        margin-top: -24px;
+        margin-right: -24px;
+      }
+    }
+
+    .product-details-card__close-button {
+      color: $color-slate;
+
+      &:hover {
+        color: $color-charcoal;
+      }
+    }
+  }
+
+  .search {
+    margin-bottom: 0;
+
+    .location-autocomplete {
+      margin-bottom: 8px;
+    }
+
+    .and-or-label {
+      text-align: center;
+      line-height: 2;
+
+      span {
+        background: $color-white;
+        padding: 0 0.5rem;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid $color-pearl;
+        margin: -1rem 0 1rem 0;
+      }
+    }
+  }
+
+  .filters {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+
+    @media (min-width: $breakpoint-lg) {
+      margin-left: 15px;
+    }
+
+    .chips-label {
+      flex-shrink: 0;
+      display: inline;
+    }
+
+    .chips {
+      margin-left: 19px;
+      margin-bottom: -5px;
+      text-align: right;
+    }
+  }
+
+  .list {
+    position: relative;
+    height: 100%;
+    max-height: calc(100vh - 48px); // Note: minus tab label height.
+    overflow: auto;
+    border-top: 1px solid $color-storm;
+    @media (min-width: $breakpoint-lg) {
+      max-height: 640px;
+      border-bottom: 1px solid $color-storm;
+      border-top: 1px solid $color-storm;
+    }
+  }
+
+  .roofpro-certification {
+    margin-top: 1rem;
+  }
+
+  .roofpro-icon {
+    height: 18px;
+    vertical-align: middle;
+    margin-left: 5px;
+  }
+
+  .tabs {
+    margin-left: -16px;
+    margin-right: -16px;
+
+    @media (min-width: $breakpoint-sm) {
+      margin-left: -24px;
+      margin-right: -24px;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .tab-panel > div {
+    padding-top: 0;
+  }
+
+  .no-results {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .no-results-heading {
+    margin-bottom: 24px;
+  }
+
+  .map {
+    height: calc(100vh - 48px); // Note: minus tab label height.
+
+    @media (min-width: $breakpoint-lg) {
+      height: 640px;
+    }
+  }
+
+  .tab-panel + .tab-panel .map {
+    @media (min-width: $breakpoint-lg) {
+      margin: 0 0 0 24px;
+    }
+  }
+}

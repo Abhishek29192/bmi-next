@@ -4,7 +4,7 @@ services:
 test_intouch_companies:
   stage: test
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/api/services/companies/**/*
         - libraries/**/*
@@ -40,7 +40,7 @@ build_intouch_api_companies:
       alias: docker
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/api/services/companies/**/*
         - libraries/**/*
@@ -49,37 +49,12 @@ build_intouch_api_companies:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
   script:
-    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - echo $BMI_KEY > gcloud-service-key-bmi.json
-    - echo "Building and pushing image to GCP Projects $BMI_PROJECT and $GCP_INTOUCH_REPLATFORM_PROJECT_ID"
-    - docker build . -t eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-service-companies:$CI_COMMIT_SHORT_SHA -f ./applications/intouch/api/services/companies/dockerfile --build-arg NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN
-    - docker tag eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-service-companies:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-api-service-companies:$CI_COMMIT_SHORT_SHA
-    - gcloud auth activate-service-account --key-file gcloud-service-key.json
-    - gcloud auth configure-docker
-    - docker push eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-service-companies:$CI_COMMIT_SHORT_SHA
+    - echo "Building and pushing image to GCP Projects $BMI_PROJECT"
+    - docker build . -t eu.gcr.io/$BMI_PROJECT/intouch-api-service-companies:$CI_COMMIT_SHORT_SHA -f ./applications/intouch/api/services/companies/dockerfile --build-arg NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN
     - gcloud auth activate-service-account --key-file gcloud-service-key-bmi.json
     - gcloud auth configure-docker
     - docker push eu.gcr.io/$BMI_PROJECT/intouch-api-service-companies:$CI_COMMIT_SHORT_SHA
-
-deploy_intouch_api_companies_dev:
-  stage: deploy
-  needs:
-    #- job: migrate_company_db
-    #  optional: true
-    - build_intouch_api_companies
-    - test_intouch_companies
-  image: google/cloud-sdk
-  cache: {}
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
-      changes:
-        - applications/intouch/api/services/companies/**/*
-  script:
-    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
-    - gcloud auth activate-service-account --key-file gcloud-service-key.json
-    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gcloud builds submit . --config=applications/intouch/api/services/companies/cloudbuild.deploy.yaml --substitutions _CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
-    - gcloud container images add-tag eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-service-companies:$CI_COMMIT_SHORT_SHA eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-service-companies:latest
 
 deploy_intouch_companies_to_cloudrun_bmi:
   stage: deploy
@@ -87,6 +62,8 @@ deploy_intouch_companies_to_cloudrun_bmi:
   needs:
     - build_intouch_api_companies
     - test_intouch_companies
+    - job: migrate_companies_db_bmi
+      optional: true
   image: google/cloud-sdk
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
@@ -96,9 +73,6 @@ deploy_intouch_companies_to_cloudrun_bmi:
         CLOUD_RUN: "$GCP_BMI_INTOUCH_DEV_COMPANY"
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
-  needs:
-    - job: migrate_companies_db_bmi
-      optional: true
   script:
     - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts
     - echo "Deploying to $CLOUD_RUN on BMI tenant in project $BMI_PROJECT"
@@ -112,6 +86,9 @@ release_intouch_companies_to_cloudrun_bmi:
   stage: deploy
   cache: {}
   image: google/cloud-sdk
+  needs:
+    - job: migrate_companies_db_bmi
+      optional: true
   variables:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_TLS_CERTDIR: ""

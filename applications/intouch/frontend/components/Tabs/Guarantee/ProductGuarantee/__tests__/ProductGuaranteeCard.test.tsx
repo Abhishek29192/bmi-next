@@ -21,7 +21,7 @@ describe("ProductGuaranteeCard Component", () => {
       <ProductGuaranteeCard product={mockProduct} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("should render guarantee pdf download button", () => {
@@ -35,6 +35,8 @@ describe("ProductGuaranteeCard Component", () => {
   });
   it("should not render guarantee pdf download button", () => {
     renderWithI18NProvider(<ProductGuaranteeCard product={mockProduct} />);
-    expect(screen.queryByTestId("guarantee-pdf-item")).toBeNull();
+    expect(screen.queryByTestId("guarantee-pdf-item")).toHaveTextContent(
+      "generatingPdf"
+    );
   });
 });

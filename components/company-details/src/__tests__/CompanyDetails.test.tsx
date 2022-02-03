@@ -9,6 +9,15 @@ describe("CompanyDetails component", () => {
         <p>Summary</p>
       </CompanyDetails>
     );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders with no details and no name", () => {
+    const { container } = render(
+      <CompanyDetails details={[]}>
+        <p>Summary</p>
+      </CompanyDetails>
+    );
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -21,6 +30,30 @@ describe("CompanyDetails component", () => {
             type: "address",
             text: "full address",
             label: "Address"
+          },
+          {
+            type: "address",
+            text: "full address",
+            textStyle: "bold",
+            label: "Address"
+          },
+          {
+            type: "address",
+            text: "full address",
+            label: "Address",
+            display: "contentOnly"
+          },
+          {
+            type: "address",
+            text: "full address",
+            label: "Address",
+            display: "icon"
+          },
+          {
+            type: "address",
+            text: "full address",
+            label: "Address",
+            display: "label"
           },
           {
             type: "distance",
@@ -73,12 +106,17 @@ describe("CompanyDetails component", () => {
             type: "roofProLevel",
             label: "BMI RoofPro Level",
             level: "partner"
+          },
+          {
+            type: "roofProLevel",
+            label: "BMI RoofPro Level",
+            level: "invalid-level"
           }
         ]}
       >
         <p>Summary</p>
       </CompanyDetails>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

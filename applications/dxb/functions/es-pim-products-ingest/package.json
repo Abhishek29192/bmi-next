@@ -7,15 +7,16 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "webpack --mode=production",
+    "check:ts": "tsc",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --signature-type=event --target=handleMessage"
   },
   "dependencies": {
+    "@bmi/functions-logger": "0.0.0",
+    "@bmi/pim-types": "0.0.0",
     "@elastic/elasticsearch": "^7.8.0",
-    "@google-cloud/functions-framework": "^1.7.1",
-    "@google-cloud/pubsub": "^0.18.0",
-    "@google-cloud/secret-manager": "^3.7.1"
+    "@google-cloud/functions-framework": "^1.7.1"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",

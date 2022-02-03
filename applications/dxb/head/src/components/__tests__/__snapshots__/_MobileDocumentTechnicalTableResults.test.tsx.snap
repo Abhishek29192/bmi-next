@@ -7,21 +7,21 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
       class="accordion-div"
     >
       <div
-        class="Accordion"
+        class="accordionStyles-root-73"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-74 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-77"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product1\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content"
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-79"
             >
               product-name
             </div>
@@ -50,7 +50,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -84,7 +84,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-42-51 iconButtonStyles-text-54"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-95 iconButtonStyles-42-94 iconButtonStyles-text-97"
                           tabindex="0"
                           type="button"
                         >
@@ -114,7 +114,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-95 iconButtonStyles-medium-101 iconButtonStyles-text-97"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -156,7 +156,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-42-51 iconButtonStyles-text-54"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-95 iconButtonStyles-42-94 iconButtonStyles-text-97"
                           tabindex="0"
                           type="button"
                         >
@@ -186,7 +186,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-95 iconButtonStyles-medium-101 iconButtonStyles-text-97"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -212,18 +212,18 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
           </div>
         </div>
         <div
-          class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-74 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-77"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product2\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content"
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-79"
             >
               product-name
             </div>
@@ -252,7 +252,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -286,7 +286,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-42-51 iconButtonStyles-text-54"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-95 iconButtonStyles-42-94 iconButtonStyles-text-97"
                           tabindex="0"
                           type="button"
                         >
@@ -316,7 +316,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-95 iconButtonStyles-medium-101 iconButtonStyles-text-97"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -358,7 +358,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-42-51 iconButtonStyles-text-54"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-95 iconButtonStyles-42-94 iconButtonStyles-text-97"
                           tabindex="0"
                           type="button"
                         >
@@ -388,7 +388,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-95 iconButtonStyles-medium-101 iconButtonStyles-text-97"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -414,18 +414,18 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
           </div>
         </div>
         <div
-          class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-74 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-77"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product3\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content"
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-79"
             >
               product3
             </div>
@@ -454,7 +454,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -483,21 +483,21 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
       class="accordion-div"
     >
       <div
-        class="Accordion"
+        class="accordionStyles-root-37"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-38 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-41"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product1\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content"
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-43"
             >
               product-name
             </div>
@@ -526,7 +526,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -560,7 +560,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-42-31 iconButtonStyles-text-34"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-59 iconButtonStyles-42-58 iconButtonStyles-text-61"
                           tabindex="0"
                           type="button"
                         >
@@ -590,7 +590,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-59 iconButtonStyles-medium-65 iconButtonStyles-text-61"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -616,18 +616,18 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
           </div>
         </div>
         <div
-          class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-38 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-41"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product2\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content"
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-43"
             >
               product-name
             </div>
@@ -656,7 +656,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -690,7 +690,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-42-31 iconButtonStyles-text-34"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-59 iconButtonStyles-42-58 iconButtonStyles-text-61"
                           tabindex="0"
                           type="button"
                         >
@@ -720,7 +720,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-59 iconButtonStyles-medium-65 iconButtonStyles-text-61"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -746,18 +746,18 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
           </div>
         </div>
         <div
-          class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-38 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-41"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product3\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content"
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-43"
             >
               product3
             </div>
@@ -786,7 +786,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -815,21 +815,21 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
       class="accordion-div"
     >
       <div
-        class="Accordion"
+        class="accordionStyles-root-1"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-2 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product1\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content"
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-7"
             >
               product-name
             </div>
@@ -858,7 +858,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -892,7 +892,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-42-11 iconButtonStyles-text-14"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-23 iconButtonStyles-42-22 iconButtonStyles-text-25"
                           tabindex="0"
                           type="button"
                         >
@@ -922,7 +922,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-23 iconButtonStyles-medium-29 iconButtonStyles-text-25"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -948,18 +948,18 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
           </div>
         </div>
         <div
-          class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-2 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product2\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content"
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-7"
             >
               product-name
             </div>
@@ -988,7 +988,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div
@@ -1022,7 +1022,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-42-11 iconButtonStyles-text-14"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-23 iconButtonStyles-42-22 iconButtonStyles-text-25"
                           tabindex="0"
                           type="button"
                         >
@@ -1052,7 +1052,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
                       <a
                         aria-disabled="false"
                         aria-label="Download"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-23 iconButtonStyles-medium-29 iconButtonStyles-text-25"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
@@ -1078,18 +1078,18 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
           </div>
         </div>
         <div
-          class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-2 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product3\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content"
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-7"
             >
               product3
             </div>
@@ -1118,7 +1118,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
             </div>
           </div>
           <div
-            class="MuiCollapse-container MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-hidden"
             style="min-height: 0px;"
           >
             <div

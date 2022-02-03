@@ -22,7 +22,7 @@ describe("OverviewCard component", () => {
         We do the things
       </OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with a string brandImageSource prop", () => {
     const { container } = render(
@@ -40,7 +40,7 @@ describe("OverviewCard component", () => {
         We do the things
       </OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with deprecated imageSource", () => {
     const { container } = render(
@@ -58,13 +58,13 @@ describe("OverviewCard component", () => {
         We do the things
       </OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly without optional props", () => {
     const { container } = render(
       <OverviewCard title="Heading">We do the things</OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with a subtitle", () => {
     const { container } = render(
@@ -72,7 +72,7 @@ describe("OverviewCard component", () => {
         We do the things
       </OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with contain image", () => {
     const { container } = render(
@@ -84,7 +84,7 @@ describe("OverviewCard component", () => {
         We do the things
       </OverviewCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders as a flat card", () => {
     const onClick = jest.fn();
@@ -110,7 +110,7 @@ describe("OverviewCard component", () => {
 
     fireEvent.click(title);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(onClick.mock.calls).toMatchSnapshot();
   });
   it("accpets onClick", () => {
@@ -159,6 +159,107 @@ describe("OverviewCard component", () => {
       </OverviewCard>
     );
 
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly if clickableArea === body", () => {
+    const { container } = render(
+      <OverviewCard
+        title="Heading"
+        titleVariant="h4"
+        clickableArea="body"
+        media={<img src={mockImage} alt="Lorem ipsum" />}
+        brandImageSource={mockLogo}
+        footer={
+          <Button component="span" variant="outlined">
+            Go to this
+          </Button>
+        }
+      >
+        We do the things
+      </OverviewCard>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly if moreOptionsAvailable === true", () => {
+    const { container } = render(
+      <OverviewCard
+        title="Heading"
+        titleVariant="h4"
+        moreOptionsAvailable
+        media={<img src={mockImage} alt="Lorem ipsum" />}
+        brandImageSource={mockLogo}
+        footer={
+          <Button component="span" variant="outlined">
+            Go to this
+          </Button>
+        }
+      >
+        We do the things
+      </OverviewCard>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly if hasChildrenWithoutMargin  === true", () => {
+    const { container } = render(
+      <OverviewCard
+        title="Heading"
+        titleVariant="h4"
+        hasChildrenWithoutMargin
+        media={<img src={mockImage} alt="Lorem ipsum" />}
+        brandImageSource={mockLogo}
+        footer={
+          <Button component="span" variant="outlined">
+            Go to this
+          </Button>
+        }
+      >
+        We do the things
+      </OverviewCard>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly if imageSize === contain", () => {
+    const { container } = render(
+      <OverviewCard
+        title="Heading"
+        titleVariant="h4"
+        imageSize="contain"
+        imageSource="imageSource"
+        media={<img src={mockImage} alt="Lorem ipsum" />}
+        brandImageSource={mockLogo}
+        footer={
+          <Button component="span" variant="outlined">
+            Go to this
+          </Button>
+        }
+      >
+        We do the things
+      </OverviewCard>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly if imageSource !== string", () => {
+    const { container } = render(
+      <OverviewCard
+        title="Heading"
+        titleVariant="h4"
+        imageSource={<img />}
+        media={<img src={mockImage} alt="Lorem ipsum" />}
+        brandImageSource={mockLogo}
+        footer={
+          <Button component="span" variant="outlined">
+            Go to this
+          </Button>
+        }
+      >
+        We do the things
+      </OverviewCard>
+    );
     expect(container).toMatchSnapshot();
   });
 });

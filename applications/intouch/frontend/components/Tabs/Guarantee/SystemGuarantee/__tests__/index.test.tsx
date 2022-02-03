@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { renderWithI18NProvider, screen } from "../../../../../lib/tests/utils";
+import { renderWithI18NProvider } from "../../../../../lib/tests/utils";
 import { GetProjectQuery } from "../../../../../graphql/generated/operations";
 import { SystemGuarantee } from "..";
 
@@ -29,6 +29,14 @@ describe("SystemGuarantee Component", () => {
       <SystemGuarantee guarantee={mockSystemGuarantee} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+  it("renders correctly with download button", () => {
+    mockSystemGuarantee.signedFileStorageUrl = "signed-url";
+    const { container } = renderWithI18NProvider(
+      <SystemGuarantee guarantee={mockSystemGuarantee} />
+    );
+
+    expect(container).toMatchSnapshot();
   });
 });

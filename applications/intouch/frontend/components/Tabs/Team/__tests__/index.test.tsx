@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import {
-  renderWithI18NProvider,
+  renderAsReal,
   screen,
   waitFor,
   fireEvent
@@ -15,16 +15,19 @@ jest.mock("@bmi/use-dimensions", () => ({
 
 const mockDeleteProjectMember = jest.fn(() => {});
 jest.mock("../../../../graphql/generated/hooks", () => ({
-  useDeleteProjectMemberMutation: () => [mockDeleteProjectMember],
-  useAddProjectsMemberMutation: () => [jest.fn()],
-  useGetProjectCompanyMembersLazyQuery: () => [jest.fn()],
-  useUpdateProjectMemberMutation: () => [jest.fn()]
+  useDeleteProjectMemberMutation: () => [
+    mockDeleteProjectMember,
+    { loading: false }
+  ],
+  useAddProjectsMemberMutation: () => [jest.fn(), { loading: false }],
+  useGetProjectCompanyMembersLazyQuery: () => [jest.fn(), { loading: false }],
+  useUpdateProjectMemberMutation: () => [jest.fn(), { loading: false }]
 }));
 
 describe("TeamTab Components", () => {
   describe("render correct number of team members", () => {
     it("none", () => {
-      renderWithI18NProvider(
+      renderAsReal({ account: { role: "COMPANY_ADMIN" } })(
         <TeamTab
           projectId={1}
           teams={[]}
@@ -34,7 +37,7 @@ describe("TeamTab Components", () => {
       expect(screen.queryByTestId("team-item")).toBeNull();
     });
     it("one team member", () => {
-      renderWithI18NProvider(
+      renderAsReal({ account: { role: "COMPANY_ADMIN" } })(
         <TeamTab
           projectId={1}
           teams={[projectMembers[0]]}
@@ -44,7 +47,7 @@ describe("TeamTab Components", () => {
       expect(screen.getAllByTestId("team-item")).toHaveLength(1);
     });
     it("3 team members", () => {
-      renderWithI18NProvider(
+      renderAsReal({ account: { role: "COMPANY_ADMIN" } })(
         <TeamTab
           projectId={1}
           teams={projectMembers}
@@ -56,7 +59,7 @@ describe("TeamTab Components", () => {
   });
   describe("Certification", () => {
     it("none", () => {
-      renderWithI18NProvider(
+      renderAsReal({ account: { role: "COMPANY_ADMIN" } })(
         <TeamTab
           projectId={1}
           teams={[]}
@@ -66,7 +69,7 @@ describe("TeamTab Components", () => {
       expect(screen.queryByTestId("team-item-certification")).toBeNull();
     });
     it("should render certifications", () => {
-      renderWithI18NProvider(
+      renderAsReal({ account: { role: "COMPANY_ADMIN" } })(
         <TeamTab
           projectId={1}
           teams={projectMembers}
@@ -81,7 +84,7 @@ describe("TeamTab Components", () => {
   });
 
   it("remove team member on delete click", async () => {
-    renderWithI18NProvider(
+    renderAsReal({ account: { role: "COMPANY_ADMIN" } })(
       <TeamTab
         projectId={1}
         teams={projectMembers}

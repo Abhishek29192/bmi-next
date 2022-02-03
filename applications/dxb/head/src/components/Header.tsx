@@ -4,24 +4,29 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Button, { ButtonProps } from "@bmi/button";
 import HeaderComponent from "@bmi/header";
 import HidePrint from "@bmi/hide-print";
-import { Tab, TabProps } from "@material-ui/core";
+import Tab, { TabProps } from "@material-ui/core/Tab";
 import withGTM from "../utils/google-tag-manager";
 import Image from "../components/Image";
 import { getPathWithCountryCode } from "../utils/path";
+import { microCopy } from "../constants/microCopies";
 import { useBasketContext } from "../contexts/SampleBasketContext";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,
+  getCTA,
   NavigationData,
-  NavigationItem,
-  getCTA
+  NavigationItem
 } from "./Link";
 import { useSiteContext } from "./Site";
 import RichText, { RichTextData } from "./RichText";
 import { Data as PageInfoData } from "./PageInfo";
 
 const getPromoSection = (promo, countryCode, getMicroCopy) => {
-  const cta = getCTA(promo, countryCode, getMicroCopy("page.linkLabel"));
+  const cta = getCTA(
+    promo,
+    countryCode,
+    getMicroCopy(microCopy.PAGE_LINK_LABEL)
+  );
 
   return [
     {
@@ -56,9 +61,9 @@ const parseNavigation = (
         ),
         ...(promos &&
           promos.length && {
-            footer: promos
-              .map((promo) => getPromoSection(promo, countryCode, getMicroCopy))
-              .flat()
+            footer: promos.flatMap((promo) =>
+              getPromoSection(promo, countryCode, getMicroCopy)
+            )
           })
       };
 
@@ -112,6 +117,7 @@ const parseNavigation = (
 
       return result.concat({
         label,
+        // eslint-disable-next-line security/detect-object-injection
         icon: iconMap[iconName],
         isLabelHidden,
         action
@@ -209,7 +215,7 @@ const Header = ({
         <HeaderComponent
           languages={languages}
           language={language}
-          languageLabel={getMicroCopy("menu.language")}
+          languageLabel={getMicroCopy(microCopy.MENU_LANGUAGE)}
           languageIntroduction={
             <RichText document={countryNavigationIntroduction} />
           }
@@ -220,9 +226,9 @@ const Header = ({
             linkComponent: Link,
             to: getPathWithCountryCode(countryCode, "")
           }}
-          logoLabel={getMicroCopy("global.logoLabel")}
+          logoLabel={getMicroCopy(microCopy.GLOBAL_LOGO_LABEL)}
           activeNavLabel={activeLabel}
-          closeLabel={getMicroCopy("global.close")}
+          closeLabel={getMicroCopy(microCopy.GLOBAL_CLOSE)}
           tabComponent={(props: TabProps) => (
             <GTMNavigationTab gtm={{ id: "nav-main-menu" }} {...props} />
           )}
@@ -231,7 +237,7 @@ const Header = ({
           )}
           isBasketEmpty={productsInBasket.length === 0}
           basketAction={basketCta?.action}
-          basketLabel={getMicroCopy("basket.label")}
+          basketLabel={getMicroCopy(microCopy.BASKET_LABEL)}
           navigationButtonComponent={(props: ButtonProps) => (
             <GTMNavigationButton
               gtm={{
@@ -256,12 +262,12 @@ const Header = ({
             />
           )}
           searchAction={getPathWithCountryCode(countryCode, "search")}
-          searchLabel={getMicroCopy("search.label")}
-          searchPlaceholder={getMicroCopy("search.placeholder.header")}
-          searchTitle={getMicroCopy("search.title")}
-          openLabel={getMicroCopy("menu.open")}
-          mainMenuTitleLabel={getMicroCopy("menu.mainTitle")}
-          mainMenuDefaultLabel={getMicroCopy("menu.mainDefault")}
+          searchLabel={getMicroCopy(microCopy.SEARCH_LABEL)}
+          searchPlaceholder={getMicroCopy(microCopy.SEARCH_PLACEHOLDER_HEADER)}
+          searchTitle={getMicroCopy(microCopy.SEARCH_TITLE)}
+          openLabel={getMicroCopy(microCopy.MENU_OPEN)}
+          mainMenuTitleLabel={getMicroCopy(microCopy.MENU_MAIN_TITLE)}
+          mainMenuDefaultLabel={getMicroCopy(microCopy.MENU_MAIN_DEFAULT)}
           isOnSearchPage={isOnSearchPage}
         />
       )}

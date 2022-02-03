@@ -57,7 +57,23 @@ describe("ProductOverviewPane component", () => {
         attributes={attributes}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly with children", () => {
+    const { container } = render(
+      <ProductOverviewPane
+        name="Type S Roof Shingles"
+        brandLogo={MockLogo}
+        nobb="1394983720195"
+        nobbLabel="label"
+        attributes={attributes}
+      >
+        <div>Some container</div>
+        <p>some text</p>
+      </ProductOverviewPane>
+    );
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with empty variants", () => {
     const { container } = render(
@@ -74,7 +90,114 @@ describe("ProductOverviewPane component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly if nobb === null", () => {
+    const component = () => <div>thumbnail</div>;
+    const { container } = render(
+      <ProductOverviewPane
+        name="Type S Roof Shingles"
+        brandLogo={MockLogo}
+        nobb={null}
+        nobbLabel="label"
+        thumbnailComponent={component}
+        attributes={[
+          {
+            name: "Size",
+            type: "thumbnails",
+            variants: [
+              {
+                label: "22cm x 42cm",
+                isSelected: true,
+                availability: true
+              },
+              {
+                label: "12cm x 22cm",
+                availability: false
+              }
+            ]
+          }
+        ]}
+      />
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly if attribute type === chips", () => {
+    const component = () => <div>thumbnail</div>;
+    const { container } = render(
+      <ProductOverviewPane
+        name="Type S Roof Shingles"
+        brandLogo={MockLogo}
+        nobb="1394983720195"
+        nobbLabel="label"
+        thumbnailComponent={component}
+        attributes={[
+          {
+            name: "Size",
+            type: "chips",
+            variants: [
+              {
+                label: "22cm x 42cm",
+                isSelected: true,
+                availability: true
+              },
+              {
+                label: "12cm x 22cm",
+                availability: false
+              }
+            ]
+          }
+        ]}
+      />
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly if attributes === undefined", () => {
+    const component = () => <div>thumbnail</div>;
+    const { container } = render(
+      <ProductOverviewPane
+        name="Type S Roof Shingles"
+        brandLogo={MockLogo}
+        nobb={null}
+        nobbLabel="label"
+        thumbnailComponent={component}
+      />
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly if some variant has isSelected equals false", () => {
+    const component = () => <div>thumbnail</div>;
+    const { container } = render(
+      <ProductOverviewPane
+        name="Type S Roof Shingles"
+        brandLogo={MockLogo}
+        nobb={null}
+        nobbLabel="label"
+        thumbnailComponent={component}
+        attributes={[
+          {
+            name: "Size",
+            type: "thumbnails",
+            variants: [
+              {
+                label: "22cm x 42cm",
+                availability: true,
+                isSelected: false
+              },
+              {
+                label: "12cm x 22cm",
+                availability: false
+              }
+            ]
+          }
+        ]}
+      />
+    );
+    expect(container).toMatchSnapshot();
   });
 
   describe("renders tooltips with unavailableMicrocopy when hover attribute ", () => {

@@ -21,7 +21,7 @@ describe("ImageGallery component", () => {
     ];
 
     const { container } = render(<ImageGallery images={images} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with deprecated imageSource", () => {
     const images = [
@@ -41,11 +41,11 @@ describe("ImageGallery component", () => {
     ];
 
     const { container } = render(<ImageGallery images={images} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders null when no images are passed", () => {
     const { container } = render(<ImageGallery images={[]} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders without a thumbnail when one image is passed", () => {
     const { container } = render(
@@ -58,7 +58,7 @@ describe("ImageGallery component", () => {
         ]}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with short layout", () => {
@@ -81,11 +81,11 @@ describe("ImageGallery component", () => {
     const { container } = render(
       <ImageGallery images={images} layout="short" />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders empty image gallery when no media and main source are supplied", () => {
     const { container } = render(<ImageGallery images={[{}]} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders caption of first image when caption is present", () => {
     const images = [
@@ -109,6 +109,35 @@ describe("ImageGallery component", () => {
     const { container } = render(
       <ImageGallery images={images} layout="short" />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+  it("renders with main-image-wrapper--cover style if imageSize is not contain", () => {
+    const images = [
+      {
+        media: <img src={mockImage} alt="Lorem ipsum" />,
+        thumbnail: mockImage
+      }
+    ];
+
+    const { container } = render(
+      <ImageGallery images={images} imageSize="cover" />
+    );
+
+    expect(container.querySelector(".main-image-wrapper--cover")).toBeTruthy();
+  });
+  it("renders MobileThumbnails if isTouchDevice is true", () => {
+    Object.defineProperty(document.documentElement, "ontouchstart", jest.fn());
+    const images = [
+      {
+        media: <img src={mockImage} alt="Lorem ipsum" />,
+        thumbnail: mockImage
+      },
+      {
+        media: <img src={mockImage} alt="Lorem ipsum" />,
+        thumbnail: mockImage
+      }
+    ];
+    const { container } = render(<ImageGallery images={images} />);
+    expect(container.querySelector(".thumbnails--touch")).toBeTruthy();
   });
 });

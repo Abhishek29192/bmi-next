@@ -72,3 +72,5 @@ http-client.private.env.json
 
 target/
 package-lock.json
+
+**/gl-dast-report.json

@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
+import AlertBanner from "@bmi/alert-banner";
 import Dialog from "@bmi/dialog";
 import Upload from "@bmi/upload";
 
 type UploadDialogProps = {
   isOpen: boolean;
+  errors?: string;
+  loading?: boolean;
   onCloseClick: () => void;
+  onFilesChange?: () => void;
   onConfirmClick: (files: File[]) => void;
 };
 //You cannot upload  files larger than <MAX_FILE_SIZE> MB (It's megabyte)
@@ -13,8 +17,11 @@ const MAX_FILE_SIZE: number = 25;
 
 export const UploadDialog = ({
   isOpen,
+  errors,
+  loading,
   onCloseClick,
-  onConfirmClick
+  onConfirmClick,
+  onFilesChange
 }: UploadDialogProps) => {
   const { t } = useTranslation("company-page");
   const [files, setFiles] = useState<File[]>([]);
@@ -43,7 +50,10 @@ export const UploadDialog = ({
             )
           }}
           defaultExpanded={true}
-          onFilesChange={(files) => setFiles(files)}
+          onFilesChange={(files) => {
+            setFiles(files);
+            onFilesChange && onFilesChange();
+          }}
           fileValidation={(file) =>
             file.size > MAX_FILE_SIZE * (1024 * 1024)
               ? t("document.uploadDialog.fileValidationMessage", {
@@ -52,11 +62,21 @@ export const UploadDialog = ({
               : null
           }
         />
+        {errors && (
+          <div data-testid="uploader-error" style={{ marginTop: 20 }}>
+            <AlertBanner
+              key={`company-document-uploader-error`}
+              severity="error"
+            >
+              <AlertBanner.Title>{errors}</AlertBanner.Title>
+            </AlertBanner>
+          </div>
+        )}
       </Dialog.Content>
       <Dialog.Actions
         confirmLabel={t("document.uploadDialog.confirmLabel")}
         onConfirmClick={() => onConfirmClick(files)}
-        isConfirmButtonDisabled={files.length === 0}
+        isConfirmButtonDisabled={loading || files.length === 0}
         cancelLabel={t("document.uploadDialog.cancelLabel")}
         onCancelClick={() => onCloseClick()}
       />

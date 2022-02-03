@@ -54,3 +54,14 @@ export type PageSizeStringOptions =
   | "LEGAL"
   | "LETTER"
   | "TABLOID";
+
+export type ComponentProps = {
+  children: React.ReactNode;
+  [rest: string]: any;
+};
+
+export type ReturnedPageSize = {
+  width: number;
+  height: number;
+  orientation: "portrait" | "landscape";
+};

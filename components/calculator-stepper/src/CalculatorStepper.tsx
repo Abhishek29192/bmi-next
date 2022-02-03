@@ -7,7 +7,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Form from "@bmi/form";
 import styles from "./CalculatorStepper.module.scss";
 
-type Props = {
+export type Props = {
   selected: string;
   children: React.ReactNode;
 };
@@ -23,13 +23,13 @@ const isStepElement = (
 const CalculatorStepper = ({ selected, children }: Props) => {
   // TODO: add warnings for invalid items/keys
   const current = React.Children.toArray(children).filter((item) => {
-    return isStepElement(item) && (item.key + "").substr(2) === selected;
+    return isStepElement(item) && (item.key + "").substring(2) === selected;
   });
 
   return <div className={styles["CalculatorStepper"]}>{current}</div>;
 };
 
-type StepProps = {
+export type StepProps = {
   isForm?: boolean;
   title: string;
   subtitle: string;

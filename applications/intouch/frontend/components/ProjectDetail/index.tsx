@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { gql } from "@apollo/client";
 import Grid from "@bmi/grid";
 import Tabs from "@bmi/tabs";
@@ -38,9 +38,18 @@ import {
 import log from "../../lib/logger";
 import { useAccountContext } from "../../context/AccountContext";
 
-const ProjectDetail = ({ projectId }: { projectId: number }) => {
+type ProjectDetailProps = {
+  projectId: number;
+  onUpdateGuarantee: () => void;
+};
+
+const ProjectDetail = ({
+  projectId,
+  onUpdateGuarantee
+}: ProjectDetailProps) => {
   const { t } = useTranslation("project-page");
   const { account } = useAccountContext();
+  const [isPolling, setIsPolling] = useState(false);
   const [updateGuarantee] = useUpdateGuaranteeMutation({
     onError: (error) => {
       log({
@@ -60,6 +69,8 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           }
         });
       }
+
+      onUpdateGuarantee && onUpdateGuarantee();
     },
     refetchQueries: [
       {
@@ -114,8 +125,29 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
   const {
     data: { project } = {},
     loading,
-    error
+    error,
+    startPolling,
+    stopPolling
   } = useGetProjectQuery({
+    notifyOnNetworkStatusChange: true,
+    onCompleted: ({ project }) => {
+      const isMissingPdf = project?.guarantees?.nodes?.some(
+        (guarantee) =>
+          !guarantee.signedFileStorageUrl &&
+          !["FLAT_SOLUTION", "PITCHED_SOLUTION"].includes(
+            guarantee.guaranteeReferenceCode
+          )
+      );
+
+      // If some guarantees are missing the pdf means it is still in creation, I need a polling
+      if (isMissingPdf) {
+        startPollingPdf();
+      }
+      // If not necessary stop any polling if already in started
+      else {
+        stopPollingPdf();
+      }
+    },
     variables: {
       projectId: projectId
     }
@@ -131,7 +163,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
     );
   }
 
-  if (loading)
+  if (loading && !project)
     return (
       <div style={{ minHeight: "100vh" }}>{t("projectDetails.loading")}</div>
     );
@@ -145,6 +177,20 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
       can(account, "project", "nominateResponsible") &&
       ["NEW", "REJECTED"].includes(getGuaranteeStatus(project))
     );
+  };
+
+  const startPollingPdf = (interval = 5000) => {
+    if (!isPolling) {
+      startPolling(interval);
+      setIsPolling(true);
+    }
+  };
+
+  const stopPollingPdf = () => {
+    if (isPolling) {
+      stopPolling();
+      setIsPolling(false);
+    }
   };
 
   return (
@@ -206,6 +252,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
             <TabCard>
               <GuaranteeTab
                 project={project}
+                onGuaranteeSubmitted={startPollingPdf}
                 isApplyGuarantee={isGuaranteeAppliable}
               />
             </TabCard>
@@ -241,7 +288,12 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
   );
 };
 
-export default ProjectDetail;
+export default React.memo(ProjectDetail, (prev, next) => {
+  if (prev.projectId !== next.projectId) {
+    return false;
+  }
+  return true;
+});
 
 export const GET_PROJECT = gql`
   fragment ProjectDetailsFragment on Project {

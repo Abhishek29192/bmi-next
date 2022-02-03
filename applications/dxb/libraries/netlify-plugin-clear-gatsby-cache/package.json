@@ -1,7 +1,0 @@
-{
-  "name": "@bmi/netlify-plugin-clear-gatsby-cache",
-  "version": "0.0.0",
-  "license": "BMI-DXB",
-  "private": true,
-  "main": "./index"
-}

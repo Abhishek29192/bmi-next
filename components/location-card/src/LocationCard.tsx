@@ -2,6 +2,7 @@ import React from "react";
 import Typography from "@bmi/typography";
 import DefaultAnchorLink, { ClickableAction } from "@bmi/anchor-link";
 import Icon from "@bmi/icon";
+import { SVGImport } from "@bmi/svg-import";
 import { LocationOn, Phone, Mail } from "@material-ui/icons";
 import classnames from "classnames";
 import styles from "./LocationCard.module.scss";
@@ -71,6 +72,7 @@ export const LocationItem = ({
   return (
     <>
       <dt className={styles["term"]}>
+        {/* eslint-disable-next-line security/detect-object-injection */}
         <Icon source={typeToIconMap[type]} className={styles["icon"]} />
         <Typography className={styles["label"]}>{label}</Typography>
       </dt>

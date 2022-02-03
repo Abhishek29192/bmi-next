@@ -13,10 +13,11 @@ type AlertProps = {
 
 const Alert = ({ type = "info", title, first, last, children }: AlertProps) => (
   <div
-    className={classnames(styles["Alert"], {
-      [styles[`Alert--first`]]: first,
-      [styles[`Alert--last`]]: last
-    })}
+    className={classnames(
+      styles["Alert"],
+      first && styles[`Alert--first`],
+      last && styles[`Alert--last`]
+    )}
   >
     <AlertBanner severity={type}>
       <AlertBanner.Title>{title}</AlertBanner.Title>

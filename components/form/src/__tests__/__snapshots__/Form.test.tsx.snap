@@ -1,107 +1,146 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Form component renders correctly 1`] = `
-<form
-  class="Form"
->
-  <div
-    class="Row"
+<div>
+  <form
+    class="Form"
   >
-    <p>
-      Lorem Ipsum
-    </p>
-  </div>
-  <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 Button MuiButton-containedPrimary"
-    tabindex="0"
-    type="submit"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-4"
+    <div
+      class="Row"
     >
-      Submit
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
-</form>
+      <p>
+        Lorem Ipsum
+      </p>
+    </div>
+    <button
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 Button MuiButton-containedPrimary"
+      tabindex="0"
+      type="submit"
+    >
+      <span
+        class="MuiButton-label buttonStyles-label-4"
+      >
+        Submit
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </form>
+</div>
 `;
 
 exports[`Form component renders with a multiple buttons 1`] = `
-<form
-  class="Form"
->
-  <div
-    class="Row"
+<div>
+  <form
+    class="Form"
   >
-    <p>
-      Lorem Ipsum
-    </p>
-  </div>
-  <div
-    class="ButtonWrapper"
-  >
-    <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 Button MuiButton-containedPrimary"
-      tabindex="0"
-      type="button"
+    <div
+      class="Row"
     >
-      <span
-        class="MuiButton-label buttonStyles-label-24"
-      >
-        Cancel
-      </span>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </button>
-    <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 Button MuiButton-containedPrimary"
-      tabindex="0"
-      type="submit"
+      <p>
+        Lorem Ipsum
+      </p>
+    </div>
+    <div
+      class="ButtonWrapper"
     >
-      <span
-        class="MuiButton-label buttonStyles-label-24"
+      <button
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 Button MuiButton-containedPrimary"
+        tabindex="0"
+        type="button"
       >
-        Submit
-      </span>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </button>
-  </div>
-</form>
+        <span
+          class="MuiButton-label buttonStyles-label-24"
+        >
+          Cancel
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 Button MuiButton-containedPrimary"
+        tabindex="0"
+        type="submit"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-24"
+        >
+          Submit
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </form>
+</div>
 `;
 
 exports[`Form component renders with a right aligned button 1`] = `
-<form
-  class="Form Form--rightAlignButton"
->
-  <div
-    class="Row"
+<div>
+  <form
+    class="Form Form--rightAlignButton"
   >
-    <p>
-      Lorem Ipsum
-    </p>
-  </div>
-  <div
-    class="ButtonWrapper"
-  >
-    <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 Button MuiButton-containedPrimary"
-      tabindex="0"
-      type="submit"
+    <div
+      class="Row"
     >
-      <span
-        class="MuiButton-label buttonStyles-label-44"
+      <p>
+        Lorem Ipsum
+      </p>
+    </div>
+    <div
+      class="ButtonWrapper"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 Button MuiButton-containedPrimary"
+        tabindex="0"
+        type="submit"
       >
-        Submit
-      </span>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </button>
-  </div>
-</form>
+        <span
+          class="MuiButton-label buttonStyles-label-44"
+        >
+          Submit
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Form component test withFormControl calls onChange 1`] = `
+<div>
+  <input
+    data-testid="id"
+    name="test"
+    type="text"
+    value="Value"
+  />
+</div>
+`;
+
+exports[`Form component test withFormControl not calls onChange 1`] = `
+<div>
+  <input
+    data-testid="id"
+    name="test"
+    type="text"
+    value="Value"
+  />
+</div>
+`;
+
+exports[`Form component test withFormControl with no fieldIsRequiredError and value 1`] = `
+<div>
+  <input
+    data-testid="id"
+    name="test"
+    type="text"
+    value=""
+  />
+</div>
 `;

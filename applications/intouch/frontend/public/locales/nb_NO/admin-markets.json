@@ -1,13 +1,13 @@
 {
-  "show": "Vis mer",
-  "edit": "Rediger",
-  "submit": "Send",
-  "success": "Success",
+  "edit": "Edit",
   "error": "Error",
+  "show": "Show",
   "sidePanel": {
     "search": {
-      "label": "Søk",
-      "noResult": "Ingen objekter funnet"
+      "label": "Search",
+      "noResult": "No items found"
     }
-  }
+  },
+  "submit": "Submit",
+  "success": "Success"
 }

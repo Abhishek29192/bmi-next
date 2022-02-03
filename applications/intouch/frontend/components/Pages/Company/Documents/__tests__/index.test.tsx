@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { renderWithUserProvider } from "../../../../../lib/tests/utils";
 import ApolloProvider from "../../../../../lib/tests/fixtures/apollo";
 import AccountContextWrapper from "../../../../../lib/tests/fixtures/account";
@@ -16,7 +16,7 @@ describe("CompanyDocuments Components", () => {
         </AccountContextWrapper>
       </ApolloProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("render correctly if there is document", () => {
@@ -37,6 +37,6 @@ describe("CompanyDocuments Components", () => {
         </AccountContextWrapper>
       </ApolloProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

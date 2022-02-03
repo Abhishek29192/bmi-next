@@ -1,3 +1,4 @@
+import logger from "@bmi/functions-logger";
 import { DownloadResponse } from "@google-cloud/storage/build/src/file";
 import { FunctionMetadata } from "./types";
 
@@ -5,8 +6,7 @@ export function filterFunctionMetadata(
   content: DownloadResponse,
   sourceName: string
 ): FunctionMetadata[] | null {
-  // eslint-disable-next-line no-console
-  console.log(`sourceName:${sourceName}`);
+  logger.info({ message: `sourceName:${sourceName}` });
   if (!content || !content[0].length) {
     return null;
   }
@@ -17,8 +17,9 @@ export function filterFunctionMetadata(
     });
 
   if (!curerntFunctionsMetadata || !curerntFunctionsMetadata.length) {
-    // eslint-disable-next-line no-console
-    console.warn(`Metadata not found for source : ${sourceName}`);
+    logger.warning({
+      message: `Metadata not found for source : ${sourceName}`
+    });
     return null;
   }
   return curerntFunctionsMetadata;

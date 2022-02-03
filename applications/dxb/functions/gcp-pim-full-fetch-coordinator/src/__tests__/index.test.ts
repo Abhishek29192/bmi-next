@@ -1,21 +1,13 @@
 import mockConsole from "jest-mock-console";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import { FetchMockStatic } from "fetch-mock";
-import fetch from "node-fetch";
-import { handleRequest as realHandleRequest } from "..";
-import {
-  mockResponse,
-  mockRequest,
-  mockResponses
-} from "../../../../../../libraries/fetch-mocks/src/index";
-import { ElasticsearchIndexes } from "../elasticsearch";
-import { FirestoreCollections } from "../firestore";
-import { PimTypes } from "../pim";
+import { mockResponse, mockRequest, mockResponses } from "@bmi/fetch-mocks";
 import {
   createProductsApiResponse,
   createSystemsApiResponse
-} from "./helpers/pimHelper";
+} from "@bmi/pim-types";
+import { ElasticsearchIndexes } from "../elasticsearch";
+import { FirestoreCollections } from "../firestore";
 
 const deleteElasticSearchIndex = jest.fn();
 jest.mock("../elasticsearch", () => {
@@ -42,16 +34,16 @@ jest.mock("../firestore", () => {
 });
 
 const fetchData = jest.fn();
-jest.mock("../pim", () => {
-  const pim = jest.requireActual("../pim");
+jest.mock("@bmi/pim-api", () => {
+  const pim = jest.requireActual("@bmi/pim-api");
   return {
     ...pim,
     fetchData: (...args: any) => fetchData(...args)
   };
 });
 
-const fetchMock = fetch as unknown as FetchMockStatic;
-jest.mock("node-fetch", () => fetchMockJest.sandbox());
+const fetchMock = fetchMockJest.sandbox();
+jest.mock("node-fetch", () => fetchMock);
 
 beforeAll(() => {
   mockConsole();
@@ -69,9 +61,50 @@ beforeEach(() => {
 const handleRequest = (
   request: Partial<Request>,
   response: Partial<Response>
-) => realHandleRequest(request as Request, response as Response);
+) =>
+  require("../index").handleRequest(request as Request, response as Response);
 
 describe("handleRequest", () => {
+  it("should return 500 if BUILD_TRIGGER_ENDPOINT is not set", async () => {
+    const originalBuildTriggerEndpoint = process.env.BUILD_TRIGGER_ENDPOINT;
+    delete process.env.BUILD_TRIGGER_ENDPOINT;
+
+    const request = mockRequest("GET");
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(deleteElasticSearchIndex).not.toHaveBeenCalled();
+    expect(deleteElasticSearchIndex).not.toHaveBeenCalled();
+    expect(deleteFirestoreCollection).not.toHaveBeenCalled();
+    expect(deleteFirestoreCollection).not.toHaveBeenCalled();
+    expect(fetchData).not.toHaveBeenCalled();
+    expect(fetchMock).not.toHaveFetched();
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+
+    process.env.BUILD_TRIGGER_ENDPOINT = originalBuildTriggerEndpoint;
+  });
+
+  it("should return 500 if FULL_FETCH_ENDPOINT is not set", async () => {
+    const originalFullFetchEndpoint = process.env.FULL_FETCH_ENDPOINT;
+    delete process.env.FULL_FETCH_ENDPOINT;
+
+    const request = mockRequest("GET");
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(deleteElasticSearchIndex).not.toHaveBeenCalled();
+    expect(deleteElasticSearchIndex).not.toHaveBeenCalled();
+    expect(deleteFirestoreCollection).not.toHaveBeenCalled();
+    expect(deleteFirestoreCollection).not.toHaveBeenCalled();
+    expect(fetchData).not.toHaveBeenCalled();
+    expect(fetchMock).not.toHaveFetched();
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+
+    process.env.FULL_FETCH_ENDPOINT = originalFullFetchEndpoint;
+  });
+
   it("should error if deleting products Elasticsearch index throws error", async () => {
     deleteElasticSearchIndex.mockRejectedValue(Error("Expected error"));
     const request = mockRequest("GET");
@@ -96,8 +129,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).not.toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).not.toHaveBeenCalledWith(PimTypes.Products);
-    expect(fetchData).not.toHaveBeenCalledWith(PimTypes.Systems);
+    expect(fetchData).not.toHaveBeenCalledWith("products");
+    expect(fetchData).not.toHaveBeenCalledWith("systems");
     expect(fetchMock).not.toHaveFetched();
     expect(response.status).not.toHaveBeenCalled();
   });
@@ -128,8 +161,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).not.toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).not.toHaveBeenCalledWith(PimTypes.Products);
-    expect(fetchData).not.toHaveBeenCalledWith(PimTypes.Systems);
+    expect(fetchData).not.toHaveBeenCalledWith("products");
+    expect(fetchData).not.toHaveBeenCalledWith("systems");
     expect(fetchMock).not.toHaveFetched();
     expect(response.status).not.toHaveBeenCalled();
   });
@@ -158,8 +191,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).not.toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).not.toHaveBeenCalledWith(PimTypes.Products);
-    expect(fetchData).not.toHaveBeenCalledWith(PimTypes.Systems);
+    expect(fetchData).not.toHaveBeenCalledWith("products");
+    expect(fetchData).not.toHaveBeenCalledWith("systems");
     expect(fetchMock).not.toHaveFetched();
     expect(response.status).not.toHaveBeenCalled();
   });
@@ -190,8 +223,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).not.toHaveBeenCalledWith(PimTypes.Products);
-    expect(fetchData).not.toHaveBeenCalledWith(PimTypes.Systems);
+    expect(fetchData).not.toHaveBeenCalledWith("products");
+    expect(fetchData).not.toHaveBeenCalledWith("systems");
     expect(fetchMock).not.toHaveFetched();
     expect(response.status).not.toHaveBeenCalled();
   });
@@ -221,8 +254,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Products);
-    expect(fetchData).not.toHaveBeenCalledWith(PimTypes.Systems);
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).not.toHaveBeenCalledWith("systems");
     expect(fetchMock).not.toHaveFetched();
     expect(response.status).not.toHaveBeenCalled();
   });
@@ -260,8 +293,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Products);
-    expect(fetchData).not.toHaveBeenCalledWith(PimTypes.Systems);
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).not.toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -321,8 +354,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Products);
-    expect(fetchData).not.toHaveBeenCalledWith(PimTypes.Systems);
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).not.toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -385,8 +418,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Products);
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Systems);
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -458,8 +491,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Products);
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Systems);
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -531,8 +564,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Products);
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Systems);
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -604,8 +637,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Products);
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Systems);
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -679,8 +712,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Products);
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Systems);
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -753,8 +786,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Products);
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Systems);
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -849,8 +882,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Products);
-    expect(fetchData).toHaveBeenCalledWith(PimTypes.Systems);
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {

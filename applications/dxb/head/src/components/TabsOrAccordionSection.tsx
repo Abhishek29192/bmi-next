@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Accordion, { AccordionSummaryProps } from "@bmi/accordion";
 import Section from "@bmi/section";
 import Tabs from "@bmi/tabs";
-import { Tab, TabProps } from "@material-ui/core";
+import Tab, { TabProps } from "@material-ui/core/Tab";
 import Typography from "@bmi/typography";
 import withGTM from "../utils/google-tag-manager";
 import RichText from "../components/RichText";
@@ -89,6 +89,7 @@ const TabsOrAccordionSection = ({ data }: { data: Data }) => {
 
   const { title, type, items, description } = data;
   const backgroundColor = type === "Tabs" ? "pearl" : "white";
+  // eslint-disable-next-line security/detect-object-injection
   const Component = componentMap[type];
 
   return (

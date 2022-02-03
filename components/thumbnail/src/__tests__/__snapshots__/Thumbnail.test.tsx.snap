@@ -1,82 +1,92 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Thumbnail component renders correctly 1`] = `
-<button
-  class="MuiButtonBase-root Thumbnail"
-  style="background-color: rgb(51, 178, 233);"
-  tabindex="0"
-  type="button"
->
-  <span
-    class="accessibility-text"
+<div>
+  <button
+    class="MuiButtonBase-root Thumbnail"
+    style="background-color: rgb(51, 178, 233);"
+    tabindex="0"
+    type="button"
   >
-    Blue
-  </span>
-  <span
-    class="MuiTouchRipple-root"
-  />
-</button>
+    <span
+      class="accessibility-text"
+    >
+      Blue
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
 `;
 
 exports[`Thumbnail component renders disabled 1`] = `
-<button
-  class="MuiButtonBase-root Thumbnail Thumbnail--disabled Mui-disabled"
-  disabled=""
-  tabindex="-1"
-  type="button"
->
-  <span
-    class="accessibility-text"
+<div>
+  <button
+    class="MuiButtonBase-root Thumbnail Thumbnail--disabled Mui-disabled"
+    disabled=""
+    tabindex="-1"
+    type="button"
   >
-    Black
-  </span>
-</button>
+    <span
+      class="accessibility-text"
+    >
+      Black
+    </span>
+  </button>
+</div>
 `;
 
 exports[`Thumbnail component renders selected 1`] = `
-<button
-  class="MuiButtonBase-root Thumbnail Thumbnail--selected"
-  tabindex="0"
-  type="button"
->
-  <span
-    class="accessibility-text"
+<div>
+  <button
+    class="MuiButtonBase-root Thumbnail Thumbnail--selected"
+    tabindex="0"
+    type="button"
   >
-    Black
-  </span>
-</button>
+    <span
+      class="accessibility-text"
+    >
+      Black
+    </span>
+  </button>
+</div>
 `;
 
 exports[`Thumbnail component renders with an image 1`] = `
-<button
-  class="MuiButtonBase-root Thumbnail Thumbnail--disabled Mui-disabled"
-  disabled=""
-  style="background-image: url(path-to-image);"
-  tabindex="-1"
-  type="button"
->
-  <span
-    class="accessibility-text"
+<div>
+  <button
+    class="MuiButtonBase-root Thumbnail Thumbnail--disabled Mui-disabled"
+    disabled=""
+    style="background-image: url(path-to-image);"
+    tabindex="-1"
+    type="button"
   >
-    Black
-  </span>
-</button>
+    <span
+      class="accessibility-text"
+    >
+      Black
+    </span>
+  </button>
+</div>
 `;
 
 exports[`Thumbnail component renders with large size 1`] = `
-<button
-  class="MuiButtonBase-root Thumbnail Thumbnail--large"
-  style="background-color: rgb(0, 0, 0);"
-  tabindex="0"
-  type="button"
->
-  <span
-    class="accessibility-text"
+<div>
+  <button
+    class="MuiButtonBase-root Thumbnail Thumbnail--large"
+    style="background-color: rgb(0, 0, 0);"
+    tabindex="0"
+    type="button"
   >
-    Black
-  </span>
-  <span
-    class="MuiTouchRipple-root"
-  />
-</button>
+    <span
+      class="accessibility-text"
+    >
+      Black
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
 `;

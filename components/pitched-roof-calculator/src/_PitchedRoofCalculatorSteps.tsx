@@ -7,20 +7,26 @@ import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import RoofSelection from "./_RoofSelection";
 import RoofDimensions from "./_RoofDimensions";
 import TileSelection from "./_TileSelection";
-import TileOptions from "./_TileOptions";
+import TileOptions, { TileOptionsSeletions } from "./_TileOptions";
 import VariantSelection from "./_VariantSelection";
 import UnderlaySelection from "./_UnderlaySelection";
-import Guttering from "./_Guttering";
+import Guttering, { GutteringSelections } from "./_Guttering";
 import { calculateArea } from "./calculation/calculate";
 import Results from "./_Results";
 import { EmailFormValues } from "./types/EmailFormValues";
 import protrusionTypes from "./calculation/protrusions";
-import { DimensionsValues, Measurements, Roof } from "./types/roof";
+import {
+  DimensionsValues,
+  LinesMap,
+  Measurements,
+  Protrusion,
+  Roof
+} from "./types/roof";
 import styles from "./_PitchedRoofCalculatorSteps.module.scss";
-import { Data } from "./types";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
+import { Data, MainTile, MainTileVariant, Underlay } from "./types";
 
-type Step =
+export type Step =
   | "select-roof"
   | "enter-dimensions"
   | "select-tile"
@@ -48,22 +54,25 @@ const PitchedRoofCalculatorSteps = ({
   const copy = useContext(MicroCopyContext);
   const pushEvent = useContext(AnalyticsContext);
 
-  const [roof, setRoof] = useState<Roof | null>(null);
+  const [roof, setRoof] = useState<Roof | undefined>(undefined);
   const [dimensions, setDimensions] = useState<DimensionsValues>({});
-  const [tile, setTile] = useState(null);
-  const [variant, setVariant] = useState(null);
-  const [tileOptions, setTileOptions] = useState<any>({});
-  const [underlay, setUnderlay] = useState({});
-  const [guttering, setGuttering] = useState<any>({});
+  const [tile, setTile] = useState<MainTile | undefined>(undefined);
+  const [variant, setVariant] =
+    useState<MainTileVariant | undefined>(undefined);
+  const [tileOptions, setTileOptions] =
+    useState<TileOptionsSeletions | undefined>(undefined);
+  const [underlay, setUnderlay] = useState<Underlay | undefined>(undefined);
+  const [guttering, setGuttering] =
+    useState<GutteringSelections | undefined>(undefined);
 
-  const selectRoof = (newRoof) => {
+  const selectRoof = (newRoof: Roof) => {
     setSelected("enter-dimensions");
     if (newRoof === roof) return;
     setRoof(newRoof);
     setDimensions({});
   };
 
-  const saveDimensions = (e, values) => {
+  const saveDimensions = (e: React.FormEvent<Element>, values: object) => {
     e.preventDefault();
 
     pushEvent({
@@ -74,47 +83,57 @@ const PitchedRoofCalculatorSteps = ({
     });
 
     // Nice to have: check if the dimensions are different before resetting
-    setDimensions(values);
-    setTile(null);
+    setDimensions(values as DimensionsValues);
+    setTile(undefined);
     setSelected("select-tile");
   };
 
-  const selectTile = (newTile) => {
+  const selectTile = (newTile: MainTile) => {
     setSelected("select-variant");
     if (newTile === tile) return;
     setTile(newTile);
-    setVariant(null);
+    setVariant(undefined);
   };
 
-  const selectVariant = (newVariant) => {
+  const selectVariant = (newVariant: MainTileVariant) => {
     setSelected("tile-options");
     if (newVariant === variant) return;
     setVariant(newVariant);
-    setTileOptions({});
+    setTileOptions(undefined);
   };
 
-  const saveAndMove = (e, values, set, next) => {
+  const saveAndMove = <T extends any>(
+    e: React.FormEvent<Element>,
+    values: T,
+    set: React.Dispatch<React.SetStateAction<T | undefined>>,
+    next: Step
+  ) => {
     e.preventDefault();
     set(values);
     setSelected(next);
   };
 
-  const measurements: Measurements = useMemo(() => {
+  const measurements: Measurements | null = useMemo(() => {
     if (!roof || !dimensions) return null;
     let { faces, lines } = roof.getMeasurements(dimensions);
 
     if (Array.isArray(dimensions.protrusions)) {
       for (const { type, ...protrusionDimensions } of dimensions.protrusions) {
-        if (protrusionTypes[type].getMeasurements) {
-          const { faces: pFaces, lines: pLines } = protrusionTypes[
-            type
-          ].getMeasurements({
-            ...protrusionDimensions,
-            roofPitch: dimensions[roof.roofPitchField] // Says on what face of the roof the protrusion is
-          });
+        // eslint-disable-next-line security/detect-object-injection
+        const protrusionType: Protrusion | undefined = protrusionTypes[type];
+        if (protrusionType?.getMeasurements) {
+          // eslint-disable-next-line security/detect-object-injection
+          const { faces: pFaces, lines: pLines } =
+            protrusionType.getMeasurements({
+              ...protrusionDimensions,
+              roofPitch: dimensions[roof.roofPitchField] // Says on what face of the roof the protrusion is
+            });
           faces.push(...pFaces);
           Object.keys(lines).forEach((line) =>
-            lines[line].push(...pLines[line])
+            // eslint-disable-next-line security/detect-object-injection
+            lines[line as keyof LinesMap].push(
+              ...pLines[line as keyof LinesMap]
+            )
           );
         }
       }
@@ -127,7 +146,7 @@ const PitchedRoofCalculatorSteps = ({
     };
   }, [roof, dimensions]);
 
-  const formattedArea = ((measurements || { area: 0 }).area / 10000).toFixed(2);
+  const formattedArea = ((measurements?.area || 0) / 10000).toFixed(2);
 
   useEffect(() => {
     if (selected === "your-solution-contains") {
@@ -241,7 +260,7 @@ const PitchedRoofCalculatorSteps = ({
             setSelected("select-variant");
           }}
         >
-          {variant ? (
+          {variant && tileOptions ? (
             <TileOptions variant={variant} selections={tileOptions} />
           ) : null}
         </CalculatorStepper.Step>
@@ -257,7 +276,7 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(copy, "underlaySelection.nextLabel"),
               action: "selected"
             });
-            saveAndMove(e, values, setUnderlay, "guttering");
+            saveAndMove(e, values as Underlay, setUnderlay, "guttering");
           }}
           backLabel={getMicroCopy(copy, "underlaySelection.backLabel")}
           backButtonOnClick={() => {
@@ -272,7 +291,7 @@ const PitchedRoofCalculatorSteps = ({
         >
           <UnderlaySelection
             options={data.underlays}
-            selected={underlay["underlay"]}
+            selected={underlay}
             dimensions={dimensions}
           />
         </CalculatorStepper.Step>
@@ -311,11 +330,13 @@ const PitchedRoofCalculatorSteps = ({
             setSelected("your-solution-contains");
           }}
         >
-          <Guttering
-            selections={guttering}
-            gutters={data.gutters}
-            gutterHooks={data.gutterHooks}
-          />
+          {guttering ? (
+            <Guttering
+              selections={guttering}
+              gutters={data.gutters}
+              gutterHooks={data.gutterHooks}
+            />
+          ) : null}
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
           isForm={false}
@@ -349,23 +370,25 @@ const PitchedRoofCalculatorSteps = ({
               action: "selected"
             });
             setSelected("select-roof");
-            setRoof(null);
+            setRoof(undefined);
           }}
         >
-          <Results
-            underlays={data.underlays}
-            gutters={data.gutters}
-            gutterHooks={data.gutterHooks}
-            {...{
-              isDebugging,
-              measurements,
-              variant,
-              tileOptions,
-              underlay,
-              guttering,
-              sendEmailAddress
-            }}
-          />
+          {measurements && variant && tileOptions && underlay && guttering && (
+            <Results
+              underlays={data.underlays}
+              gutters={data.gutters}
+              gutterHooks={data.gutterHooks}
+              {...{
+                isDebugging,
+                measurements,
+                variant,
+                tileOptions,
+                underlay,
+                guttering,
+                sendEmailAddress
+              }}
+            />
+          )}
         </CalculatorStepper.Step>
       </CalculatorStepper>
     </div>

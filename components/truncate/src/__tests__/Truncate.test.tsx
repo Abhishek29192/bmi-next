@@ -15,7 +15,7 @@ describe("Truncate component", () => {
         Officia officia eu consectetur dolor ipsum.
       </Truncate>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with custom component", () => {
     const { container } = render(
@@ -29,6 +29,6 @@ describe("Truncate component", () => {
         Officia officia eu consectetur dolor ipsum.
       </Truncate>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

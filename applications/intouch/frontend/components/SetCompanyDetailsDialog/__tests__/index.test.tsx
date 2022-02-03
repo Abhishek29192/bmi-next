@@ -16,6 +16,7 @@ describe("SetCompanyDetailsDialog component", () => {
             onCloseClick={() => {}}
             onSubmit={() => {}}
             errorMessage={errorMessage}
+            loading={false}
           />
         </AccountContextWrapper>
       </MarketContextWrapper>

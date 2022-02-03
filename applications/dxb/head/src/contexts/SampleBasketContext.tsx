@@ -7,6 +7,7 @@ import {
 import { combineVariantClassifications } from "../utils/filters";
 import { findMasterImageUrl } from "../utils/product-details-transforms";
 import { local } from "../utils/storage";
+import { useSiteContext } from "../components/Site";
 //action type
 export enum ACTION_TYPES {
   BASKET_ADD,
@@ -103,20 +104,27 @@ export const BasketContextProvider = ({
 }: {
   children: React.ReactChild | React.ReactChildren;
 }) => {
+  const { countryCode } = useSiteContext();
   //for context setup for sample shopping basket
   const [basketState, basketDispatch] = useReducer(
     basketReducer,
     initialBasketState,
     () => {
-      return typeof window !== "undefined" && local.getItem("basketItems")
-        ? { products: JSON.parse(local.getItem("basketItems")) }
+      return typeof window !== "undefined"
+        ? {
+            products:
+              JSON.parse(local.getItem(`${countryCode}-basketItems`)) || []
+          }
         : { products: [] };
     }
   );
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      local.setItem("basketItems", JSON.stringify(basketState.products));
+      local.setItem(
+        `${countryCode}-basketItems`,
+        JSON.stringify(basketState.products)
+      );
     }
   }, [basketState]);
 

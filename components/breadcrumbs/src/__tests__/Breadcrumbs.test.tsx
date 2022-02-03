@@ -28,7 +28,7 @@ describe("Breadcrumbs component", () => {
         <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>
       </Breadcrumbs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly only one item", () => {
@@ -39,7 +39,7 @@ describe("Breadcrumbs component", () => {
         </Breadcrumbs.Item>
       </Breadcrumbs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders dark themed correctly", () => {
@@ -58,7 +58,7 @@ describe("Breadcrumbs component", () => {
         <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>
       </Breadcrumbs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders on a small breakpoint", () => {
@@ -80,7 +80,7 @@ describe("Breadcrumbs component", () => {
         <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>
       </Breadcrumbs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders on a large breakpoint", () => {
@@ -102,6 +102,41 @@ describe("Breadcrumbs component", () => {
         <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>
       </Breadcrumbs>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly more than 5 items - small screens", () => {
+    // @ts-ignore Only used for testing.
+    window.matchMedia = createMatchMedia(600);
+
+    const { container } = render(
+      <Breadcrumbs>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
+          BMI Group
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/products" }}>
+          Products
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/tiles" }}>
+          Tiles
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/tea" }}>
+          Tea
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/biscuits" }}>
+          Biscuits
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/chocolate" }}>
+          Chocolate
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/ice-cream" }}>
+          Ice Cream
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/pizza" }}>
+          Pizza
+        </Breadcrumbs.Item>
+      </Breadcrumbs>
+    );
+    expect(container).toMatchSnapshot();
   });
 });

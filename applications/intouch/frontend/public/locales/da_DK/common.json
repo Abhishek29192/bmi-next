@@ -1,0 +1,84 @@
+{
+  "ARCHITECT": "Arkitekt",
+  "About Us": "Om os",
+  "Account": "Min konto",
+  "CONTRACTOR": "Entreprenør",
+  "CORP_DEVELOPER": "Udvikler",
+  "Companies": "Virksomheder",
+  "Company": "Virksomhed",
+  "Company Description": "Beskrivelse",
+  "Download": "Hent",
+  "Edit": "Redigér",
+  "Home": "Hjem",
+  "Inventory": "Beholdning",
+  "Logout": "Log ud",
+  "MERCHANT": "Købmand",
+  "Main office address": "Adresse",
+  "No Options": "Ikke noget valg",
+  "Notifications": "Beskeder",
+  "Products": "Produkter",
+  "Profile": "Profil",
+  "Projects": "Projekter",
+  "Registered Address": "Virksomhedsadresse",
+  "Registered Details": "Registrerede detaljer",
+  "Registered Name": "Virksomhedsnavn",
+  "SavePdf": "Gem som PDF",
+  "Search": "Søg",
+  "Show me": "Vis",
+  "Team": "Team",
+  "Tools": "Værktøj",
+  "Training": "Træning",
+  "aria": {
+    "navigation": "Navigation",
+    "notifications": "Beskeder"
+  },
+  "certificationLabels": {
+    "certification": "Certificering",
+    "expiry": "Udløb",
+    "type": "Type"
+  },
+  "certifications": {
+    "flat": "Fladt tag",
+    "other": "Andre",
+    "pitched": "Skråt tag"
+  },
+  "deactivatedCompany": "Virksomheden er deaktiveret",
+  "error_messages": {
+    "email_format": "Ugyldig e-mail-adresse",
+    "phone_number_format": "Ugyldigt telefonnummer",
+    "required": "Obligatorisk",
+    "url_format": "Ugyldig URL"
+  },
+  "fallback": {
+    "noResults": "Ingen resultater fundet",
+    "notAdded": "Ikke tilføjet"
+  },
+  "generatingPdf": "Forbereder PDF",
+  "notifications": {
+    "earlier": "Tidligere",
+    "older": "Ældre end 2 måneder",
+    "today": "I dag"
+  },
+  "results available": "tilgængelige resultater",
+  "roles": {
+    "COMPANY_ADMIN": "Administrator",
+    "INSTALLER": "Medlem",
+    "MARKET_ADMIN": "BMI Administrator",
+    "SUPER_ADMIN": "Super Admin"
+  },
+  "session": {
+    "dialog": {
+      "content": "Du har været inaktiv i et stykke tid nu, og denne session udløber, og du bliver automatisk logget ud.",
+      "continue": "Log ikke ud",
+      "logout": "Log ud",
+      "title": "Din session udløber efter {{counter}}"
+    }
+  },
+  "tier": {
+    "T1": "Medlem",
+    "T2": "Partner",
+    "T3": "Expert",
+    "T4": "Elite"
+  },
+  "visitWebsite": "Besøg hjemmesiden"
+}

@@ -18,7 +18,8 @@ import Roof9Illustration from "../images/roof-shapes/roof9.svg";
 import Roof9DimensionsIllustration from "../images/roof-dimensions/roof9.svg";
 import Roof10Illustration from "../images/roof-shapes/roof10.svg";
 import Roof10DimensionsIllustration from "../images/roof-dimensions/roof10.svg";
-import { DimensionsFieldsValues, Roof } from "../types/roof";
+import { DimensionsValues, Roof } from "../types/roof";
+import getMeasurement from "./getMeasurement";
 
 const roof1: Roof = {
   name: "1",
@@ -40,10 +41,10 @@ const roof1: Roof = {
       type: "PITCH"
     }
   ],
-  getMeasurements: (values: DimensionsFieldsValues<"A" | "B" | "P">) => {
-    const A = parseFloat(values.A) * 100;
-    const B = parseFloat(values.B) * 100;
-    const P = parseFloat(values.P);
+  getMeasurements: (values: DimensionsValues) => {
+    const A = getMeasurement(values, "A") * 100;
+    const B = getMeasurement(values, "B") * 100;
+    const P = getMeasurement(values, "P");
     const rafterLength = A / (2 * Math.cos((P * Math.PI) / 180));
     return {
       faces: [
@@ -134,17 +135,15 @@ const roof2: Roof = {
       type: "PITCH"
     }
   ],
-  getMeasurements: (
-    values: DimensionsFieldsValues<"A" | "B" | "C" | "D" | "E" | "P1" | "P2">
-  ) => {
-    const A = parseFloat(values.A) * 100;
-    const B = parseFloat(values.B) * 100;
-    const C = parseFloat(values.C) * 100;
-    const D = parseFloat(values.D) * 100;
-    const E = parseFloat(values.E) * 100;
+  getMeasurements: (values: DimensionsValues) => {
+    const A = getMeasurement(values, "A") * 100;
+    const B = getMeasurement(values, "B") * 100;
+    const C = getMeasurement(values, "C") * 100;
+    const D = getMeasurement(values, "D") * 100;
+    const E = getMeasurement(values, "E") * 100;
     const width = C + D + E;
-    const P1 = parseFloat(values.P1);
-    const P2 = parseFloat(values.P2);
+    const P1 = getMeasurement(values, "P1");
+    const P2 = getMeasurement(values, "P2");
 
     const rafterLength = A / (2 * Math.cos((P1 * Math.PI) / 180));
 
@@ -319,17 +318,15 @@ const roof3: Roof = {
       type: "PITCH"
     }
   ],
-  getMeasurements: (
-    values: DimensionsFieldsValues<"A" | "B" | "C" | "D" | "E" | "P1" | "P2">
-  ) => {
-    const A = parseFloat(values.A) * 100;
-    const B = parseFloat(values.B) * 100;
-    const C = parseFloat(values.C) * 100;
-    const D = parseFloat(values.D) * 100;
-    const E = parseFloat(values.E) * 100;
+  getMeasurements: (values: DimensionsValues) => {
+    const A = getMeasurement(values, "A") * 100;
+    const B = getMeasurement(values, "B") * 100;
+    const C = getMeasurement(values, "C") * 100;
+    const D = getMeasurement(values, "D") * 100;
+    const E = getMeasurement(values, "E") * 100;
     const width = C + D + E;
-    const P1 = parseFloat(values.P1);
-    const P2 = parseFloat(values.P2);
+    const P1 = getMeasurement(values, "P1");
+    const P2 = getMeasurement(values, "P2");
 
     const rafterLength = A / (2 * Math.cos((P1 * Math.PI) / 180));
     const protrusionRafterLength = D / (2 * Math.cos((P2 * Math.PI) / 180));
@@ -499,16 +496,14 @@ const roof4: Roof = {
       type: "PITCH"
     }
   ],
-  getMeasurements: (
-    values: DimensionsFieldsValues<"A" | "B" | "C" | "D" | "P1" | "P2">
-  ) => {
-    const A = parseFloat(values.A) * 100;
-    const B = parseFloat(values.B) * 100;
-    const C = parseFloat(values.C) * 100;
-    const D = parseFloat(values.D) * 100;
+  getMeasurements: (values: DimensionsValues) => {
+    const A = getMeasurement(values, "A") * 100;
+    const B = getMeasurement(values, "B") * 100;
+    const C = getMeasurement(values, "C") * 100;
+    const D = getMeasurement(values, "D") * 100;
     const width = C + D;
-    const P1 = parseFloat(values.P1);
-    const P2 = parseFloat(values.P2);
+    const P1 = getMeasurement(values, "P1");
+    const P2 = getMeasurement(values, "P2");
 
     const rafterLength1 = A / (2 * Math.cos((P1 * Math.PI) / 180));
     const rafterLength2 = D / (2 * Math.cos((P2 * Math.PI) / 180));
@@ -643,15 +638,13 @@ const roof5: Roof = {
       type: "PITCH"
     }
   ],
-  getMeasurements: (
-    values: DimensionsFieldsValues<"A" | "B" | "C" | "D" | "P1" | "P2">
-  ) => {
-    const A = parseFloat(values.A) * 100;
-    const B = parseFloat(values.B) * 100;
-    const C = parseFloat(values.C) * 100;
-    const D = parseFloat(values.D) * 100;
-    const P1 = parseFloat(values.P1);
-    const P2 = parseFloat(values.P2);
+  getMeasurements: (values: DimensionsValues) => {
+    const A = getMeasurement(values, "A") * 100;
+    const B = getMeasurement(values, "B") * 100;
+    const C = getMeasurement(values, "C") * 100;
+    const D = getMeasurement(values, "D") * 100;
+    const P1 = getMeasurement(values, "P1");
+    const P2 = getMeasurement(values, "P2");
 
     const rafterLength = A / (2 * Math.cos((P1 * Math.PI) / 180));
 
@@ -786,15 +779,13 @@ const roof6: Roof = {
       type: "PITCH"
     }
   ],
-  getMeasurements: (
-    values: DimensionsFieldsValues<"A" | "B" | "C" | "D" | "P1" | "P2">
-  ) => {
-    const A = parseFloat(values.A) * 100;
-    const B = parseFloat(values.B) * 100;
-    const C = parseFloat(values.C) * 100;
-    const D = parseFloat(values.D) * 100;
-    const P1 = parseFloat(values.P1);
-    const P2 = parseFloat(values.P2);
+  getMeasurements: (values: DimensionsValues) => {
+    const A = getMeasurement(values, "A") * 100;
+    const B = getMeasurement(values, "B") * 100;
+    const C = getMeasurement(values, "C") * 100;
+    const D = getMeasurement(values, "D") * 100;
+    const P1 = getMeasurement(values, "P1");
+    const P2 = getMeasurement(values, "P2");
 
     const rafterLength = A / (2 * Math.cos((P1 * Math.PI) / 180));
 
@@ -938,10 +929,10 @@ const roof7: Roof = {
       type: "PITCH"
     }
   ],
-  getMeasurements: (values: DimensionsFieldsValues<"A" | "B" | "P">) => {
-    const A = parseFloat(values.A) * 100;
-    const B = parseFloat(values.B) * 100;
-    const P = parseFloat(values.P);
+  getMeasurements: (values: DimensionsValues) => {
+    const A = getMeasurement(values, "A") * 100;
+    const B = getMeasurement(values, "B") * 100;
+    const P = getMeasurement(values, "P");
 
     const height = (A / 2) * Math.tan((P * Math.PI) / 180);
     const planeHeight = height / Math.sin((P * Math.PI) / 180);
@@ -1066,20 +1057,16 @@ const roof8: Roof = {
       type: "PITCH"
     }
   ],
-  getMeasurements: (
-    values: DimensionsFieldsValues<
-      "A" | "B" | "C" | "D" | "E" | "P1" | "P2" | "P3"
-    >
-  ) => {
-    const A = parseFloat(values.A) * 100;
-    const B = parseFloat(values.B) * 100;
-    const C = parseFloat(values.C) * 100;
-    const D = parseFloat(values.D) * 100;
-    const E = parseFloat(values.E) * 100;
+  getMeasurements: (values: DimensionsValues) => {
+    const A = getMeasurement(values, "A") * 100;
+    const B = getMeasurement(values, "B") * 100;
+    const C = getMeasurement(values, "C") * 100;
+    const D = getMeasurement(values, "D") * 100;
+    const E = getMeasurement(values, "E") * 100;
     const width = C + D + E;
-    const P1 = parseFloat(values.P1);
-    const P2 = parseFloat(values.P2);
-    const P3 = parseFloat(values.P3);
+    const P1 = getMeasurement(values, "P1");
+    const P2 = getMeasurement(values, "P2");
+    const P3 = getMeasurement(values, "P3");
     const height = (A / 2) * Math.tan((P2 * Math.PI) / 180);
     const rafter = height / Math.sin((P1 * Math.PI) / 180);
     const planeJointDisplacement = height / Math.tan((P1 * Math.PI) / 180);
@@ -1268,20 +1255,16 @@ const roof9: Roof = {
       type: "PITCH"
     }
   ],
-  getMeasurements: (
-    values: DimensionsFieldsValues<
-      "A" | "B" | "C" | "D" | "E" | "P1" | "P2" | "P3"
-    >
-  ) => {
-    const A = parseFloat(values.A) * 100;
-    const B = parseFloat(values.B) * 100;
-    const C = parseFloat(values.C) * 100;
-    const D = parseFloat(values.D) * 100;
-    const E = parseFloat(values.E) * 100;
+  getMeasurements: (values: DimensionsValues) => {
+    const A = getMeasurement(values, "A") * 100;
+    const B = getMeasurement(values, "B") * 100;
+    const C = getMeasurement(values, "C") * 100;
+    const D = getMeasurement(values, "D") * 100;
+    const E = getMeasurement(values, "E") * 100;
     const width = C + D + E;
-    const P1 = parseFloat(values.P1);
-    const P2 = parseFloat(values.P2);
-    const P3 = parseFloat(values.P3);
+    const P1 = getMeasurement(values, "P1");
+    const P2 = getMeasurement(values, "P2");
+    const P3 = getMeasurement(values, "P3");
 
     const height = (A / 2) * Math.tan((P2 * Math.PI) / 180);
     const rafter = height / Math.sin((P1 * Math.PI) / 180);
@@ -1469,10 +1452,10 @@ const roof10: Roof = {
       type: "PITCH"
     }
   ],
-  getMeasurements: (values: DimensionsFieldsValues<"A" | "B" | "P">) => {
-    const A = parseFloat(values.A) * 100;
-    const B = parseFloat(values.B) * 100;
-    const P = parseFloat(values.P);
+  getMeasurements: (values: DimensionsValues) => {
+    const A = getMeasurement(values, "A") * 100;
+    const B = getMeasurement(values, "B") * 100;
+    const P = getMeasurement(values, "P");
 
     const rafterLength = A / Math.cos((P * Math.PI) / 180);
 

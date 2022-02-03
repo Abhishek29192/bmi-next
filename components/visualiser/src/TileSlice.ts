@@ -1,4 +1,4 @@
-import * as THREE from "three";
+import { BufferAttribute, BufferGeometry } from "three";
 
 /*
  * Given a tile mesh (A three.js BufferGeometry object), this outputs a new geometry which has been
@@ -13,7 +13,7 @@ import * as THREE from "three";
  */
 
 export default (
-  bufferGeometry: THREE.BufferGeometry,
+  bufferGeometry: BufferGeometry,
   axisInTileUnits: number,
   axis: "x" | "z",
   keepSide: "left" | "right"
@@ -67,6 +67,7 @@ export default (
       // TODO: calc correct normal at the intersect. It's always along the edge, so no need for barycentric stuff.
       // Just use normal of a for now:
       newNormals.push(
+        // eslint-disable-next-line security/detect-object-injection
         normals.array[vert1IndexX3],
         normals.array[vert1IndexX3 + 1],
         normals.array[vert1IndexX3 + 2]
@@ -89,6 +90,7 @@ export default (
   // +ve y is always assumed to be "up".
   // For each triangle, consider if it should be kept as-is, discarded, or sliced.
   for (let i = 0; i < tris.length; i += 3) {
+    // eslint-disable-next-line security/detect-object-injection
     const aIndex = tris[i];
     const bIndex = tris[i + 1];
     const cIndex = tris[i + 2];
@@ -205,7 +207,7 @@ export default (
   }
 
   // The new geometry
-  const slicedTile = new THREE.BufferGeometry();
+  const slicedTile = new BufferGeometry();
 
   // If we have new verts:
   if (newVerts.length) {
@@ -216,26 +218,22 @@ export default (
     vertBuffer.set(verts);
 
     for (let i = 0; i < newVerts.length; i++) {
+      // eslint-disable-next-line security/detect-object-injection
       vertBuffer[verts.length + i] = newVerts[i];
     }
 
-    slicedTile.setAttribute(
-      "position",
-      new THREE.BufferAttribute(vertBuffer, 3)
-    );
+    slicedTile.setAttribute("position", new BufferAttribute(vertBuffer, 3));
 
     if (normals) {
       const normalBuffer = new Float32Array(totalVertCount);
       normalBuffer.set(normals.array);
 
       for (let i = 0; i < newVerts.length; i++) {
+        // eslint-disable-next-line security/detect-object-injection
         normalBuffer[verts.length + i] = newNormals[i];
       }
 
-      slicedTile.setAttribute(
-        "normal",
-        new THREE.BufferAttribute(normalBuffer, 3)
-      );
+      slicedTile.setAttribute("normal", new BufferAttribute(normalBuffer, 3));
     }
 
     if (uvs) {
@@ -243,21 +241,20 @@ export default (
       uvBuffer.set(uvs.array);
 
       for (let i = 0; i < newUvs.length; i++) {
+        // eslint-disable-next-line security/detect-object-injection
         uvBuffer[uvs.array.length + i] = newUvs[i];
       }
 
-      slicedTile.setAttribute("uv", new THREE.BufferAttribute(uvBuffer, 2));
+      slicedTile.setAttribute("uv", new BufferAttribute(uvBuffer, 2));
     }
   } else {
     for (const key in bufferGeometry.attributes) {
+      // eslint-disable-next-line security/detect-object-injection
       slicedTile.setAttribute(key, bufferGeometry.attributes[key].clone());
     }
   }
 
-  slicedTile.index = new THREE.BufferAttribute(
-    new Uint16Array(newTriangles),
-    1
-  );
+  slicedTile.index = new BufferAttribute(new Uint16Array(newTriangles), 1);
   slicedTile.computeBoundingBox();
   return slicedTile;
 };

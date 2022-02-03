@@ -3,6 +3,7 @@ import Typography from "@bmi/typography";
 import Icon from "@bmi/icon";
 import Grid from "@bmi/grid";
 import { NavigationListButton } from "@bmi/navigation";
+import { SVGImport } from "@bmi/svg-import";
 import styles from "./LanguageSelection.module.scss";
 
 export type LanguageSelectionItem = {
@@ -53,9 +54,19 @@ const LanguageSelection = ({
                 startIcon={
                   icon &&
                   (typeof icon === "string" ? (
-                    <img className={styles["LanguageIcon"]} src={icon} />
+                    <img
+                      width="20px"
+                      height="16px"
+                      className={styles["LanguageIcon"]}
+                      src={icon}
+                    />
                   ) : (
-                    <Icon className={styles["LanguageIcon"]} source={icon} />
+                    <Icon
+                      width="20px"
+                      height="16px"
+                      className={styles["LanguageIcon"]}
+                      source={icon}
+                    />
                   ))
                 }
                 action={{

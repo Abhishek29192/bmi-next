@@ -25,7 +25,7 @@ describe("ProjectDetail component", () => {
   });
   it("should show loading", () => {
     mockGetProjectQuery.mockImplementation(() => ({
-      data: { project: {} },
+      data: { project: null },
       loading: true,
       error: false
     }));

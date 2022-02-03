@@ -13,6 +13,7 @@ import {
   PIMDocumentData,
   PIMLinkDocumentData
 } from "../components/types/PIMDocumentBase";
+import { microCopy } from "../constants/microCopies";
 import AssetHeader from "./_AssetHeader";
 import { useSiteContext } from "./Site";
 import { Data as AssetTypeData } from "./AssetType";
@@ -164,7 +165,7 @@ const DesktopDocumentTechnicalTableResults = ({
         <Table.Head>
           <Table.Row className={styles["header-row"]}>
             <Table.Cell>
-              {getMicroCopy("documentLibrary.headers.product")}
+              {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_PRODUCT)}
             </Table.Cell>
             {assetTypes.map((assetType, index) => {
               return (
@@ -183,7 +184,9 @@ const DesktopDocumentTechnicalTableResults = ({
                   source={iconMap.Download}
                   className={styles["all-files-icon"]}
                 />
-                <span>{getMicroCopy("documentLibrary.headers.allFiles")}</span>
+                <span>
+                  {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_ALL_FILES)}
+                </span>
               </span>
             </Table.Cell>
           </Table.Row>
@@ -200,6 +203,7 @@ const DesktopDocumentTechnicalTableResults = ({
               <Table.Row
                 key={key}
                 className={classnames(styles["row"], {
+                  // eslint-disable-next-line security/detect-object-injection
                   [styles["row--checked"]]: !!list[key]
                 })}
               >
@@ -241,10 +245,10 @@ const DesktopDocumentTechnicalTableResults = ({
                     <DownloadList.Checkbox
                       name={key}
                       maxLimitReachedLabel={getMicroCopy(
-                        "documents.download.maxReached"
+                        microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
                       )}
                       ariaLabel={`${getMicroCopy(
-                        "documentLibrary.download"
+                        microCopy.DOCUMENT_LIBRARY_DOWNLOAD
                       )} ${productName}`}
                       value={assets.filter(
                         ({ __typename }) => __typename !== "PIMLinkDocument"

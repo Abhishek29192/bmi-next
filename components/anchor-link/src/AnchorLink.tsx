@@ -33,6 +33,7 @@ const AnchorLink = ({
 }: Props) => {
   const { type, theme } = useContext(ColorPairContext);
   const colorFromTheme: Props["color"] =
+    // eslint-disable-next-line security/detect-object-injection
     color || (type && typeToColorMap[type]) || "default";
 
   const arrowIcon = (

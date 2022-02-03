@@ -1,18 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FilterButton Component renders correctly 1`] = `
-<button
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-1 makeStyles-root-2 MuiButton-disableElevation"
-  tabindex="0"
-  type="button"
->
-  <span
-    class="MuiButton-label"
+<div>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-1 makeStyles-root-2 MuiButton-disableElevation"
+    tabindex="0"
+    type="button"
   >
-    Filter Button
-  </span>
-  <span
-    class="MuiTouchRipple-root"
-  />
-</button>
+    <span
+      class="MuiButton-label"
+    >
+      Filter Button
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
 `;

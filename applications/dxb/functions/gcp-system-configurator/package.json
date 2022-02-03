@@ -7,13 +7,15 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "webpack --mode=production",
+    "check:ts": "tsc",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=nextStep --port=9059"
   },
   "dependencies": {
+    "@bmi/functions-logger": "0.0.0",
+    "@bmi/functions-secret-client": "0.0.0",
     "@google-cloud/functions-framework": "^1.7.1",
-    "@google-cloud/secret-manager": "^3.7.3",
     "contentful-management": "^6.1.2",
     "node-fetch": "^2.6.1",
     "qs": "^6.10.1"

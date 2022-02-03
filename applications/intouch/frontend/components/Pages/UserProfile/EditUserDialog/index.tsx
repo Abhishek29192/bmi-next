@@ -31,7 +31,7 @@ export const EditUserProfileDialog = ({
   const [uploadedPhoto, setUploadedPhoto] = useState(undefined);
   const [shouldRemovePhoto, setShouldRemovePhoto] = useState(false);
 
-  const [updateAccountProfile] = useUpdateAccountProfileMutation({
+  const [updateAccountProfile, { loading }] = useUpdateAccountProfileMutation({
     onError: (error) => {
       log({
         severity: "ERROR",
@@ -74,6 +74,7 @@ export const EditUserProfileDialog = ({
     (fieldName: string) => ({
       name: fieldName,
       label: t(`profile:editDialog.form.fields.${fieldName}`),
+      // eslint-disable-next-line security/detect-object-injection
       defaultValue: account[fieldName],
       fieldIsRequiredError: t("common:error_messages.required"),
       fullWidth: true
@@ -135,7 +136,10 @@ export const EditUserProfileDialog = ({
             />
           </div>
           <Form.ButtonWrapper>
-            <Form.SubmitButton className={styles.submitButton}>
+            <Form.SubmitButton
+              disabled={loading}
+              className={styles.submitButton}
+            >
               {t("profile:editDialog.buttons.saveAndClose")}
             </Form.SubmitButton>
           </Form.ButtonWrapper>

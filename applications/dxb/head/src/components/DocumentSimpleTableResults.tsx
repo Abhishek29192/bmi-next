@@ -5,7 +5,6 @@ import Icon, { iconMap } from "@bmi/icon";
 import Table from "@bmi/table";
 import classnames from "classnames";
 import filesize from "filesize";
-import { get } from "lodash";
 import React, { useContext } from "react";
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
@@ -17,6 +16,7 @@ import {
 } from "../components/types/PIMDocumentBase";
 import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
 import { getDownloadLink } from "../utils/client-download";
+import { microCopy } from "../constants/microCopies";
 import { Data as DocumentData } from "./Document";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
@@ -88,8 +88,10 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
       }}
       variant="text"
       startIcon={
+        // eslint-disable-next-line security/detect-object-injection
         fileIconsMap[format] && (
           <Icon
+            // eslint-disable-next-line security/detect-object-injection
             source={fileIconsMap[format]}
             className={styles["download-icon"]}
           />
@@ -155,8 +157,11 @@ const DocumentSimpleTableResults = ({
               <Table.Row
                 key={`${title}-${index}`}
                 className={classnames(styles["row"], {
+                  // eslint-disable-next-line security/detect-object-injection
                   [styles["row--checked"]]: !!list[id]
                 })}
+                // eslint-disable-next-line security/detect-object-injection
+                selected={!!list[id]}
               >
                 {headers.map((header) => {
                   const key = `${title}-body-${header}`;
@@ -232,16 +237,15 @@ const DocumentSimpleTableResults = ({
                           <DownloadList.Checkbox
                             name={id}
                             maxLimitReachedLabel={getMicroCopy(
-                              "documents.download.maxReached"
+                              microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
                             )}
                             ariaLabel={`${getMicroCopy(
-                              "documentLibrary.download"
+                              microCopy.DOCUMENT_LIBRARY_DOWNLOAD
                             )} ${title}`}
                             value={document}
-                            fileSize={get(
-                              document,
-                              typenameToSizeMap[document.__typename]
-                            )}
+                            fileSize={
+                              document[typenameToSizeMap[document.__typename]]
+                            }
                           />
                         ) : (
                           <span className={styles["no-document-icon"]}>-</span>

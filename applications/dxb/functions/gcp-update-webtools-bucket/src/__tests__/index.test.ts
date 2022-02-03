@@ -1,13 +1,8 @@
 /* eslint-disable no-console */
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
-import { protos } from "@google-cloud/secret-manager";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
-import {
-  mockRequest,
-  mockResponse,
-  mockResponses
-} from "../../../../../../libraries/fetch-mocks/src/index";
+import { mockRequest, mockResponse, mockResponses } from "@bmi/fetch-mocks";
+import { Request, Response } from "express";
 import responses from "./responses.json";
 
 const fetchMock = fetchMockJest.sandbox();
@@ -16,15 +11,9 @@ jest.mock("node-fetch", () => fetchMock);
 const SECRET = "SOME_SECRET";
 const CONTENTFUL_TOKEN = "SOME_TOKEN";
 
-const accessSecretVersion = jest.fn();
-jest.mock("@google-cloud/secret-manager", () => {
-  const mSecretManagerServiceClient = jest.fn(() => ({
-    accessSecretVersion: (
-      request: protos.google.cloud.secretmanager.v1.IAccessSecretVersionRequest
-    ) => accessSecretVersion(request)
-  }));
-
-  return { SecretManagerServiceClient: mSecretManagerServiceClient };
+const getSecret = jest.fn();
+jest.mock("@bmi/functions-secret-client", () => {
+  return { getSecret };
 });
 
 const save = jest.fn();
@@ -38,7 +27,14 @@ jest.mock("@google-cloud/storage", () => {
   };
 });
 
-let handleRequest: HttpFunction;
+const handleRequest = async (
+  request: Partial<Request>,
+  response: Partial<Response>
+) =>
+  (await import("../index")).handleRequest(
+    request as Request,
+    response as Response
+  );
 
 let oldEnv = process.env;
 
@@ -61,20 +57,6 @@ beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
   fetchMock.reset();
-
-  accessSecretVersion.mockImplementation(({ name }) => {
-    if (name.includes(process.env.WEBTOOLS_UPDATE_REQUEST_SECRET)) {
-      return [{ payload: { data: SECRET } }];
-    }
-    if (name.includes(process.env.WEBTOOLS_CONTENTFUL_TOKEN_SECRET)) {
-      return [{ payload: { data: CONTENTFUL_TOKEN } }];
-    }
-
-    throw new Error("Unkown secret");
-  });
-
-  const index = require("../index");
-  handleRequest = index.handleRequest;
 });
 
 afterAll(() => {
@@ -82,7 +64,63 @@ afterAll(() => {
 });
 
 describe("Generating JSON file from WebTools space", () => {
+  it("returns a 500 response when WEBTOOLS_CONTENTFUL_TOKEN_SECRET is not set", async () => {
+    const originalWebtoolsContentfulTokenSecret =
+      process.env.WEBTOOLS_CONTENTFUL_TOKEN_SECRET;
+    delete process.env.WEBTOOLS_CONTENTFUL_TOKEN_SECRET;
+
+    const req = mockRequest(
+      "GET",
+      { authorization: `Bearer ${SECRET}` },
+      "/",
+      {}
+    );
+
+    const res = mockResponse();
+
+    await handleRequest(req, res);
+
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(bucket).toHaveBeenCalledTimes(1);
+    expect(bucket).toHaveBeenCalledWith(process.env.WEBTOOLS_CALCULATOR_BUCKET);
+    expect(file).not.toHaveBeenCalled();
+    expect(save).not.toHaveBeenCalled();
+    expect(res.sendStatus).toBeCalledWith(500);
+
+    process.env.WEBTOOLS_CONTENTFUL_TOKEN_SECRET =
+      originalWebtoolsContentfulTokenSecret;
+  });
+
+  it("returns a 500 response when WEBTOOLS_UPDATE_REQUEST_SECRET is not set", async () => {
+    const originalWebtoolsUpdateRequestSecret =
+      process.env.WEBTOOLS_UPDATE_REQUEST_SECRET;
+    delete process.env.WEBTOOLS_UPDATE_REQUEST_SECRET;
+
+    const req = mockRequest(
+      "GET",
+      { authorization: `Bearer ${SECRET}` },
+      "/",
+      {}
+    );
+
+    const res = mockResponse();
+
+    await handleRequest(req, res);
+
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(bucket).toHaveBeenCalledTimes(1);
+    expect(bucket).toHaveBeenCalledWith(process.env.WEBTOOLS_CALCULATOR_BUCKET);
+    expect(file).not.toHaveBeenCalled();
+    expect(save).not.toHaveBeenCalled();
+    expect(res.sendStatus).toBeCalledWith(500);
+
+    process.env.WEBTOOLS_UPDATE_REQUEST_SECRET =
+      originalWebtoolsUpdateRequestSecret;
+  });
+
   it("makes calls to Contentful and creates the transformed data file", async () => {
+    getSecret.mockResolvedValueOnce(SECRET).mockResolvedValue(CONTENTFUL_TOKEN);
+
     responses.forEach(([body, { status }]) => {
       fetchMock.postOnce(() => true, {
         body: JSON.stringify(body),
@@ -100,20 +138,14 @@ describe("Generating JSON file from WebTools space", () => {
 
     const res = mockResponse();
 
-    // Partial type match issue, ignoring for now
-    // @ts-ignore
     await handleRequest(req, res);
-
-    expect((console.warn as jest.Mock).mock.calls).toMatchSnapshot(
-      "fetch & transform warnings"
-    );
 
     expect(
       fetchMock
         .calls()
         .map(([url, result]) => [
           url,
-          result ? { ...result, body: JSON.parse(result.body as string) } : null
+          { ...result, body: JSON.parse(result!.body as string) }
         ])
     ).toMatchSnapshot();
 
@@ -132,6 +164,8 @@ describe("Generating JSON file from WebTools space", () => {
   });
 
   it("failes with the wrong secret", async () => {
+    getSecret.mockResolvedValueOnce(SECRET);
+
     const req = mockRequest(
       "GET",
       { authorization: `Bearer ${SECRET + "incorrect_value"}` },
@@ -141,17 +175,17 @@ describe("Generating JSON file from WebTools space", () => {
 
     const res = mockResponse();
 
-    // Partial type match issue, ignoring for now
-    // @ts-ignore
     await handleRequest(req, res);
 
-    expect(fetchMock.calls().length).toEqual(0);
+    expect(fetchMock).not.toHaveFetched();
 
     expect(res.status).toBeCalledWith(401);
     expect(res.send).toBeCalledWith("Unauthorized");
   });
 
   it("retries when getting 429", async () => {
+    getSecret.mockResolvedValueOnce(SECRET).mockResolvedValue(CONTENTFUL_TOKEN);
+
     const [firstResponse, ...rest] = responses;
 
     [[{}, { status: 429 }], firstResponse, ...rest].forEach(
@@ -173,25 +207,24 @@ describe("Generating JSON file from WebTools space", () => {
 
     const res = mockResponse();
 
-    // Partial type match issue, ignoring for now
-    // @ts-ignore
     await handleRequest(req, res);
 
-    expect(
-      fetchMock
-        .calls()
-        .slice(0, 3)
-        .map(([url, result]) => [
-          url,
-          result ? { ...result, body: JSON.parse(result.body as string) } : null
-        ])
-    ).toMatchSnapshot("first and second requests match");
+    const requests = fetchMock
+      .calls()
+      .map(([url, result]) => [
+        url,
+        { ...result, body: JSON.parse(result!.body as string) }
+      ]);
 
+    expect(requests).toHaveLength(6);
+    expect(requests[0]).toStrictEqual(requests[1]);
     expect(res.status).toBeCalledWith(200);
     expect(res.send).toBeCalledWith("ok");
   });
 
   it("errors after 6 retries when getting 429", async () => {
+    getSecret.mockResolvedValueOnce(SECRET).mockResolvedValue(CONTENTFUL_TOKEN);
+
     mockResponses(fetchMock, {
       url: `https://graphql.contentful.com/content/v1/spaces/${process.env.WEBTOOLS_CONTENTFUL_SPACE}/environments/${process.env.WEBTOOLS_CONTENTFUL_ENVIRONMENT}`,
       method: "POST",
@@ -208,8 +241,6 @@ describe("Generating JSON file from WebTools space", () => {
 
     const res = mockResponse();
 
-    // Partial type match issue, ignoring for now
-    // @ts-ignore
     await handleRequest(req, res);
 
     expect(fetchMock).toHaveFetchedTimes(6);
@@ -241,6 +272,10 @@ describe("Generating JSON file from WebTools space", () => {
   }, 20000);
 
   it("throws when getting error other than 429", async () => {
+    getSecret
+      .mockResolvedValueOnce(SECRET)
+      .mockResolvedValueOnce(CONTENTFUL_TOKEN);
+
     fetchMock.postOnce(() => true, {
       body: JSON.stringify({ error: "details about the error" }),
       status: 400,
@@ -256,39 +291,33 @@ describe("Generating JSON file from WebTools space", () => {
 
     const res = mockResponse();
 
-    // Partial type match issue, ignoring for now
-    // @ts-ignore
     await handleRequest(req, res);
 
     expect(res.status).toBeCalledWith(500);
     expect(res.send).toBeCalledWith("Internal Server Error");
-
-    expect((console.error as jest.Mock).mock.calls).toMatchSnapshot(
-      "thrown error"
-    );
   });
 
   it("accepts OPTIONS request", async () => {
     const req = mockRequest("OPTIONS", {}, "/", {});
     const res = mockResponse();
 
-    // Partial type match issue, ignoring for now
-    // @ts-ignore
     await handleRequest(req, res);
 
-    expect((res.set as jest.Mock).mock.calls).toMatchSnapshot();
+    expect(res.set).toHaveBeenCalledWith(
+      "Access-Control-Allow-Methods",
+      "POST, GET"
+    );
+    expect(res.set).toHaveBeenCalledWith("Access-Control-Allow-Headers", [
+      "Content-Type",
+      "Authorization"
+    ]);
+    expect(res.set).toHaveBeenCalledWith("Access-Control-Max-Age", "3600");
     expect(res.status).toBeCalledWith(204);
     expect(res.send).toBeCalledWith("");
   });
 
-  it("doesn't call accessSecretVersion for every request", async () => {
-    responses.forEach(([body, { status }]) => {
-      fetchMock.postOnce(() => true, {
-        body: JSON.stringify(body),
-        status,
-        headers: {}
-      });
-    });
+  it("fails if getSecret throws an error for request secret", async () => {
+    getSecret.mockRejectedValueOnce(new Error("Expected error"));
 
     const req = mockRequest(
       "GET",
@@ -299,40 +328,16 @@ describe("Generating JSON file from WebTools space", () => {
 
     const res = mockResponse();
 
-    // Partial type match issue, ignoring for now
-    // @ts-ignore
     await handleRequest(req, res);
 
-    responses.forEach(([body, { status }]) => {
-      fetchMock.postOnce(() => true, {
-        body: JSON.stringify(body),
-        status,
-        headers: {}
-      });
-    });
-
-    // @ts-ignore
-    await handleRequest(req, res);
-
-    expect(accessSecretVersion).toHaveBeenCalledTimes(2);
-
-    expect((res.status as jest.Mock).mock.calls).toMatchSnapshot(
-      "status calls"
-    );
-    expect((res.send as jest.Mock).mock.calls).toMatchSnapshot("send calls");
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.send).toHaveBeenCalledWith("Internal Server Error");
   });
 
-  it("fails if accessSecretVersion doesn't return a value", async () => {
-    accessSecretVersion.mockImplementation(({ name }) => {
-      if (name.includes(process.env.WEBTOOLS_UPDATE_REQUEST_SECRET)) {
-        return [{ payload: undefined }];
-      }
-      if (name.includes(process.env.WEBTOOLS_CONTENTFUL_TOKEN_SECRET)) {
-        return [{ payload: { data: CONTENTFUL_TOKEN } }];
-      }
-
-      throw new Error("Unkown secret");
-    });
+  it("fails if getSecret throws an error for Contentful token", async () => {
+    getSecret
+      .mockResolvedValueOnce(SECRET)
+      .mockRejectedValueOnce(new Error("Expected error"));
 
     const req = mockRequest(
       "GET",
@@ -343,39 +348,16 @@ describe("Generating JSON file from WebTools space", () => {
 
     const res = mockResponse();
 
-    // Partial type match issue, ignoring for now
-    // @ts-ignore
     await handleRequest(req, res);
 
-    accessSecretVersion.mockImplementation(({ name }) => {
-      if (name.includes(process.env.WEBTOOLS_UPDATE_REQUEST_SECRET)) {
-        return [{ payload: { data: SECRET } }];
-      }
-      if (name.includes(process.env.WEBTOOLS_CONTENTFUL_TOKEN_SECRET)) {
-        return [{ payload: undefined }];
-      }
-
-      throw new Error("Unkown secret");
-    });
-
-    // @ts-ignore
-    await handleRequest(req, res);
-
-    expect((res.status as jest.Mock).mock.calls).toMatchSnapshot(
-      "status calls"
-    );
-    expect((res.send as jest.Mock).mock.calls).toMatchSnapshot("send calls");
-
-    expect((console.error as jest.Mock).mock.calls).toMatchSnapshot(
-      "error logs"
-    );
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.send).toHaveBeenCalledWith("Internal Server Error");
   });
 
   it("fails if bucket isn't provided", async () => {
-    process.env.WEBTOOLS_CALCULATOR_BUCKET = "";
-    jest.resetModules();
-    const index = require("../index");
-    handleRequest = index.handleRequest;
+    delete process.env.WEBTOOLS_CALCULATOR_BUCKET;
+
+    getSecret.mockResolvedValueOnce(SECRET);
 
     const res = mockResponse();
 
@@ -386,17 +368,9 @@ describe("Generating JSON file from WebTools space", () => {
       {}
     );
 
-    // Partial type match issue, ignoring for now
-    // @ts-ignore
     await handleRequest(req, res);
 
-    expect((res.status as jest.Mock).mock.calls).toMatchSnapshot(
-      "status calls"
-    );
-    expect((res.send as jest.Mock).mock.calls).toMatchSnapshot("send calls");
-
-    expect((console.error as jest.Mock).mock.calls).toMatchSnapshot(
-      "error logs"
-    );
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.send).toHaveBeenCalledWith("Internal Server Error");
   });
 });

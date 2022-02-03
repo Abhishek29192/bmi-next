@@ -78,7 +78,7 @@ export const updateCompany = async (
         rows: [{ logo: currentLogoURL }]
       } = await pgClient.query(
         "select company.logo from company where id = $1",
-        [user.company.id]
+        [args.input.id]
       );
 
       // delete the previous image if it exists & is hosted on GCP Cloud storage
@@ -119,6 +119,7 @@ export const updateCompany = async (
       $business_type &&
       $tax_number &&
       ["first_line", "town", "postcode", "country"].every(
+        // eslint-disable-next-line security/detect-object-injection
         (line) => registeredAddress[line]
       )
     ) {

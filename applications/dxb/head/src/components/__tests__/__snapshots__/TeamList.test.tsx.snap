@@ -2,91 +2,93 @@
 
 exports[`TeamList component renders correctly 1`] = `
 <div>
-  <div
-    class="EqualHeights"
-  >
+  <div>
     <div
-      class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+      class="EqualHeights"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
-          class="ProfileCard"
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="head"
+            class="ProfileCard"
           >
             <div
-              class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+              class="head"
             >
               <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
+                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
               >
                 <div
-                  style="max-width: 948px; display: block;"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                  data-gatsby-image-wrapper=""
+                  style="overflow: hidden; display: inline-block;"
                 >
-                  <img
-                    alt=""
+                  <div
+                    style="max-width: 948px; display: block;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      style="max-width: 100%; display: block; position: static;"
+                    />
+                  </div>
+                  <div
                     aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                    style="max-width: 100%; display: block; position: static;"
+                    data-placeholder-image=""
+                    style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                   />
+                  <picture>
+                    <source
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Lorem ipsum"
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      decoding="async"
+                      draggable="false"
+                      loading="lazy"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                    />
+                  </picture>
+                  <noscript />
+                  <script
+                    type="module"
+                  >
+                    const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                  </script>
                 </div>
-                <div
-                  aria-hidden="true"
-                  data-placeholder-image=""
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                />
-                <picture>
-                  <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="Lorem ipsum"
-                    data-gatsby-image-ssr=""
-                    data-main-image=""
-                    data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                    decoding="async"
-                    draggable="false"
-                    loading="lazy"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                  />
-                </picture>
-                <noscript />
-                <script
-                  type="module"
-                >
-                  const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                </script>
               </div>
             </div>
-          </div>
-          <div
-            class="content-box"
-          >
             <div
-              class="body"
-              style="height: auto;"
+              class="content-box"
             >
-              <div>
-                <strong
-                  class="MuiTypography-root Typography MuiTypography-h5"
-                >
-                  Name
-                </strong>
-                <p
-                  class="MuiTypography-root title Typography MuiTypography-body2"
-                >
-                  Job Title
-                </p>
+              <div
+                class="body"
+                style="height: auto;"
+              >
+                <div>
+                  <strong
+                    class="MuiTypography-root Typography MuiTypography-h5"
+                  >
+                    Name
+                  </strong>
+                  <p
+                    class="MuiTypography-root title Typography MuiTypography-body2"
+                  >
+                    Job Title
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -99,47 +101,49 @@ exports[`TeamList component renders correctly 1`] = `
 
 exports[`TeamList component renders correctly when incomplete 1`] = `
 <div>
-  <div
-    class="EqualHeights"
-  >
+  <div>
     <div
-      class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+      class="EqualHeights"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
-          class="ProfileCard"
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="head"
+            class="ProfileCard"
           >
             <div
-              class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+              class="head"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiAvatar-fallback"
-                focusable="false"
-                viewBox="0 0 24 24"
+              <div
+                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
               >
-                <path
-                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiAvatar-fallback"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                  />
+                </svg>
+              </div>
             </div>
-          </div>
-          <div
-            class="content-box"
-          >
             <div
-              class="body"
-              style="height: auto;"
+              class="content-box"
             >
-              <div>
-                <strong
-                  class="MuiTypography-root Typography MuiTypography-h5"
-                />
+              <div
+                class="body"
+                style="height: auto;"
+              >
+                <div>
+                  <strong
+                    class="MuiTypography-root Typography MuiTypography-h5"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -152,102 +156,104 @@ exports[`TeamList component renders correctly when incomplete 1`] = `
 
 exports[`TeamList component renders correctly with links 1`] = `
 <div>
-  <div
-    class="EqualHeights"
-  >
+  <div>
     <div
-      class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+      class="EqualHeights"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
-          class="ProfileCard"
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="head"
+            class="ProfileCard"
           >
             <div
-              class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+              class="head"
             >
               <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
+                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
               >
                 <div
-                  style="max-width: 948px; display: block;"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                  data-gatsby-image-wrapper=""
+                  style="overflow: hidden; display: inline-block;"
                 >
-                  <img
-                    alt=""
+                  <div
+                    style="max-width: 948px; display: block;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      style="max-width: 100%; display: block; position: static;"
+                    />
+                  </div>
+                  <div
                     aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                    style="max-width: 100%; display: block; position: static;"
+                    data-placeholder-image=""
+                    style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                   />
+                  <picture>
+                    <source
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Lorem ipsum"
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      decoding="async"
+                      draggable="false"
+                      loading="lazy"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                    />
+                  </picture>
+                  <noscript />
+                  <script
+                    type="module"
+                  >
+                    const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                  </script>
                 </div>
-                <div
-                  aria-hidden="true"
-                  data-placeholder-image=""
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                />
-                <picture>
-                  <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="Lorem ipsum"
-                    data-gatsby-image-ssr=""
-                    data-main-image=""
-                    data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                    decoding="async"
-                    draggable="false"
-                    loading="lazy"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                  />
-                </picture>
-                <noscript />
-                <script
-                  type="module"
-                >
-                  const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                </script>
               </div>
             </div>
-          </div>
-          <div
-            class="content-box"
-          >
             <div
-              class="body"
-              style="height: auto;"
+              class="content-box"
             >
-              <div>
-                <strong
-                  class="MuiTypography-root Typography MuiTypography-h5"
-                >
-                  Name
-                </strong>
-                <p
-                  class="MuiTypography-root title Typography MuiTypography-body2"
-                >
-                  Job Title
-                </p>
+              <div
+                class="body"
+                style="height: auto;"
+              >
+                <div>
+                  <strong
+                    class="MuiTypography-root Typography MuiTypography-h5"
+                  >
+                    Name
+                  </strong>
+                  <p
+                    class="MuiTypography-root title Typography MuiTypography-body2"
+                  >
+                    Job Title
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="footer"
-          >
-            <span
-              class="row"
+            <div
+              class="footer"
             >
-              Contact us
-            </span>
+              <span
+                class="row"
+              >
+                Contact us
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -258,763 +264,765 @@ exports[`TeamList component renders correctly with links 1`] = `
 
 exports[`TeamList component renders correctly with more than 8 1`] = `
 <div>
-  <div
-    class="EqualHeights"
-  >
+  <div>
     <div
-      class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+      class="EqualHeights"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
-          class="ProfileCard"
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="head"
+            class="ProfileCard"
           >
             <div
-              class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+              class="head"
             >
               <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
+                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
               >
                 <div
-                  style="max-width: 948px; display: block;"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                  data-gatsby-image-wrapper=""
+                  style="overflow: hidden; display: inline-block;"
                 >
-                  <img
-                    alt=""
+                  <div
+                    style="max-width: 948px; display: block;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      style="max-width: 100%; display: block; position: static;"
+                    />
+                  </div>
+                  <div
                     aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                    style="max-width: 100%; display: block; position: static;"
+                    data-placeholder-image=""
+                    style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                   />
+                  <picture>
+                    <source
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Lorem ipsum"
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      decoding="async"
+                      draggable="false"
+                      loading="lazy"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                    />
+                  </picture>
+                  <noscript />
+                  <script
+                    type="module"
+                  >
+                    const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                  </script>
                 </div>
-                <div
-                  aria-hidden="true"
-                  data-placeholder-image=""
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                />
-                <picture>
-                  <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="Lorem ipsum"
-                    data-gatsby-image-ssr=""
-                    data-main-image=""
-                    data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                    decoding="async"
-                    draggable="false"
-                    loading="lazy"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                  />
-                </picture>
-                <noscript />
-                <script
-                  type="module"
-                >
-                  const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                </script>
               </div>
             </div>
-          </div>
-          <div
-            class="content-box"
-          >
             <div
-              class="body"
-              style="height: auto;"
+              class="content-box"
             >
-              <div>
-                <strong
-                  class="MuiTypography-root Typography MuiTypography-h5"
-                >
-                  Name
-                </strong>
-                <p
-                  class="MuiTypography-root title Typography MuiTypography-body2"
-                >
-                  Job Title
-                </p>
+              <div
+                class="body"
+                style="height: auto;"
+              >
+                <div>
+                  <strong
+                    class="MuiTypography-root Typography MuiTypography-h5"
+                  >
+                    Name
+                  </strong>
+                  <p
+                    class="MuiTypography-root title Typography MuiTypography-body2"
+                  >
+                    Job Title
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
-      >
         <div
-          class="ProfileCard"
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="head"
+            class="ProfileCard"
           >
             <div
-              class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+              class="head"
             >
               <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
+                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
               >
                 <div
-                  style="max-width: 948px; display: block;"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                  data-gatsby-image-wrapper=""
+                  style="overflow: hidden; display: inline-block;"
                 >
-                  <img
-                    alt=""
+                  <div
+                    style="max-width: 948px; display: block;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      style="max-width: 100%; display: block; position: static;"
+                    />
+                  </div>
+                  <div
                     aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                    style="max-width: 100%; display: block; position: static;"
+                    data-placeholder-image=""
+                    style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                   />
+                  <picture>
+                    <source
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Lorem ipsum"
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      decoding="async"
+                      draggable="false"
+                      loading="lazy"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                    />
+                  </picture>
+                  <noscript />
+                  <script
+                    type="module"
+                  >
+                    const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                  </script>
                 </div>
-                <div
-                  aria-hidden="true"
-                  data-placeholder-image=""
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                />
-                <picture>
-                  <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="Lorem ipsum"
-                    data-gatsby-image-ssr=""
-                    data-main-image=""
-                    data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                    decoding="async"
-                    draggable="false"
-                    loading="lazy"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                  />
-                </picture>
-                <noscript />
-                <script
-                  type="module"
-                >
-                  const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                </script>
               </div>
             </div>
-          </div>
-          <div
-            class="content-box"
-          >
             <div
-              class="body"
-              style="height: auto;"
+              class="content-box"
             >
-              <div>
-                <strong
-                  class="MuiTypography-root Typography MuiTypography-h5"
-                >
-                  Name
-                </strong>
-                <p
-                  class="MuiTypography-root title Typography MuiTypography-body2"
-                >
-                  Job Title
-                </p>
+              <div
+                class="body"
+                style="height: auto;"
+              >
+                <div>
+                  <strong
+                    class="MuiTypography-root Typography MuiTypography-h5"
+                  >
+                    Name
+                  </strong>
+                  <p
+                    class="MuiTypography-root title Typography MuiTypography-body2"
+                  >
+                    Job Title
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
-      >
         <div
-          class="ProfileCard"
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="head"
+            class="ProfileCard"
           >
             <div
-              class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+              class="head"
             >
               <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
+                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
               >
                 <div
-                  style="max-width: 948px; display: block;"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                  data-gatsby-image-wrapper=""
+                  style="overflow: hidden; display: inline-block;"
                 >
-                  <img
-                    alt=""
+                  <div
+                    style="max-width: 948px; display: block;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      style="max-width: 100%; display: block; position: static;"
+                    />
+                  </div>
+                  <div
                     aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                    style="max-width: 100%; display: block; position: static;"
+                    data-placeholder-image=""
+                    style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                   />
+                  <picture>
+                    <source
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Lorem ipsum"
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      decoding="async"
+                      draggable="false"
+                      loading="lazy"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                    />
+                  </picture>
+                  <noscript />
+                  <script
+                    type="module"
+                  >
+                    const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                  </script>
                 </div>
-                <div
-                  aria-hidden="true"
-                  data-placeholder-image=""
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                />
-                <picture>
-                  <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="Lorem ipsum"
-                    data-gatsby-image-ssr=""
-                    data-main-image=""
-                    data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                    decoding="async"
-                    draggable="false"
-                    loading="lazy"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                  />
-                </picture>
-                <noscript />
-                <script
-                  type="module"
-                >
-                  const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                </script>
               </div>
             </div>
-          </div>
-          <div
-            class="content-box"
-          >
             <div
-              class="body"
-              style="height: auto;"
+              class="content-box"
             >
-              <div>
-                <strong
-                  class="MuiTypography-root Typography MuiTypography-h5"
-                >
-                  Name
-                </strong>
-                <p
-                  class="MuiTypography-root title Typography MuiTypography-body2"
-                >
-                  Job Title
-                </p>
+              <div
+                class="body"
+                style="height: auto;"
+              >
+                <div>
+                  <strong
+                    class="MuiTypography-root Typography MuiTypography-h5"
+                  >
+                    Name
+                  </strong>
+                  <p
+                    class="MuiTypography-root title Typography MuiTypography-body2"
+                  >
+                    Job Title
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
-      >
         <div
-          class="ProfileCard"
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="head"
+            class="ProfileCard"
           >
             <div
-              class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+              class="head"
             >
               <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
+                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
               >
                 <div
-                  style="max-width: 948px; display: block;"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                  data-gatsby-image-wrapper=""
+                  style="overflow: hidden; display: inline-block;"
                 >
-                  <img
-                    alt=""
+                  <div
+                    style="max-width: 948px; display: block;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      style="max-width: 100%; display: block; position: static;"
+                    />
+                  </div>
+                  <div
                     aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                    style="max-width: 100%; display: block; position: static;"
+                    data-placeholder-image=""
+                    style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                   />
+                  <picture>
+                    <source
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Lorem ipsum"
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      decoding="async"
+                      draggable="false"
+                      loading="lazy"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                    />
+                  </picture>
+                  <noscript />
+                  <script
+                    type="module"
+                  >
+                    const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                  </script>
                 </div>
-                <div
-                  aria-hidden="true"
-                  data-placeholder-image=""
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                />
-                <picture>
-                  <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="Lorem ipsum"
-                    data-gatsby-image-ssr=""
-                    data-main-image=""
-                    data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                    decoding="async"
-                    draggable="false"
-                    loading="lazy"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                  />
-                </picture>
-                <noscript />
-                <script
-                  type="module"
-                >
-                  const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                </script>
               </div>
             </div>
-          </div>
-          <div
-            class="content-box"
-          >
             <div
-              class="body"
-              style="height: auto;"
+              class="content-box"
             >
-              <div>
-                <strong
-                  class="MuiTypography-root Typography MuiTypography-h5"
-                >
-                  Name
-                </strong>
-                <p
-                  class="MuiTypography-root title Typography MuiTypography-body2"
-                >
-                  Job Title
-                </p>
+              <div
+                class="body"
+                style="height: auto;"
+              >
+                <div>
+                  <strong
+                    class="MuiTypography-root Typography MuiTypography-h5"
+                  >
+                    Name
+                  </strong>
+                  <p
+                    class="MuiTypography-root title Typography MuiTypography-body2"
+                  >
+                    Job Title
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
-      >
         <div
-          class="ProfileCard"
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="head"
+            class="ProfileCard"
           >
             <div
-              class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+              class="head"
             >
               <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
+                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
               >
                 <div
-                  style="max-width: 948px; display: block;"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                  data-gatsby-image-wrapper=""
+                  style="overflow: hidden; display: inline-block;"
                 >
-                  <img
-                    alt=""
+                  <div
+                    style="max-width: 948px; display: block;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      style="max-width: 100%; display: block; position: static;"
+                    />
+                  </div>
+                  <div
                     aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                    style="max-width: 100%; display: block; position: static;"
+                    data-placeholder-image=""
+                    style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                   />
+                  <picture>
+                    <source
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Lorem ipsum"
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      decoding="async"
+                      draggable="false"
+                      loading="lazy"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                    />
+                  </picture>
+                  <noscript />
+                  <script
+                    type="module"
+                  >
+                    const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                  </script>
                 </div>
-                <div
-                  aria-hidden="true"
-                  data-placeholder-image=""
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                />
-                <picture>
-                  <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="Lorem ipsum"
-                    data-gatsby-image-ssr=""
-                    data-main-image=""
-                    data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                    decoding="async"
-                    draggable="false"
-                    loading="lazy"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                  />
-                </picture>
-                <noscript />
-                <script
-                  type="module"
-                >
-                  const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                </script>
               </div>
             </div>
-          </div>
-          <div
-            class="content-box"
-          >
             <div
-              class="body"
-              style="height: auto;"
+              class="content-box"
             >
-              <div>
-                <strong
-                  class="MuiTypography-root Typography MuiTypography-h5"
-                >
-                  Name
-                </strong>
-                <p
-                  class="MuiTypography-root title Typography MuiTypography-body2"
-                >
-                  Job Title
-                </p>
+              <div
+                class="body"
+                style="height: auto;"
+              >
+                <div>
+                  <strong
+                    class="MuiTypography-root Typography MuiTypography-h5"
+                  >
+                    Name
+                  </strong>
+                  <p
+                    class="MuiTypography-root title Typography MuiTypography-body2"
+                  >
+                    Job Title
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
-      >
         <div
-          class="ProfileCard"
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="head"
+            class="ProfileCard"
           >
             <div
-              class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+              class="head"
             >
               <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
+                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
               >
                 <div
-                  style="max-width: 948px; display: block;"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                  data-gatsby-image-wrapper=""
+                  style="overflow: hidden; display: inline-block;"
                 >
-                  <img
-                    alt=""
+                  <div
+                    style="max-width: 948px; display: block;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      style="max-width: 100%; display: block; position: static;"
+                    />
+                  </div>
+                  <div
                     aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                    style="max-width: 100%; display: block; position: static;"
+                    data-placeholder-image=""
+                    style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                   />
+                  <picture>
+                    <source
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Lorem ipsum"
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      decoding="async"
+                      draggable="false"
+                      loading="lazy"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                    />
+                  </picture>
+                  <noscript />
+                  <script
+                    type="module"
+                  >
+                    const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                  </script>
                 </div>
-                <div
-                  aria-hidden="true"
-                  data-placeholder-image=""
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                />
-                <picture>
-                  <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="Lorem ipsum"
-                    data-gatsby-image-ssr=""
-                    data-main-image=""
-                    data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                    decoding="async"
-                    draggable="false"
-                    loading="lazy"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                  />
-                </picture>
-                <noscript />
-                <script
-                  type="module"
-                >
-                  const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                </script>
               </div>
             </div>
-          </div>
-          <div
-            class="content-box"
-          >
             <div
-              class="body"
-              style="height: auto;"
+              class="content-box"
             >
-              <div>
-                <strong
-                  class="MuiTypography-root Typography MuiTypography-h5"
-                >
-                  Name
-                </strong>
-                <p
-                  class="MuiTypography-root title Typography MuiTypography-body2"
-                >
-                  Job Title
-                </p>
+              <div
+                class="body"
+                style="height: auto;"
+              >
+                <div>
+                  <strong
+                    class="MuiTypography-root Typography MuiTypography-h5"
+                  >
+                    Name
+                  </strong>
+                  <p
+                    class="MuiTypography-root title Typography MuiTypography-body2"
+                  >
+                    Job Title
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
-      >
         <div
-          class="ProfileCard"
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="head"
+            class="ProfileCard"
           >
             <div
-              class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+              class="head"
             >
               <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
+                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
               >
                 <div
-                  style="max-width: 948px; display: block;"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                  data-gatsby-image-wrapper=""
+                  style="overflow: hidden; display: inline-block;"
                 >
-                  <img
-                    alt=""
+                  <div
+                    style="max-width: 948px; display: block;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      style="max-width: 100%; display: block; position: static;"
+                    />
+                  </div>
+                  <div
                     aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                    style="max-width: 100%; display: block; position: static;"
+                    data-placeholder-image=""
+                    style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                   />
+                  <picture>
+                    <source
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Lorem ipsum"
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      decoding="async"
+                      draggable="false"
+                      loading="lazy"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                    />
+                  </picture>
+                  <noscript />
+                  <script
+                    type="module"
+                  >
+                    const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                  </script>
                 </div>
-                <div
-                  aria-hidden="true"
-                  data-placeholder-image=""
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                />
-                <picture>
-                  <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="Lorem ipsum"
-                    data-gatsby-image-ssr=""
-                    data-main-image=""
-                    data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                    decoding="async"
-                    draggable="false"
-                    loading="lazy"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                  />
-                </picture>
-                <noscript />
-                <script
-                  type="module"
-                >
-                  const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                </script>
               </div>
             </div>
-          </div>
-          <div
-            class="content-box"
-          >
             <div
-              class="body"
-              style="height: auto;"
+              class="content-box"
             >
-              <div>
-                <strong
-                  class="MuiTypography-root Typography MuiTypography-h5"
-                >
-                  Name
-                </strong>
-                <p
-                  class="MuiTypography-root title Typography MuiTypography-body2"
-                >
-                  Job Title
-                </p>
+              <div
+                class="body"
+                style="height: auto;"
+              >
+                <div>
+                  <strong
+                    class="MuiTypography-root Typography MuiTypography-h5"
+                  >
+                    Name
+                  </strong>
+                  <p
+                    class="MuiTypography-root title Typography MuiTypography-body2"
+                  >
+                    Job Title
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
-      >
         <div
-          class="ProfileCard"
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="head"
+            class="ProfileCard"
           >
             <div
-              class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+              class="head"
             >
               <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
+                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
               >
                 <div
-                  style="max-width: 948px; display: block;"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                  data-gatsby-image-wrapper=""
+                  style="overflow: hidden; display: inline-block;"
                 >
-                  <img
-                    alt=""
+                  <div
+                    style="max-width: 948px; display: block;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      style="max-width: 100%; display: block; position: static;"
+                    />
+                  </div>
+                  <div
                     aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                    style="max-width: 100%; display: block; position: static;"
+                    data-placeholder-image=""
+                    style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                   />
+                  <picture>
+                    <source
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Lorem ipsum"
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      decoding="async"
+                      draggable="false"
+                      loading="lazy"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                    />
+                  </picture>
+                  <noscript />
+                  <script
+                    type="module"
+                  >
+                    const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                  </script>
                 </div>
-                <div
-                  aria-hidden="true"
-                  data-placeholder-image=""
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                />
-                <picture>
-                  <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="Lorem ipsum"
-                    data-gatsby-image-ssr=""
-                    data-main-image=""
-                    data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                    decoding="async"
-                    draggable="false"
-                    loading="lazy"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                  />
-                </picture>
-                <noscript />
-                <script
-                  type="module"
-                >
-                  const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                </script>
               </div>
             </div>
-          </div>
-          <div
-            class="content-box"
-          >
             <div
-              class="body"
-              style="height: auto;"
+              class="content-box"
             >
-              <div>
-                <strong
-                  class="MuiTypography-root Typography MuiTypography-h5"
-                >
-                  Name
-                </strong>
-                <p
-                  class="MuiTypography-root title Typography MuiTypography-body2"
-                >
-                  Job Title
-                </p>
+              <div
+                class="body"
+                style="height: auto;"
+              >
+                <div>
+                  <strong
+                    class="MuiTypography-root Typography MuiTypography-h5"
+                  >
+                    Name
+                  </strong>
+                  <p
+                    class="MuiTypography-root title Typography MuiTypography-body2"
+                  >
+                    Job Title
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
-      >
         <div
-          class="ProfileCard"
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="head"
+            class="ProfileCard"
           >
             <div
-              class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+              class="head"
             >
               <div
-                class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
-                data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
+                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
               >
                 <div
-                  style="max-width: 948px; display: block;"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+                  data-gatsby-image-wrapper=""
+                  style="overflow: hidden; display: inline-block;"
                 >
-                  <img
-                    alt=""
+                  <div
+                    style="max-width: 948px; display: block;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      role="presentation"
+                      src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                      style="max-width: 100%; display: block; position: static;"
+                    />
+                  </div>
+                  <div
                     aria-hidden="true"
-                    role="presentation"
-                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                    style="max-width: 100%; display: block; position: static;"
+                    data-placeholder-image=""
+                    style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
                   />
+                  <picture>
+                    <source
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Lorem ipsum"
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+                      data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
+                      decoding="async"
+                      draggable="false"
+                      loading="lazy"
+                      sizes="(min-width: 948px) 948px, 100vw"
+                      style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
+                    />
+                  </picture>
+                  <noscript />
+                  <script
+                    type="module"
+                  >
+                    const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                  </script>
                 </div>
-                <div
-                  aria-hidden="true"
-                  data-placeholder-image=""
-                  style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                />
-                <picture>
-                  <source
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    type="image/webp"
-                  />
-                  <img
-                    alt="Lorem ipsum"
-                    data-gatsby-image-ssr=""
-                    data-main-image=""
-                    data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                    data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                    decoding="async"
-                    draggable="false"
-                    loading="lazy"
-                    sizes="(min-width: 948px) 948px, 100vw"
-                    style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                  />
-                </picture>
-                <noscript />
-                <script
-                  type="module"
-                >
-                  const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                </script>
               </div>
             </div>
-          </div>
-          <div
-            class="content-box"
-          >
             <div
-              class="body"
-              style="height: auto;"
+              class="content-box"
             >
-              <div>
-                <strong
-                  class="MuiTypography-root Typography MuiTypography-h5"
-                >
-                  Name
-                </strong>
-                <p
-                  class="MuiTypography-root title Typography MuiTypography-body2"
-                >
-                  Job Title
-                </p>
+              <div
+                class="body"
+                style="height: auto;"
+              >
+                <div>
+                  <strong
+                    class="MuiTypography-root Typography MuiTypography-h5"
+                  >
+                    Name
+                  </strong>
+                  <p
+                    class="MuiTypography-root title Typography MuiTypography-body2"
+                  >
+                    Job Title
+                  </p>
+                </div>
               </div>
             </div>
           </div>

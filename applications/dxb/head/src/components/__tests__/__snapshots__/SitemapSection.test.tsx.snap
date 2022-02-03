@@ -1,82 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SitemapSection component renders correctly 1`] = `
-<div
-  class="Section"
->
+<div>
   <div
-    class="Container"
+    class="Section"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-      >
-        Main
-      </h2>
       <div
-        class="SitemapBlock"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          Main
+        </h2>
         <div
-          class="MasonryGrid"
+          class="SitemapBlock"
         >
           <div
-            class="column"
-            style="width: 33.333333333333336%;"
+            class="MasonryGrid"
           >
-            <div>
-              <h4
-                class="MuiTypography-root Typography MuiTypography-h4 MuiTypography-gutterBottom"
-              >
-                Get in touch
-              </h4>
-              <div
-                class="SitemapBlock SitemapBlock--child"
-              >
-                <div>
-                  <h6
-                    class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
-                  >
-                    <a
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                      type="button"
+            <div
+              class="column"
+              style="width: 33.333333333333336%;"
+            >
+              <div>
+                <h4
+                  class="MuiTypography-root Typography MuiTypography-h4 MuiTypography-gutterBottom"
+                >
+                  Get in touch
+                </h4>
+                <div
+                  class="SitemapBlock SitemapBlock--child"
+                >
+                  <div>
+                    <h6
+                      class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
                     >
-                      <span>
-                        +44 (0) 1234567890
-                      </span>
-                    </a>
-                  </h6>
+                      <a
+                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                        type="button"
+                      >
+                        <span>
+                          +44 (0) 1234567890
+                        </span>
+                      </a>
+                    </h6>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            class="column"
-            style="width: 33.333333333333336%;"
-          >
-            <div>
-              <h4
-                class="MuiTypography-root Typography MuiTypography-h4 MuiTypography-gutterBottom"
-              >
-                About BMI
-              </h4>
-              <div
-                class="SitemapBlock SitemapBlock--child"
-              >
-                <div>
-                  <h6
-                    class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
-                  >
-                    <a
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                      type="button"
+            <div
+              class="column"
+              style="width: 33.333333333333336%;"
+            >
+              <div>
+                <h4
+                  class="MuiTypography-root Typography MuiTypography-h4 MuiTypography-gutterBottom"
+                >
+                  About BMI
+                </h4>
+                <div
+                  class="SitemapBlock SitemapBlock--child"
+                >
+                  <div>
+                    <h6
+                      class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
                     >
-                      <span>
-                        Our story
-                      </span>
-                    </a>
-                  </h6>
+                      <a
+                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                        type="button"
+                      >
+                        <span>
+                          Our story
+                        </span>
+                      </a>
+                    </h6>
+                  </div>
                 </div>
               </div>
             </div>
@@ -89,24 +91,26 @@ exports[`SitemapSection component renders correctly 1`] = `
 `;
 
 exports[`SitemapSection component renders correctly if incomplete 1`] = `
-<div
-  class="Section"
->
+<div>
   <div
-    class="Container"
+    class="Section"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-      />
       <div
-        class="SitemapBlock"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
-        <div
-          class="MasonryGrid"
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         />
+        <div
+          class="SitemapBlock"
+        >
+          <div
+            class="MasonryGrid"
+          />
+        </div>
       </div>
     </div>
   </div>

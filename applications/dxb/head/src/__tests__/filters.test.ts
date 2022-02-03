@@ -22,7 +22,11 @@ import {
   combineVariantClassifications,
   getCategoryCodesFilterFromDocuments
 } from "../utils/filters";
-import { Product, ClassificationCodeEnum } from "../components/types/pim";
+import {
+  Product,
+  ClassificationCodeEnum,
+  FileContentTypeEnum
+} from "../components/types/pim";
 import createPimDocument from "./PimDocumentHelper";
 import createPimLinkDocument from "./PimLinkDocumentHelper";
 import createContentfuldocument from "./ContentfulDocumentHelper";
@@ -50,8 +54,14 @@ describe("filters tests", () => {
           { code: "a" },
           { code: "b" }
         ];
+        const output = [
+          { code: "x" },
+          { code: "y" },
+          { code: "a" },
+          { code: "b" }
+        ];
         const result = input.sort(sortAlphabeticallyBy(""));
-        expect(result).toEqual(input);
+        expect(result).toEqual(output);
       });
     });
 
@@ -63,8 +73,14 @@ describe("filters tests", () => {
           { code: "a" },
           { code: "b" }
         ];
+        const output = [
+          { code: "x" },
+          { code: "y" },
+          { code: "a" },
+          { code: "b" }
+        ];
         const result = input.sort(sortAlphabeticallyBy("doesNotExist"));
-        expect(result).toEqual(input);
+        expect(result).toEqual(output);
       });
     });
 
@@ -83,7 +99,7 @@ describe("filters tests", () => {
           { code: "y" }
         ];
         const result = input.sort(sortAlphabeticallyBy("code"));
-        expect(result).toEqual(input);
+        expect(result).toEqual(output);
       });
     });
   });
@@ -2526,7 +2542,7 @@ describe("filters tests", () => {
               file: {
                 url: "",
                 fileName: `contentful-doc-fileName`,
-                contentType: "",
+                contentType: "" as FileContentTypeEnum,
                 details: { size: 9999 }
               }
             }
@@ -2585,7 +2601,7 @@ describe("filters tests", () => {
               file: {
                 url: "",
                 fileName: `contentful-doc-fileName`,
-                contentType: "",
+                contentType: "" as FileContentTypeEnum,
                 details: { size: 9999 }
               }
             }
@@ -2632,7 +2648,7 @@ describe("filters tests", () => {
             file: {
               url: "",
               fileName: `contentful-doc-fileName`,
-              contentType: "",
+              contentType: "" as FileContentTypeEnum,
               details: { size: 9999 }
             }
           }
@@ -2692,7 +2708,7 @@ describe("filters tests", () => {
             file: {
               url: "",
               fileName: `contentful-doc-fileName`,
-              contentType: "",
+              contentType: "" as FileContentTypeEnum,
               details: { size: 9999 }
             }
           }

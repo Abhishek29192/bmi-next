@@ -20,7 +20,9 @@
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace $WORKSPACE build -p tsconfig.build.json
+    - yarn workspace $WORKSPACE check:ts
+    - rm -rf $ROOT_DIR/dist
+    - yarn workspace $WORKSPACE build
   artifacts:
     paths:
       - $ROOT_DIR/dist
@@ -47,9 +49,8 @@
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
   script:
-    - cd $ROOT_DIR
-    - cp $CI_PROJECT_DIR/yarn.lock .
-    - zip -r $CI_PROJECT_DIR/dist/functions/$FUNCTION_NAME.zip package.json yarn.lock dist/
+    - cd $ROOT_DIR/dist
+    - zip -r $CI_PROJECT_DIR/dist/functions/$FUNCTION_NAME.zip index.js
     - cd $CI_PROJECT_DIR
   artifacts:
     paths:

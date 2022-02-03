@@ -1,0 +1,9 @@
+{
+  "body": "Kontakt en BMI-administrator",
+  "errorAlreadyMember": "Brugeren er allerede medlem af en anden virksomhed",
+  "errorAuthentication": "Godkendelsesfejl",
+  "errorInvitationNotFound": "Ingen invitation fundet",
+  "errorUserBlocked": "Brugeren er blokeret",
+  "title": "En fejl opstod",
+  "user_blocked": "Brugeren er blokeret"
+}

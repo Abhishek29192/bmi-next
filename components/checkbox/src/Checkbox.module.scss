@@ -2,28 +2,28 @@
 
 .Checkbox {
   :global {
-    .MuiCheckbox-colorPrimary {
+    [class*="MuiCheckbox-colorPrimary"] {
       color: $color-theme-inter;
 
-      &.Mui-disabled {
+      & [class*="Mui-disabled"] {
         color: rgba($color-theme-inter-rgb, 0.25);
       }
     }
 
-    .MuiFormControlLabel-root {
+    [class*="MuiFormControlLabel-root"] {
       align-items: flex-start;
     }
 
-    .MuiFormControlLabel-label {
+    [class*="MuiFormControlLabel-label"] {
       margin-top: 1px;
       word-break: break-word;
     }
 
-    .MuiFormHelperText-root {
+    [class*="MuiFormHelperText-root"] {
       margin: 0 0 14px 33px;
     }
 
-    .MuiCheckbox-root {
+    [class*="MuiCheckbox-root"] {
       margin-top: -9px;
     }
   }

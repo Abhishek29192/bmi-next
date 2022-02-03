@@ -6,6 +6,7 @@ const path = require("path");
 const { Client } = require("pg");
 
 const getFile = (file) =>
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   fs.readFileSync(path.resolve(__dirname, `../src/data/${file}`), "utf8");
 
 async function main() {

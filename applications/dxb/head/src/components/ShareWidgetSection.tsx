@@ -4,6 +4,7 @@ import ShareWidget from "@bmi/share-widget";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import { useSiteContext } from "./Site";
 
 export type Data = {
@@ -43,31 +44,31 @@ const ShareWidgetSection = ({
 }) => {
   const { getMicroCopy } = useSiteContext();
   const availableChannels = [
-    { type: "copy" as "copy", label: getMicroCopy("share.copy") },
+    { type: "copy" as "copy", label: getMicroCopy(microCopy.SHARE_COPY) },
     {
       type: "email" as "email",
-      label: getMicroCopy("share.email"),
+      label: getMicroCopy(microCopy.SHARE_EMAIL),
       apiUrl: "mailto:?body={{href}}&subject={{message}}"
     },
     {
       type: "linkedin" as "linkedin",
-      label: getMicroCopy("share.linkedIn"),
+      label: getMicroCopy(microCopy.SHARE_LINKEDIN),
       apiUrl: "https://www.linkedin.com/sharing/share-offsite/?url={{href}}"
     },
     {
       type: "twitter" as "twitter",
-      label: getMicroCopy("share.twitter"),
+      label: getMicroCopy(microCopy.SHARE_TWITTER),
       apiUrl: "https://twitter.com/intent/tweet?text={{message}}&url={{href}}"
     },
     {
       type: "facebook" as "facebook",
-      label: getMicroCopy("share.facebook"),
+      label: getMicroCopy(microCopy.SHARE_FACEBOOK),
       apiUrl:
         "https://www.facebook.com/sharer/sharer.php?u={{href}}&display=popup"
     },
     {
       type: "pinterest" as "pinterest",
-      label: getMicroCopy("share.pinterest"),
+      label: getMicroCopy(microCopy.SHARE_PINTEREST),
       apiUrl: "https://www.pinterest.com/pin/create/button/?url={{href}}"
     }
   ];
@@ -81,10 +82,12 @@ const ShareWidgetSection = ({
           <GTMButton gtm={{ id: "cta-share1" }} {...props} />
         )}
         clipboardSuccessMessage={
-          clipboardSuccessMessage || getMicroCopy("share.clipboardSuccess")
+          clipboardSuccessMessage ||
+          getMicroCopy(microCopy.SHARE_CLIPBOARD_SUCCESS)
         }
         clipboardErrorMessage={
-          clipboardErrorMessage || getMicroCopy("share.clipboardFailure")
+          clipboardErrorMessage ||
+          getMicroCopy(microCopy.SHARE_CLIPBOARD_FAILURE)
         }
         isLeftAligned={isLeftAligned}
         channels={availableChannels.filter(

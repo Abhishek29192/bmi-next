@@ -1,10 +1,7 @@
 import React, { useMemo } from "react";
 import { graphql } from "gatsby";
-import { groupBy } from "lodash";
-import {
-  PIMDocumentData,
-  PIMLinkDocumentData
-} from "../components/types/PIMDocumentBase";
+import groupBy from "../utils/groupBy";
+import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
 import { Data as DocumentData } from "./Document";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import DocumentTechnicalTableResults from "./DocumentTechnicalTableResults";
@@ -29,9 +26,11 @@ const documentResultsMap: Record<Format, React.ElementType> = {
 const DOCUMENTS_PER_PAGE = 24;
 
 const DocumentResults = ({ data, format, page }: Props) => {
+  // eslint-disable-next-line security/detect-object-injection
   const ResultsComponent = documentResultsMap[format];
   const assetTypesCount = useMemo(
-    () => Object.keys(groupBy(data, "assetType.code")).length,
+    () =>
+      Object.keys(groupBy(data, (document) => document.assetType.code)).length,
     [data]
   );
   const tableHeaders = ["typeCode", "title", "download", "add"].filter(

@@ -6,6 +6,6 @@ describe("FilterInput Component", () => {
   it("renders correctly", () => {
     const { container } = render(<FilterInput label="Filter Input" />);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

@@ -16,7 +16,7 @@ describe("ProductDetailsCard component", () => {
         linkLabel="Sit voluptatem"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders deprecated imageSource", () => {
@@ -30,7 +30,7 @@ describe("ProductDetailsCard component", () => {
         linkLabel="Sit voluptatem"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly without optional prop", () => {
@@ -43,6 +43,6 @@ describe("ProductDetailsCard component", () => {
         linkLabel="Sit voluptatem"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

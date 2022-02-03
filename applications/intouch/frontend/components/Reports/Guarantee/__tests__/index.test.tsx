@@ -1,5 +1,5 @@
 import React from "react";
-import { renderWithI18NProvider, screen } from "../../../../lib/tests/utils";
+import { renderAsReal, screen } from "../../../../lib/tests/utils";
 import GuaranteeReport from "..";
 
 const mockgetGuarantesReport = jest.fn();
@@ -14,12 +14,14 @@ describe("GuaranteeReport Component", () => {
   });
 
   it("renders correctly", () => {
-    const { container } = renderWithI18NProvider(<GuaranteeReport />);
+    const { container } = renderAsReal({ account: { role: "SUPER_ADMIN " } })(
+      <GuaranteeReport />
+    );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("should export button click", () => {
-    renderWithI18NProvider(<GuaranteeReport />);
+    renderAsReal({ account: { role: "SUPER_ADMIN " } })(<GuaranteeReport />);
 
     const exportButton = screen.getByTestId("export-button");
     exportButton.click();

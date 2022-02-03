@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
-import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
+import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import TwoPaneCarousel, {
   Slide as TwoPaneCarouselSlide
 } from "@bmi/two-pane-carousel";
@@ -12,9 +12,10 @@ import Button from "@bmi/button";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { Data as PromoData } from "../components/Promo";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
-import { Data as LinkData, getCTA, getClickableActionFromUrl } from "./Link";
+import { Data as LinkData, getClickableActionFromUrl, getCTA } from "./Link";
 import { useSiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
 import { renderVideo } from "./Video";
@@ -52,6 +53,7 @@ const parseSlides = (
 
     return {
       title,
+      // eslint-disable-next-line security/detect-object-injection
       brandIcon: brandLogo && iconMap[brandLogo],
       media: featuredVideo
         ? renderVideo(featuredVideo)
@@ -82,7 +84,7 @@ const CarouselSection = ({
           slides={parseSlides(
             slides,
             countryCode,
-            getMicroCopy("page.linkLabel")
+            getMicroCopy(microCopy.PAGE_LINK_LABEL)
           )}
           rollerSectionComponent={(props: ButtonBaseProps) => (
             <GTMButton
@@ -100,7 +102,7 @@ const CarouselSection = ({
           slides={parseSlides(
             slides,
             countryCode,
-            getMicroCopy("page.linkLabel")
+            getMicroCopy(microCopy.PAGE_LINK_LABEL)
           )}
         />
       )}

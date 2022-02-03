@@ -2,20 +2,22 @@
 
 exports[`CompanyReport Component renders correctly 1`] = `
 <div>
-  <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined sidePanelFooterButton MuiButton-outlinedPrimary"
-    data-testid="export-button"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-4"
+  <div>
+    <button
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined sidePanelFooterButton MuiButton-outlinedPrimary"
+      data-testid="export-button"
+      tabindex="0"
+      type="button"
     >
-      report
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
+      <span
+        class="MuiButton-label buttonStyles-label-4"
+      >
+        report
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
 </div>
 `;

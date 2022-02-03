@@ -42,7 +42,7 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
   });
   const [emails, setEmails] = useState<string[]>([]);
   const [inputValue, setInputValue] = React.useState("");
-  const [inviteUsers] = useInviteMutation({
+  const [inviteUsers, { loading }] = useInviteMutation({
     onError: (error) => {
       setAlertState({
         open: true,
@@ -63,8 +63,7 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
     inviteUsers({
       variables: {
         input: {
-          emails: emails || [],
-          personalNote: values.personalNote
+          emails: emails || []
         }
       }
     });
@@ -163,19 +162,6 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
                 />
               )}
             />
-            <TextField
-              name="personalNote"
-              label={t("team-page:invitation.dialog.personalNote.label")}
-              className={styles.personalNote}
-              onChange={() => setAlertState({ open: false })}
-              inputProps={{
-                ["data-testid"]: "personalNote"
-              }}
-              isRequired
-              isTextArea
-              fullWidth
-              rows={6}
-            />
           </Form.Row>
           <Form.ButtonWrapper>
             <Button
@@ -186,7 +172,11 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
             >
               {t("team-page:invitation.dialog.cancel")}
             </Button>
-            <Form.SubmitButton data-testid="invite-dialog-submit">
+            <Form.SubmitButton
+              data-testid="invite-dialog-submit"
+              key="btn-send-invitation"
+              disabled={loading}
+            >
               {t("team-page:invitation.dialog.send")}
             </Form.SubmitButton>
           </Form.ButtonWrapper>

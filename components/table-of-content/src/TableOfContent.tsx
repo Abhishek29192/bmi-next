@@ -7,9 +7,9 @@ type ContextType = {
   getTitleId: (title: string) => string;
 };
 
-const Context = React.createContext<ContextType>({
+export const Context = React.createContext<ContextType>({
   titles: {},
-  renderLink: (sectionId, title) => null,
+  renderLink: (sectionId, title) => undefined,
   getTitleId: (title) => title
 });
 
@@ -73,9 +73,9 @@ const TableOfContent = ({ children, renderLink }: Props) => {
   const [titles, setTitles] = useState<Record<string, string>>({});
 
   const getTitleId = (title: string): string => {
-    if (!titles[title]) {
+    // eslint-disable-next-line security/detect-object-injection
+    !titles[title] &&
       setTitles((prevTitles) => ({ ...prevTitles, [title]: getId(title) }));
-    }
 
     return getId(title);
   };

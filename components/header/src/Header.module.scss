@@ -82,11 +82,11 @@ $chevron-margin-left-lg: 3px;
       }
 
       :global {
-        .MuiTab-wrapper {
+        [class*="MuiTab-wrapper"] {
           flex-direction: column-reverse;
         }
 
-        .MuiSvgIcon-root {
+        [class*="MuiSvgIcon-root"] {
           margin-bottom: 0;
           height: $chevron-width;
           width: $chevron-width;
@@ -98,7 +98,7 @@ $chevron-margin-left-lg: 3px;
         align-items: center;
 
         :global {
-          .MuiTab-wrapper {
+          [class*="MuiTab-wrapper"] {
             padding-bottom: $chevron-width;
           }
         }
@@ -110,7 +110,7 @@ $chevron-margin-left-lg: 3px;
     }
 
     :global {
-      .MuiTabs-indicator {
+      [class*="MuiTabs-indicator"] {
         display: none;
       }
     }
@@ -419,14 +419,14 @@ $chevron-margin-left-lg: 3px;
       padding-top: 31px;
 
       :global {
-        .MuiTab-wrapper {
+        [class*="MuiTab-wrapper"] {
           flex-direction: row-reverse;
         }
       }
 
       &--no-children {
         :global {
-          .MuiTab-wrapper {
+          [class*="MuiTab-wrapper"] {
             padding-bottom: 0;
           }
         }
@@ -458,7 +458,7 @@ $chevron-margin-left-lg: 3px;
       padding: 30px $button-padding-right-lg 30px $button-padding-left-lg;
 
       :global {
-        .MuiSvgIcon-root {
+        [class*="MuiSvgIcon-root"] {
           margin-left: $chevron-margin-left-lg;
           height: $chevron-width-lg;
           width: $chevron-width-lg;

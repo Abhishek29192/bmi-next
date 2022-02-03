@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
 import { getGCPToken } from "./google-auth";
 
-const { GATEWAY_API_URL } = process.env;
+const { GATEWAY_API_URL = "" } = process.env;
 export type MarketDetails = {
   data: {
     markets: { nodes: Market[] };

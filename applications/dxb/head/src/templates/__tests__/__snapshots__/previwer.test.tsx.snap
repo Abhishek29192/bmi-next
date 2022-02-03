@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Previewer render correctly 1`] = `
+<div>
+  <p>
+    Redirecting to 
+    slug
+  </p>
+</div>
+`;
+
+exports[`Previewer render correctly with multiple slug querystring 1`] = `
+<div>
+  <p>
+    Redirecting to 
+    slug
+    slug2
+  </p>
+</div>
+`;
+
+exports[`Previewer render correctly with no contentfulSite in data 1`] = `
+<div>
+  <p>
+    No Sites found for the given country code.
+  </p>
+</div>
+`;
+
+exports[`Previewer render correctly with no matching slug 1`] = `
+<div>
+  <p>
+    There is no page for the 
+    noMatch
+     slug. Make sure you assign it to the site.
+  </p>
+</div>
+`;
+
+exports[`Previewer render correctly with no slug in window.location.search 1`] = `
+<div>
+  <p>
+    You need to specify a page slug in the URL. e.g. previewer?slug=metal-tiles.
+  </p>
+</div>
+`;
+
+exports[`Previewer return null when window is undefined 1`] = `<div />`;

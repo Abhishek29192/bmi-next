@@ -1,12 +1,10 @@
 import React from "react";
 import classnames from "classnames";
-import {
-  TableContainer,
-  Table,
-  TableBody,
-  TableRow,
-  TableCell
-} from "@material-ui/core";
+import TableContainer from "@material-ui/core/TableContainer";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableRow from "@material-ui/core/TableRow";
 import { FieldsDisplay } from "./types/FieldsDisplay";
 import styles from "./FlatRoofCalculator.module.scss";
 import { fieldLabels } from "./FlatRoofCalculator";
@@ -23,15 +21,19 @@ const InputTable = ({
     <Table className={styles.Table}>
       <TableBody>
         {["guarantee", "combustible", "insulated", "color"].map((field) =>
+          // eslint-disable-next-line security/detect-object-injection
           typeof submittedValues[field] !== undefined &&
+          // eslint-disable-next-line security/detect-object-injection
           treeFieldsDisplay[field].label /* Only display known fields */ ? (
             <TableRow key={field}>
               <TableCell
                 className={classnames(styles.cell, styles["cell--bold"])}
               >
+                {/* eslint-disable-next-line security/detect-object-injection */}
                 {treeFieldsDisplay[field].label}:
               </TableCell>
               <TableCell className={styles.cell}>
+                {/* eslint-disable-next-line security/detect-object-injection */}
                 {treeFieldsDisplay[field].options[submittedValues[field]].label}
               </TableCell>
             </TableRow>

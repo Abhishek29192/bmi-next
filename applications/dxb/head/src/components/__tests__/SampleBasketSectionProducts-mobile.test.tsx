@@ -50,6 +50,6 @@ describe("SampleBasketSectionProducts component render correctly on mobile devic
         <SampleBasketSectionProducts />
       </BasketContextProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

@@ -10,7 +10,7 @@ describe("RadioButton component", () => {
       </RadioButton>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("render with prefix", () => {
@@ -32,7 +32,7 @@ describe("RadioButton component", () => {
       </RadioButton>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("calls onChange", () => {

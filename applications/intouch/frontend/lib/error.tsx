@@ -52,7 +52,7 @@ export function withPageError<P extends Record<string, any>>(
       return (
         <ErrorView
           statusCode={statusCode}
-          title={title}
+          title={componentProps.title || title}
           globalPageData={globalPageData}
         />
       );

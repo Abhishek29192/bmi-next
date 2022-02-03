@@ -1,16 +1,13 @@
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
+import { microCopy } from "../../constants/microCopies";
 import { Data as LinkData, DataTypeEnum, NavigationData } from "../Link";
 import { Data as PromoData } from "../Promo";
 import { fallbackGetMicroCopy as getMicroCopy } from "../MicroCopy";
 import Header from "../Header";
 import { Data as PageInfoData } from "../PageInfo";
-import BasketContext, {
-  Sample,
-  BasketContextProps,
-  IBasketState
-} from "../../contexts/SampleBasketContext";
+import BasketContext from "../../contexts/SampleBasketContext";
 
 beforeAll(() => {
   mockConsole();
@@ -261,7 +258,7 @@ describe("Header component", () => {
         regions={regions}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly when flag doesn't exist", () => {
     const { container } = render(
@@ -273,7 +270,7 @@ describe("Header component", () => {
         regions={regions}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders without navigation props", () => {
     const { container } = render(
@@ -285,7 +282,7 @@ describe("Header component", () => {
         regions={regions}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("toggles search", () => {
     const { container, getByLabelText } = render(
@@ -298,7 +295,7 @@ describe("Header component", () => {
       />
     );
 
-    const searchLabel = getMicroCopy("search.label");
+    const searchLabel = getMicroCopy(microCopy.SEARCH_LABEL);
 
     const searchButton = getByLabelText(searchLabel);
 
@@ -306,7 +303,7 @@ describe("Header component", () => {
 
     fireEvent.click(searchButton);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("shows sample basket icon", () => {
@@ -323,10 +320,10 @@ describe("Header component", () => {
       </BasketContext.Provider>
     );
 
-    const basketLabel = getMicroCopy("basket.label");
+    const basketLabel = getMicroCopy(microCopy.BASKET_LABEL);
     const basketButton = getByLabelText(basketLabel);
 
     expect(basketButton).toBeTruthy();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

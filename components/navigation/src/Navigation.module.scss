@@ -181,7 +181,7 @@
     }
 
     :global {
-      .MuiButton-label {
+      [class*="MuiButton-label"] {
         justify-content: space-between;
         align-items: normal;
       }

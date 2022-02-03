@@ -120,6 +120,7 @@ describe("AddTeamMemberDialog Components", () => {
         onCloseClick={null}
         onConfirmClick={null}
         members={[]}
+        loading={true}
       />
     );
     expect(screen.queryByTestId("team-member-item")).toBeNull();
@@ -132,6 +133,7 @@ describe("AddTeamMemberDialog Components", () => {
         onCloseClick={null}
         onConfirmClick={null}
         members={members as CompanyMember[]}
+        loading={true}
       />
     );
     expect(screen.getAllByTestId("team-member-item")).toHaveLength(4);
@@ -157,6 +159,7 @@ describe("AddTeamMemberDialog Components", () => {
             onCloseClick={null}
             onConfirmClick={null}
             members={testMembers}
+            loading={true}
           />
           <button onClick={changeMembers}>Change</button>
         </>

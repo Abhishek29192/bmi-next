@@ -1,6 +1,5 @@
-import React, { useState, useRef, useMemo } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { graphql } from "gatsby";
-import { sortBy } from "lodash";
 import Accordion, { AccordionSummaryProps } from "@bmi/accordion";
 import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
 import Hero from "@bmi/hero";
@@ -14,6 +13,7 @@ import Typography from "@bmi/typography/src";
 import Button from "@bmi/button/src";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
+import { microCopy } from "../constants/microCopies";
 import { Data as SiteData } from "../components/Site";
 import { Data as PageInfoData } from "../components/PageInfo";
 import Page, { Data as PageData } from "../components/Page";
@@ -32,11 +32,11 @@ import { getCount as getTechnicalTableCount } from "../components/DocumentTechni
 import { getCount as getCardsCount } from "../components/DocumentCardsResults";
 import RichText, { RichTextData } from "../components/RichText";
 import {
-  ResultType,
+  filterDocuments,
   generateUniqueDocuments,
-  Source,
   getDocumentFilters,
-  filterDocuments
+  ResultType,
+  Source
 } from "../utils/filters";
 import { devLog } from "../utils/devLog";
 import ProgressIndicator from "../components/ProgressIndicator";
@@ -110,11 +110,49 @@ const sourceToSortMap: Record<
   Source,
   (documents: DocumentResultsData) => DocumentResultsData
 > = {
-  ALL: (documents) => sortBy(documents, ["assetType.name", "title"]),
-  PIM: (documents) => sortBy(documents, ["assetType.code", "title"]),
-  CMS: (documents) => sortBy(documents, ["brand", "title"])
+  ALL: (documents) =>
+    documents
+      .concat()
+      .sort((a, b) =>
+        a.assetType.name > b.assetType.name
+          ? a.title > b.title
+            ? 1
+            : a.title < b.title
+            ? -1
+            : 0
+          : a.assetType.name < b.assetType.name
+          ? -1
+          : 0
+      ),
+  PIM: (documents) =>
+    documents
+      .concat()
+      .sort((a, b) =>
+        a.assetType.code > b.assetType.code
+          ? a.title > b.title
+            ? 1
+            : a.title < b.title
+            ? -1
+            : 0
+          : a.assetType.code < b.assetType.code
+          ? -1
+          : 0
+      ),
+  CMS: (documents) =>
+    documents
+      .concat()
+      .sort((a, b) =>
+        a["brand"] > b["brand"]
+          ? a.title > b.title
+            ? 1
+            : a.title < b.title
+            ? -1
+            : 0
+          : a["brand"] < b["brand"]
+          ? -1
+          : 0
+      )
 };
-
 const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const {
     title,
@@ -151,12 +189,15 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const [page, setPage] = useState(1);
   const initialDocuments = useMemo(
     () =>
+      // eslint-disable-next-line security/detect-object-injection
       sourceToSortMap[source](
         generateUniqueDocuments(resultsType, unsortedDocuments)
       ),
     [unsortedDocuments]
   );
+  // eslint-disable-next-line security/detect-object-injection
   const format: Format = resultTypeFormatMap[source][resultsType];
+  // eslint-disable-next-line security/detect-object-injection
   const getCount = documentCountMap[format];
   const [pageCount, setPageCount] = useState(
     Math.ceil(getCount(initialDocuments) / PAGE_SIZE)
@@ -184,6 +225,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
 
     const newResults = filterDocuments(documents, filters);
 
+    // eslint-disable-next-line security/detect-object-injection
     const getCount = documentCountMap[format];
     const newPageCount = Math.ceil(getCount(newResults) / PAGE_SIZE);
     setPageCount(newPageCount);
@@ -278,9 +320,9 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                 return (
                   <AlertBanner severity="info">
                     <AlertBanner.Title>
-                      {getMicroCopy("downloadList.info.title")}
+                      {getMicroCopy(microCopy.DOWNLOAD_LIST_INFO_TITLE)}
                     </AlertBanner.Title>
-                    {getMicroCopy("downloadList.info.message")}
+                    {getMicroCopy(microCopy.DOWNLOAD_LIST_INFO_MESSAGE)}
                   </AlertBanner>
                 );
               }}
@@ -292,10 +334,14 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                     <PerfectScrollbar className={filterStyles["scroll-bar"]}>
                       <div className={filterStyles["box"]}>
                         <Typography variant="h5">
-                          {getMicroCopy("documentLibrary.filters.title")}
+                          {getMicroCopy(
+                            microCopy.DOCUMENT_LIBRARY_FILTERS_TITLE
+                          )}
                         </Typography>
                         <Button variant="text" onClick={clearFilters}>
-                          {getMicroCopy("documentLibrary.filters.clearAll")}
+                          {getMicroCopy(
+                            microCopy.DOCUMENT_LIBRARY_FILTERS_CLEAR_ALL
+                          )}
                         </Button>
                       </div>
                       <DownloadListContext.Consumer>
@@ -353,7 +399,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                         </div>
                       </>
                     ) : (
-                      getMicroCopy("documentLibrary.noResults")
+                      getMicroCopy(microCopy.DOCUMENT_LIBRARY_NO_RESULTS)
                     )}
                   </Grid>
                 </Grid>

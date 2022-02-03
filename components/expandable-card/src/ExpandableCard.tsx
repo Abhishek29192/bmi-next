@@ -10,6 +10,7 @@ import React, {
 } from "react";
 import DefaultCard, { CardContent } from "@bmi/card";
 import Button from "@bmi/button";
+import { SVGImport } from "@bmi/svg-import";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@bmi/typography";
 import classnames from "classnames";
@@ -97,6 +98,7 @@ const getStyleFromAnimationStatus = (
     }
   };
 
+  // eslint-disable-next-line security/detect-object-injection
   return progressToStyleMap[isExpanded ? "expanding" : "collapsing"][
     animationStatus
   ] as CSSProperties;

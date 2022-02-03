@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "../../../lib/tests/utils";
+import { render } from "../../../lib/tests/utils";
 import WizardContextWrapper, { useWizardContext } from "../WizardContext";
 
 const WizardContextComponent = () => {

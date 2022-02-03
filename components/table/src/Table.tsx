@@ -40,11 +40,15 @@ function parseTable(children: React.ReactNode): {
 
   if (header) {
     const row = React.Children.only((header.props as TableHeadProps).children);
-    headerRow = isValidElement(row)
-      ? React.Children.toArray(row.props.children)
-          .filter(isValidElement)
-          .map((child) => (child.props as TableCellProps).children)
-      : [];
+    headerRow = React.Children.toArray(
+      (
+        row as
+          | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+          | React.ReactPortal
+      ).props.children
+    )
+      .filter(isValidElement)
+      .map((child) => (child.props as TableCellProps).children);
   }
 
   const body = childElements.find((child) => child.type === TableBody);
@@ -56,12 +60,11 @@ function parseTable(children: React.ReactNode): {
       )) ||
     [];
 
-  const bodyRows =
-    rows?.map((row) =>
-      React.Children.toArray((row.props as TableRowProps).children)
-        .filter(isValidElement)
-        .map((tableCell) => (tableCell.props as TableCellProps).children)
-    ) || [];
+  const bodyRows = rows.map((row) =>
+    React.Children.toArray((row.props as TableRowProps).children)
+      .filter(isValidElement)
+      .map((tableCell) => (tableCell.props as TableCellProps).children)
+  );
 
   return { headerRow, bodyRows };
 }
@@ -193,6 +196,7 @@ const MediumTable = React.forwardRef<HTMLTableElement, TableProps>(
                 )}
               >
                 <ColorPair theme={theme} markupComponent={MuiTableCell}>
+                  {/* eslint-disable-next-line security/detect-object-injection */}
                   {headerRow[i]}
                 </ColorPair>
                 <MuiTableCell>{cell}</MuiTableCell>
@@ -231,6 +235,7 @@ const SmallTable = ({
           {row.map((cell, i) => (
             <Fragment key={`${key}_${i}`}>
               {headerRow.length ? (
+                // eslint-disable-next-line security/detect-object-injection
                 <dt className={styles["title"]}>{headerRow[i]}</dt>
               ) : null}
               <ItemComponent className={styles["description"]}>

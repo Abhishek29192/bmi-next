@@ -5,7 +5,7 @@ import Chip from "../";
 describe("Chip component", () => {
   it("renders correctly default chip", () => {
     const { container } = render(<Chip>test content</Chip>);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly selected chip", () => {
@@ -14,7 +14,7 @@ describe("Chip component", () => {
         selected chip
       </Chip>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly removable chip", () => {
@@ -23,6 +23,6 @@ describe("Chip component", () => {
         removable chip
       </Chip>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

@@ -10,172 +10,347 @@ Array [
 ]
 `;
 
-exports[`Filters component renders correctly 1`] = `
-<div
-  class="Filters"
->
+exports[`Filters component renders correct summaryLabel if filter.label is an empty string 1`] = `
+<div>
   <div
-    class="Accordion Accordion--no-inner-padding"
-  />
+    class="Filters"
+  >
+    <div
+      class="accordionStyles-root-72 accordionStyles-no-inner-padding-75"
+    >
+      <div
+        class="MuiPaper-root MuiAccordion-root accordionStyles-item-73 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+      >
+        <div
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-label="MC:product-1"
+          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-76"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="MuiAccordionSummary-content accordionStyles-summaryContent-78"
+          >
+            <h6
+              class="MuiTypography-root Typography MuiTypography-h6"
+            >
+              MC:product-1
+            </h6>
+          </div>
+          <div
+            aria-disabled="false"
+            aria-hidden="true"
+            class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </div>
+        </div>
+        <div
+          class="MuiCollapse-root MuiCollapse-hidden"
+          style="min-height: 0px;"
+        >
+          <div
+            class="MuiCollapse-wrapper"
+          >
+            <div
+              class="MuiCollapse-wrapperInner"
+            >
+              <div
+                role="region"
+              >
+                <div
+                  class="MuiAccordionDetails-root accordionStyles-details-74 accordionStyles-details-82"
+                >
+                  <div
+                    class="list"
+                  >
+                    <div>
+                      <div
+                        class="MuiFormControl-root Checkbox"
+                      >
+                        <label
+                          class="MuiFormControlLabel-root"
+                        >
+                          <span
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-83 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                          >
+                            <span
+                              class="MuiIconButton-label"
+                            >
+                              <input
+                                class="PrivateSwitchBase-input-86"
+                                data-indeterminate="false"
+                                name="option-1"
+                                type="checkbox"
+                                value=""
+                              />
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </span>
+                          <span
+                            class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                          >
+                            Option 1
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        class="MuiFormControl-root Checkbox"
+                      >
+                        <label
+                          class="MuiFormControlLabel-root Mui-disabled"
+                        >
+                          <span
+                            aria-disabled="true"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-83 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-84 Mui-checked PrivateSwitchBase-disabled-85 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled"
+                            tabindex="-1"
+                          >
+                            <span
+                              class="MuiIconButton-label"
+                            >
+                              <input
+                                checked=""
+                                class="PrivateSwitchBase-input-86"
+                                data-indeterminate="false"
+                                disabled=""
+                                name="option-2"
+                                type="checkbox"
+                                value=""
+                              />
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                          <span
+                            class="MuiTypography-root MuiFormControlLabel-label Mui-disabled MuiTypography-body1"
+                          >
+                            Option 2
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Filters component renders correctly 1`] = `
+<div>
+  <div
+    class="Filters"
+  >
+    <div
+      class="accordionStyles-root-1 accordionStyles-no-inner-padding-4"
+    />
+  </div>
 </div>
 `;
 
 exports[`Filters component renders disabled filters 1`] = `
-<div
-  class="Filters"
->
+<div>
   <div
-    class="Accordion Accordion--no-inner-padding"
+    class="Filters"
   >
     <div
-      class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+      class="accordionStyles-root-42 accordionStyles-no-inner-padding-45"
     >
       <div
-        aria-disabled="false"
-        aria-expanded="false"
-        aria-label="Label 1"
-        class="MuiButtonBase-root MuiAccordionSummary-root"
-        role="button"
-        tabindex="0"
+        class="MuiPaper-root MuiAccordion-root accordionStyles-item-43 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
       >
-        <div
-          class="MuiAccordionSummary-content"
-        >
-          <h6
-            class="MuiTypography-root Typography MuiTypography-h6"
-          >
-            Label 1
-          </h6>
-        </div>
         <div
           aria-disabled="false"
-          aria-hidden="true"
-          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-        >
-          <span
-            class="MuiIconButton-label"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-              />
-            </svg>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </div>
-      </div>
-      <div
-        class="MuiCollapse-container MuiCollapse-hidden"
-        style="min-height: 0px;"
-      >
-        <div
-          class="MuiCollapse-wrapper"
+          aria-expanded="false"
+          aria-label="Label 1"
+          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-46"
+          role="button"
+          tabindex="0"
         >
           <div
-            class="MuiCollapse-wrapperInner"
+            class="MuiAccordionSummary-content accordionStyles-summaryContent-48"
+          >
+            <h6
+              class="MuiTypography-root Typography MuiTypography-h6"
+            >
+              Label 1
+            </h6>
+          </div>
+          <div
+            aria-disabled="false"
+            aria-hidden="true"
+            class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </div>
+        </div>
+        <div
+          class="MuiCollapse-root MuiCollapse-hidden"
+          style="min-height: 0px;"
+        >
+          <div
+            class="MuiCollapse-wrapper"
           >
             <div
-              role="region"
+              class="MuiCollapse-wrapperInner"
             >
               <div
-                class="MuiAccordionDetails-root details"
+                role="region"
               >
                 <div
-                  class="list"
+                  class="MuiAccordionDetails-root accordionStyles-details-44 accordionStyles-details-52"
                 >
-                  <div>
-                    <div
-                      class="MuiFormControl-root Checkbox"
-                    >
-                      <label
-                        class="MuiFormControlLabel-root"
+                  <div
+                    class="list"
+                  >
+                    <div>
+                      <div
+                        class="MuiFormControl-root Checkbox"
                       >
-                        <span
-                          aria-disabled="false"
-                          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-9 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                        <label
+                          class="MuiFormControlLabel-root"
                         >
                           <span
-                            class="MuiIconButton-label"
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-53 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                           >
-                            <input
-                              class="PrivateSwitchBase-input-12"
-                              data-indeterminate="false"
-                              name="option-1"
-                              type="checkbox"
-                              value=""
-                            />
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
+                            <span
+                              class="MuiIconButton-label"
                             >
-                              <path
-                                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                              <input
+                                class="PrivateSwitchBase-input-56"
+                                data-indeterminate="false"
+                                name="option-1"
+                                type="checkbox"
+                                value=""
                               />
-                            </svg>
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
                           </span>
                           <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </span>
-                        <span
-                          class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                        >
-                          Option 1
-                        </span>
-                      </label>
+                            class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                          >
+                            Option 1
+                          </span>
+                        </label>
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <div
-                      class="MuiFormControl-root Checkbox"
-                    >
-                      <label
-                        class="MuiFormControlLabel-root Mui-disabled"
+                    <div>
+                      <div
+                        class="MuiFormControl-root Checkbox"
                       >
-                        <span
-                          aria-disabled="true"
-                          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-9 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-10 Mui-checked PrivateSwitchBase-disabled-11 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled"
-                          tabindex="-1"
+                        <label
+                          class="MuiFormControlLabel-root Mui-disabled"
                         >
                           <span
-                            class="MuiIconButton-label"
+                            aria-disabled="true"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-53 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-54 Mui-checked PrivateSwitchBase-disabled-55 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled"
+                            tabindex="-1"
                           >
-                            <input
-                              checked=""
-                              class="PrivateSwitchBase-input-12"
-                              data-indeterminate="false"
-                              disabled=""
-                              name="option-2"
-                              type="checkbox"
-                              value=""
-                            />
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
+                            <span
+                              class="MuiIconButton-label"
                             >
-                              <path
-                                d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              <input
+                                checked=""
+                                class="PrivateSwitchBase-input-56"
+                                data-indeterminate="false"
+                                disabled=""
+                                name="option-2"
+                                type="checkbox"
+                                value=""
                               />
-                            </svg>
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                                />
+                              </svg>
+                            </span>
                           </span>
-                        </span>
-                        <span
-                          class="MuiTypography-root MuiFormControlLabel-label Mui-disabled MuiTypography-body1"
-                        >
-                          Option 2
-                        </span>
-                      </label>
+                          <span
+                            class="MuiTypography-root MuiFormControlLabel-label Mui-disabled MuiTypography-body1"
+                          >
+                            Option 2
+                          </span>
+                        </label>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -190,161 +365,163 @@ exports[`Filters component renders disabled filters 1`] = `
 `;
 
 exports[`Filters component renders multiple filters 1`] = `
-<div
-  class="Filters"
->
+<div>
   <div
-    class="Accordion Accordion--no-inner-padding"
+    class="Filters"
   >
     <div
-      class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+      class="accordionStyles-root-9 accordionStyles-no-inner-padding-12"
     >
       <div
-        aria-disabled="false"
-        aria-expanded="false"
-        aria-label="Label 1"
-        class="MuiButtonBase-root MuiAccordionSummary-root"
-        role="button"
-        tabindex="0"
+        class="MuiPaper-root MuiAccordion-root accordionStyles-item-10 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
       >
-        <div
-          class="MuiAccordionSummary-content"
-        >
-          <h6
-            class="MuiTypography-root Typography MuiTypography-h6"
-          >
-            Label 1
-          </h6>
-        </div>
         <div
           aria-disabled="false"
-          aria-hidden="true"
-          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-        >
-          <span
-            class="MuiIconButton-label"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-              />
-            </svg>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </div>
-      </div>
-      <div
-        class="MuiCollapse-container MuiCollapse-hidden"
-        style="min-height: 0px;"
-      >
-        <div
-          class="MuiCollapse-wrapper"
+          aria-expanded="false"
+          aria-label="Label 1"
+          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-13"
+          role="button"
+          tabindex="0"
         >
           <div
-            class="MuiCollapse-wrapperInner"
+            class="MuiAccordionSummary-content accordionStyles-summaryContent-15"
+          >
+            <h6
+              class="MuiTypography-root Typography MuiTypography-h6"
+            >
+              Label 1
+            </h6>
+          </div>
+          <div
+            aria-disabled="false"
+            aria-hidden="true"
+            class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </div>
+        </div>
+        <div
+          class="MuiCollapse-root MuiCollapse-hidden"
+          style="min-height: 0px;"
+        >
+          <div
+            class="MuiCollapse-wrapper"
           >
             <div
-              role="region"
+              class="MuiCollapse-wrapperInner"
             >
               <div
-                class="MuiAccordionDetails-root details"
+                role="region"
               >
                 <div
-                  class="list"
+                  class="MuiAccordionDetails-root accordionStyles-details-11 accordionStyles-details-19"
                 >
-                  <div>
-                    <div
-                      class="MuiFormControl-root Checkbox"
-                    >
-                      <label
-                        class="MuiFormControlLabel-root"
+                  <div
+                    class="list"
+                  >
+                    <div>
+                      <div
+                        class="MuiFormControl-root Checkbox"
                       >
-                        <span
-                          aria-disabled="false"
-                          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                        <label
+                          class="MuiFormControlLabel-root"
                         >
                           <span
-                            class="MuiIconButton-label"
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-20 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                           >
-                            <input
-                              class="PrivateSwitchBase-input-4"
-                              data-indeterminate="false"
-                              name="option-1"
-                              type="checkbox"
-                              value=""
-                            />
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
+                            <span
+                              class="MuiIconButton-label"
                             >
-                              <path
-                                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                              <input
+                                class="PrivateSwitchBase-input-23"
+                                data-indeterminate="false"
+                                name="option-1"
+                                type="checkbox"
+                                value=""
                               />
-                            </svg>
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
                           </span>
                           <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </span>
-                        <span
-                          class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                        >
-                          Option 1
-                        </span>
-                      </label>
+                            class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                          >
+                            Option 1
+                          </span>
+                        </label>
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <div
-                      class="MuiFormControl-root Checkbox"
-                    >
-                      <label
-                        class="MuiFormControlLabel-root"
+                    <div>
+                      <div
+                        class="MuiFormControl-root Checkbox"
                       >
-                        <span
-                          aria-disabled="false"
-                          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                        <label
+                          class="MuiFormControlLabel-root"
                         >
                           <span
-                            class="MuiIconButton-label"
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-20 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                           >
-                            <input
-                              class="PrivateSwitchBase-input-4"
-                              data-indeterminate="false"
-                              name="option-2"
-                              type="checkbox"
-                              value=""
-                            />
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
+                            <span
+                              class="MuiIconButton-label"
                             >
-                              <path
-                                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                              <input
+                                class="PrivateSwitchBase-input-23"
+                                data-indeterminate="false"
+                                name="option-2"
+                                type="checkbox"
+                                value=""
                               />
-                            </svg>
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
                           </span>
                           <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </span>
-                        <span
-                          class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                        >
-                          Option 2
-                        </span>
-                      </label>
+                            class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                          >
+                            Option 2
+                          </span>
+                        </label>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -353,156 +530,156 @@ exports[`Filters component renders multiple filters 1`] = `
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
-    >
       <div
-        aria-disabled="false"
-        aria-expanded="false"
-        aria-label="Label 2"
-        class="MuiButtonBase-root MuiAccordionSummary-root"
-        role="button"
-        tabindex="0"
+        class="MuiPaper-root MuiAccordion-root accordionStyles-item-10 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
       >
-        <div
-          class="MuiAccordionSummary-content"
-        >
-          <h6
-            class="MuiTypography-root Typography MuiTypography-h6"
-          >
-            Label 2
-          </h6>
-        </div>
         <div
           aria-disabled="false"
-          aria-hidden="true"
-          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-        >
-          <span
-            class="MuiIconButton-label"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-              />
-            </svg>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </div>
-      </div>
-      <div
-        class="MuiCollapse-container MuiCollapse-hidden"
-        style="min-height: 0px;"
-      >
-        <div
-          class="MuiCollapse-wrapper"
+          aria-expanded="false"
+          aria-label="Label 2"
+          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-13"
+          role="button"
+          tabindex="0"
         >
           <div
-            class="MuiCollapse-wrapperInner"
+            class="MuiAccordionSummary-content accordionStyles-summaryContent-15"
+          >
+            <h6
+              class="MuiTypography-root Typography MuiTypography-h6"
+            >
+              Label 2
+            </h6>
+          </div>
+          <div
+            aria-disabled="false"
+            aria-hidden="true"
+            class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </div>
+        </div>
+        <div
+          class="MuiCollapse-root MuiCollapse-hidden"
+          style="min-height: 0px;"
+        >
+          <div
+            class="MuiCollapse-wrapper"
           >
             <div
-              role="region"
+              class="MuiCollapse-wrapperInner"
             >
               <div
-                class="MuiAccordionDetails-root details"
+                role="region"
               >
                 <div
-                  class="list"
+                  class="MuiAccordionDetails-root accordionStyles-details-11 accordionStyles-details-26"
                 >
-                  <div>
-                    <div
-                      class="MuiFormControl-root Checkbox"
-                    >
-                      <label
-                        class="MuiFormControlLabel-root"
+                  <div
+                    class="list"
+                  >
+                    <div>
+                      <div
+                        class="MuiFormControl-root Checkbox"
                       >
-                        <span
-                          aria-disabled="false"
-                          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                        <label
+                          class="MuiFormControlLabel-root"
                         >
                           <span
-                            class="MuiIconButton-label"
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-20 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                           >
-                            <input
-                              class="PrivateSwitchBase-input-4"
-                              data-indeterminate="false"
-                              name="option-1"
-                              type="checkbox"
-                              value=""
-                            />
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
+                            <span
+                              class="MuiIconButton-label"
                             >
-                              <path
-                                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                              <input
+                                class="PrivateSwitchBase-input-23"
+                                data-indeterminate="false"
+                                name="option-1"
+                                type="checkbox"
+                                value=""
                               />
-                            </svg>
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
                           </span>
                           <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </span>
-                        <span
-                          class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                        >
-                          Option 1
-                        </span>
-                      </label>
+                            class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                          >
+                            Option 1
+                          </span>
+                        </label>
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <div
-                      class="MuiFormControl-root Checkbox"
-                    >
-                      <label
-                        class="MuiFormControlLabel-root"
+                    <div>
+                      <div
+                        class="MuiFormControl-root Checkbox"
                       >
-                        <span
-                          aria-disabled="false"
-                          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                        <label
+                          class="MuiFormControlLabel-root"
                         >
                           <span
-                            class="MuiIconButton-label"
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-20 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                           >
-                            <input
-                              class="PrivateSwitchBase-input-4"
-                              data-indeterminate="false"
-                              name="option-2"
-                              type="checkbox"
-                              value=""
-                            />
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
+                            <span
+                              class="MuiIconButton-label"
                             >
-                              <path
-                                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                              <input
+                                class="PrivateSwitchBase-input-23"
+                                data-indeterminate="false"
+                                name="option-2"
+                                type="checkbox"
+                                value=""
                               />
-                            </svg>
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
                           </span>
                           <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </span>
-                        <span
-                          class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                        >
-                          Option 2
-                        </span>
-                      </label>
+                            class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                          >
+                            Option 2
+                          </span>
+                        </label>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -517,162 +694,164 @@ exports[`Filters component renders multiple filters 1`] = `
 `;
 
 exports[`Filters component renders selected filters 1`] = `
-<div
-  class="Filters"
->
+<div>
   <div
-    class="Accordion Accordion--no-inner-padding"
+    class="Filters"
   >
     <div
-      class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+      class="accordionStyles-root-27 accordionStyles-no-inner-padding-30"
     >
       <div
-        aria-disabled="false"
-        aria-expanded="false"
-        aria-label="Label 1"
-        class="MuiButtonBase-root MuiAccordionSummary-root"
-        role="button"
-        tabindex="0"
+        class="MuiPaper-root MuiAccordion-root accordionStyles-item-28 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
       >
-        <div
-          class="MuiAccordionSummary-content"
-        >
-          <h6
-            class="MuiTypography-root Typography MuiTypography-h6"
-          >
-            Label 1
-          </h6>
-        </div>
         <div
           aria-disabled="false"
-          aria-hidden="true"
-          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-        >
-          <span
-            class="MuiIconButton-label"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-              />
-            </svg>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </div>
-      </div>
-      <div
-        class="MuiCollapse-container MuiCollapse-hidden"
-        style="min-height: 0px;"
-      >
-        <div
-          class="MuiCollapse-wrapper"
+          aria-expanded="false"
+          aria-label="Label 1"
+          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-31"
+          role="button"
+          tabindex="0"
         >
           <div
-            class="MuiCollapse-wrapperInner"
+            class="MuiAccordionSummary-content accordionStyles-summaryContent-33"
+          >
+            <h6
+              class="MuiTypography-root Typography MuiTypography-h6"
+            >
+              Label 1
+            </h6>
+          </div>
+          <div
+            aria-disabled="false"
+            aria-hidden="true"
+            class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </div>
+        </div>
+        <div
+          class="MuiCollapse-root MuiCollapse-hidden"
+          style="min-height: 0px;"
+        >
+          <div
+            class="MuiCollapse-wrapper"
           >
             <div
-              role="region"
+              class="MuiCollapse-wrapperInner"
             >
               <div
-                class="MuiAccordionDetails-root details"
+                role="region"
               >
                 <div
-                  class="list"
+                  class="MuiAccordionDetails-root accordionStyles-details-29 accordionStyles-details-37"
                 >
-                  <div>
-                    <div
-                      class="MuiFormControl-root Checkbox"
-                    >
-                      <label
-                        class="MuiFormControlLabel-root"
+                  <div
+                    class="list"
+                  >
+                    <div>
+                      <div
+                        class="MuiFormControl-root Checkbox"
                       >
-                        <span
-                          aria-disabled="false"
-                          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                        <label
+                          class="MuiFormControlLabel-root"
                         >
                           <span
-                            class="MuiIconButton-label"
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-38 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                           >
-                            <input
-                              class="PrivateSwitchBase-input-8"
-                              data-indeterminate="false"
-                              name="option-1"
-                              type="checkbox"
-                              value=""
-                            />
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
+                            <span
+                              class="MuiIconButton-label"
                             >
-                              <path
-                                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                              <input
+                                class="PrivateSwitchBase-input-41"
+                                data-indeterminate="false"
+                                name="option-1"
+                                type="checkbox"
+                                value=""
                               />
-                            </svg>
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
                           </span>
                           <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </span>
-                        <span
-                          class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                        >
-                          Option 1
-                        </span>
-                      </label>
+                            class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                          >
+                            Option 1
+                          </span>
+                        </label>
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <div
-                      class="MuiFormControl-root Checkbox"
-                    >
-                      <label
-                        class="MuiFormControlLabel-root"
+                    <div>
+                      <div
+                        class="MuiFormControl-root Checkbox"
                       >
-                        <span
-                          aria-disabled="false"
-                          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-6 Mui-checked MuiIconButton-colorPrimary"
+                        <label
+                          class="MuiFormControlLabel-root"
                         >
                           <span
-                            class="MuiIconButton-label"
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-38 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-39 Mui-checked MuiIconButton-colorPrimary"
                           >
-                            <input
-                              checked=""
-                              class="PrivateSwitchBase-input-8"
-                              data-indeterminate="false"
-                              name="option-2"
-                              type="checkbox"
-                              value=""
-                            />
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
+                            <span
+                              class="MuiIconButton-label"
                             >
-                              <path
-                                d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                              <input
+                                checked=""
+                                class="PrivateSwitchBase-input-41"
+                                data-indeterminate="false"
+                                name="option-2"
+                                type="checkbox"
+                                value=""
                               />
-                            </svg>
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
                           </span>
                           <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </span>
-                        <span
-                          class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                        >
-                          Option 2
-                        </span>
-                      </label>
+                            class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                          >
+                            Option 2
+                          </span>
+                        </label>
+                      </div>
                     </div>
                   </div>
                 </div>

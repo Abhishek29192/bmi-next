@@ -1,6 +1,6 @@
 "use strict";
 
-const sharedConfig = require("../../../../jest.config");
+const sharedConfig = require("../jest.config");
 
 module.exports = {
   ...sharedConfig,
@@ -10,6 +10,5 @@ module.exports = {
   ],
   collectCoverageFrom: [
     "<rootDir>/applications/dxb/functions/gcp-pim-full-fetch-coordinator/src/**/*.{ts,tsx,js}"
-  ],
-  testEnvironment: "node"
+  ]
 };

@@ -6,11 +6,5 @@ module.exports = {
   ...sharedConfig,
   rootDir: "../../",
   roots: ["<rootDir>/components/cta-card/src"],
-  collectCoverageFrom: ["<rootDir>/components/cta-card/src/**/*.{ts,tsx,js}"],
-  coverageThreshold: {
-    global: {
-      ...sharedConfig.coverageThreshold.global,
-      branches: "83"
-    }
-  }
+  collectCoverageFrom: ["<rootDir>/components/cta-card/src/**/*.{ts,tsx,js}"]
 };

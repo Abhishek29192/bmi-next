@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, within } from "@testing-library/react";
+import { render, fireEvent, within, cleanup } from "@testing-library/react";
 import { ErrorBoundary } from "react-error-boundary";
 import mockConsole from "jest-mock-console";
 import axios from "axios";
@@ -54,7 +54,12 @@ beforeAll(() => {
 });
 
 beforeEach(() => {
+  jest.resetModules();
   jest.clearAllMocks();
+});
+
+afterEach(async () => {
+  await cleanup();
 });
 
 afterAll(() => {
@@ -182,7 +187,18 @@ const pimSystem = {
       {
         assetType: ImageAssetTypesEnum.MASTER_IMAGE,
         format: "Product-Listing-Card-Large-Desktop",
-        url: "testhttp",
+        url: "product-listing-card-large-desktop-url",
+        allowedToDownload: true,
+        containerId: "container_490189 wireløper.jpg",
+        fileSize: 172262,
+        mime: "image/jpeg",
+        name: "Product-Hero-Large-Desktop_490189 wireløper",
+        realFileName: "Product-Hero-Large-Desktop_490189 wireløper.jpg"
+      },
+      {
+        assetType: "MASTER_IMAGE",
+        format: "Product-Listing-Card-Small-Desktop-Tablet",
+        url: "product-listing-card-small-desktop-tablet",
         allowedToDownload: true,
         containerId: "container_490189 wireløper.jpg",
         fileSize: 172262,
@@ -223,7 +239,7 @@ describe("SystemConfiguratorSection component", () => {
         />
       </LocationProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with description rich text", () => {

@@ -8,7 +8,9 @@ import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 const cache: { [index: string]: Promise<GLTF> } = {};
 
 export default (url: string) => {
+  // eslint-disable-next-line security/detect-object-injection
   if (cache[url]) {
+    // eslint-disable-next-line security/detect-object-injection
     return cache[url];
   }
 
@@ -24,6 +26,7 @@ export default (url: string) => {
     });
   });
 
+  // eslint-disable-next-line security/detect-object-injection
   cache[url] = promise;
   return promise;
 };

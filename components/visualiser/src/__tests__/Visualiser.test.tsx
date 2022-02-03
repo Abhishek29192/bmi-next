@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Visualiser, { tilesSetData, sidingsSetData } from "../";
+import Visualiser, { sidingsSetData, tilesSetData } from "../";
 import { Tile } from "../Types";
 
 describe("Visualiser component", () => {
@@ -15,7 +15,7 @@ describe("Visualiser component", () => {
         onClick={(params) => console.log(params)}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly when test asset url provided", () => {
@@ -30,7 +30,7 @@ describe("Visualiser component", () => {
         onClick={(params) => console.log(params)}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly when non-test asset url provided", () => {
@@ -45,6 +45,6 @@ describe("Visualiser component", () => {
         onClick={(params) => console.log(params)}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

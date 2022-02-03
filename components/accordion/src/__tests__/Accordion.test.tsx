@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import Accordion from "../";
 
@@ -21,7 +21,7 @@ describe("Accordion component", () => {
         </Accordion.Item>
       </Accordion>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with default expanded item", () => {
     const { container } = render(
@@ -36,7 +36,7 @@ describe("Accordion component", () => {
         </Accordion.Item>
       </Accordion>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly as radio", () => {
     const { container } = render(
@@ -51,7 +51,7 @@ describe("Accordion component", () => {
         </Accordion.Item>
       </Accordion>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with onChange", () => {
     const onChange = jest.fn();
@@ -88,7 +88,7 @@ describe("Accordion component", () => {
     const firstPanel = getByText("Heading One");
     fireEvent.click(firstPanel);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly as radio when item is expanded", () => {
     const { getByText, container } = render(
@@ -106,7 +106,7 @@ describe("Accordion component", () => {
     const firstPanel = getByText("Heading One");
     fireEvent.click(firstPanel);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly as radio when item is collapsed", () => {
     const { getByText, container } = render(
@@ -124,7 +124,7 @@ describe("Accordion component", () => {
     const firstPanel = getByText("Heading One");
     fireEvent.click(firstPanel);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with no padding on accordion detail", () => {
     const { getByText, container } = render(
@@ -142,6 +142,6 @@ describe("Accordion component", () => {
     const firstPanel = getByText("Heading One");
     fireEvent.click(firstPanel);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

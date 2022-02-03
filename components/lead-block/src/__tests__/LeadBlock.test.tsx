@@ -39,7 +39,7 @@ describe("LeadBlock component", () => {
         </LeadBlock.Card>
       </LeadBlock>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders width card theme", () => {
@@ -71,6 +71,6 @@ describe("LeadBlock component", () => {
         </LeadBlock.Card>
       </LeadBlock>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

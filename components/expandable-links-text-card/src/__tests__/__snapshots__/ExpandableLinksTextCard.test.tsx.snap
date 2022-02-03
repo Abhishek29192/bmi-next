@@ -1,133 +1,273 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ExpandableLinksTextCard component renders correctly 1`] = `
-<div
-  class="ExpandableLinksTextCards"
->
-  <h3
-    class="MuiTypography-root title Typography MuiTypography-h5"
+<div>
+  <div
+    class="ExpandableLinksTextCards"
   >
-    Heading One
-  </h3>
-  <nav>
-    <div
-      class="shown-links-container"
+    <h3
+      class="MuiTypography-root title Typography MuiTypography-h5"
     >
+      Heading One
+    </h3>
+    <nav>
       <div
-        class="link-wrapper"
+        class="shown-links-container"
       >
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-          href="/"
+        <div
+          class="link-wrapper"
         >
-          <span>
-            Link One
-          </span>
-        </a>
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            href="/"
+          >
+            <span>
+              Link One
+            </span>
+          </a>
+        </div>
+        <div
+          class="link-wrapper"
+        >
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            href="/"
+          >
+            <span>
+              Link Two
+            </span>
+          </a>
+        </div>
+        <div
+          class="link-wrapper"
+        >
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            href="/"
+          >
+            <span>
+              Link Three
+            </span>
+          </a>
+        </div>
       </div>
       <div
-        class="link-wrapper"
+        class="hidden-links-container"
+      />
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`ExpandableLinksTextCard component renders correctly with closeButton 1`] = `
+<div>
+  <div
+    class="ExpandableLinksTextCards"
+  >
+    <h3
+      class="MuiTypography-root title Typography MuiTypography-h5"
+    >
+      Heading One
+    </h3>
+    <nav>
+      <div
+        class="shown-links-container"
       >
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-          href="/"
+        <div
+          class="link-wrapper"
         >
-          <span>
-            Link Two
-          </span>
-        </a>
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            href="/"
+          >
+            <span>
+              Link One
+            </span>
+          </a>
+        </div>
+        <div
+          class="link-wrapper"
+        >
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            href="/"
+          >
+            <span>
+              Link Two
+            </span>
+          </a>
+        </div>
       </div>
       <div
-        class="link-wrapper"
+        class="hidden-links-container"
       >
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-          href="/"
-        >
-          <span>
-            Link Three
-          </span>
-        </a>
+        <div>
+          <div>
+            <div
+              class="link-wrapper"
+            >
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+                href="/"
+              >
+                <span>
+                  Link Three
+                </span>
+              </a>
+            </div>
+          </div>
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 MuiButton-containedPrimary"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-44"
+            >
+              Close
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
       </div>
-    </div>
-    <div
-      class="hidden-links-container"
-    />
-  </nav>
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`ExpandableLinksTextCard component renders correctly with download action model 1`] = `
+<div>
+  <div
+    class="ExpandableLinksTextCards"
+  >
+    <h3
+      class="MuiTypography-root title Typography MuiTypography-h5"
+    >
+      Heading One
+    </h3>
+    <nav>
+      <div
+        class="shown-links-container"
+      >
+        <div
+          class="link-wrapper"
+        >
+          <svg
+            class="icon"
+          />
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            href="/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span>
+              Link One
+            </span>
+          </a>
+        </div>
+      </div>
+      <div
+        class="hidden-links-container"
+      >
+        <div>
+          <div />
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 MuiButton-containedPrimary"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-24"
+            >
+              Open
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </nav>
+  </div>
 </div>
 `;
 
 exports[`ExpandableLinksTextCard component renders correctly with more than 3 links 1`] = `
-<div
-  class="ExpandableLinksTextCards"
->
-  <h3
-    class="MuiTypography-root title Typography MuiTypography-h5"
+<div>
+  <div
+    class="ExpandableLinksTextCards"
   >
-    Heading One
-  </h3>
-  <nav>
-    <div
-      class="shown-links-container"
+    <h3
+      class="MuiTypography-root title Typography MuiTypography-h5"
     >
+      Heading One
+    </h3>
+    <nav>
       <div
-        class="link-wrapper"
+        class="shown-links-container"
       >
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-          href="/"
+        <div
+          class="link-wrapper"
         >
-          <span>
-            Link One
-          </span>
-        </a>
-      </div>
-      <div
-        class="link-wrapper"
-      >
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-          href="/"
-        >
-          <span>
-            Link Two
-          </span>
-        </a>
-      </div>
-      <div
-        class="link-wrapper"
-      >
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-          href="/"
-        >
-          <span>
-            Link Three
-          </span>
-        </a>
-      </div>
-    </div>
-    <div
-      class="hidden-links-container"
-    >
-      <div>
-        <div />
-        <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label buttonStyles-label-4"
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            href="/"
           >
-            Open
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+            <span>
+              Link One
+            </span>
+          </a>
+        </div>
+        <div
+          class="link-wrapper"
+        >
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            href="/"
+          >
+            <span>
+              Link Two
+            </span>
+          </a>
+        </div>
+        <div
+          class="link-wrapper"
+        >
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            href="/"
+          >
+            <span>
+              Link Three
+            </span>
+          </a>
+        </div>
       </div>
-    </div>
-  </nav>
+      <div
+        class="hidden-links-container"
+      >
+        <div>
+          <div />
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-4"
+            >
+              Open
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </nav>
+  </div>
 </div>
 `;

@@ -35,7 +35,7 @@ describe("TrainingCover component", () => {
     const { container } = render(
       <TrainingCover trainingContentCollection={trainingContent} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders null when no trainingContent is passed", () => {
     const { container } = render(

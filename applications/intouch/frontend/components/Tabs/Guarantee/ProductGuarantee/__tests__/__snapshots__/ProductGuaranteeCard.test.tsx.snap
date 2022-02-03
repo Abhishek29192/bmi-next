@@ -1,79 +1,107 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProductGuaranteeCard Component renders correctly 1`] = `
-<div
-  class="productCard"
->
+<div>
   <div
-    class="productCard__title"
+    class="productCard"
   >
-    <h2
-      class="MuiTypography-root Typography MuiTypography-h6"
+    <div
+      class="productCard__title"
     >
-      product_name
-    </h2>
-  </div>
-  <div
-    class="productCard__description"
-  >
-    <h6
-      class="MuiTypography-root Typography MuiTypography-subtitle2"
-    />
-  </div>
-  <div>
-    <table
-      class="MuiTable-root Table Table--row-even-color"
+      <h2
+        class="MuiTypography-root Typography MuiTypography-h6"
+      >
+        product_name
+      </h2>
+    </div>
+    <div
+      class="productCard__description"
     >
-      <thead
-        class="MuiTableHead-root ColorPair ColorPair--pearl"
+      <h6
+        class="MuiTypography-root Typography MuiTypography-subtitle2"
+      />
+    </div>
+    <div>
+      <table
+        class="MuiTable-root Table Table--row-even-color"
       >
-        <tr
-          class="MuiTableRow-root MuiTableRow-head"
+        <thead
+          class="MuiTableHead-root ColorPair ColorPair--pearl"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-head"
-            scope="col"
+          <tr
+            class="MuiTableRow-root MuiTableRow-head"
           >
-            productDetails.name
-          </th>
-          <th
-            class="MuiTableCell-root MuiTableCell-head"
-            scope="col"
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
+              productDetails.name
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
+              productDetails.family
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
+              productDetails.brand
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="MuiTableBody-root"
+        >
+          <tr
+            class="MuiTableRow-root"
           >
-            productDetails.family
-          </th>
-          <th
-            class="MuiTableCell-root MuiTableCell-head"
-            scope="col"
-          >
-            productDetails.brand
-          </th>
-        </tr>
-      </thead>
-      <tbody
-        class="MuiTableBody-root"
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            >
+              product_name
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            >
+              famil
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            >
+              brand
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      class="productCard__footer"
+      data-testid="guarantee-pdf-item"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+        disabled=""
+        rel="noopener noreferrer"
+        tabindex="-1"
+        target="_blank"
+        type="button"
       >
-        <tr
-          class="MuiTableRow-root"
+        <span
+          class="MuiButton-label buttonStyles-label-4"
         >
-          <td
-            class="MuiTableCell-root MuiTableCell-body"
+          <span
+            class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
           >
-            product_name
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body"
-          >
-            famil
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body"
-          >
-            brand
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <svg
+              class="productCard__logo"
+            />
+          </span>
+          generatingPdf
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;

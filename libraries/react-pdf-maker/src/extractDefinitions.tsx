@@ -29,7 +29,7 @@ const extractDefinitions = (element: React.ReactNode): PDFNode => {
     if (typeof element === "number" || typeof element === "boolean") {
       return `${element}`;
     }
-    return element;
+    return element as PDFNode;
   }
 
   // TODO: consider using react-reconciler to enable most of react features

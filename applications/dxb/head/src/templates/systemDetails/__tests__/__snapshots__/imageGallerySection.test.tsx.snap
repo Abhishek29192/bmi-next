@@ -20,8 +20,6 @@ exports[`ImageGallerySection tests When ONLY master images are provided should r
 
 exports[`ImageGallerySection tests When images are empty array should render empty section 1`] = `<div />`;
 
-exports[`ImageGallerySection tests When images are null should render empty section 1`] = `<div />`;
-
 exports[`ImageGallerySection tests When master images and gallery images are provided should render single master image and multiple gallery images 1`] = `
 <div>
   <div

@@ -12,22 +12,21 @@
   }
 
   :global {
-    .MuiFormControlLabel-root {
+    [class*="MuiFormControlLabel-root"] {
       margin-right: 0;
     }
   }
 
   .row {
-    &--checked:global(.MuiTableRow-root) {
+    &--checked:global(.Mui-selected) {
       // Hack for position relative for tr
       // See https://github.com/w3c/csswg-drafts/issues/1899
       transform: scale(1);
       background-color: rgba($color-theme-accent-rgb, 0.1);
-      border: 1px solid $color-theme-accent;
+      border: 1.2px solid $color-theme-accent;
     }
-
     &:first-of-type.row--checked {
-      box-shadow: inset 0px 1px 0px $color-theme-accent;
+      box-shadow: inset 0px 0px 0px $color-theme-accent;
     }
   }
 

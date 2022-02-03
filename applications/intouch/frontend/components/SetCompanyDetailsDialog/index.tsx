@@ -1,4 +1,3 @@
-import get from "lodash/get";
 import React, { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
 import Grid from "@bmi/grid";
@@ -32,9 +31,11 @@ export type SetCompanyDetailsDialogProps = {
   title: string;
   company?: GetCompanyQuery["company"];
   isOpen: boolean;
+  loading: boolean;
   onCloseClick: () => void;
   onSubmit: (values: { [key: string]: any }) => any;
   errorMessage?: string;
+  mapsApiKey: string;
 };
 
 export const SetCompanyDetailsDialog = ({
@@ -43,7 +44,9 @@ export const SetCompanyDetailsDialog = ({
   isOpen,
   onCloseClick,
   onSubmit,
-  errorMessage
+  errorMessage,
+  mapsApiKey,
+  loading
 }: SetCompanyDetailsDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
 
@@ -88,7 +91,8 @@ export const SetCompanyDetailsDialog = ({
       className: styles.input,
       name: fieldName,
       label: t(`company-page:edit_dialog.form.fields.${fieldName}`),
-      defaultValue: get(company, fieldName),
+      // eslint-disable-next-line security/detect-object-injection
+      defaultValue: (company && company[`${fieldName}`]) || "",
       fullWidth: true,
       fieldIsRequiredError: t("common:error_messages.required")
     }),
@@ -216,7 +220,15 @@ export const SetCompanyDetailsDialog = ({
             )}
           />
 
-          <TextField {...getFieldProps("aboutUs")} isTextArea rows={6} />
+          <TextField
+            {...getFieldProps("aboutUs")}
+            isTextArea
+            rows={6}
+            inputProps={{
+              maxLength: 255
+            }}
+            helperText={t(`company-page:edit_dialog.form.maxCharacters`)}
+          />
           <Form.Row>
             <Typography variant="h6" className={styles.sectionText}>
               {t("company-page:edit_dialog.sections.trading_address")}
@@ -233,6 +245,7 @@ export const SetCompanyDetailsDialog = ({
             existingTradingAddress={company?.tradingAddress}
             marketCenterPoint={market.geoMiddle}
             locationBiasRadiusKm={market.locationBiasRadiusKm}
+            mapsApiKey={mapsApiKey}
           />
 
           <Typography variant="h6" className={styles.sectionText}>
@@ -275,6 +288,13 @@ export const SetCompanyDetailsDialog = ({
           <Grid container xs={12} spacing={3}>
             <Grid item xs={12} lg={6}>
               <TextField
+                {...getFieldProps("ownerFullname")}
+                autoComplete="off"
+              />
+            </Grid>
+
+            <Grid item xs={12} lg={6}>
+              <TextField
                 {...getFieldProps("ownerPhone")}
                 type="tel"
                 getValidationError={validatePhoneNumber}
@@ -295,7 +315,7 @@ export const SetCompanyDetailsDialog = ({
                 {t("company-page:edit_dialog.form.actions.cancel")}
               </Form.Button>
             ) : null}
-            <Form.SubmitButton>
+            <Form.SubmitButton disabled={loading}>
               {t("company-page:edit_dialog.form.actions.submit")}
             </Form.SubmitButton>
           </Form.ButtonWrapper>

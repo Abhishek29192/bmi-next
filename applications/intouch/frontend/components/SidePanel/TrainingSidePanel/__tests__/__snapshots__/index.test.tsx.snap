@@ -1,231 +1,233 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TrainingSidePanel component renders correctly 1`] = `
-<div
-  class="main"
->
+<div>
   <div
-    class="sidePanel"
+    class="main"
   >
     <div
-      class="filters"
+      class="sidePanel"
     >
-      <nav>
-        <div
-          class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
-        >
-          <label
-            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-            data-shrink="false"
-            for="filter"
-            id="filter-label"
-          >
-            search.inputLabel
-          </label>
+      <div
+        class="filters"
+      >
+        <nav>
           <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
           >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-              id="filter"
-              name="filter"
-              type="text"
-              value=""
-            />
-            <div
-              class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              data-shrink="false"
+              for="filter"
+              id="filter-label"
             >
+              search.inputLabel
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                id="filter"
+                name="filter"
+                type="text"
+                value=""
+              />
+              <div
+                class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
+              </div>
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-3"
+                >
+                  <span>
+                    search.inputLabel
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </nav>
+        <div
+          class="filterButtons"
+        >
+          <span>
+            Show me
+            :
+          </span>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-6 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              filter.labels.all
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-7 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              certifications.flat
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-8 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              certifications.pitched
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-9 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              certifications.other
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        class="results"
+      >
+        <div>
+          <button
+            class="MuiButtonBase-root MuiCardActionArea-root"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="MuiCardContent-root main"
+            >
+              <h6
+                class="MuiTypography-root title Typography MuiTypography-h6"
+              >
+                Flat Course
+              </h6>
+              <div>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                  style="text-transform: capitalize;"
+                >
+                  type.undefined
+                </p>
+                <p
+                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                >
+                  <svg
+                    class="technologyIcon"
+                  />
+                  
+                </p>
+              </div>
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root"
+                class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
                 focusable="false"
+                style="font-size: 36px;"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
                 />
               </svg>
             </div>
-            <fieldset
-              aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
-            >
-              <legend
-                class="PrivateNotchedOutline-legendLabelled-3"
-              >
-                <span>
-                  search.inputLabel
-                </span>
-              </legend>
-            </fieldset>
-          </div>
+            <span
+              class="MuiCardActionArea-focusHighlight"
+            />
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
         </div>
-      </nav>
-      <div
-        class="filterButtons"
-      >
-        <span>
-          Show me
-          :
-        </span>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-6 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
+        <div>
+          <button
+            class="MuiButtonBase-root MuiCardActionArea-root"
+            tabindex="0"
+            type="button"
           >
-            filter.labels.all
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-7 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            certifications.flat
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-8 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            certifications.pitched
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-9 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            certifications.other
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-    </div>
-    <div
-      class="results"
-    >
-      <div>
-        <button
-          class="MuiButtonBase-root MuiCardActionArea-root"
-          tabindex="0"
-          type="button"
-        >
-          <div
-            class="MuiCardContent-root main"
-          >
-            <h6
-              class="MuiTypography-root title Typography MuiTypography-h6"
+            <div
+              class="MuiCardContent-root main"
             >
-              Flat Course
-            </h6>
-            <div>
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-                style="text-transform: capitalize;"
+              <h6
+                class="MuiTypography-root title Typography MuiTypography-h6"
               >
-                type.undefined
-              </p>
-              <p
-                class="MuiTypography-root icon Typography MuiTypography-body1"
+                Pitch Course
+              </h6>
+              <div>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                  style="text-transform: capitalize;"
+                >
+                  type.undefined
+                </p>
+                <p
+                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                >
+                  enrolled
+                </p>
+              </div>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
+                focusable="false"
+                style="font-size: 36px;"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  class="technologyIcon"
+                <path
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
                 />
-                
-              </p>
+              </svg>
             </div>
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
-              focusable="false"
-              style="font-size: 36px;"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-              />
-            </svg>
-          </div>
-          <span
-            class="MuiCardActionArea-focusHighlight"
-          />
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-      <div>
-        <button
-          class="MuiButtonBase-root MuiCardActionArea-root"
-          tabindex="0"
-          type="button"
-        >
-          <div
-            class="MuiCardContent-root main"
-          >
-            <h6
-              class="MuiTypography-root title Typography MuiTypography-h6"
-            >
-              Pitch Course
-            </h6>
-            <div>
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-                style="text-transform: capitalize;"
-              >
-                type.undefined
-              </p>
-              <p
-                class="MuiTypography-root icon Typography MuiTypography-body1"
-              >
-                enrolled
-              </p>
-            </div>
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
-              focusable="false"
-              style="font-size: 36px;"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-              />
-            </svg>
-          </div>
-          <span
-            class="MuiCardActionArea-focusHighlight"
-          />
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+            <span
+              class="MuiCardActionArea-focusHighlight"
+            />
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -233,317 +235,321 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
 `;
 
 exports[`TrainingSidePanel component renders correctly when no courseCatalog is passed 1`] = `
-<div
-  class="main"
->
+<div>
   <div
-    class="sidePanel"
+    class="main"
   >
     <div
-      class="filters"
+      class="sidePanel"
     >
-      <nav>
-        <div
-          class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
-        >
-          <label
-            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-            data-shrink="false"
-            for="filter"
-            id="filter-label"
-          >
-            search.inputLabel
-          </label>
-          <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
-          >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-              id="filter"
-              name="filter"
-              type="text"
-              value=""
-            />
-            <div
-              class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                />
-              </svg>
-            </div>
-            <fieldset
-              aria-hidden="true"
-              class="PrivateNotchedOutline-root-10 MuiOutlinedInput-notchedOutline"
-            >
-              <legend
-                class="PrivateNotchedOutline-legendLabelled-12"
-              >
-                <span>
-                  search.inputLabel
-                </span>
-              </legend>
-            </fieldset>
-          </div>
-        </div>
-      </nav>
       <div
-        class="filterButtons"
+        class="filters"
       >
-        <span>
-          Show me
-          :
-        </span>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-14 makeStyles-root-15 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
+        <nav>
+          <div
+            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
           >
-            filter.labels.all
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-14 makeStyles-root-16 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              data-shrink="false"
+              for="filter"
+              id="filter-label"
+            >
+              search.inputLabel
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                id="filter"
+                name="filter"
+                type="text"
+                value=""
+              />
+              <div
+                class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
+              </div>
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-10 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-12"
+                >
+                  <span>
+                    search.inputLabel
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </nav>
+        <div
+          class="filterButtons"
         >
-          <span
-            class="MuiButton-label"
-          >
-            certifications.flat
+          <span>
+            Show me
+            :
           </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-14 makeStyles-root-17 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-14 makeStyles-root-15 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
           >
-            certifications.pitched
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-14 makeStyles-root-18 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
+            <span
+              class="MuiButton-label"
+            >
+              filter.labels.all
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-14 makeStyles-root-16 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
           >
-            certifications.other
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+            <span
+              class="MuiButton-label"
+            >
+              certifications.flat
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-14 makeStyles-root-17 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              certifications.pitched
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-14 makeStyles-root-18 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              certifications.other
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
       </div>
+      <h5
+        class="MuiTypography-root noResult Typography MuiTypography-h5"
+      >
+        fallback.noResults
+      </h5>
     </div>
-    <h5
-      class="MuiTypography-root noResult Typography MuiTypography-h5"
-    >
-      fallback.noResults
-    </h5>
   </div>
 </div>
 `;
 
 exports[`TrainingSidePanel component renders correctly when no technology is passed 1`] = `
-<div
-  class="main"
->
+<div>
   <div
-    class="sidePanel"
+    class="main"
   >
     <div
-      class="filters"
+      class="sidePanel"
     >
-      <nav>
-        <div
-          class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
-        >
-          <label
-            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-            data-shrink="false"
-            for="filter"
-            id="filter-label"
-          >
-            search.inputLabel
-          </label>
+      <div
+        class="filters"
+      >
+        <nav>
           <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
           >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-              id="filter"
-              name="filter"
-              type="text"
-              value=""
-            />
-            <div
-              class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              data-shrink="false"
+              for="filter"
+              id="filter-label"
             >
+              search.inputLabel
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                id="filter"
+                name="filter"
+                type="text"
+                value=""
+              />
+              <div
+                class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
+              </div>
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-19 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-21"
+                >
+                  <span>
+                    search.inputLabel
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </nav>
+        <div
+          class="filterButtons"
+        >
+          <span>
+            Show me
+            :
+          </span>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-23 makeStyles-root-24 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              filter.labels.all
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-23 makeStyles-root-25 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              certifications.flat
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-23 makeStyles-root-26 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              certifications.pitched
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-23 makeStyles-root-27 MuiButton-disableElevation"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              certifications.other
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        class="results"
+      >
+        <div>
+          <button
+            class="MuiButtonBase-root MuiCardActionArea-root"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="MuiCardContent-root main"
+            >
+              <h6
+                class="MuiTypography-root title Typography MuiTypography-h6"
+              >
+                Flat Course
+              </h6>
+              <div>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                  style="text-transform: capitalize;"
+                >
+                  type.undefined
+                </p>
+                <p
+                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                >
+                  
+                </p>
+              </div>
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root"
+                class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
                 focusable="false"
+                style="font-size: 36px;"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
                 />
               </svg>
             </div>
-            <fieldset
-              aria-hidden="true"
-              class="PrivateNotchedOutline-root-19 MuiOutlinedInput-notchedOutline"
-            >
-              <legend
-                class="PrivateNotchedOutline-legendLabelled-21"
-              >
-                <span>
-                  search.inputLabel
-                </span>
-              </legend>
-            </fieldset>
-          </div>
+            <span
+              class="MuiCardActionArea-focusHighlight"
+            />
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
         </div>
-      </nav>
-      <div
-        class="filterButtons"
-      >
-        <span>
-          Show me
-          :
-        </span>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-23 makeStyles-root-24 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            filter.labels.all
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-23 makeStyles-root-25 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            certifications.flat
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-23 makeStyles-root-26 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            certifications.pitched
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-23 makeStyles-root-27 MuiButton-disableElevation"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            certifications.other
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-    </div>
-    <div
-      class="results"
-    >
-      <div>
-        <button
-          class="MuiButtonBase-root MuiCardActionArea-root"
-          tabindex="0"
-          type="button"
-        >
-          <div
-            class="MuiCardContent-root main"
-          >
-            <h6
-              class="MuiTypography-root title Typography MuiTypography-h6"
-            >
-              Flat Course
-            </h6>
-            <div>
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
-                style="text-transform: capitalize;"
-              >
-                type.undefined
-              </p>
-              <p
-                class="MuiTypography-root icon Typography MuiTypography-body1"
-              >
-                
-              </p>
-            </div>
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
-              focusable="false"
-              style="font-size: 36px;"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-              />
-            </svg>
-          </div>
-          <span
-            class="MuiCardActionArea-focusHighlight"
-          />
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
       </div>
     </div>
   </div>

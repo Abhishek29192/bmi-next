@@ -5,7 +5,7 @@ import { NextLogger } from "@bmi-digital/logger";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getAuth0Instance } from "../../../lib/auth0";
 import { initializeApollo } from "../../../lib/apolloClient";
-import Account from "../../../lib/account";
+import Account, { isSuperAdmin } from "../../../lib/account";
 import { getMarketAndEnvFromReq } from "../../../lib/utils";
 import { withLoggerApi } from "../../../lib/middleware/withLogger";
 
@@ -48,14 +48,20 @@ export const afterCallback = async (
   if (!account?.id && state.prompt !== "none") {
     account = await accountSrv.createAccount(session);
 
-    await accountSrv.createDoceboUser(account);
+    if (!isSuperAdmin(account)) {
+      await accountSrv.createDoceboUser(account);
+    }
 
     state.returnTo = "/api/silent-login";
     return session;
   }
 
   // If the user do not exists create it and create docebo user
-  if (!account?.doceboUserId && state.prompt !== "none") {
+  if (
+    !isSuperAdmin(account) &&
+    !account?.doceboUserId &&
+    state.prompt !== "none"
+  ) {
     await accountSrv.createDoceboUser(account);
 
     state.returnTo = "/api/silent-login";
@@ -110,17 +116,29 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
       } catch (error) {
         logger.error(`handle callback`, error);
 
+        const session = await auth0.getSession(req, res);
+
         if (req?.query?.error_description === "email_not_verified") {
           res.writeHead(302, { Location: "/email-verification" });
           return res.end();
         }
 
         if (req?.query?.error_description === "user is blocked") {
-          res.writeHead(302, { Location: "/api-error?message=user_blocked" });
+          res.writeHead(302, {
+            Location: "/api-error?message=errorUserBlocked"
+          });
           return res.end();
         }
 
-        res.writeHead(302, { Location: "/api-error?message=auth_error" });
+        if (!session) {
+          res.writeHead(302, {
+            Location: "/api-error?message=errorAuthentication"
+          });
+        } else {
+          res.writeHead(302, {
+            Location: "/"
+          });
+        }
         return res.end();
       }
     },

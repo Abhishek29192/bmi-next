@@ -1,23 +1,22 @@
+import logger from "@bmi/functions-logger";
+import { getSecret } from "@bmi/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { createClient } from "contentful-management";
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import { fromBuffer } from "file-type";
 import fetch from "node-fetch";
+import { Environment } from "contentful-management/dist/typings/entities/environment";
 
 const {
   CONTENTFUL_ENVIRONMENT,
   CONTENTFUL_SPACE_ID,
-  SECRET_MAN_GCP_PROJECT_NAME,
   CONTENTFUL_MANAGEMENT_TOKEN_SECRET,
   RECAPTCHA_SECRET_KEY,
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
-const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
+const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE || "1.0");
 const recaptchaTokenHeader = "X-Recaptcha-Token";
 
-let contentfulEnvironmentCache;
-let recaptchaSecretKeyCache;
-const secretManagerClient = new SecretManagerServiceClient();
+let contentfulEnvironmentCache: Environment | undefined;
 
 const validMimeTypes = [
   "application/pdf",
@@ -26,35 +25,45 @@ const validMimeTypes = [
   "image/png"
 ];
 
-const getContentfulEnvironment = async () => {
+const getContentfulEnvironment = async (): Promise<Environment> => {
   if (!contentfulEnvironmentCache) {
-    const managementTokenSecret = await secretManagerClient.accessSecretVersion(
-      {
-        name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
-      }
+    const managementToken = await getSecret(
+      CONTENTFUL_MANAGEMENT_TOKEN_SECRET!
     );
-    const managementToken = managementTokenSecret[0].payload.data.toString();
     const client = createClient({ accessToken: managementToken });
-    const space = await client.getSpace(CONTENTFUL_SPACE_ID);
+    const space = await client.getSpace(CONTENTFUL_SPACE_ID!);
     contentfulEnvironmentCache = await space.getEnvironment(
-      CONTENTFUL_ENVIRONMENT
+      CONTENTFUL_ENVIRONMENT!
     );
   }
   return contentfulEnvironmentCache;
 };
 
-const getRecaptchaSecretKey = async () => {
-  if (!recaptchaSecretKeyCache) {
-    const recaptchaSecretKey = await secretManagerClient.accessSecretVersion({
-      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${RECAPTCHA_SECRET_KEY}/versions/latest`
-    });
-
-    recaptchaSecretKeyCache = recaptchaSecretKey[0].payload.data.toString();
-  }
-  return recaptchaSecretKeyCache;
-};
-
 export const upload: HttpFunction = async (request, response) => {
+  if (!CONTENTFUL_SPACE_ID) {
+    logger.error({ message: "CONTENTFUL_SPACE_ID has not been set" });
+    return response.sendStatus(500);
+  }
+
+  if (!CONTENTFUL_ENVIRONMENT) {
+    logger.error({ message: "CONTENTFUL_ENVIRONMENT has not been set" });
+    return response.sendStatus(500);
+  }
+
+  if (!CONTENTFUL_MANAGEMENT_TOKEN_SECRET) {
+    logger.error({
+      message: "CONTENTFUL_MANAGEMENT_TOKEN_SECRET has not been set"
+    });
+    return response.sendStatus(500);
+  }
+
+  if (!RECAPTCHA_SECRET_KEY) {
+    logger.error({
+      message: "RECAPTCHA_SECRET_KEY has not been set"
+    });
+    return response.sendStatus(500);
+  }
+
   response.set("Access-Control-Allow-Origin", "*");
 
   if (request.method === "OPTIONS") {
@@ -73,49 +82,49 @@ export const upload: HttpFunction = async (request, response) => {
         request.headers[recaptchaTokenHeader] ||
         request.headers[recaptchaTokenHeader.toLowerCase()];
       if (!recaptchaToken) {
-        // eslint-disable-next-line no-console
-        console.error("Token not provided.");
+        logger.error({ message: "Token not provided." });
         return response.status(400).send(Error("Token not provided."));
       }
 
       if (!(request.body instanceof Buffer)) {
         const error = Error("Endpoint only accepts file buffers");
-        // eslint-disable-next-line no-console
-        console.error(error);
+        logger.error({ message: error.message });
         return response.status(400).send(error);
       }
 
       try {
         const recaptchaResponse = await fetch(
-          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getRecaptchaSecretKey()}&response=${recaptchaToken}`,
+          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getSecret(
+            RECAPTCHA_SECRET_KEY
+          )}&response=${recaptchaToken}`,
           { method: "POST" }
         );
         if (!recaptchaResponse.ok) {
-          // eslint-disable-next-line no-console
-          console.error(
-            `Recaptcha check failed with status ${recaptchaResponse.status}.`
-          );
+          logger.error({
+            message: `Recaptcha check failed with status ${recaptchaResponse.status} ${recaptchaResponse.statusText}.`
+          });
           return response.status(400).send(Error("Recaptcha check failed."));
         }
         const json = await recaptchaResponse.json();
         if (!json.success || json.score < minimumScore) {
-          // eslint-disable-next-line no-console
-          console.error(
-            `Recaptcha check failed with error ${JSON.stringify(json)}.`
-          );
+          logger.error({
+            message: `Recaptcha check failed with error ${JSON.stringify(
+              json
+            )}.`
+          });
           return response.status(400).send(Error("Recaptcha check failed."));
         }
       } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(`Recaptcha request failed with error ${error}.`);
+        logger.error({
+          message: `Recaptcha request failed with error ${error}.`
+        });
         return response.status(500).send(Error("Recaptcha request failed."));
       }
 
       const fileType = await fromBuffer(request.body);
       if (!fileType || validMimeTypes.indexOf(fileType.mime) === -1) {
         const error = Error(`Cannot upload files of type ${fileType?.mime}`);
-        // eslint-disable-next-line no-console
-        console.error(error);
+        logger.error({ message: error.message });
         return response.status(406).send(error);
       }
 
@@ -124,8 +133,7 @@ export const upload: HttpFunction = async (request, response) => {
 
       return response.send(upload);
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
+      logger.error({ message: error.message });
       return response.sendStatus(500);
     }
   }

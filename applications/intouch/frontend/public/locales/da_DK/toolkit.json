@@ -1,0 +1,12 @@
+{
+  "contentTypes": {
+    "EXTERNAL_LINK": "Eksternt link",
+    "FALLBACK": "Media",
+    "FOLDER": "Mappe",
+    "IMAGE": "Billede",
+    "PDF": "PDF",
+    "VIDEO": "Video"
+  },
+  "countIndicator": "Viser {{amount}} af {{total}} varer",
+  "noItems": "Ikke noget her"
+}

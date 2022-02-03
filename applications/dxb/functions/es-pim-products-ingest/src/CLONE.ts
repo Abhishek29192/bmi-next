@@ -1,6 +1,5 @@
 /* eslint-disable security/detect-object-injection */
-import { result, find } from "lodash";
-import { Product, Classification, Category, Image } from "./pim";
+import { Product, Classification, Category } from "@bmi/pim-types";
 
 type CategoryPath = readonly Category[];
 
@@ -11,14 +10,9 @@ export type ProductCategoryTree = {
   };
 };
 
-export const findProductBrandLogoCode = (product: Product) => {
-  return result<string>(
-    find(product.categories, {
-      parentCategoryCode: "BMI_Brands"
-    }),
-    "code"
-  );
-};
+export const findProductBrandLogoCode = (product: Product) =>
+  product.categories?.find((category) => category.categoryType === "Brand")
+    ?.code;
 
 // NOTE: Figuring out the category paths is kind of naive.
 // I believe it works with the assumptions that PIM are working with
@@ -128,6 +122,7 @@ export const mapProductClassifications = (
   const MEASUREMENTS = "measurements";
   const GENERAL_INFORMATION = "generalInformation";
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- eslint doesn't pick up that it's being used
   const FEATURES = {
     SCORE_WEIGHT: `${classificationNamepace}/${SCORE_WEIGHT}.scoringweight`,
     TEXTURE_FAMILY: `${classificationNamepace}/${APPEARANCE}.texturefamily`,
@@ -143,6 +138,7 @@ export const mapProductClassifications = (
   return Object.entries(allProducts).reduce<ClassificationsPerProductMap>(
     (carry, [productCode, product]) => {
       (product.classifications || []).forEach((classification) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars -- eslint doesn't pick up that it's being used
         const { code, features } = classification;
         if (code === MEASUREMENTS) {
           features?.forEach(({ code, name, featureValues, featureUnit }) => {
@@ -188,7 +184,7 @@ export const getSizeLabel = (
   measurement: TransformedMeasurementValue,
   withUnit = true
 ) => {
-  const components = Object.values(measurement || {}).filter(Boolean);
+  const components = Object.values(measurement).filter(Boolean);
   if (components.length === 0) {
     return "";
   }
@@ -241,11 +237,9 @@ export const IndexFeatures = (
   pimClassificationNameSpace: string = "",
   classifications: Classification[]
 ): IndexedItemGroup<ESIndexObject> => {
-  const allfeaturesAsProps = (classifications || []).reduce(
-    (acc, classification) => {
-      const classificationFeatureAsProp = (
-        classification.features || []
-      ).reduce((featureAsProp, feature) => {
+  const allfeaturesAsProps = classifications.reduce((acc, classification) => {
+    const classificationFeatureAsProp = (classification.features || []).reduce(
+      (featureAsProp, feature) => {
         const featureCode = extractFeatureCode(
           pimClassificationNameSpace,
           feature.code
@@ -262,13 +256,13 @@ export const IndexFeatures = (
           ...featureAsProp,
           [featureCode]: nameAndCodeValues
         };
-      }, {});
-      return {
-        ...acc,
-        ...classificationFeatureAsProp
-      };
-    },
-    {}
-  );
+      },
+      {}
+    );
+    return {
+      ...acc,
+      ...classificationFeatureAsProp
+    };
+  }, {});
   return allfeaturesAsProps;
 };

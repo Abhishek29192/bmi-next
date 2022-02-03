@@ -10,7 +10,7 @@ export type Props = {
   checked?: boolean;
   className?: string;
   onChange?: React.InputHTMLAttributes<HTMLInputElement>["onChange"];
-} & ToggleCardProps;
+} & Omit<ToggleCardProps, "onChange">;
 
 const CardInput = ({
   type = "radio",

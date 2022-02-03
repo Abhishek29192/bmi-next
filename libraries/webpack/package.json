@@ -5,8 +5,8 @@
   "license": "BMI-DXB",
   "main": "./index.js",
   "dependencies": {
-    "@svgr/webpack": "^4.3.3",
-    "@types/webpack": "^4.32.2",
+    "@svgr/webpack": "^5.5.0",
+    "@types/webpack": "^5.28.0",
     "css-loader": "^3.2.0",
     "css-minimizer-webpack-plugin": "^2.0.0",
     "dotenv-webpack": "^7.0.2",

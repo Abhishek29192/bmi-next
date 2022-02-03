@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Grid from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
 import Container from "@bmi/container";
-import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
+import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import withGTM from "../utils/google-tag-manager";
 import { renderVideo } from "./Video";
 import { renderImage } from "./Image";

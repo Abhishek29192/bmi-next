@@ -12,6 +12,7 @@ import {
   useUpdateProjectMemberMutation
 } from "../../../graphql/generated/hooks";
 import { NoContent } from "../../NoContent";
+import AccessControl from "../../../lib/permissions/AccessControl";
 import { AddTeamMemberDialog } from "./AddTeamMemberDialog";
 import { TeamMemberItem } from "./TeamMemberItem";
 import styles from "./styles.module.scss";
@@ -32,26 +33,28 @@ export const TeamTab = ({
   const [projectMembers, setProjectMembers] = useState<ProjectMember[]>([]);
   const [companyMembers, setCompanyMembers] = useState<CompanyMember[]>([]);
   const [isTeamMemberDialogOpen, setTeamMemberDialogOpen] = useState(false);
-  const [deleteProjectMember] = useDeleteProjectMemberMutation({
-    refetchQueries: [
-      {
-        query: GetProjectDocument,
-        variables: {
-          projectId
+  const [deleteProjectMember, { loading: loadingDeleteMember }] =
+    useDeleteProjectMemberMutation({
+      refetchQueries: [
+        {
+          query: GetProjectDocument,
+          variables: {
+            projectId
+          }
         }
-      }
-    ]
-  });
-  const [addProjectsMember] = useAddProjectsMemberMutation({
-    refetchQueries: [
-      {
-        query: GetProjectDocument,
-        variables: {
-          projectId: projectId
+      ]
+    });
+  const [addProjectsMember, { loading: loadingAddMember }] =
+    useAddProjectsMemberMutation({
+      refetchQueries: [
+        {
+          query: GetProjectDocument,
+          variables: {
+            projectId: projectId
+          }
         }
-      }
-    ]
-  });
+      ]
+    });
   const [getProjectCompanyMembers] = useGetProjectCompanyMembersLazyQuery({
     onCompleted: ({ companyMembers }) => {
       setCompanyMembers(companyMembers?.nodes as CompanyMember[]);
@@ -128,9 +131,11 @@ export const TeamTab = ({
   return (
     <div className={styles.main}>
       <div className={styles.header}>
-        <Button variant="outlined" onClick={addTeamMemberHandler}>
-          {t("teamTab.header")}
-        </Button>
+        <AccessControl dataModel="project" action="addTeamMember">
+          <Button variant="outlined" onClick={addTeamMemberHandler}>
+            {t("teamTab.header")}
+          </Button>
+        </AccessControl>
       </div>
       <div className={styles.body}>
         {!projectMembers.length ? (
@@ -148,7 +153,9 @@ export const TeamTab = ({
                 <Table.Cell>{t("teamTab.table.teamMember")}</Table.Cell>
                 <Table.Cell>{t("teamTab.table.role")}</Table.Cell>
                 <Table.Cell>{t("teamTab.table.certification")}</Table.Cell>
-                <Table.Cell>{t("teamTab.table.remove")}</Table.Cell>
+                <AccessControl dataModel="project" action="removeTeamMember">
+                  <Table.Cell>{t("teamTab.table.remove")}</Table.Cell>
+                </AccessControl>
               </Table.Row>
             </Table.Head>
             <Table.Body>
@@ -168,6 +175,7 @@ export const TeamTab = ({
                       onResponsibleInstallerChange={() =>
                         onResponsibleInstallerChangeHandler(team)
                       }
+                      loading={loadingDeleteMember}
                     />
                   )
               )}
@@ -180,6 +188,7 @@ export const TeamTab = ({
         onCloseClick={() => setTeamMemberDialogOpen(false)}
         onConfirmClick={confirmTeamMemberHandler}
         members={companyMembers || []}
+        loading={loadingAddMember}
       />
     </div>
   );

@@ -1,10 +1,7 @@
 "use strict";
 
 module.exports = {
-  rules: {
-    strict: ["off"],
-    "no-unused-vars": ["off"]
-  },
+  extends: "../../../../.eslintrc.js",
   globals: {
     auth0: "readonly",
     configuration: "readonly",

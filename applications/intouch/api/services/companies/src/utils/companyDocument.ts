@@ -17,6 +17,7 @@ export const getDocumentType = (
     .pop()
     .toUpperCase();
 
+  // eslint-disable-next-line security/detect-object-injection
   return companyDocumentExtensions[fileExtension];
 };
 

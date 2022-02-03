@@ -90,7 +90,7 @@ describe("WelcomeDialog component", () => {
         welcomeDialogBrands: []
       };
 
-      const { getByLabelText, getByText, baseElement, debug } = render(
+      const { getByLabelText, getByText, baseElement } = render(
         <WelcomeDialog data={data} />
       );
 

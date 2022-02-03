@@ -48,7 +48,7 @@ describe("SpotlightHero component", () => {
         </Typography>
       </SpotlightHero>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with deprecated imageSource", () => {
@@ -66,7 +66,7 @@ describe("SpotlightHero component", () => {
         </Typography>
       </SpotlightHero>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with cta", () => {
@@ -85,7 +85,7 @@ describe("SpotlightHero component", () => {
         </Typography>
       </SpotlightHero>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with keyline for brand", () => {
@@ -105,6 +105,43 @@ describe("SpotlightHero component", () => {
         </Typography>
       </SpotlightHero>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders if media !== 'img'", () => {
+    const { container } = render(
+      <SpotlightHero
+        breadcrumbs={breadcrumbNode}
+        title="H1 Heading desktop"
+        media={
+          <div>
+            <img src={imageSource} alt="Lorem ipsum" />
+          </div>
+        }
+        cta={<Button label="CTA action">CTA action</Button>}
+      >
+        <Typography>
+          Duis incididunt non laborum nulla consectetur irure ipsum. Laboris eu
+          quis ex nostrud sunt ad eu laboris commodo deserunt commodo.
+          Exercitation ullamco ipsum duis reprehenderit labore officia
+          incididunt amet aliquip quis.
+        </Typography>
+      </SpotlightHero>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly if media does not pass at all", () => {
+    const { container } = render(
+      <SpotlightHero title="H1 Heading desktop">
+        <Typography>
+          Duis incididunt non laborum nulla consectetur irure ipsum. Laboris eu
+          quis ex nostrud sunt ad eu laboris commodo deserunt commodo.
+          Exercitation ullamco ipsum duis reprehenderit labore officia
+          incididunt amet aliquip quis.
+        </Typography>
+      </SpotlightHero>
+    );
+    expect(container).toMatchSnapshot();
   });
 });

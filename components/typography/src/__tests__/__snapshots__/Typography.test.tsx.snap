@@ -1,121 +1,181 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Typography component renders body2 correctly 1`] = `
-<p
-  class="MuiTypography-root Typography MuiTypography-body2"
->
-  Hello World
-</p>
+<div>
+  <p
+    class="MuiTypography-root Typography MuiTypography-body2"
+  >
+    Hello World
+  </p>
+</div>
 `;
 
 exports[`Typography component renders body3 correctly 1`] = `
-<p
-  class="MuiTypography-root Typography body3 MuiTypography-body2"
->
-  Hello World
-</p>
+<div>
+  <p
+    class="MuiTypography-root Typography body3 MuiTypography-body2"
+  >
+    Hello World
+  </p>
+</div>
 `;
 
 exports[`Typography component renders button correctly 1`] = `
-<span
-  class="MuiTypography-root Typography MuiTypography-button"
->
-  Button
-</span>
+<div>
+  <span
+    class="MuiTypography-root Typography MuiTypography-button"
+  >
+    Button
+  </span>
+</div>
 `;
 
 exports[`Typography component renders caption correctly 1`] = `
-<span
-  class="MuiTypography-root Typography MuiTypography-caption"
->
-  Caption
-</span>
+<div>
+  <span
+    class="MuiTypography-root Typography MuiTypography-caption"
+  >
+    Caption
+  </span>
+</div>
 `;
 
 exports[`Typography component renders correctly 1`] = `
-<p
-  class="MuiTypography-root Typography MuiTypography-body1"
->
-  Hello World
-</p>
+<div>
+  <p
+    class="MuiTypography-root Typography MuiTypography-body1"
+  >
+    Hello World
+  </p>
+</div>
 `;
 
 exports[`Typography component renders h1 correctly 1`] = `
-<h1
-  class="MuiTypography-root Typography MuiTypography-h1"
->
-  Heading
-</h1>
+<div>
+  <h1
+    class="MuiTypography-root Typography MuiTypography-h1"
+  >
+    Heading
+  </h1>
+</div>
 `;
 
 exports[`Typography component renders h1 with underline 1`] = `
-<h1
-  class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
->
-  Heading
-</h1>
+<div>
+  <h1
+    class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
+  >
+    Heading
+  </h1>
+</div>
 `;
 
 exports[`Typography component renders h2 correctly 1`] = `
-<h2
-  class="MuiTypography-root Typography MuiTypography-h2"
->
-  Heading
-</h2>
+<div>
+  <h2
+    class="MuiTypography-root Typography MuiTypography-h2"
+  >
+    Heading
+  </h2>
+</div>
 `;
 
 exports[`Typography component renders h3 correctly 1`] = `
-<h3
-  class="MuiTypography-root Typography MuiTypography-h3"
->
-  Heading
-</h3>
+<div>
+  <h3
+    class="MuiTypography-root Typography MuiTypography-h3"
+  >
+    Heading
+  </h3>
+</div>
 `;
 
 exports[`Typography component renders h4 correctly 1`] = `
-<h4
-  class="MuiTypography-root Typography MuiTypography-h4"
->
-  Heading
-</h4>
+<div>
+  <h4
+    class="MuiTypography-root Typography MuiTypography-h4"
+  >
+    Heading
+  </h4>
+</div>
 `;
 
 exports[`Typography component renders h5 correctly 1`] = `
-<h5
-  class="MuiTypography-root Typography MuiTypography-h5"
->
-  Heading
-</h5>
+<div>
+  <h5
+    class="MuiTypography-root Typography MuiTypography-h5"
+  >
+    Heading
+  </h5>
+</div>
 `;
 
 exports[`Typography component renders h6 correctly 1`] = `
-<h6
-  class="MuiTypography-root Typography MuiTypography-h6"
->
-  Heading
-</h6>
+<div>
+  <h6
+    class="MuiTypography-root Typography MuiTypography-h6"
+  >
+    Heading
+  </h6>
+</div>
 `;
 
 exports[`Typography component renders overline correctly 1`] = `
-<span
-  class="MuiTypography-root Typography MuiTypography-overline"
->
-  Overline
-</span>
+<div>
+  <span
+    class="MuiTypography-root Typography MuiTypography-overline"
+  >
+    Overline
+  </span>
+</div>
 `;
 
 exports[`Typography component renders subtitle1 correctly 1`] = `
-<h6
-  class="MuiTypography-root Typography MuiTypography-subtitle1"
->
-  Hello World
-</h6>
+<div>
+  <h6
+    class="MuiTypography-root Typography MuiTypography-subtitle1"
+  >
+    Hello World
+  </h6>
+</div>
 `;
 
 exports[`Typography component renders subtitle2 correctly 1`] = `
-<h6
-  class="MuiTypography-root Typography MuiTypography-subtitle2"
->
-  Hello World
-</h6>
+<div>
+  <h6
+    class="MuiTypography-root Typography MuiTypography-subtitle2"
+  >
+    Hello World
+  </h6>
+</div>
+`;
+
+exports[`Typography component renders typography variant correctly if variant === default 1`] = `
+<div>
+  <p
+    class="MuiTypography-root Typography MuiTypography-body1"
+  >
+    Caption
+  </p>
+</div>
+`;
+
+exports[`Typography component renders typography variant correctly if variant === hero 1`] = `
+<div>
+  <p
+    class="MuiTypography-root Typography MuiTypography-body2"
+  >
+    Caption
+  </p>
+</div>
+`;
+
+exports[`Typography component renders typography variant correctly if variant === lead 1`] = `
+<div>
+  <p
+    class="MuiTypography-root Typography MuiTypography-body2"
+  >
+    Caption
+  </p>
+</div>
 `;

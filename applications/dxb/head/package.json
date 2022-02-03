@@ -31,6 +31,9 @@
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.0",
     "@babel/plugin-proposal-decorators": "^7.13.5",
+    "@bmi/back-to-top": "0.0.0",
+    "@bmi/dialog": "0.0.0",
+    "@bmi/micro-copy": "0.0.0",
     "@bmi/anchor-link": "0.0.0",
     "@bmi/autocomplete": "0.0.0",
     "@bmi/button": "0.0.0",
@@ -45,6 +48,7 @@
     "@bmi/equal-heights": "0.0.0",
     "@bmi/expandable-card": "0.0.0",
     "@bmi/expandable-links-text-card": "0.0.0",
+    "@bmi/filters": "0.0.0",
     "@bmi/footer": "0.0.0",
     "@bmi/form": "0.0.0",
     "@bmi/gatsby-plugin-elasticsearch": "0.0.0",
@@ -78,6 +82,7 @@
     "@bmi/select": "0.0.0",
     "@bmi/share-widget": "0.0.0",
     "@bmi/styles": "0.0.0",
+    "@bmi/svg-import": "0.0.0",
     "@bmi/table": "0.0.0",
     "@bmi/table-of-content": "0.0.0",
     "@bmi/tabs": "0.0.0",
@@ -116,7 +121,7 @@
     "gatsby-plugin-sharp": "^3.1.0",
     "gatsby-plugin-sitemap": "^3.1.0",
     "gatsby-plugin-typescript": "^3.1.0",
-    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.21",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.25",
     "gatsby-remark-images-contentful": "^5.1.0",
     "gatsby-source-contentful": "^5.1.0",
     "gatsby-source-filesystem": "^3.1.0",
@@ -129,7 +134,7 @@
     "imurmurhash": "^0.1.4",
     "jsonfile": "^6.1.0",
     "jszip": "^3.5.0",
-    "lodash": "^4.17.20",
+    "lodash-es": "^4.17.21",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-error-boundary": "^3.1.0",
@@ -147,7 +152,7 @@
   "devDependencies": {
     "@bmi/contentful-graph": "0.0.0",
     "@types/helmet": "^0.0.48",
-    "@types/lodash": "^4.14.170",
+    "@types/lodash-es": "^4.14.172",
     "babel-preset-gatsby": "^0.12.2",
     "jest-preset-gatsby": "^1.0.117"
   }

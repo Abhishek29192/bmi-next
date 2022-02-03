@@ -1,0 +1,29 @@
+{
+  "Description": "Beskrivelse",
+  "My courses": "Mine kurser",
+  "See training": "Se træning",
+  "Training": "Træning",
+  "completed": "Afsluttet",
+  "enrolled": "Tilmeldt",
+  "filter": {
+    "labels": {
+      "all": "Alle"
+    }
+  },
+  "in_progress": "I gang",
+  "search": {
+    "inputLabel": "Søg efter traeningskursus"
+  },
+  "technology": {
+    "FLAT": "Fladtage",
+    "OTHER": "Andre",
+    "PITCHED": "Skråtage"
+  },
+  "type": {
+    "classroom": "Klasseværelse",
+    "elearning": "Online kursus",
+    "webinar": "Webinar"
+  },
+  "viewTraining": "Se træning",
+  "waiting": "Venter"
+}

@@ -8,9 +8,13 @@
       margin: 0;
       display: flex;
       flex: 1;
-
+      background-color: #fff;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
       :global(.MuiOutlinedInput-notchedOutline),
       :global(.MuiFilledInput-root) {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
         border-right: none;

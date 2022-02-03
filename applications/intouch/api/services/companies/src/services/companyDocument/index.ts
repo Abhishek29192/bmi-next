@@ -41,6 +41,15 @@ export const createCompanyDocuments = async (
 
         const newFileName = `company/${document.companyId}/${uploadedFile.filename}`;
 
+        const { rows } = await pgClient.query(
+          "SELECT id FROM company_document WHERE document = $1 AND company_id = $2",
+          [newFileName, document.companyId]
+        );
+
+        if (rows.length > 0) {
+          throw new Error("fileAlreadyExisting");
+        }
+
         await storageClient.uploadFileByStream(
           GCP_PRIVATE_BUCKET_NAME,
           newFileName,

@@ -2,9 +2,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "noEmit": false,
-    "outDir": "dist",
-    "module": "commonjs",
-    "strict": true,
-    "strictNullChecks": true
+    "outDir": "dist"
   }
 }
