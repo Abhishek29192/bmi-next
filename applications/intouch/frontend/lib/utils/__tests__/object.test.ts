@@ -1,4 +1,4 @@
-import { spreadObjectKeys } from "../object";
+import { spreadObjectKeys, getNestedValue } from "../object";
 
 describe("spreadObjectKeys utility", () => {
   it("spreads key paths", () => {
@@ -64,5 +64,21 @@ describe("spreadObjectKeys utility", () => {
     });
 
     expect(output).toMatchSnapshot();
+  });
+
+  it("getNestedValue", () => {
+    const input = {
+      id: "2",
+      user: {
+        name: "Joe",
+        details: {
+          email: "userEmail"
+        }
+      }
+    };
+
+    expect(getNestedValue(input, "user.name")).toBe("Joe");
+    expect(getNestedValue(input, "user.details.email")).toBe("userEmail");
+    expect(getNestedValue(input, "id")).toBe("2");
   });
 });
