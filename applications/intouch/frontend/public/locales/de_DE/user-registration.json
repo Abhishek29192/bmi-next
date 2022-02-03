@@ -1,0 +1,13 @@
+{
+  "dialog": {
+    "form": {
+      "agree_label": "Ich stimme dem BMI zu",
+      "and": "und",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "privacy_policy": "Datenschutzerklärung",
+      "terms_condition": "Nutzungsbedingungen"
+    },
+    "title": "Komplette Registrierung"
+  }
+}
