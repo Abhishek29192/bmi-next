@@ -8,27 +8,11 @@ build_redirects_website_fr_siplast:
         - "**/package.json"
   needs:
     - install
+      optional: true
   variables:
     GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/redirects-website-fr-siplast build
-  artifacts:
-    paths:
-      - applications/redirects-website-fr-siplast/public
-  cache:
-    - key:
-        files:
-          - yarn.lock
-      policy: pull
-      untracked: false
-      paths:
-        - "**/node_modules"
-        - ".yarn_cache"
-    - key: build_redirects_website_fr_siplast
-      policy: pull-push
-      untracked: false
-      paths:
-        - "applications/redirects-website-fr-siplast/.cache"
-        - "applications/redirects-website-fr-siplast/public"
+  
