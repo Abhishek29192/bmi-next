@@ -1,4 +1,4 @@
-build_redirects_website:
+build_redirects_website_fr_siplast:
   stage: build
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master')) || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
@@ -26,7 +26,7 @@ build_redirects_website:
       paths:
         - "**/node_modules"
         - ".yarn_cache"
-    - key: build_redirects_website
+    - key: build_redirects_website_fr_siplast
       policy: pull-push
       untracked: false
       paths:
