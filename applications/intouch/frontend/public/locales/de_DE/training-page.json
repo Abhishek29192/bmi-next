@@ -1,5 +1,29 @@
 {
-  "Training": "Ausbildung",
-  "See training": "Zie training",
-  "My courses": "Mijn vakken"
+  "Description": "Beschreibung",
+  "My courses": "Meine Trainings und Seminare",
+  "See training": "Siehe Schulungen",
+  "Training": "Schulungen",
+  "completed": "Abgeschlossen",
+  "enrolled": "Angemeldet",
+  "filter": {
+    "labels": {
+      "all": "Alle"
+    }
+  },
+  "in_progress": "In Bearbeitung",
+  "search": {
+    "inputLabel": "Suchen nach Schulungen"
+  },
+  "technology": {
+    "FLAT": "Flachdach",
+    "OTHER": "Andere",
+    "PITCHED": "Steildach"
+  },
+  "type": {
+    "classroom": "Training",
+    "elearning": "E-learning",
+    "webinar": "Online-Seminar"
+  },
+  "viewTraining": "Siehe Schulungen",
+  "waiting": "Warten"
 }
