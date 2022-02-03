@@ -19,6 +19,8 @@
     "build:head": "yarn workspace @bmi/head run build",
     "build:frc-website": "yarn workspace @bmi/frc-website run build",
     "build:redirects-website": "yarn workspace @bmi/redirects-website run build",
+    "build:redirects-website-fr-siplast": "yarn workspace @bmi/redirects-website-fr-siplast run build",
+    "build:redirects-website-fr-monier": "yarn workspace @bmi/redirects-website-fr-monier run build",
     "coverage:components": "yarn test:components --coverage",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "coverage:ts": "typescript-coverage-report",
