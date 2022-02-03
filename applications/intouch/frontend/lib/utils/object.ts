@@ -68,7 +68,10 @@ export const getNestedValue = (
   keyString: string
 ): any => {
   const keys = keyString.split(/\.(.+)/).filter((n) => n);
-  return keys.length <= 1
-    ? object[`${keys}`]
-    : getNestedValue(object[`${keys[0]}`], keys[1]);
+  if (object) {
+    return keys.length <= 1
+      ? object[`${keys}`] || null
+      : getNestedValue(object[`${keys[0]}`], keys[1]);
+  }
+  return null;
 };

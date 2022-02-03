@@ -66,19 +66,33 @@ describe("spreadObjectKeys utility", () => {
     expect(output).toMatchSnapshot();
   });
 
-  it("getNestedValue", () => {
-    const input = {
-      id: "2",
-      user: {
-        name: "Joe",
-        details: {
-          email: "userEmail"
+  describe("getNestedValue", () => {
+    it("normal case", () => {
+      const input = {
+        id: "2",
+        user: {
+          name: "Joe",
+          details: {
+            email: "userEmail"
+          }
         }
-      }
-    };
+      };
 
-    expect(getNestedValue(input, "user.name")).toBe("Joe");
-    expect(getNestedValue(input, "user.details.email")).toBe("userEmail");
-    expect(getNestedValue(input, "id")).toBe("2");
+      expect(getNestedValue(input, "user.name")).toBe("Joe");
+      expect(getNestedValue(input, "user.details.email")).toBe("userEmail");
+      expect(getNestedValue(input, "id")).toBe("2");
+    });
+
+    it("provide keyString that isn't in the object", () => {
+      const input = {
+        id: "2",
+        account: {
+          id: 2
+        }
+      };
+
+      expect(getNestedValue(input, "user.name")).toBe(null);
+      expect(getNestedValue(input, "account.user")).toBe(null);
+    });
   });
 });
