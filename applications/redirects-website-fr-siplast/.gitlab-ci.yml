@@ -7,7 +7,7 @@ build_redirects_website_fr_siplast:
         - package.json
         - "**/package.json"
   needs:
-    - install
+    - job: install
       optional: true
   variables:
     GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"
@@ -15,4 +15,3 @@ build_redirects_website_fr_siplast:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/redirects-website-fr-siplast build
-  
