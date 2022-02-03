@@ -364,7 +364,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                               <GTMAccordionSummary
                                 gtm={{
                                   id: "filter1",
-                                  label: props.children?.props?.children,
+                                  label: props.children?.["props"]?.children,
                                   action: "Selector – Filter"
                                 }}
                                 {...props}

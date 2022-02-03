@@ -242,7 +242,7 @@ const Header = ({
             <GTMNavigationButton
               gtm={{
                 id: "nav-main-menu",
-                action: props.action?.to,
+                action: props["action"]?.["to"], // TODO: Fix this when we fix the withClickable lack of typing
                 label:
                   typeof props.children !== "string"
                     ? props.accessibilityLabel

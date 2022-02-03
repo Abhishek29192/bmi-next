@@ -42,7 +42,8 @@ class CancelToken {
   }
 }
 
-mockedAxios.CancelToken = CancelToken;
+// Type cast otherwise need to implmenet Jest mock core functions
+mockedAxios.CancelToken = CancelToken as any;
 
 const { location } = window;
 

@@ -337,7 +337,7 @@ const Header = ({
                         <Clickable {...clickableAction} {...props}>
                           {children &&
                             React.Children.map(children, (child) =>
-                              child
+                              child && React.isValidElement(child)
                                 ? React.cloneElement(child, {
                                     children: label
                                   })

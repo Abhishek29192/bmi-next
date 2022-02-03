@@ -650,8 +650,7 @@ describe("Sections component", () => {
         },
         source: "Contentful",
         hubSpotFormGuid: null
-      },
-      {}
+      }
     ];
 
     const { container } = renderWithRouter(

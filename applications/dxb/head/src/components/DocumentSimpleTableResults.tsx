@@ -23,6 +23,7 @@ import styles from "./styles/DocumentSimpleTableResults.module.scss";
 import { Format } from "./types";
 import fileIconsMap from "./FileIconsMap";
 import { DocumentSimpleTableResultsMobile } from "./DocumentSimpleTableResultsMobile";
+import { FileContentTypeEnum, Mime } from "./types/pim";
 
 type AvailableHeader = "typeCode" | "type" | "title" | "download" | "add";
 
@@ -72,7 +73,7 @@ export const mapAssetToFileDownload = (
 
 type FileDownloadButtonProps = {
   url: string;
-  format: Format;
+  format: Format | Mime | FileContentTypeEnum;
   size: number;
 };
 

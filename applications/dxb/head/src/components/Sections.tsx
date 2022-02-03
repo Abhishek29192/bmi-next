@@ -110,21 +110,34 @@ const Sections = ({
   const themeMap = useMemo(
     () =>
       data.reduce<Context>((carry, section, index) => {
+        const previousSection = data[index - 1];
         if (section.__typename !== "ContentfulPromo") {
           return carry;
         }
 
         const { id, backgroundColor } = section;
 
+        if (previousSection?.__typename !== "ContentfulPromo") {
+          return {
+            ...carry,
+            [id]: {
+              isReversed: true,
+              backgroundColor: backgroundColor || "White"
+            }
+          };
+        }
+
+        const previousCarry = carry[previousSection.id];
+
         return {
           ...carry,
           [id]: {
-            // Property 'id' does not exist on type 'SectionData'.
-            isReversed: !carry[data[index - 1]?.id]?.isReversed,
+            // eslint-disable-next-line security/detect-object-injection
+            isReversed: previousCarry ? !previousCarry.isReversed : true,
             backgroundColor:
               backgroundColor ||
-              // Property 'id' does not exist on type 'SectionData'.
-              (carry[data[index - 1]?.id]?.backgroundColor === "White"
+              // eslint-disable-next-line security/detect-object-injection
+              (previousCarry?.backgroundColor === "White"
                 ? "Alabaster"
                 : "White")
           }

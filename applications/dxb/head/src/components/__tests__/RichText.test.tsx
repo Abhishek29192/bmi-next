@@ -1,5 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import { ContentfulRichTextGatsbyReference } from "gatsby-source-contentful/rich-text";
 import RichText, { RichTextData } from "../RichText";
 
 describe("RichText component", () => {
@@ -247,7 +248,7 @@ describe("RichText component", () => {
         __typename: "ContentfulSimplePage",
         contentful_id: "6Eg6rK4nkEc3M1NFE8E4jU",
         path: "testing-simple-page/"
-      },
+      } as ContentfulRichTextGatsbyReference,
       {
         __typename: "ContentfulAsset",
         contentful_id: "70GS3lLVmrS7k71kH3iSbq",
@@ -256,7 +257,7 @@ describe("RichText component", () => {
           contentType: "image/png",
           url: "//images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
         }
-      },
+      } as ContentfulRichTextGatsbyReference,
       {
         __typename: "ContentfulLink",
         contentful_id: "3tcysaa3PGMlm42U4WnlmK",
@@ -270,7 +271,7 @@ describe("RichText component", () => {
         linkedPage: {
           path: "product-category-page/product-sub-category-page/aerodek-robust-plus/"
         }
-      },
+      } as ContentfulRichTextGatsbyReference,
       {
         contentful_id: "1oPjxfZfvqmyAMIZx6rPgm",
         id: "414f8808-3e8c-5f7b-a437-dba556a4b23a",
@@ -281,7 +282,7 @@ describe("RichText component", () => {
         type: "Internal",
         url: null,
         __typename: "ContentfulLink"
-      },
+      } as ContentfulRichTextGatsbyReference,
       {
         contentful_id: "7di9aTEBjpoTGECA229JYr",
         asset: null,
@@ -319,7 +320,7 @@ describe("RichText component", () => {
         type: "Dialog",
         url: null,
         __typename: "ContentfulLink"
-      }
+      } as ContentfulRichTextGatsbyReference
     ]
   };
 

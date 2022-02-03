@@ -1,4 +1,5 @@
 import { Data as AssetTypeData } from "../AssetType";
+import { Format } from "../types";
 import { Product } from "./pim";
 
 export type PIMDocumentProduct = Pick<
@@ -21,7 +22,7 @@ export type PIMLinkDocumentData = PIMDocumentBase & {
 export type PIMDocumentData = PIMDocumentBase & {
   __typename: "PIMDocument";
   fileSize: number;
-  format: string;
+  format: Format;
   extension: string;
   realFileName: string;
 };

@@ -1,4 +1,4 @@
-import GoogleApi from "@bmi/google-api";
+import GoogleApi, { Google } from "@bmi/google-api";
 import { render } from "@testing-library/react";
 import React from "react";
 import GoogleAutocomplete from "../";
@@ -18,7 +18,7 @@ describe("GoogleAutocomplete component", () => {
     };
 
     const { container } = render(
-      <GoogleApi.Provider value={google}>
+      <GoogleApi.Provider value={google as unknown as Google}>
         <GoogleAutocomplete id="google-autocomplete-test" />
       </GoogleApi.Provider>
     );

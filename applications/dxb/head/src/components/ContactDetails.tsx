@@ -65,7 +65,7 @@ export const getDetails = (
     ...(addressLine || []),
     ...(phoneNumberLine || []),
     ...(emailLine || [])
-  ] as Details;
+  ] as unknown as Details; // Required to force the type as TS doesn't understand that there will always be at least 1 element
 };
 
 const IntegratedLocationCard = ({

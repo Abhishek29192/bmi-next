@@ -22,7 +22,7 @@ const parseNavigation = (
     return [];
   }
   return navigationItems.map((navigationItem) => {
-    if (navigationItem.links) {
+    if ("links" in navigationItem && navigationItem.links) {
       const { links, label } = navigationItem as NavigationData;
       return {
         label,

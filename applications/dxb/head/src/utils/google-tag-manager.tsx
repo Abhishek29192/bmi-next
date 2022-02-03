@@ -159,7 +159,8 @@ export default function withGTM<P>(
         pushToDataLayer(dataGtm);
       }
 
-      "onClick" in props && props.onClick(...args);
+      // TS doesn't like that P may have onClick
+      "onClick" in props && (props as any).onClick(...args);
     };
 
     return (

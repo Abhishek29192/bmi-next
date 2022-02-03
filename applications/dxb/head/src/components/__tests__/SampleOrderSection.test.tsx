@@ -2,11 +2,7 @@ import "@testing-library/jest-dom";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import SampleOrderSection from "../SampleOrderSection";
-import {
-  ACTION_TYPES,
-  BasketContextProvider,
-  basketReducer
-} from "../../contexts/SampleBasketContext";
+import { BasketContextProvider } from "../../contexts/SampleBasketContext";
 import { Data as PageInfoData } from "../PageInfo";
 import { SiteContextProvider } from "../Site";
 import { Product } from "../types/pim";
@@ -429,27 +425,5 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
     expect(
       screen.queryAllByAltText(`MC: pdp.overview.completeSampleOrder`)
     ).toHaveLength(0);
-  });
-});
-
-describe("Test basket context", () => {
-  it("should handle adding existing item to basket", () => {
-    const resolvedState = basketReducer(
-      { products: [variant] },
-      {
-        type: ACTION_TYPES.BASKET_ADD,
-        payload: variant
-      }
-    );
-    expect(resolvedState).toEqual({ products: [variant] });
-  });
-  it("should handle invalid action type", () => {
-    const resolvedState = basketReducer(
-      { products: [] },
-      {
-        type: "test"
-      }
-    );
-    expect(resolvedState).toEqual({ products: [] });
   });
 });

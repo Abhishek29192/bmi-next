@@ -60,13 +60,20 @@ const FiltersSidebar = ({
         filters={filters}
         onChange={onFiltersChange}
         checkboxComponent={(props: CheckboxProps) => {
-          const label: string | React.ReactNode = props.label;
+          const label: React.ReactNode = props.label;
 
           return (
             <GTMCheckbox
               gtm={{
                 id: "filter2",
-                label: label.props ? label.props?.children[1] : label,
+                label:
+                  typeof label !== "string" &&
+                  typeof label !== "number" &&
+                  typeof label !== "boolean" &&
+                  "props" in label &&
+                  label.props
+                    ? label.props?.children[1]
+                    : label,
                 action: "Selector – Filter"
               }}
               {...props}
