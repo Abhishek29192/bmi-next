@@ -1,4 +1,4 @@
-import { PimTypes } from "@bmi/pim-api";
+import { PimTypes } from "@bmi/pim-types";
 import { FullFetchRequest } from "../../types";
 
 export const createFullFetchRequest = (

@@ -5,7 +5,8 @@ import {
   AuthResponse,
   ErrorResponse,
   ProductsApiResponse,
-  SystemsApiResponse
+  SystemsApiResponse,
+  PimTypes
 } from "@bmi/pim-types";
 
 const {
@@ -18,11 +19,6 @@ const {
 
 // TODO: NOPE HACK!
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-
-export enum PimTypes {
-  Products = "products",
-  Systems = "systems"
-}
 
 const secretManagerClient = new SecretManagerServiceClient();
 
