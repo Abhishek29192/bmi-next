@@ -17,6 +17,7 @@ import { Props as TextFieldProps, TextField } from "@bmi/text-field";
 import withFormControlWithFormValues from "../withFormControlForked";
 import { GetCompanyQuery } from "../../graphql/generated/operations";
 import { AddressAutocomplete } from "../AddressAutocomplete";
+import { getNestedValue } from "../../lib/utils/object";
 import styles from "./styles.module.scss";
 
 const ControlledTextInput =
@@ -70,7 +71,7 @@ export const SetTradingAddress = ({
       const formValue = (key) => ({
         // return "" in case of empty field, in order to re-render the input field
         // eslint-disable-next-line security/detect-object-injection
-        [`tradingAddress.${key}`]: updatedAddress[`${key}`] || ""
+        [`tradingAddress.${key}`]: getNestedValue(updatedAddress, key) || ""
       });
 
       updateFormState(

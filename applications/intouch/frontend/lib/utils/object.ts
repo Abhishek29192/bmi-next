@@ -62,3 +62,13 @@ export const mergeByKey = <T extends Record<string, unknown>>(
 
   return Array.from(map.values());
 };
+
+export const getNestedValue = (
+  object: Record<string, any>,
+  keyString: string
+): any => {
+  const keys = keyString.split(/\.(.+)/).filter((n) => n);
+  return keys.length <= 1
+    ? object[`${keys}`]
+    : getNestedValue(object[`${keys[0]}`], keys[1]);
+};
