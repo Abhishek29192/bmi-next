@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@bmi/button";
 import { render } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import imageSource from "mock-image.jpg";
 import Hero from "../";
 
@@ -135,5 +136,41 @@ describe("Hero component", () => {
       />
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it("can switch to next hero", () => {
+    const { container, getByLabelText } = render(
+      <Hero
+        heroes={[
+          { title: "Title 1", children: "Children 1" },
+          { title: "Title 2", children: "Children 2" },
+          { title: "Title 3", children: "Children 3" }
+        ]}
+        level={0}
+        brand="Brand Name"
+      />
+    );
+
+    expect(container.querySelector(".number--active")).toHaveTextContent("01");
+    getByLabelText("next").click();
+    expect(container.querySelector(".number--active")).toHaveTextContent("02");
+  });
+
+  it("can switch to previous hero", () => {
+    const { container, getByLabelText } = render(
+      <Hero
+        heroes={[
+          { title: "Title 1", children: "Children 1" },
+          { title: "Title 2", children: "Children 2" },
+          { title: "Title 3", children: "Children 3" }
+        ]}
+        level={0}
+        brand="Brand Name"
+      />
+    );
+
+    expect(container.querySelector(".number--active")).toHaveTextContent("01");
+    getByLabelText("previous").click();
+    expect(container.querySelector(".number--active")).toHaveTextContent("03");
   });
 });
