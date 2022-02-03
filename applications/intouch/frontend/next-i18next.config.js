@@ -36,7 +36,7 @@ const multiMarketDomains =
         { domain: `en.${baseUrlDomain}`, defaultLocale: "en_EN" },
         { domain: `no.${baseUrlDomain}`, defaultLocale: "nb_NO" },
         { domain: `dk.${baseUrlDomain}`, defaultLocale: "da_DK" },
-        { domain: `de.${baseUrlDomain}`, defaultLocale: "de_DK" }
+        { domain: `de.${baseUrlDomain}`, defaultLocale: "de_DE" }
       ];
 
 module.exports = {
