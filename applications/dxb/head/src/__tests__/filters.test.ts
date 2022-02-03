@@ -2534,7 +2534,7 @@ describe("filters tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const contenfulDocument = createContentfuldocument({
             id: `contentful-doc-id`,
@@ -2593,7 +2593,7 @@ describe("filters tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const contenfulDocument = createContentfuldocument({
             id: `contentful-doc-id`,
@@ -2640,7 +2640,7 @@ describe("filters tests", () => {
         const inputDataItems: DocumentResultsData =
           Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-        const baseUrl: string = "http://localhost/document/library/";
+        const baseUrl = "http://localhost/document/library/";
 
         const contenfulDocument = createContentfuldocument({
           id: `contentful-doc-id`,
@@ -2700,7 +2700,7 @@ describe("filters tests", () => {
         const inputDataItems: DocumentResultsData =
           Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-        const baseUrl: string = "http://localhost/document/library/";
+        const baseUrl = "http://localhost/document/library/";
 
         const contenfulDocument = createContentfuldocument({
           id: `contentful-doc-id`,
@@ -2761,7 +2761,7 @@ describe("filters tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -2816,7 +2816,7 @@ describe("filters tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -2897,7 +2897,7 @@ describe("filters tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -2953,7 +2953,7 @@ describe("filters tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -3034,7 +3034,7 @@ describe("filters tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -3078,7 +3078,7 @@ describe("filters tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -3133,7 +3133,7 @@ describe("filters tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -3188,7 +3188,7 @@ describe("filters tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -3269,7 +3269,7 @@ describe("filters tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -3336,7 +3336,7 @@ describe("filters tests", () => {
             const inputDataItems: DocumentResultsData =
               Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-            const baseUrl: string = "http://localhost/document/library/";
+            const baseUrl = "http://localhost/document/library/";
 
             const pimDocument = createPimDocument({
               id: `pim-doc-id`,
@@ -3410,7 +3410,7 @@ describe("filters tests", () => {
             const inputDataItems: DocumentResultsData =
               Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-            const baseUrl: string = "http://localhost/document/library/";
+            const baseUrl = "http://localhost/document/library/";
 
             const pimDocument = createPimDocument({
               id: `pim-doc-id`,
@@ -3600,7 +3600,7 @@ describe("filters tests", () => {
         const inputDataItems: DocumentResultsData =
           Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-        const baseUrl: string = "http://localhost/document/library/";
+        const baseUrl = "http://localhost/document/library/";
 
         const pimDocument = createPimDocument({
           id: `pim-doc-id`,

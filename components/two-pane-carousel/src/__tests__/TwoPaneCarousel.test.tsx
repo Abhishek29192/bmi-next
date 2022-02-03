@@ -12,13 +12,14 @@ beforeAll(() => {
   mockConsole();
 });
 
-function createMatchMedia(width?: unknown) {
-  return (query: string) => ({
-    matches: mediaQuery.match(query, { width }),
-    addListener: () => {},
-    removeListener: () => {}
-  });
-}
+const createMatchMedia = (width: number) => {
+  return (query: string): MediaQueryList =>
+    ({
+      matches: mediaQuery.match(query, { width }),
+      addListener: () => {},
+      removeListener: () => {}
+    } as unknown as MediaQueryList);
+};
 
 const slides: Props["slides"] = [
   {
@@ -61,7 +62,6 @@ describe("TwoPaneCarousel component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders a single pane carousel", () => {
-    // @ts-ignore Only used for testing.
     window.matchMedia = createMatchMedia(1280);
 
     const { container } = render(
@@ -81,7 +81,6 @@ describe("TwoPaneCarousel component", () => {
     expect(snapshotDiff(containerBeforeClick, container)).toMatchSnapshot();
   });
   it("navigates to previous page", () => {
-    // @ts-ignore Only used for testing.
     window.matchMedia = createMatchMedia(1280);
     const previousLabel = "previous";
     const { container, getByLabelText } = render(
@@ -94,7 +93,6 @@ describe("TwoPaneCarousel component", () => {
     expect(snapshotDiff(containerBeforeClick, container)).toMatchSnapshot();
   });
   it("navigates to next page on mobile", () => {
-    // @ts-ignore Only used for testing.
     window.matchMedia = createMatchMedia(480);
     const nextLabel = "next";
     const { container, getByLabelText } = render(
@@ -107,7 +105,6 @@ describe("TwoPaneCarousel component", () => {
     expect(snapshotDiff(containerBeforeClick, container)).toMatchSnapshot();
   });
   it("navigates to previous page on mobile", () => {
-    // @ts-ignore Only used for testing.
     window.matchMedia = createMatchMedia(480);
     const previousLabel = "previous";
     const { container, getByLabelText } = render(

@@ -39,8 +39,7 @@ export const handleMessage: MessageFunction = async (data, context) => {
 
   await pingEsCluster();
 
-  let message: ProductMessage | SystemMessage;
-  message = data.data
+  const message: ProductMessage | SystemMessage = data.data
     ? JSON.parse(Buffer.from(data.data as string, "base64").toString())
     : {};
 

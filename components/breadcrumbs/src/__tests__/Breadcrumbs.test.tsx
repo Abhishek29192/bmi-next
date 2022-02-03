@@ -3,13 +3,14 @@ import mediaQuery from "css-mediaquery";
 import { render } from "@testing-library/react";
 import Breadcrumbs from "..";
 
-function createMatchMedia(width?: unknown) {
-  return (query: string) => ({
-    matches: mediaQuery.match(query, { width }),
-    addListener: () => {},
-    removeListener: () => {}
-  });
-}
+const createMatchMedia = (width: unknown) => {
+  return (query: string): MediaQueryList =>
+    ({
+      matches: mediaQuery.match(query, { width }),
+      addListener: () => {},
+      removeListener: () => {}
+    } as unknown as MediaQueryList);
+};
 
 describe("Breadcrumbs component", () => {
   it("renders correctly", () => {
@@ -62,7 +63,6 @@ describe("Breadcrumbs component", () => {
   });
 
   it("renders on a small breakpoint", () => {
-    // @ts-ignore Only used for testing.
     window.matchMedia = createMatchMedia(600);
 
     const { container } = render(
@@ -84,7 +84,6 @@ describe("Breadcrumbs component", () => {
   });
 
   it("renders on a large breakpoint", () => {
-    // @ts-ignore Only used for testing.
     window.matchMedia = createMatchMedia(1280);
 
     const { container } = render(
@@ -106,7 +105,6 @@ describe("Breadcrumbs component", () => {
   });
 
   it("renders correctly more than 5 items - small screens", () => {
-    // @ts-ignore Only used for testing.
     window.matchMedia = createMatchMedia(600);
 
     const { container } = render(

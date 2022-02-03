@@ -375,40 +375,6 @@ describe("ServiceLocatorSection component", () => {
       expect(container).toMatchSnapshot();
     });
 
-    it("with no fields for invalid type", () => {
-      const data: serviceLocatorDataType = {
-        __typename: "ContentfulServiceLocatorSection",
-        // @ts-expect-error
-        type: "Invalid type",
-        showDefaultResultList: true,
-        title: "service locator section",
-        label: "Main",
-        body: null,
-        position: 1,
-        centre: null,
-        zoom: 8,
-        services: [
-          createService({
-            entryType: EntryTypeEnum.MERCHANT_TYPE,
-            id: "roofer_1",
-            name: "roofer 1",
-            type: [rooferTypes[0]]
-          }),
-          createService({
-            entryType: EntryTypeEnum.MERCHANT_TYPE,
-            id: "roofer_2",
-            name: "roofer 2",
-            type: [rooferTypes[0]]
-          })
-        ]
-      };
-
-      const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
-      );
-      expect(container).toMatchSnapshot();
-    });
-
     it("with multiple service type", () => {
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
@@ -1118,7 +1084,6 @@ describe("ServiceLocatorSection component", () => {
 
   describe("with GoogleAutocomplete component", () => {
     beforeEach(() => {
-      // @ts-ignore
       window.google = googleMock;
     });
     it("should render GoogleAutocomplete component", async () => {

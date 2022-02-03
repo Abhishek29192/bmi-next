@@ -434,33 +434,6 @@ HTMLCollection [
               />
             </div>
           </div>
-          <div
-            class="Villain Villain--contained"
-          >
-            <div
-              class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
-            >
-              <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
-              >
-                <div
-                  class="content ColorPair ColorPair--blue-800"
-                >
-                  <h3
-                    class="MuiTypography-root title Typography MuiTypography-h4"
-                  >
-                    Villain 3
-                  </h3>
-                  <div
-                    class="text"
-                  />
-                </div>
-              </div>
-              <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </div>

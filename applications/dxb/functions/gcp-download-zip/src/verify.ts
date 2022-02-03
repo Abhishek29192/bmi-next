@@ -8,8 +8,8 @@ export const verifyOrigins = (
     return true;
   }
   for (const url of urls) {
-    var match = url.match(hostRegex);
-    var host = match?.[2];
+    const match = url.match(hostRegex);
+    const host = match?.[2];
     if (!host || !allowedOrigins.includes(host)) {
       return false;
     }

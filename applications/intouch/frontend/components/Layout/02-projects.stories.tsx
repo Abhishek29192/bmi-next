@@ -107,7 +107,9 @@ export const Team = ({ title }: LayoutProps) => (
             <Tabs.TabPanel heading="Guarantee" index="two">
               <TabCard>
                 <GuaranteeTab
-                  onGuaranteeSubmitted={() => {}}
+                  onGuaranteeSubmitted={() => {
+                    // no-op
+                  }}
                   project={null}
                   isApplyGuarantee={false}
                 />

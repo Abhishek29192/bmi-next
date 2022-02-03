@@ -1,10 +1,10 @@
 import * as fs from "fs";
 import * as path from "path";
 
-const folder: string = `${path.resolve(__dirname)}/fonts`;
+const folder = `${path.resolve(__dirname)}/fonts`;
 
 const create = () => {
-  let vfs = {};
+  const vfs = {};
 
   // eslint-disable-next-line security/detect-non-literal-fs-filename
   const fileNames = fs.readdirSync(folder);

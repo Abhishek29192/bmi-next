@@ -12,3 +12,6 @@ export { default as Link } from "./components/Link";
 export { default as styled } from "./styled";
 
 export { default as pdf } from "./pdf";
+
+export type { ContentTable } from "pdfmake/interfaces";
+export { ComponentProps } from "./types";

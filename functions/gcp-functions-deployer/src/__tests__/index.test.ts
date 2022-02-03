@@ -60,7 +60,7 @@ jest.doMock("../filter", () => ({
   filterFunctionMetadata: filterFunctionMetadata
 }));
 
-const deploy = (file: any) => require("../index").deploy(file);
+const deploy = async (file: any) => (await import("../index")).deploy(file);
 
 beforeAll(() => {
   mockConsole();

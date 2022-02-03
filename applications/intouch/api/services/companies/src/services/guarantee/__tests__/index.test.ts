@@ -60,7 +60,7 @@ const evidenceItemInputs = [
   }
 ];
 
-let guaranteeInput: CreateGuaranteeInput = {
+const guaranteeInput: CreateGuaranteeInput = {
   guarantee: {
     id: 1,
     projectId: 1,
@@ -73,7 +73,7 @@ let guaranteeInput: CreateGuaranteeInput = {
   }
 };
 
-let guaranteeUpdateInput: UpdateGuaranteeInput = {
+const guaranteeUpdateInput: UpdateGuaranteeInput = {
   id: 1,
   guaranteeEventType: "SUBMIT_SOLUTION",
   patch: {

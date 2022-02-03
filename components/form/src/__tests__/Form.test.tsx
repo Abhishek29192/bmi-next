@@ -14,8 +14,7 @@ const Component = () => {
     );
   }, []);
 
-  // @ts-ignore
-  return <input data-testid="id" value={values["test"]} />;
+  return <input data-testid="id" value={values["test"] as string} />;
 };
 
 describe("Form component", () => {

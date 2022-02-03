@@ -5,7 +5,14 @@ const GATSBY_FRC_GA_COOKIE_PREFIX =
   process.env.GATSBY_FRC_GA_COOKIE_PREFIX || "FRC";
 const GATSBY_FRC_GA_CODE = process.env.GATSBY_FRC_GA_CODE;
 
-export default function HTML(props) {
+export default function HTML(props: {
+  htmlAttributes: Record<string, unknown>;
+  headComponents: [];
+  bodyAttributes: Record<string, unknown>;
+  preBodyComponents: [];
+  body: string;
+  postBodyComponents: [];
+}) {
   return (
     <html {...props.htmlAttributes}>
       <head>

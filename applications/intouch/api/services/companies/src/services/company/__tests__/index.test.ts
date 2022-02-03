@@ -7,13 +7,13 @@ jest.mock("../../../services/mailer", () => ({
 }));
 
 describe("Company", () => {
-  let resolve = jest.fn();
-  let source = {};
-  let resolveInfo = {};
+  const resolve = jest.fn();
+  const source = {};
+  const resolveInfo = {};
   let context;
   let args;
-  let query = jest.fn();
-  let mockClientGateway = jest.fn();
+  const query = jest.fn();
+  const mockClientGateway = jest.fn();
 
   beforeEach(() => {
     context = {

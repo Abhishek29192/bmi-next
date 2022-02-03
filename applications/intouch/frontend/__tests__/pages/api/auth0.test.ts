@@ -1,4 +1,6 @@
-export {}; // silences --isolatedModules warning
+import { Session } from "@auth0/nextjs-auth0";
+import { NextApiResponse } from "next";
+import { Request } from "../../../pages/api/auth/[...auth0]";
 
 process.env.AUTH0_NAMESPACE = "AUTH0_NAMESPACE";
 
@@ -56,7 +58,9 @@ describe("Login Handler", () => {
   });
 
   it("should return the right login options when in dev", async () => {
-    const { getLoginOptions } = require("../../../pages/api/auth/[...auth0]");
+    const { getLoginOptions } = await import(
+      "../../../pages/api/auth/[...auth0]"
+    );
 
     req.headers.host = "dev-no.local.intouch:3000";
 
@@ -72,7 +76,9 @@ describe("Login Handler", () => {
   });
 
   it("should return the right login options when in uat", async () => {
-    const { getLoginOptions } = require("../../../pages/api/auth/[...auth0]");
+    const { getLoginOptions } = await import(
+      "../../../pages/api/auth/[...auth0]"
+    );
 
     req.headers.host = "uat-no.local.intouch:3000";
 
@@ -88,7 +94,9 @@ describe("Login Handler", () => {
   });
 
   it("should return the right login options when in prod", async () => {
-    const { getLoginOptions } = require("../../../pages/api/auth/[...auth0]");
+    const { getLoginOptions } = await import(
+      "../../../pages/api/auth/[...auth0]"
+    );
 
     req.headers.host = "no.intouch.bmiground.com";
 
@@ -105,19 +113,26 @@ describe("Login Handler", () => {
 });
 
 describe("Auth0 callback", () => {
-  let req;
-  let res;
-  let state;
-  let session;
-  let afterCallback;
+  let req: Partial<Request>;
+  let res: Partial<NextApiResponse<any>>;
+  let session: Partial<Session>;
+  let state: any;
+  const afterCallback = async (
+    request: Partial<Request>,
+    response: Partial<NextApiResponse<any>>,
+    session: Partial<Session>,
+    state: any
+  ) =>
+    (await import("../../../pages/api/auth/[...auth0]")).afterCallback(
+      request as Request,
+      response as NextApiResponse<any>,
+      session as Session,
+      state
+    );
 
-  let logger = () => ({
+  const logger = () => ({
     info: () => {},
     error: () => {}
-  });
-
-  beforeAll(() => {
-    afterCallback = require("../../../pages/api/auth/[...auth0]").afterCallback;
   });
 
   beforeEach(() => {
@@ -129,9 +144,10 @@ describe("Auth0 callback", () => {
       }
     };
     res = {
-      status: () => ({
-        end: () => {}
-      })
+      status: () =>
+        ({
+          end: () => {}
+        } as NextApiResponse<any>)
     };
     session = {};
     state = {};

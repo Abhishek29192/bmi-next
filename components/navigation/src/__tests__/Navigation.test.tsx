@@ -8,15 +8,15 @@ import Navigation from "../";
 const utilities = [
   {
     label: "Find a stockist",
-    action: { model: "htmlLink" as "htmlLink", href: "#" }
+    action: { model: "htmlLink" as const, href: "#" }
   },
   {
     label: "Find a roofer",
-    action: { model: "htmlLink" as "htmlLink", href: "#" }
+    action: { model: "htmlLink" as const, href: "#" }
   },
   {
     label: "Partner portals",
-    action: { model: "htmlLink" as "htmlLink", href: "#" }
+    action: { model: "htmlLink" as const, href: "#" }
   }
 ];
 
@@ -51,7 +51,7 @@ const navigation = [
       {
         label: "Documentation",
         action: {
-          model: "routerLink" as "routerLink",
+          model: "routerLink" as const,
           to: "/documentation/",
           linkComponent: Clickable
         }
@@ -64,7 +64,7 @@ const navigation = [
       {
         label: "Clay",
         action: {
-          model: "routerLink" as "routerLink",
+          model: "routerLink" as const,
           to: "/clay/",
           linkComponent: Clickable
         }

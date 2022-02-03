@@ -30,7 +30,7 @@ const getProductProp = (classifications, productCode, propName) =>
 const getAllValues = (
   classifications: ClassificationsPerProductMap,
   propName: string,
-  enableSorting: boolean = false
+  enableSorting = false
 ) => {
   const alreadyFoundProps = new Set();
 
@@ -245,7 +245,7 @@ export const mapProductClassifications = (
     "code" | "images" | "classifications" | "variantOptions"
   >,
   classificationNamepace: string,
-  includeVariantScoringWeight: boolean = false
+  includeVariantScoringWeight = false
 ): ClassificationsPerProductMap => {
   const allProducts: {
     [productCode: string]: Product;

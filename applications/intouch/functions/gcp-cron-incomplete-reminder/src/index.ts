@@ -9,7 +9,7 @@ export const sendReminder = async (postEvent: any, context: any) => {
     const gatewayClient = await GatewayClient.create();
     const { data } = await gatewayClient.getMarkets();
 
-    for (const market of data?.markets?.nodes) {
+    for (const market of data.markets.nodes) {
       await gatewayClient.sendReminder(market.domain);
     }
   } catch (error) {

@@ -3,6 +3,7 @@ import {
   parse as queryString,
   stringify as stringifyQueryString
 } from "query-string";
+import { FormProps } from "@bmi/form";
 import { FieldsDisplay } from "./types/FieldsDisplay";
 import styles from "./FlatRoofCalculator.module.scss";
 import { getSystem } from "./calculations/getSystem";
@@ -11,41 +12,18 @@ import ResultsView from "./_ResultsView";
 import InputView from "./_InputView";
 import { FormValues } from "./types/FormValues";
 import { FieldLabels } from "./types/FieldLabels";
-
-export type Calculation = "COVERAGE" | "UPSTAND" | "KERB" | "MISCELLANEOUS";
-
-export type ProductCondition = {
-  if: "color";
-  is: string;
-  use: string;
-};
-
-export type ProductReference = {
-  buildUp: string;
-  category: string;
-  selector: string | ProductCondition;
-};
-
-type CalculatorOptions = {
-  [calculation in Calculation]: ProductReference[];
-};
-
-export type Calculators = {
-  [calculator: string]: CalculatorOptions;
-};
-
-export type Product = {
-  code: string;
-  description: string;
-  size: string;
-  coverage: number;
-};
+import {
+  CalculatorData,
+  CalculatorDataProduct,
+  ProductReference,
+  Tree
+} from "./types/CalculatorData";
 
 export const getProduct = (
   productReference: ProductReference,
-  values: object,
-  products: Product[]
-): Product | undefined => {
+  values: FormValues,
+  products: CalculatorDataProduct[]
+): CalculatorDataProduct | undefined => {
   let code: string | undefined;
 
   if (typeof productReference.selector === "string") {
@@ -62,7 +40,7 @@ export const getProduct = (
 
 const VALUES_PARAM = "v";
 
-const getShareableLink = (values: object): string => {
+const getShareableLink = (values: FormValues): string => {
   if (typeof window === "undefined") return "";
   const currentQueryParams = queryString(window.location.search);
   const encoded = stringifyQueryString({
@@ -89,7 +67,7 @@ export const fieldLabels: FieldLabels = {
 };
 
 function getDefaultValues(treeFieldsDisplay: FieldsDisplay) {
-  let urlDefaults = {};
+  let urlDefaults: any = {};
   if (typeof window !== "undefined") {
     const params = queryString(window.location.search);
 
@@ -106,7 +84,7 @@ function getDefaultValues(treeFieldsDisplay: FieldsDisplay) {
     }
   }
 
-  const defaults = {};
+  const defaults: { [key: string]: string } = {};
 
   for (const [key, { defaultValue }] of Object.entries(treeFieldsDisplay)) {
     // eslint-disable-next-line security/detect-object-injection
@@ -116,9 +94,9 @@ function getDefaultValues(treeFieldsDisplay: FieldsDisplay) {
   return defaults;
 }
 
-function getInitialResult(typeTree: any) {
+function getInitialResult(typeTree: Tree) {
   let systemName: string | null = null,
-    submittedValues: object | null = null;
+    submittedValues: FormValues | null = null;
 
   if (typeof window !== "undefined") {
     const params = queryString(window.location.search);
@@ -153,6 +131,7 @@ function getInitialResult(typeTree: any) {
 type Props = {
   treeFieldsDisplay: FieldsDisplay;
   urlPrefix?: string;
+  calculatorData: CalculatorData;
   // TODO: This should be properly annotated.
 } & Record<string, any>;
 
@@ -175,12 +154,17 @@ const FlatRoofCalculator = ({
   navigate,
   urlPrefix = "/3d/"
 }: Props) => {
-  const typeTree = tree.paths.find(({ option }) => option === type).target;
+  const typeTree = tree.paths.find(({ option }) => option === type)
+    ?.target as Tree;
 
   const [{ systemName, submittedValues }, setResult] = useState<{
     systemName: string | null;
     submittedValues: FormValues | null;
-  }>(() => getInitialResult(typeTree));
+  }>(() =>
+    typeof typeTree === "string" || typeof typeTree === "undefined"
+      ? { systemName: null, submittedValues: null }
+      : getInitialResult(typeTree)
+  );
 
   const preferredDefaultValues = useMemo(
     () => getDefaultValues(treeFieldsDisplay),
@@ -189,14 +173,14 @@ const FlatRoofCalculator = ({
 
   const defaultValues = submittedValues || preferredDefaultValues;
 
-  const handleSubmit = (e, values?) => {
+  const handleSubmit: FormProps["onSubmit"] = (e, values?) => {
     e.preventDefault();
 
     if (!values) {
       throw new Error(`"values" wasn't provided by the form component`); // TODO: fix Form onSubmit type
     }
 
-    if (typeof window !== "undefined" && window["gtag"]) {
+    if (typeof window !== "undefined" && "gtag" in window) {
       window["gtag"]("event", "Calculate Clicked", {
         event_category: "Calculation"
       });
@@ -238,7 +222,7 @@ const FlatRoofCalculator = ({
       systemName
         ? calculateQuantities(
             systemName,
-            submittedValues,
+            submittedValues || {},
             calculators,
             products
           )
@@ -255,11 +239,11 @@ const FlatRoofCalculator = ({
     <ResultsView
       {...{
         resultsContent,
-        systemName,
-        submittedValues,
+        systemName: systemName || "",
+        submittedValues: submittedValues || {},
         resultProducts,
         treeFieldsDisplay,
-        link,
+        link: link || "",
         navigate,
         calculateNewRoofButtonLabel,
         edit: () => setResult({ systemName: null, submittedValues }),

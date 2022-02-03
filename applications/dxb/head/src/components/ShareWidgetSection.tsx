@@ -44,30 +44,30 @@ const ShareWidgetSection = ({
 }) => {
   const { getMicroCopy } = useSiteContext();
   const availableChannels = [
-    { type: "copy" as "copy", label: getMicroCopy(microCopy.SHARE_COPY) },
+    { type: "copy" as const, label: getMicroCopy(microCopy.SHARE_COPY) },
     {
-      type: "email" as "email",
+      type: "email" as const,
       label: getMicroCopy(microCopy.SHARE_EMAIL),
       apiUrl: "mailto:?body={{href}}&subject={{message}}"
     },
     {
-      type: "linkedin" as "linkedin",
+      type: "linkedin" as const,
       label: getMicroCopy(microCopy.SHARE_LINKEDIN),
       apiUrl: "https://www.linkedin.com/sharing/share-offsite/?url={{href}}"
     },
     {
-      type: "twitter" as "twitter",
+      type: "twitter" as const,
       label: getMicroCopy(microCopy.SHARE_TWITTER),
       apiUrl: "https://twitter.com/intent/tweet?text={{message}}&url={{href}}"
     },
     {
-      type: "facebook" as "facebook",
+      type: "facebook" as const,
       label: getMicroCopy(microCopy.SHARE_FACEBOOK),
       apiUrl:
         "https://www.facebook.com/sharer/sharer.php?u={{href}}&display=popup"
     },
     {
-      type: "pinterest" as "pinterest",
+      type: "pinterest" as const,
       label: getMicroCopy(microCopy.SHARE_PINTEREST),
       apiUrl: "https://www.pinterest.com/pin/create/button/?url={{href}}"
     }

@@ -88,7 +88,7 @@ type TypographProps = {
   center?: boolean;
   sub?: boolean;
   sup?: boolean;
-  textProps?: object;
+  textProps?: Record<string, unknown>;
   children: React.ReactNode;
   [rest: string]: any;
 };
@@ -181,7 +181,7 @@ const Alert = ({
 
 type ResultsTableTemplateProps = {
   children: React.ReactNode;
-  layout?: object;
+  layout?: Record<string, unknown>;
   headerRows?: number;
   widths?: Array<string | number>;
   [rest: string]: any;

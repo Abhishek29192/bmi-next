@@ -94,7 +94,9 @@ const File = ({
 
   useEffect(() => {
     let source = {
-      cancel: () => {}
+      cancel: () => {
+        // no-op
+      }
     };
     handleFileUpload().then((s) => (source = { ...source, ...s }));
 

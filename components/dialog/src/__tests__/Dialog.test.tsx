@@ -97,11 +97,10 @@ describe("Dialog component", () => {
     cancelButton.click();
     expect(onCancelClick).toHaveBeenCalled();
 
-    const backdrop = container.parentElement!.querySelector(
+    const backdrop = container.parentElement!.querySelector<HTMLDivElement>(
       `.${backdropClassName}`
     );
-    // @ts-ignore
-    backdrop.click();
+    backdrop!.click();
     expect(onBackdropClick).toHaveBeenCalled();
   });
 });

@@ -24,7 +24,9 @@ const PitchedRoofCalculator = ({
   onClose,
   isDebugging,
   data,
-  onAnalyticsEvent = () => {},
+  onAnalyticsEvent = () => {
+    // no-op
+  },
   sendEmailAddress
 }: PitchedRoofCalculatorProps) => {
   const pushEvent: OnAnalyticsEvent = useCallback(
@@ -81,7 +83,9 @@ const PitchedRoofCalculator = ({
         }}
         maxWidth="xl"
         allowOverflow
-        onBackdropClick={() => {}} // Disabling close on backdrop click
+        onBackdropClick={() => {
+          // Disabling close on backdrop click
+        }}
       >
         <div className={styles["PitchedRoofCalculator"]}>
           {!isSSR ? (

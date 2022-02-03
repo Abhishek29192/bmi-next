@@ -35,7 +35,9 @@ describe("ExploreBarSection component", () => {
           dialogContent: null,
           hubSpotCTAID: null
         },
-        // @ts-ignore This is how a nested Navigation comes through from Contentful
+        // This is how a nested Navigation comes through from Contentful
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         {}
       ]
     };

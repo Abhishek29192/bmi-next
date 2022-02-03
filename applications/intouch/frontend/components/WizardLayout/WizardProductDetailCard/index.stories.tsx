@@ -32,7 +32,9 @@ export const Basic = ({
         description={description}
         brand={brand}
         family={family}
-        onDeleteClick={() => {}}
+        onDeleteClick={() => {
+          // no-op
+        }}
       />
     </div>
   </div>

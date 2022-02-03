@@ -17,7 +17,11 @@ const recaptchaSecret = "recaptcha-secret";
 const apsisClientSecret = "apsis-client-secret";
 
 const mockRequest = (
-  body: Object = { email: "a@a.com", gdpr_1: true, gdpr_2: true },
+  body: Record<string, unknown> = {
+    email: "a@a.com",
+    gdpr_1: true,
+    gdpr_2: true
+  },
   headers: IncomingHttpHeaders = { "X-Recaptcha-Token": validToken }
 ): Partial<Request> => fetchMockRequest("POST", headers, "/", body);
 

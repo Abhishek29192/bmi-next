@@ -78,7 +78,7 @@ export const bulkImport = async (args, context: PostGraphileContext) => {
     throw new Error("unauthorized");
   }
 
-  for await (let file of files) {
+  for await (const file of files) {
     const { filename, ...f } = await file;
 
     const [env, marketCode, table] = filename.split("-");

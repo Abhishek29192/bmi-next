@@ -1,4 +1,5 @@
 import mockConsole from "jest-mock-console";
+import { FirestoreCollections } from "../firestoreCollections";
 
 const initializeApp = jest.fn();
 const collection = jest.fn();
@@ -16,10 +17,10 @@ jest.mock("firebase-admin", () => ({
   })
 }));
 
-const {
-  deleteFirestoreCollection,
-  FirestoreCollections
-} = require("../firestore");
+const deleteFirestoreCollection = async (
+  firestoreCollection: FirestoreCollections
+) =>
+  (await import("../firestore")).deleteFirestoreCollection(firestoreCollection);
 
 beforeAll(() => {
   mockConsole();
@@ -65,7 +66,7 @@ describe("deleteFirestoreCollection", () => {
       await deleteFirestoreCollection(FirestoreCollections.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(collection).toHaveBeenCalledWith(
@@ -86,7 +87,7 @@ describe("deleteFirestoreCollection", () => {
       await deleteFirestoreCollection(FirestoreCollections.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(collection).toHaveBeenCalledWith(
@@ -123,7 +124,7 @@ describe("deleteFirestoreCollection", () => {
       await deleteFirestoreCollection(FirestoreCollections.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(collection).toHaveBeenCalledWith(

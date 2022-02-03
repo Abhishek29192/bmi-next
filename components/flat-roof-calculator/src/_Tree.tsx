@@ -1,19 +1,27 @@
 import React, { useContext, useMemo } from "react";
 import RadioGroup from "@bmi/radio-group";
-import { FormContext } from "@bmi/form";
+import { FormContext, Values } from "@bmi/form";
 import Field from "./_Field";
 import { FieldsDisplay } from "./types/FieldsDisplay";
+import { Path, Tree as CalculatorDataTree } from "./types/CalculatorData";
 
-const getEventHandler = (fieldName, mappedOptions) => (value) => {
-  const label = (mappedOptions.find((option) => value === option.value) || {})
-    .label;
-  if (label && typeof window !== "undefined" && window["gtag"]) {
-    window["gtag"]("event", "Input", {
-      event_category: `${fieldName} selection`,
-      event_label: label
-    });
-  }
+type MappedOption = {
+  value: string;
+  label: string;
+  before: React.ReactNode;
 };
+
+const getEventHandler =
+  (fieldName: string, mappedOptions: MappedOption[]) => (value: string) => {
+    const label = (mappedOptions.find((option) => value === option.value) || {})
+      .label;
+    if (label && typeof window !== "undefined" && "gtag" in window) {
+      window["gtag"]("event", "Input", {
+        event_category: `${fieldName} selection`,
+        event_label: label
+      });
+    }
+  };
 
 const Decision = ({
   name,
@@ -35,7 +43,7 @@ const Decision = ({
 
   const { label, description, helpContent, options: optionsMap } = displayProps;
 
-  const mappedOptions = useMemo(
+  const mappedOptions: MappedOption[] = useMemo(
     () =>
       options.map((value) => {
         // eslint-disable-next-line security/detect-object-injection
@@ -79,12 +87,12 @@ const Decision = ({
 };
 
 const populateFieldOptions = (
-  values,
-  tree,
+  values: Values,
+  tree: CalculatorDataTree,
   fields = new Map<string, string[]>()
 ) => {
-  let currentLevel = [tree];
-  let nextLevel: Array<{ option: string; target: object }> = [];
+  let currentLevel: CalculatorDataTree[] = [tree];
+  let nextLevel: Path[] = [];
 
   let current;
   while ((current = currentLevel.pop())) {
@@ -95,10 +103,7 @@ const populateFieldOptions = (
       fields.set(current.field, options);
     }
 
-    for (const { option, target } of current.paths as Array<{
-      option: string;
-      target: string | object;
-    }>) {
+    for (const { option, target } of current.paths as Path[]) {
       options.push(option);
       // Ignore leafs as we are focusing on visible options
       if (typeof target !== "string") {
@@ -125,7 +130,9 @@ const populateFieldOptions = (
       }
 
       // Switch to next level
-      currentLevel = nextLevel.map(({ target }) => target);
+      currentLevel = nextLevel.map(
+        ({ target }) => target as CalculatorDataTree
+      );
       nextLevel = [];
     }
   }
@@ -138,7 +145,7 @@ const Tree = ({
   fieldsDisplay,
   defaultValues
 }: {
-  tree: object;
+  tree: CalculatorDataTree;
   fieldsDisplay: FieldsDisplay;
   defaultValues: { [key: string]: any };
 }) => {

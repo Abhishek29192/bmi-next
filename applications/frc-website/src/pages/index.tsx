@@ -19,7 +19,7 @@ import landing from "../images/landing.jpg";
 
 const VALUES_PARAM = "v";
 
-const getLink = (page, values: object): string => {
+const getLink = (page: string, values: Record<string, unknown>): string => {
   const currentQueryParams =
     typeof window === "undefined" ? {} : queryString(window.location.search);
   const encoded = stringifyQueryString({

@@ -55,7 +55,6 @@ describe("SearchLocationBlock component", () => {
   });
   it("should renders GoogleAutocomplete if google !== undefined", () => {
     const { getByRole } = render(
-      // @ts-ignore
       <GoogleApi.Provider value={googleMock}>
         <SearchLocationBlock
           sectionType={EntryTypeEnum.ROOFER_TYPE}
@@ -90,7 +89,6 @@ describe("SearchLocationBlock component", () => {
     });
     const getPosition = jest.fn();
     const { getByRole } = render(
-      // @ts-ignore
       <GoogleApi.Provider value={googleMock}>
         <SearchLocationBlock
           sectionType={EntryTypeEnum.ROOFER_TYPE}

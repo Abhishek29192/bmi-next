@@ -24,7 +24,7 @@ const SampleOrderSection = ({
   sampleBasketLinkInfo,
   actionLabel
 }: {
-  isSampleOrderAllowed: Boolean;
+  isSampleOrderAllowed: boolean;
   product: Product;
   variant?: VariantOption;
   maximumSamples?: number;

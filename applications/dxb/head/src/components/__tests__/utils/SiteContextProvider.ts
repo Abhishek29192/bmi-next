@@ -1,6 +1,6 @@
 export const getMockSiteContext = (
-  countryCode: string = "en",
-  nodeLocale: string = "en-GB"
+  countryCode = "en",
+  nodeLocale = "en-GB"
 ) => ({
   countryCode: countryCode,
   getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,

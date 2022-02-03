@@ -40,7 +40,9 @@ const lisaSimpsonDetails: DetailProps[] = [
 
 export const MikeHarold = () => (
   <UserCard
-    onRemoveUser={() => {}}
+    onRemoveUser={() => {
+      // no-op
+    }}
     companyName="Roofer ltd"
     account={
       {
@@ -59,7 +61,9 @@ export const MikeHarold = () => (
 export const LisaSimpson = () => (
   <div style={{ maxWidth: "300px", margin: "2rem auto" }}>
     <UserCard
-      onRemoveUser={() => {}}
+      onRemoveUser={() => {
+        // no-op
+      }}
       companyName="Roofer ltd"
       account={
         {

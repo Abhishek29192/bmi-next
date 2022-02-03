@@ -12,7 +12,7 @@ import createService from "../../../__tests__/ServiceHelper";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 
 jest.mock("@reach/router", () => ({
-  ...(jest.requireActual("@reach/router") as {}),
+  ...(jest.requireActual("@reach/router") as Record<string, unknown>),
   useLocation: jest.fn(() => ({
     search: `?chip=${rooferTypes[0]}`
   }))

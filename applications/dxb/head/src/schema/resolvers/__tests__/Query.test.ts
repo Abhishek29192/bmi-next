@@ -1,7 +1,4 @@
 import { Context, ResolveArgs } from "../types";
-import Query from "../Query";
-import * as Documents from "../documents";
-import * as Filters from "../../../utils/filters";
 
 const context: Context = {
   nodeModel: {
@@ -21,9 +18,19 @@ jest.mock("../../../utils/encryption", () => {
   };
 });
 
-jest.mock("../../../utils/filters");
+const getPlpFilters = jest.fn();
+const getFilters = jest.fn();
+jest.mock("../../../utils/filters", () => ({
+  getPlpFilters,
+  getFilters
+}));
 
-jest.mock("../documents");
+const resolveDocumentsFromProducts = jest.fn();
+jest.mock("../documents", () => ({
+  resolveDocumentsFromProducts
+}));
+
+import Query from "../Query";
 
 describe("Query resolver", () => {
   describe("allPIMDocument", () => {
@@ -32,16 +39,13 @@ describe("Query resolver", () => {
     });
     it("should resolve pim documents without filters", async () => {
       const result = { documents: [] };
-      jest
-        .spyOn(Documents, "resolveDocumentsFromProducts")
-        // @ts-ignore
-        .mockResolvedValue(result);
+      resolveDocumentsFromProducts.mockResolvedValue(result);
 
       expect(await Query.allPIMDocument.resolve(null, null, context)).toEqual(
         result
       );
 
-      expect(Documents.resolveDocumentsFromProducts).toHaveBeenCalledWith(
+      expect(resolveDocumentsFromProducts).toHaveBeenCalledWith(
         { nodes: [] },
         { source: {}, context }
       );
@@ -88,8 +92,7 @@ describe("Query resolver", () => {
 
     it("should run query without filters if not provided", async () => {
       const filters = { filters: [] };
-      // @ts-ignore
-      jest.spyOn(Filters, "getPlpFilters").mockResolvedValue(filters);
+      getPlpFilters.mockResolvedValue(filters);
       context.nodeModel.runQuery = jest
         .fn()
         .mockResolvedValue([
@@ -104,7 +107,7 @@ describe("Query resolver", () => {
         )
       ).toEqual(filters);
 
-      expect(Filters.getPlpFilters).toBeCalledWith({
+      expect(getPlpFilters).toBeCalledWith({
         allowedFilters: [],
         pageCategory: undefined,
         pimClassificationNamespace: "pimClassificationCatalogueNamespace",
@@ -121,8 +124,7 @@ describe("Query resolver", () => {
 
     it("should run query if resolved categories is empty", async () => {
       const filters = { filters: [] };
-      // @ts-ignore
-      jest.spyOn(Filters, "getPlpFilters").mockResolvedValue(filters);
+      getPlpFilters.mockResolvedValue(filters);
       context.nodeModel.runQuery = jest
         .fn()
         .mockResolvedValue([{ categories: null }]);
@@ -159,8 +161,7 @@ describe("Query resolver", () => {
 
     it("should resolve plp filters", async () => {
       const filters = { filters: [] };
-      // @ts-ignore
-      jest.spyOn(Filters, "getPlpFilters").mockResolvedValue(filters);
+      getPlpFilters.mockResolvedValue(filters);
       context.nodeModel.runQuery = jest
         .fn()
         .mockResolvedValue([{ categories: [{ code: "category-1" }] }]);
@@ -169,7 +170,7 @@ describe("Query resolver", () => {
         filters
       );
 
-      expect(Filters.getPlpFilters).toHaveBeenCalledWith({
+      expect(getPlpFilters).toHaveBeenCalledWith({
         allowedFilters: [],
         pageCategory: { code: "category-1" },
         pimClassificationNamespace: "pimClassificationCatalogueNamespace",
@@ -216,8 +217,7 @@ describe("Query resolver", () => {
 
     it("should run query without filters if not provided", async () => {
       const filters = { filters: [] };
-      // @ts-ignore
-      jest.spyOn(Filters, "getFilters").mockResolvedValue(filters);
+      getFilters.mockResolvedValue(filters);
       context.nodeModel.runQuery = jest
         .fn()
         .mockResolvedValue([
@@ -240,8 +240,7 @@ describe("Query resolver", () => {
 
     it("should run query if resolved categories is empty", async () => {
       const filters = { filters: [] };
-      // @ts-ignore
-      jest.spyOn(Filters, "getFilters").mockResolvedValue(filters);
+      getFilters.mockResolvedValue(filters);
       context.nodeModel.runQuery = jest
         .fn()
         .mockResolvedValue([{ categories: null }]);
@@ -268,8 +267,7 @@ describe("Query resolver", () => {
 
     it("should resolve product filters", async () => {
       const filters = { filters: [] };
-      // @ts-ignore
-      jest.spyOn(Filters, "getFilters").mockResolvedValue(filters);
+      getFilters.mockResolvedValue(filters);
       context.nodeModel.runQuery = jest
         .fn()
         .mockResolvedValue([
@@ -280,7 +278,7 @@ describe("Query resolver", () => {
         filters
       );
 
-      expect(Filters.getFilters).toHaveBeenCalledWith(
+      expect(getFilters).toHaveBeenCalledWith(
         "pimClassificationCatalogueNamespace",
         [{ categories: [{ code: "category-1" }, { code: "category-2" }] }],
         { code: "category-1" },

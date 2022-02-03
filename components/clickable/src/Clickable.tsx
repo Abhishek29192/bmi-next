@@ -50,7 +50,7 @@ const Clickable = ({
   ...rest
 }: Props & { forwardedRef: React.Ref<RefElements> }) => {
   let MarkupComponent: React.ElementType;
-  let extraProps: object = {};
+  let extraProps: Record<string, unknown> = {};
 
   switch (rest.model) {
     case "submit":
@@ -135,7 +135,9 @@ const withRef = <P extends Record<string, any>>(
 
 export default withRef<Props>(Clickable);
 
-export const withClickable = <P extends Record<string, any> = {}>(
+export const withClickable = <
+  P extends Record<string, any> = Record<string, unknown>
+>(
   Component: React.ElementType
 ) => {
   return withRef(

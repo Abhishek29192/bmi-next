@@ -115,21 +115,6 @@ describe("Sections component", () => {
             cta: null,
             featuredVideo: null,
             backgroundColor: "Alabaster"
-          },
-          {
-            __typename: "ContentfulPromo",
-            id: "4567",
-            name: "Villain 3",
-            title: "Villain 3",
-            brandLogo: null,
-            tags: null,
-            subtitle: null,
-            body: null,
-            featuredMedia: null,
-            cta: null,
-            featuredVideo: null,
-            // @ts-ignore
-            backgroundColor: "Invalid"
           }
         ],
         isReversed: false
@@ -665,14 +650,7 @@ describe("Sections component", () => {
         },
         source: "Contentful",
         hubSpotFormGuid: null
-      },
-      {
-        // @ts-ignore
-        __typename: "InvalidTypename",
-        title: "Invalid type test"
-      },
-      // @ts-ignore For test coverage
-      {}
+      }
     ];
 
     const { container } = renderWithRouter(

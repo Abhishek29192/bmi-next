@@ -9,8 +9,8 @@ import TileOptions from "../_TileOptions";
 describe("PitchedRoofCalculator TileOptions component", () => {
   it("renders correctly", () => {
     const updateFormState = jest.fn();
-    let hasBeenSubmitted = false;
-    let submitButtonDisabled = false;
+    const hasBeenSubmitted = false;
+    const submitButtonDisabled = false;
 
     const { container } = render(
       <MicroCopy.Provider values={en}>
@@ -35,8 +35,8 @@ describe("PitchedRoofCalculator TileOptions component", () => {
 
   it("renders with no options", () => {
     const updateFormState = jest.fn();
-    let hasBeenSubmitted = false;
-    let submitButtonDisabled = false;
+    const hasBeenSubmitted = false;
+    const submitButtonDisabled = false;
 
     const { container } = render(
       <MicroCopy.Provider values={en}>

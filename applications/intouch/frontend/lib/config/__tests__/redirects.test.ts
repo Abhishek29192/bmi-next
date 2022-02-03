@@ -1,6 +1,8 @@
 export {}; // silences --isolatedModules warning
 
-let redirectMap, redirectMapInverse;
+const redirectMap = async () => (await import("../redirects")).redirectMap;
+const redirectMapInverse = async () =>
+  (await import("../redirects")).redirectMapInverse;
 
 describe("redirects config", () => {
   beforeEach(() => {
@@ -12,16 +14,13 @@ describe("redirects config", () => {
       jest.mock("..", () => ({
         baseUrlDomain: "localhost"
       }));
-      const redirectModuleWithMocks = require("../redirects");
-      redirectMap = redirectModuleWithMocks.redirectMap;
-      redirectMapInverse = redirectModuleWithMocks.redirectMapInverse;
     });
-    it("should use `en` as default locale", () => {
-      expect(redirectMap.localhost).toEqual("en");
+    it("should use `en` as default locale", async () => {
+      expect((await redirectMap())["localhost"]).toEqual("en");
     });
 
-    it("redirectMap map should match inline snapshot", () => {
-      expect(redirectMap).toMatchInlineSnapshot(`
+    it("redirectMap map should match inline snapshot", async () => {
+      expect(await redirectMap()).toMatchInlineSnapshot(`
         Object {
           "dev-en.localhost": "dev-en",
           "dev-no.localhost": "dev-no",
@@ -32,8 +31,8 @@ describe("redirects config", () => {
       `);
     });
 
-    it("redirectMapInverse map should match inline snapshot", () => {
-      expect(redirectMapInverse).toMatchInlineSnapshot(`
+    it("redirectMapInverse map should match inline snapshot", async () => {
+      expect(await redirectMapInverse()).toMatchInlineSnapshot(`
         Object {
           "dev-en": "dev-en.localhost",
           "dev-no": "dev-no.localhost",
@@ -51,22 +50,19 @@ describe("redirects config", () => {
         isProd: false,
         isSingleMarket: false
       }));
-      const redirectModuleWithMocks = require("../redirects");
-      redirectMap = redirectModuleWithMocks.redirectMap;
-      redirectMapInverse = redirectModuleWithMocks.redirectMapInverse;
     });
 
-    it("should use `en` as default locale", () => {
-      expect(redirectMap["local.intouch"]).toEqual("en");
+    it("should use `en` as default locale", async () => {
+      expect((await redirectMap())["local.intouch"]).toEqual("en");
     });
 
-    it("should include `no` subdomain", () => {
-      expect(redirectMap["no.local.intouch"]).toEqual("no");
-      expect(redirectMapInverse["no"]).toEqual("no.local.intouch");
+    it("should include `no` subdomain", async () => {
+      expect((await redirectMap())["no.local.intouch"]).toEqual("no");
+      expect((await redirectMapInverse())["no"]).toEqual("no.local.intouch");
     });
 
-    it("redirectMap map should match inline snapshot", () => {
-      expect(redirectMap).toMatchInlineSnapshot(`
+    it("redirectMap map should match inline snapshot", async () => {
+      expect(await redirectMap()).toMatchInlineSnapshot(`
         Object {
           "dev-en.local.intouch": "dev-en",
           "dev-no.local.intouch": "dev-no",
@@ -77,8 +73,8 @@ describe("redirects config", () => {
       `);
     });
 
-    it("redirectMapInverse map should match inline snapshot", () => {
-      expect(redirectMapInverse).toMatchInlineSnapshot(`
+    it("redirectMapInverse map should match inline snapshot", async () => {
+      expect(await redirectMapInverse()).toMatchInlineSnapshot(`
         Object {
           "dev-en": "dev-en.local.intouch",
           "dev-no": "dev-no.local.intouch",
@@ -96,22 +92,19 @@ describe("redirects config", () => {
         isProd: true,
         isSingleMarket: false
       }));
-      const redirectModuleWithMocks = require("../redirects");
-      redirectMap = redirectModuleWithMocks.redirectMap;
-      redirectMapInverse = redirectModuleWithMocks.redirectMapInverse;
     });
 
-    it("should use `en` as default locale", () => {
-      expect(redirectMap["intouch.dddev.io"]).toEqual("en");
+    it("should use `en` as default locale", async () => {
+      expect((await redirectMap())["intouch.dddev.io"]).toEqual("en");
     });
 
-    it("should include `no` subdomain", () => {
-      expect(redirectMap["no.intouch.dddev.io"]).toEqual("no");
-      expect(redirectMapInverse["no"]).toEqual("no.intouch.dddev.io");
+    it("should include `no` subdomain", async () => {
+      expect((await redirectMap())["no.intouch.dddev.io"]).toEqual("no");
+      expect((await redirectMapInverse())["no"]).toEqual("no.intouch.dddev.io");
     });
 
-    it("redirectMap map should match inline snapshot", () => {
-      expect(redirectMap).toMatchInlineSnapshot(`
+    it("redirectMap map should match inline snapshot", async () => {
+      expect(await redirectMap()).toMatchInlineSnapshot(`
         Object {
           "dev-en.intouch.dddev.io": "dev-en",
           "dev-no.intouch.dddev.io": "dev-no",
@@ -122,8 +115,8 @@ describe("redirects config", () => {
       `);
     });
 
-    it("redirectMapInverse map should match inline snapshot", () => {
-      expect(redirectMapInverse).toMatchInlineSnapshot(`
+    it("redirectMapInverse map should match inline snapshot", async () => {
+      expect(await redirectMapInverse()).toMatchInlineSnapshot(`
         Object {
           "dev-en": "dev-en.intouch.dddev.io",
           "dev-no": "dev-no.intouch.dddev.io",

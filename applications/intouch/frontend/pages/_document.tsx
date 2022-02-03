@@ -46,7 +46,11 @@ class BMIDocument extends Document<Props> {
             type="text/javascript"
             data-domain-script={process.env.ONE_TRUST_GUID}
           />
-          <script type="text/javascript">{function OptanonWrapper() {}}</script>
+          <script type="text/javascript">
+            {function OptanonWrapper() {
+              // no-op
+            }}
+          </script>
           {!!gtmID && (
             <script
               dangerouslySetInnerHTML={{

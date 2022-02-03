@@ -94,7 +94,9 @@ export interface BasketContextProps {
 
 export const BasketContext = React.createContext<BasketContextProps>({
   basketState: initialBasketState,
-  basketDispatch: () => {}
+  basketDispatch: () => {
+    // no-op
+  }
 });
 
 export const useBasketContext = () => useContext(BasketContext);

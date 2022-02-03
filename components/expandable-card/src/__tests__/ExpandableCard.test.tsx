@@ -95,7 +95,9 @@ describe("ExpandableCard component", () => {
         isExpanded={true}
       />
     );
-    // @ts-ignore propertyName is meant to be read-only.
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     transitionEndEvent.propertyName = "height";
     fireEvent(getByText(title), transitionEndEvent);
 
@@ -110,7 +112,8 @@ describe("ExpandableCard component", () => {
       />
     );
 
-    // @ts-ignore propertyName is meant to be read-only.
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     transitionEndEvent.propertyName = "height";
     fireEvent(getByText(title), transitionEndEvent);
 
@@ -139,11 +142,13 @@ describe("ExpandableCard component", () => {
       />
     );
 
-    // @ts-ignore propertyName is meant to be read-only.
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     transitionEndEvent.propertyName = "height";
     fireEvent(getByText(title), transitionEndEvent);
 
-    // @ts-ignore propertyName is meant to be read-only.
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     transitionEndEvent.propertyName = "width";
     fireEvent(getByText(title), transitionEndEvent);
 

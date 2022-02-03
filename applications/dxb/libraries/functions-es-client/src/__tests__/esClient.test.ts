@@ -1,4 +1,3 @@
-import { Client } from "@elastic/elasticsearch";
 import { protos } from "@google-cloud/secret-manager";
 
 const mockClient = jest.fn();
@@ -29,7 +28,7 @@ beforeEach(() => {
   jest.resetModules();
 });
 
-const getEsClient = (): Promise<Client> => require("..").getEsClient();
+const getEsClient = async () => (await import("../index")).getEsClient();
 
 describe("getEsClient with USE_LOCAL_ES as true", () => {
   it("should return a new client set from ES_CLOUD_ID", async () => {
@@ -66,7 +65,7 @@ describe("getEsClient without USE_LOCAL_ES", () => {
       await getEsClient();
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("ES_CLOUD_ID was not provided");
+      expect((error as Error).message).toEqual("ES_CLOUD_ID was not provided");
     }
 
     expect(accessSecretVersion).toBeCalledTimes(0);
@@ -80,7 +79,7 @@ describe("getEsClient without USE_LOCAL_ES", () => {
       await getEsClient();
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("ES_USERNAME was not provided");
+      expect((error as Error).message).toEqual("ES_USERNAME was not provided");
     }
 
     expect(accessSecretVersion).toBeCalledTimes(0);
@@ -94,7 +93,9 @@ describe("getEsClient without USE_LOCAL_ES", () => {
       await getEsClient();
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Unable to retrieve ES password");
+      expect((error as Error).message).toEqual(
+        "Unable to retrieve ES password"
+      );
     }
 
     expect(accessSecretVersion).toBeCalledWith({
@@ -110,7 +111,9 @@ describe("getEsClient without USE_LOCAL_ES", () => {
       await getEsClient();
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Unable to retrieve ES password");
+      expect((error as Error).message).toEqual(
+        "Unable to retrieve ES password"
+      );
     }
 
     expect(accessSecretVersion).toBeCalledWith({

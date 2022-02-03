@@ -16,8 +16,8 @@ const dimensionsSample = {
 describe("PitchedRoofCalculator TileSelection component", () => {
   it("renders correctly", () => {
     const updateFormState = jest.fn();
-    let hasBeenSubmitted = false;
-    let submitButtonDisabled = false;
+    const hasBeenSubmitted = false;
+    const submitButtonDisabled = false;
 
     const select = jest.fn();
 
@@ -46,8 +46,8 @@ describe("PitchedRoofCalculator TileSelection component", () => {
 
   it("renders with no tiles", () => {
     const updateFormState = jest.fn();
-    let hasBeenSubmitted = false;
-    let submitButtonDisabled = false;
+    const hasBeenSubmitted = false;
+    const submitButtonDisabled = false;
 
     const select = jest.fn();
 

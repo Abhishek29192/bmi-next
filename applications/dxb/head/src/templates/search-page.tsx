@@ -150,7 +150,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
       };
 
       // Find first one that has some results and set it to display
-      for (let tabKey in newResults) {
+      for (const tabKey in newResults) {
         // eslint-disable-next-line security/detect-object-injection
         const config = newResults[tabKey];
         if (config.count) {

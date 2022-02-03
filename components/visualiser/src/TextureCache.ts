@@ -5,7 +5,7 @@ import { RepeatWrapping, sRGBEncoding, Texture, TextureLoader } from "three";
  * Returns a promise which resolves as the texture object.
  */
 
-let cache: { [index: string]: Promise<any> } = {};
+const cache: { [index: string]: Promise<any> } = {};
 
 export default async (url: string): Promise<Texture> => {
   // eslint-disable-next-line security/detect-object-injection

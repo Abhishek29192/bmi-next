@@ -1,4 +1,6 @@
-export default {
+import { CalculatorData } from "../types/CalculatorData";
+
+const calculatorData: CalculatorData = {
   tree: {
     paths: [
       {
@@ -1941,3 +1943,5 @@ export default {
     }
   }
 };
+
+export default calculatorData;

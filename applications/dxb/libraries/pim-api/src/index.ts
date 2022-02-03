@@ -50,7 +50,7 @@ const getAuthToken = async (): Promise<AuthResponse> => {
     throw Error("pimClientSecret could not be retrieved.");
   }
 
-  let urlencoded = new URLSearchParams();
+  const urlencoded = new URLSearchParams();
   urlencoded.append("client_id", PIM_CLIENT_ID);
   urlencoded.append("client_secret", pimClientSecret);
   urlencoded.append("grant_type", "client_credentials");
@@ -88,13 +88,13 @@ const getAuthToken = async (): Promise<AuthResponse> => {
 
 export const fetchData = async (
   type: PimTypes,
-  currentPage: number = 0
+  currentPage = 0
 ): Promise<ProductsApiResponse | SystemsApiResponse> => {
   const { access_token } = await getAuthToken();
 
   const redirect: RequestRedirect = "follow";
 
-  var options = {
+  const options = {
     method: "GET",
     headers: {
       Authorization: `Bearer ${access_token}`,
@@ -144,7 +144,7 @@ const fetchDataByMessageId = async (
 
   const redirect: RequestRedirect = "follow";
 
-  var options = {
+  const options = {
     method: "GET",
     headers: {
       Authorization: `Bearer ${access_token}`,
@@ -200,7 +200,7 @@ export const getSystemsByMessageId = async (
   messageId: string,
   token: string,
   currentPage: number
-) =>
+): Promise<SystemsApiResponse> =>
   fetchDataByMessageId(
     PimTypes.Systems,
     messageId,

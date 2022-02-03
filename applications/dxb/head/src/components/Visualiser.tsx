@@ -18,7 +18,7 @@ const Visualiser = React.lazy(() => import("@bmi/visualiser"));
 
 type Context = {
   isOpen: boolean;
-  open?: (params?: object) => void;
+  open?: (params?: Record<string, unknown>) => void;
 };
 
 const GtmEventsMap = {

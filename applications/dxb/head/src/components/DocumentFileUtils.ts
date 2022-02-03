@@ -8,8 +8,8 @@ export interface AssetUniqueFileCountMap {
 const createAssetFileCountMap = (
   assets: PIMDocumentData[]
 ): AssetUniqueFileCountMap => {
-  var uniqueFileMap = {};
-  var fileIndexCount = assets.map((asset) => {
+  const uniqueFileMap = {};
+  const fileIndexCount = assets.map((asset) => {
     const fName =
       asset.realFileName ||
       `${asset.title}${asset.extension ? `.${asset.extension}` : ""}`;

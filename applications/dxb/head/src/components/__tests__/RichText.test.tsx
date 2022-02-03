@@ -1,5 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import { ContentfulRichTextGatsbyReference } from "gatsby-source-contentful/rich-text";
 import RichText, { RichTextData } from "../RichText";
 
 describe("RichText component", () => {
@@ -246,23 +247,20 @@ describe("RichText component", () => {
       {
         __typename: "ContentfulSimplePage",
         contentful_id: "6Eg6rK4nkEc3M1NFE8E4jU",
-        // @ts-ignore
         path: "testing-simple-page/"
-      },
+      } as ContentfulRichTextGatsbyReference,
       {
         __typename: "ContentfulAsset",
         contentful_id: "70GS3lLVmrS7k71kH3iSbq",
-        // @ts-ignore
         title: "Customer Support",
         file: {
           contentType: "image/png",
           url: "//images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
         }
-      },
+      } as ContentfulRichTextGatsbyReference,
       {
         __typename: "ContentfulLink",
         contentful_id: "3tcysaa3PGMlm42U4WnlmK",
-        // @ts-ignore
         icon: "AeroDek",
         id: "ddf00d82-c0de-5520-8929-78146ec48f8e",
         isLabelHidden: false,
@@ -273,10 +271,9 @@ describe("RichText component", () => {
         linkedPage: {
           path: "product-category-page/product-sub-category-page/aerodek-robust-plus/"
         }
-      },
+      } as ContentfulRichTextGatsbyReference,
       {
         contentful_id: "1oPjxfZfvqmyAMIZx6rPgm",
-        // @ts-ignore
         id: "414f8808-3e8c-5f7b-a437-dba556a4b23a",
         isLabelHidden: null,
         label: "Support",
@@ -285,10 +282,9 @@ describe("RichText component", () => {
         type: "Internal",
         url: null,
         __typename: "ContentfulLink"
-      },
+      } as ContentfulRichTextGatsbyReference,
       {
         contentful_id: "7di9aTEBjpoTGECA229JYr",
-        // @ts-ignore
         asset: null,
         dialogContent: {
           __typename: "ContentfulFormSection",
@@ -324,7 +320,7 @@ describe("RichText component", () => {
         type: "Dialog",
         url: null,
         __typename: "ContentfulLink"
-      }
+      } as ContentfulRichTextGatsbyReference
     ]
   };
 

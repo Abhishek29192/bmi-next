@@ -21,9 +21,11 @@ export type NotificationProps = {
   id: number;
 };
 
-const ReactMarkdown = dynamic(
+const ReactMarkdown: React.ComponentType<Record<string, any>> = dynamic(
   () => import("react-markdown").then((module) => module.default),
-  { ssr: false }
+  {
+    ssr: false
+  }
 );
 
 export const Notification = ({
@@ -41,9 +43,14 @@ export const Notification = ({
         </div>
         <div>
           <ReactMarkdown
-            // @ts-ignore
             components={{
-              a({ children, href }: { children: string; href: string }) {
+              a({
+                children,
+                href
+              }: {
+                children?: React.ReactNode;
+                href?: string;
+              }) {
                 return (
                   <Link href={href}>
                     <a>{children}</a>

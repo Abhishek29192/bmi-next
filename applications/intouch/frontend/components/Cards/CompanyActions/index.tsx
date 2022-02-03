@@ -22,7 +22,7 @@ export const CompanyActionsCard = ({
 }: CompanyActionsCardProps) => {
   const { id, status } = company;
   const { t } = useTranslation("company-page");
-  const [isLoading, setIsLoading] = useState<Boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [updateCompany] = useUpdateCompanyDetailsMutation({
     onError: (error) => {

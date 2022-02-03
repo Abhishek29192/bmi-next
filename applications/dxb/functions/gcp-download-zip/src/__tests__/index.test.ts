@@ -759,9 +759,10 @@ describe("Making a POST request", () => {
       }
     );
 
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
-    let writeStream = fs.createWriteStream(temporaryFile);
-    createWriteStream.mockImplementation(() => writeStream);
+    createWriteStream.mockImplementation(() =>
+      // eslint-disable-next-line security/detect-non-literal-fs-filename
+      fs.createWriteStream(temporaryFile)
+    );
     publicUrl.mockImplementation(() => "https://somewhere/file.zip");
 
     await download(req, res);

@@ -20,7 +20,9 @@ const EqualHeightsContext = React.createContext<Context>({
     current: null
   }),
   equalHeight: "auto",
-  updateRef: () => {}
+  updateRef: () => {
+    // no-op
+  }
 });
 
 const EqualHeights = ({ children }: { children: React.ReactNode }) => {

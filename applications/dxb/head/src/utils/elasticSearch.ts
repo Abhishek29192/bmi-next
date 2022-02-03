@@ -92,7 +92,7 @@ export const compileElasticSearchQuery = (
   page: number,
   pageSize: number,
   searchQuery?: string
-): object => {
+) => {
   const categoryFilters = [];
 
   filters.forEach((filter) => {

@@ -19,7 +19,9 @@ const recaptchaSecret = "recaptcha-secret";
 const managementTokenSecret = "management-token-secret";
 
 const mockRequest = (
-  body: Buffer | Object = readFileSync(`${resourcesBasePath}/blank.jpeg`),
+  body: Buffer | Record<string, unknown> = readFileSync(
+    `${resourcesBasePath}/blank.jpeg`
+  ),
   headers: IncomingHttpHeaders = { "X-Recaptcha-Token": validToken }
 ): Partial<Request> => fetchMockRequest("POST", headers, "/", body);
 
@@ -41,8 +43,8 @@ jest.mock("contentful-management", () => ({
   })
 }));
 
-const upload = (request: Partial<Request>, response: Partial<Response>) =>
-  require("../index").upload(request, response);
+const upload = async (request: Partial<Request>, response: Partial<Response>) =>
+  (await import("../index")).upload(request as Request, response as Response);
 
 beforeAll(() => {
   mockConsole();

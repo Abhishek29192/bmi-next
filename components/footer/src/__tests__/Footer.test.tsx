@@ -9,13 +9,14 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import Footer from "../";
 import BmiIcon from "../svgs/BMI.svg";
 
-function createMatchMedia(width?: unknown) {
-  return (query: string) => ({
-    matches: mediaQuery.match(query, { width }),
-    addListener: () => {},
-    removeListener: () => {}
-  });
-}
+const createMatchMedia = (width?: unknown) => {
+  return (query: string): MediaQueryList =>
+    ({
+      matches: mediaQuery.match(query, { width }),
+      addListener: () => {},
+      removeListener: () => {}
+    } as unknown as MediaQueryList);
+};
 
 const mainNavigation = [
   {
@@ -25,7 +26,7 @@ const mainNavigation = [
         icon: PhoneIcon,
         label: "+44 (0) 1234567890",
         action: {
-          model: "htmlLink" as "htmlLink",
+          model: "htmlLink" as const,
           href: "tel:+4401234567890"
         }
       },
@@ -33,7 +34,7 @@ const mainNavigation = [
         icon: MailIcon,
         label: "info@bmigroup.com",
         action: {
-          model: "htmlLink" as "htmlLink",
+          model: "htmlLink" as const,
           href: "mailto:info@bmigroup.com"
         }
       },
@@ -42,7 +43,7 @@ const mainNavigation = [
         label: "Facebook",
         isLabelHidden: true,
         action: {
-          model: "htmlLink" as "htmlLink",
+          model: "htmlLink" as const,
           href: "https://facebook.com/bmigroup"
         }
       },
@@ -51,7 +52,7 @@ const mainNavigation = [
         label: "LinkedIn",
         isLabelHidden: true,
         action: {
-          model: "htmlLink" as "htmlLink",
+          model: "htmlLink" as const,
           href: "https://linkedin.com/bmigroup"
         }
       },
@@ -60,7 +61,7 @@ const mainNavigation = [
         label: "Youtube",
         isLabelHidden: true,
         action: {
-          model: "htmlLink" as "htmlLink",
+          model: "htmlLink" as const,
           href: "https://youtube.com/bmigroup"
         }
       }
@@ -149,7 +150,6 @@ describe("Footer component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders in a bigger breakpoint", () => {
-    // @ts-ignore Only used for testing.
     window.matchMedia = createMatchMedia(1280);
 
     const { container } = render(

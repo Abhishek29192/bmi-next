@@ -18,11 +18,11 @@ export type Data = {
 type Details = readonly [DetailProps, ...DetailProps[]];
 
 export const getDetails = (
-  address: string,
-  phoneNumber: string,
-  email: string
-): Details => {
-  const addressLine: DetailProps[] = address
+  address: string | null,
+  phoneNumber: string | null,
+  email: string | null
+): Details | undefined => {
+  const addressLine: [DetailProps] | undefined = address
     ? [
         {
           type: "address",
@@ -36,8 +36,8 @@ export const getDetails = (
           label: <MicroCopy path="global.address" />
         }
       ]
-    : [];
-  const phoneNumberLine: DetailProps[] = phoneNumber
+    : undefined;
+  const phoneNumberLine: [DetailProps] | undefined = phoneNumber
     ? [
         {
           type: "phone",
@@ -46,8 +46,8 @@ export const getDetails = (
           label: <MicroCopy path="global.telephone" />
         }
       ]
-    : [];
-  const emailLine: DetailProps[] = email
+    : undefined;
+  const emailLine: [DetailProps] | undefined = email
     ? [
         {
           type: "email",
@@ -56,13 +56,16 @@ export const getDetails = (
           label: <MicroCopy path="global.email" />
         }
       ]
-    : [];
+    : undefined;
 
-  if (!addressLine.length && !phoneNumberLine.length && !emailLine.length) {
-    return null;
+  if (!addressLine && !phoneNumberLine && !emailLine) {
+    return undefined;
   }
-  // @ts-ignore It doens't realise that there will be at least one.
-  return [...addressLine, ...phoneNumberLine, ...emailLine];
+  return [
+    ...(addressLine || []),
+    ...(phoneNumberLine || []),
+    ...(emailLine || [])
+  ] as unknown as Details; // Required to force the type as TS doesn't understand that there will always be at least 1 element
 };
 
 const IntegratedLocationCard = ({
@@ -73,7 +76,7 @@ const IntegratedLocationCard = ({
   data: Data;
   isFlat?: boolean;
   anchorComponent?: React.ComponentType<any>; // TODO
-}) => {
+}): React.ReactElement => {
   const { title, address, phoneNumber, email, otherInformation } = data;
   const details = getDetails(address, phoneNumber, email);
 
@@ -93,7 +96,6 @@ const IntegratedLocationCard = ({
         <GTMAnchorLink
           gtm={{
             id: "cta-click1",
-            // @ts-ignore
             action: props?.action?.href
           }}
           {...props}

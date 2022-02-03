@@ -1,5 +1,5 @@
 import { ButtonProps, IconButtonProps } from "@bmi/button";
-import React, { ReactElement, useState } from "react";
+import React, { useState } from "react";
 
 type ShowMoreProps = {
   openButton: React.ReactElement<ButtonProps | IconButtonProps>;

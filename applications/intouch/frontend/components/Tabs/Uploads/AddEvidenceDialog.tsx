@@ -22,7 +22,7 @@ type AddEvidenceDialogProps = {
   ) => void;
 };
 //You cannot upload  files larger than <MAX_FILE_SIZE> MB (It's megabyte)
-const MAX_FILE_SIZE: number = 25;
+const MAX_FILE_SIZE = 25;
 
 type EvidenceCategoryKey = CustomEvidenceCategoryKey | "MISCELLANEOUS";
 
@@ -89,7 +89,9 @@ export const AddEvidenceDialog = ({
           buttonLabel={t("upload_tab.add_evidence_modal.button_label")}
           accept=".pdf,.jpg,.jpeg,.png"
           instructions={t("upload_tab.add_evidence_modal.instruction")}
-          mapValue={() => {}}
+          mapValue={() => {
+            // no-op
+          }}
           mapBody={(file) => ({ file })}
           microcopyProvider={{
             "upload.instructions.drop": t(

@@ -231,7 +231,7 @@ export const download: HttpFunction = async (request, response) => {
     await zipStreamPromise;
 
     logger.info({ message: "Getting zip file public URL." });
-    let url = zipFile.publicUrl();
+    const url = zipFile.publicUrl();
     logger.info({ message: `Zip file created at: ${url}` });
     return response.send({ url: url });
   }

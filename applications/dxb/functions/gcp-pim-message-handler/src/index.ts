@@ -8,8 +8,8 @@ import { itemType as ItemType, messageType as MessageType } from "./types";
 const { TRANSITIONAL_TOPIC_NAME, GCP_PROJECT_ID, BUILD_TRIGGER_ENDPOINT } =
   process.env;
 
-// @ts-ignore TODO: NOPE HACK!
-process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+// TODO: NOPE HACK!
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
 
 const pubSubClient = new PubSub({
   projectId: GCP_PROJECT_ID

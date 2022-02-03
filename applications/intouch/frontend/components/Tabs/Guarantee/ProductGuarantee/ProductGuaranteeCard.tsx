@@ -9,7 +9,7 @@ import styles from "./styles.module.scss";
 
 type ProductGuaranteeCardProps = {
   product: ProjectDetailsProductFragmentFragment;
-  guaranteeFileUrl?: String;
+  guaranteeFileUrl?: string;
 };
 const ProductGuaranteeCard = ({
   product,

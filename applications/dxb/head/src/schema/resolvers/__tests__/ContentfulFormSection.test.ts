@@ -13,10 +13,11 @@ const context: Context = {
     getAllNodes: jest
       .fn()
       .mockResolvedValue([{ id: "asset-type-1" }, { id: "asset-type-2" }]),
-    // @ts-ignore
-    getNodeById: jest.fn(async ({ id }: { id: string }) => ({
-      id
-    })),
+    getNodeById: jest.fn().mockImplementation(({ id }: { id: string }) =>
+      Promise.resolve({
+        id
+      })
+    ),
     getNodesByIds: jest.fn(),
     runQuery: jest.fn()
   }

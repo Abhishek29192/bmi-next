@@ -299,7 +299,9 @@ const NavigationList = ({
                 key={`menu-${depth}-navigation-list-${key}`}
                 menu={footer}
                 show={value === key}
-                setDepth={() => {}}
+                setDepth={() => {
+                  // no-op
+                }}
               />
             )
           ]

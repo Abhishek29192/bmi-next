@@ -114,7 +114,10 @@ const Header = ({
     body.classList[method](classValue);
   };
 
-  const handleChange = (_event: React.ChangeEvent<{}>, newValue: any) => {
+  const handleChange = (
+    _event: React.ChangeEvent<Record<string, unknown>>,
+    newValue: any
+  ) => {
     if (value === newValue) {
       amendClassList(styles.MenuIsOpen!, "remove");
       setValue(false);
@@ -334,9 +337,8 @@ const Header = ({
                         <Clickable {...clickableAction} {...props}>
                           {children &&
                             React.Children.map(children, (child) =>
-                              child
-                                ? // @ts-ignore Cannot see that children can be ReactNode[]
-                                  React.cloneElement(child, {
+                              child && React.isValidElement(child)
+                                ? React.cloneElement(child, {
                                     children: label
                                   })
                                 : null

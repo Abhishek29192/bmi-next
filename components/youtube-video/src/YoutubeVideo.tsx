@@ -126,7 +126,7 @@ const DialogVideo = ({
         open={isDialogOpen}
         onCloseClick={() => setDialogOpen(false)}
       >
-        <div ref={ref && ref} style={{ height: "100%", display: "flex" }}>
+        <div ref={!!ref && ref} style={{ height: "100%", display: "flex" }}>
           {dimensions.width && (
             <ReactPlayer
               url={getVideoURL(videoId)}
@@ -164,7 +164,7 @@ const InPlaceVideo = ({
         styles["YoutubeVideo--in-place"],
         className
       )}
-      ref={ref && ref}
+      ref={!!ref && ref}
     >
       {dimensions.width && (
         <ReactPlayer
@@ -206,8 +206,7 @@ const InlineVideo = ({
         styles["YoutubeVideo--inline"],
         className
       )}
-      // @ts-ignore Does not recognise arbitrary css vars
-      style={{ "--aspect-ratio": embedHeight / embedWidth }}
+      style={{ ["--aspect-ratio" as any]: embedHeight / embedWidth }}
       onClick={() => setIsPlaying(true)}
     >
       <div>

@@ -9,8 +9,8 @@ import Guttering from "../_Guttering";
 describe("PitchedRoofCalculator Guttering component", () => {
   it("renders correctly", () => {
     const updateFormState = jest.fn();
-    let hasBeenSubmitted = false;
-    let submitButtonDisabled = false;
+    const hasBeenSubmitted = false;
+    const submitButtonDisabled = false;
 
     const { container } = render(
       <MicroCopy.Provider values={en}>
@@ -36,8 +36,8 @@ describe("PitchedRoofCalculator Guttering component", () => {
 
   it("renders gutter variants and hooks", () => {
     const updateFormState = jest.fn();
-    let hasBeenSubmitted = false;
-    let submitButtonDisabled = false;
+    const hasBeenSubmitted = false;
+    const submitButtonDisabled = false;
 
     const values = {
       guttering: data.gutters[0].name,
@@ -69,8 +69,8 @@ describe("PitchedRoofCalculator Guttering component", () => {
 
   it("renders with no options", () => {
     const updateFormState = jest.fn();
-    let hasBeenSubmitted = false;
-    let submitButtonDisabled = false;
+    const hasBeenSubmitted = false;
+    const submitButtonDisabled = false;
 
     const { container } = render(
       <MicroCopy.Provider values={en}>

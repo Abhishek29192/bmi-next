@@ -10,7 +10,7 @@ import ColorPair from "@bmi/color-pair";
 import styles from "./InputBanner.module.scss";
 
 const validateEmail = (email: string): boolean => {
-  var re = /\S+@\S+\.\S+/;
+  const re = /\S+@\S+\.\S+/;
   return re.test(email);
 };
 

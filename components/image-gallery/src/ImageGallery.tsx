@@ -64,7 +64,7 @@ const ImageGallery = ({
   }
 
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
-  let isTouchDevice =
+  const isTouchDevice =
     typeof document !== `undefined` &&
     "ontouchstart" in document.documentElement;
 

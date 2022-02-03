@@ -36,7 +36,7 @@ jest.mock("crypto", () => {
   };
 });
 
-let logger = () => ({
+const logger = () => ({
   error: () => {},
   info: () => {}
 });
@@ -53,10 +53,10 @@ describe("Account", () => {
     getUserByEmail: mockAuth0GetUserByEmail,
     createUser: mockAuth0CreateUser
   };
-  let queryBuilder = () => ({
+  const queryBuilder = () => ({
     where: () => {}
   });
-  let build = {
+  const build = {
     pgSql: {
       fragment: (args) => queryBuilder,
       value: (args) => {}
@@ -815,7 +815,7 @@ describe("Account", () => {
   });
 
   describe("Reset Password for imported users", () => {
-    let args = {};
+    const args = {};
     let contextMock;
     let resolveInfo;
 

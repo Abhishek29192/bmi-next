@@ -23,7 +23,7 @@ export const itemSnake = (
 process.env.APP_ENV = "dev";
 
 describe("Bulk importer", () => {
-  let context: any = {
+  const context: any = {
     pgClient: {
       query: jest.fn()
     },

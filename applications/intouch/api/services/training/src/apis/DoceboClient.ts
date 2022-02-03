@@ -20,7 +20,7 @@ export default class DoceboClient {
   private client: AxiosInstance;
   private logger: Logger;
 
-  private constructor(accessToken: String, context: ClientContext) {
+  private constructor(accessToken: string, context: ClientContext) {
     this.logger = context.logger("docebo");
     this.client = axios.create({
       baseURL: DOCEBO_API_URL,
@@ -84,10 +84,7 @@ export default class DoceboClient {
     }
   }
 
-  static async createSSOUrl(
-    username: string,
-    path: string = "/learn/mycourses"
-  ) {
+  static async createSSOUrl(username: string, path = "/learn/mycourses") {
     try {
       const token = await this.getTokenByJWTPayload(username);
       return `${DOCEBO_API_URL}${path};type=oauth2_response;access_token=${token.access_token};expires_in=${token.expires_in};token_type=${token.token_type};scope=${token.scope}`;
@@ -196,7 +193,7 @@ export default class DoceboClient {
     }
   }
 
-  private async isCoursePromoted(courseId: Number) {
+  private async isCoursePromoted(courseId: number) {
     const PROMOTED_COURSE_FIELD = "17";
     const {
       data: {
@@ -220,9 +217,9 @@ export default class DoceboClient {
     return courses;
   }
   private async getCoursesByFilter(
-    updated_from: String,
-    page: Number,
-    pageSize: Number
+    updated_from: string,
+    page: number,
+    pageSize: number
   ): Promise<CourseFilteredData> {
     const query = this.getQueryString(updated_from, page, pageSize);
 
@@ -249,9 +246,9 @@ export default class DoceboClient {
     };
   }
   private async getEnrollmentsByFilter(
-    updated_from: String,
-    page: Number,
-    pageSize: Number
+    updated_from: string,
+    page: number,
+    pageSize: number
   ) {
     const query = this.getQueryString(updated_from, page, pageSize);
     const {
@@ -272,7 +269,7 @@ export default class DoceboClient {
       hasMoreData: has_more_data
     };
   }
-  private async getCataloguesByFilter(page: Number, pageSize: Number) {
+  private async getCataloguesByFilter(page: number, pageSize: number) {
     const {
       data: {
         data: { has_more_data, items = [] }
@@ -295,7 +292,7 @@ export default class DoceboClient {
       hasMoreData: has_more_data
     };
   }
-  private getQueryString(updated_from: String, page: Number, pageSize: Number) {
+  private getQueryString(updated_from: string, page: number, pageSize: number) {
     let query = `page=${page}&page_size=${pageSize}`;
     if (updated_from) query += `&updated_from=${updated_from}`;
     return query;

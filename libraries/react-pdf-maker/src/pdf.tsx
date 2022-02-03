@@ -15,7 +15,7 @@ const pdf = (
 ) => {
   const documentDefinition = extractDefinitions(
     element
-  ) as TDocumentDefinitions;
+  ) as unknown as TDocumentDefinitions;
   return createPdf(documentDefinition, tableLayouts, fonts, vfs);
 };
 

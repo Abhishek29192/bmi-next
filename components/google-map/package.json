@@ -17,5 +17,8 @@
     "@googlemaps/markerclusterer": "^1.0.15",
     "@material-ui/core": "^4.10.2",
     "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@googlemaps/jest-mocks": "^2.2.0"
   }
 }

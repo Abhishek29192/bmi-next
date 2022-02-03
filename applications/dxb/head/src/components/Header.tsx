@@ -85,7 +85,7 @@ const parseNavigation = (
         if (result.length === 0) {
           return result;
         }
-        let lastItem = result[result.length - 1];
+        const lastItem = result[result.length - 1];
         result[result.length - 1] = { ...lastItem, hasSeparator: true };
         return result;
       }
@@ -242,8 +242,7 @@ const Header = ({
             <GTMNavigationButton
               gtm={{
                 id: "nav-main-menu",
-                // @ts-ignore This is getting messy
-                action: props.action?.to,
+                action: props["action"]?.["to"], // TODO: Fix this when we fix the withClickable lack of typing
                 label:
                   typeof props.children !== "string"
                     ? props.accessibilityLabel

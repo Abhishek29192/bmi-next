@@ -17,7 +17,7 @@ describe("DocumentResults component", () => {
   beforeEach(() => {
     inputDataItems =
       Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
-    const baseUrl: string = "http://localhost/document/library/";
+    const baseUrl = "http://localhost/document/library/";
 
     const pimDocument = createPimDocument({
       id: `pim-doc-id-aero`,

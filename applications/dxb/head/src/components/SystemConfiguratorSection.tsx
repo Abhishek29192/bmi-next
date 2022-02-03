@@ -172,7 +172,10 @@ const SystemConfiguratorBlock = ({
 
   const { answers = [], description } = rest;
 
-  const handleOnChange = (event: ChangeEvent<{}>, isExpanded: boolean) => {
+  const handleOnChange = (
+    event: ChangeEvent<Record<string, unknown>>,
+    isExpanded: boolean
+  ) => {
     if (!isExpanded) {
       setState((state) => ({ ...state, openIndex: null }));
       return;

@@ -37,7 +37,7 @@ export const useGlobalTabStyles = makeStyles(
 type TabPanelProps = GridProps & {
   className?: string;
   children?: React.ReactNode;
-  heading: String;
+  heading: string;
   index: any;
   value?: any;
 };
@@ -94,7 +94,10 @@ const Tabs = ({
   const globalClasses = useGlobalTabStyles();
   const [value, setValue] = React.useState(initialValue);
 
-  const handleChange = (_event: React.ChangeEvent<{}>, newValue: any) => {
+  const handleChange = (
+    _event: React.ChangeEvent<Record<string, unknown>>,
+    newValue: any
+  ) => {
     onChange && onChange(newValue);
     setValue(newValue);
   };

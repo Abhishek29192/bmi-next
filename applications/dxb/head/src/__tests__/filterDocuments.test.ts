@@ -163,7 +163,7 @@ describe("filter document tests", () => {
       const inputDataItems: DocumentResultsData =
         Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-      const baseUrl: string = "http://localhost/document/library/";
+      const baseUrl = "http://localhost/document/library/";
 
       const pimDocument = createPimDocument({
         id: `pim-doc-id`,
@@ -177,7 +177,7 @@ describe("filter document tests", () => {
       });
 
       inputDataItems.push(pimDocument);
-      let result = filterDocuments(inputDataItems, []);
+      const result = filterDocuments(inputDataItems, []);
       expect(result).toEqual(inputDataItems);
     });
   });
@@ -186,7 +186,7 @@ describe("filter document tests", () => {
       const inputDataItems: DocumentResultsData =
         Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-      const baseUrl: string = "http://localhost/document/library/";
+      const baseUrl = "http://localhost/document/library/";
 
       const pimDocument = createPimDocument({
         id: `pim-doc-id`,
@@ -216,7 +216,7 @@ describe("filter document tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id-aero`,
@@ -244,7 +244,7 @@ describe("filter document tests", () => {
 
           inputDataItems.push(pimLinkDocument);
 
-          let result = filterDocuments(inputDataItems, [
+          const result = filterDocuments(inputDataItems, [
             createBrandFilterCriteria()
           ]);
 
@@ -256,7 +256,7 @@ describe("filter document tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id-aero`,
@@ -308,7 +308,7 @@ describe("filter document tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id-aero`,
@@ -370,7 +370,7 @@ describe("filter document tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimLinkDocument = createPimLinkDocument({
             id: `pim-doc-id-ico`,
@@ -445,7 +445,7 @@ describe("filter document tests", () => {
 
           inputDataItems.push(contenfulDocument2);
 
-          let result = filterDocuments(inputDataItems, [
+          const result = filterDocuments(inputDataItems, [
             createBrandFilterCriteria()
           ]);
 
@@ -470,7 +470,7 @@ describe("filter document tests", () => {
           });
           inputDataItems.push(contenfulDocument2);
 
-          let result = filterDocuments(inputDataItems, [
+          const result = filterDocuments(inputDataItems, [
             createBrandFilterCriteria({ value: ["AeroDek", "Icopal"] })
           ]);
 
@@ -492,7 +492,7 @@ describe("filter document tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id-aero`,
@@ -514,7 +514,7 @@ describe("filter document tests", () => {
 
           inputDataItems.push(pimLinkDocument);
 
-          let result = filterDocuments(inputDataItems, [
+          const result = filterDocuments(inputDataItems, [
             createProductFamilyFilterCriteria()
           ]);
 
@@ -526,7 +526,7 @@ describe("filter document tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id-aero`,
@@ -558,7 +558,7 @@ describe("filter document tests", () => {
 
           inputDataItems.push(contentfulDocument);
 
-          let result = filterDocuments(inputDataItems, [
+          const result = filterDocuments(inputDataItems, [
             createProductFamilyFilterCriteria()
           ]);
 
@@ -570,7 +570,7 @@ describe("filter document tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id-aero`,
@@ -619,7 +619,7 @@ describe("filter document tests", () => {
 
           inputDataItems.push(pimLinkDocument2);
 
-          let result = filterDocuments(inputDataItems, [
+          const result = filterDocuments(inputDataItems, [
             createProductFamilyFilterCriteria()
           ]);
 
@@ -636,7 +636,7 @@ describe("filter document tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id-aero`,
@@ -664,7 +664,7 @@ describe("filter document tests", () => {
             })
           ]);
 
-          let expectedResults: DocumentResultsData =
+          const expectedResults: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
           expectedResults.push(pimDocument);
           expect(result).toEqual(expectedResults);
@@ -693,7 +693,7 @@ describe("filter document tests", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimLinkDocument = createPimLinkDocument({
             id: `pim-doc-id-ico`,
@@ -721,7 +721,7 @@ describe("filter document tests", () => {
             })
           ]);
 
-          let expectedResults: DocumentResultsData =
+          const expectedResults: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
           expectedResults.push(pimLinkDocument);
           expect(result).toEqual(expectedResults);
@@ -767,7 +767,7 @@ describe("filter document tests", () => {
 
           inputDataItems.push(contenfulDocument2);
 
-          let result = filterDocuments(inputDataItems, [
+          const result = filterDocuments(inputDataItems, [
             createAssetTypeFilterCriteria()
           ]);
 
@@ -792,7 +792,7 @@ describe("filter document tests", () => {
           });
           inputDataItems.push(contenfulDocument2);
 
-          let result = filterDocuments(inputDataItems, [
+          const result = filterDocuments(inputDataItems, [
             createAssetTypeFilterCriteria({ value: ["AeroDek_Quadro_Plus"] })
           ]);
 

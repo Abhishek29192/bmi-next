@@ -206,10 +206,7 @@ const CardCollectionSection = ({
   // TODO: Type me.
   theme: any;
 }) => {
-  const allKeys = [].concat.apply(
-    [],
-    cards.map((x) => x.tags)
-  );
+  const allKeys = cards.flatMap((x) => x.tags);
   const allKeysGrouped = [];
   Array.from(allKeys.values()).forEach((x: TagData) => {
     if (x && !allKeysGrouped.find((y) => y.title == x.title))

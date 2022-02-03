@@ -72,11 +72,10 @@ describe("ContainerDialog component", () => {
     closeButton.click();
     expect(onCloseClick).toHaveBeenCalled();
 
-    const backdrop = container.parentElement!.querySelector(
+    const backdrop = container.parentElement!.querySelector<HTMLDivElement>(
       `.${backdropClassName}`
     );
-    // @ts-ignore
-    backdrop.click();
+    backdrop!.click();
     expect(onBackdropClick).toHaveBeenCalled();
   });
 });

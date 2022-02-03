@@ -83,7 +83,7 @@ const SampleBasketSection = ({
   const handleSuccess = () =>
     basketDispatch({ type: ACTION_TYPES.BASKET_CLEAR });
 
-  let actionLabels = [];
+  const actionLabels = [];
   const samples: SampleOrderElement[] = basketState.products.map((sample) => {
     const { classifications } = sample;
     const featureAttributeMapForUrl = {
