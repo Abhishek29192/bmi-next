@@ -12,6 +12,7 @@ import { System } from "../components/types/pim";
 import { getPathWithCountryCode } from "../utils/path";
 import { findMasterImageUrl } from "../utils/product-details-transforms";
 import { microCopy } from "../constants/microCopies";
+import { renderMedia } from "../utils/renderMedia";
 import { iconMap } from "./Icon";
 import styles from "./styles/RelatedSystems.module.scss";
 import { useSiteContext } from "./Site";
@@ -63,7 +64,7 @@ export const SystemCard = ({
         title={system.name}
         titleVariant="h5"
         imageSize="contain"
-        media={mainImage && <img src={mainImage} alt={`${system.name}`} />}
+        media={renderMedia(mainImage, system.name)}
         brandImageSource={brandLogo}
         action={{
           model: "routerLink",
