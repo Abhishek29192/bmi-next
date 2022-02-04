@@ -7,7 +7,7 @@ import Typography from "@bmi/typography";
 import { useSiteContext } from "../../components/Site";
 import withGTM from "../../utils/google-tag-manager";
 import { microCopy } from "../../constants/microCopies";
-import BimIframe from "../../components/BimIframe";
+import AssetsIframe from "../../components/AssetsIframe";
 import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
 import RichText, { RichTextData } from "../../components/RichText";
 import { Asset, Feature, Classification } from "../../components/types/pim";
@@ -127,7 +127,7 @@ const TabLeadBlock = ({
                     <RichText document={bimContent.description} />
                   </LeadBlock.Content.Section>
                 </LeadBlock.Content>
-                <BimIframe
+                <AssetsIframe
                   data-testid="bmi-iframe"
                   className={styles["bmiIframe"]}
                   url={bimContent.bimIframeUrl}

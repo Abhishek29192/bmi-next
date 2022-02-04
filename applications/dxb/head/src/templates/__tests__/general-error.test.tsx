@@ -85,7 +85,9 @@ describe("General Error", () => {
         countryNavigationIntroduction: null,
         maximumSamples: null,
         sampleBasketLink: null,
-        keyAssetTypes: null
+        keyAssetTypes: null,
+        pdpFixingToolTitle: null,
+        pdpFixingToolDescription: null
       },
       headScripts: null,
       scriptGA: null,

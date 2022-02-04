@@ -1,3 +1,5 @@
+@import "@bmi/styles";
+
 .ProductLeadBlock {
   :global {
     [class*="MuiBox-root"] {
@@ -26,5 +28,11 @@
   }
   .document-library {
     padding-top: 32px;
+  }
+  .fixing-tool-iframe {
+    height: 600px;
+    @media (min-width: $breakpoint-lg) {
+      height: 800px;
+    }
   }
 }

@@ -65,6 +65,21 @@ describe("ProductLeadBlock tests", () => {
     jest.clearAllMocks();
   });
 
+  it("should render guarantees & warranties images & links on on about tab", () => {
+    const { container } = render(
+      <ProductLeadBlock
+        documents={[]}
+        validClassifications={[]}
+        classificationNamespace=""
+        techDrawings={[]}
+        guaranteesAndWarranties={guaranteesAndWarrantiesAssets}
+        pdpFixingToolDescription={null}
+        pdpFixingToolTitle={null}
+      />
+    );
+    expect(container).toMatchSnapshot();
+  });
+
   it("should render the technical draws tab", () => {
     const techDrawings = transformImages(
       mapGalleryImages(systemDetailsMockData.images as Image[])
@@ -76,6 +91,8 @@ describe("ProductLeadBlock tests", () => {
         validClassifications={[]}
         classificationNamespace=""
         techDrawings={techDrawings}
+        pdpFixingToolDescription={null}
+        pdpFixingToolTitle={null}
       />
     );
     const productBlock = queryByTestId("technicalDrawings");
@@ -89,21 +106,61 @@ describe("ProductLeadBlock tests", () => {
         validClassifications={[]}
         classificationNamespace=""
         techDrawings={[]}
+        pdpFixingToolDescription={null}
+        pdpFixingToolTitle={null}
       />
     );
     const productBlock = queryByTestId("technicalDrawings");
     expect(productBlock).toBe(null);
   });
-  it("should render guarantees & warranties images & links on on about tab", () => {
-    const { container } = render(
+  it("should render the fixing tool tab", () => {
+    const fixingToolIframeUrl = "https://monier.service.bouwconnect.nl/";
+
+    const { queryByTestId } = render(
       <ProductLeadBlock
         documents={[]}
         validClassifications={[]}
         classificationNamespace=""
         techDrawings={[]}
-        guaranteesAndWarranties={guaranteesAndWarrantiesAssets}
+        fixingToolIframeUrl={fixingToolIframeUrl}
+        pdpFixingToolDescription={null}
+        pdpFixingToolTitle={null}
       />
     );
-    expect(container).toMatchSnapshot();
+    const productBlock = queryByTestId("fixingTool");
+    expect(productBlock).toMatchSnapshot();
+  });
+  it("should render the fixing tool tab with title and iframe", () => {
+    const fixingToolIframeUrl = "https://monier.service.bouwconnect.nl/";
+
+    const { queryByTestId } = render(
+      <ProductLeadBlock
+        documents={[]}
+        validClassifications={[]}
+        classificationNamespace=""
+        techDrawings={[]}
+        fixingToolIframeUrl={fixingToolIframeUrl}
+        pdpFixingToolDescription={null}
+        pdpFixingToolTitle="Fixing tool title"
+      />
+    );
+    const productBlock = queryByTestId("fixingTool");
+    expect(productBlock).toMatchSnapshot();
+  });
+
+  it("should not render the fixing tool tab", () => {
+    const { queryByTestId } = render(
+      <ProductLeadBlock
+        documents={[]}
+        validClassifications={[]}
+        classificationNamespace=""
+        techDrawings={[]}
+        fixingToolIframeUrl={null}
+        pdpFixingToolDescription={null}
+        pdpFixingToolTitle={null}
+      />
+    );
+    const productBlock = queryByTestId("fixingTool");
+    expect(productBlock).toBe(null);
   });
 });

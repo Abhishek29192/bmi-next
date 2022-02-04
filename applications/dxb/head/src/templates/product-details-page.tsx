@@ -39,7 +39,7 @@ import {
 } from "../components/types/pim";
 import SampleOrderSection from "../components/SampleOrderSection";
 import KeyAssetTypesDownloadSection from "../components/KeyAssetTypesDownloadSection";
-import { getBimIframeUrl } from "../components/BimIframe";
+import { getAssetsIframeUrl } from "../components/AssetsIframe";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { combineVariantClassifications } from "../utils/filters";
 import { microCopy } from "../constants/microCopies";
@@ -135,9 +135,15 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     seo: null,
     path: null // won't work with PDPs currently
   };
-  const { maximumSamples, sampleBasketLink } = resources;
+  const {
+    maximumSamples,
+    sampleBasketLink,
+    pdpFixingToolDescription,
+    pdpFixingToolTitle
+  } = resources;
 
-  const bimIframeUrl = getBimIframeUrl(product.assets);
+  const bimIframeUrl = getAssetsIframeUrl(product.assets, "BIM");
+  const fixingToolIframeUrl = getAssetsIframeUrl(product.assets, "FIXING_TOOL");
 
   const variantCodeToPathMap: VariantCodeToPathMap =
     product.variantOptions.reduce(
@@ -313,6 +319,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   product.images,
                   selfProduct.images
                 )}
+                fixingToolIframeUrl={fixingToolIframeUrl}
+                pdpFixingToolDescription={pdpFixingToolDescription}
+                pdpFixingToolTitle={pdpFixingToolTitle}
               />
             </Section>
             <RelatedProducts

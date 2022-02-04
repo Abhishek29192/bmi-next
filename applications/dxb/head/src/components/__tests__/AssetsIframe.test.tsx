@@ -1,16 +1,16 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { Asset } from "../types/pim";
-import BimIframe, { getBimIframeUrl } from "../BimIframe";
+import AssetsIframe, { getAssetsIframeUrl } from "../AssetsIframe";
 
-describe("BimIframe component", () => {
+describe("AssetsIframe component", () => {
   it("renders correctly", () => {
-    const { container } = render(<BimIframe url="https://google.com" />);
+    const { container } = render(<AssetsIframe url="https://google.com" />);
     expect(container).toMatchSnapshot();
   });
 });
 
-describe("getBimIframeUrl", () => {
+describe("getAssetsIframeUrl", () => {
   const allAssets: Asset[] = [
     {
       assetType: "BIM",
@@ -47,7 +47,7 @@ describe("getBimIframeUrl", () => {
   it("no assets", () => {
     const assets = null;
 
-    const result = getBimIframeUrl(assets);
+    const result = getAssetsIframeUrl(assets, "BIM");
 
     expect(result).toBe(null);
   });
@@ -55,7 +55,7 @@ describe("getBimIframeUrl", () => {
   it("not found url", () => {
     const assets: Asset[] = [allAssets[1], allAssets[2]];
 
-    const result = getBimIframeUrl(assets);
+    const result = getAssetsIframeUrl(assets, "BIM");
 
     expect(result).toBe(null);
   });
@@ -63,7 +63,7 @@ describe("getBimIframeUrl", () => {
   it("found url", () => {
     const assets: Asset[] = [...allAssets];
 
-    const result = getBimIframeUrl(assets);
+    const result = getAssetsIframeUrl(assets, "BIM");
 
     expect(result).toBe(assets[0].url);
   });
@@ -71,7 +71,7 @@ describe("getBimIframeUrl", () => {
   it("2 bim asset types but one url", () => {
     const assets: Asset[] = [{ ...allAssets[0], url: undefined }, allAssets[0]];
 
-    const result = getBimIframeUrl(assets);
+    const result = getAssetsIframeUrl(assets, "BIM");
 
     expect(result).toBe(assets[1].url);
   });
