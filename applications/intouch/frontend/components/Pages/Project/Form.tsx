@@ -8,6 +8,7 @@ import Typography from "@bmi/typography";
 import { getDateOnlyString } from "../../../lib/utils/date";
 import { findProjectGuarantee } from "../../../lib/utils/project";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
+import { getNestedValue } from "../../../lib/utils/object";
 import TechnologyInput from "./TechnologyInput";
 // TODO: move/split styles?
 import styles from "./CreateProject/styles.module.scss";
@@ -27,10 +28,10 @@ export const getFieldProps = (t, fieldName: string) => ({
 
 export const getValue = (project, fieldName) => {
   if (["startDate", "endDate"].includes(fieldName)) {
-    return getDateOnlyString(project[`${fieldName}`]);
+    return getDateOnlyString(getNestedValue(project, fieldName));
   }
 
-  return project[`${fieldName}`];
+  return getNestedValue(project, fieldName);
 };
 
 // If there is a guarantee present, cannot edit these fields
