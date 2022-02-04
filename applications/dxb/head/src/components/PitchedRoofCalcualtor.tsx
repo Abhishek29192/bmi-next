@@ -90,9 +90,11 @@ const CalculatorProvider = ({ children, onError }: Props) => {
     <CalculatorContext.Provider
       value={{
         isOpen,
-        open: isWebToolsCalculatorEnabled ? open : () => {
-                // no-op
-              }
+        open: isWebToolsCalculatorEnabled
+          ? open
+          : () => {
+              // no-op
+            }
       }}
     >
       {children}
