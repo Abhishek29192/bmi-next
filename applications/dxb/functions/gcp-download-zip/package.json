@@ -10,7 +10,8 @@
     "build": "webpack --mode=production",
     "check:ts": "tsc",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
-    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=download --port=9051"
+    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=download --port=9051",
+    "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json process-top ./node_modules/.bin/functions-framework --source=dist --target=download --port=9051"
   },
   "dependencies": {
     "@bmi/functions-logger": "0.0.0",
@@ -18,12 +19,16 @@
     "@google-cloud/functions-framework": "^1.7.1",
     "@google-cloud/storage": "^5.7.0",
     "archiver": "^5.3.0",
-    "jszip": "^3.5.0",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "@types/archiver": "^5.1.0",
     "env-cmd": "^10.1.0",
-    "js-yaml": "^4.0.0"
+    "inspectpack": "^4.7.1",
+    "js-yaml": "^4.0.0",
+    "process-top": "^1.2.0",
+    "webpack": "^5.33.2",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.2"
   }
 }

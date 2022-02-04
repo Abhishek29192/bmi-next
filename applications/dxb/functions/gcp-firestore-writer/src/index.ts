@@ -1,7 +1,7 @@
 import logger from "@bmi/functions-logger";
+import { getFirestore } from "@bmi/functions-firestore";
 import type { EventFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { config } from "dotenv";
-import admin from "firebase-admin";
 
 config({
   path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
@@ -14,11 +14,7 @@ const COLLECTIONS = {
   SYSTEMS: "root/systems"
 };
 
-admin.initializeApp({
-  databaseURL: `https://${process.env.GCP_PROJECT_ID}.firebaseio.com`
-});
-
-const db = admin.firestore();
+const db = getFirestore();
 
 // TODO: This is batched, functions can be consolidated
 const setItemsInFirestore = async (collectionPath: string, item: any) => {

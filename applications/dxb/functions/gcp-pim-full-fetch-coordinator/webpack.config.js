@@ -12,6 +12,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist/dist/function")
   },
   plugins: [
+    ...sharedConfig.plugins,
     new CopyWebpackPlugin({
       patterns: [
         {

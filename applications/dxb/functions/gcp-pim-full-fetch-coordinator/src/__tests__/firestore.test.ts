@@ -1,6 +1,7 @@
 import mockConsole from "jest-mock-console";
+import { deleteFirestoreCollection } from "../firestore";
+import { FirestoreCollections } from "../firestore-collections";
 
-const initializeApp = jest.fn();
 const collection = jest.fn();
 const batch = jest.fn();
 const collectionRefLimit = jest.fn();
@@ -8,18 +9,12 @@ const collectionRefOrderBy = jest.fn();
 const queryGet = jest.fn();
 const batchDelete = jest.fn();
 const commit = jest.fn();
-jest.mock("firebase-admin", () => ({
-  initializeApp: (...args: any) => initializeApp(...args),
-  firestore: () => ({
+jest.mock("@bmi/functions-firestore", () => ({
+  getFirestore: () => ({
     collection: (...args: any) => collection(...args),
     batch: () => batch()
   })
 }));
-
-const {
-  deleteFirestoreCollection,
-  FirestoreCollections
-} = require("../firestore");
 
 beforeAll(() => {
   mockConsole();
@@ -65,7 +60,7 @@ describe("deleteFirestoreCollection", () => {
       await deleteFirestoreCollection(FirestoreCollections.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(collection).toHaveBeenCalledWith(
@@ -86,7 +81,7 @@ describe("deleteFirestoreCollection", () => {
       await deleteFirestoreCollection(FirestoreCollections.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(collection).toHaveBeenCalledWith(
@@ -123,7 +118,7 @@ describe("deleteFirestoreCollection", () => {
       await deleteFirestoreCollection(FirestoreCollections.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Expected error");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
     expect(collection).toHaveBeenCalledWith(

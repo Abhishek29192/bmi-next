@@ -1,4 +1,4 @@
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import { SecretManagerServiceClient } from "@google-cloud/secret-manager/build/src/v1";
 
 const { SECRET_MAN_GCP_PROJECT_NAME } = process.env;
 

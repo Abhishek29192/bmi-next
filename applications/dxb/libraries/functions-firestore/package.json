@@ -1,0 +1,17 @@
+{
+  "name": "@bmi/functions-firestore",
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "private": true,
+  "main": "./src/index",
+  "scripts": {
+    "check:ts": "tsc",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
+  },
+  "dependencies": {
+    "firebase-admin": "^10.0.2"
+  },
+  "devDependencies": {
+    "jest-node-exports-resolver": "^1.1.5"
+  }
+}
