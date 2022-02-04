@@ -1,4 +1,8 @@
-import { Image, ImageAssetTypesEnum } from "../components/types/pim";
+import {
+  Image,
+  ImageAssetTypesEnum,
+  ImageFormatEnum
+} from "../components/types/pim";
 
 const createImage = (image?: Partial<Image>): Image => ({
   allowedToDownload: false,
@@ -6,7 +10,7 @@ const createImage = (image?: Partial<Image>): Image => ({
   assetType: ImageAssetTypesEnum.MASTER_IMAGE,
   containerId: "image-container-id",
   fileSize: 10,
-  format: "Product-Hero-Large-Desktop",
+  format: ImageFormatEnum.PRODUCT_HERO_LARGE_DESKTOP,
   mime: "image/jpeg",
   name: "image-name",
   realFileName: "image-real-file-name.jpg",

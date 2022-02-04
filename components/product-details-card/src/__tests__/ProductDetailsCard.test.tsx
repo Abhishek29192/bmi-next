@@ -22,7 +22,6 @@ describe("ProductDetailsCard component", () => {
   it("renders deprecated imageSource", () => {
     const { container } = render(
       <ProductDetailsCard
-        imageSource={mockProduct}
         brandLogo={mockLogo}
         title="Sed ut perspiciatis"
         nnob="09174907099"

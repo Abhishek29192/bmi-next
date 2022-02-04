@@ -10,10 +10,6 @@ type Layout = "half" | "two-thirds";
 
 type Props = {
   title?: React.ReactNode;
-  /**
-   * @deprecated Use `media` instead.
-   */
-  imageSource?: string | React.ReactNode;
   media?: React.ReactElement<AcceptedNode>;
   children: React.ReactNode;
   layout?: Layout;
@@ -27,31 +23,9 @@ const layoutRowsMap: Record<Layout, GridSize[]> = {
   "two-thirds": [8, 4]
 };
 
-const __DeprecatedImageSource = ({
-  imageSource
-}: Pick<Props, "imageSource">) => {
-  if (!imageSource) {
-    return null;
-  }
-
-  return (
-    <div
-      style={
-        typeof imageSource === "string"
-          ? { backgroundImage: `url(${imageSource})` }
-          : {}
-      }
-      className={styles["image"]}
-    >
-      {typeof imageSource !== "string" && imageSource}
-    </div>
-  );
-};
-
 const PromoSection = ({
   backgroundColor = "white",
   title,
-  imageSource,
   media,
   children,
   layout = "half",
@@ -91,7 +65,6 @@ const PromoSection = ({
           </div>
         </Grid>
         <Grid item xs={12} sm={rows[1]}>
-          <__DeprecatedImageSource imageSource={imageSource} />
           <Media className={styles["image"]}>{media}</Media>
         </Grid>
       </Grid>

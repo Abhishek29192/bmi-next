@@ -76,12 +76,12 @@ exports[`OverviewCard component removes clickable class when the area is none 1`
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-101 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-104"
+            class="MuiButton-label buttonStyles-label-84"
           >
             Go to this
           </span>
@@ -136,12 +136,12 @@ exports[`OverviewCard component renders as a flat card 1`] = `
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-64"
+            class="MuiButton-label buttonStyles-label-44"
           >
             Go to this
           </span>
@@ -153,49 +153,6 @@ exports[`OverviewCard component renders as a flat card 1`] = `
     </div>
   </div>
 </div>
-`;
-
-exports[`OverviewCard component renders as a flat card 2`] = `
-Array [
-  Array [
-    Class {
-      "_dispatchInstances": null,
-      "_dispatchListeners": null,
-      "_targetInst": null,
-      "altKey": null,
-      "bubbles": null,
-      "button": null,
-      "buttons": null,
-      "cancelable": null,
-      "clientX": null,
-      "clientY": null,
-      "ctrlKey": null,
-      "currentTarget": [Function],
-      "defaultPrevented": null,
-      "detail": null,
-      "dispatchConfig": null,
-      "eventPhase": null,
-      "getModifierState": [Function],
-      "isDefaultPrevented": [Function],
-      "isPropagationStopped": [Function],
-      "isTrusted": null,
-      "metaKey": null,
-      "movementX": [Function],
-      "movementY": [Function],
-      "nativeEvent": null,
-      "pageX": null,
-      "pageY": null,
-      "relatedTarget": [Function],
-      "screenX": null,
-      "screenY": null,
-      "shiftKey": null,
-      "target": null,
-      "timeStamp": [Function],
-      "type": null,
-      "view": null,
-    },
-  ],
-]
 `;
 
 exports[`OverviewCard component renders correctly 1`] = `
@@ -288,12 +245,12 @@ exports[`OverviewCard component renders correctly if clickableArea === body 1`] 
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-101 MuiButton-outlined MuiButton-outlinedPrimary"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-124"
+            class="MuiButton-label buttonStyles-label-104"
           >
             Go to this
           </span>
@@ -344,12 +301,12 @@ exports[`OverviewCard component renders correctly if hasChildrenWithoutMargin  =
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-161 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-141 MuiButton-outlined MuiButton-outlinedPrimary"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-164"
+            class="MuiButton-label buttonStyles-label-144"
           >
             Go to this
           </span>
@@ -370,13 +327,10 @@ exports[`OverviewCard component renders correctly if imageSize === contain 1`] =
 <div>
   <button
     class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+    imagesource="imageSource"
     tabindex="0"
     type="button"
   >
-    <div
-      class="header-picture header-picture--contain"
-      style="background-image: url(imageSource);"
-    />
     <img
       alt="Lorem ipsum"
       class="header-picture Media Media--contain"
@@ -404,73 +358,12 @@ exports[`OverviewCard component renders correctly if imageSize === contain 1`] =
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-181 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-161 MuiButton-outlined MuiButton-outlinedPrimary"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-184"
-          >
-            Go to this
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </span>
-      </div>
-    </div>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
-</div>
-`;
-
-exports[`OverviewCard component renders correctly if imageSource !== string 1`] = `
-<div>
-  <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-    tabindex="0"
-    type="button"
-  >
-    <div
-      class="header-picture"
-    >
-      <img />
-    </div>
-    <img
-      alt="Lorem ipsum"
-      class="header-picture Media"
-      src="path-to-image"
-    />
-    <div
-      class="body"
-    >
-      <svg
-        class="brand-logo brand-logo--negative"
-        preserveAspectRatio="xMinYMin"
-      />
-      <h4
-        class="MuiTypography-root title Typography MuiTypography-h4"
-      >
-        Heading
-      </h4>
-      <div
-        class="children text"
-      >
-        We do the things
-      </div>
-      <div
-        class="footer"
-      >
-        <span
-          aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-201 MuiButton-outlined MuiButton-outlinedPrimary"
-          role="button"
-          tabindex="0"
-        >
-          <span
-            class="MuiButton-label buttonStyles-label-204"
+            class="MuiButton-label buttonStyles-label-164"
           >
             Go to this
           </span>
@@ -524,12 +417,12 @@ exports[`OverviewCard component renders correctly if moreOptionsAvailable === tr
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-141 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-outlined MuiButton-outlinedPrimary"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-144"
+            class="MuiButton-label buttonStyles-label-124"
           >
             Go to this
           </span>
@@ -648,15 +541,11 @@ exports[`OverviewCard component renders with a string brandImageSource prop 1`] 
     type="button"
   >
     <div
-      class="header-picture"
-      style="background-image: url(path-to-image);"
-    />
-    <div
       class="body"
     >
       <img
         alt=""
-        class="brand-logo brand-logo--negative"
+        class="brand-logo"
         src="image/source.jpg"
       />
       <h4
@@ -680,61 +569,6 @@ exports[`OverviewCard component renders with a string brandImageSource prop 1`] 
         >
           <span
             class="MuiButton-label buttonStyles-label-24"
-          >
-            Go to this
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </span>
-      </div>
-    </div>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
-</div>
-`;
-
-exports[`OverviewCard component renders with deprecated imageSource 1`] = `
-<div>
-  <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-    tabindex="0"
-    type="button"
-  >
-    <div
-      class="header-picture"
-      style="background-image: url(path-to-image);"
-    />
-    <div
-      class="body"
-    >
-      <svg
-        class="brand-logo brand-logo--negative"
-        preserveAspectRatio="xMinYMin"
-      />
-      <h4
-        class="MuiTypography-root title Typography MuiTypography-h4"
-      >
-        Heading
-      </h4>
-      <div
-        class="children text"
-      >
-        We do the things
-      </div>
-      <div
-        class="footer"
-      >
-        <span
-          aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
-          role="button"
-          tabindex="0"
-        >
-          <span
-            class="MuiButton-label buttonStyles-label-44"
           >
             Go to this
           </span>

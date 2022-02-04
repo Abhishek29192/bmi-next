@@ -12,6 +12,7 @@ import { System } from "../components/types/pim";
 import { getPathWithCountryCode } from "../utils/path";
 import { findMasterImageUrl } from "../utils/product-details-transforms";
 import { microCopy } from "../constants/microCopies";
+import { renderMedia } from "../utils/renderMedia";
 import { iconMap } from "./Icon";
 import styles from "./styles/RelatedSystems.module.scss";
 import { useSiteContext } from "./Site";
@@ -54,7 +55,7 @@ export const SystemCard = ({
   // eslint-disable-next-line security/detect-object-injection
   const brandLogo = iconMap[brandLogoCode];
   const systemUrl = getSystemUrl(countryCode, path);
-  const mainImage = findMasterImageUrl(system.images || []);
+  const mainImage = findMasterImageUrl([...(system.images || [])]);
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   return (
@@ -63,7 +64,7 @@ export const SystemCard = ({
         title={system.name}
         titleVariant="h5"
         imageSize="contain"
-        imageSource={mainImage}
+        media={renderMedia(mainImage, system.name)}
         brandImageSource={brandLogo}
         action={{
           model: "routerLink",

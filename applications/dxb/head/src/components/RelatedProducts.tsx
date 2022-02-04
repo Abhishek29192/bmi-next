@@ -19,6 +19,7 @@ import {
   groupProductsByCategory,
   mapClassificationValues
 } from "../utils/product-details-transforms";
+import { renderMedia } from "../utils/renderMedia";
 import { Product, VariantOption } from "./types/pim"; // Hmmmmmm
 import styles from "./styles/RelatedProducts.module.scss";
 import { useSiteContext } from "./Site";
@@ -102,16 +103,18 @@ const ProductListing = ({
           const brandLogo = iconMap[brandLogoCode];
           const productUrl = getProductUrl(countryCode, variant.path);
 
-          const mainImage = findMasterImageUrl([
-            ...(variant.images || []),
-            ...(product.images || [])
-          ]);
-
           // Find variant classifications that don't exist in the base product
           // TODO: May not be performant
           const uniqueClassifications = mapClassificationValues(
             findUniqueVariantClassifications(variant, classificationNamespace)
           );
+
+          const mainImage = findMasterImageUrl([
+            ...(variant.images || []),
+            ...(product.images || [])
+          ]);
+
+          const altText = `${uniqueClassifications} ${product.name}`;
 
           return (
             <Grid
@@ -127,7 +130,7 @@ const ProductListing = ({
                 subtitle={uniqueClassifications}
                 subtitleVariant="h6"
                 imageSize="contain"
-                imageSource={mainImage}
+                media={renderMedia(mainImage, altText)}
                 brandImageSource={brandLogo}
                 action={{
                   model: "routerLink",

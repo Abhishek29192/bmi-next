@@ -7,6 +7,7 @@ import {
   Classification,
   FeatureValue,
   Image,
+  ImageFormatEnum,
   Product,
   VariantOption,
   VariantOptionWithProduct,
@@ -109,7 +110,7 @@ export const findMasterImageUrl = (images: readonly Image[] | null): string =>
   images?.find(
     (image) =>
       image.assetType === ImageAssetTypesEnum.MASTER_IMAGE &&
-      image.format == "Product-Listing-Card-Small-Desktop-Tablet"
+      image.format == ImageFormatEnum.PRODUCT_LISTING_CARD_SMALL_DESKTOP_TABLET
   )?.url;
 
 export const findProductBrandLogoCode = (product: Product) =>
@@ -181,10 +182,11 @@ export const convertImageSetToMediaFormat = (
 ): GalleryImageType[] => {
   return imageSets.map((images) => ({
     mainSource: images.find(
-      (image) => image.format === "Product-Hero-Small-Desktop-Tablet"
+      (image) =>
+        image.format === ImageFormatEnum.PRODUCT_HERO_SMALL_DESKTOP_TABLET
     )?.url,
     thumbnail: images.find(
-      (image) => image.format === "Product-Color-Selector-Mobile"
+      (image) => image.format === ImageFormatEnum.PRODUCT_COLOR_SELECTOR_MOBILE
     )?.url,
     altText: images[0]?.altText || images[0]?.name
   }));
@@ -193,7 +195,7 @@ export const convertImageSetToMediaFormat = (
 export const getColourThumbnailUrl = (images): string | undefined =>
   images.find(
     (image) =>
-      image.format === "Product-Color-Selector-Mobile" &&
+      image.format === ImageFormatEnum.PRODUCT_COLOR_SELECTOR_MOBILE &&
       image.assetType === ImageAssetTypesEnum.MASTER_IMAGE
   )?.url;
 

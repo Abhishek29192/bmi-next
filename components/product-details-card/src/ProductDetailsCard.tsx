@@ -8,10 +8,6 @@ import MicroCopy from "@bmi/micro-copy";
 import styles from "./ProductDetailsCard.module.scss";
 
 type Props = {
-  /**
-   * @deprecated Use `media` instead.
-   */
-  imageSource?: string;
   media?: React.ReactElement<AcceptedNode>;
   brandLogo: SVGImport;
   title: React.ReactNode;
@@ -20,23 +16,7 @@ type Props = {
   linkLabel: React.ReactNode;
 };
 
-const __DeprecatedImageSource = ({
-  imageSource
-}: Pick<Props, "imageSource">) => {
-  if (!imageSource) {
-    return null;
-  }
-
-  return (
-    <div
-      className={styles["header-picture"]}
-      style={{ backgroundImage: `url(${imageSource})` }}
-    />
-  );
-};
-
 const ProductDetailsCard = ({
-  imageSource,
   media,
   brandLogo,
   title,
@@ -48,7 +28,6 @@ const ProductDetailsCard = ({
 
   return (
     <div className={styles["OverviewCard"]}>
-      <__DeprecatedImageSource imageSource={imageSource} />
       <Media className={styles["header-picture"]} size="contain">
         {media}
       </Media>

@@ -28,19 +28,7 @@
   }
 
   .header-picture {
-    // object-fit: cover;
-    // object-position: center;
     height: 180px;
-    // TODO: Remove these when `imageSource` gets deprecated.
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-color: $color-white;
-
-    // TODO: Remove this when `imageSource` gets deprecated.
-    &--contain {
-      background-size: contain;
-    }
   }
 
   .title,

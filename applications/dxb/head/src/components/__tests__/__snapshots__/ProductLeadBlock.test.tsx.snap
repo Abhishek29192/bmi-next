@@ -469,8 +469,10 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
                   tabindex="0"
                   type="button"
                 >
-                  <span
-                    class="accessibility-text"
+                  <img
+                    alt="490189 wireløper"
+                    class="Media"
+                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
                   />
                 </button>
                 <button
@@ -479,8 +481,10 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
                   tabindex="0"
                   type="button"
                 >
-                  <span
-                    class="accessibility-text"
+                  <img
+                    alt="Print_490189 wireløper"
+                    class="Media"
+                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
                   />
                   <span
                     class="MuiTouchRipple-root"

@@ -9,16 +9,6 @@ exports[`ImageGallery component renders caption of first image when caption is p
       class="image-wrapper"
     >
       <div
-        class="main-image-wrapper main-image-wrapper--short"
-        style="background-image: url(path-to-image);"
-      >
-        <span
-          class="accessibility-label"
-        >
-          Demo Tiles
-        </span>
-      </div>
-      <div
         class="caption"
       >
         <p
@@ -191,8 +181,10 @@ exports[`ImageGallery component renders correctly with default layout 1`] = `
           tabindex="0"
           type="button"
         >
-          <span
-            class="accessibility-text"
+          <img
+            alt="Lorem ipsum"
+            class="Media"
+            src="path-to-image"
           />
         </button>
         <button
@@ -201,8 +193,10 @@ exports[`ImageGallery component renders correctly with default layout 1`] = `
           tabindex="0"
           type="button"
         >
-          <span
-            class="accessibility-text"
+          <img
+            alt="Lorem ipsum"
+            class="Media"
+            src="path-to-image"
           />
           <span
             class="MuiTouchRipple-root"
@@ -214,8 +208,10 @@ exports[`ImageGallery component renders correctly with default layout 1`] = `
           tabindex="0"
           type="button"
         >
-          <span
-            class="accessibility-text"
+          <img
+            alt="Lorem ipsum"
+            class="Media"
+            src="path-to-image"
           />
           <span
             class="MuiTouchRipple-root"
@@ -234,18 +230,7 @@ exports[`ImageGallery component renders correctly with short layout 1`] = `
   >
     <div
       class="image-wrapper"
-    >
-      <div
-        class="main-image-wrapper main-image-wrapper--short"
-        style="background-image: url(path-to-image);"
-      >
-        <span
-          class="accessibility-label"
-        >
-          Demo Tiles
-        </span>
-      </div>
-    </div>
+    />
     <div
       class="thumbnails"
     >
@@ -305,7 +290,6 @@ exports[`ImageGallery component renders correctly with short layout 1`] = `
         </button>
         <button
           class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-          style="background-image: url(path-to-image);"
           tabindex="0"
           type="button"
         >
@@ -320,7 +304,6 @@ exports[`ImageGallery component renders correctly with short layout 1`] = `
         </button>
         <button
           class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-          style="background-image: url(path-to-image);"
           tabindex="0"
           type="button"
         >
@@ -353,118 +336,6 @@ exports[`ImageGallery component renders empty image gallery when no media and ma
 
 exports[`ImageGallery component renders null when no images are passed 1`] = `<div />`;
 
-exports[`ImageGallery component renders with deprecated imageSource 1`] = `
-<div>
-  <div
-    class="ImageGallery"
-  >
-    <div
-      class="image-wrapper"
-    >
-      <div
-        class="main-image-wrapper main-image-wrapper--default"
-        style="background-image: url(path-to-image);"
-      >
-        <span
-          class="accessibility-label"
-        >
-          Demo Tiles
-        </span>
-      </div>
-    </div>
-    <div
-      class="thumbnails"
-    >
-      <button
-        class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
-        tabindex="-1"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root icon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-          />
-        </svg>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <button
-        class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
-        tabindex="-1"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root icon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-          />
-        </svg>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="scroller"
-        style="margin-right: 0%;"
-      >
-        <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-          style="background-image: url(path-to-image);"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="accessibility-text"
-          >
-            Demo Tiles
-          </span>
-        </button>
-        <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-          style="background-image: url(path-to-image);"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="accessibility-text"
-          >
-            Demo Tiles Black
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-          style="background-image: url(path-to-image);"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="accessibility-text"
-          >
-            Demo house
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`ImageGallery component renders without a thumbnail when one image is passed 1`] = `
 <div>
   <div
@@ -473,16 +344,11 @@ exports[`ImageGallery component renders without a thumbnail when one image is pa
     <div
       class="image-wrapper"
     >
-      <div
-        class="main-image-wrapper main-image-wrapper--default"
-        style="background-image: url(path-to-image);"
-      >
-        <span
-          class="accessibility-label"
-        >
-          Single image
-        </span>
-      </div>
+      <img
+        alt="Lorem ipsum"
+        class="main-image-wrapper main-image-wrapper--default Media Media--contain"
+        src="path-to-image"
+      />
     </div>
   </div>
 </div>

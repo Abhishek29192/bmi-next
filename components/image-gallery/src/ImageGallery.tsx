@@ -17,7 +17,7 @@ type Props = {
 };
 
 const renderMedia = (
-  { mainSource, altText, media }: Image,
+  { media }: Image,
   imageSize: Props["imageSize"],
   layout?: Props["layout"]
 ) => {
@@ -26,20 +26,6 @@ const renderMedia = (
     imageSize !== "contain" && styles[`main-image-wrapper--${imageSize}`],
     styles[`main-image-wrapper--${layout}`]
   );
-
-  if (mainSource && altText) {
-    // TODO: Deprecate this case.
-    return (
-      <div
-        className={className}
-        style={{
-          backgroundImage: `url(${mainSource})`
-        }}
-      >
-        <span className={styles["accessibility-label"]}>{altText}</span>
-      </div>
-    );
-  }
 
   if (media) {
     return (

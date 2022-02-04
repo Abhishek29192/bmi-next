@@ -1,43 +1,60 @@
 import React from "react";
 import classnames from "classnames";
 import { withClickable } from "@bmi/clickable";
-import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
+import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
+import Media, { AcceptedNode } from "@bmi/media";
 import styles from "./Thumbnail.module.scss";
 
+export enum StateEnum {
+  ENABLED = "enabled",
+  DISABLED = "disabled",
+  SELECTED = "selected"
+}
+export enum SizeEnum {
+  SMALL = "small",
+  LARGE = "large"
+}
+
 export type Props = ButtonBaseProps & {
-  altText: string;
-  state?: "enabled" | "disabled" | "selected";
+  media?: React.ReactElement<AcceptedNode>;
+  altText?: string;
+  state?: StateEnum;
   imageSource?: string;
   color?: string;
-  size?: "small" | "large";
+  size?: SizeEnum;
 };
 
 const Thumbnail = ({
+  media,
   altText,
   imageSource,
   color,
-  state = "enabled",
-  size = "small",
+  state = StateEnum.ENABLED,
+  size = SizeEnum.SMALL,
   className,
   ...rest
 }: Props) => {
+  const classList = classnames(
+    className,
+    styles["Thumbnail"],
+    state !== StateEnum.ENABLED && styles[`Thumbnail--${state}`],
+    size === SizeEnum.LARGE && styles["Thumbnail--large"]
+  );
   return (
     <ButtonBase
-      disabled={state === "disabled"}
-      disableRipple={state === "selected"}
-      className={classnames(
-        className,
-        styles["Thumbnail"],
-        state !== "enabled" && styles[`Thumbnail--${state}`],
-        size === "large" && styles["Thumbnail--large"]
-      )}
+      disabled={state === StateEnum.DISABLED}
+      disableRipple={state === StateEnum.SELECTED}
+      className={classList}
       {...rest}
       style={{
         backgroundColor: color,
         backgroundImage: imageSource && `url("${imageSource}")`
       }}
     >
-      <span className={styles["accessibility-text"]}>{altText}</span>
+      {altText && (
+        <span className={styles["accessibility-text"]}>{altText}</span>
+      )}
+      {media && <Media>{media}</Media>}
     </ButtonBase>
   );
 };

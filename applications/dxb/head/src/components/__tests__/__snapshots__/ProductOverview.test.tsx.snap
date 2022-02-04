@@ -79,23 +79,14 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
             >
               <button
                 class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                style="background-image: url(mainSource);"
                 tabindex="0"
                 type="button"
-              >
-                <span
-                  class="accessibility-text"
-                />
-              </button>
+              />
               <button
                 class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                style="background-image: url(mainSource2);"
                 tabindex="0"
                 type="button"
               >
-                <span
-                  class="accessibility-text"
-                />
                 <span
                   class="MuiTouchRipple-root"
                 />
@@ -237,23 +228,14 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
             >
               <button
                 class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                style="background-image: url(mainSource);"
                 tabindex="0"
                 type="button"
-              >
-                <span
-                  class="accessibility-text"
-                />
-              </button>
+              />
               <button
                 class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                style="background-image: url(mainSource2);"
                 tabindex="0"
                 type="button"
               >
-                <span
-                  class="accessibility-text"
-                />
                 <span
                   class="MuiTouchRipple-root"
                 />

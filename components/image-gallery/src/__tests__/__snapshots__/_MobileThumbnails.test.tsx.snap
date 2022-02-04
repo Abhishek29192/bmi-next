@@ -20,6 +20,11 @@ exports[`_MobileThumbnails component renders correctly 1`] = `
       >
         test alt text
       </span>
+      <img
+        alt="Lorem ipsum 1"
+        class="Media"
+        src="path-to-image"
+      />
       <span
         class="MuiTouchRipple-root"
       />
@@ -31,8 +36,10 @@ exports[`_MobileThumbnails component renders correctly 1`] = `
       tabindex="0"
       type="button"
     >
-      <span
-        class="accessibility-text"
+      <img
+        alt="Lorem ipsum 2"
+        class="Media"
+        src="path-to-image"
       />
     </button>
   </div>
@@ -48,7 +55,7 @@ exports[`_MobileThumbnails component scroll correctly 1`] = `
     style="width: 172px;"
   >
     <button
-      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
       data-testid="default-thumbnail"
       style="background-image: url(path-to-image);"
       tabindex="0"
@@ -59,26 +66,33 @@ exports[`_MobileThumbnails component scroll correctly 1`] = `
       >
         test alt text
       </span>
+      <img
+        alt="Lorem ipsum 1"
+        class="Media"
+        src="path-to-image"
+      />
+      <span
+        class="MuiTouchRipple-root"
+      />
     </button>
     <button
-      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
       data-testid="default-thumbnail"
       style="background-image: url(path-to-image);"
       tabindex="0"
       type="button"
     >
-      <span
-        class="accessibility-text"
-      />
-      <span
-        class="MuiTouchRipple-root"
+      <img
+        alt="Lorem ipsum 2"
+        class="Media"
+        src="path-to-image"
       />
     </button>
   </div>
 </div>
 `;
 
-exports[`_MobileThumbnails component scroll corretly when parentScrollLeft, parentOffsetWidth and offsetWidth is 0 1`] = `
+exports[`_MobileThumbnails component scroll correctly when parentScrollLeft, parentOffsetWidth and offsetWidth is 0 1`] = `
 <div
   class="thumbnails thumbnails--touch"
 >
@@ -87,7 +101,7 @@ exports[`_MobileThumbnails component scroll corretly when parentScrollLeft, pare
     style="width: 172px;"
   >
     <button
-      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
       data-testid="default-thumbnail"
       style="background-image: url(path-to-image);"
       tabindex="0"
@@ -98,19 +112,26 @@ exports[`_MobileThumbnails component scroll corretly when parentScrollLeft, pare
       >
         test alt text
       </span>
+      <img
+        alt="Lorem ipsum 1"
+        class="Media"
+        src="path-to-image"
+      />
+      <span
+        class="MuiTouchRipple-root"
+      />
     </button>
     <button
-      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
       data-testid="default-thumbnail"
       style="background-image: url(path-to-image);"
       tabindex="0"
       type="button"
     >
-      <span
-        class="accessibility-text"
-      />
-      <span
-        class="MuiTouchRipple-root"
+      <img
+        alt="Lorem ipsum 2"
+        class="Media"
+        src="path-to-image"
       />
     </button>
   </div>

@@ -110,10 +110,6 @@ exports[`ProductDetailsCard component renders deprecated imageSource 1`] = `
     class="OverviewCard"
   >
     <div
-      class="header-picture"
-      style="background-image: url(path-to-image);"
-    />
-    <div
       class="body"
     >
       <svg

@@ -10,39 +10,13 @@ import styles from "./CTACard.module.scss";
 
 type Props = ButtonBaseProps & {
   buttonComponent?: React.ComponentType<any>; // TODO
-  /**
-   * @deprecated Use media instead.
-   */
-  imageSource?: string | React.ReactNode;
   media?: React.ReactElement<AcceptedNode>;
   title: React.ReactNode;
   clickableArea?: "full" | "heading";
 };
 
-const __DeprecatedImageSource = ({
-  imageSource
-}: Pick<Props, "imageSource">) => {
-  if (!imageSource) {
-    return null;
-  }
-
-  return (
-    <div
-      className={styles["image"]}
-      style={
-        typeof imageSource === "string"
-          ? { backgroundImage: `url(${imageSource})` }
-          : {}
-      }
-    >
-      {typeof imageSource !== "string" && imageSource}
-    </div>
-  );
-};
-
 const CTACard = ({
   buttonComponent: Button = ButtonBase,
-  imageSource,
   media,
   title,
   className,
@@ -74,7 +48,6 @@ const CTACard = ({
             <ArrowForwardIcon className={styles["icon"]} />
           </Typography>
         </HeadingElement>
-        <__DeprecatedImageSource imageSource={imageSource} />
         <Media className={styles["image"]}>{media}</Media>
       </Card>
     </WrapperElement>

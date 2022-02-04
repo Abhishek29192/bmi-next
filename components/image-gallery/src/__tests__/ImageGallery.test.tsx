@@ -23,26 +23,6 @@ describe("ImageGallery component", () => {
     const { container } = render(<ImageGallery images={images} />);
     expect(container).toMatchSnapshot();
   });
-  it("renders with deprecated imageSource", () => {
-    const images = [
-      {
-        mainSource: mockImage,
-        altText: "Demo Tiles",
-        thumbnail: mockImage
-      },
-      {
-        mainSource: mockImage,
-        altText: "Demo Tiles Black"
-      },
-      {
-        mainSource: mockImage,
-        altText: "Demo house"
-      }
-    ];
-
-    const { container } = render(<ImageGallery images={images} />);
-    expect(container).toMatchSnapshot();
-  });
   it("renders null when no images are passed", () => {
     const { container } = render(<ImageGallery images={[]} />);
     expect(container).toMatchSnapshot();
@@ -52,7 +32,7 @@ describe("ImageGallery component", () => {
       <ImageGallery
         images={[
           {
-            mainSource: mockImage,
+            media: <img src={mockImage} alt="Lorem ipsum" />,
             altText: "Single image"
           }
         ]}
@@ -60,7 +40,6 @@ describe("ImageGallery component", () => {
     );
     expect(container).toMatchSnapshot();
   });
-
   it("renders correctly with short layout", () => {
     const images = [
       {
@@ -90,18 +69,17 @@ describe("ImageGallery component", () => {
   it("renders caption of first image when caption is present", () => {
     const images = [
       {
-        mainSource: mockImage,
         altText: "Demo Tiles",
         thumbnail: mockImage,
         caption:
           "test caption : renders this caption from first image as this is default active index!!"
       },
       {
-        mainSource: mockImage,
+        thumbnail: mockImage,
         altText: "Demo Tiles Black"
       },
       {
-        mainSource: mockImage,
+        thumbnail: mockImage,
         altText: "Demo house"
       }
     ];

@@ -73,14 +73,8 @@ const TwoPaneCarousel = ({ slides }: Props) => {
       </Grid>
       <Grid item xs={12} sm={6} xl={8}>
         <Carousel initialPage={activePage} onPageChange={setActivePage}>
-          {slides.map(({ imageSource, media }, index) => (
+          {slides.map(({ media }, index) => (
             <Carousel.Slide key={`$right-pane-${index}`}>
-              {imageSource ? (
-                <div
-                  className={styles["image"]}
-                  style={{ backgroundImage: `url(${imageSource})` }}
-                />
-              ) : null}
               <Media className={styles["image"]}>{media}</Media>
             </Carousel.Slide>
           ))}

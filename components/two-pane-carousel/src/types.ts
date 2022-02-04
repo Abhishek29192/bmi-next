@@ -10,10 +10,6 @@ export type Slide = {
     label: React.ReactNode;
     action?: ClickableAction;
   };
-  /**
-   * @deprecated Use `media` instead.
-   */
-  imageSource?: string;
   media?: React.ReactElement<AcceptedNode>;
 };
 

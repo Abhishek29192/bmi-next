@@ -1,7 +1,11 @@
 import React from "react";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import ImageGallerySection from "../imageGallerySection";
-import { Image, ImageAssetTypesEnum } from "../../../components/types/pim";
+import {
+  Image,
+  ImageAssetTypesEnum,
+  ImageFormatEnum
+} from "../../../components/types/pim";
 
 describe("ImageGallerySection tests", () => {
   describe("When images are empty array", () => {
@@ -27,7 +31,7 @@ describe("ImageGallerySection tests", () => {
           name: img_1_altText,
           realFileName: "TBK SN-403 T.jpg",
           url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg",
-          format: "Product-Hero-Small-Desktop-Tablet"
+          format: ImageFormatEnum.PRODUCT_HERO_SMALL_DESKTOP_TABLET
         },
         {
           allowedToDownload: true,
@@ -35,7 +39,7 @@ describe("ImageGallerySection tests", () => {
           containerId:
             "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
           fileSize: 11351,
-          format: "Product-Listing-Card-Large-Desktop",
+          format: ImageFormatEnum.PRODUCT_LISTING_CARD_LARGE_DESKTOP,
           mime: "image/jpeg",
           name: "Product-Listing-Card-Large-Desktop_TBK SN-403 T",
           realFileName: "Product-Listing-Card-Large-Desktop_TBK SN-403 T.jpg",
@@ -65,14 +69,14 @@ describe("ImageGallerySection tests", () => {
           name: img_1_altText,
           realFileName: "TBK SN-403 T.jpg",
           url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg",
-          format: "Product-Hero-Small-Desktop-Tablet"
+          format: ImageFormatEnum.PRODUCT_HERO_SMALL_DESKTOP_TABLET
         },
         {
           allowedToDownload: true,
           assetType: ImageAssetTypesEnum.GALLERY,
           containerId: "container_Test_Image",
           fileSize: 28759,
-          format: "Product-Color-Selector-Mobile",
+          format: ImageFormatEnum.PRODUCT_COLOR_SELECTOR_MOBILE,
           mime: "image/jpeg",
           name: "gallery__image_1",
           realFileName:
@@ -84,7 +88,7 @@ describe("ImageGallerySection tests", () => {
           assetType: ImageAssetTypesEnum.GALLERY,
           containerId: "container_Test_Image_2",
           fileSize: 28759,
-          format: "Product-Color-Selector-Mobile",
+          format: ImageFormatEnum.PRODUCT_COLOR_SELECTOR_MOBILE,
           mime: "image/jpeg",
           name: "gallery__image_2",
           realFileName:
@@ -92,11 +96,10 @@ describe("ImageGallerySection tests", () => {
           url: "gallery__image_2"
         }
       ];
-      const { container, getByAltText } = renderWithRouter(
+      const { container } = renderWithRouter(
         <ImageGallerySection images={images} />
       );
 
-      await getByAltText(img_1_altText);
       expect(container).toMatchSnapshot();
     });
   });

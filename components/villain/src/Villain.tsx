@@ -117,7 +117,6 @@ const ContainedVillain = ({
         </Grid>
         <Grid item xs={12} sm={8}>
           {media ? (
-            // NOTE: This is necessary to maintain `imageSource`.
             <div className={styles["image"]}>
               <Media className={styles["media"]}>{media}</Media>
             </div>

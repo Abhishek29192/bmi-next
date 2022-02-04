@@ -15,30 +15,33 @@ beforeAll(() => {
   jest.clearAllTimers();
 });
 
+const images = [
+  {
+    media: <img src={mockImage} alt="Lorem ipsum 1" />,
+    thumbnail: mockImage,
+    altText: "test alt text"
+  },
+  {
+    media: <img src={mockImage} alt="Lorem ipsum 2" />,
+    thumbnail: mockImage
+  }
+];
+
+const renderMobileThumbnail = (activeImageIndex = 1) =>
+  render(
+    <MobileThumbnails
+      images={images}
+      component={(props) => (
+        <Thumbnail data-testid="default-thumbnail" {...props} />
+      )}
+      activeImageIndex={1}
+      onThumbnailClick={onThumbnailClick}
+    />
+  );
+
 describe("_MobileThumbnails component", () => {
   it("renders correctly", async () => {
-    const images = [
-      {
-        media: <img src={mockImage} alt="Lorem ipsum 1" />,
-        thumbnail: mockImage,
-        altText: "test alt text"
-      },
-      {
-        media: <img src={mockImage} alt="Lorem ipsum 2" />,
-        mainSource: mockImage
-      }
-    ];
-
-    const { container, getAllByTestId, findByText } = render(
-      <MobileThumbnails
-        images={images}
-        component={(props) => (
-          <Thumbnail data-testid="default-thumbnail" {...props} />
-        )}
-        activeImageIndex={1}
-        onThumbnailClick={onThumbnailClick}
-      />
-    );
+    const { container, getAllByTestId, findByText } = renderMobileThumbnail();
 
     const thumbnails = getAllByTestId("default-thumbnail");
     const scroller = container.querySelector(".scroller");
@@ -57,28 +60,7 @@ describe("_MobileThumbnails component", () => {
   });
 
   it("scroll correctly", async () => {
-    const images = [
-      {
-        media: <img src={mockImage} alt="Lorem ipsum 1" />,
-        thumbnail: mockImage,
-        altText: "test alt text"
-      },
-      {
-        media: <img src={mockImage} alt="Lorem ipsum 2" />,
-        thumbnail: mockImage
-      }
-    ];
-
-    const { container } = render(
-      <MobileThumbnails
-        images={images}
-        component={(props) => (
-          <Thumbnail data-testid="default-thumbnail" {...props} />
-        )}
-        activeImageIndex={0}
-        onThumbnailClick={onThumbnailClick}
-      />
-    );
+    const { container } = renderMobileThumbnail();
     const scroller = container.querySelector(".scroller");
     const scrollToSpy = ((scroller?.parentElement as HTMLElement).scrollTo =
       jest.fn());
@@ -101,29 +83,8 @@ describe("_MobileThumbnails component", () => {
     expect(container.querySelector(".thumbnails--right-gradient")).toBeTruthy();
   });
 
-  it("scroll corretly when parentScrollLeft, parentOffsetWidth and offsetWidth is 0", async () => {
-    const images = [
-      {
-        media: <img src={mockImage} alt="Lorem ipsum 1" />,
-        thumbnail: mockImage,
-        altText: "test alt text"
-      },
-      {
-        media: <img src={mockImage} alt="Lorem ipsum 2" />,
-        thumbnail: mockImage
-      }
-    ];
-
-    const { container } = render(
-      <MobileThumbnails
-        images={images}
-        component={(props) => (
-          <Thumbnail data-testid="default-thumbnail" {...props} />
-        )}
-        activeImageIndex={0}
-        onThumbnailClick={onThumbnailClick}
-      />
-    );
+  it("scroll correctly when parentScrollLeft, parentOffsetWidth and offsetWidth is 0", async () => {
+    const { container } = renderMobileThumbnail(0);
     const scroller = container.querySelector(".scroller");
     const scrollToSpy = ((scroller?.parentElement as HTMLElement).scrollTo =
       jest.fn());

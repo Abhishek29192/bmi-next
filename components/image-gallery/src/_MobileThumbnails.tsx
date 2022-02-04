@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import classnames from "classnames";
 import DefaultThumbnail from "@bmi/thumbnail";
+import { StateEnum, SizeEnum } from "../../thumbnail/src/Thumbnail";
 import styles from "./ImageGallery.module.scss";
 import { Image } from "./types";
 
@@ -76,16 +77,21 @@ const Thumbnails = ({
           width: `${images.length * THUMBNAIL_WIDTH}px`
         }}
       >
-        {images.map(({ mainSource, thumbnail, altText }, index) => {
+        {images.map(({ media, thumbnail, altText }, index) => {
           return (
             <Thumbnail
+              media={media}
               key={`thumbnail-${index}`}
-              imageSource={thumbnail || mainSource}
+              imageSource={thumbnail}
               altText={altText}
-              state={activeImageIndex === index ? "selected" : "enabled"}
+              state={
+                activeImageIndex === index
+                  ? StateEnum.SELECTED
+                  : StateEnum.ENABLED
+              }
               onClick={() => onThumbnailClick(index)}
               className={styles["thumbnail"]}
-              size="large"
+              size={SizeEnum.LARGE}
             />
           );
         })}
