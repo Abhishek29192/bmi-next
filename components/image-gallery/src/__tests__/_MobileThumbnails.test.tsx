@@ -27,7 +27,7 @@ const images = [
   }
 ];
 
-const renderMobileThumbnail = (activeImageIndex: number = 1) =>
+const renderMobileThumbnail = (activeImageIndex = 1) =>
   render(
     <MobileThumbnails
       images={images}
