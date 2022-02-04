@@ -19,6 +19,7 @@ import { BUSINESS_TYPES, TIERS } from "../../lib/constants";
 import { spreadObjectKeys } from "../../lib/utils/object";
 import { InfoPair } from "../InfoPair";
 import { ProfilePictureUpload } from "../ProfilePictureUpload";
+import { getNestedValue } from "../../lib/utils/object";
 import { SetTradingAddress } from "./SetTradingAddress";
 import styles from "./styles.module.scss";
 import { SetCompanyOperations } from "./SetCompanyOperations";
@@ -92,7 +93,7 @@ export const SetCompanyDetailsDialog = ({
       name: fieldName,
       label: t(`company-page:edit_dialog.form.fields.${fieldName}`),
       // eslint-disable-next-line security/detect-object-injection
-      defaultValue: (company && company[`${fieldName}`]) || "",
+      defaultValue: getNestedValue(company, fieldName) || "",
       fullWidth: true,
       fieldIsRequiredError: t("common:error_messages.required")
     }),
