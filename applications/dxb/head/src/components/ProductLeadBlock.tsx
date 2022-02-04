@@ -10,6 +10,7 @@ import Tab, { TabProps } from "@material-ui/core/Tab";
 import DownloadList from "@bmi/download-list";
 import Icon from "@bmi/icon";
 import ImageGallery, { Image } from "@bmi/image-gallery";
+import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
 import RichText, { RichTextData } from "./RichText";
@@ -23,6 +24,7 @@ import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { Asset, Classification } from "./types/pim";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
 import BimIframe from "./BimIframe";
+import { getClickableActionFromUrl } from "./Link";
 
 const BlueCheckIcon = (
   <Icon source={CheckIcon} style={{ color: "var(--color-theme-accent-300)" }} />
@@ -59,11 +61,17 @@ const ProductLeadBlock = ({
   classificationNamespace,
   techDrawings
 }: Props) => {
-  const { getMicroCopy } = useSiteContext();
+  const { getMicroCopy, countryCode } = useSiteContext();
   const [page, setPage] = useState(1);
   const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
   const resultsElement = useRef<HTMLDivElement>(null);
 
+  const isImageAsset = (asset: Asset) => {
+    return (
+      asset.realFileName?.indexOf(".jpg") > -1 ||
+      asset.realFileName?.indexOf(".png") > -1
+    );
+  };
   const isPDFAsset = (asset: Asset) => {
     return (
       asset.url?.indexOf(".pdf") > -1 ||
@@ -71,11 +79,11 @@ const ProductLeadBlock = ({
     );
   };
 
-  const guaranteesDocuments = (guaranteesAndWarranties || []).filter((item) =>
-    isPDFAsset(item)
+  const guaranteesAndWarrantiesLinks = (guaranteesAndWarranties || []).filter(
+    (item) => !isPDFAsset(item) && !isImageAsset(item)
   );
-  const guaranteesImages = (guaranteesAndWarranties || []).filter(
-    (item) => !isPDFAsset(item)
+  const guaranteesImages = guaranteesAndWarranties?.filter((item) =>
+    isImageAsset(item)
   );
 
   const awardsDocs = (awardsAndCertificates || []).filter((item) =>
@@ -96,6 +104,7 @@ const ProductLeadBlock = ({
     window.scrollTo(0, scrollY);
     setPage(page);
   };
+  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
   return (
     <div className={styles["ProductLeadBlock"]}>
@@ -130,7 +139,7 @@ const ProductLeadBlock = ({
                       microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES
                     )}
                   </LeadBlock.Content.Heading>
-                  {guaranteesImages.map((item, i) => (
+                  {guaranteesImages?.map((item, i) => (
                     <img
                       key={`guarentee-img-${i}`}
                       src={item.url}
@@ -138,26 +147,27 @@ const ProductLeadBlock = ({
                       className={styles["image"]}
                     />
                   ))}
-                  {guaranteesImages.length > 0 &&
-                    guaranteesDocuments.length > 0 && <br />}
-                  {guaranteesDocuments.map((item, i) => (
-                    <span
-                      className={styles["document"]}
-                      key={`guarentee-doc-${i}`}
-                    >
-                      <Button
-                        variant="outlined"
-                        action={{
-                          model: "htmlLink",
-                          href: item.url,
-                          target: "_blank",
-                          rel: "noopener noreferrer"
+                  {guaranteesAndWarrantiesLinks?.map((item, i) => (
+                    <div key={`link-${i}`}>
+                      <GTMAnchorLink
+                        action={getClickableActionFromUrl(
+                          null,
+                          item.url,
+                          countryCode,
+                          null,
+                          item.name
+                        )}
+                        gtm={{
+                          id: "cta-click1",
+                          label: item.name,
+                          action: item.url
                         }}
-                        endIcon={<Launch />}
+                        iconEnd
+                        className={styles["inline-link"]}
                       >
                         {item.name}
-                      </Button>
-                    </span>
+                      </GTMAnchorLink>
+                    </div>
                   ))}
                 </LeadBlock.Content.Section>
               )}

@@ -1,5 +1,389 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ProductLeadBlock tests should render guarantees & warranties images & links on on about tab 1`] = `
+<div>
+  <div
+    class="ProductLeadBlock"
+  >
+    <div
+      class="Tabs Tabs--primary"
+    >
+      <div
+        class="TabsBar"
+      >
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root tabStyles-ContainerRoot-64 MuiContainer-maxWidthXl"
+          >
+            <div
+              class="MuiTabs-root tabStyles-TabsRoot-65"
+            >
+              <div
+                class="MuiTabs-scrollable"
+                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+              />
+              <div
+                class="MuiTabs-scroller MuiTabs-scrollable"
+                style="margin-bottom: 0px;"
+              >
+                <div
+                  aria-label="tabs"
+                  class="MuiTabs-flexContainer"
+                  role="tablist"
+                >
+                  <button
+                    aria-controls="tabpanel-one"
+                    aria-selected="true"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-66 Mui-selected"
+                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    id="tab-one"
+                    role="tab"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      MC: pdp.leadBlock.about
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <button
+                    aria-controls="tabpanel-two"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-66"
+                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    id="tab-two"
+                    role="tab"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      MC: pdp.leadBlock.technicalSpecifications
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <button
+                    aria-controls="tabpanel-three"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-66"
+                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.documents\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    id="tab-three"
+                    role="tab"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      MC: pdp.leadBlock.documents
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+                <span
+                  class="PrivateTabIndicator-root-67 PrivateTabIndicator-colorPrimary-68 MuiTabs-indicator"
+                  style="left: 0px; width: 0px;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-one"
+        class="MuiGrid-root TabPanel MuiGrid-item"
+        heading="MC: pdp.leadBlock.about"
+        id="tabpanel-one"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-71 TabPanelBox"
+        >
+          <div
+            class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            >
+              <div
+                class="LeadBlockContentSection"
+              >
+                <div
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                />
+              </div>
+              <div
+                class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+              >
+                <h5
+                  class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                >
+                  MC: pdp.leadBlock.guaranteesWarranties
+                </h5>
+                <img
+                  alt="Monier garanti 30 år"
+                  class="image"
+                  src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hbc/hd9/9009904058398/Monier-garanti-30-arjpg"
+                />
+                <img
+                  alt="Test_Guarantee"
+                  class="image"
+                  src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h6c/hba/9021243785246/Test-Guaranteepng"
+                />
+                <div>
+                  <a
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover inline-link Anchorlink MuiTypography-colorPrimary"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read more about guarantees\\",\\"action\\":\\"http://localhost:8000/other\\"}"
+                    type="button"
+                  >
+                    <span>
+                      Read more about guarantees
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="icon"
+                      focusable="false"
+                    />
+                  </a>
+                </div>
+                <div>
+                  <a
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover inline-link Anchorlink MuiTypography-colorPrimary"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read more about Warranties\\",\\"action\\":\\"http://bmigroup.com\\"}"
+                    type="button"
+                  >
+                    <span>
+                      Read more about Warranties
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="icon"
+                      focusable="false"
+                    />
+                  </a>
+                </div>
+                <div>
+                  <a
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover inline-link Anchorlink MuiTypography-colorPrimary"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"external\\",\\"action\\":\\"http://facebook.com\\"}"
+                    type="button"
+                  >
+                    <span>
+                      external
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="icon"
+                      focusable="false"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-two"
+        class="MuiGrid-root TabPanel MuiGrid-item"
+        heading="MC: pdp.leadBlock.technicalSpecifications"
+        hidden=""
+        id="tabpanel-two"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-72 TabPanelBox"
+        >
+          <div
+            class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            >
+              <div
+                class="ProductTechnicalSpec"
+              >
+                MC: pdp.noTechSpecMessage
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-three"
+        class="MuiGrid-root TabPanel MuiGrid-item"
+        heading="MC: pdp.leadBlock.documents"
+        hidden=""
+        id="tabpanel-three"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-73 TabPanelBox"
+        >
+          <div
+            class="document-library"
+          >
+            <div
+              class="DocumentSimpleTableResults"
+            >
+              <div>
+                <table
+                  class="MuiTable-root Table Table--row-no-color"
+                >
+                  <thead
+                    class="MuiTableHead-root ColorPair ColorPair--pearl"
+                  >
+                    <tr
+                      class="MuiTableRow-root MuiTableRow-head"
+                    >
+                      <th
+                        class="MuiTableCell-root MuiTableCell-head"
+                        scope="col"
+                      >
+                        MC: documentLibrary.headers.type
+                      </th>
+                      <th
+                        class="MuiTableCell-root MuiTableCell-head table-header"
+                        scope="col"
+                      >
+                        MC: documentLibrary.headers.download
+                      </th>
+                      <th
+                        class="MuiTableCell-root MuiTableCell-head table-header"
+                        scope="col"
+                      >
+                        MC: documentLibrary.headers.add
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="MuiTableBody-root"
+                  />
+                </table>
+              </div>
+            </div>
+            <div
+              class="DocumentResultsFooter"
+            >
+              <nav
+                aria-label="pagination navigation"
+                class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-74"
+              >
+                <ul
+                  class="MuiPagination-ul"
+                >
+                  <li>
+                    <button
+                      aria-label="Go to previous page"
+                      class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiPaginationItem-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                        />
+                      </svg>
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      aria-label="Go to next page"
+                      class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+                      disabled=""
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiPaginationItem-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                        />
+                      </svg>
+                    </button>
+                  </li>
+                </ul>
+              </nav>
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-downloads Anchorlink MuiTypography-colorPrimary"
+                type="button"
+              >
+                <span>
+                  MC: downloadList.clear
+                </span>
+              </a>
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-75 MuiButton-contained buttonStyles-contained-77 MuiButton-containedPrimary"
+                data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label buttonStyles-label-78"
+                >
+                  MC: downloadList.download (0)
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+              <p
+                class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+              >
+                This site is protected by reCAPTCHA and the Google 
+                <a
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                  href="https://policies.google.com/privacy"
+                  rel="noreferrer noopener"
+                  target="_blank"
+                >
+                  <span>
+                    Privacy Policy
+                  </span>
+                </a>
+                 and 
+                <a
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                  href="https://policies.google.com/terms"
+                  rel="noreferrer noopener"
+                  target="_blank"
+                >
+                  <span>
+                    Terms of Service
+                  </span>
+                </a>
+                 apply.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
 <div
   aria-labelledby="tab-five"
