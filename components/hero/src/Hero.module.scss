@@ -228,16 +228,18 @@ $hero-breakpoint-sm: 769px;
         top: 50%;
         width: 100%;
         bottom: 0;
-        background: linear-gradient(to bottom,
-            rgba($color-blue-800, 0) 0%,
-            $color-blue-800 70%,
-            $color-blue-800 100%);
+        background: linear-gradient(
+          to bottom,
+          rgba($color-blue-800, 0) 0%,
+          $color-blue-800 70%,
+          $color-blue-800 100%
+        );
       }
     }
 
     .text {
       width: 100%;
-      font-size: 22px;
+      font-size: 20.25px;
     }
 
     .controls {
