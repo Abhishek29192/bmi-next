@@ -7,20 +7,6 @@ config({
   path: `./.env.${process.env.NODE_ENV}`
 });
 
-const {
-  GOOGLE_YOUTUBE_API_KEY,
-  ENABLE_YOUTUBE_CACHE,
-  YOUTUBE_CACHE_API_URL,
-  YOUTUBE_CACHE_BEARER_TOKEN_SECRET
-} = process.env;
-
-const youtube = GOOGLE_YOUTUBE_API_KEY
-  ? google.youtube({
-      version: "v3",
-      auth: GOOGLE_YOUTUBE_API_KEY
-    })
-  : null;
-
 const throwMissingEnvVariable = (name: string) => {
   throw new Error(`resolvers.ContentfulVideo: ${name} is missing.`);
 };
@@ -43,6 +29,20 @@ const formatYoutubeDetails = (data: youtube_v3.Schema$VideoListResponse) => {
 export default {
   videoRatio: {
     async resolve(source: Node) {
+      const {
+        GOOGLE_YOUTUBE_API_KEY,
+        ENABLE_YOUTUBE_CACHE,
+        YOUTUBE_CACHE_API_URL,
+        YOUTUBE_CACHE_BEARER_TOKEN_SECRET
+      } = process.env;
+
+      const youtube = GOOGLE_YOUTUBE_API_KEY
+        ? google.youtube({
+            version: "v3",
+            auth: GOOGLE_YOUTUBE_API_KEY
+          })
+        : null;
+
       if (!ENABLE_YOUTUBE_CACHE) {
         if (!youtube) {
           if (process.env.NODE_ENV === "production") {
@@ -62,14 +62,10 @@ export default {
       }
 
       if (!YOUTUBE_CACHE_API_URL) {
-        throw new Error(
-          "resolvers.ContentfulVideo: YOUTUBE_CACHE_API_URL is missing."
-        );
+        return throwMissingEnvVariable("YOUTUBE_CACHE_API_URL");
       }
       if (!YOUTUBE_CACHE_BEARER_TOKEN_SECRET) {
-        throw new Error(
-          "resolvers.ContentfulVideo: YOUTUBE_CACHE_BEARER_TOKEN_SECRET is missing."
-        );
+        return throwMissingEnvVariable("YOUTUBE_CACHE_BEARER_TOKEN_SECRET");
       }
 
       const url = `${YOUTUBE_CACHE_API_URL}?youtubeId=${source.youtubeId}`;
