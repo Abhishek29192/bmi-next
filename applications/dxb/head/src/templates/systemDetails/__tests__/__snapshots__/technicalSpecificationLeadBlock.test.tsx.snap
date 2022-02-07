@@ -24,6 +24,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                 aria-disabled="false"
                 aria-expanded="true"
                 class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-19 Mui-expanded accordionStyles-summaryExpanded-20"
+                data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
@@ -127,6 +128,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                 aria-disabled="false"
                 aria-expanded="true"
                 class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-19 Mui-expanded accordionStyles-summaryExpanded-20"
+                data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
@@ -255,6 +257,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                 aria-disabled="false"
                 aria-expanded="true"
                 class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5 Mui-expanded accordionStyles-summaryExpanded-6"
+                data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
@@ -344,6 +347,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                 aria-disabled="false"
                 aria-expanded="true"
                 class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5 Mui-expanded accordionStyles-summaryExpanded-6"
+                data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
@@ -555,6 +559,22 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TechnicalSpecificationLeadBlock tests should render correctly when no classifications provided With tech spec an empty set 1`] = `
+<div>
+  <div
+    class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+  >
+    <div
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+    >
+      <div
+        class="LeadBlockContentSection"
+      />
     </div>
   </div>
 </div>

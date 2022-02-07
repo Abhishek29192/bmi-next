@@ -3384,6 +3384,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                               aria-disabled="false"
                               aria-expanded="true"
                               class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-273 Mui-expanded accordionStyles-summaryExpanded-274"
+                              data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"Accoridion Title 2\\",\\"action\\":\\"Selector – Accordion\\"}"
                               role="button"
                               tabindex="0"
                             >
@@ -3473,6 +3474,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                               aria-disabled="false"
                               aria-expanded="true"
                               class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-273 Mui-expanded accordionStyles-summaryExpanded-274"
+                              data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"Accoridion Title 2\\",\\"action\\":\\"Selector – Accordion\\"}"
                               role="button"
                               tabindex="0"
                             >
@@ -9314,6 +9316,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               aria-disabled="false"
                               aria-expanded="true"
                               class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-348 Mui-expanded accordionStyles-summaryExpanded-349"
+                              data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"franceFlatSystemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                               role="button"
                               tabindex="0"
                             >
@@ -9403,6 +9406,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               aria-disabled="false"
                               aria-expanded="true"
                               class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-348 Mui-expanded accordionStyles-summaryExpanded-349"
+                              data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"measurements\\",\\"action\\":\\"Selector – Accordion\\"}"
                               role="button"
                               tabindex="0"
                             >
@@ -9506,6 +9510,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                               aria-disabled="false"
                               aria-expanded="true"
                               class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-348 Mui-expanded accordionStyles-summaryExpanded-349"
+                              data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                               role="button"
                               tabindex="0"
                             >
@@ -15284,6 +15289,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               aria-disabled="false"
                               aria-expanded="true"
                               class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-45 Mui-expanded accordionStyles-summaryExpanded-46"
+                              data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"franceFlatSystemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                               role="button"
                               tabindex="0"
                             >
@@ -15373,6 +15379,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               aria-disabled="false"
                               aria-expanded="true"
                               class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-45 Mui-expanded accordionStyles-summaryExpanded-46"
+                              data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"measurements\\",\\"action\\":\\"Selector – Accordion\\"}"
                               role="button"
                               tabindex="0"
                             >
@@ -15476,6 +15483,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               aria-disabled="false"
                               aria-expanded="true"
                               class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-45 Mui-expanded accordionStyles-summaryExpanded-46"
+                              data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                               role="button"
                               tabindex="0"
                             >
@@ -21344,6 +21352,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               aria-disabled="false"
                               aria-expanded="true"
                               class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-159 Mui-expanded accordionStyles-summaryExpanded-160"
+                              data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"franceFlatSystemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                               role="button"
                               tabindex="0"
                             >
@@ -21433,6 +21442,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               aria-disabled="false"
                               aria-expanded="true"
                               class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-159 Mui-expanded accordionStyles-summaryExpanded-160"
+                              data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"measurements\\",\\"action\\":\\"Selector – Accordion\\"}"
                               role="button"
                               tabindex="0"
                             >
@@ -21536,6 +21546,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               aria-disabled="false"
                               aria-expanded="true"
                               class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-159 Mui-expanded accordionStyles-summaryExpanded-160"
+                              data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                               role="button"
                               tabindex="0"
                             >
@@ -27435,6 +27446,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                               aria-disabled="false"
                               aria-expanded="true"
                               class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-462 Mui-expanded accordionStyles-summaryExpanded-463"
+                              data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"franceFlatSystemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                               role="button"
                               tabindex="0"
                             >
@@ -27524,6 +27536,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                               aria-disabled="false"
                               aria-expanded="true"
                               class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-462 Mui-expanded accordionStyles-summaryExpanded-463"
+                              data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"measurements\\",\\"action\\":\\"Selector – Accordion\\"}"
                               role="button"
                               tabindex="0"
                             >
@@ -27627,6 +27640,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                               aria-disabled="false"
                               aria-expanded="true"
                               class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-462 Mui-expanded accordionStyles-summaryExpanded-463"
+                              data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                               role="button"
                               tabindex="0"
                             >
