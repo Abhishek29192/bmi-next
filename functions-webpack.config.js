@@ -1,5 +1,8 @@
 "use strict";
 
+const { DuplicatesPlugin } = require("inspectpack/plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+
 module.exports = {
   entry: "./src/index.ts",
   module: {
@@ -24,5 +27,16 @@ module.exports = {
   devtool:
     process.env.NODE_ENV === "production"
       ? "source-map"
-      : "eval-cheap-module-source-map"
+      : "eval-cheap-module-source-map",
+  plugins: [
+    new BundleAnalyzerPlugin({
+      analyzerMode: "static"
+    }),
+    new DuplicatesPlugin({
+      // Emit compilation warning or error? (Default: `false`)
+      emitErrors: false,
+      // Display full duplicates information? (Default: `false`)
+      verbose: false
+    })
+  ]
 };

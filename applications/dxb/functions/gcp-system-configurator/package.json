@@ -10,7 +10,8 @@
     "build": "webpack --mode=production",
     "check:ts": "tsc",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
-    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=nextStep --port=9059"
+    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=nextStep --port=9059",
+    "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json process-top ./node_modules/.bin/functions-framework --source=dist --target=nextStep --port=9059"
   },
   "dependencies": {
     "@bmi/functions-logger": "0.0.0",
@@ -22,6 +23,11 @@
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
-    "js-yaml": "^4.0.0"
+    "inspectpack": "^4.7.1",
+    "js-yaml": "^4.0.0",
+    "process-top": "^1.2.0",
+    "webpack": "^5.33.2",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.2"
   }
 }

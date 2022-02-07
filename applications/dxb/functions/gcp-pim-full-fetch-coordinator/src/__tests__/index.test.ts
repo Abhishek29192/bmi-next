@@ -25,9 +25,7 @@ jest.mock("../elasticsearch", () => {
 
 const deleteFirestoreCollection = jest.fn();
 jest.mock("../firestore", () => {
-  const firestore = jest.requireActual("../firestore");
   return {
-    ...firestore,
     deleteFirestoreCollection: (...args: any) =>
       deleteFirestoreCollection(...args)
   };

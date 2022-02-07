@@ -1,11 +1,11 @@
-import admin from "firebase-admin";
-import { DocumentData, Firestore, Query } from "@google-cloud/firestore";
+import {
+  getFirestore,
+  DocumentData,
+  Firestore,
+  Query
+} from "@bmi/functions-firestore";
 import logger from "@bmi/functions-logger";
 import { FirestoreCollections } from "./firestoreCollections";
-
-admin.initializeApp({
-  databaseURL: `https://${process.env.GCP_PROJECT_ID}.firebaseio.com`
-});
 
 async function deleteQueryBatch(db: Firestore, query: Query<DocumentData>) {
   let snapshot = await query.get();
@@ -27,7 +27,7 @@ async function deleteQueryBatch(db: Firestore, query: Query<DocumentData>) {
 export async function deleteFirestoreCollection(
   collectionPath: FirestoreCollections
 ) {
-  const db = admin.firestore();
+  const db = getFirestore();
   const batchSize = 20;
 
   const collectionRef = db.collection(

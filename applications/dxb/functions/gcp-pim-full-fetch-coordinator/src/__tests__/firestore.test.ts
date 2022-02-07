@@ -1,7 +1,7 @@
 import mockConsole from "jest-mock-console";
+import { deleteFirestoreCollection } from "../firestore";
 import { FirestoreCollections } from "../firestoreCollections";
 
-const initializeApp = jest.fn();
 const collection = jest.fn();
 const batch = jest.fn();
 const collectionRefLimit = jest.fn();
@@ -9,18 +9,12 @@ const collectionRefOrderBy = jest.fn();
 const queryGet = jest.fn();
 const batchDelete = jest.fn();
 const commit = jest.fn();
-jest.mock("firebase-admin", () => ({
-  initializeApp: (...args: any) => initializeApp(...args),
-  firestore: () => ({
+jest.mock("@bmi/functions-firestore", () => ({
+  getFirestore: () => ({
     collection: (...args: any) => collection(...args),
     batch: () => batch()
   })
 }));
-
-const deleteFirestoreCollection = async (
-  firestoreCollection: FirestoreCollections
-) =>
-  (await import("../firestore")).deleteFirestoreCollection(firestoreCollection);
 
 beforeAll(() => {
   mockConsole();

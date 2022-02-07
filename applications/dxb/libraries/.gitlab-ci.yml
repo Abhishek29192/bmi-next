@@ -1,2 +1,3 @@
 include:
+  - local: "/applications/dxb/libraries/functions-firestore/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/gatsby-plugin-meta-redirect/.gitlab-ci.yml"
