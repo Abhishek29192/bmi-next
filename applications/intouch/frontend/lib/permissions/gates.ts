@@ -8,7 +8,7 @@ import {
   isSuperOrMarketAdmin
 } from "../account";
 
-const isCompanyMember = (
+export const isCompanyMember = (
   account: Account,
   extraData: { companyId: number }
 ) => {
@@ -16,11 +16,11 @@ const isCompanyMember = (
   return (
     companyId &&
     companyId ===
-      account?.companyMembers?.nodes.find((m) => m.company.id)?.company?.id
+      account?.companyMembers?.nodes.find((m) => m.company.id)?.company.id
   );
 };
 
-const canSeeProjects = (account) => {
+export const canSeeProjects = (account) => {
   if ([ROLES.SUPER_ADMIN].includes(account?.role)) {
     return true;
   }
@@ -30,18 +30,18 @@ const canSeeProjects = (account) => {
     return false;
   }
 
-  if ([ROLES.MARKET_ADMIN, ROLES.COMPANY_ADMIN].includes(account?.role)) {
+  if ([ROLES.MARKET_ADMIN, ROLES.COMPANY_ADMIN].includes(account.role)) {
     return true;
   }
 
-  if (account?.role === ROLES.INSTALLER) {
+  if (account.role === ROLES.INSTALLER) {
     return hasProjects(account);
   }
 
   return false;
 };
 
-const canSeeTeam = (account) => {
+export const canSeeTeam = (account) => {
   if (
     [ROLES.SUPER_ADMIN, ROLES.MARKET_ADMIN, ROLES.COMPANY_ADMIN].includes(
       account?.role
@@ -53,7 +53,7 @@ const canSeeTeam = (account) => {
   return false;
 };
 
-const canSeeMediaLibrary = (account) => {
+export const canSeeMediaLibrary = (account) => {
   return (
     ["T2", "T3", "T4"].includes(findAccountTier(account)) ||
     isSuperOrMarketAdmin(account)
@@ -61,7 +61,7 @@ const canSeeMediaLibrary = (account) => {
 };
 
 // TODO: Is there any way to type this more specifically??? The extraData in particular.
-const gates = {
+export const gates = {
   company: {
     viewAll: {
       SUPER_ADMIN: true,

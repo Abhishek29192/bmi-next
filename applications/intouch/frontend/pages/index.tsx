@@ -23,7 +23,7 @@ import { NewProjectDialog } from "../components/Pages/Project/CreateProject/Dial
 import AccessControl from "../lib/permissions/AccessControl";
 import styles from "../styles/Homepage.module.scss";
 
-type HomePageProps = GlobalPageProps & {
+export type HomePageProps = GlobalPageProps & {
   marketContent: GetPartnerBrandsQuery["marketContentCollection"]["items"][0];
   carouselItems: GetPartnerBrandsQuery["carouselCollection"]["items"][0]["listCollection"]["items"];
   tierBenefit: GetPartnerBrandsQuery["tierBenefitCollection"]["items"][0];
@@ -32,13 +32,15 @@ type HomePageProps = GlobalPageProps & {
 const mapPartnerBrands = (
   marketContent: GetPartnerBrandsQuery["marketContentCollection"]["items"][0]
 ) => {
-  return marketContent?.partnerBrandsCollection?.items?.map(
-    ({ name, shortDescription, image, logo }) => ({
-      name,
-      shortDescription,
-      image,
-      logo
-    })
+  return (
+    marketContent?.partnerBrandsCollection?.items?.map(
+      ({ name, shortDescription, image, logo }) => ({
+        name,
+        shortDescription,
+        image,
+        logo
+      })
+    ) || []
   );
 };
 
@@ -46,7 +48,7 @@ const getPageTitle = (account: Account) => {
   // Show user's full name or company name if they're a company member.
   return (
     findAccountCompany(account)?.name ||
-    [account?.firstName, account?.lastName].filter(Boolean).join(" ")
+    [account.firstName, account.lastName].filter(Boolean).join(" ")
   );
 };
 
@@ -95,7 +97,6 @@ const Homepage = ({
     severity: "INFO",
     message: "Home page loaded"
   });
-
   const pageTitle = getPageTitle(account);
   const company = findAccountCompany(account);
   const canSeePartnerBrandsCarousel = ["T2", "T3", "T4"].includes(
@@ -144,8 +145,7 @@ const Homepage = ({
   return (
     <Layout title={pageTitle} pageData={globalPageData}>
       {/* TODO: Hero doesn't have a way to disable the controls? */}
-
-      {heroItems?.length && (
+      {heroItems.length && (
         <Hero
           level={0}
           hasSpaceBottom
@@ -285,6 +285,7 @@ const ProjectCTA = ({ onClick }: { onClick: () => void }) => {
       variant="outlined"
       style={{ marginTop: "2em" }}
       onClick={onClick}
+      data-testid="project-cta"
     >
       {t(`hero.cta.PROJECT`)}
     </Button>
