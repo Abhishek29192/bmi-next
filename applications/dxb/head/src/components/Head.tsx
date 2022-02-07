@@ -16,14 +16,7 @@ interface HeadProps {
   title: string;
   defer?: boolean;
   ogImageUrl?: string;
-  scripts?: Pick<
-    SiteData,
-    | "headScripts"
-    | "scriptGA"
-    | "scriptOnetrust"
-    | "scriptHotJar"
-    | "scriptGOptLoad"
-  >;
+  scripts?: Pick<SiteData, "headScripts" | "scriptOnetrust">;
   seo?: SEOContentData | null;
   path?: string;
   baseProduct?: Product;
@@ -42,21 +35,10 @@ export const Head = ({
   baseProduct,
   variantProduct,
   countryCode
-}: HeadProps) => {
+}: HeadProps): React.ReactNode => {
+  const { headScripts, scriptOnetrust } = scripts;
   const {
-    headScripts,
-    scriptOnetrust,
-    scriptGA,
-    scriptHotJar,
-    scriptGOptLoad
-  } = scripts;
-  const {
-    config: {
-      isPreviewMode,
-      googleTagManagerID,
-      hubSpotId,
-      isSchemaORGActivated
-    }
+    config: { isPreviewMode, hubSpotId, isSchemaORGActivated }
   } = useConfig();
   const imageUrl = getJpgImage(ogImageUrl);
 
@@ -72,9 +54,6 @@ export const Head = ({
     ].indexOf(path) > -1;
 
   const isScriptOnetrustEnabled = Boolean(!isPreviewMode && scriptOnetrust);
-  const isScriptGAenabled = Boolean(!isPreviewMode && scriptGA);
-  const enableHotjar = Boolean(!isPreviewMode && scriptHotJar);
-  const enableGOptimize = Boolean(!isPreviewMode && scriptGOptLoad);
   const enableHubSpot = Boolean(!isPreviewMode && hubSpotId);
 
   const schemaOrgActivated =
@@ -151,69 +130,6 @@ export const Head = ({
         </script>
       )}
 
-      {enableGOptimize && (
-        <style>{`.async-hide { opacity: 0 !important}`}</style>
-      )}
-
-      {enableGOptimize && (
-        <script
-          async
-        >{`(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
-          h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
-          (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
-        })(window,document.documentElement,'async-hide','dataLayer',4000,
-          {'${googleTagManagerID}':true});`}</script>
-      )}
-
-      {isScriptGAenabled && (
-        <script async>
-          {`<!-- Global site tag (gtag.js) - Google Analytics -->
-            window.dataLayer = window.dataLayer || []; 
-            function gtag(){dataLayer.push(arguments);} 
-            gtag('js', new Date()); gtag('config', '${scriptGA}');`}
-        </script>
-      )}
-
-      {isScriptGAenabled && (
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${scriptGA}`}
-        />
-      )}
-
-      {enableHotjar && (
-        <script async>
-          {`<!-- Hotjar Tracking Code for https://www.bmigroup.com/no -->
-                (function(h,o,t,j,a,r){
-                  h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                  h._hjSettings={hjid:${scriptHotJar},hjsv:6};
-                  a=o.getElementsByTagName('head')[0];
-                  r=o.createElement('script');r.async=1;
-                  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                  a.appendChild(r);
-              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
-        </script>
-      )}
-      {enableHotjar && (
-        <link
-          rel="preconnect"
-          href="https://script.hotjar.com/"
-          crossOrigin="anonymous"
-        />
-      )}
-      {enableHotjar && (
-        <link
-          rel="preconnect"
-          href="https://vars.hotjar.com"
-          crossOrigin="anonymous"
-        />
-      )}
-      {enableGOptimize && (
-        <script
-          async
-          src={`https://www.googleoptimize.com/optimize.js?id=${scriptGOptLoad}`}
-        />
-      )}
       {enableHubSpot && (
         // This script is for the HubSpot CTA Links (see `Link.tsx`)
         <script

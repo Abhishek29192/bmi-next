@@ -126,10 +126,7 @@ const Page = ({
         ogImageUrl={ogImageUrl}
         scripts={{
           headScripts,
-          scriptGA,
-          scriptOnetrust,
-          scriptHotJar,
-          scriptGOptLoad
+          scriptOnetrust
         }}
         path={path}
         seo={seo}

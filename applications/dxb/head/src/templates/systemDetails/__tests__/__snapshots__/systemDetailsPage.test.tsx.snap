@@ -3612,7 +3612,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                               <td
                                                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                               >
-                                                44
+                                                44 
                                               </td>
                                             </tr>
                                           </tbody>
@@ -3805,7 +3805,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                               <td
                                                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                               >
-                                                Yes
+                                                Yes 
                                               </td>
                                             </tr>
                                           </tbody>
@@ -9525,7 +9525,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                                               <td
                                                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                               >
-                                                accordion item value 3
+                                                accordion item value 3 
                                               </td>
                                             </tr>
                                           </tbody>
@@ -9615,7 +9615,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                                               <td
                                                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                               >
-                                                accordion item value 3
+                                                accordion item value 3 
                                               </td>
                                             </tr>
                                           </tbody>
@@ -9705,7 +9705,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                                               <td
                                                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                               >
-                                                accordion item value 4
+                                                accordion item value 4 
                                               </td>
                                             </tr>
                                           </tbody>
