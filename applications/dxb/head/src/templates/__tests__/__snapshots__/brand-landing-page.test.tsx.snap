@@ -6304,7 +6304,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                               class="MuiTypography-root title title--truncated Typography MuiTypography-h1"
                             />
                             <div
-                              class="text-no-underline"
+                              class="text"
                             >
                               description
                             </div>
@@ -9639,7 +9639,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                               class="MuiTypography-root title title--truncated Typography MuiTypography-h1"
                             />
                             <div
-                              class="text-no-underline"
+                              class="text"
                             >
                               description
                             </div>
@@ -16717,7 +16717,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                               class="MuiTypography-root title title--truncated Typography MuiTypography-h1"
                             />
                             <div
-                              class="text-no-underline"
+                              class="text"
                             />
                           </div>
                         </div>
@@ -20267,7 +20267,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                               class="MuiTypography-root title title--truncated Typography MuiTypography-h1"
                             />
                             <div
-                              class="text-no-underline"
+                              class="text"
                             >
                               description
                             </div>
@@ -23792,7 +23792,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                               class="MuiTypography-root title title--truncated Typography MuiTypography-h1"
                             />
                             <div
-                              class="text-no-underline"
+                              class="text"
                             >
                               description
                             </div>
@@ -27345,7 +27345,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                               class="MuiTypography-root title title--truncated Typography MuiTypography-h1"
                             />
                             <div
-                              class="text-no-underline"
+                              class="text"
                             >
                               description
                             </div>

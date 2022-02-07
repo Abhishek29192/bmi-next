@@ -345,8 +345,6 @@ describe("Brand Landing Page Template", () => {
     );
 
     expect(container).toMatchSnapshot();
-    expect(
-      container.querySelector(".Hero .text-no-underline").textContent
-    ).toBe("");
+    expect(container.querySelectorAll(".Hero .text")[0].textContent).toBe("");
   });
 });

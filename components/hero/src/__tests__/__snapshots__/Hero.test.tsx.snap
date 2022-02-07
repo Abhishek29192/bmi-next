@@ -398,7 +398,7 @@ exports[`Hero component renders with no underline for brand 1`] = `
                             Title
                           </h1>
                           <div
-                            class="text-no-underline"
+                            class="text"
                           />
                         </div>
                       </div>
