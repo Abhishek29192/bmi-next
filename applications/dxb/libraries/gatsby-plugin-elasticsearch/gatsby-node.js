@@ -52,8 +52,7 @@ exports.onPostBuild = async function (
 
     // Empty alias is invalid
     if (!alias) {
-      report.panic(`"${alias}" is not a valid indexName.`);
-      return;
+      return report.panic(`"${alias}" is not a valid indexName.`);
     }
 
     await deleteOrphanIndices(client, alias);
@@ -190,22 +189,17 @@ async function getUniqueIndexName(client, basename) {
  */
 async function deleteOrphanIndices(client, index) {
   let response;
+  const indices = await getIndicesStartingWith(client, `${index}_`);
   try {
-    const indices = await getIndicesStartingWith(client, `${index}_`);
-    try {
-      response = await client.indices.getAlias({ name: index });
-      const aliasedIndices = Object.keys(response.body);
-      indices.map(async (index) => {
-        if (!aliasedIndices.includes(index)) {
-          await client.indices.delete({ index: index });
-        }
-      });
-    } catch (err) {
-      // No aliased index found
-      console.warn(err);
-    }
+    response = await client.indices.getAlias({ name: index });
+    const aliasedIndices = Object.keys(response.body);
+    indices.map(async (index) => {
+      if (!aliasedIndices.includes(index)) {
+        await client.indices.delete({ index: index });
+      }
+    });
   } catch (err) {
-    // No existing indices found
+    // No aliased index found
     console.warn(err);
   }
 }
