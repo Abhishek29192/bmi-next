@@ -1,5 +1,5 @@
 import { URLSearchParams } from "url";
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import { SecretManagerServiceClient } from "@google-cloud/secret-manager/build/src/v1";
 import fetch, { RequestRedirect } from "node-fetch";
 import {
   AuthResponse,

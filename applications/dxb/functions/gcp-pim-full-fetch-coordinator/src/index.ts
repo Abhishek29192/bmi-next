@@ -2,7 +2,8 @@ import fetch, { Response } from "node-fetch";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import logger from "@bmi/functions-logger";
 import { fetchData, PimTypes } from "@bmi/pim-api";
-import { deleteFirestoreCollection, FirestoreCollections } from "./firestore";
+import { deleteFirestoreCollection } from "./firestore";
+import { FirestoreCollections } from "./firestore-collections";
 import {
   deleteElasticSearchIndex,
   ElasticsearchIndexes
