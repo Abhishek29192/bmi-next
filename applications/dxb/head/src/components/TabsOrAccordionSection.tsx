@@ -64,15 +64,17 @@ const SectionTabs = ({ items }: { items: readonly TitleWithContentData[] }) => {
         />
       )}
       theme="primary"
-      initialValue={items[0].title}
+      initialValue={items.length > 0 ? items[0].title || items[0].name : null}
     >
-      {items.map(({ title, content }) => {
-        return (
-          <Tabs.TabPanel heading={title} index={title} key={title}>
-            <RichText document={content} />
-          </Tabs.TabPanel>
-        );
-      })}
+      {items.length > 0 &&
+        items.map(({ title, content, name }) => {
+          const newTitle = title || name;
+          return (
+            <Tabs.TabPanel heading={newTitle} index={newTitle} key={newTitle}>
+              <RichText document={content} />
+            </Tabs.TabPanel>
+          );
+        })}
     </Tabs>
   );
 };
