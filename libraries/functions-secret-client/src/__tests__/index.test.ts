@@ -1,7 +1,7 @@
 import { protos } from "@google-cloud/secret-manager";
 
 const accessSecretVersion = jest.fn();
-jest.mock("@google-cloud/secret-manager", () => {
+jest.mock("@google-cloud/secret-manager/build/src/v1", () => {
   const mSecretManagerServiceClient = jest.fn(() => ({
     accessSecretVersion: (
       request: protos.google.cloud.secretmanager.v1.IAccessSecretVersionRequest

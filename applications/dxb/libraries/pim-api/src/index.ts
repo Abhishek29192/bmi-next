@@ -1,34 +1,23 @@
 import { URLSearchParams } from "url";
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager/build/src/v1";
+import { getSecret } from "@bmi/functions-secret-client";
 import fetch, { RequestRedirect } from "node-fetch";
 import {
   AuthResponse,
   ErrorResponse,
+  PimTypes,
   ProductsApiResponse,
-  SystemsApiResponse,
-  PimTypes
+  SystemsApiResponse
 } from "@bmi/pim-types";
 
-const {
-  PIM_CLIENT_ID,
-  PIM_CLIENT_SECRET,
-  PIM_HOST,
-  PIM_CATALOG_NAME,
-  SECRET_MAN_GCP_PROJECT_NAME
-} = process.env;
+const { PIM_CLIENT_ID, PIM_CLIENT_SECRET, PIM_HOST, PIM_CATALOG_NAME } =
+  process.env;
 
 // TODO: NOPE HACK!
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-const secretManagerClient = new SecretManagerServiceClient();
-
 const getAuthToken = async (): Promise<AuthResponse> => {
   if (!PIM_CLIENT_ID) {
     throw Error("PIM_CLIENT_ID has not been set.");
-  }
-
-  if (!SECRET_MAN_GCP_PROJECT_NAME) {
-    throw Error("SECRET_MAN_GCP_PROJECT_NAME has not been set.");
   }
 
   if (!PIM_CLIENT_SECRET) {
@@ -37,14 +26,7 @@ const getAuthToken = async (): Promise<AuthResponse> => {
 
   // get PIM secret from Secret Manager
   // eslint-disable-next-line @typescript-eslint/no-unused-vars -- Used as part of an optional chain
-  const pimSecret = await secretManagerClient.accessSecretVersion({
-    name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${PIM_CLIENT_SECRET}/versions/latest`
-  });
-
-  const pimClientSecret = pimSecret[0].payload?.data?.toString();
-  if (!pimClientSecret) {
-    throw Error("pimClientSecret could not be retrieved.");
-  }
+  const pimClientSecret = await getSecret(PIM_CLIENT_SECRET);
 
   const urlencoded = new URLSearchParams();
   urlencoded.append("client_id", PIM_CLIENT_ID);
