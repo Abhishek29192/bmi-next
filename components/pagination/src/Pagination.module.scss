@@ -1,7 +1,7 @@
 @import "@bmi/styles";
 
 .PaginationItem {
-  &:global(.MuiPaginationItem-root) {
+  &:global([class*="MuiPaginationItem-root"]) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,16 +13,16 @@
     border-radius: 42px;
   }
 
-  &:global(.MuiPaginationItem-textPrimary) {
+  &:global([class*="MuiPaginationItem-textPrimary"]) {
     color: $color-theme-inter;
   }
 
-  &:global(.Mui-selected) {
+  &:global([class*="Mui-selected"]) {
     color: $color-white;
   }
 
-  &--first:global(.MuiPaginationItem-root),
-  &--last:global(.MuiPaginationItem-root) {
+  &--first:global([class*="MuiPaginationItem-root"]),
+  &--last:global([class*="MuiPaginationItem-root"]) {
     background-color: transparent;
   }
 }
