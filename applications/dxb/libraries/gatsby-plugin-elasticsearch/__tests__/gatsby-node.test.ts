@@ -8,7 +8,7 @@ import {
   bulk,
   cat
 } from "@elastic/elasticsearch";
-// @ts-ignore
+
 import { onPostBuild } from "../gatsby-node";
 
 let reporterStatuses: string[] = [];
