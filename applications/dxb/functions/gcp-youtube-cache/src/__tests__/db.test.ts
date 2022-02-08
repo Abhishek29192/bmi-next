@@ -88,8 +88,9 @@ describe("getById", () => {
   it("should return undefined if ID does not exist in Firestore", async () => {
     get.mockResolvedValue({ exists: false });
 
-    await getById(youtubeId);
+    const youtubeDetails = await getById(youtubeId);
 
+    expect(youtubeDetails).toBeUndefined();
     expect(collection).toHaveBeenCalledWith(
       process.env.FIRESTORE_ROOT_COLLECTION
     );
