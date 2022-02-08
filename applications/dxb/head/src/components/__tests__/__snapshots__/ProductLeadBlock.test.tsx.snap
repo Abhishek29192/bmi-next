@@ -15,10 +15,10 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
           class="Container"
         >
           <div
-            class="MuiContainer-root tabStyles-ContainerRoot-64 MuiContainer-maxWidthXl"
+            class="MuiContainer-root tabStyles-ContainerRoot-1 MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiTabs-root tabStyles-TabsRoot-65"
+              class="MuiTabs-root tabStyles-TabsRoot-2"
             >
               <div
                 class="MuiTabs-scrollable"
@@ -36,7 +36,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                   <button
                     aria-controls="tabpanel-one"
                     aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-66 Mui-selected"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3 Mui-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-one"
                     role="tab"
@@ -55,7 +55,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                   <button
                     aria-controls="tabpanel-two"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-66"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-two"
                     role="tab"
@@ -74,7 +74,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                   <button
                     aria-controls="tabpanel-three"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-66"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.documents\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-three"
                     role="tab"
@@ -92,7 +92,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                   </button>
                 </div>
                 <span
-                  class="PrivateTabIndicator-root-67 PrivateTabIndicator-colorPrimary-68 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-4 PrivateTabIndicator-colorPrimary-5 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -108,7 +108,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-71 TabPanelBox"
+          class="MuiBox-root MuiBox-root-8 TabPanelBox"
         >
           <div
             class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
@@ -203,7 +203,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-72 TabPanelBox"
+          class="MuiBox-root MuiBox-root-9 TabPanelBox"
         >
           <div
             class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
@@ -229,7 +229,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-73 TabPanelBox"
+          class="MuiBox-root MuiBox-root-10 TabPanelBox"
         >
           <div
             class="document-library"
@@ -278,7 +278,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
             >
               <nav
                 aria-label="pagination navigation"
-                class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-74"
+                class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-11"
               >
                 <ul
                   class="MuiPagination-ul"
@@ -334,13 +334,13 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                 </span>
               </a>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-75 MuiButton-contained buttonStyles-contained-77 MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-12 MuiButton-contained buttonStyles-contained-14 MuiButton-containedPrimary"
                 data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-78"
+                  class="MuiButton-label buttonStyles-label-15"
                 >
                   MC: downloadList.download (0)
                 </span>
@@ -384,6 +384,53 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
 </div>
 `;
 
+exports[`ProductLeadBlock tests should render the fixing tool tab 1`] = `
+<div
+  aria-labelledby="tab-six"
+  class="MuiGrid-root TabPanel MuiGrid-item"
+  data-testid="fixingTool"
+  heading="MC: pdp.leadBlock.fixingTool"
+  hidden=""
+  id="tabpanel-six"
+  role="tabpanel"
+>
+  <div
+    class="MuiBox-root MuiBox-root-126 TabPanelBox"
+  >
+    <iframe
+      class="assetsIframe fixing-tool-iframe"
+      src="https://monier.service.bouwconnect.nl/"
+    />
+  </div>
+</div>
+`;
+
+exports[`ProductLeadBlock tests should render the fixing tool tab with title and iframe 1`] = `
+<div
+  aria-labelledby="tab-six"
+  class="MuiGrid-root TabPanel MuiGrid-item"
+  data-testid="fixingTool"
+  heading="MC: pdp.leadBlock.fixingTool"
+  hidden=""
+  id="tabpanel-six"
+  role="tabpanel"
+>
+  <div
+    class="MuiBox-root MuiBox-root-158 TabPanelBox"
+  >
+    <h5
+      class="MuiTypography-root heading Typography MuiTypography-h5"
+    >
+      Fixing tool title
+    </h5>
+    <iframe
+      class="assetsIframe fixing-tool-iframe"
+      src="https://monier.service.bouwconnect.nl/"
+    />
+  </div>
+</div>
+`;
+
 exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
 <div
   aria-labelledby="tab-five"
@@ -395,7 +442,7 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiBox-root MuiBox-root-32 TabPanelBox"
+    class="MuiBox-root MuiBox-root-63 TabPanelBox"
   >
     <div
       class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"

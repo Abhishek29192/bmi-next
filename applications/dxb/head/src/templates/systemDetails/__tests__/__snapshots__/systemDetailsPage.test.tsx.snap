@@ -4001,7 +4001,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                       />
                     </div>
                     <iframe
-                      class="bimIframe bmiIframe"
+                      class="assetsIframe bmiIframe"
                       data-testid="bmi-iframe"
                       src="https://www.bimobject.com/en/bmi_siplast_fr/product/spl30030"
                     />
@@ -9934,7 +9934,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                       />
                     </div>
                     <iframe
-                      class="bimIframe bmiIframe"
+                      class="assetsIframe bmiIframe"
                       data-testid="bmi-iframe"
                       src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf"
                     />
@@ -15998,7 +15998,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       />
                     </div>
                     <iframe
-                      class="bimIframe bmiIframe"
+                      class="assetsIframe bmiIframe"
                       data-testid="bmi-iframe"
                       src="https://www.bimobject.com/en/bmi_siplast_fr/product/spl30030"
                     />
@@ -22062,7 +22062,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       />
                     </div>
                     <iframe
-                      class="bimIframe bmiIframe"
+                      class="assetsIframe bmiIframe"
                       data-testid="bmi-iframe"
                       src="https://www.bimobject.com/en/bmi_siplast_fr/product/spl30030"
                     />
@@ -28157,7 +28157,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                       />
                     </div>
                     <iframe
-                      class="bimIframe bmiIframe"
+                      class="assetsIframe bmiIframe"
                       data-testid="bmi-iframe"
                       src="https://www.bimobject.com/en/bmi_siplast_fr/product/spl30030"
                     />

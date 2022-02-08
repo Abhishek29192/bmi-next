@@ -1009,6 +1009,12 @@ type ContentfulResources implements Node {
 
   "Key Asset Types"
   keyAssetTypes: [String]
+
+  "The title for product details page fixing tool tab."
+  pdpFixingToolTitle: String
+
+  "The description for product details page fixing tool tab."
+  pdpFixingToolDescription: ContentfulRichText
 }
 
 """

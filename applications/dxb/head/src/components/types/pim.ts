@@ -33,7 +33,8 @@ export type AssetAssetType =
   | "GUARANTIES"
   | "PROFESSIONAL_ARTICLES"
   | "SPECIFICATION"
-  | "WARRANTIES";
+  | "WARRANTIES"
+  | "FIXING_TOOL";
 
 export type Mime =
   | "application/octet-stream"

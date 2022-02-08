@@ -23,7 +23,7 @@ import DocumentResultsFooter, {
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { Asset, Classification } from "./types/pim";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
-import BimIframe from "./BimIframe";
+import AssetsIframe from "./AssetsIframe";
 import { getClickableActionFromUrl } from "./Link";
 
 const BlueCheckIcon = (
@@ -43,6 +43,9 @@ type Props = {
   validClassifications: Classification[];
   classificationNamespace: string;
   techDrawings: readonly Image[];
+  fixingToolIframeUrl?: string;
+  pdpFixingToolTitle: string | null;
+  pdpFixingToolDescription: RichTextData | null;
 };
 
 const DOCUMENTS_PER_PAGE = 24;
@@ -59,7 +62,10 @@ const ProductLeadBlock = ({
   documents,
   validClassifications,
   classificationNamespace,
-  techDrawings
+  techDrawings,
+  fixingToolIframeUrl,
+  pdpFixingToolTitle,
+  pdpFixingToolDescription
 }: Props) => {
   const { getMicroCopy, countryCode } = useSiteContext();
   const [page, setPage] = useState(1);
@@ -306,7 +312,7 @@ const ProductLeadBlock = ({
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_BIM)}
             index="four"
           >
-            <BimIframe url={bimIframeUrl} />
+            <AssetsIframe url={bimIframeUrl} />
           </Tabs.TabPanel>
         )}
         {techDrawings.length > 0 && (
@@ -322,6 +328,26 @@ const ProductLeadBlock = ({
                 </LeadBlock.Content.Section>
               </LeadBlock.Content>
             </LeadBlock>
+          </Tabs.TabPanel>
+        )}
+        {Boolean(fixingToolIframeUrl) && (
+          <Tabs.TabPanel
+            heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_FIXING_TOOL)}
+            index="six"
+            data-testid="fixingTool"
+          >
+            {pdpFixingToolTitle && (
+              <Typography variant="h5" className={styles["heading"]}>
+                {pdpFixingToolTitle}
+              </Typography>
+            )}
+            {pdpFixingToolDescription && (
+              <RichText document={pdpFixingToolDescription} />
+            )}
+            <AssetsIframe
+              url={fixingToolIframeUrl}
+              className={styles["fixing-tool-iframe"]}
+            />
           </Tabs.TabPanel>
         )}
       </Tabs>

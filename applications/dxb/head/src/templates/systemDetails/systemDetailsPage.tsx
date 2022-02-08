@@ -7,7 +7,7 @@ import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../../components/ShareWidgetSection";
-import { getBimIframeUrl } from "../../components/BimIframe";
+import { getAssetsIframeUrl } from "../../components/AssetsIframe";
 import { Data as TitleWithContentData } from "../../components/TitleWithContent";
 import RelatedSystems from "../../components/RelatedSystems";
 import Breadcrumbs from "../../components/Breadcrumbs";
@@ -78,7 +78,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     systemBenefits,
     systemLayers
   } = systems;
-  const bimIframeUrl = getBimIframeUrl(assets);
+  const bimIframeUrl = getAssetsIframeUrl(assets, "BIM");
   const guaranteesAndWarranties: Asset[] = useMemo(() => {
     return (assets || []).filter(
       ({ assetType }) =>
