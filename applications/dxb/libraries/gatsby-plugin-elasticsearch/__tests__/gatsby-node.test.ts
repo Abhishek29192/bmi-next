@@ -1,5 +1,4 @@
 import report from "gatsby-cli/lib/reporter";
-
 import {
   value as clientIndices,
   callstack,
@@ -8,7 +7,6 @@ import {
   bulk,
   cat
 } from "@elastic/elasticsearch";
-
 import { onPostBuild } from "../gatsby-node";
 
 let reporterStatuses: string[] = [];
