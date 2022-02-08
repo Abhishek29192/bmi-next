@@ -1,4 +1,23 @@
 
+
+[[redirects]]
+ from="/fr/p/monarplan-g-gris-2910644962"
+ to="/fr/p/monarplan-g-2910644962"
+ force=true
+
+[[redirects]]
+ from="/fr/p/tuile-innotech-graphite-béton-3988945790"
+ to="/fr/p/tuile-innotech-béton-3734434233"
+ force=true
+
+[[redirects]]
+ from="/fr/wp-content/uploads/2021/07/rapport-developpement-durable-filiere-terre-cuite-2020.pdf"
+ to="/fr/documentation/"
+ force=true
+
+
+
+
 # Redirect root to /fr.
 [[redirects]]
   from = "/"
