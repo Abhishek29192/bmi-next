@@ -217,7 +217,9 @@ const Input = ({
           label={label}
           name={name}
         >
-          <SelectMenuItem value="none">None</SelectMenuItem>
+          <SelectMenuItem value={microCopy.FORM_NONE_SELECTION}>
+            {getMicroCopy(microCopy.FORM_NONE_SELECTION)}
+          </SelectMenuItem>
           {options.split(/, |,/).map((option, $i) => {
             const [select, value] = option.split(/= |=/);
             return (
