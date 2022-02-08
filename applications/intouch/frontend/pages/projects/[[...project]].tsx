@@ -73,9 +73,9 @@ const Projects = ({
   const activeProject = useMemo(() => {
     const { project } = router.query;
     if (project && project.length) {
-      return projects.nodes.find(({ id }) => id === parseInt(project[0]));
+      return parseInt(project[0]);
     }
-  }, [router.query, sortedProjects]);
+  }, [router.query]);
 
   const handleProjectSelection = (projectId: number) => {
     router.push(`/projects/${projectId}`, undefined, { shallow: true });
@@ -89,7 +89,7 @@ const Projects = ({
         <ProjectSidePanel
           projects={sortedProjects}
           onProjectSelected={handleProjectSelection}
-          selectedProjectId={activeProject?.id}
+          selectedProjectId={activeProject}
         />
 
         <Grid
@@ -111,7 +111,7 @@ const Projects = ({
             </Grid>
           ) : (
             <ProjectDetail
-              projectId={activeProject.id}
+              projectId={activeProject}
               onUpdateGuarantee={getProjectsCallBack}
             />
           )}
