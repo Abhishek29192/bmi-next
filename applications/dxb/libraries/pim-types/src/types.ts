@@ -207,3 +207,8 @@ export type Product = {
   summary: string;
   variantOptions?: readonly VariantOption[];
 };
+
+export enum PimTypes {
+  Products = "products",
+  Systems = "systems"
+}

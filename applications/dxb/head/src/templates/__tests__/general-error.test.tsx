@@ -90,10 +90,7 @@ describe("General Error", () => {
         pdpFixingToolDescription: null
       },
       headScripts: null,
-      scriptGA: null,
       scriptOnetrust: null,
-      scriptHotJar: null,
-      scriptGOptLoad: null,
       regions: [
         {
           label: "Europe",

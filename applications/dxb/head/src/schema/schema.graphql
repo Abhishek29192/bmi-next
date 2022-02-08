@@ -1110,17 +1110,8 @@ type ContentfulSite implements Node {
   headScripts: contentfulSiteHeadScriptsTextNode
     @link(from: "headScripts___NODE")
 
-  "Google Analitycs integration ID"
-  scriptGA: String
-
   "OneTrust integration ID"
   scriptOnetrust: String
-
-  "HotJar integration ID"
-  scriptHotJar: String
-
-  "Google Optimize Load balancing ID"
-  scriptGOptLoad: String
 
   "Regions for country navigation"
   regions: [RegionJson]! @link(from: "regions___NODE")

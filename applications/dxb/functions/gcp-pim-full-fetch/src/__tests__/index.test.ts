@@ -1,11 +1,11 @@
 import mockConsole from "jest-mock-console";
 import { Request, Response } from "express";
 import { mockRequest, mockResponse } from "@bmi/fetch-mocks";
-import { PimTypes } from "@bmi/pim-api";
 import {
   createProduct,
   createProductsApiResponse,
-  createSystemsApiResponse
+  createSystemsApiResponse,
+  PimTypes
 } from "@bmi/pim-types";
 import { createFullFetchRequest } from "./helpers/fullFetchHelper";
 

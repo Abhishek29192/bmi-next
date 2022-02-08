@@ -20,11 +20,11 @@ export const getById = async (
 export const getYoutubeDetails = async (
   youtubeId: string
 ): Promise<youtube_v3.Schema$VideoListResponse> => {
-  const youtubeResponse = youtube({
+  const youtubeClient = youtube({
     version: "v3",
     auth: await getSecret(GOOGLE_YOUTUBE_API_KEY_SECRET!)
   });
-  const { data } = await youtubeResponse.videos.list({
+  const { data } = await youtubeClient.videos.list({
     part: ["player"],
     id: [youtubeId],
     maxHeight: 9999

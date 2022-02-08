@@ -142,7 +142,6 @@ const siteData: SiteData = {
   menuNavigation: mockNavigation,
   menuUtilities: mockNavigation,
   resources: null,
-  scriptGOptLoad: null,
   regions: [
     {
       label: "Europe",
