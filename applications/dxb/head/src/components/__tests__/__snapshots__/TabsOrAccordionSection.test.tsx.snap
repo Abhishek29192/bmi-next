@@ -1,0 +1,510 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          string
+        </h2>
+        <p
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          string
+        </p>
+        <div
+          style="margin-top: 40px;"
+        >
+          <div
+            class="accordionStyles-root-1"
+          >
+            <div
+              class="MuiPaper-root MuiAccordion-root accordionStyles-item-2 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+            >
+              <div
+                aria-disabled="false"
+                aria-expanded="false"
+                class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5"
+                data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Accordion\\"}"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="MuiAccordionSummary-content accordionStyles-summaryContent-7"
+                >
+                  <h3
+                    class="MuiTypography-root Typography MuiTypography-h6"
+                  >
+                    hello
+                  </h3>
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-hidden="true"
+                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <div
+                class="MuiCollapse-root MuiCollapse-hidden"
+                style="min-height: 0px;"
+              >
+                <div
+                  class="MuiCollapse-wrapper"
+                >
+                  <div
+                    class="MuiCollapse-wrapperInner"
+                  >
+                    <div
+                      role="region"
+                    >
+                      <div
+                        class="MuiAccordionDetails-root accordionStyles-details-3 accordionStyles-details-11"
+                      >
+                        <div
+                          class="RichText"
+                        >
+                          <p
+                            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                          >
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
+<div>
+  <div
+    class="Section Section--pearl"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          string
+        </h2>
+        <p
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          string
+        </p>
+        <div
+          style="margin-top: 40px;"
+        >
+          <div
+            class="Tabs Tabs--primary"
+          >
+            <div
+              class="TabsBar"
+            >
+              <div
+                class="Container"
+              >
+                <div
+                  class="MuiContainer-root tabStyles-ContainerRoot-20 MuiContainer-maxWidthXl"
+                >
+                  <div
+                    class="MuiTabs-root tabStyles-TabsRoot-21"
+                  >
+                    <div
+                      class="MuiTabs-scrollable"
+                      style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                    />
+                    <div
+                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      style="margin-bottom: 0px;"
+                    >
+                      <div
+                        aria-label="tabs"
+                        class="MuiTabs-flexContainer"
+                        role="tablist"
+                      >
+                        <button
+                          aria-controls="tabpanel-name"
+                          aria-selected="true"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-22 Mui-selected"
+                          data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"name\\",\\"action\\":\\"Selector – Tabs\\"}"
+                          id="tab-name"
+                          role="tab"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiTab-wrapper"
+                          >
+                            name
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                      <span
+                        class="PrivateTabIndicator-root-23 PrivateTabIndicator-colorPrimary-24 MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-labelledby="tab-name"
+              class="MuiGrid-root TabPanel MuiGrid-item"
+              heading="name"
+              id="tabpanel-name"
+              role="tabpanel"
+            >
+              <div
+                class="MuiBox-root MuiBox-root-27 TabPanelBox"
+              >
+                <div
+                  class="RichText"
+                >
+                  <p
+                    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                  >
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
+<div>
+  <div
+    class="Section Section--pearl"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          string
+        </h2>
+        <p
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          string
+        </p>
+        <div
+          style="margin-top: 40px;"
+        >
+          <div
+            class="Tabs Tabs--primary"
+          >
+            <div
+              class="TabsBar"
+            >
+              <div
+                class="Container"
+              >
+                <div
+                  class="MuiContainer-root tabStyles-ContainerRoot-12 MuiContainer-maxWidthXl"
+                >
+                  <div
+                    class="MuiTabs-root tabStyles-TabsRoot-13"
+                  >
+                    <div
+                      class="MuiTabs-scrollable"
+                      style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                    />
+                    <div
+                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      style="margin-bottom: 0px;"
+                    >
+                      <div
+                        aria-label="tabs"
+                        class="MuiTabs-flexContainer"
+                        role="tablist"
+                      >
+                        <button
+                          aria-controls="tabpanel-hello"
+                          aria-selected="true"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 Mui-selected"
+                          data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
+                          id="tab-hello"
+                          role="tab"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiTab-wrapper"
+                          >
+                            hello
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                      <span
+                        class="PrivateTabIndicator-root-15 PrivateTabIndicator-colorPrimary-16 MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-labelledby="tab-hello"
+              class="MuiGrid-root TabPanel MuiGrid-item"
+              heading="hello"
+              id="tabpanel-hello"
+              role="tabpanel"
+            >
+              <div
+                class="MuiBox-root MuiBox-root-19 TabPanelBox"
+              >
+                <div
+                  class="RichText"
+                >
+                  <p
+                    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                  >
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] = `
+<div>
+  <div
+    class="Section Section--pearl"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          string
+        </h2>
+        <p
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          string
+        </p>
+        <div
+          style="margin-top: 40px;"
+        >
+          <div
+            class="Tabs Tabs--primary"
+          >
+            <div
+              class="TabsBar"
+            >
+              <div
+                class="Container"
+              >
+                <div
+                  class="MuiContainer-root tabStyles-ContainerRoot-36 MuiContainer-maxWidthXl"
+                >
+                  <div
+                    class="MuiTabs-root tabStyles-TabsRoot-37"
+                  >
+                    <div
+                      class="MuiTabs-scrollable"
+                      style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                    />
+                    <div
+                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      style="margin-bottom: 0px;"
+                    >
+                      <div
+                        aria-label="tabs"
+                        class="MuiTabs-flexContainer"
+                        role="tablist"
+                      />
+                      <span
+                        class="PrivateTabIndicator-root-39 PrivateTabIndicator-colorPrimary-40 MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabsOrAccordionSection title attribute is rendered if both name and title exists for tab panels 1`] = `
+<div>
+  <div
+    class="Section Section--pearl"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          string
+        </h2>
+        <p
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          string
+        </p>
+        <div
+          style="margin-top: 40px;"
+        >
+          <div
+            class="Tabs Tabs--primary"
+          >
+            <div
+              class="TabsBar"
+            >
+              <div
+                class="Container"
+              >
+                <div
+                  class="MuiContainer-root tabStyles-ContainerRoot-28 MuiContainer-maxWidthXl"
+                >
+                  <div
+                    class="MuiTabs-root tabStyles-TabsRoot-29"
+                  >
+                    <div
+                      class="MuiTabs-scrollable"
+                      style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                    />
+                    <div
+                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      style="margin-bottom: 0px;"
+                    >
+                      <div
+                        aria-label="tabs"
+                        class="MuiTabs-flexContainer"
+                        role="tablist"
+                      >
+                        <button
+                          aria-controls="tabpanel-title"
+                          aria-selected="true"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-30 Mui-selected"
+                          data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"title\\",\\"action\\":\\"Selector – Tabs\\"}"
+                          id="tab-title"
+                          role="tab"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiTab-wrapper"
+                          >
+                            title
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                      <span
+                        class="PrivateTabIndicator-root-31 PrivateTabIndicator-colorPrimary-32 MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-labelledby="tab-title"
+              class="MuiGrid-root TabPanel MuiGrid-item"
+              heading="title"
+              id="tabpanel-title"
+              role="tabpanel"
+            >
+              <div
+                class="MuiBox-root MuiBox-root-35 TabPanelBox"
+              >
+                <div
+                  class="RichText"
+                >
+                  <p
+                    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                  >
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
