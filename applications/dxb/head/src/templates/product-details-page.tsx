@@ -139,11 +139,17 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     maximumSamples,
     sampleBasketLink,
     pdpFixingToolDescription,
-    pdpFixingToolTitle
+    pdpFixingToolTitle,
+    pdpSpecificationTitle,
+    pdpSpecificationDescription
   } = resources;
 
   const bimIframeUrl = getAssetsIframeUrl(product.assets, "BIM");
   const fixingToolIframeUrl = getAssetsIframeUrl(product.assets, "FIXING_TOOL");
+  const specificationIframeUrl = getAssetsIframeUrl(
+    product.assets,
+    "SPECIFICATION"
+  );
 
   const variantCodeToPathMap: VariantCodeToPathMap =
     product.variantOptions.reduce(
@@ -322,6 +328,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                 fixingToolIframeUrl={fixingToolIframeUrl}
                 pdpFixingToolDescription={pdpFixingToolDescription}
                 pdpFixingToolTitle={pdpFixingToolTitle}
+                specificationIframeUrl={specificationIframeUrl}
+                pdpSpecificationTitle={pdpSpecificationTitle}
+                pdpSpecificationDescription={pdpSpecificationDescription}
               />
             </Section>
             <RelatedProducts

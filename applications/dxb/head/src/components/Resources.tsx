@@ -38,6 +38,8 @@ export type Data = {
   keyAssetTypes: string[] | null;
   pdpFixingToolTitle: string | null;
   pdpFixingToolDescription: RichTextData | null;
+  pdpSpecificationTitle: string | null;
+  pdpSpecificationDescription: RichTextData | null;
 };
 
 export const query = graphql`
@@ -108,6 +110,10 @@ export const query = graphql`
     }
     pdpFixingToolTitle
     pdpFixingToolDescription {
+      ...RichTextFragment
+    }
+    pdpSpecificationTitle
+    pdpSpecificationDescription {
       ...RichTextFragment
     }
   }

@@ -431,6 +431,32 @@ exports[`ProductLeadBlock tests should render the fixing tool tab with title and
 </div>
 `;
 
+exports[`ProductLeadBlock tests should render the specification tab 1`] = `
+<div
+  aria-labelledby="tab-seven"
+  class="MuiGrid-root TabPanel MuiGrid-item"
+  data-testid="specification"
+  heading="MC: pdp.leadBlock.specification"
+  hidden=""
+  id="tabpanel-seven"
+  role="tabpanel"
+>
+  <div
+    class="MuiBox-root MuiBox-root-32 TabPanelBox"
+  >
+    <h5
+      class="MuiTypography-root heading Typography MuiTypography-h5"
+    >
+      Specification title
+    </h5>
+    <iframe
+      class="assetsIframe specification-tab-iframe"
+      src="https://monier.service.bouwconnect.nl/"
+    />
+  </div>
+</div>
+`;
+
 exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
 <div
   aria-labelledby="tab-five"

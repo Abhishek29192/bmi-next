@@ -84,6 +84,7 @@ export const microCopy = {
   PDP_LEAD_BLOCK_BIM: "pdp.leadBlock.bim",
   PDP_LEAD_BLOCK_FIXING_TOOL: "pdp.leadBlock.fixingTool",
   PDP_LEAD_BLOCK_TECHNICAL_DRAWINGS: "pdp.leadBlock.technicalDrawings",
+  PDP_LEAD_BLOCK_SPECIFICATION: "pdp.leadBlock.specification",
   PDP_NOBB_LABEL: "pdp.nobb.label",
   PDP_NO_TECH_SPEC_MESSAGE: "pdp.noTechSpecMessage",
   PDP_RELATED_PRODUCTS_VIEW_DETAILS: "pdp.relatedProducts.viewDetails",

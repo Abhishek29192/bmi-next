@@ -44,8 +44,11 @@ type Props = {
   classificationNamespace: string;
   techDrawings: readonly Image[];
   fixingToolIframeUrl?: string;
-  pdpFixingToolTitle: string | null;
-  pdpFixingToolDescription: RichTextData | null;
+  pdpFixingToolTitle?: string | null;
+  pdpFixingToolDescription?: RichTextData | null;
+  specificationIframeUrl?: string;
+  pdpSpecificationTitle?: string | null;
+  pdpSpecificationDescription?: RichTextData | null;
 };
 
 const DOCUMENTS_PER_PAGE = 24;
@@ -65,7 +68,10 @@ const ProductLeadBlock = ({
   techDrawings,
   fixingToolIframeUrl,
   pdpFixingToolTitle,
-  pdpFixingToolDescription
+  pdpFixingToolDescription,
+  specificationIframeUrl,
+  pdpSpecificationTitle,
+  pdpSpecificationDescription
 }: Props) => {
   const { getMicroCopy, countryCode } = useSiteContext();
   const [page, setPage] = useState(1);
@@ -347,6 +353,26 @@ const ProductLeadBlock = ({
             <AssetsIframe
               url={fixingToolIframeUrl}
               className={styles["fixing-tool-iframe"]}
+            />
+          </Tabs.TabPanel>
+        )}
+        {Boolean(specificationIframeUrl) && (
+          <Tabs.TabPanel
+            heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_SPECIFICATION)}
+            index="seven"
+            data-testid="specification"
+          >
+            {pdpSpecificationTitle && (
+              <Typography variant="h5" className={styles["heading"]}>
+                {pdpSpecificationTitle}
+              </Typography>
+            )}
+            {pdpSpecificationDescription && (
+              <RichText document={pdpSpecificationDescription} />
+            )}
+            <AssetsIframe
+              url={specificationIframeUrl}
+              className={styles["specification-tab-iframe"]}
             />
           </Tabs.TabPanel>
         )}
