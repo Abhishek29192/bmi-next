@@ -1,8 +1,8 @@
-import * as THREE from "three";
+import { Scene } from "three";
 
 declare global {
   interface Window {
-    scene: THREE.Scene;
+    scene: Scene;
   }
 }
 

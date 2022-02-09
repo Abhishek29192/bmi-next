@@ -6,6 +6,7 @@ import Icon from "@bmi/icon";
 import CheckIcon from "@material-ui/icons/Check";
 import Button, { ButtonProps } from "@bmi/button";
 import { Launch } from "@material-ui/icons";
+import { microCopy } from "../../constants/microCopies";
 import { useSiteContext } from "../../components/Site";
 import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
 import RichText from "../../components/RichText";
@@ -78,7 +79,7 @@ const AboutLeadBlock = ({
             className={styles["guaranteesAndAwardsAsset"]}
           >
             <LeadBlock.Content.Heading variant="h6">
-              {getMicroCopy("pdp.leadBlock.guaranteesWarranties")}
+              {getMicroCopy(microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES)}
             </LeadBlock.Content.Heading>
             {guaranteesAndWarranties.map((item, i) => (
               <img
@@ -95,7 +96,7 @@ const AboutLeadBlock = ({
             className={styles["guaranteesAndAwardsAsset"]}
           >
             <LeadBlock.Content.Heading variant="h6">
-              {getMicroCopy("pdp.leadBlock.awardsCertificates")}
+              {getMicroCopy(microCopy.PDP_LEAD_BLOCK_AWARDS_CERTIFICATES)}
             </LeadBlock.Content.Heading>
             {awardsAndCertificates.map((item, i) => (
               <img
@@ -110,7 +111,7 @@ const AboutLeadBlock = ({
         {specification && (
           <LeadBlock.Content.Section>
             <LeadBlock.Content.Heading variant="h6">
-              {getMicroCopy("sdp.leadBlock.specification")}
+              {getMicroCopy(microCopy.SDP_LEAD_BLOCK_SPECIFICATION)}
             </LeadBlock.Content.Heading>
 
             <GTMButton
@@ -143,7 +144,7 @@ const AboutLeadBlock = ({
           )}
           {systemBenefits && (
             <LeadBlockCardContent
-              title={getMicroCopy("sdp.leadBlock.systemBenefits")}
+              title={getMicroCopy(microCopy.SDP_LEAD_BLOCK_SYSTEM_BENEFITS)}
               contents={systemBenefits}
             />
           )}

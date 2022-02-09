@@ -416,6 +416,7 @@ export type AccountMarketIdFkeyMarketCreateInput = {
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  gtagMarketMedia?: Maybe<Scalars["String"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -2366,6 +2367,7 @@ export type CompanyMarketIdFkeyMarketCreateInput = {
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  gtagMarketMedia?: Maybe<Scalars["String"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -2752,6 +2754,7 @@ export type CompanyMemberMarketIdFkeyMarketCreateInput = {
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  gtagMarketMedia?: Maybe<Scalars["String"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -10277,6 +10280,7 @@ export type Market = Node & {
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
+  gtagMarketMedia?: Maybe<Scalars["String"]>;
   /** Reads and enables pagination through a set of `Account`. */
   accounts: AccountsConnection;
   /** Reads and enables pagination through a set of `Company`. */
@@ -10659,6 +10663,7 @@ export type MarketInput = {
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  gtagMarketMedia?: Maybe<Scalars["String"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -10951,6 +10956,7 @@ export type MarketPatch = {
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  gtagMarketMedia?: Maybe<Scalars["String"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -13569,6 +13575,7 @@ export type ProductMarketIdFkeyMarketCreateInput = {
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  gtagMarketMedia?: Maybe<Scalars["String"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -14987,6 +14994,7 @@ export type Query = Node & {
   courseTemps?: Maybe<CourseTempsConnection>;
   /** Reads and enables pagination through a set of `Course`. */
   courses?: Maybe<CoursesConnection>;
+  currentAccountDoceboId?: Maybe<Scalars["Int"]>;
   currentAccountEmail?: Maybe<Scalars["String"]>;
   currentAccountId?: Maybe<Scalars["Int"]>;
   currentCompany?: Maybe<Scalars["Int"]>;
@@ -15013,6 +15021,8 @@ export type Query = Node & {
   guaranteeTypeCollection?: Maybe<GuaranteeTypeCollection>;
   /** Reads and enables pagination through a set of `Guarantee`. */
   guarantees?: Maybe<GuaranteesConnection>;
+  /** Reads and enables pagination through a set of `Guarantee`. */
+  guaranteesByMarket?: Maybe<GuaranteesConnection>;
   invitation?: Maybe<Invitation>;
   /** Reads a single `Invitation` using its globally unique `ID`. */
   invitationByNodeId?: Maybe<Invitation>;
@@ -15070,6 +15080,8 @@ export type Query = Node & {
   projectMembers?: Maybe<ProjectMembersConnection>;
   /** Reads and enables pagination through a set of `Project`. */
   projects?: Maybe<ProjectsConnection>;
+  /** Reads and enables pagination through a set of `Project`. */
+  projectsByMarket?: Maybe<ProjectsConnection>;
   /**
    * Exposes the root query type nested one level down. This is helpful for Relay 1
    * which can only query top level fields if they are in a particular form.
@@ -15678,6 +15690,17 @@ export type QueryGuaranteesArgs = {
 };
 
 /** The root query type which gives access points into the data universe. */
+export type QueryGuaranteesByMarketArgs = {
+  market: Scalars["Int"];
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  filter?: Maybe<GuaranteeFilter>;
+};
+
+/** The root query type which gives access points into the data universe. */
 export type QueryInvitationArgs = {
   id: Scalars["Int"];
 };
@@ -15970,6 +15993,17 @@ export type QueryProjectsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<ProjectsOrderBy>>;
   condition?: Maybe<ProjectCondition>;
+  filter?: Maybe<ProjectFilter>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryProjectsByMarketArgs = {
+  market: Scalars["Int"];
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
   filter?: Maybe<ProjectFilter>;
 };
 
@@ -16450,6 +16484,7 @@ export type SystemMarketIdFkeyMarketCreateInput = {
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  gtagMarketMedia?: Maybe<Scalars["String"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -16654,6 +16689,7 @@ export type SystemMemberMarketIdFkeyMarketCreateInput = {
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  gtagMarketMedia?: Maybe<Scalars["String"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -20795,6 +20831,7 @@ export type UpdateMarketOnAccountForAccountMarketIdFkeyPatch = {
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  gtagMarketMedia?: Maybe<Scalars["String"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -20837,6 +20874,7 @@ export type UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch = {
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  gtagMarketMedia?: Maybe<Scalars["String"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -20879,6 +20917,7 @@ export type UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch = {
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  gtagMarketMedia?: Maybe<Scalars["String"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -20921,6 +20960,7 @@ export type UpdateMarketOnProductForProductMarketIdFkeyPatch = {
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  gtagMarketMedia?: Maybe<Scalars["String"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -20963,6 +21003,7 @@ export type UpdateMarketOnSystemForSystemMarketIdFkeyPatch = {
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  gtagMarketMedia?: Maybe<Scalars["String"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -21005,6 +21046,7 @@ export type UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch = {
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  gtagMarketMedia?: Maybe<Scalars["String"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;

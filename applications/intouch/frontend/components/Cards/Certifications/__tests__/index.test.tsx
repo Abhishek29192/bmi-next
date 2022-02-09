@@ -63,6 +63,6 @@ describe("CertificationsCard", () => {
         />
       </I18nextProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

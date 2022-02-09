@@ -1,284 +1,288 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProductOverview component renders correctly with Recapcha 1`] = `
-<div
-  class="ProductOverview"
->
+<div>
   <div
-    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+    class="ProductOverview"
   >
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
     >
       <div
-        class="ImageGallery"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
       >
         <div
-          class="image-wrapper"
+          class="ImageGallery"
         >
           <div
-            class="caption"
+            class="image-wrapper"
           >
-            <p
-              class="MuiTypography-root caption-text Typography MuiTypography-h6"
+            <div
+              class="caption"
             >
-              <span
-                class="LinesEllipsis  Truncate"
+              <p
+                class="MuiTypography-root caption-text Typography MuiTypography-h6"
               >
-                caption
-                <wbr />
-              </span>
-            </p>
+                <span
+                  class="LinesEllipsis  Truncate"
+                >
+                  caption
+                  <wbr />
+                </span>
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="thumbnails"
-        >
-          <button
-            class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
-            tabindex="-1"
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root icon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-              />
-            </svg>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <button
-            class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
-            tabindex="-1"
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root icon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-              />
-            </svg>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
           <div
-            class="scroller"
-            style="margin-right: 0%;"
+            class="thumbnails"
           >
             <button
-              class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-              style="background-image: url(mainSource);"
-              tabindex="0"
+              class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+              tabindex="-1"
               type="button"
             >
-              <span
-                class="accessibility-text"
-              />
-            </button>
-            <button
-              class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-              style="background-image: url(mainSource2);"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="accessibility-text"
-              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                />
+              </svg>
               <span
                 class="MuiTouchRipple-root"
               />
             </button>
+            <button
+              class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+              tabindex="-1"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <div
+              class="scroller"
+              style="margin-right: 0%;"
+            >
+              <button
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                style="background-image: url(mainSource);"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="accessibility-text"
+                />
+              </button>
+              <button
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                style="background-image: url(mainSource2);"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="accessibility-text"
+                />
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
-    >
       <div
-        class="ProductOverview"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
       >
-        <h1
-          class="MuiTypography-root heading Typography MuiTypography-h3"
+        <div
+          class="ProductOverview"
         >
-          name
-        </h1>
-        <ul
-          class="attributes"
-        />
-        <div>
-          block
+          <h1
+            class="MuiTypography-root heading Typography MuiTypography-h3"
+          >
+            name
+          </h1>
+          <ul
+            class="attributes"
+          />
+          <div>
+            block
+          </div>
+          <p>
+            text
+          </p>
         </div>
-        <p>
-          text
+        <p
+          class="MuiTypography-root keyAssetTypesDownload Typography MuiTypography-body1"
+        >
+          This site is protected by reCAPTCHA and the Google 
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            href="https://policies.google.com/privacy"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            <span>
+              Privacy Policy
+            </span>
+          </a>
+           and 
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            href="https://policies.google.com/terms"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            <span>
+              Terms of Service
+            </span>
+          </a>
+           apply.
         </p>
       </div>
-      <p
-        class="MuiTypography-root keyAssetTypesDownload Typography MuiTypography-body1"
-      >
-        This site is protected by reCAPTCHA and the Google 
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-          href="https://policies.google.com/privacy"
-          rel="noreferrer noopener"
-          target="_blank"
-        >
-          <span>
-            Privacy Policy
-          </span>
-        </a>
-         and 
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-          href="https://policies.google.com/terms"
-          rel="noreferrer noopener"
-          target="_blank"
-        >
-          <span>
-            Terms of Service
-          </span>
-        </a>
-         apply.
-      </p>
     </div>
   </div>
 </div>
 `;
 
 exports[`ProductOverview component renders correctly without Recapcha 1`] = `
-<div
-  class="ProductOverview"
->
+<div>
   <div
-    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+    class="ProductOverview"
   >
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
     >
       <div
-        class="ImageGallery"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
       >
         <div
-          class="image-wrapper"
+          class="ImageGallery"
         >
           <div
-            class="caption"
+            class="image-wrapper"
           >
-            <p
-              class="MuiTypography-root caption-text Typography MuiTypography-h6"
+            <div
+              class="caption"
             >
-              <span
-                class="LinesEllipsis  Truncate"
+              <p
+                class="MuiTypography-root caption-text Typography MuiTypography-h6"
               >
-                caption
-                <wbr />
-              </span>
-            </p>
+                <span
+                  class="LinesEllipsis  Truncate"
+                >
+                  caption
+                  <wbr />
+                </span>
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="thumbnails"
-        >
-          <button
-            class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
-            tabindex="-1"
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root icon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-              />
-            </svg>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <button
-            class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
-            tabindex="-1"
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root icon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-              />
-            </svg>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
           <div
-            class="scroller"
-            style="margin-right: 0%;"
+            class="thumbnails"
           >
             <button
-              class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-              style="background-image: url(mainSource);"
-              tabindex="0"
+              class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+              tabindex="-1"
               type="button"
             >
-              <span
-                class="accessibility-text"
-              />
-            </button>
-            <button
-              class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-              style="background-image: url(mainSource2);"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="accessibility-text"
-              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                />
+              </svg>
               <span
                 class="MuiTouchRipple-root"
               />
             </button>
+            <button
+              class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+              tabindex="-1"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <div
+              class="scroller"
+              style="margin-right: 0%;"
+            >
+              <button
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                style="background-image: url(mainSource);"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="accessibility-text"
+                />
+              </button>
+              <button
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                style="background-image: url(mainSource2);"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="accessibility-text"
+                />
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
-    >
       <div
-        class="ProductOverview"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
       >
-        <h1
-          class="MuiTypography-root heading Typography MuiTypography-h3"
+        <div
+          class="ProductOverview"
         >
-          name
-        </h1>
-        <ul
-          class="attributes"
-        />
-        <div>
-          block
+          <h1
+            class="MuiTypography-root heading Typography MuiTypography-h3"
+          >
+            name
+          </h1>
+          <ul
+            class="attributes"
+          />
+          <div>
+            block
+          </div>
+          <p>
+            text
+          </p>
         </div>
-        <p>
-          text
-        </p>
       </div>
     </div>
   </div>

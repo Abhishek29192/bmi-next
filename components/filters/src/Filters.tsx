@@ -65,7 +65,7 @@ const Filters = ({
               <AccordionSummary aria-label={summaryLabel}>
                 <Typography variant="h6">{summaryLabel}</Typography>
               </AccordionSummary>
-              <Accordion.Details>
+              <Accordion.Details noInnerPadding={true}>
                 <div className={styles["list"]}>
                   {filterOptions.map((option) => (
                     <div key={option.value}>

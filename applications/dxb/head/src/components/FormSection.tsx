@@ -3,56 +3,37 @@ import {
   useHubspotForm
 } from "@aaronhayes/react-use-hubspot-form";
 import Button, { ButtonProps } from "@bmi/button";
-import Checkbox from "@bmi/checkbox";
-import Form, { withFormControl } from "@bmi/form";
+import Form from "@bmi/form";
 import { InputValue } from "@bmi/form/src/withFormControl";
 import Grid from "@bmi/grid";
 import Section from "@bmi/section";
-import Select, { MenuItem } from "@bmi/select";
-import TextField from "@bmi/text-field";
-import Upload, { getFileSizeString } from "@bmi/upload";
-import RadioGroup from "@bmi/radio-group";
-import Typography from "@bmi/typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import InputBase from "@material-ui/core/InputBase";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import withGTM, { GTM } from "../utils/google-tag-manager";
+import matchAll from "string.prototype.matchall";
+import AnchorLink from "@bmi/anchor-link";
+import { getFileSizeString } from "@bmi/upload";
+import Upload from "@bmi/upload";
+import Typography from "@bmi/typography";
+import RadioGroup from "@bmi/radio-group";
+import Select, { MenuItem } from "@bmi/select";
+import Checkbox from "@bmi/checkbox";
+import TextField from "@bmi/text-field";
 import { getPathWithCountryCode } from "../utils/path";
-import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
-// TODO: FormInputs should be updated and used here.
-import { convertMarkdownLinksToAnchorLinks } from "./FormInputs";
-import { Data as LinkData } from "./Link";
-import RichText, { RichTextData } from "./RichText";
-import { useSiteContext } from "./Site";
+import withGTM, { GTM } from "../utils/google-tag-manager";
+import { isValidEmail } from "../utils/emailUtils";
+import { microCopy } from "../constants/microCopies";
+import HiddenInput from "./HiddenInput";
 import styles from "./styles/FormSection.module.scss";
-
-const InputTypes = [
-  "text",
-  "email",
-  "phone",
-  "textarea",
-  "checkbox",
-  "select",
-  "upload"
-];
+import { useSiteContext } from "./Site";
+import RichText, { RichTextData } from "./RichText";
+import { Data as LinkData, isExternalUrl } from "./Link";
+import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 
 type SourceType = "Contentful" | "HubSpot";
-
-type InputType = {
-  label: string;
-  name: string;
-  options?: string;
-  required?: boolean;
-  type: typeof InputTypes[number];
-  width?: "full" | "half";
-  accept?: string;
-  maxSize?: number;
-  token?: string;
-};
 
 export type Data = {
   __typename: "ContentfulFormSection";
@@ -65,6 +46,62 @@ export type Data = {
   successRedirect: LinkData | null;
   source: SourceType | null;
   hubSpotFormGuid?: string | null;
+};
+
+const InputTypes = [
+  "text",
+  "email",
+  "phone",
+  "textarea",
+  "checkbox",
+  "select",
+  "upload"
+];
+
+export type InputWidthType = "full" | "half";
+
+export type InputType = {
+  label: string;
+  name: string;
+  options?: string;
+  required?: boolean;
+  type: typeof InputTypes[number];
+  width?: InputWidthType;
+  accept?: string;
+  maxSize?: number;
+  token?: string;
+};
+
+const convertMarkdownLinksToAnchorLinks = (
+  source?: string
+): React.ReactNode => {
+  if (!source) {
+    return;
+  }
+
+  const matches = [...matchAll(source, /\[([^\]]+)\]\(([^)]+)\)/g)];
+
+  if (!matches || !matches.length) {
+    return source;
+  }
+
+  return matches.filter(Boolean).map((el) => {
+    const [match, label, link] = el;
+    const { index: offset, input } = el;
+    return (
+      <>
+        {input.substring(0, offset)}
+        <AnchorLink
+          action={{ model: "htmlLink", href: link }}
+          target="_blank"
+          rel={isExternalUrl(link) && "noopener"}
+        >
+          {label}
+        </AnchorLink>
+        {input.substring(offset + match.length)}
+      </>
+    );
+  });
 };
 
 const Input = ({
@@ -97,22 +134,17 @@ const Input = ({
     if (value.match(/.+@.+\..+/)) {
       return false;
     } else {
-      return getMicroCopy("errors.emailInvalid");
+      return getMicroCopy(microCopy.ERRORS_EMAIL_INVALID);
     }
   };
 
   const handleFileValidation = (file: File) => {
     if (maxSize && file.size > maxSize * 1048576) {
-      return getMicroCopy("errors.maxSize", {
+      return getMicroCopy(microCopy.ERRORS_MAX_SIZE, {
         size: getFileSizeString(maxSize * 1048576)
       });
     }
   };
-
-  // @TODO: create a separate hidden-input component
-  const HiddenField = withFormControl((props) => (
-    <InputBase {...props} type="hidden" />
-  ));
 
   switch (type) {
     case "upload":
@@ -122,7 +154,9 @@ const Input = ({
           name={name}
           buttonLabel={label}
           isRequired={required}
-          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
+          fieldIsRequiredError={getMicroCopy(
+            microCopy.UPLOAD_FIELD_IS_REQUIRED
+          )}
           uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
           headers={{
             "Content-Type": "application/octet-stream"
@@ -130,11 +164,13 @@ const Input = ({
           accept={accept}
           fileValidation={handleFileValidation}
           instructions={
-            `${getMicroCopy("form.upload.supportedFormats")}: ${accept}.` +
+            `${getMicroCopy(
+              microCopy.FORM_UPLOAD_SUPPORTED_FORMATS
+            )}: ${accept}.` +
             (maxSize
-              ? ` ${getMicroCopy("form.upload.maxSize")}: ${getFileSizeString(
-                  maxSize * 1048576
-                )}`
+              ? ` ${getMicroCopy(
+                  microCopy.FORM_UPLOAD_MAX_SIZE
+                )}: ${getFileSizeString(maxSize * 1048576)}`
               : "")
           }
           mapBody={mapBody}
@@ -150,10 +186,10 @@ const Input = ({
           }}
           microcopyProvider={{
             "upload.instructions.drop": getMicroCopy(
-              "upload.instructions.drop"
+              microCopy.UPLOAD_INSTRUCTIONS_DROP
             ),
             "upload.instructions.browse": getMicroCopy(
-              "upload.instructions.browse"
+              microCopy.UPLOAD_INSTRUCTIONS_BROWSE
             )
           }}
         />
@@ -175,7 +211,9 @@ const Input = ({
       return (
         <Select
           isRequired={required}
-          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
+          fieldIsRequiredError={getMicroCopy(
+            microCopy.UPLOAD_FIELD_IS_REQUIRED
+          )}
           label={label}
           name={name}
         >
@@ -196,7 +234,9 @@ const Input = ({
           name={name}
           label={convertMarkdownLinksToAnchorLinks(label)}
           isRequired={required}
-          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
+          fieldIsRequiredError={getMicroCopy(
+            microCopy.UPLOAD_FIELD_IS_REQUIRED
+          )}
         />
       );
     case "hubspot-text":
@@ -205,7 +245,7 @@ const Input = ({
           <Typography>
             <span dangerouslySetInnerHTML={{ __html: label }}></span>
           </Typography>
-          <HiddenField name={name} value={label} />
+          <HiddenInput name={name} value={label} />
         </>
       );
     case "hubspot-checkbox":
@@ -217,7 +257,7 @@ const Input = ({
         />
       );
     case "hubspot-hidden":
-      return <HiddenField name={name} value={label} />;
+      return <HiddenInput name={name} value={label} />;
     case "textarea":
     case "text":
     default:
@@ -225,7 +265,9 @@ const Input = ({
         <TextField
           name={name}
           isRequired={required}
-          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
+          fieldIsRequiredError={getMicroCopy(
+            microCopy.UPLOAD_FIELD_IS_REQUIRED
+          )}
           isTextArea={type === "textarea"}
           variant="outlined"
           label={label}
@@ -237,6 +279,22 @@ const Input = ({
         />
       );
   }
+};
+
+type FormInputs = {
+  inputs: InputType[];
+};
+
+const FormInputs = ({ inputs }: FormInputs) => {
+  return (
+    <>
+      {inputs.map(({ width, ...props }, $i) => (
+        <Grid key={$i} item xs={12} md={width === "full" ? 12 : 6}>
+          <Input {...props} />
+        </Grid>
+      ))}
+    </>
+  );
 };
 
 const HubspotForm = ({
@@ -319,16 +377,16 @@ const FormSection = ({
 
     setIsSubmitting(true);
     Object.assign(values, additionalValues);
-
-    // @todo: This needs to be less reliant on string patterns
     const recipientsFromValues = (values.recipients as string) || "";
     const isEmailPresent = ["@", "="].every((char) =>
       recipientsFromValues.includes(char)
     );
+    const recipientEmail = recipientsFromValues.split(/= |=/)[1];
+    if (!isValidEmail(recipientEmail)) {
+      console.error("Error", "invalid e-mail recipient address"); // eslint-disable-line
+    }
     const conditionalRecipients =
-      recipientsFromValues && isEmailPresent
-        ? recipientsFromValues.split(/= |=/)[1]
-        : recipients;
+      recipientsFromValues && isEmailPresent ? recipientEmail : recipients;
 
     try {
       const source = axios.CancelToken.source();
@@ -365,6 +423,7 @@ const FormSection = ({
     }
   };
 
+  //This function right now is not used. Left here only for future extend of Hubspot usage
   const handleHubSpotSubmit = async (
     event: FormEvent<HTMLFormElement>,
     values: Record<string, InputValue>
@@ -489,11 +548,7 @@ const FormSection = ({
           rightAlignButton
         >
           <Grid container spacing={3}>
-            {inputs.map(({ width, ...props }, $i) => (
-              <Grid key={$i} item xs={12} md={width === "full" ? 12 : 6}>
-                <Input {...props} />
-              </Grid>
-            ))}
+            <FormInputs inputs={inputs} />
           </Grid>
           <Form.ButtonWrapper>
             <Form.SubmitButton
@@ -526,7 +581,7 @@ const FormSection = ({
               }
               disabled={isSubmitting || isSubmitDisabled}
             >
-              {submitText || getMicroCopy("form.submit")}
+              {submitText || getMicroCopy(microCopy.FORM_SUBMIT)}
             </Form.SubmitButton>
           </Form.ButtonWrapper>
         </Form>
@@ -538,7 +593,7 @@ const FormSection = ({
     </Section>
   );
 };
-
+FormSection.Inputs = FormInputs;
 export default FormSection;
 
 export const query = graphql`
@@ -551,14 +606,7 @@ export const query = graphql`
     }
     recipients
     inputs {
-      label
-      name
-      options
-      type
-      required
-      width
-      accept
-      maxSize
+      ...FormInputsFragment
     }
     submitText
     successRedirect {
@@ -566,6 +614,16 @@ export const query = graphql`
     }
     source
     hubSpotFormGuid
+  }
+  fragment FormInputsFragment on ContentfulFormInputs {
+    label
+    name
+    options
+    type
+    required
+    width
+    accept
+    maxSize
   }
   fragment FormSectionFragmentNonRecursive on ContentfulFormSection {
     __typename
@@ -576,14 +634,7 @@ export const query = graphql`
     }
     recipients
     inputs {
-      label
-      name
-      options
-      type
-      required
-      width
-      accept
-      maxSize
+      ...FormInputsFragment
     }
     submitText
     successRedirect {

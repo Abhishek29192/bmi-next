@@ -1,6 +1,7 @@
 type CountryData = {
   spaceId: string;
   accessToken: string;
+  environment: string;
 };
 
 export default function getCredentialsData(

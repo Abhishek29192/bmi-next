@@ -3,6 +3,7 @@ import Modal, { ModalProps } from "@material-ui/core/Modal";
 import classnames from "classnames";
 import Button from "@bmi/button";
 import Container from "@bmi/container";
+import { SVGImport } from "@bmi/svg-import";
 import CloseIcon from "@material-ui/icons/Close";
 import Fade from "@material-ui/core/Fade";
 import { BMI as brandLogo } from "@bmi/logo";
@@ -21,7 +22,7 @@ type Props = {
   ariaDescribedby?: string;
   children: Exclude<React.ReactNode, null | undefined>;
   className?: string;
-  headerCenter?: string;
+  headerCentre?: string;
   disablePortal?: boolean;
 };
 const CalculatorModal = ({
@@ -33,7 +34,7 @@ const CalculatorModal = ({
   backdropProps,
   ariaLabelledby,
   ariaDescribedby,
-  headerCenter,
+  headerCentre,
   children,
   className,
   disablePortal
@@ -69,7 +70,7 @@ const CalculatorModal = ({
                 source={logo}
                 className={classnames(styles["headerSide"], styles["logo"])}
               />
-              <div className={styles["headerCenter"]}>{headerCenter}</div>
+              <div className={styles["headerCentre"]}>{headerCentre}</div>
               <Button
                 isIconButton
                 variant="text"

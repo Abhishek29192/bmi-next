@@ -1,1614 +1,1646 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PitchedRoofCalculator PDF components renders h1 Typograph correctly 1`] = `
-Object {
-  "stack": Array [
-    Object {
-      "alignment": "left",
-      "bold": true,
-      "fontSize": 22.5,
-      "lineHeight": 1.33,
-      "text": "Heading 1",
+Document {
+  "docDefinition": Object {
+    "stack": Array [
+      Object {
+        "alignment": "left",
+        "bold": true,
+        "fontSize": 22.5,
+        "lineHeight": 1.33,
+        "text": "Heading 1",
+      },
+      Object {
+        "canvas": Array [
+          Object {
+            "key": null,
+            "lineColor": "#009FE3",
+            "lineWidth": 4,
+            "props": undefined,
+            "type": "line",
+            "x1": 0,
+            "x2": 100,
+            "y1": 0,
+            "y2": 0,
+          },
+        ],
+      },
+    ],
+  },
+  "fonts": Object {
+    "Roboto": Object {
+      "bold": "Roboto-Medium.ttf",
+      "bolditalics": "Roboto-MediumItalic.ttf",
+      "italics": "Roboto-Italic.ttf",
+      "normal": "Roboto-Regular.ttf",
     },
-    Object {
-      "canvas": Array [
-        Object {
-          "key": undefined,
-          "lineColor": "#009FE3",
-          "lineWidth": 4,
-          "props": undefined,
-          "type": "line",
-          "x1": 0,
-          "x2": 100,
-          "y1": 0,
-          "y2": 0,
-        },
-      ],
-    },
-  ],
+  },
+  "tableLayouts": null,
+  "vfs": undefined,
 }
 `;
 
 exports[`PitchedRoofCalculator PDF tool avoids rendering empty tables results 1`] = `
-Object {
-  "content": Array [
-    Object {
-      "alignment": "center",
-      "bold": true,
-      "fontSize": 18,
-      "lineHeight": 1.33,
-      "text": "Your solution contains",
-    },
-    Object {
-      "alignment": "center",
-      "bold": true,
-      "fontSize": 12,
-      "lineHeight": 1.4,
-      "text": Array [
-        "For the total measured area for your roof: 150m",
-        Object {
-          "alignment": "left",
-          "fontSize": 10,
-          "lineHeight": 1.4,
-          "sup": true,
-          "text": "2",
+Document {
+  "docDefinition": Object {
+    "content": Array [
+      Object {
+        "alignment": "center",
+        "bold": true,
+        "fontSize": 18,
+        "lineHeight": 1.33,
+        "text": "Your solution contains",
+      },
+      Object {
+        "alignment": "center",
+        "bold": true,
+        "fontSize": 12,
+        "lineHeight": 1.4,
+        "text": Array [
+          "For the total measured area for your roof: 150m",
+          Object {
+            "alignment": "left",
+            "fontSize": 10,
+            "lineHeight": 1.4,
+            "sup": true,
+            "text": "2",
+          },
+        ],
+      },
+      Object {
+        "alignment": "center",
+        "fontSize": 10,
+        "lineHeight": 1.4,
+        "margin": Array [
+          100,
+          0,
+          100,
+          0,
+        ],
+        "text": "Disclaimer: We strive to be within 5-10% accurate. We've also added a wastage contingency of: 5% into this material calculation",
+      },
+      Object {
+        "alignment": "left",
+        "bold": true,
+        "fontSize": 12,
+        "lineHeight": 1.65,
+        "margin": Array [
+          0,
+          25,
+          0,
+          10,
+        ],
+        "text": "Tiles",
+      },
+      Object {
+        "layout": Object {
+          "fillColor": [Function],
+          "hLineColor": [Function],
+          "vLineColor": [Function],
+          "vLineWidth": [Function],
         },
-      ],
-    },
-    Object {
-      "alignment": "center",
-      "fontSize": 10,
-      "lineHeight": 1.4,
-      "margin": Array [
-        100,
-        0,
-        100,
-        0,
-      ],
-      "text": "Disclaimer: We strive to be within 5-10% accurate. We've also added a wastage contingency of: 5% into this material calculation",
-    },
-    Object {
-      "alignment": "left",
-      "bold": true,
-      "fontSize": 12,
-      "lineHeight": 1.65,
-      "margin": Array [
-        0,
-        25,
-        0,
-        10,
-      ],
-      "text": "Tiles",
-    },
-    Object {
-      "layout": Object {
-        "fillColor": [Function],
-        "hLineColor": [Function],
-        "vLineColor": [Function],
-        "vLineWidth": [Function],
+        "table": Object {
+          "body": Array [
+            Array [
+              Object {
+                "bold": true,
+                "color": "#70706F",
+                "fontSize": 10,
+                "header": true,
+                "margin": Array [
+                  14,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": " ",
+              },
+              Object {
+                "bold": true,
+                "color": "#70706F",
+                "fontSize": 10,
+                "header": true,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "Product",
+              },
+              Object {
+                "bold": true,
+                "color": "#70706F",
+                "fontSize": 10,
+                "header": true,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "Pack size",
+              },
+              Object {
+                "bold": true,
+                "color": "#70706F",
+                "fontSize": 10,
+                "header": true,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "Nobb no",
+              },
+              Object {
+                "bold": true,
+                "color": "#70706F",
+                "fontSize": 10,
+                "header": true,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "Quantity",
+              },
+            ],
+          ],
+          "headerRows": 1,
+          "widths": Array [
+            80,
+            180,
+            110,
+            70,
+            65,
+          ],
+        },
       },
-      "table": Object {
-        "body": Array [
-          Array [
-            Object {
-              "bold": true,
-              "color": "#70706F",
-              "fontSize": 10,
-              "header": true,
-              "margin": Array [
-                14,
-                8,
-                5,
-                10,
-              ],
-              "text": " ",
-            },
-            Object {
-              "bold": true,
-              "color": "#70706F",
-              "fontSize": 10,
-              "header": true,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "Product",
-            },
-            Object {
-              "bold": true,
-              "color": "#70706F",
-              "fontSize": 10,
-              "header": true,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "Pack size",
-            },
-            Object {
-              "bold": true,
-              "color": "#70706F",
-              "fontSize": 10,
-              "header": true,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "Nobb no",
-            },
-            Object {
-              "bold": true,
-              "color": "#70706F",
-              "fontSize": 10,
-              "header": true,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "Quantity",
-            },
+      null,
+      null,
+      null,
+      null,
+      Object {
+        "layout": "noBorders",
+        "marginLeft": -25,
+        "marginTop": 40,
+        "table": Object {
+          "body": Array [
+            Array [
+              Object {
+                "bold": true,
+                "color": "#3B3B3B",
+                "fillColor": "#FFC72C",
+                "margin": Array [
+                  25,
+                  15,
+                  25,
+                  5,
+                ],
+                "text": "Quantities update",
+              },
+            ],
+            Array [
+              Object {
+                "color": "#3B3B3B",
+                "fillColor": "#FFC72C",
+                "margin": Array [
+                  25,
+                  0,
+                  25,
+                  15,
+                ],
+                "text": "Changing the quantities may affect the accuracy of the estimates.",
+              },
+            ],
           ],
-        ],
-        "headerRows": 1,
-        "widths": Array [
-          80,
-          180,
-          110,
-          70,
-          65,
-        ],
+          "widths": Array [
+            595.28,
+          ],
+        },
       },
-    },
-    null,
-    null,
-    null,
-    null,
-    Object {
-      "layout": "noBorders",
-      "marginLeft": -25,
-      "marginTop": 40,
-      "table": Object {
-        "body": Array [
-          Array [
-            Object {
-              "bold": true,
-              "color": "#3B3B3B",
-              "fillColor": "#FFC72C",
-              "margin": Array [
-                25,
-                15,
-                25,
-                5,
-              ],
-              "text": "Quantities update",
-            },
+      Object {
+        "layout": "noBorders",
+        "marginLeft": -25,
+        "table": Object {
+          "body": Array [
+            Array [
+              Object {
+                "bold": true,
+                "color": "#3B3B3B",
+                "fillColor": "#F0F0F0",
+                "margin": Array [
+                  25,
+                  15,
+                  25,
+                  5,
+                ],
+                "text": "Need to know",
+              },
+            ],
+            Array [
+              Object {
+                "color": "#3B3B3B",
+                "fillColor": "#F0F0F0",
+                "margin": Array [
+                  25,
+                  0,
+                  25,
+                  15,
+                ],
+                "text": "We’ve added a wastage contingency of: 5% into this material calculation.",
+              },
+            ],
           ],
-          Array [
-            Object {
-              "color": "#3B3B3B",
-              "fillColor": "#FFC72C",
-              "margin": Array [
-                25,
-                0,
-                25,
-                15,
-              ],
-              "text": "Changing the quantities may affect the accuracy of the estimates.",
-            },
+          "widths": Array [
+            595.28,
           ],
-        ],
-        "widths": Array [
-          595.28,
-        ],
+        },
       },
+    ],
+    "defaultStyle": Object {
+      "font": "Effra",
     },
-    Object {
-      "layout": "noBorders",
-      "marginLeft": -25,
-      "table": Object {
-        "body": Array [
-          Array [
-            Object {
-              "bold": true,
-              "color": "#3B3B3B",
-              "fillColor": "#F0F0F0",
-              "margin": Array [
-                25,
-                15,
-                25,
-                5,
-              ],
-              "text": "Need to know",
-            },
-          ],
-          Array [
-            Object {
-              "color": "#3B3B3B",
-              "fillColor": "#F0F0F0",
-              "margin": Array [
-                25,
-                0,
-                25,
-                15,
-              ],
-              "text": "We’ve added a wastage contingency of: 5% into this material calculation.",
-            },
-          ],
-        ],
-        "widths": Array [
-          595.28,
-        ],
-      },
-    },
-  ],
-  "defaultStyle": Object {
-    "font": "Effra",
+    "header": [Function],
+    "images": Object {},
+    "pageBreakBefore": [Function],
+    "pageMargins": Array [
+      25,
+      70,
+      25,
+      35,
+    ],
+    "pageOrientation": "portrait",
+    "pageSize": "A4",
   },
-  "header": [Function],
-  "images": Object {},
-  "pageBreakBefore": [Function],
-  "pageMargins": Array [
-    25,
-    70,
-    25,
-    35,
-  ],
-  "pageOrientation": "portrait",
-  "pageSize": "A4",
+  "fonts": Object {
+    "Effra": Object {
+      "bold": "",
+      "normal": "",
+    },
+  },
+  "tableLayouts": null,
+  "vfs": undefined,
 }
 `;
 
 exports[`PitchedRoofCalculator PDF tool renders PDF correctly 1`] = `
-Object {
-  "content": Array [
-    Object {
-      "alignment": "center",
-      "bold": true,
-      "fontSize": 18,
-      "lineHeight": 1.33,
-      "text": "Your solution contains",
-    },
-    Object {
-      "alignment": "center",
-      "bold": true,
-      "fontSize": 12,
-      "lineHeight": 1.4,
-      "text": Array [
-        "For the total measured area for your roof: 150m",
+Document {
+  "docDefinition": Object {
+    "content": Array [
+      Object {
+        "alignment": "center",
+        "bold": true,
+        "fontSize": 18,
+        "lineHeight": 1.33,
+        "text": "Your solution contains",
+      },
+      Object {
+        "alignment": "center",
+        "bold": true,
+        "fontSize": 12,
+        "lineHeight": 1.4,
+        "text": Array [
+          "For the total measured area for your roof: 150m",
+          Object {
+            "alignment": "left",
+            "fontSize": 10,
+            "lineHeight": 1.4,
+            "sup": true,
+            "text": "2",
+          },
+        ],
+      },
+      Object {
+        "alignment": "center",
+        "fontSize": 10,
+        "lineHeight": 1.4,
+        "margin": Array [
+          100,
+          0,
+          100,
+          0,
+        ],
+        "text": "Disclaimer: We strive to be within 5-10% accurate. We've also added a wastage contingency of: 5% into this material calculation",
+      },
+      Object {
+        "alignment": "left",
+        "bold": true,
+        "fontSize": 12,
+        "lineHeight": 1.65,
+        "margin": Array [
+          0,
+          25,
+          0,
+          10,
+        ],
+        "text": "Tiles",
+      },
+      Object {
+        "layout": Object {
+          "fillColor": [Function],
+          "hLineColor": [Function],
+          "vLineColor": [Function],
+          "vLineWidth": [Function],
+        },
+        "table": Object {
+          "body": Array [
+            Array [
+              Object {
+                "bold": true,
+                "color": "#70706F",
+                "fontSize": 10,
+                "header": true,
+                "margin": Array [
+                  14,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": " ",
+              },
+              Object {
+                "bold": true,
+                "color": "#70706F",
+                "fontSize": 10,
+                "header": true,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "Product",
+              },
+              Object {
+                "bold": true,
+                "color": "#70706F",
+                "fontSize": 10,
+                "header": true,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "Pack size",
+              },
+              Object {
+                "bold": true,
+                "color": "#70706F",
+                "fontSize": 10,
+                "header": true,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "Nobb no",
+              },
+              Object {
+                "bold": true,
+                "color": "#70706F",
+                "fontSize": 10,
+                "header": true,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "Quantity",
+              },
+            ],
+            Array [
+              Array [
+                Object {
+                  "fit": Array [
+                    50,
+                    50,
+                  ],
+                  "image": "data:image/jpg;base64,imagedata",
+                },
+              ],
+              Object {
+                "bold": false,
+                "color": "#70706F",
+                "fontSize": 10,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "Zanda Protector main tile black",
+              },
+              Object {
+                "bold": false,
+                "color": "#70706F",
+                "fontSize": 10,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "-",
+              },
+              Object {
+                "bold": false,
+                "color": "#70706F",
+                "fontSize": 10,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "46035712",
+              },
+              Object {
+                "bold": false,
+                "color": "#70706F",
+                "fontSize": 10,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "1350",
+              },
+            ],
+            Array [
+              Array [
+                Object {
+                  "fit": Array [
+                    50,
+                    50,
+                  ],
+                  "image": "data:image/jpg;base64,imagedata",
+                },
+              ],
+              Object {
+                "bold": false,
+                "color": "#70706F",
+                "fontSize": 10,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "Zanda Protector half tile black",
+              },
+              Object {
+                "bold": false,
+                "color": "#70706F",
+                "fontSize": 10,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "-",
+              },
+              Object {
+                "bold": false,
+                "color": "#70706F",
+                "fontSize": 10,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "46035795",
+              },
+              Object {
+                "bold": false,
+                "color": "#70706F",
+                "fontSize": 10,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "30",
+              },
+            ],
+            Array [
+              Array [
+                Object {
+                  "fit": Array [
+                    50,
+                    50,
+                  ],
+                  "image": "data:image/jpg;base64,imagedata",
+                },
+              ],
+              Object {
+                "bold": false,
+                "color": "#70706F",
+                "fontSize": 10,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "Zanda_Protector_ridge tile black",
+              },
+              Object {
+                "bold": false,
+                "color": "#70706F",
+                "fontSize": 10,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "-",
+              },
+              Object {
+                "bold": false,
+                "color": "#70706F",
+                "fontSize": 10,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "46035761",
+              },
+              Object {
+                "bold": false,
+                "color": "#70706F",
+                "fontSize": 10,
+                "margin": Array [
+                  5,
+                  8,
+                  5,
+                  10,
+                ],
+                "text": "46",
+              },
+            ],
+          ],
+          "headerRows": 1,
+          "widths": Array [
+            80,
+            180,
+            110,
+            70,
+            65,
+          ],
+        },
+      },
+      null,
+      null,
+      Array [
         Object {
           "alignment": "left",
-          "fontSize": 10,
-          "lineHeight": 1.4,
-          "sup": true,
-          "text": "2",
+          "bold": true,
+          "fontSize": 12,
+          "lineHeight": 1.65,
+          "margin": Array [
+            0,
+            25,
+            0,
+            10,
+          ],
+          "text": "Ventilation",
+        },
+        Object {
+          "layout": Object {
+            "fillColor": [Function],
+            "hLineColor": [Function],
+            "vLineColor": [Function],
+            "vLineWidth": [Function],
+          },
+          "table": Object {
+            "body": Array [
+              Array [
+                Object {
+                  "bold": true,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "header": true,
+                  "margin": Array [
+                    14,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": " ",
+                },
+                Object {
+                  "bold": true,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "header": true,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Product",
+                },
+                Object {
+                  "bold": true,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "header": true,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Pack size",
+                },
+                Object {
+                  "bold": true,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "header": true,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Nobb no",
+                },
+                Object {
+                  "bold": true,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "header": true,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Quantity",
+                },
+              ],
+              Array [
+                Array [
+                  "",
+                ],
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Ventilation Hood 1",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "-",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "100456781",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "1",
+                },
+              ],
+            ],
+            "headerRows": 1,
+            "widths": Array [
+              80,
+              180,
+              110,
+              70,
+              65,
+            ],
+          },
         },
       ],
-    },
-    Object {
-      "alignment": "center",
-      "fontSize": 10,
-      "lineHeight": 1.4,
-      "margin": Array [
-        100,
-        0,
-        100,
-        0,
-      ],
-      "text": "Disclaimer: We strive to be within 5-10% accurate. We've also added a wastage contingency of: 5% into this material calculation",
-    },
-    Object {
-      "alignment": "left",
-      "bold": true,
-      "fontSize": 12,
-      "lineHeight": 1.65,
-      "margin": Array [
-        0,
-        25,
-        0,
-        10,
-      ],
-      "text": "Tiles",
-    },
-    Object {
-      "layout": Object {
-        "fillColor": [Function],
-        "hLineColor": [Function],
-        "vLineColor": [Function],
-        "vLineWidth": [Function],
-      },
-      "table": Object {
-        "body": Array [
-          Array [
-            Object {
-              "bold": true,
-              "color": "#70706F",
-              "fontSize": 10,
-              "header": true,
-              "margin": Array [
-                14,
-                8,
-                5,
-                10,
-              ],
-              "text": " ",
-            },
-            Object {
-              "bold": true,
-              "color": "#70706F",
-              "fontSize": 10,
-              "header": true,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "Product",
-            },
-            Object {
-              "bold": true,
-              "color": "#70706F",
-              "fontSize": 10,
-              "header": true,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "Pack size",
-            },
-            Object {
-              "bold": true,
-              "color": "#70706F",
-              "fontSize": 10,
-              "header": true,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "Nobb no",
-            },
-            Object {
-              "bold": true,
-              "color": "#70706F",
-              "fontSize": 10,
-              "header": true,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "Quantity",
-            },
+      Array [
+        Object {
+          "alignment": "left",
+          "bold": true,
+          "fontSize": 12,
+          "lineHeight": 1.65,
+          "margin": Array [
+            0,
+            25,
+            0,
+            10,
           ],
-          Array [
-            Array [
-              Object {
-                "fit": Array [
-                  50,
-                  50,
-                ],
-                "image": "data:image/jpg;base64,imagedata",
-              },
-            ],
-            Object {
-              "bold": false,
-              "color": "#70706F",
-              "fontSize": 10,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "Zanda Protector main tile black",
-            },
-            Object {
-              "bold": false,
-              "color": "#70706F",
-              "fontSize": 10,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "-",
-            },
-            Object {
-              "bold": false,
-              "color": "#70706F",
-              "fontSize": 10,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "46035712",
-            },
-            Object {
-              "bold": false,
-              "color": "#70706F",
-              "fontSize": 10,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "1350",
-            },
-          ],
-          Array [
-            Array [
-              Object {
-                "fit": Array [
-                  50,
-                  50,
-                ],
-                "image": "data:image/jpg;base64,imagedata",
-              },
-            ],
-            Object {
-              "bold": false,
-              "color": "#70706F",
-              "fontSize": 10,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "Zanda Protector half tile black",
-            },
-            Object {
-              "bold": false,
-              "color": "#70706F",
-              "fontSize": 10,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "-",
-            },
-            Object {
-              "bold": false,
-              "color": "#70706F",
-              "fontSize": 10,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "46035795",
-            },
-            Object {
-              "bold": false,
-              "color": "#70706F",
-              "fontSize": 10,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "30",
-            },
-          ],
-          Array [
-            Array [
-              Object {
-                "fit": Array [
-                  50,
-                  50,
-                ],
-                "image": "data:image/jpg;base64,imagedata",
-              },
-            ],
-            Object {
-              "bold": false,
-              "color": "#70706F",
-              "fontSize": 10,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "Zanda_Protector_ridge tile black",
-            },
-            Object {
-              "bold": false,
-              "color": "#70706F",
-              "fontSize": 10,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "-",
-            },
-            Object {
-              "bold": false,
-              "color": "#70706F",
-              "fontSize": 10,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "46035761",
-            },
-            Object {
-              "bold": false,
-              "color": "#70706F",
-              "fontSize": 10,
-              "margin": Array [
-                5,
-                8,
-                5,
-                10,
-              ],
-              "text": "46",
-            },
-          ],
-        ],
-        "headerRows": 1,
-        "widths": Array [
-          80,
-          180,
-          110,
-          70,
-          65,
-        ],
-      },
-    },
-    null,
-    null,
-    Array [
-      Object {
-        "alignment": "left",
-        "bold": true,
-        "fontSize": 12,
-        "lineHeight": 1.65,
-        "margin": Array [
-          0,
-          25,
-          0,
-          10,
-        ],
-        "text": "Ventilation",
-      },
-      Object {
-        "layout": Object {
-          "fillColor": [Function],
-          "hLineColor": [Function],
-          "vLineColor": [Function],
-          "vLineWidth": [Function],
+          "text": "Accessories",
         },
+        Object {
+          "layout": Object {
+            "fillColor": [Function],
+            "hLineColor": [Function],
+            "vLineColor": [Function],
+            "vLineWidth": [Function],
+          },
+          "table": Object {
+            "body": Array [
+              Array [
+                Object {
+                  "bold": true,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "header": true,
+                  "margin": Array [
+                    14,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": " ",
+                },
+                Object {
+                  "bold": true,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "header": true,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Product",
+                },
+                Object {
+                  "bold": true,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "header": true,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Pack size",
+                },
+                Object {
+                  "bold": true,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "header": true,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Nobb no",
+                },
+                Object {
+                  "bold": true,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "header": true,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Quantity",
+                },
+              ],
+              Array [
+                Array [
+                  Object {
+                    "fit": Array [
+                      50,
+                      50,
+                    ],
+                    "image": "data:image/jpg;base64,imagedata",
+                  },
+                ],
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Zanda_Protector_verge metal flush black left start",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "-",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "86035763",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "2",
+                },
+              ],
+              Array [
+                Array [
+                  Object {
+                    "fit": Array [
+                      50,
+                      50,
+                    ],
+                    "image": "data:image/jpg;base64,imagedata",
+                  },
+                ],
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Zanda_Protector_verge metal flush black left",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "-",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "86035761",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "100",
+                },
+              ],
+              Array [
+                Array [
+                  Object {
+                    "fit": Array [
+                      50,
+                      50,
+                    ],
+                    "image": "data:image/jpg;base64,imagedata",
+                  },
+                ],
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Zanda_Protector_verge metal flush black right start",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "-",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "86035764",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "2",
+                },
+              ],
+              Array [
+                Array [
+                  Object {
+                    "fit": Array [
+                      50,
+                      50,
+                    ],
+                    "image": "data:image/jpg;base64,imagedata",
+                  },
+                ],
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Zanda_Protector_verge metal flush black right",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "-",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "86035762",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "100",
+                },
+              ],
+              Array [
+                Array [
+                  "",
+                ],
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Clips",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "-",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "113456781",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "92",
+                },
+              ],
+              Array [
+                Array [
+                  "",
+                ],
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Ridge and Hip Screw",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "-",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "113456782",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "92",
+                },
+              ],
+              Array [
+                Array [
+                  "",
+                ],
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Long Screw",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "-",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "113456783",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "267",
+                },
+              ],
+              Array [
+                Array [
+                  "",
+                ],
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Screw",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "-",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "113456784",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "1249",
+                },
+              ],
+              Array [
+                Array [
+                  "",
+                ],
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Finishing Kit",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "-",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "113456786",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "1",
+                },
+              ],
+              Array [
+                Array [
+                  Object {
+                    "fit": Array [
+                      50,
+                      50,
+                    ],
+                    "image": "data:image/jpg;base64,imagedata",
+                  },
+                ],
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Underlay Divoroll TOP RU",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "-",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "26583450",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "3",
+                },
+              ],
+              Array [
+                Array [
+                  Object {
+                    "fit": Array [
+                      50,
+                      50,
+                    ],
+                    "image": "data:image/jpg;base64,imagedata",
+                  },
+                ],
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Fuglelist ventilert",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "-",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "5555551",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "6",
+                },
+              ],
+              Array [
+                Array [
+                  Object {
+                    "fit": Array [
+                      50,
+                      50,
+                    ],
+                    "image": "data:image/jpg;base64,imagedata",
+                  },
+                ],
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Other accesories example",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "-",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "5555550",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "0",
+                },
+              ],
+            ],
+            "headerRows": 1,
+            "widths": Array [
+              80,
+              180,
+              110,
+              70,
+              65,
+            ],
+          },
+        },
+      ],
+      Object {
+        "layout": "noBorders",
+        "marginLeft": -25,
+        "marginTop": 40,
         "table": Object {
           "body": Array [
             Array [
               Object {
                 "bold": true,
-                "color": "#70706F",
-                "fontSize": 10,
-                "header": true,
+                "color": "#3B3B3B",
+                "fillColor": "#FFC72C",
                 "margin": Array [
-                  14,
-                  8,
+                  25,
+                  15,
+                  25,
                   5,
-                  10,
                 ],
-                "text": " ",
-              },
-              Object {
-                "bold": true,
-                "color": "#70706F",
-                "fontSize": 10,
-                "header": true,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Product",
-              },
-              Object {
-                "bold": true,
-                "color": "#70706F",
-                "fontSize": 10,
-                "header": true,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Pack size",
-              },
-              Object {
-                "bold": true,
-                "color": "#70706F",
-                "fontSize": 10,
-                "header": true,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Nobb no",
-              },
-              Object {
-                "bold": true,
-                "color": "#70706F",
-                "fontSize": 10,
-                "header": true,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Quantity",
+                "text": "Quantities update",
               },
             ],
             Array [
-              Array [
-                "",
-              ],
               Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
+                "color": "#3B3B3B",
+                "fillColor": "#FFC72C",
                 "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
+                  25,
+                  0,
+                  25,
+                  15,
                 ],
-                "text": "Ventilation Hood 1",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "-",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "100456781",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "1",
+                "text": "Changing the quantities may affect the accuracy of the estimates.",
               },
             ],
           ],
-          "headerRows": 1,
           "widths": Array [
-            80,
-            180,
-            110,
-            70,
-            65,
+            595.28,
           ],
         },
       },
-    ],
-    Array [
       Object {
-        "alignment": "left",
-        "bold": true,
-        "fontSize": 12,
-        "lineHeight": 1.65,
-        "margin": Array [
-          0,
-          25,
-          0,
-          10,
-        ],
-        "text": "Accessories",
-      },
-      Object {
-        "layout": Object {
-          "fillColor": [Function],
-          "hLineColor": [Function],
-          "vLineColor": [Function],
-          "vLineWidth": [Function],
-        },
+        "layout": "noBorders",
+        "marginLeft": -25,
         "table": Object {
           "body": Array [
             Array [
               Object {
                 "bold": true,
-                "color": "#70706F",
-                "fontSize": 10,
-                "header": true,
+                "color": "#3B3B3B",
+                "fillColor": "#F0F0F0",
                 "margin": Array [
-                  14,
-                  8,
+                  25,
+                  15,
+                  25,
                   5,
-                  10,
                 ],
-                "text": " ",
-              },
-              Object {
-                "bold": true,
-                "color": "#70706F",
-                "fontSize": 10,
-                "header": true,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Product",
-              },
-              Object {
-                "bold": true,
-                "color": "#70706F",
-                "fontSize": 10,
-                "header": true,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Pack size",
-              },
-              Object {
-                "bold": true,
-                "color": "#70706F",
-                "fontSize": 10,
-                "header": true,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Nobb no",
-              },
-              Object {
-                "bold": true,
-                "color": "#70706F",
-                "fontSize": 10,
-                "header": true,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Quantity",
+                "text": "Need to know",
               },
             ],
             Array [
-              Array [
-                Object {
-                  "fit": Array [
-                    50,
-                    50,
-                  ],
-                  "image": "data:image/jpg;base64,imagedata",
-                },
-              ],
               Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
+                "color": "#3B3B3B",
+                "fillColor": "#F0F0F0",
                 "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
+                  25,
+                  0,
+                  25,
+                  15,
                 ],
-                "text": "Zanda_Protector_verge metal flush black left start",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "-",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "86035763",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "2",
-              },
-            ],
-            Array [
-              Array [
-                Object {
-                  "fit": Array [
-                    50,
-                    50,
-                  ],
-                  "image": "data:image/jpg;base64,imagedata",
-                },
-              ],
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Zanda_Protector_verge metal flush black left",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "-",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "86035761",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "100",
-              },
-            ],
-            Array [
-              Array [
-                Object {
-                  "fit": Array [
-                    50,
-                    50,
-                  ],
-                  "image": "data:image/jpg;base64,imagedata",
-                },
-              ],
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Zanda_Protector_verge metal flush black right start",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "-",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "86035764",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "2",
-              },
-            ],
-            Array [
-              Array [
-                Object {
-                  "fit": Array [
-                    50,
-                    50,
-                  ],
-                  "image": "data:image/jpg;base64,imagedata",
-                },
-              ],
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Zanda_Protector_verge metal flush black right",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "-",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "86035762",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "100",
-              },
-            ],
-            Array [
-              Array [
-                "",
-              ],
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Clips",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "-",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "113456781",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "92",
-              },
-            ],
-            Array [
-              Array [
-                "",
-              ],
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Ridge and Hip Screw",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "-",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "113456782",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "92",
-              },
-            ],
-            Array [
-              Array [
-                "",
-              ],
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Long Screw",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "-",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "113456783",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "267",
-              },
-            ],
-            Array [
-              Array [
-                "",
-              ],
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Screw",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "-",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "113456784",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "1249",
-              },
-            ],
-            Array [
-              Array [
-                "",
-              ],
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Finishing Kit",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "-",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "113456786",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "1",
-              },
-            ],
-            Array [
-              Array [
-                Object {
-                  "fit": Array [
-                    50,
-                    50,
-                  ],
-                  "image": "data:image/jpg;base64,imagedata",
-                },
-              ],
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Underlay Divoroll TOP RU",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "-",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "26583450",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "3",
-              },
-            ],
-            Array [
-              Array [
-                Object {
-                  "fit": Array [
-                    50,
-                    50,
-                  ],
-                  "image": "data:image/jpg;base64,imagedata",
-                },
-              ],
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Fuglelist ventilert",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "-",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "5555551",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "6",
-              },
-            ],
-            Array [
-              Array [
-                Object {
-                  "fit": Array [
-                    50,
-                    50,
-                  ],
-                  "image": "data:image/jpg;base64,imagedata",
-                },
-              ],
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "Other accesories example",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "-",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "5555550",
-              },
-              Object {
-                "bold": false,
-                "color": "#70706F",
-                "fontSize": 10,
-                "margin": Array [
-                  5,
-                  8,
-                  5,
-                  10,
-                ],
-                "text": "0",
+                "text": "We’ve added a wastage contingency of: 5% into this material calculation.",
               },
             ],
           ],
-          "headerRows": 1,
           "widths": Array [
-            80,
-            180,
-            110,
-            70,
-            65,
+            595.28,
           ],
         },
       },
     ],
-    Object {
-      "layout": "noBorders",
-      "marginLeft": -25,
-      "marginTop": 40,
-      "table": Object {
-        "body": Array [
-          Array [
-            Object {
-              "bold": true,
-              "color": "#3B3B3B",
-              "fillColor": "#FFC72C",
-              "margin": Array [
-                25,
-                15,
-                25,
-                5,
-              ],
-              "text": "Quantities update",
-            },
-          ],
-          Array [
-            Object {
-              "color": "#3B3B3B",
-              "fillColor": "#FFC72C",
-              "margin": Array [
-                25,
-                0,
-                25,
-                15,
-              ],
-              "text": "Changing the quantities may affect the accuracy of the estimates.",
-            },
-          ],
-        ],
-        "widths": Array [
-          595.28,
-        ],
-      },
+    "defaultStyle": Object {
+      "font": "Effra",
     },
-    Object {
-      "layout": "noBorders",
-      "marginLeft": -25,
-      "table": Object {
-        "body": Array [
-          Array [
-            Object {
-              "bold": true,
-              "color": "#3B3B3B",
-              "fillColor": "#F0F0F0",
-              "margin": Array [
-                25,
-                15,
-                25,
-                5,
-              ],
-              "text": "Need to know",
-            },
-          ],
-          Array [
-            Object {
-              "color": "#3B3B3B",
-              "fillColor": "#F0F0F0",
-              "margin": Array [
-                25,
-                0,
-                25,
-                15,
-              ],
-              "text": "We’ve added a wastage contingency of: 5% into this material calculation.",
-            },
-          ],
-        ],
-        "widths": Array [
-          595.28,
-        ],
-      },
-    },
-  ],
-  "defaultStyle": Object {
-    "font": "Effra",
+    "header": [Function],
+    "images": Object {},
+    "pageBreakBefore": [Function],
+    "pageMargins": Array [
+      25,
+      70,
+      25,
+      35,
+    ],
+    "pageOrientation": "portrait",
+    "pageSize": "A4",
   },
-  "header": [Function],
-  "images": Object {},
-  "pageBreakBefore": [Function],
-  "pageMargins": Array [
-    25,
-    70,
-    25,
-    35,
-  ],
-  "pageOrientation": "portrait",
-  "pageSize": "A4",
+  "fonts": Object {
+    "Effra": Object {
+      "bold": "",
+      "normal": "",
+    },
+  },
+  "tableLayouts": null,
+  "vfs": undefined,
 }
 `;

@@ -1,285 +1,287 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ExpandableCard component ExpandableCard.List component closes the opened card 1`] = `
-<div
-  class="ExpandableCardList"
->
+<div>
   <div
-    class="item"
+    class="ExpandableCardList"
   >
     <div
-      aria-label="Lorem ipsum"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="height: 0px; position: absolute; top: 0px; right: 0px; left: 0px; min-height: auto;"
+      class="item"
     >
-      <button
-        aria-label="Close me"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
       <div
-        class="MuiCardContent-root content"
+        aria-label="Lorem ipsum"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="height: 0px; position: absolute; top: 0px; right: 0px; left: 0px; min-height: auto;"
       >
-        <div
-          class="header"
+        <button
+          aria-label="Close me"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
+          tabindex="0"
+          type="button"
         >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
+          <span
+            class="MuiIconButton-label"
           >
-            Lorem ipsum
-          </h5>
-        </div>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
         <div
-          class="body"
+          class="MuiCardContent-root content"
         >
-          Sit dolor amet
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem ipsum
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="item"
-  >
     <div
-      aria-label="Lorem Ipsum 0"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
+      class="item"
     >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
       <div
-        class="MuiCardContent-root content"
+        aria-label="Lorem Ipsum 0"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
       >
-        <div
-          class="header"
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
+          tabindex="0"
+          type="button"
         >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
+          <span
+            class="MuiIconButton-label"
           >
-            Lorem Ipsum 0
-          </h5>
-        </div>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
         <div
-          class="body"
+          class="MuiCardContent-root content"
         >
-          Sit dolor amet
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 0
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="item"
-  >
     <div
-      aria-label="Lorem Ipsum 1"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
+      class="item"
     >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
       <div
-        class="MuiCardContent-root content"
+        aria-label="Lorem Ipsum 1"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
       >
-        <div
-          class="header"
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
+          tabindex="0"
+          type="button"
         >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
+          <span
+            class="MuiIconButton-label"
           >
-            Lorem Ipsum 1
-          </h5>
-        </div>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
         <div
-          class="body"
+          class="MuiCardContent-root content"
         >
-          Sit dolor amet
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 1
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="item"
-  >
     <div
-      aria-label="Lorem Ipsum 2"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
+      class="item"
     >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
       <div
-        class="MuiCardContent-root content"
+        aria-label="Lorem Ipsum 2"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
       >
-        <div
-          class="header"
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
+          tabindex="0"
+          type="button"
         >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
+          <span
+            class="MuiIconButton-label"
           >
-            Lorem Ipsum 2
-          </h5>
-        </div>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
         <div
-          class="body"
+          class="MuiCardContent-root content"
         >
-          Sit dolor amet
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 2
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="item"
-  >
     <div
-      aria-label="Lorem Ipsum 3"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
+      class="item"
     >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
       <div
-        class="MuiCardContent-root content"
+        aria-label="Lorem Ipsum 3"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
       >
-        <div
-          class="header"
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
+          tabindex="0"
+          type="button"
         >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
+          <span
+            class="MuiIconButton-label"
           >
-            Lorem Ipsum 3
-          </h5>
-        </div>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
         <div
-          class="body"
+          class="MuiCardContent-root content"
         >
-          Sit dolor amet
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 3
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
         </div>
       </div>
     </div>
@@ -288,42 +290,1182 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
 `;
 
 exports[`ExpandableCard component ExpandableCard.List component doesn't re-expand an expanded card 1`] = `
-<div
-  class="ExpandableCardList"
->
+<div>
   <div
-    class="item"
+    class="ExpandableCardList"
   >
     <div
-      aria-label="Lorem Ipsum 0"
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 0"
+        class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 0
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 1"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 1
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 2"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 2
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 3"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 3
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ExpandableCard component ExpandableCard.List component handles multiple cards expanded by default 1`] = `
+<div>
+  <div
+    class="ExpandableCardList"
+  >
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 0"
+        class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 0
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 1"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 1
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 2"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 2
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 3"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 3
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ExpandableCard component ExpandableCard.List component it renders a list of cards 1`] = `
+<div>
+  <div
+    class="ExpandableCardList"
+  >
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 1"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 1
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 2"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 2
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 3"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 3
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ExpandableCard component ExpandableCard.List component renders with one card expanded 1`] = `
+<div>
+  <div
+    class="ExpandableCardList"
+  >
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 0"
+        class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 0
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 1"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 1
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 2"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 2
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 3"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 3
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ExpandableCard component ExpandableCard.List component sets the clicked card to expanded 1`] = `
+<div>
+  <div
+    class="ExpandableCardList"
+  >
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 0"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="height: 0px; position: absolute; top: 0px; right: 0px; left: 0px; min-height: auto;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 0
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="item"
+      style="min-width: 0px; height: 0px;"
+    >
+      <div
+        aria-label="Lorem Ipsum 1"
+        class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="height: 0px; top: 0px; right: 0px; left: 0px;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 1
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 2"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 2
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="item"
+    >
+      <div
+        aria-label="Lorem Ipsum 3"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%;"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Lorem Ipsum 3
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Sit dolor amet
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ExpandableCard component it expands the card when changing isExpanded 1`] = `
+<div>
+  <div
+    style="min-width: 0px; height: 0px;"
+  >
+    <div
+      aria-label="Lorem Ipsum"
       class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
       role="button"
-      style="min-height: 100%;"
+      style="pointer-events: auto; height: 0px;"
     >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
       <div
         class="MuiCardContent-root content"
       >
@@ -336,175 +1478,7 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
           <h5
             class="MuiTypography-root title Typography MuiTypography-h5"
           >
-            Lorem Ipsum 0
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 1"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 1
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 2"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 2
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 3"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 3
+            Lorem Ipsum
           </h5>
         </div>
         <div
@@ -518,267 +1492,17 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
 </div>
 `;
 
-exports[`ExpandableCard component ExpandableCard.List component handles multiple cards expanded by default 1`] = `
-<div
-  class="ExpandableCardList"
->
+exports[`ExpandableCard component it expands the card when changing isExpanded 2`] = `
+<div>
   <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 0"
-      class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 0
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 1"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 1
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 2"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 2
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 3"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 3
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="item"
+    style=""
   >
     <div
       aria-label="Lorem Ipsum"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
       role="button"
-      style="min-height: 100%;"
+      style="pointer-events: auto; min-height: 100%;"
     >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
       <div
         class="MuiCardContent-root content"
       >
@@ -805,714 +1529,6 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
 </div>
 `;
 
-exports[`ExpandableCard component ExpandableCard.List component it renders a list of cards 1`] = `
-<div
-  class="ExpandableCardList"
->
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 1"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 1
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 2"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 2
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 3"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 3
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ExpandableCard component ExpandableCard.List component renders with one card expanded 1`] = `
-<div
-  class="ExpandableCardList"
->
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 0"
-      class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 0
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 1"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 1
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 2"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 2
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 3"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 3
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ExpandableCard component ExpandableCard.List component sets the clicked card to expanded 1`] = `
-<div
-  class="ExpandableCardList"
->
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 0"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="height: 0px; position: absolute; top: 0px; right: 0px; left: 0px; min-height: auto;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 0
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="item"
-    style="min-width: 0px; height: 0px;"
-  >
-    <div
-      aria-label="Lorem Ipsum 1"
-      class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="height: 0px; top: 0px; right: 0px; left: 0px;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 1
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 2"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 2
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="item"
-  >
-    <div
-      aria-label="Lorem Ipsum 3"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%;"
-    >
-      <button
-        aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum 3
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ExpandableCard component it expands the card when changing isExpanded 1`] = `
-<div
-  style="min-width: 0px; height: 0px;"
->
-  <div
-    aria-label="Lorem Ipsum"
-    class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
-    role="button"
-    style="pointer-events: auto; height: 0px;"
-  >
-    <div
-      class="MuiCardContent-root content"
-    >
-      <div
-        class="header"
-      >
-        <svg
-          class="icon"
-        />
-        <h5
-          class="MuiTypography-root title Typography MuiTypography-h5"
-        >
-          Lorem Ipsum
-        </h5>
-      </div>
-      <div
-        class="body"
-      >
-        Sit dolor amet
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ExpandableCard component it expands the card when changing isExpanded 2`] = `
-<div
-  style=""
->
-  <div
-    aria-label="Lorem Ipsum"
-    class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-    role="button"
-    style="pointer-events: auto; min-height: 100%;"
-  >
-    <div
-      class="MuiCardContent-root content"
-    >
-      <div
-        class="header"
-      >
-        <svg
-          class="icon"
-        />
-        <h5
-          class="MuiTypography-root title title--static Typography MuiTypography-h5"
-        >
-          Lorem Ipsum
-        </h5>
-      </div>
-      <div
-        class="body"
-      >
-        Sit dolor amet
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`ExpandableCard component it triggers an onAnimationEnd event 1`] = `
 Array [
   Array [
@@ -1523,31 +1539,33 @@ Array [
 
 exports[`ExpandableCard component renders an expanded card 1`] = `
 <div>
-  <div
-    aria-label="Lorem Ipsum"
-    class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
-    role="button"
-    style="min-height: 100%; pointer-events: auto;"
-  >
+  <div>
     <div
-      class="MuiCardContent-root content"
+      aria-label="Lorem Ipsum"
+      class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
+      style="min-height: 100%; pointer-events: auto;"
     >
       <div
-        class="header"
+        class="MuiCardContent-root content"
       >
-        <svg
-          class="icon"
-        />
-        <h5
-          class="MuiTypography-root title Typography MuiTypography-h5"
+        <div
+          class="header"
         >
-          Lorem Ipsum
-        </h5>
-      </div>
-      <div
-        class="body"
-      >
-        Sit dolor amet
+          <svg
+            class="icon"
+          />
+          <h5
+            class="MuiTypography-root title Typography MuiTypography-h5"
+          >
+            Lorem Ipsum
+          </h5>
+        </div>
+        <div
+          class="body"
+        >
+          Sit dolor amet
+        </div>
       </div>
     </div>
   </div>
@@ -1556,36 +1574,38 @@ exports[`ExpandableCard component renders an expanded card 1`] = `
 
 exports[`ExpandableCard component renders correctly 1`] = `
 <div>
-  <div
-    aria-label="Lorem Ipsum"
-    class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-    role="button"
-    style="min-height: 100%; pointer-events: auto;"
-  >
+  <div>
     <div
-      class="MuiCardContent-root content"
+      aria-label="Lorem Ipsum"
+      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
+      style="min-height: 100%; pointer-events: auto;"
     >
       <div
-        class="header"
+        class="MuiCardContent-root content"
       >
-        <svg
-          class="icon"
-        />
-        <h5
-          class="MuiTypography-root title title--static Typography MuiTypography-h5"
+        <div
+          class="header"
         >
-          Lorem Ipsum
-        </h5>
-      </div>
-      <div
-        class="body"
-      >
-        Sit dolor amet
-      </div>
-      <div
-        class="footer"
-      >
-        consectetur adipiscing elit
+          <svg
+            class="icon"
+          />
+          <h5
+            class="MuiTypography-root title title--static Typography MuiTypography-h5"
+          >
+            Lorem Ipsum
+          </h5>
+        </div>
+        <div
+          class="body"
+        >
+          Sit dolor amet
+        </div>
+        <div
+          class="footer"
+        >
+          consectetur adipiscing elit
+        </div>
       </div>
     </div>
   </div>
@@ -1594,31 +1614,33 @@ exports[`ExpandableCard component renders correctly 1`] = `
 
 exports[`ExpandableCard component renders with no footer 1`] = `
 <div>
-  <div
-    aria-label="Lorem Ipsum"
-    class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-    role="button"
-    style="min-height: 100%; pointer-events: auto;"
-  >
+  <div>
     <div
-      class="MuiCardContent-root content"
+      aria-label="Lorem Ipsum"
+      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
+      style="min-height: 100%; pointer-events: auto;"
     >
       <div
-        class="header"
+        class="MuiCardContent-root content"
       >
-        <svg
-          class="icon"
-        />
-        <h5
-          class="MuiTypography-root title title--static Typography MuiTypography-h5"
+        <div
+          class="header"
         >
-          Lorem Ipsum
-        </h5>
-      </div>
-      <div
-        class="body"
-      >
-        Sit dolor amet
+          <svg
+            class="icon"
+          />
+          <h5
+            class="MuiTypography-root title title--static Typography MuiTypography-h5"
+          >
+            Lorem Ipsum
+          </h5>
+        </div>
+        <div
+          class="body"
+        >
+          Sit dolor amet
+        </div>
       </div>
     </div>
   </div>

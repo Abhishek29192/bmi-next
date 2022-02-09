@@ -4,6 +4,7 @@ import {
   findAccountCompany,
   findAccountTier,
   hasProjects,
+  isSuperAdmin,
   isSuperOrMarketAdmin
 } from "../account";
 
@@ -178,6 +179,18 @@ const gates = {
       MARKET_ADMIN: true,
       INSTALLER: false,
       COMPANY_ADMIN: false
+    },
+    addTeamMember: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: false
+    },
+    removeTeamMember: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: false
     }
   },
   page: {
@@ -211,8 +224,9 @@ const gates = {
     // Inventory (Available to Market Admins)
     inventory: isSuperOrMarketAdmin,
     productsAdmin: isSuperOrMarketAdmin,
-    accountsAdmin: isSuperOrMarketAdmin,
-    marketsAdmin: isSuperOrMarketAdmin
+    // Inventory (Available to Super Admins)
+    accountsAdmin: isSuperAdmin,
+    marketsAdmin: isSuperAdmin
   },
   home: {
     CTA_PROJECT: {

@@ -1,13 +1,16 @@
 import { RequestParams } from "@elastic/elasticsearch";
 import mockConsole from "jest-mock-console";
+import {
+  Product,
+  System,
+  createProduct as createPimProduct,
+  createSystem
+} from "@bmi/pim-types";
 import { ProductVariant } from "../es-model";
-import { Product, System } from "../pim";
 import { ProductMessage, SystemMessage } from "../types";
 import { EsSystem } from "../transformSystems";
 import createProductVariant from "./helpers/ProductVariantHelper";
-import createPimProduct from "./helpers/PimProductHelper";
 import { createEsSystem } from "./helpers/EsSystemHelper";
-import createSystem from "./helpers/SystemHelper";
 
 const { ES_INDEX_PREFIX } = process.env;
 
@@ -29,7 +32,7 @@ const getEsClient = jest.fn();
 const ping = jest.fn();
 const bulk = jest.fn();
 const count = jest.fn();
-jest.mock("../es-client", () => {
+jest.mock("@bmi/functions-es-client", () => {
   return { getEsClient: (...args: any[]) => getEsClient(...args) };
 });
 
@@ -671,7 +674,7 @@ describe("handleMessage", () => {
     expect(count).toBeCalledWith({ index });
   });
 
-  it("should handle errors being returned", async () => {
+  it("should handle errors being returned for update", async () => {
     ping.mockImplementation((args) => {
       args();
     });
@@ -685,11 +688,19 @@ describe("handleMessage", () => {
     const index = `${ES_INDEX_PREFIX}_${message.itemType}`.toLowerCase();
     bulk.mockResolvedValue({
       body: {
-        status: "OK",
-        errors: [
+        errors: true,
+        items: [
           {
-            something: "went",
-            horribly: "wrong"
+            index: {
+              status: 400,
+              error: {
+                type: "document_missing_exception",
+                reason: "[_doc][6]: document missing",
+                index_uuid: "aAsFqTI0Tc2W0LCWgPNrOA",
+                shard: "0",
+                index: "index1"
+              }
+            }
           }
         ]
       }
@@ -716,6 +727,112 @@ describe("handleMessage", () => {
         { index: { _index: index, _id: productVariant.code } },
         productVariant
       ]
+    });
+    expect(count).toBeCalledWith({ index });
+  });
+
+  it("should handle errors being returned for delete", async () => {
+    ping.mockImplementation((args) => {
+      args();
+    });
+    const productVariant = createProductVariant();
+    transformProduct.mockReturnValue([productVariant]);
+    const message: ProductMessage = {
+      type: "DELETED",
+      itemType: "PRODUCTS",
+      items: [createPimProduct()]
+    };
+    const index = `${ES_INDEX_PREFIX}_${message.itemType}`.toLowerCase();
+    bulk.mockResolvedValue({
+      body: {
+        errors: true,
+        items: [
+          {
+            delete: {
+              status: 400,
+              error: {
+                type: "document_missing_exception",
+                reason: "[_doc][6]: document missing",
+                index_uuid: productVariant.code,
+                shard: "0",
+                index: index
+              }
+            }
+          }
+        ]
+      }
+    });
+    count.mockResolvedValue({
+      body: {
+        count: {
+          count: 1,
+          _shards: { total: 1, successful: 1, skipped: 0, failed: 0 }
+        }
+      }
+    });
+
+    await handleMessage(createEvent(message), createContext());
+
+    expect(getEsClient).toBeCalled();
+    expect(ping).toBeCalled();
+    expect(transformProduct).toBeCalledWith(message.items[0]);
+    expect(transformSystem).toBeCalledTimes(0);
+    expect(bulk).toBeCalledWith({
+      index: index,
+      refresh: true,
+      body: [{ delete: { _index: index, _id: productVariant.code } }]
+    });
+    expect(count).toBeCalledWith({ index });
+  });
+
+  it("should handle errors when elasticsearch doesn't return error details", async () => {
+    ping.mockImplementation((args) => {
+      args();
+    });
+    const productVariant = createProductVariant();
+    transformProduct.mockReturnValue([productVariant]);
+    const message: ProductMessage = {
+      type: "DELETED",
+      itemType: "PRODUCTS",
+      items: [createPimProduct()]
+    };
+    const index = `${ES_INDEX_PREFIX}_${message.itemType}`.toLowerCase();
+    bulk.mockResolvedValue({
+      body: {
+        errors: true,
+        items: [
+          {
+            index: {
+              status: 400
+            }
+          },
+          {
+            delete: {
+              status: 400
+            }
+          }
+        ]
+      }
+    });
+    count.mockResolvedValue({
+      body: {
+        count: {
+          count: 1,
+          _shards: { total: 1, successful: 1, skipped: 0, failed: 0 }
+        }
+      }
+    });
+
+    await handleMessage(createEvent(message), createContext());
+
+    expect(getEsClient).toBeCalled();
+    expect(ping).toBeCalled();
+    expect(transformProduct).toBeCalledWith(message.items[0]);
+    expect(transformSystem).toBeCalledTimes(0);
+    expect(bulk).toBeCalledWith({
+      index: index,
+      refresh: true,
+      body: [{ delete: { _index: index, _id: productVariant.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });

@@ -1,51 +1,51 @@
 {
-  "technology": "Technology",
   "bmiRef": "BmiRef",
   "brand": "Brand",
-  "description": "Description",
-  "family": "Family",
-  "published": "Published",
-  "unpublished": "Unpublished",
-  "maximumValidityYears": "Maximum validity years",
-  "updatedAt": "Updated at",
-  "show": "Show",
-  "edit": "Edit",
-  "submit": "Submit",
   "bulkImport": "Bulk import",
+  "confirm": "Confirm the import",
+  "description": "Description",
+  "dryRun": "Dry run",
+  "dryRunCompleted": "Dry run completed",
+  "dryRunError": "There are some error in the imported files",
+  "edit": "Edit",
+  "errorProductsToInsert": "Product to insert",
+  "errorProductsToUpdate": "Product to update",
+  "errorSystemMembersInsert": "System member to insert",
+  "errorSystemsToInsert": "System to insert",
+  "errorSystemsToUpdate": "System to update",
+  "errors": {
+    "filename_wrong_format": "The file has a wrong format",
+    "unauthorized": "Not authorized",
+    "wrong_env": "Wrong environment"
+  },
+  "family": "Family",
+  "form": {
+    "productTitle": "Edit product",
+    "systemTitle": "Edit system"
+  },
+  "importCompleted": "Import completed",
+  "importError": "An error occurred during the import",
+  "maximumValidityYears": "Maximum validity years",
+  "productToInsert": "These product will be inserted",
+  "productToUpdate": "These product will be updated",
   "products": "Products",
-  "system": "System",
+  "published": "Published",
+  "report": {
+    "product": "Download Product Report",
+    "system": "Download System Report"
+  },
+  "show": "Show",
   "sidePanel": {
     "search": {
       "label": "Search",
       "noResult": "No items found"
     }
   },
-  "dryRun": "Dry run",
-  "confirm": "Confirm the import",
-  "dryRunError": "There are some error in the imported files",
-  "importCompleted": "Import completed",
-  "productToInsert": "These product will be inserted",
+  "submit": "Submit",
+  "system": "System",
   "systemToInsert": "These systems will be inserted",
   "systemToUpdate": "These systems will be updated",
-  "productToUpdate": "These product will be updated",
-  "errorSystemsToUpdate": "System to update",
-  "errorSystemsToInsert": "System to insert",
-  "errorProductsToUpdate": "Product to update",
-  "errorProductsToInsert": "Product to insert",
-  "errorSystemMembersInsert": "System member to insert",
-  "importError": "An error occurred during the import",
-  "form": {
-    "productTitle": "Edit product",
-    "systemTitle": "Edit system"
-  },
-  "errors": {
-    "filename_wrong_format": "The file has a wrong format",
-    "unauthorized": "Not authorized",
-    "wrong_env": "Wrong environment"
-  },
-  "dryRunCompleted": "Dry run completed",
-  "report": {
-    "product": "Download Product Report",
-    "system": "Download System Report"
-  }
+  "technology": "Technology",
+  "unpublished": "Unpublished",
+  "updatedAt": "Updated at"
 }

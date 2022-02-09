@@ -19,7 +19,7 @@ describe("GoogleMap component", () => {
         <GoogleMap />
       </GoogleApi.Provider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("invokes APIs and renders correctly", () => {
     const google = { maps: { Map } };
@@ -37,7 +37,7 @@ describe("GoogleMap component", () => {
     // @ts-ignore
     const mockMapInstance = google.maps.Map.mock.instances[0];
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
     expect(Map).toHaveBeenCalledTimes(1);
     expect(mockMapInstance.fitBounds).toHaveBeenCalledWith(bounds);
     expect(mockMapInstance.panTo).toHaveBeenCalledWith(centre);

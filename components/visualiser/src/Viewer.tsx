@@ -1,5 +1,5 @@
 import React from "react";
-import * as THREE from "three";
+import { PerspectiveCamera, Scene, Texture, WebGLRenderer } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { Colour, Siding, Tile } from "./Types";
 import styles from "./styles/Viewer.module.scss";
@@ -20,14 +20,14 @@ export default abstract class Viewer<
   P extends Props,
   S extends State
 > extends React.Component<P, S> {
-  scene?: THREE.Scene;
-  camera?: THREE.PerspectiveCamera;
+  scene?: Scene;
+  camera?: PerspectiveCamera;
   container?: HTMLDivElement | null;
-  renderer?: THREE.WebGLRenderer;
+  renderer?: WebGLRenderer;
   controls?: OrbitControls;
-  diffuseImage?: THREE.Texture;
-  metalicImage?: THREE.Texture;
-  normalImage?: THREE.Texture;
+  diffuseImage?: Texture;
+  metalicImage?: Texture;
+  normalImage?: Texture;
 
   constructor(props: P, state: S) {
     super(props);

@@ -1,4 +1,4 @@
-import { makeStyles, fade } from "@material-ui/core/styles";
+import { alpha, makeStyles } from "@material-ui/core/styles";
 import variables from "./Button.module.scss";
 
 export const useButtonStyles = makeStyles(
@@ -10,12 +10,12 @@ export const useButtonStyles = makeStyles(
     },
     text: {
       "&:hover": {
-        backgroundColor: fade(variables["color-black"]!, 0.05)
+        backgroundColor: alpha(variables["color-black"]!, 0.05)
       }
     },
     contained: {
       "&.Mui-disabled": {
-        backgroundColor: fade(palette.primary.main, 0.38),
+        backgroundColor: alpha(palette.primary.main, 0.38),
         color: variables["color-white"]
       }
     },
@@ -27,29 +27,29 @@ export const useButtonStyles = makeStyles(
     },
     // custom classes
     textDarkBg: {
-      color: fade(variables["color-white"]!, 0.8),
+      color: alpha(variables["color-white"]!, 0.8),
 
       "&:hover": {
         color: variables["color-white"],
-        backgroundColor: fade(variables["color-white"]!, 0.1),
+        backgroundColor: alpha(variables["color-white"]!, 0.1),
         transition: "color 0.35s ease-in-out"
       },
       "&.Mui-disabled": {
-        color: fade(variables["color-white"]!, 0.38)
+        color: alpha(variables["color-white"]!, 0.38)
       }
     },
     outlinedDarkBg: {
       color: variables["color-white"],
-      borderColor: fade(variables["color-white"]!, 0.8),
-      backgroundColor: fade(variables["color-white"]!, 0.1),
+      borderColor: alpha(variables["color-white"]!, 0.8),
+      backgroundColor: alpha(variables["color-white"]!, 0.1),
       "&:hover": {
         borderColor: variables["color-white"],
         backgroundColor: "transparent"
       },
       "&.Mui-disabled": {
-        color: fade(variables["color-white"]!, 0.3),
-        backgroundColor: fade(variables["color-white"]!, 0.2),
-        borderColor: fade(variables["color-white"]!, 0.3)
+        color: alpha(variables["color-white"]!, 0.3),
+        backgroundColor: alpha(variables["color-white"]!, 0.2),
+        borderColor: alpha(variables["color-white"]!, 0.3)
       }
     },
     opaqueOutlined: {
@@ -65,7 +65,7 @@ export const useButtonStyles = makeStyles(
           position: "absolute",
           top: 0,
           left: 0,
-          backgroundColor: fade(palette.primary.dark, 0.04)
+          backgroundColor: alpha(palette.primary.dark, 0.04)
         }
       },
       "&.Mui-disabled": {
@@ -126,13 +126,13 @@ export const useIconButtonStyles = makeStyles(
         backgroundColor: "none",
         color: "currentColor",
         "&:hover": {
-          backgroundColor: fade(variables["color-white"]!, 0.05)
+          backgroundColor: alpha(variables["color-white"]!, 0.05)
         }
       },
       textDark: {
         color: variables["color-white"],
         "&:hover": {
-          backgroundColor: fade(variables["color-white"]!, 0.1)
+          backgroundColor: alpha(variables["color-white"]!, 0.1)
         }
       },
       "extra-small": {

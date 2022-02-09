@@ -8,7 +8,7 @@ type Props = {
   data: {
     contentfulSite: SiteData;
   };
-  pageContext: {
+  pageContext?: {
     variantCodeToPathMap: Record<string, string>;
   };
 };
@@ -18,7 +18,7 @@ const GeneralError = ({ data, pageContext }: Props) => {
   const { errorGeneral } = siteData.resources;
   return (
     <Page
-      title={errorGeneral.title}
+      title={errorGeneral?.title}
       pageData={{ breadcrumbs: null, inputBanner: null, seo: null, path: null }}
       siteData={siteData}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}

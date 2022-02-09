@@ -42,6 +42,6 @@ describe("ExploreBarSection component", () => {
 
     const { container } = render(<ExploreBarSection data={data} />);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

@@ -101,6 +101,7 @@ export const insertOne = async (
   const { client, cleanupBucket } = context;
 
   // Picking up some required fields for the table as default
+  // eslint-disable-next-line security/detect-object-injection
   record = { ...(requiredFields[tableName] || {}), ...record };
   const fields = Object.keys(record).join(", ");
   const placeholders = Object.values(record)
@@ -120,6 +121,7 @@ export const insertOne = async (
 
   // add to cleanupBucket
   if (cleanupBucket) {
+    // eslint-disable-next-line security/detect-object-injection
     cleanupBucket[tableName] = [...(cleanupBucket[tableName] || []), ...rows];
   }
 

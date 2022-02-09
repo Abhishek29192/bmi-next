@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { gql } from "@apollo/client";
@@ -28,16 +28,13 @@ export const NewProjectDialog = ({
 }: NewProjectDialogProps) => {
   const { t } = useTranslation();
   const router = useRouter();
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const [createProject] = useCreateProjectMutation({
+  const [createProject, { loading: isSubmitting }] = useCreateProjectMutation({
     onError: (error) => {
       log({
         severity: "ERROR",
         message: `There was an error creating a project: ${error.toString()}`
       });
-      // TODO: show some visual error
-      setIsSubmitting(false);
     },
     onCompleted: ({ createProject: { project } }) => {
       log({
@@ -48,7 +45,6 @@ export const NewProjectDialog = ({
       // Once we can update the cache perhaps we can `shalow: true`
       // at which point closing it makes sense
       onCompleted && onCompleted();
-      setIsSubmitting(false);
       router.push(`/projects/${project.id}`, undefined, { shallow: false });
     }
   });
@@ -59,8 +55,6 @@ export const NewProjectDialog = ({
     if (isSubmitting) {
       return;
     }
-
-    setIsSubmitting(true);
 
     // we need to account for nested objects (e.g. address)
     const valuesObject = spreadObjectKeys(values, (key, value) => {
@@ -109,7 +103,11 @@ export const NewProjectDialog = ({
       </Dialog.Title>
 
       <Dialog.Content className={styles.dialogContent}>
-        <ProjectForm onSubmit={onSubmit} isSubmitting={isSubmitting} />
+        <ProjectForm
+          key="project-form"
+          onSubmit={onSubmit}
+          isSubmitting={isSubmitting}
+        />
       </Dialog.Content>
     </Dialog>
   );

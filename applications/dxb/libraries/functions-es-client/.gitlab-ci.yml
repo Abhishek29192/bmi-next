@@ -1,0 +1,11 @@
+test_functions-es-client:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/functions-es-client"
+    ROOT_DIR: "applications/dxb/libraries/functions-es-client"
+
+build_functions-es-client:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/functions-es-client"
+    ROOT_DIR: "applications/dxb/libraries/functions-es-client"

@@ -9,7 +9,7 @@ exports[`ProfileCard component renders an element if the image source is a compo
       class="head"
     >
       <div
-        class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+        class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
       >
         <h1>
           Something here
@@ -63,132 +63,287 @@ exports[`ProfileCard component renders an element if the image source is a compo
 </div>
 `;
 
-exports[`ProfileCard component renders correctly with an image 1`] = `
-<div
-  class="ProfileCard"
->
+exports[`ProfileCard component renders correctly ProfileRow if icon not passed 1`] = `
+<div>
   <div
-    class="head"
+    class="ProfileCard"
   >
     <div
-      class="MuiAvatar-root MuiAvatar-circle profile-picture"
+      class="head"
     >
-      <img
-        class="MuiAvatar-img"
-        src="path-to-image"
-      />
+      <div
+        class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+      >
+        <h1>
+          Something here
+        </h1>
+      </div>
+    </div>
+    <div
+      class="body"
+    >
+      <div>
+        <strong
+          class="MuiTypography-root Typography MuiTypography-h5"
+        >
+          Richard Stallman
+        </strong>
+        <p
+          class="MuiTypography-root title Typography MuiTypography-body2"
+        >
+          Code Wizard
+        </p>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <span
+        class="row"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+          href="/"
+        >
+          <span>
+            Profile line with link
+          </span>
+        </a>
+      </span>
     </div>
   </div>
+</div>
+`;
+
+exports[`ProfileCard component renders correctly if ProfileCard.Body style passed 1`] = `
+<div>
   <div
-    class="body"
+    class="ProfileCard"
   >
-    <div>
-      <strong
-        class="MuiTypography-root Typography MuiTypography-h5"
+    <div
+      class="head"
+    >
+      <div
+        class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
       >
-        Richard Stallman
-      </strong>
-      <p
-        class="MuiTypography-root title Typography MuiTypography-body2"
-      >
-        Code Wizard
-      </p>
+        <h1>
+          Something here
+        </h1>
+      </div>
+    </div>
+    <div
+      class="body"
+      style="color: red;"
+    >
+      <div>
+        <strong
+          class="MuiTypography-root Typography MuiTypography-h5"
+        >
+          Richard Stallman
+        </strong>
+      </div>
     </div>
   </div>
+</div>
+`;
+
+exports[`ProfileCard component renders correctly if ProfileCard.Body title passed 1`] = `
+<div>
   <div
-    class="footer"
+    class="ProfileCard"
   >
-    <span
-      class="row"
+    <div
+      class="head"
     >
-      <svg
-        class="row-icon"
-      />
-      <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-        href="/"
+      <div
+        class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
       >
-        <span>
-          Profile line with link
-        </span>
-      </a>
-    </span>
-    <span
-      class="row"
+        <h1>
+          Something here
+        </h1>
+      </div>
+    </div>
+    <div
+      class="body"
     >
-      <svg
-        class="row-icon"
-      />
-      Profile line without linkn
-    </span>
+      <div>
+        <strong
+          class="MuiTypography-root Typography MuiTypography-h5"
+        >
+          Richard Stallman
+        </strong>
+        <p
+          class="MuiTypography-root title Typography MuiTypography-body2"
+        >
+          Code Wizard
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProfileCard component renders correctly if does not have children 1`] = `
+<div>
+  <div
+    class="ProfileCard"
+  >
+    <div
+      class="head"
+    >
+      <div
+        class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+      >
+        <h1>
+          Something here
+        </h1>
+      </div>
+    </div>
+    <div
+      class="body"
+    >
+      <div>
+        <strong
+          class="MuiTypography-root Typography MuiTypography-h5"
+        >
+          Richard Stallman
+        </strong>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProfileCard component renders correctly with an image 1`] = `
+<div>
+  <div
+    class="ProfileCard name"
+  >
+    <div
+      class="head"
+    >
+      <div
+        class="MuiAvatar-root MuiAvatar-circular profile-picture"
+      >
+        <img
+          class="MuiAvatar-img"
+          src="path-to-image"
+        />
+      </div>
+    </div>
+    <div
+      class="body"
+    >
+      <div>
+        <strong
+          class="MuiTypography-root Typography MuiTypography-h5"
+        >
+          Richard Stallman
+        </strong>
+        <p
+          class="MuiTypography-root title Typography MuiTypography-body2"
+        >
+          Code Wizard
+        </p>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <span
+        class="row"
+      >
+        <svg
+          class="row-icon"
+        />
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+          href="/"
+        >
+          <span>
+            Profile line with link
+          </span>
+        </a>
+      </span>
+      <span
+        class="row"
+      >
+        <svg
+          class="row-icon"
+        />
+        Profile line without linkn
+      </span>
+    </div>
   </div>
 </div>
 `;
 
 exports[`ProfileCard component renders correctly without an image 1`] = `
-<div
-  class="ProfileCard"
->
+<div>
   <div
-    class="head"
+    class="ProfileCard"
   >
     <div
-      class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+      class="head"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiAvatar-fallback"
-        focusable="false"
-        viewBox="0 0 24 24"
+      <div
+        class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
       >
-        <path
-          d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiAvatar-fallback"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="body"
+    >
+      <div>
+        <strong
+          class="MuiTypography-root Typography MuiTypography-h5"
+        >
+          Richard Stallman
+        </strong>
+        <p
+          class="MuiTypography-root title Typography MuiTypography-body2"
+        >
+          Code Wizard
+        </p>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <span
+        class="row"
+      >
+        <svg
+          class="row-icon"
         />
-      </svg>
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+          href="/"
+        >
+          <span>
+            Profile line with link
+          </span>
+        </a>
+      </span>
+      <span
+        class="row"
+      >
+        <svg
+          class="row-icon"
+        />
+        Profile line without linkn
+      </span>
     </div>
-  </div>
-  <div
-    class="body"
-  >
-    <div>
-      <strong
-        class="MuiTypography-root Typography MuiTypography-h5"
-      >
-        Richard Stallman
-      </strong>
-      <p
-        class="MuiTypography-root title Typography MuiTypography-body2"
-      >
-        Code Wizard
-      </p>
-    </div>
-  </div>
-  <div
-    class="footer"
-  >
-    <span
-      class="row"
-    >
-      <svg
-        class="row-icon"
-      />
-      <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-        href="/"
-      >
-        <span>
-          Profile line with link
-        </span>
-      </a>
-    </span>
-    <span
-      class="row"
-    >
-      <svg
-        class="row-icon"
-      />
-      Profile line without linkn
-    </span>
   </div>
 </div>
 `;

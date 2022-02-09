@@ -1,4 +1,5 @@
 import { Data as ContentfulDocumentData } from "../components/Document";
+import { FileContentTypeEnum } from "../components/types/pim";
 import createAssetType from "./AssetTypeHelper";
 
 const createContentfulDocument = (
@@ -49,7 +50,7 @@ const createContentfulDocument = (
     file: {
       url: "http://doesnot-exist.com/fileName",
       fileName: `fileName`,
-      contentType: "",
+      contentType: "" as FileContentTypeEnum,
       details: {
         size: 89898
       }

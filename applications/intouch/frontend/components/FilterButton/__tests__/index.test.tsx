@@ -6,6 +6,6 @@ describe("FilterButton Component", () => {
   it("renders correctly", () => {
     const { container } = render(<FilterButton label="Filter Button" />);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

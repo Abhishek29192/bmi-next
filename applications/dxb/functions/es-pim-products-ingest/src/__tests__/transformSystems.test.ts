@@ -1,6 +1,5 @@
+import { Category, createSystem } from "@bmi/pim-types";
 import { transformSystem } from "../transformSystems";
-import type { Category } from "../pim";
-import createSystem from "./helpers/SystemHelper";
 
 describe("transformSystem", () => {
   it("should transform system to object", () => {
@@ -8,7 +7,7 @@ describe("transformSystem", () => {
     const { approvalStatus, type, images, code, name, shortDescription } =
       system;
     const brand = system.categories.find(
-      ({ parentCategoryCode }) => parentCategoryCode === "BMI_Brands"
+      ({ categoryType }) => categoryType === "Brand"
     )?.code;
 
     expect(transformSystem(system)).toStrictEqual({
@@ -43,7 +42,7 @@ describe("transformSystem", () => {
       categoryType: "Brand",
       code: "MONARFLEX",
       name: "Monarflex",
-      parentCategoryCode: "BMI_Brands"
+      parentCategoryCode: "NOT_NEEDED_Brands"
     };
 
     const system = createSystem({ categories: [brandCategory] });
@@ -66,7 +65,7 @@ describe("transformSystem", () => {
       categoryType: "Category",
       code: "MONARFLEX",
       name: "Monarflex",
-      parentCategoryCode: "BMI_Brands"
+      parentCategoryCode: "NOT_NEEDED_Brands"
     };
 
     const system = createSystem({ categories: [brandCategory] });

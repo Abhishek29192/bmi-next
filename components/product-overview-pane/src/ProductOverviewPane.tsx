@@ -2,24 +2,13 @@ import React from "react";
 import classnames from "classnames";
 import PureChip from "@bmi/chip";
 import { ClickableAction, withClickable } from "@bmi/clickable";
+import { SVGImport } from "@bmi/svg-import";
 import DefaultThumbnail from "@bmi/thumbnail";
 import Typography from "@bmi/typography";
 import ToolTip from "@bmi/tooltip";
 import styles from "./ProductOverviewPane.module.scss";
 
-const Chip = withClickable((props) => {
-  let MarkupComponent: React.ElementType | undefined = undefined;
-
-  if (props.href) {
-    MarkupComponent = "a";
-  }
-
-  if (props.to && props.component) {
-    MarkupComponent = props.component;
-  }
-
-  return <PureChip {...props} component={MarkupComponent} />;
-});
+const Chip = withClickable((props) => <PureChip {...props} />);
 
 type Variant = {
   /** Not a ReactNode to support alt text */
@@ -210,39 +199,26 @@ const ProductOverviewPane = ({
       <Typography className={styles["heading"]} variant="h3" component="h1">
         {name}
       </Typography>
-      {nobb === null ? (
-        <ul className={styles["attributes"]}>
-          {[
-            {
-              name: nobbLabel,
-              variants: []
-            },
-            ...(attributes?.map((attribute) =>
-              attribute.type === "thumbnails"
-                ? { ...attribute, component: thumbnailComponent }
-                : attribute
-            ) || [])
-          ].map(renderAttribute)}
-        </ul>
-      ) : (
-        <ul className={styles["attributes"]}>
-          {[
-            {
-              name: nobbLabel,
-              variants: [
-                {
-                  label: nobb
-                }
-              ]
-            },
-            ...(attributes?.map((attribute) =>
-              attribute.type === "thumbnails"
-                ? { ...attribute, component: thumbnailComponent }
-                : attribute
-            ) || [])
-          ].map(renderAttribute)}
-        </ul>
-      )}
+      <ul className={styles["attributes"]}>
+        {[
+          {
+            name: nobbLabel,
+            variants:
+              nobb === null
+                ? []
+                : [
+                    {
+                      label: nobb
+                    }
+                  ]
+          },
+          ...(attributes?.map((attribute) =>
+            attribute.type === "thumbnails"
+              ? { ...attribute, component: thumbnailComponent }
+              : attribute
+          ) || [])
+        ].map(renderAttribute)}
+      </ul>
       {children}
     </div>
   );

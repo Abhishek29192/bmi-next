@@ -1,4 +1,4 @@
-import type { System } from "./pim";
+import type { System } from "@bmi/pim-types";
 
 export type EsSystem = {
   approvalStatus: System["approvalStatus"];

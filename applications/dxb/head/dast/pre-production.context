@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
-    <context>
-        <name>Head Pre-Production</name>
-        <desc/>
-        <inscope>true</inscope>
-        <incregexes>https://bmi-dxb-head-preproduction.netlify.app.*</incregexes>
-        <tech>
-            <include>Db</include>
-            <include>Language</include>
-            <include>Language.JavaScript</include>
-            <include>OS</include>
-            <include>OS.Linux</include>
-            <include>SCM</include>
-            <include>SCM.Git</include>
-        </tech>
-        <urlparser>
-            <class>org.zaproxy.zap.model.StandardParameterParser</class>
-            <config>{"kvps":"&amp;","kvs":"=","struct":[]}</config>
-        </urlparser>
-        <postparser>
-            <class>org.zaproxy.zap.model.StandardParameterParser</class>
-            <config>{"kvps":"&amp;","kvs":"=","struct":[]}</config>
-        </postparser>
-        <authentication>
-            <type>2</type>
-            <strategy>EACH_RESP</strategy>
-            <pollurl/>
-            <polldata/>
-            <pollheaders/>
-            <pollfreq>60</pollfreq>
-            <pollunits>REQUESTS</pollunits>
-            <loggedout>\QPlease enter your password to get access.\E</loggedout>
-            <form>
-                <loginurl>https://bmi-dxb-head-preproduction.netlify.app/</loginurl>
-                <loginbody>username={%username%}&amp;password={%password%}</loginbody>
-                <loginpageurl>https://bmi-dxb-head-preproduction.netlify.app/</loginpageurl>
-            </form>
-        </authentication>
-        <users>
-            <user>1388;true;cHJlLXByb2R1Y3Rpb24=;2;cHJlLXByb2R1Y3Rpb24=~ZFg4cHIkcHIwZDIw~</user>
-        </users>
-        <forceduser>1388</forceduser>
-        <session>
-            <type>0</type>
-        </session>
-        <authorization>
-            <type>0</type>
-            <basic>
-                <header/>
-                <body/>
-                <logic>AND</logic>
-                <code>-1</code>
-            </basic>
-        </authorization>
-    </context>
+  <context>
+    <name>Head Pre-Production</name>
+    <desc />
+    <inscope>true</inscope>
+    <incregexes>https://bmi-dxb-head-preproduction.netlify.app.*</incregexes>
+    <tech>
+      <include>Db</include>
+      <include>Language</include>
+      <include>Language.JavaScript</include>
+      <include>OS</include>
+      <include>OS.Linux</include>
+      <include>SCM</include>
+      <include>SCM.Git</include>
+    </tech>
+    <urlparser>
+      <class>org.zaproxy.zap.model.StandardParameterParser</class>
+      <config>{"kvps":"&amp;","kvs":"=","struct":[]}</config>
+    </urlparser>
+    <postparser>
+      <class>org.zaproxy.zap.model.StandardParameterParser</class>
+      <config>{"kvps":"&amp;","kvs":"=","struct":[]}</config>
+    </postparser>
+    <authentication>
+      <type>2</type>
+      <strategy>EACH_RESP</strategy>
+      <pollurl />
+      <polldata />
+      <pollheaders />
+      <pollfreq>60</pollfreq>
+      <pollunits>REQUESTS</pollunits>
+      <loggedout>\QPlease enter your password to get access.\E</loggedout>
+      <form>
+        <loginurl>https://bmi-dxb-head-preproduction.netlify.app/</loginurl>
+        <loginbody>username={%username%}&amp;password={%password%}</loginbody>
+        <loginpageurl>https://bmi-dxb-head-preproduction.netlify.app/</loginpageurl>
+      </form>
+    </authentication>
+    <users>
+      <user>1388;true;cHJlLXByb2R1Y3Rpb24=;2;cHJlLXByb2R1Y3Rpb24=~ZFg4cHIkcHIwZDIw~</user>
+    </users>
+    <forceduser>1388</forceduser>
+    <session>
+      <type>0</type>
+    </session>
+    <authorization>
+      <type>0</type>
+      <basic>
+        <header />
+        <body />
+        <logic>AND</logic>
+        <code>-1</code>
+      </basic>
+    </authorization>
+  </context>
 </configuration>

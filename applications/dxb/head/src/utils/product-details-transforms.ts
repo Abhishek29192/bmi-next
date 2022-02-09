@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
-import { result, uniqBy, groupBy, find, pickBy, sortBy, unionBy } from "lodash";
 import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
+import { Image as ImageGalleryImage } from "@bmi/image-gallery";
 import React from "react";
 import {
   Category,
@@ -17,11 +17,13 @@ import {
 import { GalleryImageType } from "../templates/systemDetails/types";
 import { getPathWithCountryCode } from "./path";
 import { combineVariantClassifications } from "./filters";
+import groupBy from "./groupBy";
 
 export const getProductUrl = (countryCode, path) =>
   getPathWithCountryCode(countryCode, path);
 
 const getProductProp = (classifications, productCode, propName) =>
+  // eslint-disable-next-line security/detect-object-injection
   classifications[productCode] ? classifications[productCode][propName] : null;
 
 // Returns an array of all the values of a certain prop
@@ -34,12 +36,14 @@ const getAllValues = (
 
   const allValuesArray = Object.entries(classifications).reduce(
     (allValues, [_, props]) => {
+      // eslint-disable-next-line security/detect-object-injection
       const propValue = props[propName];
 
       if (!propValue) {
         return allValues;
       }
 
+      // eslint-disable-next-line security/detect-object-injection
       const propIdentifier = getPropIdentifier[propName](propValue);
 
       if (alreadyFoundProps.has(propIdentifier)) {
@@ -59,7 +63,9 @@ const getAllValues = (
         return Object.keys(a).reduce((prev, _, index) => {
           // return the prev result if result has been decided.
           if (prev !== 0) return prev;
+          // eslint-disable-next-line security/detect-object-injection
           const valueA = parseInt(a[Object.keys(a)[index]]?.value.value.value);
+          // eslint-disable-next-line security/detect-object-injection
           const valueB = parseInt(b[Object.keys(b)[index]]?.value.value.value);
           if (!valueA || !valueB) return 0;
           return valueA === valueB ? 0 : valueA < valueB ? -1 : 1;
@@ -99,28 +105,25 @@ export const getSizeLabel = (
   );
 };
 
-export const findMasterImageUrl = (images): string => {
-  return result<string>(
-    find(images, {
-      assetType: ImageAssetTypesEnum.MASTER_IMAGE,
-      format: "Product-Listing-Card-Large-Desktop"
-    }),
-    "url"
-  );
-};
+export const findMasterImageUrl = (images: readonly Image[] | null): string =>
+  images?.find(
+    (image) =>
+      image.assetType === ImageAssetTypesEnum.MASTER_IMAGE &&
+      image.format == "Product-Listing-Card-Small-Desktop-Tablet"
+  )?.url;
 
-export const findProductBrandLogoCode = (product: Product) => {
-  return result<string>(
-    find(product.categories, {
-      categoryType: "Brands"
-    }),
-    "code"
-  );
-};
+export const findProductBrandLogoCode = (product: Product) =>
+  product.categories.find((category) => category.categoryType === "Brand")
+    ?.code;
 
-export const transformImages = (images) => {
+export const transformImages = (
+  images: readonly GalleryImageType[]
+): readonly ImageGalleryImage[] => {
   return images.map(({ mainSource, thumbnail, altText }) => ({
-    media: React.createElement("img", { src: mainSource, alt: altText }),
+    media: React.createElement("img", {
+      src: mainSource,
+      alt: altText
+    } as HTMLImageElement),
     thumbnail
   }));
 };
@@ -130,9 +133,12 @@ export const groupImage = (
   criteria: string
 ): { [key: string]: Image[] } => {
   return arr.reduce((acc: { [key: string]: Image[] }, currentValue: Image) => {
+    // eslint-disable-next-line security/detect-object-injection
     if (!acc[currentValue[criteria]]) {
+      // eslint-disable-next-line security/detect-object-injection
       acc[currentValue[criteria]] = [];
     }
+    // eslint-disable-next-line security/detect-object-injection
     acc[currentValue[criteria]].push(currentValue);
     return acc;
   }, {});
@@ -184,14 +190,12 @@ export const convertImageSetToMediaFormat = (
   }));
 };
 
-export const getColourThumbnailUrl = (images): string =>
-  result(
-    find(images, {
-      format: "Product-Color-Selector-Mobile",
-      assetType: ImageAssetTypesEnum.MASTER_IMAGE
-    }),
-    "url"
-  );
+export const getColourThumbnailUrl = (images): string | undefined =>
+  images.find(
+    (image) =>
+      image.format === "Product-Color-Selector-Mobile" &&
+      image.assetType === ImageAssetTypesEnum.MASTER_IMAGE
+  )?.url;
 
 export type TransformedClassificationValue = {
   name: string;
@@ -291,7 +295,9 @@ export const mapProductClassifications = (
         propName: string,
         value: TransformedClassificationValue | TransformedMeasurementValue
       ) => {
+        // eslint-disable-next-line security/detect-object-injection
         carry[productCode] = {
+          // eslint-disable-next-line security/detect-object-injection
           ...(carry[productCode] || {}),
           [propName]: value
         };
@@ -362,11 +368,13 @@ export const mapProductClassifications = (
               FEATURES.THICKNESS
             ].includes(code)
           ) {
+            // eslint-disable-next-line security/detect-object-injection
             const productObject = carry[productCode];
             const measurements = productObject
               ? (productObject.measurements as TransformedMeasurementValue)
               : {};
 
+            // eslint-disable-next-line security/detect-object-injection
             carry[productCode] = {
               ...productObject,
               measurements: {
@@ -409,7 +417,9 @@ const getPropIdentifier = {
 };
 
 const getPropValue = (classification, propName) => {
+  // eslint-disable-next-line security/detect-object-injection
   const prop = classification[propName];
+  // eslint-disable-next-line security/detect-object-injection
   const getter = prop && getPropIdentifier[propName];
 
   return getter ? getter(prop) : undefined;
@@ -435,6 +445,7 @@ export const getProductAttributes = (
     ];
     return sortingOrder.reduce((prev, propName) => {
       // return the prev result if result has been decided.
+      // eslint-disable-next-line security/detect-object-injection
       if (prev !== 0 || !a[propName]) return prev;
       const valueA = getPropValue(a, propName);
       const valueB = getPropValue(b, propName);
@@ -528,12 +539,14 @@ export const getProductAttributes = (
         // The root prop must match
         if (
           getPropValue(classification, masterProperty) !==
+          // eslint-disable-next-line security/detect-object-injection
           filter[masterProperty]
         ) {
           return carry;
         }
 
         // NOTE: Not matching for the main product.
+        // eslint-disable-next-line security/detect-object-injection
         if (!variantCodeToPathMap[productCode]) {
           return carry;
         }
@@ -643,7 +656,8 @@ export const getProductAttributes = (
         const isSelected =
           selectedColour && code === selectedColour.value.value;
         const path = variantCode
-          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          ? // eslint-disable-next-line security/detect-object-injection
+            getProductUrl(countryCode, variantCodeToPathMap[variantCode])
           : getUnavailableCTA(code, FeatureCodeEnum.COLOUR);
         return {
           label: code,
@@ -659,6 +673,7 @@ export const getProductAttributes = (
                 to: variantCode
                   ? getProductUrl(
                       countryCode,
+                      // eslint-disable-next-line security/detect-object-injection
                       variantCodeToPathMap[variantCode]
                     )
                   : getUnavailableCTA(code, FeatureCodeEnum.COLOUR)
@@ -686,7 +701,8 @@ export const getProductAttributes = (
           selectedSurfaceTreatment &&
           code === selectedSurfaceTreatment.value.code;
         const path = variantCode
-          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          ? // eslint-disable-next-line security/detect-object-injection
+            getProductUrl(countryCode, variantCodeToPathMap[variantCode])
           : getUnavailableCTA(code, FeatureCodeEnum.TEXTURE_FAMILY);
         return {
           label: value,
@@ -718,7 +734,8 @@ export const getProductAttributes = (
         );
         const isSelected = key === getMeasurementKey(selectedSize);
         const path = variantCode
-          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          ? // eslint-disable-next-line security/detect-object-injection
+            getProductUrl(countryCode, variantCodeToPathMap[variantCode])
           : getUnavailableCTA(key, ClassificationCodeEnum.MEASUREMENTS);
         return {
           label: getSizeLabel(size),
@@ -752,7 +769,8 @@ export const getProductAttributes = (
             selectedVariantAttribute.value.value === value) ||
           false;
         const path = variantCode
-          ? getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+          ? // eslint-disable-next-line security/detect-object-injection
+            getProductUrl(countryCode, variantCodeToPathMap[variantCode])
           : getUnavailableCTA(value, FeatureCodeEnum.VARIANT_ATTRIBUTE);
         return {
           label: value,
@@ -799,12 +817,10 @@ export const getValidFeatures = (classificationNamespace: string, features) => {
   const IGNORED_CLASSIFICATIONS = IGNORED_ATTRIBUTES.map(
     (value) => `${classificationNamespace}/${value}`
   );
-  const featureToReturn = sortBy(
-    features.filter(({ code }) => !IGNORED_CLASSIFICATIONS.includes(code)),
-    "name"
-  );
 
-  return featureToReturn;
+  return features
+    .filter(({ code }) => !IGNORED_CLASSIFICATIONS.includes(code))
+    .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0));
 };
 
 type CategoryPath = readonly Category[];
@@ -927,17 +943,27 @@ const findUniqueClassificationsOnVariant = (
   variantClassifications: TransformedClassificationsMap,
   numberOfVariants = 1
 ): TransformedClassificationsMap => {
-  return pickBy(variantClassifications, (value, code) => {
+  const uniqueClassifications = {};
+  for (const code in variantClassifications) {
+    // eslint-disable-next-line security/detect-object-injection
     const getter = getPropIdentifier[code];
+    // eslint-disable-next-line security/detect-object-injection
     const baseValues = baseClassifications[code] || [];
-    // If all the values are the same, we'll get a single value
     const allSameValue =
-      getter && uniqBy(baseValues, (value) => getter(value)).length === 1;
-
-    // AND if number of base values is equal to number of variants, all variants have the same value
-    // Therefore it's common
-    return !(baseValues.length === numberOfVariants && allSameValue);
-  });
+      getter &&
+      baseValues.reduce((values, value) => {
+        const key = getter(value);
+        if (!values.has(key)) {
+          values.set(key, value);
+        }
+        return values;
+      }, new Map()).size === 1;
+    if (!(baseValues.length === numberOfVariants && allSameValue)) {
+      // eslint-disable-next-line security/detect-object-injection
+      uniqueClassifications[code] = variantClassifications[code];
+    }
+  }
+  return uniqueClassifications;
 };
 
 // TODO: Is there not a function to get a render value of a classification?
@@ -983,6 +1009,7 @@ export const findUniqueVariantClassifications = (
       ...Object.entries(others).reduce((agg, [code, value]) => {
         return {
           ...agg,
+          // eslint-disable-next-line security/detect-object-injection
           [code]: [...(base[code] || []), value]
         };
       }, {})
@@ -1010,28 +1037,30 @@ export const getMergedClassifications = (
   selfProduct: Product | VariantOption,
   product: Product
 ) => {
-  const unionClassifications = unionBy(
-    [],
-    selfProduct.classifications || [],
-    product.classifications || []
-  );
+  const unionClassifications = [
+    ...(selfProduct.classifications || []),
+    ...(product.classifications || [])
+  ].reduce((classifications, classification) => {
+    classifications.find((clas) => clas === classification) ||
+      classifications.push(classification);
+    return classifications;
+  }, []);
   const groupedClassifications: {
     [index: string]: Classification[];
-  } = groupBy(unionClassifications, (item) => item.code);
+  } = groupBy(unionClassifications, "code");
 
   const mergedClassifications: Classification[] = Object.values<
     Classification[]
   >(groupedClassifications).map((classifications: Classification[]) =>
     classifications.reduce<Classification>(
       (prevValue, currValue) => {
-        const mergedFeatures = sortBy(
-          unionBy(
-            prevValue.features,
-            currValue.features,
-            (feature) => feature.code
-          ),
-          (feature) => feature.name
-        );
+        const mergedFeatures = [...prevValue.features, ...currValue.features]
+          .reduce((features, feature) => {
+            features.find((feat) => feat.code === feature.code) ||
+              features.push(feature);
+            return features;
+          }, [])
+          .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0));
         return {
           ...prevValue,
           ...currValue,
@@ -1042,11 +1071,12 @@ export const getMergedClassifications = (
     )
   );
 
-  return sortBy(
-    getValidClassification(
-      pimClassificationCatalogueNamespace,
-      uniqBy(mergedClassifications, (item) => item.code)
-    ),
-    (item) => item.code
-  );
+  return getValidClassification(
+    pimClassificationCatalogueNamespace,
+    mergedClassifications.reduce((classifications, classification) => {
+      classifications.find((clas) => clas.code === classification.code) ||
+        classifications.push(classification);
+      return classifications;
+    }, [])
+  ).sort((a, b) => (a.code > b.code ? 1 : a.code < b.code ? -1 : 0));
 };

@@ -1,17 +1,18 @@
 import fetch, { Response } from "node-fetch";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
-import { deleteFirestoreCollection, FirestoreCollections } from "./firestore";
+import logger from "@bmi/functions-logger";
+import { fetchData, PimTypes } from "@bmi/pim-api";
+import { deleteFirestoreCollection } from "./firestore";
+import { FirestoreCollections } from "./firestore-collections";
 import {
   deleteElasticSearchIndex,
   ElasticsearchIndexes
 } from "./elasticsearch";
-import { fetchData, PimTypes } from "./pim";
-import { error, info } from "./logger";
 
 const { BUILD_TRIGGER_ENDPOINT, FULL_FETCH_ENDPOINT } = process.env;
 
 const triggerFullFetchBatch = async (type: PimTypes) => {
-  info({ message: `Batching ${type}.` });
+  logger.info({ message: `Batching ${type}.` });
 
   const response = await fetchData(type);
   const numberOfRequests = response.totalPageCount / 10;
@@ -20,12 +21,12 @@ const triggerFullFetchBatch = async (type: PimTypes) => {
   for (let i = 0; i < numberOfRequests; i++) {
     const numberOfPagesLeft = response.totalPageCount - lastStartPage;
     const numberOfPages = numberOfPagesLeft > 10 ? 10 : numberOfPagesLeft;
-    info({
+    logger.info({
       message: `Triggering fetch for pages ${lastStartPage} to ${
         lastStartPage + numberOfPages
       } of ${type}.`
     });
-    const systemsBatchResponse = fetch(FULL_FETCH_ENDPOINT, {
+    const systemsBatchResponse = fetch(FULL_FETCH_ENDPOINT!, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -39,13 +40,13 @@ const triggerFullFetchBatch = async (type: PimTypes) => {
     systemsBatchResponse
       .then((response) => {
         if (!response.ok) {
-          error({
+          logger.error({
             message: `Failed to trigger full fetch patch for ${type}: ${response.statusText}`
           });
         }
       })
       .catch((reason) => {
-        error({ message: reason.message });
+        logger.error({ message: reason.message });
       });
     promises.push(systemsBatchResponse);
 
@@ -68,7 +69,17 @@ const triggerFullFetchBatch = async (type: PimTypes) => {
  * @param {!express:Response} res HTTP response context.
  */
 const handleRequest: HttpFunction = async (req, res) => {
-  info({ message: "Clearing out data..." });
+  if (!BUILD_TRIGGER_ENDPOINT) {
+    logger.error({ message: "BUILD_TRIGGER_ENDPOINT has not been set." });
+    return res.sendStatus(500);
+  }
+
+  if (!FULL_FETCH_ENDPOINT) {
+    logger.error({ message: "FULL_FETCH_ENDPOINT has not been set." });
+    return res.sendStatus(500);
+  }
+
+  logger.info({ message: "Clearing out data..." });
 
   await deleteElasticSearchIndex(ElasticsearchIndexes.Products);
   await deleteElasticSearchIndex(ElasticsearchIndexes.Systems);
@@ -85,7 +96,9 @@ const handleRequest: HttpFunction = async (req, res) => {
     },
     body: JSON.stringify({ foo: "bar" })
   }).catch((err) => {
-    error({ message: `Error whilst trying to trigger the build. ${err}` });
+    logger.error({
+      message: `Error whilst trying to trigger the build. ${err}`
+    });
   });
 
   res.status(200).send("ok");

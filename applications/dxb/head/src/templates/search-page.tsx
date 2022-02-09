@@ -6,6 +6,7 @@ import { QUERY_KEY } from "@bmi/search";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useState, FormEvent } from "react";
 import { Filter } from "@bmi/filters";
+import { microCopy } from "../constants/microCopies";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
 import { generateGetMicroCopy } from "../components/MicroCopy";
@@ -25,7 +26,7 @@ import SearchTabPanelPages, {
   getCount as getPagesCount
 } from "../components/SearchTabPages";
 
-type Props = {
+export type Props = {
   // TODO: pageContext is/should be the same for all pages, same type
   pageContext: {
     variantCode?: string;
@@ -63,7 +64,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
 
   const { countryCode, resources } = contentfulSite;
   const getMicroCopy = generateGetMicroCopy(resources.microCopy);
-  const defaultTitle = getMicroCopy("searchPage.title");
+  const defaultTitle = getMicroCopy(microCopy.SEARCH_PAGE_TITLE);
 
   const queryString = useMemo(() => {
     if (process.env.GATSBY_PREVIEW) {
@@ -93,19 +94,19 @@ const SearchPage = ({ pageContext, data }: Props) => {
     // TODO: Should be as array?
     products: {
       component: SearchTabPanelProducts,
-      heading: getMicroCopy("search.tabHeadings.products"),
+      heading: getMicroCopy(microCopy.SEARCH_TAB_HEADINGS_PRODUCTS),
       count: 0,
       hasBeenDisplayed: false
     },
     documents: {
       component: SearchTabPanelDocuments,
-      heading: getMicroCopy("search.tabHeadings.documents"),
+      heading: getMicroCopy(microCopy.SEARCH_TAB_HEADINGS_DOCUMENTS),
       count: 0,
       hasBeenDisplayed: false
     },
     pages: {
       component: SearchTabPanelPages,
-      heading: getMicroCopy("search.tabHeadings.pages"),
+      heading: getMicroCopy(microCopy.SEARCH_TAB_HEADINGS_PAGES),
       count: 0,
       hasBeenDisplayed: false
     }
@@ -150,6 +151,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
 
       // Find first one that has some results and set it to display
       for (let tabKey in newResults) {
+        // eslint-disable-next-line security/detect-object-injection
         const config = newResults[tabKey];
         if (config.count) {
           config.hasBeenDisplayed = true;
@@ -175,9 +177,13 @@ const SearchPage = ({ pageContext, data }: Props) => {
 
     // Otherwise, the title depends on if there are results.
     if (pageHasResults) {
-      return getMicroCopy("searchPage.title.withQuery", { query: queryString });
+      return getMicroCopy(microCopy.SEARCH_PAGE_TITLE_WITH_QUERY, {
+        query: queryString
+      });
     } else {
-      return getMicroCopy("searchPage.noResultsTitle", { query: queryString });
+      return getMicroCopy(microCopy.SEARCH_PAGE_NO_RESULTS_TITLE, {
+        query: queryString
+      });
     }
   }, [queryString, pageHasResults, areTabsResolved]);
 
@@ -189,6 +195,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
     setResults({
       ...results,
       [tabKey]: {
+        // eslint-disable-next-line security/detect-object-injection
         ...results[tabKey],
         hasBeenDisplayed: true
       }
@@ -199,6 +206,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
     const newResults = {
       ...results,
       [tabKey]: {
+        // eslint-disable-next-line security/detect-object-injection
         ...results[tabKey],
         count
       }
@@ -214,12 +222,12 @@ const SearchPage = ({ pageContext, data }: Props) => {
           return null;
         }
 
-        const { component: Component, hasBeenDisplayed } = data;
+        const { component: Component, hasBeenDisplayed, heading, count } = data;
 
         return (
           <Tabs.TabPanel
             key={tabKey}
-            heading={`${data.heading} (${results[tabKey]?.count || 0})`}
+            heading={`${heading} (${count})`}
             index={tabKey}
           >
             {hasBeenDisplayed ? (
@@ -271,13 +279,15 @@ const SearchPage = ({ pageContext, data }: Props) => {
       <Section backgroundColor="white" isSlim>
         <SearchBlock
           buttonText={
-            queryString ? getMicroCopy("searchPage.searchText") : defaultTitle
+            queryString
+              ? getMicroCopy(microCopy.SEARCH_PAGE_SEARCH_TEXT)
+              : defaultTitle
           }
           countryCode={countryCode}
           hasResults={pageHasResults}
           isLoading={tabIsLoading}
-          helperText={getMicroCopy("searchPage.helperText")}
-          placeholder={getMicroCopy("searchPage.placeholder")}
+          helperText={getMicroCopy(microCopy.SEARCH_PAGE_HELPER_TEXT)}
+          placeholder={getMicroCopy(microCopy.SEARCH_PAGE_PLACEHOLDER)}
           query={areTabsResolved ? queryString : ""}
           searchPageSearchTips={resources.searchPageSearchTips}
           searchPageSidebarItems={resources.searchPageSidebarItems}

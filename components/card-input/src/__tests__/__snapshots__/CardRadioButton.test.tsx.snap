@@ -26,87 +26,91 @@ Array [
 `;
 
 exports[`CardInput component renders as checkbox 1`] = `
-<div
-  class="CardInput"
->
-  <label>
-    <input
-      class="input"
-      name="tileType"
-      type="checkbox"
-      value="Aerodek Classic"
-    />
-    <div
-      aria-disabled="false"
-      class="MuiButtonBase-root ToggleCard card"
-      role="button"
-      tabindex="0"
-    >
+<div>
+  <div
+    class="CardInput"
+  >
+    <label>
+      <input
+        class="input"
+        name="tileType"
+        type="checkbox"
+        value="Aerodek Classic"
+      />
       <div
-        class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+        aria-disabled="false"
+        class="MuiButtonBase-root ToggleCard card"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="image"
-          style="background-image: url(path-to-image);"
+          class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <div
+            class="image"
+            style="background-image: url(path-to-image);"
+          />
+          <h6
+            class="MuiTypography-root title Typography MuiTypography-h6"
+          >
+            Aerodek Classic
+          </h6>
+          <p
+            class="MuiTypography-root paragraph Typography MuiTypography-body1"
+          >
+            6 colours 
+          </p>
+        </div>
+        <span
+          class="MuiTouchRipple-root"
         />
-        <h6
-          class="MuiTypography-root title Typography MuiTypography-h6"
-        >
-          Aerodek Classic
-        </h6>
-        <p
-          class="MuiTypography-root paragraph Typography MuiTypography-body1"
-        >
-          6 colours 
-        </p>
       </div>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </div>
-  </label>
+    </label>
+  </div>
 </div>
 `;
 
 exports[`CardInput component renders correctly 1`] = `
-<div
-  class="CardInput"
->
-  <label>
-    <input
-      class="input"
-      name="tileType"
-      type="radio"
-      value="Aerodek Classic"
-    />
-    <div
-      aria-disabled="false"
-      class="MuiButtonBase-root ToggleCard card"
-      role="button"
-      tabindex="0"
-    >
+<div>
+  <div
+    class="CardInput"
+  >
+    <label>
+      <input
+        class="input"
+        name="tileType"
+        type="radio"
+        value="Aerodek Classic"
+      />
       <div
-        class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+        aria-disabled="false"
+        class="MuiButtonBase-root ToggleCard card"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="image"
-          style="background-image: url(path-to-image);"
+          class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <div
+            class="image"
+            style="background-image: url(path-to-image);"
+          />
+          <h6
+            class="MuiTypography-root title Typography MuiTypography-h6"
+          >
+            Aerodek Classic
+          </h6>
+          <p
+            class="MuiTypography-root paragraph Typography MuiTypography-body1"
+          >
+            6 colours 
+          </p>
+        </div>
+        <span
+          class="MuiTouchRipple-root"
         />
-        <h6
-          class="MuiTypography-root title Typography MuiTypography-h6"
-        >
-          Aerodek Classic
-        </h6>
-        <p
-          class="MuiTypography-root paragraph Typography MuiTypography-body1"
-        >
-          6 colours 
-        </p>
       </div>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </div>
-  </label>
+    </label>
+  </div>
 </div>
 `;

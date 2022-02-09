@@ -26,6 +26,7 @@ const Decision = ({
   defaultValues: { [key: string]: any };
   fieldsDisplay: FieldsDisplay;
 }) => {
+  // eslint-disable-next-line security/detect-object-injection
   const displayProps = fieldsDisplay[name];
 
   if (!displayProps) {
@@ -37,6 +38,7 @@ const Decision = ({
   const mappedOptions = useMemo(
     () =>
       options.map((value) => {
+        // eslint-disable-next-line security/detect-object-injection
         const mappedOption = optionsMap[value];
 
         if (!mappedOption) {
@@ -55,6 +57,7 @@ const Decision = ({
   );
 
   const defaultValue =
+    // eslint-disable-next-line security/detect-object-injection
     mappedOptions.length === 1 ? mappedOptions[0].value : defaultValues[name];
 
   return (

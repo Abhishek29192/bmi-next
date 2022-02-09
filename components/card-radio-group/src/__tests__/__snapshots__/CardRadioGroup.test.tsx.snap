@@ -9,98 +9,100 @@ Array [
 `;
 
 exports[`CardRadioGroup component renders correctly 1`] = `
-<div
-  class="CardRadioGroup"
->
+<div>
   <div
-    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+    class="CardRadioGroup"
   >
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
     >
       <div
-        class="CardInput item"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
       >
-        <label>
-          <input
-            class="input"
-            name="tileType"
-            type="radio"
-            value="Zanda Arktis"
-          />
-          <div
-            aria-disabled="false"
-            class="MuiButtonBase-root ToggleCard card"
-            role="button"
-            tabindex="0"
-          >
+        <div
+          class="CardInput item"
+        >
+          <label>
+            <input
+              class="input"
+              name="tileType"
+              type="radio"
+              value="Zanda Arktis"
+            />
             <div
-              class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+              aria-disabled="false"
+              class="MuiButtonBase-root ToggleCard card"
+              role="button"
+              tabindex="0"
             >
               <div
-                class="image"
-                style="background-image: url(path-to-image);"
+                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+              >
+                <div
+                  class="image"
+                  style="background-image: url(path-to-image);"
+                />
+                <h6
+                  class="MuiTypography-root title Typography MuiTypography-h6"
+                >
+                  Zanda Arktis
+                </h6>
+                <p
+                  class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                >
+                  6 colours
+                </p>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
               />
-              <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
-              >
-                Zanda Arktis
-              </h6>
-              <p
-                class="MuiTypography-root paragraph Typography MuiTypography-body1"
-              >
-                6 colours
-              </p>
             </div>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </div>
-        </label>
+          </label>
+        </div>
       </div>
-    </div>
-    <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
-    >
       <div
-        class="CardInput item"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
       >
-        <label>
-          <input
-            class="input"
-            name="tileType"
-            type="radio"
-            value="Aerodek Traditional"
-          />
-          <div
-            aria-disabled="false"
-            class="MuiButtonBase-root ToggleCard card"
-            role="button"
-            tabindex="0"
-          >
+        <div
+          class="CardInput item"
+        >
+          <label>
+            <input
+              class="input"
+              name="tileType"
+              type="radio"
+              value="Aerodek Traditional"
+            />
             <div
-              class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+              aria-disabled="false"
+              class="MuiButtonBase-root ToggleCard card"
+              role="button"
+              tabindex="0"
             >
               <div
-                class="image"
-                style="background-image: url(path-to-image);"
+                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+              >
+                <div
+                  class="image"
+                  style="background-image: url(path-to-image);"
+                />
+                <h6
+                  class="MuiTypography-root title Typography MuiTypography-h6"
+                >
+                  Aerodek Traditional
+                </h6>
+                <p
+                  class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                >
+                  6 colours
+                </p>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
               />
-              <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
-              >
-                Aerodek Traditional
-              </h6>
-              <p
-                class="MuiTypography-root paragraph Typography MuiTypography-body1"
-              >
-                6 colours
-              </p>
             </div>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </div>
-        </label>
+          </label>
+        </div>
       </div>
     </div>
   </div>
@@ -108,99 +110,101 @@ exports[`CardRadioGroup component renders correctly 1`] = `
 `;
 
 exports[`CardRadioGroup component renders with initial value 1`] = `
-<div
-  class="CardRadioGroup"
->
+<div>
   <div
-    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+    class="CardRadioGroup"
   >
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
     >
       <div
-        class="CardInput item"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
       >
-        <label>
-          <input
-            checked=""
-            class="input"
-            name="tileType"
-            type="radio"
-            value="Zanda Arktis"
-          />
-          <div
-            aria-disabled="false"
-            class="MuiButtonBase-root ToggleCard card"
-            role="button"
-            tabindex="0"
-          >
+        <div
+          class="CardInput item"
+        >
+          <label>
+            <input
+              checked=""
+              class="input"
+              name="tileType"
+              type="radio"
+              value="Zanda Arktis"
+            />
             <div
-              class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+              aria-disabled="false"
+              class="MuiButtonBase-root ToggleCard card"
+              role="button"
+              tabindex="0"
             >
               <div
-                class="image"
-                style="background-image: url(path-to-image);"
+                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+              >
+                <div
+                  class="image"
+                  style="background-image: url(path-to-image);"
+                />
+                <h6
+                  class="MuiTypography-root title Typography MuiTypography-h6"
+                >
+                  Zanda Arktis
+                </h6>
+                <p
+                  class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                >
+                  6 colours
+                </p>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
               />
-              <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
-              >
-                Zanda Arktis
-              </h6>
-              <p
-                class="MuiTypography-root paragraph Typography MuiTypography-body1"
-              >
-                6 colours
-              </p>
             </div>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </div>
-        </label>
+          </label>
+        </div>
       </div>
-    </div>
-    <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
-    >
       <div
-        class="CardInput item"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
       >
-        <label>
-          <input
-            class="input"
-            name="tileType"
-            type="radio"
-            value="Aerodek Traditional"
-          />
-          <div
-            aria-disabled="false"
-            class="MuiButtonBase-root ToggleCard card"
-            role="button"
-            tabindex="0"
-          >
+        <div
+          class="CardInput item"
+        >
+          <label>
+            <input
+              class="input"
+              name="tileType"
+              type="radio"
+              value="Aerodek Traditional"
+            />
             <div
-              class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+              aria-disabled="false"
+              class="MuiButtonBase-root ToggleCard card"
+              role="button"
+              tabindex="0"
             >
               <div
-                class="image"
-                style="background-image: url(path-to-image);"
+                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+              >
+                <div
+                  class="image"
+                  style="background-image: url(path-to-image);"
+                />
+                <h6
+                  class="MuiTypography-root title Typography MuiTypography-h6"
+                >
+                  Aerodek Traditional
+                </h6>
+                <p
+                  class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                >
+                  6 colours
+                </p>
+              </div>
+              <span
+                class="MuiTouchRipple-root"
               />
-              <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
-              >
-                Aerodek Traditional
-              </h6>
-              <p
-                class="MuiTypography-root paragraph Typography MuiTypography-body1"
-              >
-                6 colours
-              </p>
             </div>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </div>
-        </label>
+          </label>
+        </div>
       </div>
     </div>
   </div>

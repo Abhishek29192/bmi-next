@@ -1,5 +1,7 @@
 import { getServerSideProps } from "../../../pages/admin/products";
 
+jest.mock("next-i18next/serverSideTranslations");
+
 jest.mock("../../../lib/middleware/withPage", () => ({
   withPage: (getServerSideProps: any) => {
     return (context: any) => {

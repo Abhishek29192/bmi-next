@@ -39,7 +39,7 @@ describe("RecaptchaPrivacyLinks component", () => {
         (getByText("Terms of Service").parentElement as HTMLAnchorElement).href
       ).toEqual("https://policies.google.com/terms");
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
   describe("When 'no' country code is provided", () => {
@@ -71,7 +71,7 @@ describe("RecaptchaPrivacyLinks component", () => {
         (getByText("Vilkår for bruk").parentElement as HTMLAnchorElement).href
       ).toEqual("https://policies.google.com/terms?hl=no-nb");
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -105,7 +105,7 @@ describe("RecaptchaPrivacyLinks component", () => {
         (getByText("käyttöehtoja").parentElement as HTMLAnchorElement).href
       ).toEqual("https://policies.google.com/terms?hl=fi-fi");
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -140,7 +140,7 @@ describe("RecaptchaPrivacyLinks component", () => {
           .href
       ).toEqual("https://policies.google.com/terms?hl=it-it");
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -177,7 +177,7 @@ describe("RecaptchaPrivacyLinks component", () => {
         ).href
       ).toEqual("https://policies.google.com/terms?hl=fr-fr");
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -215,7 +215,7 @@ describe("RecaptchaPrivacyLinks component", () => {
           .href
       ).toEqual("https://policies.google.com/terms?hl=de-de");
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -253,7 +253,7 @@ describe("RecaptchaPrivacyLinks component", () => {
           .href
       ).toEqual("https://policies.google.com/terms?hl=de-at");
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -291,7 +291,7 @@ describe("RecaptchaPrivacyLinks component", () => {
           .href
       ).toEqual("https://policies.google.com/terms?hl=de-de");
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 });

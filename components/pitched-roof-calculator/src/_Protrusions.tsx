@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useMemo, useState } from "react";
 import Grid from "@bmi/grid";
 import Button from "@bmi/button";
 import { TextField } from "@bmi/text-field";
-import { FormContext } from "@bmi/form";
+import { FormContext, InputValue } from "@bmi/form";
 import CardInput from "@bmi/card-input";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
@@ -27,7 +27,7 @@ const SelectProtrusion = ({
 
   const [selected, setSelected] = useState(defaultValue);
 
-  const handleOnChange = (e) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setSelected(newValue);
     updateField(newValue, undefined);
@@ -46,7 +46,7 @@ const SelectProtrusion = ({
               name={`select-protrusion-${id}`}
               value={type}
               illustratedImage={illustration}
-              onChange={(e) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 pushEvent({
                   event: "dxb.button_click",
                   id: "rc-dimensions-protrusions-type",
@@ -80,6 +80,7 @@ const Input = ({
   ...rest
 }: InputProps) => {
   const copy = useContext(MicroCopyContext);
+  // eslint-disable-next-line security/detect-object-injection
   const { helperText, unit, validator } = getFieldTypes((path, placeholders) =>
     getMicroCopy(copy, "validation.errors." + path, placeholders)
   )[type];
@@ -89,7 +90,7 @@ const Input = ({
 
   const handleOnBlur = () => setIsBlurred(true);
 
-  const handleOnChange = (newValue) => {
+  const handleOnChange = (newValue: string) => {
     const newError = validator(newValue);
     setError(newError);
     updateField(newValue, newError);
@@ -128,7 +129,7 @@ const Input = ({
 
 type ProtrusionDimensionsProps = {
   id: string;
-  onAddAnother: () => void;
+  onAddAnother?: () => void;
   createUpdateField: (name: string) => (value?: string, error?: string) => any;
   onRemove: () => void;
   type: Type;
@@ -147,6 +148,7 @@ const ProtrusionDimensions = ({
   const pushEvent = useContext(AnalyticsContext);
 
   const { fields, dimensionsIllustration: DimensionsIllustration } =
+    // eslint-disable-next-line security/detect-object-injection
     protrusionTypes[protrusionType];
 
   return (
@@ -166,6 +168,7 @@ const ProtrusionDimensions = ({
                   key={`${protrusionType}-${name}`} // make sure to reset the state everytime the protrusionType changes
                   label={name}
                   type={type}
+                  // eslint-disable-next-line security/detect-object-injection
                   defaultValue={values[name]}
                   updateField={createUpdateField(name)}
                 />
@@ -224,7 +227,7 @@ type ProtrusionItem = {
 
 type ProtrusionProps = {
   id: string;
-  onAddAnother: () => void;
+  onAddAnother?: () => void;
   onUpdate: (
     getChange: (item: ProtrusionItem) => Partial<ProtrusionItem>
   ) => void;
@@ -321,12 +324,15 @@ const Protrusions = ({
       { id: getNextId(), values: {}, errors: {} }
     ]);
 
-  const updateProtrusion = (id, getChange) =>
+  const updateProtrusion = (
+    id: string,
+    getChange: (item: ProtrusionItem) => Partial<ProtrusionItem>
+  ) =>
     setProtrusions((protrusions) =>
       protrusions.map((p) => (p.id === id ? { ...p, ...getChange(p) } : p))
     );
 
-  const removeProtrusion = (id) =>
+  const removeProtrusion = (id: string) =>
     setProtrusions((protrusions) => protrusions.filter((p) => p.id !== id));
 
   const protrusionsElements = useMemo(
@@ -348,7 +354,7 @@ const Protrusions = ({
 
   useEffect(() => {
     let error = false;
-    const list = [];
+    const list: ProtrusionItem["values"][] = [];
 
     for (const { values, errors } of protrusions) {
       list.push(values);
@@ -357,8 +363,9 @@ const Protrusions = ({
       }
     }
 
+    // InputValue needs to be forced to not pollute this hack out of here
     updateFormState(
-      { protrusions: list },
+      { protrusions: list as InputValue },
       {
         protrusions: error
           ? "There is an error" /* Random string to make it truthy */

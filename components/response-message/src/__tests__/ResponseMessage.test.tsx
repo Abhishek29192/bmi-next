@@ -10,7 +10,7 @@ describe("ResponseMessage component", () => {
     const { container } = render(
       <ResponseMessage title="Thank you!" icon={EmailIcon} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with children", () => {
     const { container } = render(
@@ -23,12 +23,12 @@ describe("ResponseMessage component", () => {
         </Typography>
       </ResponseMessage>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with error", () => {
     const { container } = render(
       <ResponseMessage title="Error" icon={WarningIcon} error />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

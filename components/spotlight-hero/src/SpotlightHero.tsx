@@ -43,6 +43,7 @@ const SpotlightHero = ({
 }: Props) => {
   return (
     <div
+      data-testid="spotLightHero"
       className={classnames(
         styles["SpotlightHero"],
         !!process.env.GATSBY_ENABLE_BRAND_PROVIDER &&

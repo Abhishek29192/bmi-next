@@ -9,7 +9,7 @@ import { Image } from "./types";
 import styles from "./ImageGallery.module.scss";
 
 type Props = {
-  images: Image[];
+  images: readonly Image[];
   imageSize?: "cover" | "contain";
   thumbnailComponent?: React.ComponentType<any>; // TODO
   layout?: "default" | "short";
@@ -69,21 +69,22 @@ const ImageGallery = ({
     "ontouchstart" in document.documentElement;
 
   const Thumbnails = isTouchDevice ? MobileThumbnails : DesktopThumbnails;
+  // eslint-disable-next-line security/detect-object-injection
+  const caption = images[activeImageIndex].caption;
 
   return (
     <div className={classnames(styles["ImageGallery"], className)}>
       <div className={styles["image-wrapper"]}>
+        {/* eslint-disable-next-line security/detect-object-injection */}
         {renderMedia(images[activeImageIndex], imageSize, layout)}
-        {images[activeImageIndex].caption ? (
+        {caption ? (
           <div className={styles["caption"]}>
             <Typography
               variant="h6"
               component="p"
               className={styles["caption-text"]}
             >
-              <Truncate lines="2">
-                {images[activeImageIndex]?.caption || ""}
-              </Truncate>
+              <Truncate lines="2">{caption}</Truncate>
             </Typography>
           </div>
         ) : null}

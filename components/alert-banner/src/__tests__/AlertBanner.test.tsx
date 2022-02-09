@@ -10,7 +10,7 @@ describe("AlertBanner component", () => {
         This is a success alert banner
       </AlertBanner>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with a warning severity", () => {
     const { container } = render(
@@ -19,7 +19,7 @@ describe("AlertBanner component", () => {
         This is a warning alert banner
       </AlertBanner>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with an action", () => {
     const { container } = render(
@@ -28,15 +28,15 @@ describe("AlertBanner component", () => {
         This is a warning alert banner
       </AlertBanner>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with a sticky position", () => {
     const { container } = render(
-      <AlertBanner severity="warning" stickyPosition={0}>
+      <AlertBanner severity="warning" stickyPosition={100}>
         <AlertBanner.Title>Warning</AlertBanner.Title>
         This is a warning alert banner
       </AlertBanner>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

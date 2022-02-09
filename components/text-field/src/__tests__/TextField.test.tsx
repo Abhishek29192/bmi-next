@@ -1,51 +1,57 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import TextField from "../";
+import ControlledTextField from "../";
+import { TextField } from "../";
 
-describe("TextField component", () => {
+describe("ControlledTextField component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <TextField
+      <ControlledTextField
         id="email"
         name="Email"
         label="Email address"
         placeholder="e.g. lorem@ipsum.com"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders a hybrid variant", () => {
     const { container } = render(
-      <TextField
+      <ControlledTextField
         id="email"
         name="Email"
         label="Email address"
         variant="hybrid"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with an extra class", () => {
     const { container } = render(
-      <TextField
+      <ControlledTextField
         id="email"
         name="Email"
         label="Email address"
         className="test"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders as textarea", () => {
     const { container } = render(
-      <TextField id="email" name="Email" label="Email address" isTextArea />
+      <ControlledTextField
+        id="email"
+        name="Email"
+        label="Email address"
+        isTextArea
+      />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with left adornment", () => {
     const { container } = render(
-      <TextField
+      <ControlledTextField
         name="Nickname"
         label="nickname"
         variant="outlined"
@@ -53,11 +59,11 @@ describe("TextField component", () => {
         leftAdornment={<AccountCircle />}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with right adornment", () => {
     const { container } = render(
-      <TextField
+      <ControlledTextField
         name="Nickname"
         label="nickname"
         variant="outlined"
@@ -65,7 +71,42 @@ describe("TextField component", () => {
         rightAdornment={<AccountCircle />}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+  it("renders with onChange", () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <ControlledTextField
+        name="Nickname"
+        label="nickname"
+        variant="outlined"
+        helperText="Icon hint text"
+        onChange={onChange}
+      />
+    );
+    const input = container.querySelectorAll("input")[0];
+
+    fireEvent.change(input, {
+      target: { value: "test value" }
+    });
+    fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(container).toMatchSnapshot();
+  });
+});
+
+describe("TextField component", () => {
+  it("renders correctly", () => {
+    const { container } = render(
+      <ControlledTextField
+        id="email"
+        name="Email"
+        label="Email address"
+        placeholder="e.g. lorem@ipsum.com"
+      />
+    );
+    expect(container).toMatchSnapshot();
   });
   it("renders with error", () => {
     const { container } = render(
@@ -75,8 +116,9 @@ describe("TextField component", () => {
         variant="outlined"
         helperText="Icon hint text"
         error
+        errorText="error text"
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

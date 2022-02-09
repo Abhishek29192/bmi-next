@@ -1,15 +1,38 @@
-import {
-  AppBarProps,
-  Box,
-  Tab as DefaultTab,
-  Tabs as MaterialTabs,
+import { AppBarProps } from "@material-ui/core/AppBar";
+import Box from "@material-ui/core/Box";
+import DefaultTab from "@material-ui/core/Tab";
+import MaterialTabs, {
   TabsProps as MaterialTabsProps
-} from "@material-ui/core";
+} from "@material-ui/core/Tabs";
 import Container, { Props as ContainerProps } from "@bmi/container";
 import Grid, { GridProps } from "@bmi/grid";
 import classnames from "classnames";
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import styles from "./Tabs.module.scss";
+
+export const useGlobalTabStyles = makeStyles(
+  () => ({
+    ContainerRoot: {
+      fontSize: "1rem",
+      paddingLeft: "0px",
+      paddingRight: "0px"
+    },
+    TabsRoot: {
+      fontSize: "1rem",
+      marginBottom: "2px"
+    },
+    TabRoot: {
+      fontSize: "1rem",
+      minWidth: "initial",
+      padding: "6px 15px",
+      "& .Mui-selected": {
+        fontFamily: "Effra Medium"
+      }
+    }
+  }),
+  { classNamePrefix: "tabStyles" }
+);
 
 type TabPanelProps = GridProps & {
   className?: string;
@@ -68,12 +91,11 @@ const Tabs = ({
   maxWidth,
   ...other
 }: TabsProps) => {
+  const globalClasses = useGlobalTabStyles();
   const [value, setValue] = React.useState(initialValue);
 
   const handleChange = (_event: React.ChangeEvent<{}>, newValue: any) => {
-    if (onChange) {
-      onChange(newValue);
-    }
+    onChange && onChange(newValue);
     setValue(newValue);
   };
 
@@ -90,8 +112,8 @@ const Tabs = ({
         className
       )}
     >
-      <div className={styles["TabsBar"]}>
-        <Container maxWidth={maxWidth}>
+      <div className={classnames(styles["TabsBar"])}>
+        <Container maxWidth={maxWidth} className={globalClasses.ContainerRoot}>
           <MaterialTabs
             aria-label="tabs"
             indicatorColor="primary"
@@ -100,6 +122,7 @@ const Tabs = ({
             textColor="primary"
             variant="scrollable"
             value={value}
+            className={globalClasses.TabsRoot}
             {...other}
           >
             {tabs.map(({ props: { heading, index } }) => (
@@ -109,6 +132,7 @@ const Tabs = ({
                 key={index}
                 label={heading}
                 value={index}
+                className={globalClasses.TabRoot}
               />
             ))}
           </MaterialTabs>

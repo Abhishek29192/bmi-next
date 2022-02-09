@@ -1,54 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ExploreBarSection component renders correctly 1`] = `
-<div
-  class="Section"
->
+<div>
   <div
-    class="Container"
+    class="Section"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
-      <nav
-        aria-labelledby="explore-bar"
-        class="ExploreBar"
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
-        <h2
-          class="MuiTypography-root heading Typography MuiTypography-h6"
-          id="explore-bar"
+        <nav
+          aria-labelledby="explore-bar"
+          class="ExploreBar"
         >
-          Lorem ipsum
-        </h2>
-        <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-opaqueOutlined-8 link MuiButton-outlinedPrimary"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label buttonStyles-label-4"
+          <h2
+            class="MuiTypography-root heading Typography MuiTypography-h6"
+            id="explore-bar"
           >
-            String
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-opaqueOutlined-8 link MuiButton-outlinedPrimary"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label buttonStyles-label-4"
+            Lorem ipsum
+          </h2>
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-opaqueOutlined-8 link MuiButton-outlinedPrimary"
+            tabindex="0"
+            type="button"
           >
-            Another string
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </nav>
+            <span
+              class="MuiButton-label buttonStyles-label-4"
+            >
+              String
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-opaqueOutlined-8 link MuiButton-outlinedPrimary"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-4"
+            >
+              Another string
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </nav>
+      </div>
     </div>
   </div>
 </div>

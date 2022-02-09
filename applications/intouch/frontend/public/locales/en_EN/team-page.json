@@ -1,57 +1,59 @@
 {
-  "sidePanel": {
-    "search": {
-      "label": "Search for a user",
-      "noResult": "Member not found"
-    },
-    "inviteLabel": "+ Invite team members"
-  },
-  "table": {
-    "title": "Certification(s)",
-    "type": "Type",
-    "certification": "Certification",
-    "validity": "Validity",
-    "noResults": "User has no certifications"
-  },
+  "genericError": "An error occurred. Please try again or contact your administrator.",
   "invitation": {
     "dialog": {
-      "title": "Invite members",
+      "cancel": "Cancel",
       "emails": {
-        "label": "Recipient’s email address",
-        "helperText": "Add multiple members by separating each email address with a comma"
+        "helperText": "Add multiple members by separating each email address with a comma",
+        "label": "Recipient’s email address"
       },
+      "errorAlreadyMember": "The user is already a member of another company",
+      "errorInvitationNotFound": "Invitation not found",
       "personalNote": {
         "label": "Your message (optional)"
       },
-      "cancel": "Cancel",
       "send": "Send email",
-      "success": "The invitation has been sent"
+      "success": "The invitation has been sent",
+      "title": "Invite members"
     }
+  },
+  "lastCompanyAdminError": "You cannot remove the last Company Admin from a Company unless it has been deactivated by BMI",
+  "memberRemoved": "Member succesfully removed",
+  "report": "Download Teams List",
+  "sidePanel": {
+    "inviteLabel": "+ Invite team members",
+    "search": {
+      "label": "Search for a user",
+      "noResult": "Member not found"
+    }
+  },
+  "table": {
+    "certification": "Certification",
+    "noResults": "User has no certifications",
+    "title": "Certification(s)",
+    "type": "Type",
+    "validity": "Validity"
+  },
+  "userActions": {
+    "action": {
+      "activate": "Activate user",
+      "deactivate": "Deactivate use"
+    },
+    "title": "User Actions"
   },
   "user_card": {
     "add_admin": "Assign as Company Admin",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
     "remove": "Remove from company",
     "remove_admin": "Remove as Company Admin",
-    "confirm": "Confirm",
-    "cancel": "Cancel",
-    "role_dialog": {
-      "title": "Change role",
-      "text": "Do you want to change the role?"
-    },
     "remove_user_dialog": {
-      "title": "Remove company member",
-      "text": "Do you want to remove this company member?"
-    }
-  },
-  "memberRemoved": "Member succesfully removed",
-  "genericError": "An error occurred. Please try again or contact your administrator.",
-  "lastCompanyAdminError": "You cannot remove the last Company Admin from a Company unless it has been deactivated by BMI",
-  "report": "Download Teams List",
-  "userActions": {
-    "title": "User Actions",
-    "action": {
-      "activate": "Activate user",
-      "deactivate": "Deactivate user"
+      "text": "Do you want to remove this company member?",
+      "title": "Remove company member"
+    },
+    "role_dialog": {
+      "text": "Do you want to change the role?",
+      "title": "Change role"
     }
   }
 }

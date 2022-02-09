@@ -1,165 +1,167 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer component renders correctly 1`] = `
-<div
-  class="HidePrint"
->
+<div>
   <div
-    class="Footer"
+    class="HidePrint"
   >
     <div
-      class="Container"
+      class="Footer"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="Container"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+          class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
           >
-            <h4
-              class="MuiTypography-root Typography MuiTypography-h4"
+            <div
+              class="MuiGrid-root item MuiGrid-item"
             >
-              Get in touch
-            </h4>
-            <nav>
-              <ul
-                class="list"
+              <h4
+                class="MuiTypography-root Typography MuiTypography-h4"
               >
-                <li
-                  class="list-item"
+                Get in touch
+              </h4>
+              <nav>
+                <ul
+                  class="list"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"+44 (0) 1234567890\\",\\"action\\":\\"tel:+4401234567890\\"}"
-                    href="tel:+4401234567890"
-                    tabindex="0"
+                  <li
+                    class="list-item"
                   >
-                    <span
-                      class="MuiButton-label buttonStyles-label-4"
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                      data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"+44 (0) 1234567890\\",\\"action\\":\\"tel:+4401234567890\\"}"
+                      href="tel:+4401234567890"
+                      tabindex="0"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                        class="MuiButton-label buttonStyles-label-4"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
                         >
-                          <path
-                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-                          />
-                        </svg>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                            />
+                          </svg>
+                        </span>
+                        +44 (0) 1234567890
                       </span>
-                      +44 (0) 1234567890
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div
-            class="MuiGrid-root item MuiGrid-item"
-          >
-            <h4
-              class="MuiTypography-root Typography MuiTypography-h4"
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item"
             >
-              About BMI
-            </h4>
-            <nav>
-              <ul
-                class="list"
+              <h4
+                class="MuiTypography-root Typography MuiTypography-h4"
               >
-                <li
-                  class="list-item"
+                About BMI
+              </h4>
+              <nav>
+                <ul
+                  class="list"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page\\"}"
-                    href="/uk/landing-page"
-                    role="button"
-                    tabindex="0"
+                  <li
+                    class="list-item"
                   >
-                    <span
-                      class="MuiButton-label buttonStyles-label-4"
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                      data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page\\"}"
+                      href="/uk/landing-page"
+                      role="button"
+                      tabindex="0"
                     >
-                      Our story
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
-                </li>
-              </ul>
-            </nav>
+                      <span
+                        class="MuiButton-label buttonStyles-label-4"
+                      >
+                        Our story
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
-        </div>
-        <div
-          class="secondary-navigation"
-        >
           <div
-            class="logo"
+            class="secondary-navigation"
           >
-            <svg />
-          </div>
-          <ul
-            class="list list--inline"
-          >
-            <li
-              class="list-item"
+            <div
+              class="logo"
             >
-              <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page\\"}"
-                href="/uk/landing-page"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiButton-label buttonStyles-label-4"
-                >
-                  Our story
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </a>
-            </li>
-            <li
-              class="list-item"
+              <svg />
+            </div>
+            <ul
+              class="list list--inline"
             >
-              <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"global.sitemap\\",\\"action\\":\\"/uk/sitemap\\"}"
-                href="/uk/sitemap"
-                role="button"
-                tabindex="0"
+              <li
+                class="list-item"
               >
-                <span
-                  class="MuiButton-label buttonStyles-label-4"
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page\\"}"
+                  href="/uk/landing-page"
+                  role="button"
+                  tabindex="0"
                 >
-                  global.sitemap
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </a>
-            </li>
-          </ul>
-          <div
-            class="standard-logo"
-          >
-            <svg />
+                  <span
+                    class="MuiButton-label buttonStyles-label-4"
+                  >
+                    Our story
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </li>
+              <li
+                class="list-item"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"global.sitemap\\",\\"action\\":\\"/uk/sitemap\\"}"
+                  href="/uk/sitemap"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-4"
+                  >
+                    global.sitemap
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </li>
+            </ul>
+            <div
+              class="standard-logo"
+            >
+              <svg />
+            </div>
           </div>
         </div>
       </div>

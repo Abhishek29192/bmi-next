@@ -9,6 +9,7 @@ describe("ProfileCard component", () => {
     const { container } = render(
       <ProfileCard
         imageSource={imageSource}
+        className="name"
         body={<ProfileCard.Body name="Richard Stallman" title="Code Wizard" />}
       >
         <ProfileCard.Row
@@ -22,7 +23,7 @@ describe("ProfileCard component", () => {
         </ProfileCard.Row>
       </ProfileCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly without an image", () => {
@@ -41,7 +42,7 @@ describe("ProfileCard component", () => {
         </ProfileCard.Row>
       </ProfileCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders an element if the image source is a component", () => {
@@ -60,6 +61,52 @@ describe("ProfileCard component", () => {
           Profile line without linkn
         </ProfileCard.Row>
       </ProfileCard>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly if does not have children", () => {
+    const { container } = render(
+      <ProfileCard
+        imageSource={<h1>Something here</h1>}
+        body={<ProfileCard.Body name="Richard Stallman" />}
+      ></ProfileCard>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly ProfileRow if icon not passed", () => {
+    const { container } = render(
+      <ProfileCard
+        imageSource={<h1>Something here</h1>}
+        body={<ProfileCard.Body name="Richard Stallman" title="Code Wizard" />}
+      >
+        <ProfileCard.Row action={{ model: "htmlLink", href: "/" }}>
+          Profile line with link
+        </ProfileCard.Row>
+      </ProfileCard>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly if ProfileCard.Body title passed", () => {
+    const { container } = render(
+      <ProfileCard
+        imageSource={<h1>Something here</h1>}
+        body={<ProfileCard.Body name="Richard Stallman" title="Code Wizard" />}
+      ></ProfileCard>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly if ProfileCard.Body style passed", () => {
+    const { container } = render(
+      <ProfileCard
+        imageSource={<h1>Something here</h1>}
+        body={
+          <ProfileCard.Body name="Richard Stallman" style={{ color: "red" }} />
+        }
+      ></ProfileCard>
     );
     expect(container).toMatchSnapshot();
   });

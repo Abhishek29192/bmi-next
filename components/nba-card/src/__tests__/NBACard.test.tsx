@@ -13,7 +13,7 @@ describe("NbaCard component", () => {
         </div>
       </NBACard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("non clickable renders correctly", () => {
@@ -26,7 +26,7 @@ describe("NbaCard component", () => {
         </div>
       </NBACard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with footer", () => {
@@ -39,7 +39,7 @@ describe("NbaCard component", () => {
         </div>
       </NBACard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("accpets onClick", () => {

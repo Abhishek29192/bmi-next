@@ -88,7 +88,7 @@ describe("Header component", () => {
         languageIntroduction={<p>Select a language</p>}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("opens menu when clicked", () => {
@@ -105,7 +105,7 @@ describe("Header component", () => {
 
     const menuButton = getAllByText(productsLabel)[0];
     menuButton.click();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("opens menu two deep", () => {
@@ -124,7 +124,7 @@ describe("Header component", () => {
     const nestedMenuButton = getAllByText(roofLabel)[0];
     menuButton.click();
     nestedMenuButton.click();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("closes menu on same tab click", () => {
@@ -142,7 +142,7 @@ describe("Header component", () => {
     const menuButton = getAllByText(productsLabel)[0];
     menuButton.click();
     menuButton.click();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("toggle menu with buttons", () => {
@@ -164,11 +164,11 @@ describe("Header component", () => {
 
     const openButton = getByRole("button", { name: openLabel });
     openButton.click();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
 
     const closeButton = getByRole("button", { name: closeLabel });
     closeButton.click();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("toggle search", () => {
@@ -188,10 +188,10 @@ describe("Header component", () => {
 
     const searchButton = getByRole("button", { name: searchLabel });
     searchButton.click();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
 
     searchButton.click();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("toggles language selection", () => {
@@ -210,10 +210,10 @@ describe("Header component", () => {
 
     languageButton.click();
 
-    expect(container.firstChild).toMatchSnapshot("Language selection open");
+    expect(container).toMatchSnapshot("Language selection open");
 
     languageButton.click();
 
-    expect(container.firstChild).toMatchSnapshot("Language selection closed");
+    expect(container).toMatchSnapshot("Language selection closed");
   });
 });

@@ -19,7 +19,7 @@ describe("Breadcrumbs component", () => {
     ];
 
     const { container } = render(<IntegratedBreadcrumbs data={breadcrumbs} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly only one item", () => {
@@ -32,6 +32,6 @@ describe("Breadcrumbs component", () => {
     ];
 
     const { container } = render(<IntegratedBreadcrumbs data={breadcrumbs} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

@@ -1,12 +1,12 @@
 import React, {
-  useMemo,
-  useState,
-  useEffect,
+  Dispatch,
   ReactNode,
-  useRef,
   RefObject,
   useCallback,
-  Dispatch
+  useEffect,
+  useMemo,
+  useRef,
+  useState
 } from "react";
 import Button from "@bmi/button";
 import Card, { CardActions, CardContent } from "@bmi/card";
@@ -14,19 +14,19 @@ import ContainerDialog from "@bmi/container-dialog";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
 import {
-  TileColour,
   SelectRoof,
   SelectTile,
-  SelectWallColour
+  SelectWallColour,
+  TileColour
 } from "@bmi/icon";
 import Logo, { BMI } from "@bmi/logo";
 import ToggleCard from "@bmi/toggle-card";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { Popover, SvgIcon } from "@material-ui/core";
+import Popover from "@material-ui/core/Popover";
+import SvgIcon from "@material-ui/core/SvgIcon";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ShareIcon from "@material-ui/icons/Share";
 import classnames from "classnames";
-import { groupBy } from "lodash";
 import getRef from "./GetRef";
 import HouseViewer from "./HouseViewer";
 import TileViewer from "./TileViewer";
@@ -237,7 +237,15 @@ const TileSectorDialog = ({
     [tiles]
   );
 
-  const productPropsGroupedByMaterial = groupBy(productProps, "material");
+  const productPropsGroupedByMaterial = productProps.reduce<{
+    [key: string]: any[];
+  }>((grouped, props) => {
+    // eslint-disable-next-line react/prop-types
+    (grouped[props["material"]] || (grouped[props["material"]] = [])).push(
+      props
+    );
+    return grouped;
+  }, {});
 
   const defaultTileIdentifier = `${activeTile.id}-${activeColour.id}`;
 
@@ -275,6 +283,7 @@ const TileSectorDialog = ({
           defaultValue={defaultTileIdentifier}
           key={`material-group-${key}`}
           title={MATERIAL_NAME_MAP[key as Material]}
+          // eslint-disable-next-line security/detect-object-injection
           products={productPropsGroupedByMaterial[key]}
           onClick={onButtonClick}
         />

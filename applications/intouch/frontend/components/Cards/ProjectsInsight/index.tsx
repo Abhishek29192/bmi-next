@@ -25,7 +25,14 @@ export const ProjectsInsight = ({
         {t("projectInsight")}
       </Typography>
       <div className={styles.body}>
-        <Typography variant="h2">{daysRemaining}</Typography>
+        <Typography
+          variant="h2"
+          className={classnames({
+            [styles["remainDays--warning"]]: daysRemaining < 0
+          })}
+        >
+          {daysRemaining}
+        </Typography>
         <InfoPair title={t("daysRemaining")}>{}</InfoPair>
       </div>
       <div className={styles.body}>

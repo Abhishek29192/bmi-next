@@ -170,6 +170,6 @@ describe("FlatRoofCalculator component", () => {
         downloadPdfButtonLoadingLabel={"Loading PDF..."}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

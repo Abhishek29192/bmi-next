@@ -22,6 +22,10 @@ export const AddressLinesFragmentFragmentDoc = gql`
     region
     country
     postcode
+    coordinates {
+      x
+      y
+    }
   }
 `;
 export const ProjectDetailsProductFragmentFragmentDoc = gql`
@@ -901,6 +905,7 @@ export const UpdateMarketDocument = gql`
             projectsEnabled
             locationBiasRadiusKm
             gtag
+            gtagMarketMedia
           }
         }
       }
@@ -1032,10 +1037,10 @@ export type BulkImportMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.BulkImportMutationVariables
 >;
 export const UpdateProductDocument = gql`
-  mutation updateProduct($input: UpdateProductInput!) {
+  mutation updateProduct($input: UpdateProductInput!, $marketId: Int) {
     updateProduct(input: $input) {
       query {
-        products(orderBy: NAME_ASC) {
+        products(orderBy: NAME_ASC, condition: { marketId: $marketId }) {
           nodes {
             id
             name
@@ -1072,6 +1077,7 @@ export type UpdateProductMutationFn = Apollo.MutationFunction<
  * const [updateProductMutation, { data, loading, error }] = useUpdateProductMutation({
  *   variables: {
  *      input: // value for 'input'
+ *      marketId: // value for 'marketId'
  *   },
  * });
  */
@@ -1097,10 +1103,10 @@ export type UpdateProductMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateProductMutationVariables
 >;
 export const UpdateSystemDocument = gql`
-  mutation updateSystem($input: UpdateSystemInput!) {
+  mutation updateSystem($input: UpdateSystemInput!, $marketId: Int) {
     updateSystem(input: $input) {
       query {
-        systems(orderBy: NAME_ASC) {
+        systems(orderBy: NAME_ASC, condition: { marketId: $marketId }) {
           nodes {
             id
             name
@@ -1135,6 +1141,7 @@ export type UpdateSystemMutationFn = Apollo.MutationFunction<
  * const [updateSystemMutation, { data, loading, error }] = useUpdateSystemMutation({
  *   variables: {
  *      input: // value for 'input'
+ *      marketId: // value for 'marketId'
  *   },
  * });
  */
@@ -1537,8 +1544,8 @@ export type GetProjectQueryResult = Apollo.QueryResult<
   OperationTypes.GetProjectQueryVariables
 >;
 export const GetCompaniesReportDocument = gql`
-  query GetCompaniesReport {
-    companies {
+  query GetCompaniesReport($marketId: Int!) {
+    companies(condition: { marketId: $marketId }) {
       nodes {
         referenceNumber
         name
@@ -1591,11 +1598,12 @@ export const GetCompaniesReportDocument = gql`
  * @example
  * const { data, loading, error } = useGetCompaniesReportQuery({
  *   variables: {
+ *      marketId: // value for 'marketId'
  *   },
  * });
  */
 export function useGetCompaniesReportQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.GetCompaniesReportQuery,
     OperationTypes.GetCompaniesReportQueryVariables
   >
@@ -1629,8 +1637,8 @@ export type GetCompaniesReportQueryResult = Apollo.QueryResult<
   OperationTypes.GetCompaniesReportQueryVariables
 >;
 export const GetGuaranteesReportDocument = gql`
-  query GetGuaranteesReport {
-    guarantees {
+  query GetGuaranteesReport($market: Int!) {
+    guaranteesByMarket(market: $market) {
       nodes {
         id
         bmiReferenceId
@@ -1677,11 +1685,12 @@ export const GetGuaranteesReportDocument = gql`
  * @example
  * const { data, loading, error } = useGetGuaranteesReportQuery({
  *   variables: {
+ *      market: // value for 'market'
  *   },
  * });
  */
 export function useGetGuaranteesReportQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.GetGuaranteesReportQuery,
     OperationTypes.GetGuaranteesReportQueryVariables
   >
@@ -1715,8 +1724,8 @@ export type GetGuaranteesReportQueryResult = Apollo.QueryResult<
   OperationTypes.GetGuaranteesReportQueryVariables
 >;
 export const GetProductsReportDocument = gql`
-  query GetProductsReport {
-    products {
+  query GetProductsReport($marketId: Int) {
+    products(condition: { marketId: $marketId }) {
       nodes {
         id
         bmiRef
@@ -1745,6 +1754,7 @@ export const GetProductsReportDocument = gql`
  * @example
  * const { data, loading, error } = useGetProductsReportQuery({
  *   variables: {
+ *      marketId: // value for 'marketId'
  *   },
  * });
  */
@@ -1783,8 +1793,8 @@ export type GetProductsReportQueryResult = Apollo.QueryResult<
   OperationTypes.GetProductsReportQueryVariables
 >;
 export const GetProjectsReportDocument = gql`
-  query GetProjectsReport {
-    projects {
+  query GetProjectsReport($market: Int!) {
+    projectsByMarket(market: $market) {
       nodes {
         id
         name
@@ -1843,11 +1853,12 @@ export const GetProjectsReportDocument = gql`
  * @example
  * const { data, loading, error } = useGetProjectsReportQuery({
  *   variables: {
+ *      market: // value for 'market'
  *   },
  * });
  */
 export function useGetProjectsReportQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.GetProjectsReportQuery,
     OperationTypes.GetProjectsReportQueryVariables
   >
@@ -1881,8 +1892,8 @@ export type GetProjectsReportQueryResult = Apollo.QueryResult<
   OperationTypes.GetProjectsReportQueryVariables
 >;
 export const GetSystemsReportDocument = gql`
-  query GetSystemsReport {
-    systems {
+  query GetSystemsReport($marketId: Int) {
+    systems(condition: { marketId: $marketId }) {
       nodes {
         id
         bmiRef
@@ -1914,6 +1925,7 @@ export const GetSystemsReportDocument = gql`
  * @example
  * const { data, loading, error } = useGetSystemsReportQuery({
  *   variables: {
+ *      marketId: // value for 'marketId'
  *   },
  * });
  */
@@ -1952,8 +1964,8 @@ export type GetSystemsReportQueryResult = Apollo.QueryResult<
   OperationTypes.GetSystemsReportQueryVariables
 >;
 export const GetTeamsReportDocument = gql`
-  query GetTeamsReport {
-    accounts {
+  query GetTeamsReport($marketId: Int!) {
+    accounts(condition: { marketId: $marketId }) {
       nodes {
         id
         email
@@ -1962,13 +1974,22 @@ export const GetTeamsReportDocument = gql`
         lastName
         role
         status
-        created
         doceboUserId
         doceboUsername
         photo
         signedPhotoUrl
         migrationId
         migratedToAuth0
+        createdAt
+        updatedAt
+        companyMembers {
+          nodes {
+            company {
+              name
+              tier
+            }
+          }
+        }
       }
     }
   }
@@ -1986,11 +2007,12 @@ export const GetTeamsReportDocument = gql`
  * @example
  * const { data, loading, error } = useGetTeamsReportQuery({
  *   variables: {
+ *      marketId: // value for 'marketId'
  *   },
  * });
  */
 export function useGetTeamsReportQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.GetTeamsReportQuery,
     OperationTypes.GetTeamsReportQueryVariables
   >
@@ -3510,6 +3532,7 @@ export const GetMarketsByDomainDocument = gql`
         merchandisingUrl
         projectsEnabled
         gtag
+        gtagMarketMedia
         sendName
         sendMailbox
         locationBiasRadiusKm
@@ -3980,6 +4003,7 @@ export const MarketsDocument = gql`
         merchandisingUrl
         projectsEnabled
         gtag
+        gtagMarketMedia
         locationBiasRadiusKm
       }
     }
@@ -4032,8 +4056,8 @@ export type MarketsQueryResult = Apollo.QueryResult<
   OperationTypes.MarketsQueryVariables
 >;
 export const ProductsAndSystemsDocument = gql`
-  query ProductsAndSystems {
-    products(orderBy: NAME_ASC) {
+  query ProductsAndSystems($marketId: Int) {
+    products(orderBy: NAME_ASC, condition: { marketId: $marketId }) {
       nodes {
         id
         name
@@ -4047,7 +4071,7 @@ export const ProductsAndSystemsDocument = gql`
         maximumValidityYears
       }
     }
-    systems(orderBy: NAME_ASC) {
+    systems(orderBy: NAME_ASC, condition: { marketId: $marketId }) {
       nodes {
         id
         name
@@ -4074,6 +4098,7 @@ export const ProductsAndSystemsDocument = gql`
  * @example
  * const { data, loading, error } = useProductsAndSystemsQuery({
  *   variables: {
+ *      marketId: // value for 'marketId'
  *   },
  * });
  */
@@ -4405,8 +4430,8 @@ export type GetUserProfileQueryResult = Apollo.QueryResult<
   OperationTypes.GetUserProfileQueryVariables
 >;
 export const GetProjectsDocument = gql`
-  query GetProjects {
-    projects {
+  query GetProjects($market: Int!) {
+    projectsByMarket(market: $market) {
       nodes {
         id
         name
@@ -4445,11 +4470,12 @@ export const GetProjectsDocument = gql`
  * @example
  * const { data, loading, error } = useGetProjectsQuery({
  *   variables: {
+ *      market: // value for 'market'
  *   },
  * });
  */
 export function useGetProjectsQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.GetProjectsQuery,
     OperationTypes.GetProjectsQueryVariables
   >
@@ -4481,8 +4507,8 @@ export type GetProjectsQueryResult = Apollo.QueryResult<
   OperationTypes.GetProjectsQueryVariables
 >;
 export const TeamMembersDocument = gql`
-  query teamMembers($expiryDate: Datetime) {
-    accounts {
+  query teamMembers($expiryDate: Datetime, $marketId: Int) {
+    accounts(condition: { marketId: $marketId }) {
       totalCount
       nodes {
         id
@@ -4531,6 +4557,7 @@ export const TeamMembersDocument = gql`
  * const { data, loading, error } = useTeamMembersQuery({
  *   variables: {
  *      expiryDate: // value for 'expiryDate'
+ *      marketId: // value for 'marketId'
  *   },
  * });
  */

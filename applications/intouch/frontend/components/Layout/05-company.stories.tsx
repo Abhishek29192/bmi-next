@@ -25,6 +25,7 @@ export const CompanyPage = ({ title }: LayoutProps) => (
             company={mockCompany}
             actions={
               <EditCompanyButton
+                mapsApiKey=""
                 company={mockCompany}
                 onCompanyUpdateSuccess={() => {
                   window.alert("success");
@@ -34,6 +35,7 @@ export const CompanyPage = ({ title }: LayoutProps) => (
           />
         </div>
         <CompanyRegisteredDetails
+          mapsApiKey=""
           company={mockCompany}
           onCompanyUpdateSuccess={() => {
             window.alert("success");
@@ -72,6 +74,7 @@ export const CompanyPage = ({ title }: LayoutProps) => (
           </FiftyFiftyGrid>
         </div>
         <CompanyRegisteredDetails
+          mapsApiKey=""
           company={mockCompany}
           onCompanyUpdateSuccess={() => {
             window.alert("success");

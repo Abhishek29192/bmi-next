@@ -15,12 +15,12 @@
     color: $color-slate;
 
     :global {
-      .MuiAccordionSummary-content {
+      [class*="MuiAccordionSummary-content"] {
         margin-top: 32px;
         margin-bottom: 32px;
       }
 
-      .MuiAccordionSummary-expandIcon {
+      [class*="MuiAccordionSummary-expandIcon"] {
         font-size: 1.33rem;
       }
     }
@@ -50,18 +50,19 @@
     .MuiAccordionSummary-root.Mui-disabled {
       opacity: 1;
 
-      .MuiAccordionSummary-expandIcon {
+      [class*="MuiAccordionSummary-expandIcon"] {
         display: none;
       }
     }
 
-    .MuiAccordionDetails-root {
+    [class*="MuiAccordionDetails-root"] {
       flex-flow: column;
     }
   }
 
   .details {
     padding: 0 32px 32px;
+    flex-flow: column;
   }
 
   .content {

@@ -5,4 +5,3 @@ include:
   - local: "/applications/intouch/api/services/training/.gitlab-ci.yml"
   - local: "/applications/intouch/frontend/.gitlab-ci.yml"
   - local: "/applications/intouch/functions/.gitlab-ci.yml"
-  - local: "/applications/intouch/terraform/.gitlab-ci.yml"

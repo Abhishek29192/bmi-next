@@ -1,173 +1,179 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InputGroup component renders correctly 1`] = `
-<div
-  class="InputGroup InputGroup--locked-sm"
->
+<div>
   <div
-    class="MuiFormControl-root MuiTextField-root TextField input"
+    class="InputGroup InputGroup--locked-sm"
   >
-    <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-      data-shrink="false"
-    >
-      First name
-    </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+      class="MuiFormControl-root MuiTextField-root TextField input"
     >
-      <input
-        aria-invalid="false"
-        class="MuiInputBase-input MuiOutlinedInput-input"
-        name="first-name"
-        type="text"
-        value=""
-      />
-      <fieldset
-        aria-hidden="true"
-        class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+        data-shrink="false"
       >
-        <legend
-          class="PrivateNotchedOutline-legendLabelled-3"
+        First name
+      </label>
+      <div
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+      >
+        <input
+          aria-invalid="false"
+          class="MuiInputBase-input MuiOutlinedInput-input"
+          name="first-name"
+          type="text"
+          value=""
+        />
+        <fieldset
+          aria-hidden="true"
+          class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
         >
-          <span>
-            First name
-          </span>
-        </legend>
-      </fieldset>
+          <legend
+            class="PrivateNotchedOutline-legendLabelled-3"
+          >
+            <span>
+              First name
+            </span>
+          </legend>
+        </fieldset>
+      </div>
     </div>
-  </div>
-  <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-contained buttonStyles-contained-7 button MuiButton-containedPrimary"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-8"
+    <button
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-contained buttonStyles-contained-7 button MuiButton-containedPrimary"
+      tabindex="0"
+      type="button"
     >
-      Submit
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
+      <span
+        class="MuiButton-label buttonStyles-label-8"
+      >
+        Submit
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
 </div>
 `;
 
 exports[`InputGroup component renders unlocked 1`] = `
-<div
-  class="InputGroup"
->
+<div>
   <div
-    class="MuiFormControl-root MuiTextField-root TextField input"
+    class="InputGroup"
   >
-    <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-      data-shrink="false"
-    >
-      First name
-    </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+      class="MuiFormControl-root MuiTextField-root TextField input"
     >
-      <input
-        aria-invalid="false"
-        class="MuiInputBase-input MuiOutlinedInput-input"
-        name="first-name"
-        type="text"
-        value=""
-      />
-      <fieldset
-        aria-hidden="true"
-        class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+        data-shrink="false"
       >
-        <legend
-          class="PrivateNotchedOutline-legendLabelled-27"
+        First name
+      </label>
+      <div
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+      >
+        <input
+          aria-invalid="false"
+          class="MuiInputBase-input MuiOutlinedInput-input"
+          name="first-name"
+          type="text"
+          value=""
+        />
+        <fieldset
+          aria-hidden="true"
+          class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
         >
-          <span>
-            First name
-          </span>
-        </legend>
-      </fieldset>
+          <legend
+            class="PrivateNotchedOutline-legendLabelled-27"
+          >
+            <span>
+              First name
+            </span>
+          </legend>
+        </fieldset>
+      </div>
     </div>
-  </div>
-  <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-29 MuiButton-contained buttonStyles-contained-31 button MuiButton-containedPrimary"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="MuiButton-label buttonStyles-label-32"
+    <button
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-29 MuiButton-contained buttonStyles-contained-31 button MuiButton-containedPrimary"
+      tabindex="0"
+      type="button"
     >
-      Submit
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
+      <span
+        class="MuiButton-label buttonStyles-label-32"
+      >
+        Submit
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
 </div>
 `;
 
 exports[`InputGroup component renders with an IconButton 1`] = `
-<div
-  class="InputGroup"
->
+<div>
   <div
-    class="MuiFormControl-root MuiTextField-root TextField input"
+    class="InputGroup"
   >
-    <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-      data-shrink="false"
-    >
-      First name
-    </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+      class="MuiFormControl-root MuiTextField-root TextField input"
     >
-      <input
-        aria-invalid="false"
-        class="MuiInputBase-input MuiOutlinedInput-input"
-        name="first-name"
-        type="text"
-        value=""
-      />
-      <fieldset
-        aria-hidden="true"
-        class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+        data-shrink="false"
       >
-        <legend
-          class="PrivateNotchedOutline-legendLabelled-51"
-        >
-          <span>
-            First name
-          </span>
-        </legend>
-      </fieldset>
-    </div>
-  </div>
-  <button
-    aria-label="Submit"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-64 iconButtonStyles-medium-70 iconButtonStyles-contained-65 button"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="MuiIconButton-label"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
+        First name
+      </label>
+      <div
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
       >
-        <path
-          d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+        <input
+          aria-invalid="false"
+          class="MuiInputBase-input MuiOutlinedInput-input"
+          name="first-name"
+          type="text"
+          value=""
         />
-      </svg>
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
+        <fieldset
+          aria-hidden="true"
+          class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+        >
+          <legend
+            class="PrivateNotchedOutline-legendLabelled-51"
+          >
+            <span>
+              First name
+            </span>
+          </legend>
+        </fieldset>
+      </div>
+    </div>
+    <button
+      aria-label="Submit"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-64 iconButtonStyles-medium-70 iconButtonStyles-contained-65 button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
 </div>
 `;

@@ -1,16 +1,11 @@
-import admin from "firebase-admin";
-import { DocumentData, Firestore, Query } from "@google-cloud/firestore";
-import { info } from "./logger";
-
-export enum FirestoreCollections {
-  Categories = "root/categories",
-  Products = "root/products",
-  Systems = "root/systems"
-}
-
-admin.initializeApp({
-  databaseURL: `https://${process.env.GCP_PROJECT_ID}.firebaseio.com`
-});
+import {
+  getFirestore,
+  DocumentData,
+  Firestore,
+  Query
+} from "@bmi/functions-firestore";
+import logger from "@bmi/functions-logger";
+import { FirestoreCollections } from "./firestore-collections";
 
 async function deleteQueryBatch(db: Firestore, query: Query<DocumentData>) {
   let snapshot = await query.get();
@@ -23,7 +18,7 @@ async function deleteQueryBatch(db: Firestore, query: Query<DocumentData>) {
     });
     await batch.commit();
 
-    info({ message: `Deleted a batch of ${batchSize}` });
+    logger.info({ message: `Deleted a batch of ${batchSize}` });
     snapshot = await query.get();
     batchSize = snapshot.size;
   }
@@ -32,7 +27,7 @@ async function deleteQueryBatch(db: Firestore, query: Query<DocumentData>) {
 export async function deleteFirestoreCollection(
   collectionPath: FirestoreCollections
 ) {
-  const db = admin.firestore();
+  const db = getFirestore();
   const batchSize = 20;
 
   const collectionRef = db.collection(
@@ -42,5 +37,5 @@ export async function deleteFirestoreCollection(
 
   await deleteQueryBatch(db, query);
 
-  info({ message: `Deleted all data for ${collectionPath}` });
+  logger.info({ message: `Deleted all data for ${collectionPath}` });
 }

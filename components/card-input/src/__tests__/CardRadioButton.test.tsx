@@ -16,7 +16,7 @@ describe("CardInput component", () => {
       </CardInput>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders as checkbox", () => {
@@ -32,7 +32,7 @@ describe("CardInput component", () => {
       </CardInput>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("calls onChange", () => {

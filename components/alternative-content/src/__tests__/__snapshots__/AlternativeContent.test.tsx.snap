@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AlternativeContent component renders correctly 1`] = `
-<span
-  class="AlternativeContent"
->
-  Lorem Ipsum
-</span>
+<div>
+  <span
+    class="AlternativeContent"
+  >
+    Lorem Ipsum
+  </span>
+</div>
 `;

@@ -1,83 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Brands component renders correctly 1`] = `
-<div
-  class="Brands Section Section--pearl"
->
+<div>
   <div
-    class="Container"
+    class="Brands Section Section--pearl"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-      >
-         
-        MC: homepage.brands
-      </h2>
       <div
-        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+           
+          MC: homepage.brands
+        </h2>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-xl-3"
+          class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
         >
           <div
-            class="MuiPaper-root MuiCard-root BrandIntroCard MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-xl-3"
           >
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 brandLogoButton MuiButton-textPrimary"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"[object Object]\\",\\"action\\":\\"/smilex\\"}"
-              href="/smilex"
-              role="button"
-              tabindex="0"
+            <div
+              class="MuiPaper-root MuiCard-root BrandIntroCard MuiPaper-elevation1 MuiPaper-rounded"
             >
-              <span
-                class="MuiButton-label buttonStyles-label-4"
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 brandLogoButton MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"[object Object]\\",\\"action\\":\\"/smilex\\"}"
+                href="/smilex"
+                role="button"
+                tabindex="0"
               >
-                <svg
-                  class="brandLogo"
-                  preserveAspectRatio="xMinYMin"
-                />
-              </span>
-            </a>
-            <h6
-              class="MuiTypography-root description Typography MuiTypography-subtitle1"
-            >
-              Uh-oh.  He don't look happy. He's been using brand X
-            </h6>
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: homepage.brands.learn\\",\\"action\\":\\"/smilex\\"}"
-              href="/smilex"
-              role="button"
-              tabindex="0"
-            >
-              <span
-                class="MuiButton-label buttonStyles-label-4"
-              >
-                MC: homepage.brands.learn
                 <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                  class="MuiButton-label buttonStyles-label-4"
                 >
                   <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                    />
-                  </svg>
+                    class="brandLogo"
+                    preserveAspectRatio="xMinYMin"
+                  />
                 </span>
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </a>
+              </a>
+              <h6
+                class="MuiTypography-root description Typography MuiTypography-subtitle1"
+              >
+                Uh-oh.  He don't look happy. He's been using brand X
+              </h6>
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: homepage.brands.learn\\",\\"action\\":\\"/smilex\\"}"
+                href="/smilex"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiButton-label buttonStyles-label-4"
+                >
+                  MC: homepage.brands.learn
+                  <span
+                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>

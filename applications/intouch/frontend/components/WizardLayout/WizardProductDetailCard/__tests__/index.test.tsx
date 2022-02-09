@@ -13,6 +13,6 @@ describe("WizardProductDetailCard", () => {
       />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

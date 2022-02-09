@@ -14,6 +14,6 @@ describe("SimpleCard component", () => {
         </p>
       </SimpleCard>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

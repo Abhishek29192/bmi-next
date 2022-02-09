@@ -3,14 +3,19 @@ import { useTranslation } from "next-i18next";
 import Button from "@bmi/button";
 import { gql } from "@apollo/client";
 import { useGetProductsReportLazyQuery } from "../../../graphql/generated/hooks";
+import { useMarketContext } from "../../../context/MarketContext";
 import { exportCsv } from "../../../lib/utils/report";
 import { ReportProps } from "../types";
 import styles from "./styles.module.scss";
 
 const ProductReport = ({ disabled }: ReportProps) => {
   const { t } = useTranslation("admin-products-systems");
+  const { market } = useMarketContext();
 
   const [getProductsReport] = useGetProductsReportLazyQuery({
+    variables: {
+      marketId: market.id
+    },
     onCompleted: ({ products }) => {
       const data = [...products.nodes].map((product) => product);
       exportCsv(data, { filename: `product-${Date.now()}`, title: "Product" });
@@ -34,8 +39,8 @@ const ProductReport = ({ disabled }: ReportProps) => {
 export default ProductReport;
 
 export const GET_PRODUCTS = gql`
-  query GetProductsReport {
-    products {
+  query GetProductsReport($marketId: Int) {
+    products(condition: { marketId: $marketId }) {
       nodes {
         id
         bmiRef

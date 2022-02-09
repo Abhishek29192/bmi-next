@@ -7,10 +7,13 @@ import { exportCsv } from "../../../lib/utils/report";
 import { useGetProjectsReportLazyQuery } from "../../../graphql/generated/hooks";
 import { GetProjectsReportQuery } from "../../../graphql/generated/operations";
 import { getProjectStatus } from "../../../lib/utils/project";
+import { useMarketContext } from "../../../context/MarketContext";
 import { ReportProps } from "../types";
 import styles from "./styles.module.scss";
 
-const getReportData = (projects: GetProjectsReportQuery["projects"]) => {
+const getReportData = (
+  projects: GetProjectsReportQuery["projectsByMarket"]
+) => {
   return [...projects.nodes]
     .map((project) => {
       const {
@@ -59,9 +62,14 @@ const getReportData = (projects: GetProjectsReportQuery["projects"]) => {
 
 const ProjectReport = ({ disabled }: ReportProps) => {
   const { t } = useTranslation("project-page");
+  const { market } = useMarketContext();
+
   const [getSystemsReport] = useGetProjectsReportLazyQuery({
-    onCompleted: ({ projects }) => {
-      const data = getReportData(projects);
+    variables: {
+      market: market.id
+    },
+    onCompleted: ({ projectsByMarket }) => {
+      const data = getReportData(projectsByMarket);
 
       exportCsv(data, {
         filename: `projects-${Date.now()}`,
@@ -89,8 +97,8 @@ const ProjectReport = ({ disabled }: ReportProps) => {
 export default ProjectReport;
 
 export const GET_PROJECTS_REPORT = gql`
-  query GetProjectsReport {
-    projects {
+  query GetProjectsReport($market: Int!) {
+    projectsByMarket(market: $market) {
       nodes {
         id
         name

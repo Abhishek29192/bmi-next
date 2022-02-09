@@ -30,7 +30,7 @@ export const AddNoteDialog = ({
 
   const [body, setBody] = useState<string>("");
 
-  const [addProjectNote] = useAddProjectNoteMutation({
+  const [addProjectNote, { loading }] = useAddProjectNoteMutation({
     onError: (error) => {
       log({
         severity: "ERROR",
@@ -103,7 +103,7 @@ export const AddNoteDialog = ({
             <Form.Button onClick={onCloseClick} variant="outlined">
               {t("project-page:noteTab.addNoteDialog.cancel")}
             </Form.Button>
-            <Form.SubmitButton>
+            <Form.SubmitButton key="btn-send" disabled={loading}>
               {t("project-page:noteTab.addNoteDialog.send")}
             </Form.SubmitButton>
           </Form.ButtonWrapper>

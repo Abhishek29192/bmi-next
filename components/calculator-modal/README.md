@@ -13,7 +13,7 @@ const [open, setOpen] = React.useState(false);
   <CalculatorModal
     open={open}
     onCloseClick={() => setOpen(false)}
-    headerCenter="Some rather lengthy, extremely verbose, Central Content in the header"
+    headerCentre="Some rather lengthy, extremely verbose, Central Content in the header"
     backdropProps={{
       className: "test-backdrop"
     }}
@@ -36,7 +36,7 @@ const [open, setOpen] = React.useState(false);
     open={open}
     pearl
     onCloseClick={() => setOpen(false)}
-    headerCenter="Some rather lengthy, extremely verbose, Central Content in the header"
+    headerCentre="Some rather lengthy, extremely verbose, Central Content in the header"
     backdropProps={{
       className: "test-backdrop"
     }}

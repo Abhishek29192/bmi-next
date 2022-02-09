@@ -10,6 +10,7 @@ import {
   PIMDocumentData,
   PIMLinkDocumentData
 } from "../components/types/PIMDocumentBase";
+import { microCopy } from "../constants/microCopies";
 import RichText from "./RichText";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
@@ -35,7 +36,7 @@ const AssetHeader = ({
             <RichText document={description} />
           </Dialog.Content>
           <Dialog.Actions
-            confirmLabel={getMicroCopy("dialog.close")}
+            confirmLabel={getMicroCopy(microCopy.DIALOG_CLOSE)}
             onConfirmClick={() => setIsDialogOpen(false)}
           />
         </Dialog>
@@ -59,7 +60,7 @@ const AssetHeader = ({
                     onClick={() => setIsDialogOpen(true)}
                     color="white"
                   >
-                    {getMicroCopy("global.learnMore")}...
+                    {getMicroCopy(microCopy.GLOBAL_LEARN_MORE)}...
                   </AnchorLink>
                 </>
               )}

@@ -1,4 +1,4 @@
-const isPositiveNumber = (value: string) => /^([0-9])+(\.[0-9]+)?$/.test(value);
+const isPositiveNumber = (value: string) => Number.parseFloat(value) > 0;
 
 /*
   TODO: messages to be converted to using microcopy-like replacement
@@ -12,12 +12,8 @@ type GetErrorMessage = (
   placeholders?: Record<string, string>
 ) => string;
 
-const numberValidator = (value, errorMessage?: GetErrorMessage) => {
-  if (typeof value !== "string") {
-    throw new Error("This validator only takes string values");
-  }
-
-  if (value === "") {
+const numberValidator = (value?: string, errorMessage?: GetErrorMessage) => {
+  if (!value) {
     return errorMessage
       ? errorMessage("fieldRequired")
       : "This field is required";
@@ -34,16 +30,16 @@ type RangeValidatorCreator = (
   min: number,
   max: number,
   getErrorMessage?: GetErrorMessage
-) => (value: string) => string | undefined;
+) => (value?: string) => string | undefined;
 
 const rangeValidator: RangeValidatorCreator =
   (min, max, getErrorMessage) => (value) => {
     const error = numberValidator(value, getErrorMessage);
     if (error) return error;
 
-    const number = parseFloat(value);
+    const number = value ? parseFloat(value) : undefined;
 
-    if (number < min || number > max) {
+    if (!number || number < min || number > max) {
       return getErrorMessage
         ? getErrorMessage("range", { min: min.toString(), max: max.toString() })
         : `This number must be between ${min} and ${max}`;
@@ -54,12 +50,12 @@ export type Type = "LENGTH" | "PROTRUSION_LENGTH" | "PITCH";
 
 type TypeProps = {
   unit: string;
-  validator: (value: string) => string | undefined;
+  validator: (value?: string) => string | undefined;
   helperText?: string;
 };
 
 export const getFieldTypes = (
-  getMicroCopy: (path: string, placeholders: Record<string, string>) => string
+  getMicroCopy: (path: string, placeholders?: Record<string, string>) => string
 ): {
   [key in Type]: TypeProps;
 } => ({
@@ -76,8 +72,8 @@ export const getFieldTypes = (
     unit: "m",
     validator: rangeValidator(0.5, 200, (path, placeholders) =>
       path === "range"
-        ? getMicroCopy("lengthRange", placeholders)
-        : getMicroCopy(path, placeholders)
+        ? getMicroCopy("lengthRange", placeholders || {})
+        : getMicroCopy(path, placeholders || {})
     ),
     helperText: getMicroCopy("lengthRange", { min: "0.5", max: "200" })
   },

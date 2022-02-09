@@ -1,5 +1,5 @@
 import { MainTileVariant, VergeTileOption } from "../types";
-import { FaceWithBattens } from "../types/roof";
+import { Vertex, Face, FaceWithBattens, Point } from "../types/roof";
 
 type RangeValue = {
   start: number;
@@ -7,18 +7,19 @@ type RangeValue = {
   value: number;
 };
 
-const calculatePolygonArea = (vertices) => {
+const calculatePolygonArea = (vertices: Point[]) => {
   let area = 0;
   // Iterate through each edge on the shape, starting with the edge between n-1 and 0
   let j = vertices.length - 1;
   for (let i = 0; i < vertices.length; i++) {
+    // eslint-disable-next-line security/detect-object-injection
     area += (vertices[j].x + vertices[i].x) * (vertices[j].y - vertices[i].y);
     j = i;
   }
   return area / 2;
 };
 
-export const calculateArea = (faces) => {
+export const calculateArea = (faces: Face[]) => {
   let area = 0;
   // Calculate total roof area by considering each face individually first
   for (const face of faces) {
@@ -35,11 +36,16 @@ const getValueForPitchSet = (options: RangeValue[], pitchSet: number[]) =>
     ) || {}
   ).value;
 
-export const battenCalc = (vertices, pitchSet: number[], mainTileVariant) => {
+export const battenCalc = (
+  vertices: Vertex[],
+  pitchSet: number[],
+  mainTileVariant: MainTileVariant
+) => {
   const allBattens = [];
   // Get rafter length by taking highest y of all points
-  const rafterLength = vertices.reduce((prev, curr) =>
-    prev.y < curr.y ? curr.y : prev
+  const rafterLength = vertices.reduce(
+    (prev, curr) => (prev < curr.y ? curr.y : prev),
+    0
   );
   // Get the max gauge for the pitch of the face
   const maxGauge = getValueForPitchSet(
@@ -47,14 +53,15 @@ export const battenCalc = (vertices, pitchSet: number[], mainTileVariant) => {
     pitchSet
   );
   // Store list of battens. First batten should account for correct overhang, from height of tile and overhang.
-  const firstBatten = getValueForPitchSet(mainTileVariant.eaveGauge, pitchSet);
+  const firstBatten =
+    getValueForPitchSet(mainTileVariant.eaveGauge, pitchSet) || 0;
   // Calculate the remaining space in the roof with the first batten position and ridge space
   const remainingSpace =
     rafterLength -
     firstBatten -
-    getValueForPitchSet(mainTileVariant.ridgeSpacing, pitchSet);
+    (getValueForPitchSet(mainTileVariant.ridgeSpacing, pitchSet) || 0);
   // Find the number of battens that are needed at max gauge by finding how many will fit at max gauge and round up by one
-  const battenCount = Math.ceil(remainingSpace / maxGauge);
+  const battenCount = maxGauge ? Math.ceil(remainingSpace / maxGauge) : 0;
 
   // Find the adjusted even spacing and check that this is within min gauge
   const spacing = remainingSpace / battenCount;
@@ -76,26 +83,36 @@ export const battenCalc = (vertices, pitchSet: number[], mainTileVariant) => {
     // Loop through each edge
     for (let end = 0; end < vertices.length; end++) {
       // Check if edge has 0 gradient
+      // eslint-disable-next-line security/detect-object-injection
       if (vertices[start].y !== vertices[end].y) {
         // Gradient is not equal to zero, check that the y = batten intersects the edge
+        // eslint-disable-next-line security/detect-object-injection
         if (vertices[start].y >= topOfTile !== vertices[end].y >= topOfTile) {
           let bottomOfTileX = 0;
           let topOfTileX = 0;
           // If the edge is vertical then we know the x coordinate
+          // eslint-disable-next-line security/detect-object-injection
           if (vertices[start].x === vertices[end].x) {
+            // eslint-disable-next-line security/detect-object-injection
             bottomOfTileX = vertices[start].x;
+            // eslint-disable-next-line security/detect-object-injection
             topOfTileX = vertices[start].x;
           } else {
             // Otherwise we need to find the x coordinate - using y - y1 = m(x - x1)
             const gradient =
+              // eslint-disable-next-line security/detect-object-injection
               (vertices[end].y - vertices[start].y) /
+              // eslint-disable-next-line security/detect-object-injection
               (vertices[end].x - vertices[start].x);
             bottomOfTileX =
               (bottomOfTile -
+                // eslint-disable-next-line security/detect-object-injection
                 vertices[start].y +
+                // eslint-disable-next-line security/detect-object-injection
                 gradient * vertices[start].x) /
               gradient;
             topOfTileX =
+              // eslint-disable-next-line security/detect-object-injection
               (topOfTile - vertices[start].y + gradient * vertices[start].x) /
               gradient;
           }
@@ -103,14 +120,18 @@ export const battenCalc = (vertices, pitchSet: number[], mainTileVariant) => {
           intersections.push({
             bottomOfTileX,
             topOfTileX,
+            // eslint-disable-next-line security/detect-object-injection
             side: vertices[start].side
           });
         }
+        // eslint-disable-next-line security/detect-object-injection
       } else if (vertices[start].y === topOfTile) {
         // If the edge has 0 gradient and intersects batten then consider it's
         // intersection points as the x points we know
         intersections.push(
+          // eslint-disable-next-line security/detect-object-injection
           { x: vertices[start].x, side: vertices[start].side },
+          // eslint-disable-next-line security/detect-object-injection
           { x: vertices[end].x, side: vertices[start].side }
         );
       }
@@ -124,8 +145,8 @@ export const battenCalc = (vertices, pitchSet: number[], mainTileVariant) => {
     // Sort so that smallest x is at the start of the array
     intersections = intersections.sort(function (a, b) {
       return (
-        Math.max(a.topOfTileX, a.bottomOfTileX) -
-        Math.max(b.topOfTileX, b.bottomOfTileX)
+        Math.max(a.topOfTileX || 0, a.bottomOfTileX || 0) -
+        Math.max(b.topOfTileX || 0, b.bottomOfTileX || 0)
       );
     });
 
@@ -133,17 +154,25 @@ export const battenCalc = (vertices, pitchSet: number[], mainTileVariant) => {
     for (let pair = 0; pair < intersections.length; pair += 2) {
       // Find the width of this section which is covering the roof
       const width = Math.max(
-        intersections[pair + 1].topOfTileX - intersections[pair].bottomOfTileX,
-        intersections[pair + 1].topOfTileX - intersections[pair].topOfTileX,
-        intersections[pair + 1].bottomOfTileX - intersections[pair].topOfTileX,
-        intersections[pair + 1].bottomOfTileX -
-          intersections[pair].bottomOfTileX
+        (intersections[pair + 1].topOfTileX || 0) -
+          // eslint-disable-next-line security/detect-object-injection
+          (intersections[pair].bottomOfTileX || 0),
+        (intersections[pair + 1].topOfTileX || 0) -
+          // eslint-disable-next-line security/detect-object-injection
+          (intersections[pair].topOfTileX || 0),
+        (intersections[pair + 1].bottomOfTileX || 0) -
+          // eslint-disable-next-line security/detect-object-injection
+          (intersections[pair].topOfTileX || 0),
+        (intersections[pair + 1].bottomOfTileX || 0) -
+          // eslint-disable-next-line security/detect-object-injection
+          (intersections[pair].bottomOfTileX || 0)
       );
       // Set the batten width and side types
       allBattens.push({
         index: i,
         distanceFromEave: battenHeight,
         width: width,
+        // eslint-disable-next-line security/detect-object-injection
         sides: [intersections[pair].side, intersections[pair + 1].side]
       });
     }

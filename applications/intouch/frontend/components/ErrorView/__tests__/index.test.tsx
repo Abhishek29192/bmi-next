@@ -17,7 +17,7 @@ describe("ErrorView component", () => {
         </AccountContextWrapper>
       </ApolloProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with title", () => {
@@ -32,6 +32,22 @@ describe("ErrorView component", () => {
         </AccountContextWrapper>
       </ApolloProvider>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly with title and message", () => {
+    const { container } = renderWithUserProvider(
+      <ApolloProvider>
+        <AccountContextWrapper>
+          <ErrorView
+            statusCode={400}
+            title="Access Denied"
+            message="Invitation not found"
+            globalPageData={generateGlobalPageData()}
+          />
+        </AccountContextWrapper>
+      </ApolloProvider>
+    );
+    expect(container).toMatchSnapshot();
   });
 });

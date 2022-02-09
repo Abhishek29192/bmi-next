@@ -7,6 +7,7 @@ import Button from "@bmi/button";
 import { navigate } from "gatsby";
 import { useMediaQuery, useTheme } from "@material-ui/core";
 import { getPathWithCountryCode } from "../utils/path";
+import { microCopy } from "../constants/microCopies";
 import {
   ACTION_TYPES,
   Sample,
@@ -106,7 +107,7 @@ const SampleBasketSectionProducts = () => {
               onClick={handleRemove}
               variant="outlined"
             >
-              {getMicroCopy("pdp.overview.removeSample")}
+              {getMicroCopy(microCopy.PDP_OVERVIEW_REMOVE_SAMPLE)}
             </Button>
           )
         }

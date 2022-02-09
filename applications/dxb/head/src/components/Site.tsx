@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { NavigationData } from "./Link";
 import { Data as ResourcesData } from "./Resources";
-import { GetMicroCopy, fallbackGetMicroCopy } from "./MicroCopy";
+import { fallbackGetMicroCopy, GetMicroCopy } from "./MicroCopy";
 import { Region } from "./Header";
 
 export type Context = {

@@ -10,7 +10,7 @@ import { Underlay } from "./types";
 
 type UnderlaySelectionRowProps = {
   // TODO: Type when importing from Contentful
-  selected?: any;
+  selected?: Underlay;
   options: ReadonlyArray<Underlay>;
 };
 
@@ -34,7 +34,7 @@ const UnderlaySelectionRow = ({
     <FieldContainer>
       <CardRadioGroup
         name="underlay"
-        defaultValue={selected}
+        defaultValue={selected?.externalProductCode}
         isRequired
         fieldIsRequiredError={getMicroCopy(
           copy,
@@ -69,7 +69,7 @@ const UnderlaySelectionRow = ({
   );
 };
 
-type UnderlaySelectionProps = Pick<
+export type UnderlaySelectionProps = Pick<
   UnderlaySelectionRowProps,
   "selected" | "options"
 > & {

@@ -17,6 +17,7 @@ import {
   installerTeamMembers
 } from "../../../../../fixtures/teamMembers";
 import { useAccountContext } from "../../../../../context/AccountContext";
+import { useMarketContext } from "../../../../../context/MarketContext";
 import { TeamMembersQuery } from "../../../../../graphql/generated/operations";
 
 const inviteMock = jest.fn();
@@ -26,11 +27,14 @@ const mockRoleAccountMutation = jest.fn();
 
 jest.mock("../../../../../graphql/generated/hooks", () => ({
   __esModule: true,
-  useInviteMutation: () => [inviteMock],
-  useDeleteCompanyMemberMutation: () => [mockDelete],
-  useTeamMembersLazyQuery: () => [mockCompanyMembers],
-  useUpdateRoleAccountMutation: () => [mockRoleAccountMutation],
-  useGetTeamsReportLazyQuery: () => [jest.fn()]
+  useInviteMutation: () => [inviteMock, { loading: false }],
+  useDeleteCompanyMemberMutation: () => [mockDelete, { loading: false }],
+  useTeamMembersLazyQuery: () => [mockCompanyMembers, { loading: false }],
+  useUpdateRoleAccountMutation: () => [
+    mockRoleAccountMutation,
+    { loading: false }
+  ],
+  useGetTeamsReportLazyQuery: () => [jest.fn(), { loading: false }]
 }));
 
 jest.mock("@bmi/use-dimensions", () => ({
@@ -40,6 +44,9 @@ jest.mock("@bmi/use-dimensions", () => ({
 
 jest.mock("../../../../../context/AccountContext", () => ({
   useAccountContext: jest.fn()
+}));
+jest.mock("../../../../../context/MarketContext", () => ({
+  useMarketContext: jest.fn()
 }));
 
 describe("Company Members Page", () => {
@@ -180,18 +187,12 @@ describe("Company Members Page", () => {
             value: "email@email.co.uk, email1@email.co.uk"
           }
         });
-        fireEvent.change(screen.getByTestId("personalNote"), {
-          target: {
-            value: "Lorem ipsum"
-          }
-        });
         fireEvent.click(screen.getByTestId("invite-dialog-submit"));
 
         expect(inviteMock).toHaveBeenCalledWith({
           variables: {
             input: {
-              emails: ["email@email.co.uk", "email1@email.co.uk"],
-              personalNote: "Lorem ipsum"
+              emails: ["email@email.co.uk", "email1@email.co.uk"]
             }
           }
         });
@@ -396,6 +397,9 @@ describe("Company Members Page", () => {
       it("the user action button visible if super admin", async () => {
         (useAccountContext as jest.Mock).mockImplementation(() => ({
           account: { role: "SUPER_ADMIN" }
+        }));
+        (useMarketContext as jest.Mock).mockImplementation(() => ({
+          market: { id: 1 }
         }));
 
         wrapper = render(

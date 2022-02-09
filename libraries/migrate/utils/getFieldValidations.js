@@ -8,7 +8,9 @@ const getItemsValidations = (field, validationType = "linkContentType") => {
     return [];
   }
 
+  // eslint-disable-next-line security/detect-object-injection
   return field.items.validations.find(
+    // eslint-disable-next-line security/detect-object-injection
     (validation) => validation[validationType]
   )[validationType];
 };

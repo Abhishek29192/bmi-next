@@ -2,20 +2,33 @@ import Button, { ButtonProps } from "@bmi/button";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import Pagination from "@bmi/pagination";
 import axios from "axios";
-import { flatten } from "lodash";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
+import classnames from "classnames";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import createAssetFileCountMap, {
-  generateFileNamebyTitle,
-  AssetUniqueFileCountMap
+  AssetUniqueFileCountMap,
+  generateFileNamebyTitle
 } from "./DocumentFileUtils";
 import { useSiteContext } from "./Site";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import styles from "./styles/DocumentResultsFooter.module.scss";
+
+export const useGlobalDocResFooterStyles = makeStyles(
+  () => ({
+    paginationRoot: {
+      "& ul": {
+        justifyContent: "flex-end"
+      }
+    }
+  }),
+  { classNamePrefix: "docResultsFooterStyles" }
+);
 
 type Props = {
   page: number;
@@ -55,7 +68,7 @@ export const handleDownloadClick = async (
         "`GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT` missing in environment config"
       );
     }
-    const assets = flatten(listValues);
+    const assets = listValues.flat();
     const assetFileCountMap: AssetUniqueFileCountMap =
       createAssetFileCountMap(assets);
     const documents = assets.map(
@@ -106,6 +119,7 @@ const DocumentResultsFooter = ({
   onPageChange,
   onDownloadClick
 }: Props) => {
+  const globalClasses = useGlobalDocResFooterStyles();
   const { getMicroCopy } = useSiteContext();
   const { resetList, list } = useContext(DownloadListContext);
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -118,12 +132,15 @@ const DocumentResultsFooter = ({
         page={page}
         onChange={onPageChange}
         count={count}
-        className={styles["pagination"]}
+        className={classnames(
+          styles["pagination"],
+          globalClasses.paginationRoot
+        )}
       />
       {onDownloadClick && !isMobile && (
         <>
           <DownloadList.Clear
-            label={getMicroCopy("downloadList.clear")}
+            label={getMicroCopy(microCopy.DOWNLOAD_LIST_CLEAR)}
             className={styles["clear-downloads"]}
           />
           <DownloadList.Button
@@ -141,7 +158,9 @@ const DocumentResultsFooter = ({
                 {...props}
               />
             )}
-            label={`${getMicroCopy("downloadList.download")} ({{count}})`}
+            label={`${getMicroCopy(
+              microCopy.DOWNLOAD_LIST_DOWNLOAD
+            )} ({{count}})`}
             onClick={async (list) => {
               const token = await executeRecaptcha();
 

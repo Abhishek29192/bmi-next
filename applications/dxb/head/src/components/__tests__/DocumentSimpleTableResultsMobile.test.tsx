@@ -2,6 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { DocumentSimpleTableResultsMobile } from "../DocumentSimpleTableResultsMobile";
 import createContentfulDocument from "../../__tests__/ContentfulDocumentHelper";
+import { FileContentTypeEnum } from "../types/pim";
 
 describe("DocumentSimpleTableResultsMobile component", () => {
   it("renders correctly", () => {
@@ -10,7 +11,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
         file: {
           url: "http://doesnot-exist.com/fileName",
           fileName: "test.pdf",
-          contentType: "application/pdf",
+          contentType: FileContentTypeEnum.APPLICATION_PDF,
           details: {
             size: 89898
           }
@@ -22,6 +23,6 @@ describe("DocumentSimpleTableResultsMobile component", () => {
       <DocumentSimpleTableResultsMobile documents={[document]} />
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

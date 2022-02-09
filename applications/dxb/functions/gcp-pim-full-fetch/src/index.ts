@@ -1,12 +1,8 @@
-import { PubSub } from "@google-cloud/pubsub";
+import { PubSub, Topic } from "@google-cloud/pubsub";
 import { Request, Response } from "express";
-import { error, info } from "./logger";
-import {
-  fetchData,
-  PimTypes,
-  ProductsApiResponse,
-  SystemsApiResponse
-} from "./pim";
+import logger from "@bmi/functions-logger";
+import { fetchData, PimTypes } from "@bmi/pim-api";
+import { ProductsApiResponse, SystemsApiResponse } from "@bmi/pim-types";
 import { FullFetchRequest } from "./types";
 
 const { TRANSITIONAL_TOPIC_NAME, GCP_PROJECT_ID } = process.env;
@@ -14,27 +10,37 @@ const { TRANSITIONAL_TOPIC_NAME, GCP_PROJECT_ID } = process.env;
 const pubSubClient = new PubSub({
   projectId: GCP_PROJECT_ID
 });
-const topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME);
+let topicPublisher: Topic;
+const getTopicPublisher = () => {
+  if (!topicPublisher) {
+    topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME!);
+  }
+  return topicPublisher;
+};
 
 async function publishMessage(
   itemType: PimTypes,
   apiResponse: ProductsApiResponse | SystemsApiResponse
 ) {
-  info({
-    message: `Publishing UPDATED ${
-      apiResponse[itemType].length
-    } ${itemType.toUpperCase()}`
+  // eslint-disable-next-line security/detect-object-injection
+  const items =
+    itemType === PimTypes.Products
+      ? (apiResponse as ProductsApiResponse).products
+      : (apiResponse as SystemsApiResponse).systems;
+  logger.info({
+    message: `Publishing UPDATED ${items.length} ${itemType.toUpperCase()}`
   });
   const messageBuffer = Buffer.from(
     JSON.stringify({
       type: "UPDATED",
       itemType: itemType.toUpperCase(),
-      items: apiResponse[itemType]
+      // eslint-disable-next-line security/detect-object-injection
+      items
     })
   );
 
-  const messageId = await topicPublisher.publish(messageBuffer);
-  info({ message: `Published: ${messageId}` });
+  const messageId = await getTopicPublisher().publish(messageBuffer);
+  logger.info({ message: `Published: ${messageId}` });
 }
 
 /**
@@ -47,22 +53,34 @@ const handleRequest = async (
   req: Request<any, any, FullFetchRequest>,
   res: Response
 ) => {
+  if (!GCP_PROJECT_ID) {
+    logger.error({ message: "GCP_PROJECT_ID has not been set." });
+    return res.sendStatus(500);
+  }
+
+  if (!TRANSITIONAL_TOPIC_NAME) {
+    logger.error({ message: "TRANSITIONAL_TOPIC_NAME has not been set." });
+    return res.sendStatus(500);
+  }
+
   const body = req.body;
 
   if (!body) {
-    error({ message: "type, startPage and numberOfPages was not provided." });
+    logger.error({
+      message: "type, startPage and numberOfPages was not provided."
+    });
     res
       .status(400)
       .send({ error: "type, startPage and numberOfPages was not provided." });
     return;
   }
   if (!body.type) {
-    error({ message: "type was not provided." });
+    logger.error({ message: "type was not provided." });
     res.status(400).send({ error: "type was not provided." });
     return;
   }
   if ((!body.startPage && body.startPage !== 0) || body.startPage < 0) {
-    error({
+    logger.error({
       message: "startPage must be a number greater than or equal to 0."
     });
     res.status(400).send({
@@ -71,7 +89,7 @@ const handleRequest = async (
     return;
   }
   if (!body.numberOfPages || body.numberOfPages < 1) {
-    error({ message: "numberOfPages must be a number greater than 0." });
+    logger.error({ message: "numberOfPages must be a number greater than 0." });
     res
       .status(400)
       .send({ error: "numberOfPages must be a number greater than 0." });

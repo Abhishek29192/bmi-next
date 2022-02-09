@@ -13,7 +13,7 @@ describe("InputGroup component", () => {
         button={<Button>Submit</Button>}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders unlocked", () => {
     const { container } = render(
@@ -23,7 +23,7 @@ describe("InputGroup component", () => {
         button={<Button>Submit</Button>}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders with an IconButton", () => {
     const { container } = render(
@@ -37,6 +37,6 @@ describe("InputGroup component", () => {
         }
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import PdfIcon from "@material-ui/icons/PictureAsPdf";
 import FileIcon from "@material-ui/icons/FileCopy";
 import Icon from "@bmi/icon";
-import { LinearProgress } from "@material-ui/core";
+import LinearProgress from "@material-ui/core/LinearProgress";
 import axios from "axios";
 import styles from "./Upload.module.scss";
 
@@ -93,8 +93,10 @@ const File = ({
   };
 
   useEffect(() => {
-    let source = { cancel: () => {} };
-    handleFileUpload().then((s) => (source = s));
+    let source = {
+      cancel: () => {}
+    };
+    handleFileUpload().then((s) => (source = { ...source, ...s }));
 
     return () => {
       previewImage && URL.revokeObjectURL(previewImage);

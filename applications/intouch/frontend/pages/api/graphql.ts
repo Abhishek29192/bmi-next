@@ -92,7 +92,7 @@ export const handler = async function (
 
     try {
       req.headers.authorization = `Bearer ${accessToken}`;
-      user = session.user;
+      user = session?.user;
     } catch (error) {
       // Log only if not using api key otherwise we will get tons of useless errors
       if (!headers["x-api-key"]) {

@@ -44,76 +44,82 @@ Array [
 `;
 
 exports[`NbaCard component non clickable renders correctly 1`] = `
-<div
-  class="NBACard ColorPair ColorPair--blue-900"
-  type="button"
->
-  <h4
-    class="MuiTypography-root title Typography MuiTypography-h4"
-  >
-    H4 Heading
-  </h4>
+<div>
   <div
-    class="body"
+    class="NBACard ColorPair ColorPair--blue-900"
+    type="button"
   >
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam ut eros in libero rutrum ullamcorper.
+    <h4
+      class="MuiTypography-root title Typography MuiTypography-h4"
+    >
+      H4 Heading
+    </h4>
+    <div
+      class="body"
+    >
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam ut eros in libero rutrum ullamcorper.
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`NbaCard component renders correctly 1`] = `
-<button
-  class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--blue-900"
-  tabindex="0"
-  type="button"
->
-  <h4
-    class="MuiTypography-root title Typography MuiTypography-h4"
+<div>
+  <button
+    class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--blue-900"
+    tabindex="0"
+    type="button"
   >
-    H4 Heading
-  </h4>
-  <div
-    class="body"
-  >
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam ut eros in libero rutrum ullamcorper.
+    <h4
+      class="MuiTypography-root title Typography MuiTypography-h4"
+    >
+      H4 Heading
+    </h4>
+    <div
+      class="body"
+    >
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam ut eros in libero rutrum ullamcorper.
+      </div>
     </div>
-  </div>
-  <span
-    class="MuiTouchRipple-root"
-  />
-</button>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
 `;
 
 exports[`NbaCard component renders with footer 1`] = `
-<button
-  class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--blue-900"
-  tabindex="0"
-  type="button"
->
-  <h4
-    class="MuiTypography-root title Typography MuiTypography-h4"
+<div>
+  <button
+    class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--blue-900"
+    tabindex="0"
+    type="button"
   >
-    H4 Heading
-  </h4>
-  <div
-    class="body"
-  >
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam ut eros in libero rutrum ullamcorper.
+    <h4
+      class="MuiTypography-root title Typography MuiTypography-h4"
+    >
+      H4 Heading
+    </h4>
+    <div
+      class="body"
+    >
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam ut eros in libero rutrum ullamcorper.
+      </div>
     </div>
-  </div>
-  <div
-    class="footer"
-  >
-    <div>
-      footer
+    <div
+      class="footer"
+    >
+      <div>
+        footer
+      </div>
     </div>
-  </div>
-  <span
-    class="MuiTouchRipple-root"
-  />
-</button>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
 `;

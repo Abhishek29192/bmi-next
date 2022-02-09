@@ -1,6 +1,8 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import ContactUsPage, { Data } from "../contact-us-page";
+import { createMockSiteData } from "../../test/mockSiteData";
+import { renderWithRouter } from "../../test/renderWithRouter";
+import "@testing-library/jest-dom";
 
 describe("Contact us page", () => {
   const data: { contentfulContactUsPage: Data; contentfulSite: any } = {
@@ -44,44 +46,15 @@ describe("Contact us page", () => {
           backgroundColor: null
         }
       ],
-      featuredMedia: {
-        type: null,
-        altText: "Lorem ipsum",
-        caption: null,
-        focalPoint: null,
-        image: {
-          gatsbyImageData: {
-            images: {
-              sources: [
-                {
-                  srcSet:
-                    "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
-                  sizes: "(min-width: 948px) 948px, 100vw",
-                  type: "image/webp"
-                }
-              ],
-              fallback: {
-                src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
-                srcSet:
-                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
-                sizes: "(min-width: 948px) 948px, 100vw"
-              }
-            },
-            layout: "constrained",
-            backgroundColor: "#484848",
-            width: 948,
-            height: 720
-          },
-          file: {
-            fileName: "Lorem ipsum",
-            url: "//images.asset.jpg"
-          }
-        },
-        thumbnail: {
-          src: "//images.asset.jpg"
-        }
+      featuredMedia: null,
+      featuredVideo: {
+        title: "featuredVideo",
+        label: "label",
+        subtitle: null,
+        youtubeId: "youtubeId",
+        previewMedia: null,
+        videoRatio: null
       },
-      featuredVideo: null,
       breadcrumbs: [
         {
           id: "abc123",
@@ -250,8 +223,7 @@ describe("Contact us page", () => {
                   "BMI Group - The beginning of a new era in the roofing and waterproofing industry.",
                 youtubeId: "TDNEwZbm_Nk",
                 previewMedia: null,
-                videoRatio: { width: 17776, height: 9999 },
-                className: null
+                videoRatio: { width: 17776, height: 9999 }
               },
               backgroundColor: null
             }
@@ -304,68 +276,130 @@ describe("Contact us page", () => {
         height: "450px"
       }
     },
-    contentfulSite: {
-      node_locale: "it",
-      homePage: { title: "Home Page" },
-      countryCode: "no",
-      menuNavigation: {
-        __typename: "ContentfulNavigation",
-        label: "Main navigation",
-        links: []
-      },
-      menuUtilities: {
-        label: "label",
-        links: []
-      },
-      footerMainNavigation: {
-        label: "Get in touch",
-        links: []
-      },
-      footerSecondaryNavigation: {
-        label: "Secondary Navigation ",
-        links: []
-      },
-      resources: {
-        microCopy: [],
-        pdpSidebarItems: null,
-        pdpCardsTitle: null,
-        pdpCards: null,
-        pdpExploreBar: null,
-        pdpShareWidget: null,
-        visualiserShareWidget: null,
-        pdpInputBanner: null,
-        searchPageSearchTips: null,
-        searchPageSidebarItems: null,
-        searchPageNextBestActions: null,
-        searchPageExploreBar: null,
-        errorFourOFour: null,
-        errorGeneral: null,
-        welcomeDialogTitle: null,
-        welcomeDialogBrands: null,
-        welcomeDialogBody: null
-      },
-      headScripts: null,
-      scriptGA: null,
-      scriptOnetrust: null,
-      scriptHotJar: null,
-      scriptGOptLoad: null,
-      regions: [
-        {
-          label: "Europe",
-          menu: [
-            { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
-            { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
-            { code: "no", label: "Norge", icon: "/icons/flags/no.svg" }
-          ]
-        }
-      ]
-    }
+    contentfulSite: createMockSiteData()
   };
 
   it("renders correctly", () => {
-    const { container } = render(
+    const { container, getByTestId, getByText } = renderWithRouter(
       <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+
+    expect(container).toMatchSnapshot();
+    expect(container.querySelectorAll("header").length).toBe(1);
+    expect(container.querySelectorAll(".Footer").length).toBe(1);
+    expect(getByTestId("brand-colors-provider")).toBeTruthy();
+    expect(container.querySelector(".Hero")).toBeTruthy();
+    expect(container.querySelector(".Hero .Breadcrumbs")).toBeTruthy();
+    expect(container.querySelector(".Section--pearl")).toBeTruthy();
+    expect(getByText("What do you wish to contact us about?")).toBeTruthy();
+    expect(container.querySelector(".ContactTopics")).toBeTruthy();
+    expect(getByText("No footer")).toBeTruthy();
+    expect(getByText("Did you know?")).toBeTruthy();
+    expect(
+      container.querySelector(".Section--alabaster.Section--slim")
+    ).toBeTruthy();
+    expect(
+      container.querySelector(".Section--alabaster.Section--slim .Breadcrumbs")
+    ).toBeTruthy();
+  });
+
+  it("render iframe correctly", () => {
+    const { container, getByText } = renderWithRouter(
+      <ContactUsPage data={data} pageContext={null} />
+    );
+
+    expect(container).toMatchSnapshot();
+    expect(container.querySelector(".IframeSection")).toBeTruthy();
+    expect(getByText("iFrame section")).toBeTruthy();
+    expect(container.querySelector(".IframeSection .summary")).toBeFalsy();
+    expect(container.querySelector(".IframeSection .iFrame")).toHaveAttribute(
+      "height",
+      "450px"
+    );
+  });
+
+  it("render Sections correctly", () => {
+    const { container, getByText } = renderWithRouter(
+      <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
+    );
+
+    expect(container).toMatchSnapshot();
+    expect(getByText("Testing Card Collection")).toBeTruthy();
+  });
+
+  it("render location correctly", () => {
+    const { container, getByText } = renderWithRouter(
+      <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
+    );
+
+    expect(container).toMatchSnapshot();
+    expect(container.querySelector(".Section--white")).toBeTruthy();
+    expect(getByText("Locations")).toBeTruthy();
+    expect(container.querySelectorAll(".Locations .LocationCard").length).toBe(
+      3
+    );
+  });
+
+  it("render NextBestActions correctly", () => {
+    const { container, getByText } = renderWithRouter(
+      <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
+    );
+
+    expect(container).toMatchSnapshot();
+    expect(getByText("Mer informasjon")).toBeTruthy();
+    expect(container.querySelectorAll(".NBACard").length).toBe(2);
+  });
+
+  it("render firstslide featuredMedia instead when no featuredVideo", () => {
+    const newData = { ...data };
+    newData.contentfulContactUsPage.featuredVideo = null;
+    newData.contentfulContactUsPage.featuredMedia = {
+      type: null,
+      altText: "featuredMediaAltText",
+      caption: null,
+      focalPoint: null,
+      image: {
+        gatsbyImageData: {
+          images: {
+            sources: [
+              {
+                srcSet:
+                  "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
+                sizes: "(min-width: 948px) 948px, 100vw",
+                type: "image/webp"
+              }
+            ],
+            fallback: {
+              src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
+              srcSet:
+                "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
+              sizes: "(min-width: 948px) 948px, 100vw"
+            }
+          },
+          layout: "constrained",
+          backgroundColor: "#484848",
+          width: 948,
+          height: 720
+        },
+        file: {
+          fileName: "Lorem ipsum",
+          url: "//images.asset.jpg"
+        }
+      },
+      thumbnail: {
+        src: "//images.asset.jpg"
+      }
+    };
+    const { container } = renderWithRouter(
+      <ContactUsPage
+        data={newData}
+        pageContext={{ variantCodeToPathMap: {} }}
+      />
+    );
+
+    expect(container).toMatchSnapshot();
+    expect(
+      container.querySelector("[alt='featuredMediaAltText']")
+    ).toBeTruthy();
   });
 });

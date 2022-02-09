@@ -123,9 +123,7 @@ export const isSolutionOrSystemGuaranteeExist = (
 export const getGuaranteeStatus = (
   project: GetProjectQuery["project"]
 ): RequestStatus => {
-  const guarantee = project.guarantees.nodes?.[0];
-
-  return guarantee?.status;
+  return project.guarantees.nodes?.[0]?.status;
 };
 
 export const getProjectDaysRemaining = (startDate, endDate) => {
@@ -139,7 +137,7 @@ export const getProjectDaysRemaining = (startDate, endDate) => {
   }
   // End date in the past
   if (dayjs(endDate).isBefore(now)) {
-    return 0;
+    return dayjs(endDate).diff(now, "day");
   }
   // now between start and end date
   if (dayjs(now).isBetween(startDate, endDate)) {

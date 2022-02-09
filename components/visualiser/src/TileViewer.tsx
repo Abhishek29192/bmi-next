@@ -1,4 +1,14 @@
-import * as THREE from "three";
+import {
+  EquirectangularReflectionMapping,
+  LinearEncoding,
+  Mesh,
+  MeshStandardMaterial,
+  PerspectiveCamera,
+  PointLight,
+  Scene,
+  sRGBEncoding,
+  WebGLRenderer
+} from "three";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import modelCache from "./ModelCache";
@@ -8,7 +18,7 @@ import Viewer, { Props, State } from "./Viewer";
 
 export default class TileViewer extends Viewer<Props, State> {
   tile?: GLTF;
-  tileMaterial?: THREE.MeshStandardMaterial;
+  tileMaterial?: MeshStandardMaterial;
 
   constructor(props: Props) {
     super(props, { isLoading: true });
@@ -91,7 +101,7 @@ export default class TileViewer extends Viewer<Props, State> {
       }
 
       // Create roof tile material
-      this.tileMaterial = new THREE.MeshStandardMaterial();
+      this.tileMaterial = new MeshStandardMaterial();
       this.tileMaterial.name = this.props.colour.name;
       if (this.diffuseImage) {
         this.tileMaterial.map = this.diffuseImage;
@@ -108,7 +118,7 @@ export default class TileViewer extends Viewer<Props, State> {
 
       this.tileMaterial.needsUpdate = true;
       if (gltf) {
-        (gltf.scene.children[1] as THREE.Mesh).material = this.tileMaterial;
+        (gltf.scene.children[1] as Mesh).material = this.tileMaterial;
 
         // Add to scene:
         this.scene?.add(gltf.scene);
@@ -128,10 +138,10 @@ export default class TileViewer extends Viewer<Props, State> {
     const size = this.container.getBoundingClientRect();
 
     if (!this.scene) {
-      const scene = new THREE.Scene();
+      const scene = new Scene();
       this.scene = scene;
 
-      let light = new THREE.PointLight(0xffffff, 1, 100);
+      let light = new PointLight(0xffffff, 1, 100);
       light.position.set(1, 5, 1);
       light.castShadow = true;
       scene.add(light);
@@ -139,7 +149,7 @@ export default class TileViewer extends Viewer<Props, State> {
       // Backlight. Secondary light which throws some light onto the underside.
       // This just has the job of providing some directional light in the shadows.
 
-      light = new THREE.PointLight(0xffffff, 1, 100);
+      light = new PointLight(0xffffff, 1, 100);
       light.intensity = 0.8;
       light.position.set(-1, -5, -1);
       scene.add(light);
@@ -148,7 +158,7 @@ export default class TileViewer extends Viewer<Props, State> {
     }
 
     if (!this.renderer) {
-      const camera = new THREE.PerspectiveCamera(
+      const camera = new PerspectiveCamera(
         45,
         size.width / size.height,
         0.01,
@@ -161,13 +171,13 @@ export default class TileViewer extends Viewer<Props, State> {
         2.7 * zoomFactor
       );
 
-      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      const renderer = new WebGLRenderer({ antialias: true });
       renderer.setClearColor("#fff", 1);
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(size.width, size.height);
-      /*renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      /*renderer.toneMapping = ACESFilmicToneMapping;
 			renderer.toneMappingExposure = 1;*/
-      renderer.outputEncoding = THREE.sRGBEncoding;
+      renderer.outputEncoding = sRGBEncoding;
       this.container.appendChild(renderer.domElement);
 
       this.renderer = renderer;
@@ -177,8 +187,8 @@ export default class TileViewer extends Viewer<Props, State> {
 
       // Product owner suggestion - display tiles on a white background.
       textureCache(`${contentSource}/content/whiteBackdrop.png`).then((tex) => {
-        tex.mapping = THREE.EquirectangularReflectionMapping;
-        tex.encoding = THREE.LinearEncoding;
+        tex.mapping = EquirectangularReflectionMapping;
+        tex.encoding = LinearEncoding;
         if (this.scene) {
           this.scene.background = tex;
           this.scene.environment = tex;

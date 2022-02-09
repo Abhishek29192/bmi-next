@@ -53,13 +53,13 @@ describe("DocumentResults component", () => {
     const { container } = render(
       <DocumentResults data={inputDataItems} format="simpleTable" page={20} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("invalid: does not render correctly", () => {
     const format = "invalid" as Format;
     expect(() => {
-      const { container } = render(
+      render(
         <DocumentResults data={inputDataItems} format={format} page={20} />
       );
     }).toThrowError();
@@ -68,18 +68,20 @@ describe("DocumentResults component", () => {
   it("technicalTable: renders correctly", () => {
     const { container } = render(
       <DocumentResults
-        data={inputDataItems}
+        data={inputDataItems.filter(
+          (data) => data.__typename !== "ContentfulDocument"
+        )}
         format="technicalTable"
         page={20}
       />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("cards: renders correctly", () => {
     const { container } = render(
       <DocumentResults data={inputDataItems} format="cards" page={20} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

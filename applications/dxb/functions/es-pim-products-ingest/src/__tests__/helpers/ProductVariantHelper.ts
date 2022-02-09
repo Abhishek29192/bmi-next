@@ -1,8 +1,10 @@
+import {
+  createCategory,
+  createClassification,
+  createImage,
+  createProduct as createPimProduct
+} from "@bmi/pim-types";
 import { ProductVariant } from "../../es-model";
-import createCategory from "./CategoryHelper";
-import createClassification from "./ClassificationHelper";
-import createImage from "./ImageHelper";
-import createPimProduct from "./PimProductHelper";
 
 const createProductVariant = (productVariant?: Partial<ProductVariant>) => ({
   description: "description",

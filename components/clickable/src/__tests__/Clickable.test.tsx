@@ -22,19 +22,19 @@ describe("Clickable component", () => {
 
   it("renders correctly", () => {
     const { container } = render(<Clickable>Hit me</Clickable>);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders a default button", () => {
     const { container } = render(<Clickable model="default">Hit me</Clickable>);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders a submit button", () => {
     const { container } = render(<Clickable model="submit">Hit me</Clickable>);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders a reset button", () => {
     const { container } = render(<Clickable model="reset">Hit me</Clickable>);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders an anchor link", () => {
     const { container } = render(
@@ -42,7 +42,7 @@ describe("Clickable component", () => {
         Hit me
       </Clickable>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders a router link", () => {
     const RouterLink = () => null;
@@ -51,13 +51,21 @@ describe("Clickable component", () => {
         Hit me
       </Clickable>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+  it("renders a download button", () => {
+    const { container } = render(
+      <Clickable model="download" href="#" download="test-download">
+        Hit me
+      </Clickable>
+    );
+    expect(container).toMatchSnapshot();
   });
   it("renders a with custom className", () => {
     const { container } = render(
       <Clickable className="test-class">Hit me</Clickable>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("triggers an onClick event", () => {
     const onClick = jest.fn();
@@ -87,6 +95,6 @@ describe("Clickable component", () => {
       </ClickableComponent>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

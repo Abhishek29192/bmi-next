@@ -9,7 +9,8 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
-    "plugin:security/recommended"
+    "plugin:security/recommended",
+    "plugin:you-dont-need-lodash-underscore/compatible"
   ],
   globals: {
     __dirname: "readonly",
@@ -26,6 +27,7 @@ module.exports = {
   },
   plugins: ["react", "security", "import"],
   rules: {
+    "no-unused-vars": "error",
     "prettier/prettier": "error",
     strict: "error",
     "padding-line-between-statements": [
@@ -45,7 +47,19 @@ module.exports = {
         ]
       }
     ],
-    "import/newline-after-import": ["error", { count: 1 }]
+    "import/newline-after-import": ["error", { count: 1 }],
+    "security/detect-buffer-noassert": "error",
+    "security/detect-child-process": "error",
+    "security/detect-disable-mustache-escape": "error",
+    "security/detect-eval-with-expression": "error",
+    "security/detect-no-csrf-before-method-override": "error",
+    "security/detect-non-literal-fs-filename": "error",
+    "security/detect-non-literal-regexp": "error",
+    "security/detect-non-literal-require": "error",
+    "security/detect-object-injection": "error",
+    "security/detect-possible-timing-attacks": "error",
+    "security/detect-pseudoRandomBytes": "error",
+    "security/detect-unsafe-regex": "error"
   },
   settings: {
     "import/parsers": {
@@ -128,7 +142,7 @@ module.exports = {
         ],
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": [
-          "warn",
+          "error",
           {
             args: "none",
             ignoreRestSiblings: true

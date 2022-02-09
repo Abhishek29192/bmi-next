@@ -5,7 +5,7 @@
   height: 100%;
 
   :global {
-    .MuiPaper-root {
+    [class*="MuiPaper-root"] {
       display: flex;
       flex-direction: column;
       max-height: 100%;

@@ -28,7 +28,7 @@ describe("CardRadioGroup component", () => {
         </CardRadioGroup.Item>
       </CardRadioGroup>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with initial value", () => {
@@ -54,7 +54,7 @@ describe("CardRadioGroup component", () => {
         </CardRadioGroup.Item>
       </CardRadioGroup>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("calls onChange", () => {
@@ -82,9 +82,18 @@ describe("CardRadioGroup component", () => {
         </CardRadioGroup.Item>
       </CardRadioGroup>
     );
-
     fireEvent.click(container.querySelectorAll("label")[1]);
 
     expect(handleOnChange.mock.calls).toMatchSnapshot();
+  });
+
+  it("renders non radio item element", () => {
+    const { queryByText } = render(
+      <CardRadioGroup name="titleType">
+        <div>test</div>
+      </CardRadioGroup>
+    );
+    const testItem = queryByText("test");
+    expect(testItem).not.toBeNull();
   });
 });

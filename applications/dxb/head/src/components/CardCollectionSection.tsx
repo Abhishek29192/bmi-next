@@ -1,18 +1,18 @@
-import React, { useContext, useState, useMemo, memo } from "react";
+import React, { memo, useMemo, useState } from "react";
 import { graphql } from "gatsby";
 import AnchorLink from "@bmi/anchor-link";
 import Button, { ButtonProps } from "@bmi/button";
 import Section from "@bmi/section";
 import OverviewCard from "@bmi/overview-card";
 import Typography from "@bmi/typography";
-import { uniq, flatten } from "lodash";
 import Chip, { Props as ChipProps } from "@bmi/chip";
 import Carousel from "@bmi/carousel";
 import Grid from "@bmi/grid";
 import { withClickable } from "@bmi/clickable";
-import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
+import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import { renderVideo } from "./Video";
 import { renderImage } from "./Image";
 import { useSiteContext } from "./Site";
@@ -97,6 +97,7 @@ const CardCollectionItem = ({
           : undefined
       }
       isFlat={isFlat}
+      // eslint-disable-next-line security/detect-object-injection
       brandImageSource={type !== "Text Card" ? iconMap[brandLogo] : undefined}
       clickableArea={
         link
@@ -229,13 +230,13 @@ const CardCollectionSection = ({
     return cardsBySection;
   };
 
-  const activeCards = uniq(
-    flatten(
-      Object.entries(activeGroups).map(([title, isSelected]) =>
+  const activeCards = [
+    ...new Set(
+      Object.entries(activeGroups).flatMap(([title, isSelected]) =>
         isSelected ? getCards(title) : []
       )
     )
-  );
+  ];
 
   const formatDate = (date: string): string =>
     new Intl.DateTimeFormat(
@@ -303,20 +304,21 @@ const CardCollectionSection = ({
         {shouldDisplayGroups && (
           <>
             <Typography variant="h4" component="h3">
-              {getMicroCopy("cardCollection.groupTitle")}
+              {getMicroCopy(microCopy.CARD_COLLECTION_GROUP_TITLE)}
             </Typography>
             <div className={styles["group-chips"]}>
               <div className={styles["chips"]}>
                 {groupKeys.map((tagTitle, index) => {
                   const label =
                     tagTitle === "undefined"
-                      ? getMicroCopy("cardCollection.restLabel")
+                      ? getMicroCopy(microCopy.CARD_COLLECTION_REST_LABEL)
                       : tagTitle;
 
                   return (
                     <GTMChip
                       key={`${tagTitle}-${index}`}
                       type="selectable"
+                      // eslint-disable-next-line security/detect-object-injection
                       isSelected={activeGroups[tagTitle]}
                       theme={cardType === "Story Card" ? "pearl" : "white"}
                       gtm={{
@@ -327,6 +329,7 @@ const CardCollectionSection = ({
                       onClick={() => {
                         setActiveGroups((activeGroups) => ({
                           ...activeGroups,
+                          // eslint-disable-next-line security/detect-object-injection
                           [tagTitle]: !activeGroups[tagTitle]
                         }));
                       }}
@@ -345,7 +348,7 @@ const CardCollectionSection = ({
                   !activeGroupValues.length || !activeGroupValues.some(Boolean)
                 }
               >
-                {getMicroCopy("global.clearAll")}
+                {getMicroCopy(microCopy.GLOBAL_CLEAR_ALL)}
               </AnchorLink>
             </div>
           </>
@@ -412,7 +415,7 @@ const CardCollectionSection = ({
             {sortedIterableCards.length > numberOfCardsToShow && (
               <Grid item xs={12} className={styles["show-more-block"]}>
                 <Button variant="outlined" onClick={handleShowMoreClick}>
-                  {getMicroCopy("global.showMore")}
+                  {getMicroCopy(microCopy.GLOBAL_SHOW_MORE)}
                 </Button>
               </Grid>
             )}

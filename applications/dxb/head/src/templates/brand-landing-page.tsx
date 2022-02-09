@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Button from "@bmi/button";
 import Hero, { HeroItem } from "@bmi/hero";
 import Section from "@bmi/section";
+import { microCopy } from "../constants/microCopies";
 import { Data as SiteData } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SlideData } from "../components/Promo";
@@ -30,7 +31,7 @@ type BrandLandingPageData = PageInfoData &
     breadcrumbTitle: string;
   };
 
-type Props = {
+export type Props = {
   data: {
     contentfulBrandLandingPage: BrandLandingPageData;
     contentfulSite: SiteData;
@@ -59,7 +60,7 @@ const getHeroItemsWithContext = (
             </Link>
           ) : (
             <Link component={Button} data={{ linkedPage: { path: rest.path } }}>
-              {getMicroCopy("page.linkLabel")}
+              {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
             </Link>
           )
       };
@@ -70,6 +71,7 @@ const getHeroItemsWithContext = (
 const BrandLandingPage = ({ data, pageContext }: Props) => {
   const {
     title,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     description,
     brandLogo,
     featuredMedia,

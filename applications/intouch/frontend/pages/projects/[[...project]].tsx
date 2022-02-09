@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState, useCallback } from "react";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
 import { useRouter } from "next/router";
@@ -20,35 +20,50 @@ import { Layout } from "../../components/Layout";
 import layoutStyles from "../../components/Layout/styles.module.scss";
 import { NoProjectsCard } from "../../components/Cards/NoProjects";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
-
+import { useGetProjectsLazyQuery } from "../../graphql/generated/hooks";
 import { getServerPageGetProjects } from "../../graphql/generated/page";
 import { isSuperOrMarketAdmin } from "../../lib/account";
+import { useMarketContext } from "../../context/MarketContext";
 
 export type ProjectsPageProps = GlobalPageProps & {
-  projects: GetProjectsQuery["projects"];
+  projects: GetProjectsQuery["projectsByMarket"];
   isPowerfulUser: boolean;
 };
 
 const sortProjects = (
-  projects: GetProjectsQuery["projects"]["nodes"],
+  projects: GetProjectsQuery["projectsByMarket"]["nodes"],
   isPowerfulUser: boolean
 ) => {
   const now = Date.now();
   return [...(projects || [])].sort((a, b) => {
     return isPowerfulUser
-      ? a.name.localeCompare(b.name)
+      ? a.name?.localeCompare(b.name)
       : Math.abs(now - new Date(a.endDate).getTime()) -
           Math.abs(now - new Date(b.endDate).getTime());
   });
 };
 
 const Projects = ({
-  projects,
+  projects: ssrProjects,
   isPowerfulUser,
   globalPageData
 }: ProjectsPageProps) => {
-  const { t } = useTranslation(["common", "project-page"]);
   const router = useRouter();
+  const { market } = useMarketContext();
+
+  const [projects, setProjects] =
+    useState<GetProjectsQuery["projectsByMarket"]>(ssrProjects);
+
+  const { t } = useTranslation(["common", "project-page"]);
+
+  const [getProjects] = useGetProjectsLazyQuery({
+    variables: {
+      market: market.id
+    },
+    onCompleted: ({ projectsByMarket }) => {
+      setProjects(projectsByMarket);
+    }
+  });
 
   const sortedProjects = useMemo(
     () => sortProjects(projects?.nodes, isPowerfulUser),
@@ -65,6 +80,8 @@ const Projects = ({
   const handleProjectSelection = (projectId: number) => {
     router.push(`/projects/${projectId}`, undefined, { shallow: true });
   };
+
+  const getProjectsCallBack = useCallback(() => getProjects(), [getProjects]);
 
   return (
     <Layout title={t("common:Projects")} pageData={globalPageData}>
@@ -93,7 +110,10 @@ const Projects = ({
               </NoProjectsCard>
             </Grid>
           ) : (
-            <ProjectDetail projectId={activeProject.id} />
+            <ProjectDetail
+              projectId={activeProject.id}
+              onUpdateGuarantee={getProjectsCallBack}
+            />
           )}
         </Grid>
       </div>
@@ -102,37 +122,71 @@ const Projects = ({
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, account, globalPageData, res, params }) => {
+  async ({
+    apolloClient,
+    locale,
+    account,
+    globalPageData,
+    res,
+    market,
+    params
+  }) => {
+    const translations = await serverSideTranslations(locale, [
+      "common",
+      "sidebar",
+      "footer",
+      "project-page",
+      "error-page"
+    ]);
+
     // Check if user can generally access the page
     if (!can(account, "page", "projects")) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
-      return generatePageError(statusCode, {}, { globalPageData });
+      return generatePageError(
+        statusCode,
+        {},
+        { globalPageData, ...translations }
+      );
     }
 
     // Retrieve all the projects accessible to the user
     const {
       props: {
-        data: { projects }
+        data: { projectsByMarket }
       }
-    } = await getServerPageGetProjects({}, apolloClient);
+    } = await getServerPageGetProjects(
+      {
+        variables: {
+          market: market.id
+        }
+      },
+      apolloClient
+    );
 
     const isPowerfulUser = isSuperOrMarketAdmin(account);
 
     // If trying to access a specific project, check if it's accessible
     if (params?.project && params?.project.length) {
-      const found = projects?.nodes.find(
+      const found = projectsByMarket?.nodes.find(
         ({ id }) => id === parseInt(params.project[0])
       );
 
       if (!found) {
         const statusCode = ErrorStatusCode.NOT_FOUND;
         res.statusCode = statusCode;
-        return generatePageError(statusCode, {}, { globalPageData });
+        return generatePageError(
+          statusCode,
+          {},
+          { globalPageData, ...translations }
+        );
       }
       // Otherwise, redirect to first accessible project, if any
-    } else if (projects?.nodes.length) {
-      const sortedProjects = sortProjects(projects?.nodes, isPowerfulUser);
+    } else if (projectsByMarket?.nodes.length) {
+      const sortedProjects = sortProjects(
+        projectsByMarket?.nodes,
+        isPowerfulUser
+      );
       return {
         redirect: {
           permanent: false,
@@ -143,14 +197,9 @@ export const getServerSideProps = withPage(
 
     return {
       props: {
-        projects,
+        projects: projectsByMarket,
         isPowerfulUser,
-        ...(await serverSideTranslations(locale, [
-          "common",
-          "sidebar",
-          "footer",
-          "project-page"
-        ]))
+        ...translations
       }
     };
   }
@@ -159,8 +208,8 @@ export const getServerSideProps = withPage(
 export default withPageAuthRequired(withPageError<ProjectsPageProps>(Projects));
 
 export const GET_PROJECTS = gql`
-  query GetProjects {
-    projects {
+  query GetProjects($market: Int!) {
+    projectsByMarket(market: $market) {
       nodes {
         id
         name

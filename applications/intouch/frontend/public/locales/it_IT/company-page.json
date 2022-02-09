@@ -46,7 +46,9 @@
       "cancelLabel": "Annulla",
       "confirmLabel": "Caricare i file",
       "evidence_category": "Categoria di riscontro",
+      "fileAlreadyExisting": "Il nome del file esiste già",
       "fileValidationMessage": "Non puoi caricare file più grandi di {{fileSize}}",
+      "genericError": "Errore generico",
       "instruction": "Puoi aggiungere file",
       "microcopy": {
         "browse": "Scorri",
@@ -77,6 +79,7 @@
           "label": "Logo"
         },
         "name": "Nome registrato",
+        "ownerFullname": "Nome (opzionale)",
         "operationTypes": "Tipo di operazione",
         "ownerEmail": "Indirizzo email (opzionale)",
         "ownerPhone": "Telefono (opzionale)",
@@ -110,7 +113,8 @@
           "town": "Città"
         },
         "website": "Sito web dell'azienda (opzionale)"
-      }
+      },
+      "maxCharacters": "Massimo 255 caratteri"
     },
     "sections": {
       "contact_details": "Dettagli del contatto",
@@ -122,6 +126,9 @@
     },
     "title": "Dettagli azienda"
   },
+  "errorCompanyNameUniqueViolation": "Nome già utilizzato",
+  "errorCompanyReferenceUniqueViolation": "Numero già utilizzato",
+  "errorUniqueViolation": "Non unico",
   "incompleteProfile": {
     "closeAlertAccessibilityLabel": "Chiudi",
     "fields": {

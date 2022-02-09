@@ -1,6 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import BmiThemeProvider from "@bmi/theme-provider";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import BackToTop from "@bmi/back-to-top";
 import MicroCopy from "@bmi/micro-copy";
@@ -15,12 +14,16 @@ import getJpgImage from "../utils/images";
 import { getPathWithCountryCode } from "../utils/path";
 import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
+import EffraBold from "../../static/fonts/Effra_W_Bold.woff2";
+import EffraHeavy from "../../static/fonts/Effra_W_Heavy.woff2";
+import EffraMedium from "../../static/fonts/Effra_W_Medium.woff2";
+import EffraRegular from "../../static/fonts/Effra_W_Regular.woff2";
 import BrandProvider from "./BrandProvider";
 import {
-  SiteContextProvider,
+  Context as SiteContext,
   Data as SiteData,
-  useSiteContext,
-  Context as SiteContext
+  SiteContextProvider,
+  useSiteContext
 } from "./Site";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import { generateGetMicroCopy } from "./MicroCopy";
@@ -29,6 +32,7 @@ import { Data as SEOContentData } from "./SEOContent";
 import VisualiserProvider from "./Visualiser";
 import Calculator from "./PitchedRoofCalcualtor";
 import { Product, VariantOption } from "./types/pim";
+import "../../src/styles/fonts.module.scss";
 
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
@@ -103,9 +107,6 @@ const Page = ({
 
   const enableOnetrust = Boolean(!process.env.GATSBY_PREVIEW && scriptOnetrust);
   const enableGA = Boolean(!process.env.GATSBY_PREVIEW && scriptGA);
-  const enableTagManagerId = Boolean(
-    !process.env.GATSBY_PREVIEW && process.env.GOOGLE_TAGMANAGER_ID
-  );
   const enableHotjar = Boolean(!process.env.GATSBY_PREVIEW && scriptHotJar);
   const enableGOptimize = Boolean(
     !process.env.GATSBY_PREVIEW && scriptGOptLoad
@@ -157,6 +158,34 @@ const Page = ({
         title={seo?.metaTitle || title}
         defer={false}
       >
+        <link
+          rel="preload"
+          href={EffraRegular}
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href={EffraMedium}
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href={EffraHeavy}
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href={EffraBold}
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         {imageUrl && <meta property="og:image" content={imageUrl} />}
 
         {noindex && <meta name="robots" content="noindex, nofollow" />}
@@ -169,7 +198,7 @@ const Page = ({
         {seo?.metaDescription && (
           <meta name="description" content={seo.metaDescription} />
         )}
-        {headScripts && <script>{headScripts.headScripts}</script>}
+        {headScripts && <script async>{headScripts.headScripts}</script>}
 
         {enableOnetrust && (
           <script
@@ -186,24 +215,26 @@ const Page = ({
           />
         )}
         {enableOnetrust && (
-          <script type="text/javascript">
+          <script type="text/javascript" async>
             {`function OptanonWrapper() {}`}
           </script>
         )}
 
-        {enableTagManagerId && (
+        {enableGOptimize && (
           <style>{`.async-hide { opacity: 0 !important}`}</style>
         )}
 
-        {enableTagManagerId && (
-          <script>{`(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+        {enableGOptimize && (
+          <script
+            async
+          >{`(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
           h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
           (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
         })(window,document.documentElement,'async-hide','dataLayer',4000,
           {'${process.env.GOOGLE_TAGMANAGER_ID}':true});`}</script>
         )}
         {enableGA && (
-          <script>
+          <script async>
             {`<!-- Global site tag (gtag.js) - Google Analytics -->
             window.dataLayer = window.dataLayer || []; 
             function gtag(){dataLayer.push(arguments);} 
@@ -219,17 +250,31 @@ const Page = ({
         )}
 
         {enableHotjar && (
-          <script>
+          <script async>
             {`<!-- Hotjar Tracking Code for https://www.bmigroup.com/no -->
-              (function(h,o,t,j,a,r){
-                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                h._hjSettings={hjid:${scriptHotJar},hjsv:6};
-                a=o.getElementsByTagName('head')[0];
-                r=o.createElement('script');r.async=1;
-                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                a.appendChild(r);
-            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
+                (function(h,o,t,j,a,r){
+                  h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                  h._hjSettings={hjid:${scriptHotJar},hjsv:6};
+                  a=o.getElementsByTagName('head')[0];
+                  r=o.createElement('script');r.async=1;
+                  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                  a.appendChild(r);
+              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
           </script>
+        )}
+        {enableHotjar && (
+          <link
+            rel="preconnect"
+            href="https://script.hotjar.com/"
+            crossOrigin="anonymous"
+          />
+        )}
+        {enableHotjar && (
+          <link
+            rel="preconnect"
+            href="https://vars.hotjar.com"
+            crossOrigin="anonymous"
+          />
         )}
         {enableGOptimize && (
           <script
@@ -242,6 +287,7 @@ const Page = ({
           <script
             id="hubspot-cta-script"
             src="https://js.hscta.net/cta/current.js"
+            async
           />
         )}
         <script lang="javascript">
@@ -272,23 +318,22 @@ const Page = ({
               reCaptchaKey={reCaptchaKey}
               useRecaptchaNet={reCaptchaNet}
               language={countryCode}
+              scriptProps={{ async: true }}
             >
-              <BmiThemeProvider>
-                <Header
-                  navigationData={menuNavigation}
-                  utilitiesData={menuUtilities}
-                  countryCode={countryCode}
-                  activeLabel={
-                    (breadcrumbs && breadcrumbs[0]?.label) || undefined
-                  }
-                  isOnSearchPage={isSearchPage}
-                  countryNavigationIntroduction={
-                    resources?.countryNavigationIntroduction
-                  }
-                  regions={regions}
-                  sampleBasketLink={resources?.sampleBasketLink}
-                />
-              </BmiThemeProvider>
+              <Header
+                navigationData={menuNavigation}
+                utilitiesData={menuUtilities}
+                countryCode={countryCode}
+                activeLabel={
+                  (breadcrumbs && breadcrumbs[0]?.label) || undefined
+                }
+                isOnSearchPage={isSearchPage}
+                countryNavigationIntroduction={
+                  resources?.countryNavigationIntroduction
+                }
+                regions={regions}
+                sampleBasketLink={resources?.sampleBasketLink}
+              />
               <BrandProvider brand={brand}>
                 <ErrorBoundary
                   fallbackRender={() => (
@@ -317,13 +362,11 @@ const Page = ({
                   {inputBanner ? <InputBanner data={inputBanner} /> : null}
                 </ErrorBoundary>
               </BrandProvider>
-              <BmiThemeProvider>
-                <Footer
-                  mainNavigation={footerMainNavigation}
-                  secondaryNavigation={footerSecondaryNavigation}
-                />
-                <BackToTop accessibilityLabel="Back to the top" />
-              </BmiThemeProvider>
+              <Footer
+                mainNavigation={footerMainNavigation}
+                secondaryNavigation={footerSecondaryNavigation}
+              />
+              <BackToTop accessibilityLabel="Back to the top" />
             </GoogleReCaptchaProvider>
           </BasketContextProvider>
         </MicroCopy.Provider>

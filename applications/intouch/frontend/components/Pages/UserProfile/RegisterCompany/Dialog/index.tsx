@@ -15,11 +15,13 @@ import { SetCompanyDetailsDialog } from "../../../../SetCompanyDetailsDialog";
 export type RegisterCompanyDialogProps = {
   isOpen: boolean;
   onCloseClick: () => void;
+  mapsApiKey: string;
 };
 
 export const RegisterCompanyDialog = ({
   isOpen,
-  onCloseClick
+  onCloseClick,
+  mapsApiKey
 }: RegisterCompanyDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
   const [errorMessage, setErrorMessage] = useState<string>(undefined);
@@ -28,40 +30,42 @@ export const RegisterCompanyDialog = ({
     setErrorMessage(undefined);
   }, [isOpen]);
 
-  const [registerCompany] = useCreateCompanyMutation({
-    onError: (error) => {
-      log({
-        severity: "ERROR",
-        message: `There was an error creating a company: ${error}`
-      });
+  const [registerCompany, { loading: loadingRegister }] =
+    useCreateCompanyMutation({
+      onError: (error) => {
+        log({
+          severity: "ERROR",
+          message: `There was an error creating a company: ${error}`
+        });
 
-      setErrorMessage(error.message);
-    },
-    onCompleted: ({ createCompany: { company } }) => {
-      log({
-        severity: "INFO",
-        message: `Registered company - id: ${company.id}`
-      });
+        setErrorMessage(error.message);
+      },
+      onCompleted: ({ createCompany: { company } }) => {
+        log({
+          severity: "INFO",
+          message: `Registered company - id: ${company.id}`
+        });
 
-      return company;
-    }
-  });
+        return company;
+      }
+    });
 
-  const [updateCompany] = useUpdateCompanyDetailsMutation({
-    onError: (error) => {
-      log({
-        severity: "ERROR",
-        message: `There was an error updating the company: ${error.toString()}`
-      });
-      setErrorMessage(error.message);
-    },
-    onCompleted: ({ updateCompany: { company } }) => {
-      log({
-        severity: "INFO",
-        message: `Update company details for company id: ${company.id}`
-      });
-    }
-  });
+  const [updateCompany, { loading: loadingUpdate }] =
+    useUpdateCompanyDetailsMutation({
+      onError: (error) => {
+        log({
+          severity: "ERROR",
+          message: `There was an error updating the company: ${error.toString()}`
+        });
+        setErrorMessage(error.message);
+      },
+      onCompleted: ({ updateCompany: { company } }) => {
+        log({
+          severity: "INFO",
+          message: `Update company details for company id: ${company.id}`
+        });
+      }
+    });
 
   const onSubmit = useCallback(
     async (values) => {
@@ -124,6 +128,8 @@ export const RegisterCompanyDialog = ({
       onSubmit={onSubmit}
       onCloseClick={onCloseClick}
       errorMessage={errorMessage}
+      loading={loadingRegister || loadingUpdate}
+      mapsApiKey={mapsApiKey}
     />
   );
 };

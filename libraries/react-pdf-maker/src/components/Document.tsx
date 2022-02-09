@@ -1,12 +1,12 @@
 import extractDefinitions from "../extractDefinitions";
 import extractExtended from "../extractExtended";
-import { PDFNode, PageSizeStringOptions } from "../types";
+import { PDFNode, PageSizeStringOptions, ReturnedPageSize } from "../types";
+import { ComponentProps } from "../types";
 
-export type DocumentProps = {
+export type DocumentProps = ComponentProps & {
   header?: React.ReactNode | PDFNode;
   footer?: React.ReactNode | PDFNode;
   background?: React.ReactNode | PDFNode;
-  children?: React.ReactNode;
   pageBreakBefore?: (
     currentNode: any,
     followingNodesOnPage: any[],
@@ -37,12 +37,6 @@ export type DocumentProps = {
   defaultStyle: {
     [name: string]: any;
   };
-};
-
-type ReturnedPageSize = {
-  width: number;
-  height: number;
-  orientation: "portrait" | "landscape";
 };
 
 const Document = ({

@@ -1,10 +1,9 @@
-import uniqueId from "lodash/uniqueId";
-import { ClickableAction } from "@bmi/clickable";
+import uniqueId from "lodash-es/uniqueId";
+import Clickable, { ClickableAction } from "@bmi/clickable";
 import Dialog from "@bmi/dialog";
-import Clickable from "@bmi/clickable";
 import { graphql, Link as GatsbyLink } from "gatsby";
 import React, { useCallback, useContext, useMemo, useState } from "react";
-import { Data as SimplePageData } from "../templates/simple-page";
+import { Data as SimplePageData } from "../templates/simplePage/components/simple-page";
 import { getPathWithCountryCode } from "../utils/path";
 import { IconName } from "./Icon";
 import { Data as PageInfoData } from "./PageInfo";
@@ -29,7 +28,7 @@ export enum DataTypeEnum {
   HubSpotCta = "HubSpot CTA"
 }
 
-const isExternalUrl = (url: string): boolean => {
+export const isExternalUrl = (url: string): boolean => {
   try {
     const linkUrl = new URL(url);
     return linkUrl.host !== window.location.host;

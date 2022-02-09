@@ -13,13 +13,15 @@ type AddTeamMemberDialogProps = {
   onCloseClick: () => void;
   onConfirmClick: (members: CompanyMember[]) => void;
   members: CompanyMember[];
+  loading: boolean;
 };
 
 export const AddTeamMemberDialog = ({
   isOpen,
   onCloseClick,
   onConfirmClick,
-  members
+  members,
+  loading
 }: AddTeamMemberDialogProps) => {
   const { t } = useTranslation("project-page");
 
@@ -116,7 +118,7 @@ export const AddTeamMemberDialog = ({
       <Dialog.Actions
         confirmLabel={t("teamTab.add_team_member_modal.confirm_label")}
         onConfirmClick={() => onConfirmClick(selectedTeamMembers)}
-        isConfirmButtonDisabled={selectedTeamMembers.length === 0}
+        isConfirmButtonDisabled={loading || selectedTeamMembers.length === 0}
         cancelLabel={t("teamTab.add_team_member_modal.cancel_label")}
         onCancelClick={() => onCloseClick()}
       />

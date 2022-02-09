@@ -1,5 +1,5 @@
 import React from "react";
-import { renderWithI18NProvider, screen } from "../../../../lib/tests/utils";
+import { renderAsReal, screen } from "../../../../lib/tests/utils";
 import TeamReport from "..";
 
 const mockGetTeamReport = jest.fn();
@@ -14,12 +14,14 @@ describe("TeamReport Component", () => {
   });
 
   it("renders correctly", () => {
-    const { container } = renderWithI18NProvider(<TeamReport />);
+    const { container } = renderAsReal({ account: { role: "SUPER_ADMIN " } })(
+      <TeamReport />
+    );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("should export button click", () => {
-    renderWithI18NProvider(<TeamReport />);
+    renderAsReal({ account: { role: "SUPER_ADMIN " } })(<TeamReport />);
 
     const exportButton = screen.getByTestId("export-button");
     exportButton.click();

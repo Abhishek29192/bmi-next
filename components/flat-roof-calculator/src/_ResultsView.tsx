@@ -9,14 +9,12 @@ import Button from "@bmi/button";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import SaveAltIcon from "@material-ui/icons/SaveAlt";
-import {
-  TableContainer,
-  TableHead,
-  Table,
-  TableBody,
-  TableRow,
-  TableCell
-} from "@material-ui/core";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableRow from "@material-ui/core/TableRow";
+import TableCell from "@material-ui/core/TableCell";
 import Section from "./_Section";
 import styles from "./FlatRoofCalculator.module.scss";
 import InputTable from "./_InputTable";

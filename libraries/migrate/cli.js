@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 
+// eslint-disable-next-line security/detect-child-process
 const { spawnSync } = require("child_process");
 const { existsSync, mkdirSync } = require("fs");
 const { join } = require("path");

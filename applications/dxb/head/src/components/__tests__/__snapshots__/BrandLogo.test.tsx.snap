@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BrandLogo component renders correctly 1`] = `
-<svg
-  class="BrandLogo"
-/>
+<div>
+  <svg
+    class="BrandLogo"
+  />
+</div>
 `;
 
-exports[`BrandLogo component will not render with invalid logo name 1`] = `null`;
+exports[`BrandLogo component will not render with invalid logo name 1`] = `<div />`;
 
-exports[`BrandLogo component will not render with missing logo name 1`] = `null`;
+exports[`BrandLogo component will not render with missing logo name 1`] = `<div />`;

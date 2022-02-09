@@ -10,7 +10,7 @@ build_intouch_api_gateway:
       alias: docker
   cache: {}
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/api/**/*
         - libraries/**/*
@@ -19,32 +19,12 @@ build_intouch_api_gateway:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
   script:
-    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - echo $BMI_KEY > gcloud-service-key-bmi.json
-    - echo "Building and pushing image to GCP Projects $BMI_PROJECT and $GCP_INTOUCH_REPLATFORM_PROJECT_ID"
-    - docker build . -t eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-gateway:$CI_COMMIT_SHORT_SHA -f ./applications/intouch/api/gateway/dockerfile --build-arg NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN
-    - docker tag eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-gateway:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA
-    - gcloud auth activate-service-account --key-file gcloud-service-key.json
-    - gcloud auth configure-docker
-    - docker push eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-gateway:$CI_COMMIT_SHORT_SHA
+    - echo "Building and pushing image to GCP Projects $BMI_PROJECT"
+    - docker build . -t eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA -f ./applications/intouch/api/gateway/dockerfile --build-arg NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN
     - gcloud auth activate-service-account --key-file gcloud-service-key-bmi.json
     - gcloud auth configure-docker
     - docker push eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA
-
-deploy_intouch_api_gateway:
-  stage: deploy_gateway
-  image: google/cloud-sdk
-  cache: {}
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/onboarding'"
-      changes:
-        - applications/intouch/api/**/*
-  script:
-    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
-    - gcloud auth activate-service-account --key-file gcloud-service-key.json
-    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gcloud builds submit . --config=applications/intouch/api/gateway/cloudbuild.deploy.yaml --substitutions _CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
-    - gcloud container images add-tag eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-gateway:$CI_COMMIT_SHORT_SHA eu.gcr.io/$GCP_INTOUCH_REPLATFORM_PROJECT_ID/intouch-api-gateway:latest
 
 deploy_intouch_gateway_to_cloudrun_bmi:
   stage: deploy_gateway

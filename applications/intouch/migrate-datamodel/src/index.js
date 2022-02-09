@@ -27,6 +27,7 @@ function authorize(callback) {
   );
 
   // Check if we have previously stored a token.
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   fs.readFile(TOKEN_PATH, (err, token) => {
     if (err) return getNewToken(oAuth2Client, callback);
     oAuth2Client.setCredentials(JSON.parse(token));
@@ -60,6 +61,7 @@ function getNewToken(oAuth2Client, callback) {
         );
       oAuth2Client.setCredentials(token);
       // Store the token to disk for later program executions
+      // eslint-disable-next-line security/detect-non-literal-fs-filename
       fs.writeFile(TOKEN_PATH, JSON.stringify(token), (err) => {
         if (err) return console.error(err);
         console.log("Token stored to", TOKEN_PATH);

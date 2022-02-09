@@ -1,0 +1,51 @@
+{
+  "bmiRef": "BMI RoofPro medlemsnummer",
+  "brand": "Mærke",
+  "bulkImport": "Masseimport",
+  "confirm": "Bekræft import",
+  "description": "Beskrivelse",
+  "dryRun": "Test upload",
+  "dryRunCompleted": "Test afsluttet",
+  "dryRunError": "Der er nogle fejl i de importerede filer",
+  "edit": "Redigér",
+  "errorProductsToInsert": "Produkt, der skal indsættes",
+  "errorProductsToUpdate": "Produktet skal opdateres",
+  "errorSystemMembersInsert": "Tilføj BMI-produkter til systemet",
+  "errorSystemsToInsert": "Tilføj BMI-system",
+  "errorSystemsToUpdate": "Opdater BMI system",
+  "errors": {
+    "filename_wrong_format": "Forkert filtype",
+    "unauthorized": "Ikke autoriseret",
+    "wrong_env": "Forkert miljø"
+  },
+  "family": "Familie",
+  "form": {
+    "productTitle": "Rediger produkt",
+    "systemTitle": "Rediger system"
+  },
+  "importCompleted": "Import afsluttet",
+  "importError": "Der opstod en fejl under import",
+  "maximumValidityYears": "Maksimal gyldighedsår",
+  "productToInsert": "Disse produkter bliver uploadet",
+  "productToUpdate": "Disse produkter vil blive opdateret",
+  "products": "Produkter",
+  "published": "Udgivet",
+  "report": {
+    "product": "Download produktrapport",
+    "system": "Download systemrapport"
+  },
+  "show": "Vis",
+  "sidePanel": {
+    "search": {
+      "label": "Søg",
+      "noResult": "Ingen objekter fundet"
+    }
+  },
+  "submit": "Indsend",
+  "system": "System",
+  "systemToInsert": "Disse systemer vil blive uploadet",
+  "systemToUpdate": "Disse systemer vil blive opdateret",
+  "technology": "Teknologi",
+  "unpublished": "Upubliceret",
+  "updatedAt": "Opdateringsdato"
+}

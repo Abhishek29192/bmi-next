@@ -1,10 +1,8 @@
 import React from "react";
 import Hero from "@bmi/hero";
-import Carousel from "@bmi/carousel";
 import Grid from "@bmi/grid";
 import Section from "@bmi/section";
 import Typography from "@bmi/typography";
-import { BrandCard } from "../Cards/BrandCard";
 import { Layout, LayoutProps } from ".";
 
 export default {

@@ -1,23 +1,23 @@
 import React, { useMemo, useState } from "react";
 import Tabs from "@bmi/tabs";
-import { Link, graphql } from "gatsby";
-import { Tab, TabProps } from "@material-ui/core";
-import { Add as AddIcon } from "@material-ui/icons";
+import { graphql, Link } from "gatsby";
+import Tab, { TabProps } from "@material-ui/core/Tab";
+import AddIcon from "@material-ui/icons/Add";
 import Grid from "@bmi/grid";
 import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
 import AnchorLink from "@bmi/anchor-link";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
-import { uniqBy } from "lodash";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import { iconMap } from "../components/Icon";
 import {
-  getProductUrl,
   findMasterImageUrl,
   findProductBrandLogoCode,
-  mapClassificationValues,
+  findUniqueVariantClassifications,
+  getProductUrl,
   groupProductsByCategory,
-  findUniqueVariantClassifications
+  mapClassificationValues
 } from "../utils/product-details-transforms";
 import { Product, VariantOption } from "./types/pim"; // Hmmmmmm
 import styles from "./styles/RelatedProducts.module.scss";
@@ -45,7 +45,12 @@ const ProductListing = ({
 
   const allVariants = useMemo(
     () =>
-      uniqBy(products, (product) => product.name)
+      products
+        .reduce<Product[]>((products, product) => {
+          products.find((prod) => prod.name === product.name) ||
+            products.push(product);
+          return products;
+        }, [])
         .sort((a, b) => {
           // NOTE: Sort only by base product scoring weight
           const getWeightValue = (product) =>
@@ -93,6 +98,7 @@ const ProductListing = ({
         {allVariants.slice(0, numberShown).map((variant) => {
           const { _product: product } = variant;
           const brandLogoCode = findProductBrandLogoCode(product);
+          // eslint-disable-next-line security/detect-object-injection
           const brandLogo = iconMap[brandLogoCode];
           const productUrl = getProductUrl(countryCode, variant.path);
 
@@ -130,19 +136,21 @@ const ProductListing = ({
                 }}
                 gtm={{
                   id: "cta-click1",
-                  label: getMicroCopy("pdp.relatedProducts.viewDetails"),
+                  label: getMicroCopy(
+                    microCopy.PDP_RELATED_PRODUCTS_VIEW_DETAILS
+                  ),
                   action: productUrl
                 }}
                 footer={
                   <AnchorLink component="span" iconEnd>
-                    {getMicroCopy("pdp.relatedProducts.viewDetails")}
+                    {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_VIEW_DETAILS)}
                   </AnchorLink>
                 }
               >
                 {variant.externalProductCode !== null &&
                 variant.externalProductCode !== "" ? (
                   <>
-                    {getMicroCopy("pdp.nobb.label")}:{" "}
+                    {getMicroCopy(microCopy.PDP_NOBB_LABEL)}:{" "}
                     <b>{variant.externalProductCode}</b>
                   </>
                 ) : (
@@ -156,7 +164,7 @@ const ProductListing = ({
       {numberShown < allVariants.length ? (
         <div className={styles["load-more-wrapper"]}>
           <Button onClick={onLoadMore} variant="outlined" endIcon={<AddIcon />}>
-            {getMicroCopy("pdp.relatedProducts.showMore")}
+            {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_SHOW_MORE)}
           </Button>
         </div>
       ) : null}
@@ -197,7 +205,9 @@ const RelatedProducts = ({
 
   return (
     <Section backgroundColor="alabaster">
-      <Section.Title>{getMicroCopy("pdp.relatedProducts.title")}</Section.Title>
+      <Section.Title>
+        {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_TITLE)}
+      </Section.Title>
       <div className={styles["RelatedProducts"]}>
         <Tabs
           theme="secondary"

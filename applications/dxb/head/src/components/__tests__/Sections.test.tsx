@@ -280,8 +280,7 @@ describe("Sections component", () => {
           subtitle: null,
           youtubeId: "abc123",
           previewMedia: null,
-          videoRatio: null,
-          className: null
+          videoRatio: null
         },
         backgroundColor: null
       },
@@ -437,8 +436,7 @@ describe("Sections component", () => {
           youtubeId: "A-RfHC91Ewc",
           subtitle: null,
           previewMedia: null,
-          videoRatio: { width: 16, height: 9 },
-          className: null
+          videoRatio: { width: 16, height: 9 }
         }
       },
       {

@@ -16,7 +16,7 @@ type AdornmentProps =
       leftAdornment?: undefined;
     };
 
-export type Props = Omit<TextFieldProps, "variant"> & {
+export type Props = Omit<TextFieldProps, "variant" | "onChange"> & {
   variant?: "outlined" | "hybrid";
   isTextArea?: boolean;
   isRequired?: boolean;

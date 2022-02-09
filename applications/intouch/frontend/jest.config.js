@@ -16,8 +16,7 @@ module.exports = {
     }
   },
   collectCoverageFrom: [
-    "<rootDir>/**/*.{ts,tsx}",
-    "!<rootDir>/node_modules/",
+    ...sharedConfig.collectCoverageFrom,
     "!<rootDir>/.next/",
     "!<rootDir>/.storybook/"
   ]

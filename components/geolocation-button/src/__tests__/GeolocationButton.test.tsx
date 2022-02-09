@@ -9,7 +9,7 @@ describe("GeolocationButton component", () => {
         Use my location
       </GeolocationButton>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("calls onPosition on click", () => {
     const onPosition = jest.fn();

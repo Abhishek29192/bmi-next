@@ -53,6 +53,7 @@
     "noResults": "Nessun risultato trovato",
     "notAdded": "Non aggiunto"
   },
+  "generatingPdf": "Preparazione del PDF",
   "notifications": {
     "earlier": "Prima",
     "older": "Più vecchio di 2 mesi",

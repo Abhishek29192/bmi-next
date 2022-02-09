@@ -5,7 +5,7 @@ import { getFieldTypes, Type } from "../helpers/fieldTypes";
 import styles from "./_InputTextField.module.scss";
 
 type InputTextFieldProps = {
-  name?: string;
+  name: string;
   label?: string;
   defaultValue?: string;
   type: Type;
@@ -18,6 +18,7 @@ const InputTextField = ({
   defaultValue = ""
 }: InputTextFieldProps) => {
   const copy = useContext(MicroCopyContext);
+  // eslint-disable-next-line security/detect-object-injection
   const { helperText, unit, validator } = getFieldTypes((path, placeholders) =>
     getMicroCopy(copy, "validation.errors." + path, placeholders)
   )[type];

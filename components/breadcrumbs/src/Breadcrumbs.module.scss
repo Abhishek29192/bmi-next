@@ -64,7 +64,7 @@
   }
 
   :global {
-    .MuiBreadcrumbs-separator {
+    [class*="MuiBreadcrumbs-separator"] {
       margin: 0 1px;
     }
   }

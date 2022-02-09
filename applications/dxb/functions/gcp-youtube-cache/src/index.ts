@@ -1,15 +1,34 @@
+import { IncomingHttpHeaders } from "http";
+import logger from "@bmi/functions-logger";
+import { getSecret } from "@bmi/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { Status } from "simple-http-status";
-import { getSecrets } from "./config";
 import { getById, getYoutubeDetails, saveById } from "./db";
 
-const getIsValidToken = async (headers) => {
-  const secrets = await getSecrets();
+const getIsValidToken = async (headers: IncomingHttpHeaders) => {
   const auth = headers.authorization || headers.Authorization;
-  return Boolean(auth && auth === `Bearer ${secrets.bearerTokenSecret}`);
+  return Boolean(
+    auth &&
+      auth === `Bearer ${await getSecret(process.env.BEARER_TOKEN_SECRET!)}`
+  );
 };
 
 export const youtubeCache: HttpFunction = async (req, res) => {
+  if (!process.env.FIRESTORE_ROOT_COLLECTION) {
+    logger.error({ message: "FIRESTORE_ROOT_COLLECTION has not been set" });
+    return res.sendStatus(500);
+  }
+
+  if (!process.env.BEARER_TOKEN_SECRET) {
+    logger.error({ message: "BEARER_TOKEN_SECRET has not been set" });
+    return res.sendStatus(500);
+  }
+
+  if (!process.env.GOOGLE_YOUTUBE_API_KEY_SECRET) {
+    logger.error({ message: "GOOGLE_YOUTUBE_API_KEY_SECRET has not been set" });
+    return res.sendStatus(500);
+  }
+
   try {
     res.set("Access-Control-Allow-Origin", "*");
     res.set("Content-Type", "application/json");
@@ -37,7 +56,7 @@ export const youtubeCache: HttpFunction = async (req, res) => {
 
     const youtubeDetails = await getYoutubeDetails(youtubeId);
 
-    if (youtubeDetails.items.length === 0) {
+    if (!youtubeDetails.items || youtubeDetails.items.length === 0) {
       return res.status(Status.HTTP_404_NOT_FOUND).send({
         message: `Youtube video with id: "${youtubeId}" not found.`
       });
@@ -46,8 +65,7 @@ export const youtubeCache: HttpFunction = async (req, res) => {
 
     return res.status(Status.HTTP_201_CREATED).send(youtubeDetails);
   } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error(err);
+    logger.error({ message: err.message });
 
     return res.status(Status.HTTP_500_INTERNAL_SERVER_ERROR).send({
       message: "Something went wrong, try again later."

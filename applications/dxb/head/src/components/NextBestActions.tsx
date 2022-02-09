@@ -6,9 +6,10 @@ import NBACard from "@bmi/nba-card";
 import AnchorLink from "@bmi/anchor-link";
 import { Colors } from "@bmi/color-pair";
 import { withClickable } from "@bmi/clickable";
-import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
+import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import { Data as PromoData } from "../components/Promo";
 import { Data as PageInfoData } from "../components/PageInfo";
+import { microCopy } from "../constants/microCopies";
 import { getCTA } from "./Link";
 import { useSiteContext } from "./Site";
 
@@ -26,10 +27,14 @@ const NextBestActions = ({ data }: { data: Data }) => {
 
   return (
     <Section backgroundColor="alabaster">
-      <Section.Title>{getMicroCopy("nba.title")}</Section.Title>
+      <Section.Title>{getMicroCopy(microCopy.NBA_TITLE)}</Section.Title>
       <Grid container spacing={3}>
         {data.map(({ title, subtitle, ...rest }, index) => {
-          const cta = getCTA(rest, countryCode, getMicroCopy("page.linkLabel"));
+          const cta = getCTA(
+            rest,
+            countryCode,
+            getMicroCopy(microCopy.PAGE_LINK_LABEL)
+          );
           const name = rest.__typename === "ContentfulPromo" ? rest.name : null;
 
           const ClickableButtonBase =
@@ -45,6 +50,7 @@ const NextBestActions = ({ data }: { data: Data }) => {
           return (
             <Grid item xs={12} md={4} lg={3} key={`nba-${index}`}>
               <NBACard
+                // eslint-disable-next-line security/detect-object-injection
                 theme={indexToBackgroundMap[index]}
                 title={title || name}
                 footer={

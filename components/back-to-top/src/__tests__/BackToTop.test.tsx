@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom";
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import BackToTop from "../";
@@ -7,13 +8,13 @@ describe("BackToTop component", () => {
     const { container } = render(
       <BackToTop accessibilityLabel="back-to-top" />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with className", () => {
     const { container } = render(
       <BackToTop accessibilityLabel="back-to-top" className="classname" />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("handles scroll", () => {
     const { container } = render(
@@ -21,7 +22,7 @@ describe("BackToTop component", () => {
     );
     global.pageYOffset = 100;
     fireEvent.scroll(window);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("handles button click", () => {
     const { container, getByRole } = render(
@@ -33,6 +34,10 @@ describe("BackToTop component", () => {
     window.scrollTo = jest.fn();
     const button = getByRole("button");
     fireEvent.click(button);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+  it("return null when window is undefined", () => {
+    Object.defineProperty(global, "window", { value: undefined });
+    expect(BackToTop({ accessibilityLabel: "back-to-top" })).toBeNull();
   });
 });

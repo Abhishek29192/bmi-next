@@ -100,7 +100,7 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
             ]}
           />
         );
-        const accordion = container.querySelectorAll(".Accordion");
+        const accordion = container.querySelectorAll(".MuiAccordion-root");
         const techTable = container.querySelectorAll(
           ".SystemDetailsTechnicalSpec"
         );

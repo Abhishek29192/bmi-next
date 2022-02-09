@@ -1,3 +1,4 @@
+import logger from "@bmi/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import monitoring from "@google-cloud/monitoring";
 import fetch from "node-fetch";
@@ -61,65 +62,70 @@ const checkMessagesStillBeingSent = async (): Promise<boolean> =>
 
 export const build: HttpFunction = async (_req, res) => {
   if (!GCP_MONITOR_PROJECT) {
-    // eslint-disable-next-line no-console
-    console.error("GCP_MONITOR_PROJECT was not provided");
+    logger.error({ message: "GCP_MONITOR_PROJECT was not provided" });
     return res.sendStatus(500);
   }
 
   if (!GCP_APPLICATION_PROJECT) {
-    // eslint-disable-next-line no-console
-    console.error("GCP_APPLICATION_PROJECT was not provided");
+    logger.error({ message: "GCP_APPLICATION_PROJECT was not provided" });
     return res.sendStatus(500);
   }
 
   if (!DXB_FIRESTORE_HANDLER_FUNCTION) {
-    // eslint-disable-next-line no-console
-    console.error("DXB_FIRESTORE_HANDLER_FUNCTION was not provided");
+    logger.error({
+      message: "DXB_FIRESTORE_HANDLER_FUNCTION was not provided"
+    });
     return res.sendStatus(500);
   }
 
   if (!DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID) {
-    // eslint-disable-next-line no-console
-    console.error("DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID was not provided");
+    logger.error({
+      message: "DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID was not provided"
+    });
     return res.sendStatus(500);
   }
 
   if (!NETLIFY_BUILD_HOOK) {
-    // eslint-disable-next-line no-console
-    console.error("DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID was not provided");
+    logger.error({
+      message: "DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID was not provided"
+    });
     return res.sendStatus(500);
   }
 
   if (!TIMEOUT_LIMIT) {
-    // eslint-disable-next-line no-console
-    console.error("TIMEOUT_LIMIT was not provided");
+    logger.error({ message: "TIMEOUT_LIMIT was not provided" });
+    return res.sendStatus(500);
+  }
+
+  if (!DELAY_SECONDS) {
+    logger.error({ message: "DELAY_SECONDS was not provided" });
     return res.sendStatus(500);
   }
 
   const timeoutLimit = Number.parseInt(TIMEOUT_LIMIT);
   if (Number.isNaN(timeoutLimit)) {
-    // eslint-disable-next-line no-console
-    console.error("TIMEOUT_LIMIT was provided, but is not a valid number");
+    logger.error({
+      message: "TIMEOUT_LIMIT was provided, but is not a valid number"
+    });
     return res.sendStatus(500);
   }
 
   const delay_seconds = Number.parseInt(DELAY_SECONDS);
   if (Number.isNaN(delay_seconds)) {
-    // eslint-disable-next-line no-console
-    console.error("DELAY_SECONDS was provided, but is not a valid number");
+    logger.error({
+      message: "DELAY_SECONDS was provided, but is not a valid number"
+    });
     return res.sendStatus(500);
   }
 
   if (!(await checkDocumentsDeleted()) && !(await checkDocumentsUpdated())) {
-    // eslint-disable-next-line no-console
-    console.info("No documents have been deleted or updated.");
+    logger.info({ message: "No documents have been deleted or updated." });
     return res.sendStatus(304);
   }
   // eslint-disable-next-line no-constant-condition
   while (true) {
     if (runtime > timeoutLimit) {
-      // eslint-disable-next-line no-console
-      console.error(`Runtime exceeded ${timeoutLimit} seconds`);
+      logger.error({ message: `Runtime exceeded ${timeoutLimit} seconds` });
       return res.sendStatus(500);
     }
 
@@ -127,26 +133,23 @@ export const build: HttpFunction = async (_req, res) => {
     const messagesStillBeingSent = await checkMessagesStillBeingSent();
 
     if (!functionsRunning && !messagesStillBeingSent) {
-      // eslint-disable-next-line no-console
-      console.info("Calling Build Server...");
+      logger.info({ message: "Calling Build Server..." });
       const response = await fetch(NETLIFY_BUILD_HOOK, { method: "POST" });
-      // eslint-disable-next-line no-console
-      console.debug(response);
+      logger.debug({ message: JSON.stringify(response, undefined, 2) });
       return res.sendStatus(200);
     }
 
     if (functionsRunning) {
-      // eslint-disable-next-line no-console
-      console.info("Waiting for the functions to finish.");
+      logger.info({ message: "Waiting for the functions to finish." });
     }
 
     if (messagesStillBeingSent) {
-      // eslint-disable-next-line no-console
-      console.info("Messages are still on the Pub/Sub waiting to be handled.");
+      logger.info({
+        message: "Messages are still on the Pub/Sub waiting to be handled."
+      });
     }
 
     await delay(delay_seconds);
-    // eslint-disable-next-line no-console
-    console.debug(`Running for ${runtime} seconds.`);
+    logger.debug({ message: `Running for ${runtime} seconds.` });
   }
 };

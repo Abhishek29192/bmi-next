@@ -23,6 +23,7 @@ type Props = GlobalPageProps & {
   company: GetCompanyQuery["company"];
   contactDetailsCollection: GetCompanyQuery["contactDetailsCollection"];
   onCompanyUpdateSuccess: OnCompanyUpdateSuccess;
+  mapsApiKey: string;
 };
 
 export const NoCompanies = () => {
@@ -35,7 +36,8 @@ export const NoCompanies = () => {
 export const CompanyPage = ({
   company,
   contactDetailsCollection,
-  onCompanyUpdateSuccess
+  onCompanyUpdateSuccess,
+  mapsApiKey
 }: Props) => {
   const { t } = useTranslation("company-page");
   const { missingFields } = validateCompanyProfile(company);
@@ -57,6 +59,7 @@ export const CompanyPage = ({
             actions={
               <EditCompanyButton
                 company={company}
+                mapsApiKey={mapsApiKey}
                 onCompanyUpdateSuccess={onCompanyUpdateSuccess}
               />
             }
@@ -65,6 +68,7 @@ export const CompanyPage = ({
         <Grid item xs={12} lg={5} xl={4}>
           <CompanyRegisteredDetails
             company={company}
+            mapsApiKey={mapsApiKey}
             onCompanyUpdateSuccess={onCompanyUpdateSuccess}
           />
         </Grid>

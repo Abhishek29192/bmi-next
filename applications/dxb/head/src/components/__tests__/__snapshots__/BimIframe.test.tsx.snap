@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BimIframe component renders correctly 1`] = `
-<iframe
-  class="bimIframe"
-  src="https://google.com"
-/>
+<div>
+  <iframe
+    class="bimIframe"
+    src="https://google.com"
+  />
+</div>
 `;

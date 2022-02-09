@@ -1,3 +1,4 @@
+import { SVGImport } from "@bmi/svg-import";
 import { Type } from "../helpers/fieldTypes";
 
 export type RoofType = "gable" | "hipped" | "sloped";
@@ -8,7 +9,7 @@ export type DimensionsField = {
 };
 
 export type DimensionsValues = Record<string, string> & {
-  protrusions?: Record<string, string>[];
+  protrusions?: Record<string, keyof Protrusion>[];
 };
 
 export type DimensionsFieldsValues<Fields extends string> = {
@@ -30,6 +31,8 @@ export type Face = {
   sides: [Side, Side];
   subtract?: boolean;
 };
+
+export type Vertex = Point & { side?: Side };
 
 export type FaceWithBattens = Face & {
   battens: any[];

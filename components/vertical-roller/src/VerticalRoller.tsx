@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button, { ClickableAction } from "@bmi/button";
 import Carousel, { getPageFromAbsoluteIndex } from "@bmi/carousel";
 import SlideControls from "@bmi/slide-controls";
+import { SVGImport } from "@bmi/svg-import";
 import Typography from "@bmi/typography";
 import Media, { AcceptedNode } from "@bmi/media";
 import RollerSelector from "@bmi/roller-selector";
@@ -12,10 +13,6 @@ import styles from "./VerticalRoller.module.scss";
 
 export type Slide = {
   title: React.ReactNode;
-  /**
-   * @deprecated Use `media` instead.
-   */
-  imageSource?: string;
   media?: React.ReactElement<AcceptedNode>;
   brandIcon?: SVGImport;
   description?: React.ReactNode;
@@ -74,32 +71,10 @@ const VerticalRoller = ({ title, slides, rollerSectionComponent }: Props) => {
           <div className={styles["right-column"]}>
             <Carousel initialPage={activePage} onPageChange={setActivePage}>
               {slides.map(
-                (
-                  {
-                    imageSource,
-                    media,
-                    brandIcon: BrandIcon,
-                    description,
-                    cta
-                  },
-                  index
-                ) => {
+                ({ media, brandIcon: BrandIcon, description, cta }, index) => {
                   return (
                     <Carousel.Slide key={index} className={styles["slide"]}>
-                      <div
-                        className={classnames(
-                          styles["image"],
-                          imageSource &&
-                            !media &&
-                            styles["image--with-image-source"]
-                        )}
-                        style={
-                          // TODO: Remove this when `imageSource` is full deprecated.
-                          imageSource && !media
-                            ? { backgroundImage: `url(${imageSource})` }
-                            : {}
-                        }
-                      >
+                      <div className={classnames(styles["image"])}>
                         {BrandIcon && (
                           <BrandIcon className={styles["brand-icon"]} />
                         )}

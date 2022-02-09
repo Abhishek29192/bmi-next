@@ -1,6 +1,17 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import { useContext } from "react";
 import TableOfContent from "../";
+import { Context } from "../TableOfContent";
+
+const DefaultRenderLinkContextValue = ({
+  children
+}: {
+  children: React.ReactNode;
+}) => {
+  const { renderLink } = useContext(Context);
+  return <TableOfContent renderLink={renderLink}>{children}</TableOfContent>;
+};
 
 describe("TableOfContent component", () => {
   it("renders correctly", () => {
@@ -16,33 +27,41 @@ describe("TableOfContent component", () => {
         <TableOfContent.Anchor title="div with text">
           <h2>section with text</h2>
           <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-            no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-            dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-            voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-            dolor sit amet.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem, enim.
           </p>
         </TableOfContent.Anchor>
         <TableOfContent.Anchor title="div with single paragraph">
           <h2>section with single paragraph</h2>
-          <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
         </TableOfContent.Anchor>
       </TableOfContent>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+  it("renders correctly with default value of renderLink being undefined", () => {
+    const { container } = render(
+      <DefaultRenderLinkContextValue>
+        <TableOfContent.Menu />
+        <TableOfContent.Anchor title="div with text">
+          <h2>section with text</h2>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </TableOfContent.Anchor>
+        <TableOfContent.Anchor title="div with single paragraph">
+          <h2>section with single paragraph</h2>
+          <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </TableOfContent.Anchor>
+      </DefaultRenderLinkContextValue>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders anchor correctly without the context ", () => {
+    const { container } = render(
+      <TableOfContent.Anchor title="div with text">
+        <h2>section with text</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </TableOfContent.Anchor>
+    );
+    expect(container).toMatchSnapshot();
   });
 });

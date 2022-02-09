@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 
+// eslint-disable-next-line security/detect-child-process
 const { execSync, spawnSync } = require("child_process");
 const contentful = require("contentful-management");
 const { compareSemVer, isValidSemVer, parseSemVer } = require("semver-parser");
@@ -77,6 +78,7 @@ function parseCIEnvironments() {
 }
 
 const getTargetContentfulEnvironment = (branch) =>
+  // eslint-disable-next-line security/detect-object-injection
   ({
     [PRODUCTION_BRANCH]: CONTENTFUL_PRODUCTION_BRANCH,
     [PRE_PRODUCTION_BRANCH]: CONTENTFUL_PRE_PRODUCTION_BRANCH,

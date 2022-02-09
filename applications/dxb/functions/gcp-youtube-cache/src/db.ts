@@ -1,13 +1,13 @@
-import { google, youtube_v3 } from "googleapis";
-import admin from "firebase-admin";
-import { getSecrets, config } from "./config";
+import { getSecret } from "@bmi/functions-secret-client";
+import { youtube_v3 } from "googleapis/build/src/apis/youtube/v3";
+import { youtube } from "googleapis/build/src/apis/youtube";
+import { getFirestore } from "@bmi/functions-firestore";
 
-admin.initializeApp({
-  databaseURL: `https://${config.GCP_PROJECT_ID}.firebaseio.com`
-});
+const { FIRESTORE_ROOT_COLLECTION, GOOGLE_YOUTUBE_API_KEY_SECRET } =
+  process.env;
 
 const getYoutubeIdRef = (youtubeId: string) =>
-  admin.firestore().collection(config.FIRESTORE_ROOT_COLLECTION).doc(youtubeId);
+  getFirestore().collection(FIRESTORE_ROOT_COLLECTION!).doc(youtubeId);
 
 export const getById = async (
   youtubeId: string
@@ -20,12 +20,11 @@ export const getById = async (
 export const getYoutubeDetails = async (
   youtubeId: string
 ): Promise<youtube_v3.Schema$VideoListResponse> => {
-  const config = await getSecrets();
-  const youtube = google.youtube({
+  const youtubeResponse = youtube({
     version: "v3",
-    auth: config.googleYoutubeApiKeySecret
+    auth: await getSecret(GOOGLE_YOUTUBE_API_KEY_SECRET!)
   });
-  const { data } = await youtube.videos.list({
+  const { data } = await youtubeResponse.videos.list({
     part: ["player"],
     id: [youtubeId],
     maxHeight: 9999

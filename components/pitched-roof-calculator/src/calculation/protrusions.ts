@@ -4,7 +4,8 @@ import Protrusion02 from "../images/protrusions/protrusion02.svg";
 import Protrusion02Dim from "../images/protrusions/protrusion02-dims.svg";
 import Protrusion03 from "../images/protrusions/protrusion03.svg";
 import Protrusion03Dim from "../images/protrusions/protrusion03-dims.svg";
-import { ProtrusionDimensionsFieldsValues, Protrusion } from "../types/roof";
+import { Protrusion, DimensionsValues } from "../types/roof";
+import getMeasurement from "./getMeasurement";
 
 const protrusion01: Protrusion = {
   illustration: Protrusion01,
@@ -14,13 +15,11 @@ const protrusion01: Protrusion = {
     { name: "B", type: "PROTRUSION_LENGTH" },
     { name: "P", type: "PITCH" }
   ],
-  getMeasurements: (
-    values: ProtrusionDimensionsFieldsValues<"A" | "B" | "P">
-  ) => {
-    const A = parseFloat(values.A) * 100;
-    const B = parseFloat(values.B) * 100;
-    const P = parseFloat(values.P);
-    const roofPitch = parseFloat(values.roofPitch);
+  getMeasurements: (values: DimensionsValues) => {
+    const A = getMeasurement(values, "A") * 100;
+    const B = getMeasurement(values, "B") * 100;
+    const P = getMeasurement(values, "P");
+    const roofPitch = getMeasurement(values, "roofPitch");
 
     const height = A / Math.cos((P * Math.PI) / 180);
 
@@ -77,13 +76,11 @@ const protrusion02: Protrusion = {
     { name: "B", type: "PROTRUSION_LENGTH" },
     { name: "P", type: "PITCH" }
   ],
-  getMeasurements: (
-    values: ProtrusionDimensionsFieldsValues<"A" | "B" | "P">
-  ) => {
-    const A = parseFloat(values.A) * 100;
-    const B = parseFloat(values.B) * 100;
-    const P = parseFloat(values.P);
-    const roofPitch = parseFloat(values.roofPitch);
+  getMeasurements: (values: DimensionsValues) => {
+    const A = getMeasurement(values, "A") * 100;
+    const B = getMeasurement(values, "B") * 100;
+    const P = getMeasurement(values, "P");
+    const roofPitch = getMeasurement(values, "roofPitch");
 
     const protrusionHeight = (A / 2) * Math.tan((P * Math.PI) / 180);
     const protrusionRafter = protrusionHeight / Math.sin((P * Math.PI) / 180);
@@ -161,10 +158,10 @@ const protrusion03: Protrusion = {
     { name: "A", type: "PROTRUSION_LENGTH" },
     { name: "P", type: "PITCH" }
   ],
-  getMeasurements: (values: ProtrusionDimensionsFieldsValues<"A" | "P">) => {
-    const A = parseFloat(values.A) * 100;
-    const P = parseFloat(values.P);
-    const roofPitch = parseFloat(values.roofPitch);
+  getMeasurements: (values: DimensionsValues) => {
+    const A = getMeasurement(values, "A") * 100;
+    const P = getMeasurement(values, "P");
+    const roofPitch = getMeasurement(values, "roofPitch");
 
     const protrusionHeight = (A / 2) * Math.tan((P * Math.PI) / 180);
     const protrusionRafter = protrusionHeight / Math.sin((P * Math.PI) / 180);
@@ -234,4 +231,4 @@ export default {
   protrusion01,
   protrusion02,
   protrusion03
-} as Record<string, Protrusion>;
+} as { [key: string]: Protrusion };

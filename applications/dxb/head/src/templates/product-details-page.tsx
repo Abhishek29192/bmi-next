@@ -4,6 +4,7 @@ import Container from "@bmi/container";
 import Section from "@bmi/section";
 import Grid, { GridSize } from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
+import { Image as ImageGalleryImage } from "@bmi/image-gallery";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SiteData } from "../components/Site";
 import ProductOverview, {
@@ -41,6 +42,7 @@ import KeyAssetTypesDownloadSection from "../components/KeyAssetTypesDownloadSec
 import { getBimIframeUrl } from "../components/BimIframe";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { combineVariantClassifications } from "../utils/filters";
+import { microCopy } from "../constants/microCopies";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -157,7 +159,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const getTechDrawings = (
     images: readonly Image[],
     selfProdImages: readonly Image[]
-  ): Image[] => {
+  ): readonly ImageGalleryImage[] => {
     const imagesByFormat: Image[][] = Object.values(
       groupImage([...(images || []), ...(selfProdImages || [])], "containerId")
     );
@@ -247,9 +249,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     selfProduct,
                     pageContext.countryCode,
                     {
-                      size: getMicroCopy("pdp.overview.size"),
+                      size: getMicroCopy(microCopy.PDP_OVERVIEW_SIZE),
                       variantattribute: getMicroCopy(
-                        "pdp.overview.variantattribute"
+                        microCopy.PDP_OVERVIEW_VARIANT_ATTRIBUTE
                       )
                     },
                     variantCodeToPathMap,

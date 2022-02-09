@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef, useState } from "react";
 import LeadBlock from "@bmi/lead-block";
 import { Launch } from "@material-ui/icons";
 import Button from "@bmi/button";
@@ -6,11 +6,12 @@ import IconList from "@bmi/icon-list";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
 import CheckIcon from "@material-ui/icons/Check";
-import { Tab, TabProps } from "@material-ui/core";
+import Tab, { TabProps } from "@material-ui/core/Tab";
 import DownloadList from "@bmi/download-list";
 import Icon from "@bmi/icon";
-import ImageGallery from "@bmi/image-gallery";
+import ImageGallery, { Image } from "@bmi/image-gallery";
 import withGTM from "../utils/google-tag-manager";
+import { microCopy } from "../constants/microCopies";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/ProductLeadBlock.module.scss";
 import { useSiteContext } from "./Site";
@@ -19,7 +20,7 @@ import DocumentResultsFooter, {
   handleDownloadClick
 } from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
-import { Asset, Classification, Image } from "./types/pim";
+import { Asset, Classification } from "./types/pim";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
 import BimIframe from "./BimIframe";
 
@@ -39,7 +40,7 @@ type Props = {
   documents: (PIMDocumentData | PIMLinkDocumentData)[];
   validClassifications: Classification[];
   classificationNamespace: string;
-  techDrawings: Image[];
+  techDrawings: readonly Image[];
 };
 
 const DOCUMENTS_PER_PAGE = 24;
@@ -108,7 +109,7 @@ const ProductLeadBlock = ({
         )}
       >
         <Tabs.TabPanel
-          heading={getMicroCopy("pdp.leadBlock.about")}
+          heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_ABOUT)}
           index="one"
         >
           <LeadBlock>
@@ -125,7 +126,9 @@ const ProductLeadBlock = ({
                   className={styles["GuaranteesAndAwardsAsset"]}
                 >
                   <LeadBlock.Content.Heading>
-                    {getMicroCopy("pdp.leadBlock.guaranteesWarranties")}
+                    {getMicroCopy(
+                      microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES
+                    )}
                   </LeadBlock.Content.Heading>
                   {guaranteesImages.map((item, i) => (
                     <img
@@ -163,7 +166,7 @@ const ProductLeadBlock = ({
                   className={styles["GuaranteesAndAwardsAsset"]}
                 >
                   <LeadBlock.Content.Heading>
-                    {getMicroCopy("pdp.leadBlock.awardsCertificates")}
+                    {getMicroCopy(microCopy.PDP_LEAD_BLOCK_AWARDS_CERTIFICATES)}
                   </LeadBlock.Content.Heading>
                   {awardsImages.map((item, i) => (
                     <img
@@ -198,7 +201,7 @@ const ProductLeadBlock = ({
                 {keyFeatures ? (
                   <LeadBlock.Card.Section>
                     <LeadBlock.Card.Heading>
-                      {getMicroCopy("pdp.leadBlock.keyFeatures")}
+                      {getMicroCopy(microCopy.PDP_LEAD_BLOCK_KEY_FEATURES)}
                     </LeadBlock.Card.Heading>
                     <LeadBlock.Card.Content>
                       <IconList>
@@ -233,7 +236,9 @@ const ProductLeadBlock = ({
           </LeadBlock>
         </Tabs.TabPanel>
         <Tabs.TabPanel
-          heading={getMicroCopy("pdp.leadBlock.technicalSpecifications")}
+          heading={getMicroCopy(
+            microCopy.PDP_LEAD_BLOCK_TECHNICAL_SPECIFICATIONS
+          )}
           index="two"
         >
           <LeadBlock>
@@ -264,7 +269,7 @@ const ProductLeadBlock = ({
           </LeadBlock>
         </Tabs.TabPanel>
         <Tabs.TabPanel
-          heading={getMicroCopy("pdp.leadBlock.documents")}
+          heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_DOCUMENTS)}
           index="three"
         >
           <div className={styles["document-library"]} ref={resultsElement}>
@@ -288,7 +293,7 @@ const ProductLeadBlock = ({
         </Tabs.TabPanel>
         {Boolean(bimIframeUrl) && (
           <Tabs.TabPanel
-            heading={getMicroCopy("pdp.leadBlock.bim")}
+            heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_BIM)}
             index="four"
           >
             <BimIframe url={bimIframeUrl} />
@@ -296,7 +301,7 @@ const ProductLeadBlock = ({
         )}
         {techDrawings.length > 0 && (
           <Tabs.TabPanel
-            heading={getMicroCopy("pdp.leadBlock.technicalDrawings")}
+            heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_TECHNICAL_DRAWINGS)}
             index="five"
             data-testid="technicalDrawings"
           >

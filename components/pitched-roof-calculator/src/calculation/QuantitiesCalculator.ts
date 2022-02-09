@@ -198,7 +198,7 @@ class QuantitiesCalculator {
   }
 
   addVergeMetalFlush(vergeOption: VergeMetalFlushOption) {
-    this.lines.leftVerge.forEach(({ length }) =>
+    this.lines?.leftVerge?.forEach(({ length }) =>
       this.addVergeMetalFlushForLength(
         length,
         vergeOption.left,
@@ -206,7 +206,7 @@ class QuantitiesCalculator {
       )
     );
 
-    this.lines.rightVerge.forEach(({ length }) =>
+    this.lines?.rightVerge?.forEach(({ length }) =>
       this.addVergeMetalFlushForLength(
         length,
         vergeOption.right,
@@ -216,7 +216,7 @@ class QuantitiesCalculator {
   }
 
   addVergeMetalFlushForLength(
-    length,
+    length: number,
     metalFlush: LengthBasedProduct,
     metalFlushStart?: LengthBasedProduct
   ) {
@@ -234,7 +234,7 @@ class QuantitiesCalculator {
 
   addValleyMetalFlush(mainTileVariant: MainTileVariant) {
     let valleyTopMetalFlushQuantity = 0;
-    this.lines.valley.forEach(({ length, start, end, top, dormerStart }) => {
+    this.lines?.valley?.forEach(({ length, start, end, top, dormerStart }) => {
       if (start && mainTileVariant.valleyMetalFlushStart) {
         length -= this.addSingleAccessoryWithSubtraction(
           mainTileVariant.valleyMetalFlushStart
@@ -393,10 +393,12 @@ class QuantitiesCalculator {
       this.addProduct(
         "accessories",
         mainTileVariant.screw,
-        Math.ceil(
-          (area / 10000) /* area in meters */ * SCREW_PER_SEQUARE_METER -
-            longScrews
-        )
+        area
+          ? Math.ceil(
+              (area / 10000) /* area in meters */ * SCREW_PER_SEQUARE_METER -
+                longScrews
+            )
+          : 0
       );
     }
 
@@ -418,7 +420,11 @@ class QuantitiesCalculator {
     this.addProduct(
       "accessories",
       underlay,
-      Math.ceil(area / (underlay.length * (underlay.width - underlay.overlap)))
+      area
+        ? Math.ceil(
+            area / (underlay.length * (underlay.width - underlay.overlap))
+          )
+        : 0
     );
 
     lines.eave.forEach(({ length }) =>
@@ -447,7 +453,7 @@ class QuantitiesCalculator {
     product: ProductRowBase,
     baseQuantity: number
   ) {
-    const productFromMap: ProductRow = this.results.get(product.code);
+    const productFromMap = this.results.get(product.code);
 
     if (productFromMap && productFromMap.category !== category) {
       throw new Error(

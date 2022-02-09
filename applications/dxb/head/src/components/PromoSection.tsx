@@ -52,7 +52,8 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
       backgroundColor={
         theme
           ? backgroundColorMap[theme.backgroundColor]
-          : backgroundColorMap[backgroundColor]
+          : // eslint-disable-next-line security/detect-object-injection
+            backgroundColorMap[backgroundColor]
       }
       isReversed={theme ? theme.isReversed : null}
     >

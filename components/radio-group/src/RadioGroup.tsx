@@ -35,10 +35,7 @@ const RadioGroup = ({
 
       const handleOnChange = () => {
         setSelected(value);
-
-        if (onChange) {
-          onChange(value);
-        }
+        onChange && onChange(value);
       };
 
       return React.cloneElement(child, {

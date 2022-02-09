@@ -27,6 +27,6 @@ describe("TrainingProcessCard component", () => {
     };
 
     const { container } = render(<TrainingProcessCard data={data} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

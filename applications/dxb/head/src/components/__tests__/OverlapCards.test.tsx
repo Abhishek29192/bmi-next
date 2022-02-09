@@ -193,8 +193,7 @@ const data: Data = [
           }
         }
       },
-      videoRatio: null,
-      className: null
+      videoRatio: null
     }
   }
 ];
@@ -206,7 +205,7 @@ describe("OverlapCards component", () => {
         <OverlapCards data={data} />
       </MockSiteContext>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });
 
@@ -218,6 +217,6 @@ describe("IntegratedOverlapCards component", () => {
       </MockSiteContext>
     );
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

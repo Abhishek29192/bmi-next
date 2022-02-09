@@ -1,8 +1,8 @@
-/* eslint-disable no-console */
+import logger from "@bmi/functions-logger";
+import { getSecret } from "@bmi/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { Storage } from "@google-cloud/storage";
 import fetch from "node-fetch";
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import {
   transformGutterHookProduct,
   transformGutteringProduct,
@@ -19,44 +19,13 @@ import {
 const {
   WEBTOOLS_UPDATE_REQUEST_SECRET,
   WEBTOOLS_CONTENTFUL_TOKEN_SECRET,
-  SECRET_MAN_GCP_PROJECT_NAME,
   WEBTOOLS_CALCULATOR_BUCKET,
   WEBTOOLS_CONTENTFUL_SPACE,
   WEBTOOLS_CONTENTFUL_ENVIRONMENT
 } = process.env;
 
-let contentfulToken: string | undefined;
-
-const secretManagerClient = new SecretManagerServiceClient();
-
-const getAuthToken = async () => {
-  const contentfulSecret = await secretManagerClient.accessSecretVersion({
-    name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${WEBTOOLS_CONTENTFUL_TOKEN_SECRET}/versions/latest`
-  });
-
-  if (!contentfulSecret[0].payload?.data) {
-    throw new Error("Unable to get Contentful secret value");
-  }
-
-  return contentfulSecret[0].payload.data.toString();
-};
-
-const getRequestSecret = async () => {
-  const requestSecret = await secretManagerClient.accessSecretVersion({
-    name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${WEBTOOLS_UPDATE_REQUEST_SECRET}/versions/latest`
-  });
-
-  if (!requestSecret[0].payload?.data) {
-    throw new Error("Unable to get secret value");
-  }
-
-  return requestSecret[0].payload.data.toString();
-};
-
 const fetchData = async (body: object, remainingRetries = 5): Promise<any> => {
-  if (!contentfulToken) {
-    contentfulToken = await getAuthToken();
-  }
+  const contentfulToken = await getSecret(WEBTOOLS_CONTENTFUL_TOKEN_SECRET!);
 
   const requestOptions = {
     method: "POST",
@@ -86,10 +55,10 @@ const fetchData = async (body: object, remainingRetries = 5): Promise<any> => {
 
   // Errors other than 429
   if (!response.ok) {
-    console.error(response.statusText);
+    logger.error({ message: response.statusText });
 
     const errorData = await response.json();
-    console.error(errorData);
+    logger.error({ message: JSON.stringify(errorData, undefined, 2) });
 
     throw new Error("Failed to fetch data");
   }
@@ -121,10 +90,9 @@ const getMainTileProducts = async () => {
     try {
       mainTiles.push(transformMainTileProduct(product));
     } catch (error) {
-      console.warn(
-        `Failed to transform ${code}, skipping for this build.`,
-        error.message
-      );
+      logger.warning({
+        message: `Failed to transform ${code}, skipping for this build. ${error.message}`
+      });
     }
   }
 
@@ -145,10 +113,9 @@ const getGutteringRelatedProducts = async () => {
     try {
       gutters.push(transformGutteringProduct(product));
     } catch (error) {
-      console.warn(
-        `Failed to transform ${product["code"]}, skipping for this build.`,
-        error.message
-      );
+      logger.warning({
+        message: `Failed to transform ${product["code"]}, skipping for this build. ${error.message}`
+      });
     }
   }
 
@@ -157,10 +124,9 @@ const getGutteringRelatedProducts = async () => {
     try {
       gutterHooks.push(transformGutterHookProduct(product));
     } catch (error) {
-      console.warn(
-        `Failed to transform ${product["code"]}, skipping for this build.`,
-        error.message
-      );
+      logger.warning({
+        message: `Failed to transform ${product["code"]}, skipping for this build. ${error.message}`
+      });
     }
   }
 
@@ -184,10 +150,9 @@ const getUnderlayProducts = async () => {
     try {
       underlays.push(transformUnderlayProduct(product));
     } catch (error) {
-      console.warn(
-        `Failed to transform ${product["code"]}, skipping for this build.`,
-        error.message
-      );
+      logger.warning({
+        message: `Failed to transform ${product["code"]}, skipping for this build. ${error.message}`
+      });
     }
   }
 
@@ -198,9 +163,21 @@ const storage = new Storage();
 const bucket =
   WEBTOOLS_CALCULATOR_BUCKET && storage.bucket(WEBTOOLS_CALCULATOR_BUCKET);
 
-let requestSecret: string | undefined;
-
 const handleRequest: HttpFunction = async (req, res) => {
+  if (!WEBTOOLS_CONTENTFUL_TOKEN_SECRET) {
+    logger.error({
+      message: "WEBTOOLS_CONTENTFUL_TOKEN_SECRET has not been set"
+    });
+    return res.sendStatus(500);
+  }
+
+  if (!WEBTOOLS_UPDATE_REQUEST_SECRET) {
+    logger.error({
+      message: "WEBTOOLS_UPDATE_REQUEST_SECRET has not been set"
+    });
+    return res.sendStatus(500);
+  }
+
   res.set("Access-Control-Allow-Origin", "*");
 
   if (req.method === "OPTIONS") {
@@ -212,28 +189,27 @@ const handleRequest: HttpFunction = async (req, res) => {
   }
 
   try {
-    if (!requestSecret) {
-      requestSecret = await getRequestSecret();
-    }
+    const requestSecret = await getSecret(WEBTOOLS_UPDATE_REQUEST_SECRET);
     if (
       !req.headers.authorization ||
       !req.headers.authorization.startsWith("Bearer ") ||
       req.headers.authorization.substr("Bearer ".length) !== requestSecret
     ) {
-      console.log("Failed authorization");
+      logger.warning({ message: "Failed authorization" });
       return res.status(401).send("Unauthorized");
     }
 
     if (!bucket) {
-      console.error(
-        "Couldn't get GCP bucket, make sure WEBTOOLS_CALCULATOR_BUCKET is correctly defined"
-      );
+      logger.error({
+        message:
+          "Couldn't get GCP bucket, make sure WEBTOOLS_CALCULATOR_BUCKET is correctly defined"
+      });
       res.status(500).send("Internal Server Error");
-      console.log("Failed");
+      logger.error({ message: "Failed" });
       return;
     }
 
-    console.log("Fetching new data");
+    logger.info({ message: "Fetching new data" });
 
     const mainTiles = await getMainTileProducts();
     const { gutters, gutterHooks } = await getGutteringRelatedProducts();
@@ -246,17 +222,17 @@ const handleRequest: HttpFunction = async (req, res) => {
       underlays
     });
 
-    console.log("Saving file");
+    logger.info({ message: "Saving file" });
 
     const file = bucket.file("data.json");
     await file.save(results);
 
     res.status(200).send("ok");
-    console.log("Succeeded");
+    logger.info({ message: "Succeeded" });
   } catch (error) {
-    console.error(error);
+    logger.error({ message: error.message });
     res.status(500).send("Internal Server Error");
-    console.log("Failed");
+    logger.error({ message: "Failed" });
   }
 };
 

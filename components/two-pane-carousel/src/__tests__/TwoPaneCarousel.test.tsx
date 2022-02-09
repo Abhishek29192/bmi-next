@@ -45,6 +45,10 @@ const slides: Props["slides"] = [
     },
     // TODO: This tests the deprecated imageSource
     imageSource
+  },
+  {
+    title: "H1 Heading",
+    media: <img src={imageSource} alt="Lorem ipsum" />
   }
 ];
 
@@ -54,7 +58,7 @@ describe("TwoPaneCarousel component", () => {
     const { container } = render(
       <TwoPaneCarousel slides={slides}>Lorem ipsum</TwoPaneCarousel>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders a single pane carousel", () => {
     // @ts-ignore Only used for testing.
@@ -63,32 +67,56 @@ describe("TwoPaneCarousel component", () => {
     const { container } = render(
       <TwoPaneCarousel slides={slides}>Lorem ipsum</TwoPaneCarousel>
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("navigates to next page", () => {
     const nextLabel = "next";
     const { container, getByLabelText } = render(
       <TwoPaneCarousel slides={slides}>Lorem ipsum</TwoPaneCarousel>
     );
-    const containerBeforeClick = container.firstChild!.cloneNode(true);
+    const containerBeforeClick = container!.cloneNode(true);
 
     fireEvent.click(getByLabelText(nextLabel));
 
-    expect(
-      snapshotDiff(containerBeforeClick, container.firstChild)
-    ).toMatchSnapshot();
+    expect(snapshotDiff(containerBeforeClick, container)).toMatchSnapshot();
   });
   it("navigates to previous page", () => {
+    // @ts-ignore Only used for testing.
+    window.matchMedia = createMatchMedia(1280);
     const previousLabel = "previous";
     const { container, getByLabelText } = render(
       <TwoPaneCarousel slides={slides}>Lorem ipsum</TwoPaneCarousel>
     );
-    const containerBeforeClick = container.firstChild!.cloneNode(true);
+    const containerBeforeClick = container.cloneNode(true);
 
     fireEvent.click(getByLabelText(previousLabel));
 
-    expect(
-      snapshotDiff(containerBeforeClick, container.firstChild)
-    ).toMatchSnapshot();
+    expect(snapshotDiff(containerBeforeClick, container)).toMatchSnapshot();
+  });
+  it("navigates to next page on mobile", () => {
+    // @ts-ignore Only used for testing.
+    window.matchMedia = createMatchMedia(480);
+    const nextLabel = "next";
+    const { container, getByLabelText } = render(
+      <TwoPaneCarousel slides={slides}>Lorem ipsum</TwoPaneCarousel>
+    );
+    const containerBeforeClick = container.cloneNode(true);
+
+    fireEvent.click(getByLabelText(nextLabel));
+
+    expect(snapshotDiff(containerBeforeClick, container)).toMatchSnapshot();
+  });
+  it("navigates to previous page on mobile", () => {
+    // @ts-ignore Only used for testing.
+    window.matchMedia = createMatchMedia(480);
+    const previousLabel = "previous";
+    const { container, getByLabelText } = render(
+      <TwoPaneCarousel slides={slides}>Lorem ipsum</TwoPaneCarousel>
+    );
+    const containerBeforeClick = container!.cloneNode(true);
+
+    fireEvent.click(getByLabelText(previousLabel));
+
+    expect(snapshotDiff(containerBeforeClick, container)).toMatchSnapshot();
   });
 });

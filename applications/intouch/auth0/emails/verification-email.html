@@ -1,37 +1,38 @@
 {% assign language = user.user_metadata.market %} 
-{% assign welcome = "Welcome
-to" %} 
-{% assign signinMessage = "Thank you for signing up. Please verify your
-email address by clicking the following link:" %} 
-{% assign confirmMessage =
-"Confirm my account" %} 
+{% assign welcome = "Welcome to" %} 
+{% assign signinMessage = "Thank you for signing up. Please verify your email address by clicking the following link:" %} 
+{% assign confirmMessage = "Confirm my account" %} 
 {% assign thanks = "Thanks!" %} 
-{% assign contactMessage
-= "If you are having any issues with your account, please contact your local BMI
-administrator. Thanks!" %} 
-{% assign warningMessage = "You’re receiving this
-email because you have an account in BMI Group. If you are not sure why you’re
-receiving this, please contact us through our Support Center." %} 
+{% assign contactMessage = "If you are having any issues with your account, please contact your local BMI administrator. Thanks!" %} 
+{% assign warningMessage = "You’re receiving this email because you have an account in BMI Group. If you are not sure why you’re receiving this, please contact us through our Support Center." %} 
 {% if language == "no" %} 
 {% assign welcome = "Velkommen til" %} 
-{% assign signinMessage =
-"Takk for at du meldte deg på. Bekreft e -postadressen din ved å klikke på
-lenken nedenfor:" %} 
+{% assign signinMessage = "Takk for at du meldte deg på. Bekreft e -postadressen din ved å klikke på lenken nedenfor:" %} 
 {% assign confirmMessage = "Bekreft kontoen min" %} 
 {% assign thanks = "Takk!" %} 
-{% assign contactMessage = "Hvis du har problemer med
-kontoen din, kan du kontakte din lokale BMI administrator" %}
-{% assign warningMessage = "Du mottar denne e -posten fordi du har en konto i BMI Group.
-Hvis du ikke er sikker på hvorfor du mottar dette, kan du kontakte oss via vårt
-kundestøttesenter." %}
+{% assign contactMessage = "Hvis du har problemer medkontoen din, kan du kontakte din lokale BMI administrator" %}
+{% assign warningMessage = "Du mottar denne e -posten fordi du har en konto i BMI Group. Hvis du ikke er sikker på hvorfor du mottar dette, kan du kontakte oss via vårt kundestøttesenter." %}
 {% elsif language == "it" %} 
 {% assign welcome = "Benvenuto" %} 
-{% assign signinMessage =
-  "Grazie per esserti iscritto. Per favore, verifica il tuo indirizzo email cliccando il seguente link:" %} 
-  {% assign confirmMessage = "Conferma il mio account" %} 
-  {% assign thanks = "Grazie!" %} 
-  {% assign contactMessage = "Se hai problemi con il tuo account, contatta l'assistenza di BMI. Grazie!" %} 
-  {% assign warningMessage = "Stai ricevendo questa e-mail perché hai un account nel Gruppo BMI. Se non sei sicuro del perché stai ricevendo questo, per favore contattaci attraverso il nostro Centro di Supporto." %}
+{% assign signinMessage = "Grazie per esserti iscritto. Per favore, verifica il tuo indirizzo email cliccando il seguente link:" %} 
+{% assign confirmMessage = "Conferma il mio account" %} 
+{% assign thanks = "Grazie!" %} 
+{% assign contactMessage = "Se hai problemi con il tuo account, contatta l'assistenza di BMI. Grazie!" %} 
+{% assign warningMessage = "Stai ricevendo questa e-mail perché hai un account nel Gruppo BMI. Se non sei sicuro del perché stai ricevendo questo, per favore contattaci attraverso il nostro Centro di Supporto." %}
+{% elsif language == "dk" %} 
+{% assign welcome = "Velkommen til" %} 
+{% assign signinMessage = "Tak, fordi du tilmeldte dig BMI InTouch. Bekræft venligst din e-mailadresse ved at klikke på følgende link:" %} 
+{% assign confirmMessage = "Bekræft min konto" %} 
+{% assign thanks = "Tak!" %} 
+{% assign contactMessage = "Hvis du har problemer med din InTouch-konto, skal du kontakte din lokale BMI-administrator" %} 
+{% assign warningMessage = "Du modtager denne e-mail, fordi du har en BMI InTouch-konto. Hvis du ikke er sikker på, hvorfor du modtager dette, bedes du kontakte os via vores kundesupportcenter." %}
+{% elsif language == "de" %} 
+{% assign welcome = "Willkommen zu" %} 
+{% assign signinMessage = "Danke fürs Anmelden. Bitte bestätigen Sie Ihre E-Mail-Adresse, indem Sie auf den folgenden Link klicken:" %} 
+{% assign confirmMessage = "Bestätigen Sie mein Konto" %} 
+{% assign thanks = "Danke!" %} 
+{% assign contactMessage = "Wenn Sie Probleme mit Ihrem InTouch-Konto haben, wenden Sie sich bitte an Ihren lokalen BMI-Administrator. Danke!" %} 
+{% assign warningMessage = "Sie erhalten diese E-Mail, weil Sie ein Konto bei der BMI Group haben. Wenn Sie sich nicht sicher sind, warum Sie dies erhalten, wenden Sie sich bitte über unser Support Center an einen BMI-Administrator." %}
 {% endif %}
 
 <html>

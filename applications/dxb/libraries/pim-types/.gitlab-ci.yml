@@ -1,0 +1,5 @@
+build_pim-types:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/pim-api"
+    ROOT_DIR: "applications/dxb/libraries/pim-api"

@@ -16,8 +16,8 @@ import CompanyMembers, { PageProps } from "../components/Pages/Company/Members";
 import { getServerPageTeamMembers } from "../graphql/generated/page";
 
 export const pageQuery = gql`
-  query teamMembers($expiryDate: Datetime) {
-    accounts {
+  query teamMembers($expiryDate: Datetime, $marketId: Int) {
+    accounts(condition: { marketId: $marketId }) {
       totalCount
       nodes {
         id
@@ -76,15 +76,23 @@ const TeamPage = ({ globalPageData, ...props }: TeamPageProps) => {
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, account, globalPageData, res }) => {
+  async ({ apolloClient, locale, account, globalPageData, market, res }) => {
     const expiryDate = new Date();
     expiryDate.setHours(0, 0, 0, 0);
     expiryDate.setMonth(expiryDate.getMonth() - 6);
 
+    const translations = await serverSideTranslations(locale, [
+      "common",
+      "sidebar",
+      "team-page",
+      "error-page"
+    ]);
+
     const { props } = await getServerPageTeamMembers(
       {
         variables: {
-          expiryDate
+          expiryDate,
+          marketId: market.id
         }
       },
       apolloClient
@@ -93,7 +101,11 @@ export const getServerSideProps = withPage(
     if (!can(account, "page", "team")) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
-      return generatePageError(statusCode, {}, { globalPageData });
+      return generatePageError(
+        statusCode,
+        {},
+        { globalPageData, ...translations }
+      );
     }
 
     return {
@@ -106,12 +118,7 @@ export const getServerSideProps = withPage(
             nodes: sortByFirstName(props.data.accounts.nodes)
           }
         },
-        ...(await serverSideTranslations(locale, [
-          "common",
-          "sidebar",
-          "team-page",
-          "error-page"
-        ]))
+        ...translations
       }
     };
   }

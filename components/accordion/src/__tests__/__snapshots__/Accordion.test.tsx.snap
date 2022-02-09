@@ -1,127 +1,129 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Accordion component renders correctly 1`] = `
-<div
-  class="Accordion"
->
+<div>
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="accordionStyles-root-1"
   >
     <div
-      aria-disabled="false"
-      aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root accordionStyles-item-2 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <div
-        class="MuiAccordionSummary-content"
-      >
-        Heading
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-container MuiCollapse-hidden"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content accordionStyles-summaryContent-7"
+        >
+          Heading
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-hidden"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
-              Content
+              <div
+                class="MuiAccordionDetails-root accordionStyles-details-3 accordionStyles-details-11"
+              >
+                Content
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
-  >
     <div
-      aria-disabled="false"
-      aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root accordionStyles-item-2 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <div
-        class="MuiAccordionSummary-content"
-      >
-        Heading
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-container MuiCollapse-hidden"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content accordionStyles-summaryContent-7"
+        >
+          Heading
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-hidden"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
-              Content
+              <div
+                class="MuiAccordionDetails-root accordionStyles-details-3 accordionStyles-details-14"
+              >
+                Content
+              </div>
             </div>
           </div>
         </div>
@@ -132,127 +134,129 @@ exports[`Accordion component renders correctly 1`] = `
 `;
 
 exports[`Accordion component renders correctly after expanded item clicked 1`] = `
-<div
-  class="Accordion"
->
+<div>
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="accordionStyles-root-57"
   >
     <div
-      aria-disabled="false"
-      aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root accordionStyles-item-58 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <div
-        class="MuiAccordionSummary-content"
-      >
-        Heading One
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-container"
-      style="min-height: 0px; height: 0px; transition-duration: 0ms;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-61"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content accordionStyles-summaryContent-63"
+        >
+          Heading One
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root"
+        style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
-              Content
+              <div
+                class="MuiAccordionDetails-root accordionStyles-details-59 accordionStyles-details-67"
+              >
+                Content
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
-  >
     <div
-      aria-disabled="false"
-      aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root accordionStyles-item-58 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <div
-        class="MuiAccordionSummary-content"
-      >
-        Heading Two
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-container MuiCollapse-hidden"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-61"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content accordionStyles-summaryContent-63"
+        >
+          Heading Two
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-hidden"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
-              Content
+              <div
+                class="MuiAccordionDetails-root accordionStyles-details-59 accordionStyles-details-70"
+              >
+                Content
+              </div>
             </div>
           </div>
         </div>
@@ -263,127 +267,129 @@ exports[`Accordion component renders correctly after expanded item clicked 1`] =
 `;
 
 exports[`Accordion component renders correctly as radio 1`] = `
-<div
-  class="Accordion"
->
+<div>
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="accordionStyles-root-29"
   >
     <div
-      aria-disabled="false"
-      aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root accordionStyles-item-30 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <div
-        class="MuiAccordionSummary-content"
-      >
-        Heading
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-container MuiCollapse-hidden"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-33"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content accordionStyles-summaryContent-35"
+        >
+          Heading
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-hidden"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
-              Content
+              <div
+                class="MuiAccordionDetails-root accordionStyles-details-31 accordionStyles-details-39"
+              >
+                Content
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
-  >
     <div
-      aria-disabled="false"
-      aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root accordionStyles-item-30 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <div
-        class="MuiAccordionSummary-content"
-      >
-        Heading
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-container MuiCollapse-hidden"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-33"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content accordionStyles-summaryContent-35"
+        >
+          Heading
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-hidden"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
-              Content
+              <div
+                class="MuiAccordionDetails-root accordionStyles-details-31 accordionStyles-details-42"
+              >
+                Content
+              </div>
             </div>
           </div>
         </div>
@@ -394,127 +400,129 @@ exports[`Accordion component renders correctly as radio 1`] = `
 `;
 
 exports[`Accordion component renders correctly as radio when item is collapsed 1`] = `
-<div
-  class="Accordion"
->
+<div>
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="accordionStyles-root-85"
   >
     <div
-      aria-disabled="false"
-      aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root accordionStyles-item-86 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <div
-        class="MuiAccordionSummary-content"
-      >
-        Heading One
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-container"
-      style="min-height: 0px; height: 0px; transition-duration: 0ms;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-89"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content accordionStyles-summaryContent-91"
+        >
+          Heading One
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root"
+        style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
-              Content
+              <div
+                class="MuiAccordionDetails-root accordionStyles-details-87 accordionStyles-details-95"
+              >
+                Content
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
-  >
     <div
-      aria-disabled="false"
-      aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root accordionStyles-item-86 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <div
-        class="MuiAccordionSummary-content"
-      >
-        Heading Two
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-container MuiCollapse-hidden"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-89"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content accordionStyles-summaryContent-91"
+        >
+          Heading Two
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-hidden"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
-              Content
+              <div
+                class="MuiAccordionDetails-root accordionStyles-details-87 accordionStyles-details-98"
+              >
+                Content
+              </div>
             </div>
           </div>
         </div>
@@ -525,127 +533,129 @@ exports[`Accordion component renders correctly as radio when item is collapsed 1
 `;
 
 exports[`Accordion component renders correctly as radio when item is expanded 1`] = `
-<div
-  class="Accordion"
->
+<div>
   <div
-    class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="accordionStyles-root-71"
   >
     <div
-      aria-disabled="false"
-      aria-expanded="true"
-      class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root accordionStyles-item-72 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <div
-        class="MuiAccordionSummary-content Mui-expanded"
-      >
-        Heading One
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-container"
-      style="min-height: 0px; height: 0px; transition-duration: 0ms;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="true"
+        class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-75 Mui-expanded accordionStyles-summaryExpanded-76"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content accordionStyles-summaryContent-77 Mui-expanded accordionStyles-summaryExpanded-76"
+        >
+          Heading One
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-76 MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root"
+        style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
-              Content
+              <div
+                class="MuiAccordionDetails-root accordionStyles-details-73 accordionStyles-details-81"
+              >
+                Content
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
-  >
     <div
-      aria-disabled="false"
-      aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root accordionStyles-item-72 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <div
-        class="MuiAccordionSummary-content"
-      >
-        Heading Two
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-container MuiCollapse-hidden"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-75"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content accordionStyles-summaryContent-77"
+        >
+          Heading Two
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-hidden"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
-              Content
+              <div
+                class="MuiAccordionDetails-root accordionStyles-details-73 accordionStyles-details-84"
+              >
+                Content
+              </div>
             </div>
           </div>
         </div>
@@ -656,127 +666,129 @@ exports[`Accordion component renders correctly as radio when item is expanded 1`
 `;
 
 exports[`Accordion component renders correctly with default expanded item 1`] = `
-<div
-  class="Accordion"
->
+<div>
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="accordionStyles-root-15"
   >
     <div
-      aria-disabled="false"
-      aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root accordionStyles-item-16 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <div
-        class="MuiAccordionSummary-content"
-      >
-        Heading
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-container MuiCollapse-hidden"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-19"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content accordionStyles-summaryContent-21"
+        >
+          Heading
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-hidden"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
-              Content
+              <div
+                class="MuiAccordionDetails-root accordionStyles-details-17 accordionStyles-details-25"
+              >
+                Content
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
-  >
     <div
-      aria-disabled="false"
-      aria-expanded="true"
-      class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root accordionStyles-item-16 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <div
-        class="MuiAccordionSummary-content Mui-expanded"
-      >
-        Heading
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-container MuiCollapse-entered"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="true"
+        class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-19 Mui-expanded accordionStyles-summaryExpanded-20"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content accordionStyles-summaryContent-21 Mui-expanded accordionStyles-summaryExpanded-20"
+        >
+          Heading
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-20 MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-entered"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
-              Content
+              <div
+                class="MuiAccordionDetails-root accordionStyles-details-17 accordionStyles-details-28"
+              >
+                Content
+              </div>
             </div>
           </div>
         </div>
@@ -787,127 +799,129 @@ exports[`Accordion component renders correctly with default expanded item 1`] = 
 `;
 
 exports[`Accordion component renders correctly with no padding on accordion detail 1`] = `
-<div
-  class="Accordion Accordion--no-inner-padding"
->
+<div>
   <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    class="accordionStyles-root-99 accordionStyles-no-inner-padding-102"
   >
     <div
-      aria-disabled="false"
-      aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root accordionStyles-item-100 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <div
-        class="MuiAccordionSummary-content"
-      >
-        Heading One
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-container"
-      style="min-height: 0px; height: 0px; transition-duration: 0ms;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-103"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content accordionStyles-summaryContent-105"
+        >
+          Heading One
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root"
+        style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
-              Content
+              <div
+                class="MuiAccordionDetails-root accordionStyles-details-101 accordionStyles-details-109"
+              >
+                Content
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
-  >
     <div
-      aria-disabled="false"
-      aria-expanded="false"
-      class="MuiButtonBase-root MuiAccordionSummary-root"
-      role="button"
-      tabindex="0"
+      class="MuiPaper-root MuiAccordion-root accordionStyles-item-100 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <div
-        class="MuiAccordionSummary-content"
-      >
-        Heading Two
-      </div>
       <div
         aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-container MuiCollapse-hidden"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-103"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="MuiCollapse-wrapperInner"
+          class="MuiAccordionSummary-content accordionStyles-summaryContent-105"
+        >
+          Heading Two
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiCollapse-root MuiCollapse-hidden"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper"
         >
           <div
-            role="region"
+            class="MuiCollapse-wrapperInner"
           >
             <div
-              class="MuiAccordionDetails-root details"
+              role="region"
             >
-              Content
+              <div
+                class="MuiAccordionDetails-root accordionStyles-details-101 accordionStyles-details-112"
+              >
+                Content
+              </div>
             </div>
           </div>
         </div>

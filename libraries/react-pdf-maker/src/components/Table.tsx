@@ -1,8 +1,9 @@
 import React from "react";
 import extractDefinitions from "../extractDefinitions";
 import toArray from "../utils/toArray";
+import { ComponentProps } from "../types";
 
-type TableProps = {
+type TableProps = ComponentProps & {
   children: React.ReactNode;
   headerRows?: number;
   widths?: Array<string | number>;
@@ -21,6 +22,7 @@ const Table = ({ children, headerRows, widths, ...rest }: TableProps): any => {
   };
 };
 
-Table.Row = ({ children }): any => toArray(extractDefinitions(children));
+Table.Row = ({ children }: { children: React.ReactNode }): any =>
+  toArray(extractDefinitions(children));
 
 export default Table;

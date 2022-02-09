@@ -16,6 +16,6 @@ describe("IframeSection component", () => {
     };
 
     const { container } = render(<IframeSection data={data} />);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

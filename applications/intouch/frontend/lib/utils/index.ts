@@ -1,4 +1,5 @@
 import { Request } from "express";
+import { DocumentContext } from "next/dist/next-server/lib/utils";
 
 export const formatDate = (date: string) =>
   new Intl.DateTimeFormat("en-GB", {
@@ -14,7 +15,7 @@ type MarketEnvProps = {
 
 export const getMarketAndEnvFromReq = ({
   headers
-}: Request): MarketEnvProps => {
+}: Request | DocumentContext["req"]): MarketEnvProps => {
   let market = null;
   let environment = null;
 
@@ -40,4 +41,4 @@ export const getMarketAndEnvFromReq = ({
 };
 
 export const sortArrayByField = (nodes: any[], field: string) =>
-  nodes?.sort((a, b) => a?.[field].localeCompare(b?.[field]));
+  nodes?.sort((a, b) => a?.[field]?.localeCompare(b?.[field]));

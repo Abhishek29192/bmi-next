@@ -7,6 +7,7 @@ import MasonryGrid from "@bmi/masonry-grid";
 import RemoveIcon from "@material-ui/icons/Remove";
 import Section from "@bmi/section";
 import { ClickableAction } from "components/clickable/src";
+import { microCopy } from "../constants/microCopies";
 import { useSiteContext } from "./Site";
 import {
   getClickableActionFromUrl,
@@ -30,7 +31,7 @@ const LinkColumnsSection = ({ data }: { data: Data }) => {
       style={{ marginTop: "24px" }}
       endIcon={<AddIcon />}
     >
-      {getMicroCopy("global.viewMore")}
+      {getMicroCopy(microCopy.GLOBAL_VIEW_MORE)}
     </Button>
   );
   const closeButton = (
@@ -39,7 +40,7 @@ const LinkColumnsSection = ({ data }: { data: Data }) => {
       style={{ marginTop: "24px" }}
       endIcon={<RemoveIcon />}
     >
-      {getMicroCopy("global.viewLess")}
+      {getMicroCopy(microCopy.GLOBAL_VIEW_LESS)}
     </Button>
   );
 

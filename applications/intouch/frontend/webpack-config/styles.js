@@ -70,6 +70,7 @@ const styleRules = ({ dev, isServer, exclude = {} } = {}) => {
         use: createStyleLoaders(true, true, dev, isServer)
       },
       {
+        // eslint-disable-next-line security/detect-unsafe-regex
         test: /(?<!\.module)\.scss$/,
         exclude: getExclude(exclude.scss),
         use: createStyleLoaders(false, true, dev, isServer)

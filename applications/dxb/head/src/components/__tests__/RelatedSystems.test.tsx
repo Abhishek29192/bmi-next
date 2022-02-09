@@ -10,7 +10,7 @@ describe("RelatedSystems component", () => {
     const { container } = render(
       <RelatedSystems countryCode="en" systems={systems} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with systems", () => {
@@ -55,7 +55,7 @@ describe("RelatedSystems component", () => {
     const { container } = render(
       <RelatedSystems countryCode="en" systems={systems} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly without categories", () => {
@@ -94,7 +94,7 @@ describe("RelatedSystems component", () => {
     const { container } = render(
       <RelatedSystems countryCode="en" systems={systems} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders systems correctly without classifications", () => {
@@ -123,7 +123,7 @@ describe("RelatedSystems component", () => {
     const { container } = render(
       <RelatedSystems countryCode="en" systems={systems} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   it("renders correctly with scoringweight", () => {
     const systems: System[] = [
@@ -202,7 +202,7 @@ describe("RelatedSystems component", () => {
     const { container } = render(
       <RelatedSystems countryCode="en" systems={systems} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with scoringweight equal", () => {
@@ -282,7 +282,7 @@ describe("RelatedSystems component", () => {
     const { container } = render(
       <RelatedSystems countryCode="en" systems={systems} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly when scoringweight equal & names equal", () => {
@@ -362,7 +362,7 @@ describe("RelatedSystems component", () => {
     const { container } = render(
       <RelatedSystems countryCode="en" systems={systems} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with scoringweight equal & names sorted opposite", () => {
@@ -442,6 +442,6 @@ describe("RelatedSystems component", () => {
     const { container } = render(
       <RelatedSystems countryCode="en" systems={systems} />
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

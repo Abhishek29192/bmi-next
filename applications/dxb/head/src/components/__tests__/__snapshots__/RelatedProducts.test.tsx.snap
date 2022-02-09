@@ -1,145 +1,147 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RelatedProducts component renders correctly when scoringweight equal & names equal 1`] = `
-<div
-  class="Section Section--alabaster"
->
+<div>
   <div
-    class="Container"
+    class="Section Section--alabaster"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-      >
-        MC: pdp.relatedProducts.title
-      </h2>
       <div
-        class="RelatedProducts"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: pdp.relatedProducts.title
+        </h2>
         <div
-          class="Tabs Tabs--secondary"
+          class="RelatedProducts"
         >
           <div
-            class="TabsBar"
+            class="Tabs Tabs--secondary"
           >
             <div
-              class="Container"
+              class="TabsBar"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="Container"
               >
                 <div
-                  class="MuiTabs-root"
+                  class="MuiContainer-root tabStyles-ContainerRoot-33 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-scrollable"
-                    style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                  />
-                  <div
-                    class="MuiTabs-scroller MuiTabs-scrollable"
-                    style="margin-bottom: 0px;"
+                    class="MuiTabs-root tabStyles-TabsRoot-34"
                   >
                     <div
-                      aria-label="tabs"
-                      class="MuiTabs-flexContainer"
-                      role="tablist"
-                    >
-                      <button
-                        aria-controls="tabpanel-category-name"
-                        aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
-                        id="tab-category-name"
-                        role="tab"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <span
-                          class="MuiTab-wrapper"
-                        >
-                          category-name
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
-                    </div>
-                    <span
-                      class="PrivateTabIndicator-root-21 PrivateTabIndicator-colorPrimary-22 MuiTabs-indicator"
-                      style="left: 0px; width: 0px;"
+                      class="MuiTabs-scrollable"
+                      style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
+                    <div
+                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      style="margin-bottom: 0px;"
+                    >
+                      <div
+                        aria-label="tabs"
+                        class="MuiTabs-flexContainer"
+                        role="tablist"
+                      >
+                        <button
+                          aria-controls="tabpanel-category-name"
+                          aria-selected="true"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-35 Mui-selected"
+                          data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
+                          id="tab-category-name"
+                          role="tab"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiTab-wrapper"
+                          >
+                            category-name
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                      <span
+                        class="PrivateTabIndicator-root-36 PrivateTabIndicator-colorPrimary-37 MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            aria-labelledby="tab-category-name"
-            class="MuiGrid-root TabPanel MuiGrid-item"
-            heading="category-name"
-            id="tabpanel-category-name"
-            role="tabpanel"
-          >
             <div
-              class="MuiBox-root MuiBox-root-25 TabPanelBox"
+              aria-labelledby="tab-category-name"
+              class="MuiGrid-root TabPanel MuiGrid-item"
+              heading="category-name"
+              id="tabpanel-category-name"
+              role="tabpanel"
             >
               <div
-                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                class="MuiBox-root MuiBox-root-40 TabPanelBox"
               >
                 <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                    href="/en/some-path"
-                    role="button"
-                    tabindex="0"
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
-                    <div
-                      class="body"
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      href="/en/some-path"
+                      role="button"
+                      tabindex="0"
                     >
-                      <h5
-                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                      >
-                        product
-                      </h5>
-                      
                       <div
-                        class="children text"
+                        class="body"
                       >
-                        MC: pdp.nobb.label
-                        :
-                         
-                        <b>
-                          variant-product-code
-                        </b>
-                      </div>
-                      <div
-                        class="footer"
-                      >
-                        <span
-                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          type="button"
+                        <h5
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
-                          <span>
-                            MC: pdp.relatedProducts.viewDetails
+                          product
+                        </h5>
+                        
+                        <div
+                          class="children text"
+                        >
+                          MC: pdp.nobb.label
+                          :
+                           
+                          <b>
+                            variant-product-code
+                          </b>
+                        </div>
+                        <div
+                          class="footer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                            type="button"
+                          >
+                            <span>
+                              MC: pdp.relatedProducts.viewDetails
+                            </span>
+                            <svg
+                              aria-hidden="true"
+                              class="icon"
+                              focusable="false"
+                            />
                           </span>
-                          <svg
-                            aria-hidden="true"
-                            class="icon"
-                            focusable="false"
-                          />
-                        </span>
+                        </div>
                       </div>
-                    </div>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -152,198 +154,200 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
 `;
 
 exports[`RelatedProducts component renders correctly when scoringweight equal & names sorted opposite 1`] = `
-<div
-  class="Section Section--alabaster"
->
+<div>
   <div
-    class="Container"
+    class="Section Section--alabaster"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-      >
-        MC: pdp.relatedProducts.title
-      </h2>
       <div
-        class="RelatedProducts"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: pdp.relatedProducts.title
+        </h2>
         <div
-          class="Tabs Tabs--secondary"
+          class="RelatedProducts"
         >
           <div
-            class="TabsBar"
+            class="Tabs Tabs--secondary"
           >
             <div
-              class="Container"
+              class="TabsBar"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="Container"
               >
                 <div
-                  class="MuiTabs-root"
+                  class="MuiContainer-root tabStyles-ContainerRoot-41 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-scrollable"
-                    style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                  />
-                  <div
-                    class="MuiTabs-scroller MuiTabs-scrollable"
-                    style="margin-bottom: 0px;"
+                    class="MuiTabs-root tabStyles-TabsRoot-42"
                   >
                     <div
-                      aria-label="tabs"
-                      class="MuiTabs-flexContainer"
-                      role="tablist"
-                    >
-                      <button
-                        aria-controls="tabpanel-category-name"
-                        aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
-                        id="tab-category-name"
-                        role="tab"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <span
-                          class="MuiTab-wrapper"
-                        >
-                          category-name
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
-                    </div>
-                    <span
-                      class="PrivateTabIndicator-root-26 PrivateTabIndicator-colorPrimary-27 MuiTabs-indicator"
-                      style="left: 0px; width: 0px;"
+                      class="MuiTabs-scrollable"
+                      style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
+                    <div
+                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      style="margin-bottom: 0px;"
+                    >
+                      <div
+                        aria-label="tabs"
+                        class="MuiTabs-flexContainer"
+                        role="tablist"
+                      >
+                        <button
+                          aria-controls="tabpanel-category-name"
+                          aria-selected="true"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-43 Mui-selected"
+                          data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
+                          id="tab-category-name"
+                          role="tab"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiTab-wrapper"
+                          >
+                            category-name
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                      <span
+                        class="PrivateTabIndicator-root-44 PrivateTabIndicator-colorPrimary-45 MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            aria-labelledby="tab-category-name"
-            class="MuiGrid-root TabPanel MuiGrid-item"
-            heading="category-name"
-            id="tabpanel-category-name"
-            role="tabpanel"
-          >
             <div
-              class="MuiBox-root MuiBox-root-30 TabPanelBox"
+              aria-labelledby="tab-category-name"
+              class="MuiGrid-root TabPanel MuiGrid-item"
+              heading="category-name"
+              id="tabpanel-category-name"
+              role="tabpanel"
             >
               <div
-                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                class="MuiBox-root MuiBox-root-48 TabPanelBox"
               >
                 <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                    href="/en/some-path"
-                    role="button"
-                    tabindex="0"
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
-                    <div
-                      class="body"
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      href="/en/some-path"
+                      role="button"
+                      tabindex="0"
                     >
-                      <h5
-                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                      >
-                        product-1
-                      </h5>
-                      
                       <div
-                        class="children text"
+                        class="body"
                       >
-                        MC: pdp.nobb.label
-                        :
-                         
-                        <b>
-                          variant-product-code
-                        </b>
-                      </div>
-                      <div
-                        class="footer"
-                      >
-                        <span
-                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          type="button"
+                        <h5
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
-                          <span>
-                            MC: pdp.relatedProducts.viewDetails
+                          product-1
+                        </h5>
+                        
+                        <div
+                          class="children text"
+                        >
+                          MC: pdp.nobb.label
+                          :
+                           
+                          <b>
+                            variant-product-code
+                          </b>
+                        </div>
+                        <div
+                          class="footer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                            type="button"
+                          >
+                            <span>
+                              MC: pdp.relatedProducts.viewDetails
+                            </span>
+                            <svg
+                              aria-hidden="true"
+                              class="icon"
+                              focusable="false"
+                            />
                           </span>
-                          <svg
-                            aria-hidden="true"
-                            class="icon"
-                            focusable="false"
-                          />
-                        </span>
+                        </div>
                       </div>
-                    </div>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
-                </div>
-                <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
-                >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                    href="/en/some-path"
-                    role="button"
-                    tabindex="0"
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
-                    <div
-                      class="body"
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      href="/en/some-path"
+                      role="button"
+                      tabindex="0"
                     >
-                      <h5
-                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                      >
-                        product-2
-                      </h5>
-                      
                       <div
-                        class="children text"
+                        class="body"
                       >
-                        MC: pdp.nobb.label
-                        :
-                         
-                        <b>
-                          variant-product-code
-                        </b>
-                      </div>
-                      <div
-                        class="footer"
-                      >
-                        <span
-                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          type="button"
+                        <h5
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
-                          <span>
-                            MC: pdp.relatedProducts.viewDetails
+                          product-2
+                        </h5>
+                        
+                        <div
+                          class="children text"
+                        >
+                          MC: pdp.nobb.label
+                          :
+                           
+                          <b>
+                            variant-product-code
+                          </b>
+                        </div>
+                        <div
+                          class="footer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                            type="button"
+                          >
+                            <span>
+                              MC: pdp.relatedProducts.viewDetails
+                            </span>
+                            <svg
+                              aria-hidden="true"
+                              class="icon"
+                              focusable="false"
+                            />
                           </span>
-                          <svg
-                            aria-hidden="true"
-                            class="icon"
-                            focusable="false"
-                          />
-                        </span>
+                        </div>
                       </div>
-                    </div>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -356,198 +360,200 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
 `;
 
 exports[`RelatedProducts component renders correctly when scoringweight equal 1`] = `
-<div
-  class="Section Section--alabaster"
->
+<div>
   <div
-    class="Container"
+    class="Section Section--alabaster"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-      >
-        MC: pdp.relatedProducts.title
-      </h2>
       <div
-        class="RelatedProducts"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: pdp.relatedProducts.title
+        </h2>
         <div
-          class="Tabs Tabs--secondary"
+          class="RelatedProducts"
         >
           <div
-            class="TabsBar"
+            class="Tabs Tabs--secondary"
           >
             <div
-              class="Container"
+              class="TabsBar"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="Container"
               >
                 <div
-                  class="MuiTabs-root"
+                  class="MuiContainer-root tabStyles-ContainerRoot-25 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-scrollable"
-                    style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                  />
-                  <div
-                    class="MuiTabs-scroller MuiTabs-scrollable"
-                    style="margin-bottom: 0px;"
+                    class="MuiTabs-root tabStyles-TabsRoot-26"
                   >
                     <div
-                      aria-label="tabs"
-                      class="MuiTabs-flexContainer"
-                      role="tablist"
-                    >
-                      <button
-                        aria-controls="tabpanel-category-name"
-                        aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
-                        id="tab-category-name"
-                        role="tab"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <span
-                          class="MuiTab-wrapper"
-                        >
-                          category-name
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
-                    </div>
-                    <span
-                      class="PrivateTabIndicator-root-16 PrivateTabIndicator-colorPrimary-17 MuiTabs-indicator"
-                      style="left: 0px; width: 0px;"
+                      class="MuiTabs-scrollable"
+                      style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
+                    <div
+                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      style="margin-bottom: 0px;"
+                    >
+                      <div
+                        aria-label="tabs"
+                        class="MuiTabs-flexContainer"
+                        role="tablist"
+                      >
+                        <button
+                          aria-controls="tabpanel-category-name"
+                          aria-selected="true"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-27 Mui-selected"
+                          data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
+                          id="tab-category-name"
+                          role="tab"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiTab-wrapper"
+                          >
+                            category-name
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                      <span
+                        class="PrivateTabIndicator-root-28 PrivateTabIndicator-colorPrimary-29 MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            aria-labelledby="tab-category-name"
-            class="MuiGrid-root TabPanel MuiGrid-item"
-            heading="category-name"
-            id="tabpanel-category-name"
-            role="tabpanel"
-          >
             <div
-              class="MuiBox-root MuiBox-root-20 TabPanelBox"
+              aria-labelledby="tab-category-name"
+              class="MuiGrid-root TabPanel MuiGrid-item"
+              heading="category-name"
+              id="tabpanel-category-name"
+              role="tabpanel"
             >
               <div
-                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                class="MuiBox-root MuiBox-root-32 TabPanelBox"
               >
                 <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                    href="/en/some-path"
-                    role="button"
-                    tabindex="0"
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
-                    <div
-                      class="body"
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      href="/en/some-path"
+                      role="button"
+                      tabindex="0"
                     >
-                      <h5
-                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                      >
-                        product-1
-                      </h5>
-                      
                       <div
-                        class="children text"
+                        class="body"
                       >
-                        MC: pdp.nobb.label
-                        :
-                         
-                        <b>
-                          variant-product-code
-                        </b>
-                      </div>
-                      <div
-                        class="footer"
-                      >
-                        <span
-                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          type="button"
+                        <h5
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
-                          <span>
-                            MC: pdp.relatedProducts.viewDetails
+                          product-1
+                        </h5>
+                        
+                        <div
+                          class="children text"
+                        >
+                          MC: pdp.nobb.label
+                          :
+                           
+                          <b>
+                            variant-product-code
+                          </b>
+                        </div>
+                        <div
+                          class="footer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                            type="button"
+                          >
+                            <span>
+                              MC: pdp.relatedProducts.viewDetails
+                            </span>
+                            <svg
+                              aria-hidden="true"
+                              class="icon"
+                              focusable="false"
+                            />
                           </span>
-                          <svg
-                            aria-hidden="true"
-                            class="icon"
-                            focusable="false"
-                          />
-                        </span>
+                        </div>
                       </div>
-                    </div>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
-                </div>
-                <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
-                >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                    href="/en/some-path"
-                    role="button"
-                    tabindex="0"
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
-                    <div
-                      class="body"
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      href="/en/some-path"
+                      role="button"
+                      tabindex="0"
                     >
-                      <h5
-                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                      >
-                        product-2
-                      </h5>
-                      
                       <div
-                        class="children text"
+                        class="body"
                       >
-                        MC: pdp.nobb.label
-                        :
-                         
-                        <b>
-                          variant-product-code
-                        </b>
-                      </div>
-                      <div
-                        class="footer"
-                      >
-                        <span
-                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          type="button"
+                        <h5
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
-                          <span>
-                            MC: pdp.relatedProducts.viewDetails
+                          product-2
+                        </h5>
+                        
+                        <div
+                          class="children text"
+                        >
+                          MC: pdp.nobb.label
+                          :
+                           
+                          <b>
+                            variant-product-code
+                          </b>
+                        </div>
+                        <div
+                          class="footer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                            type="button"
+                          >
+                            <span>
+                              MC: pdp.relatedProducts.viewDetails
+                            </span>
+                            <svg
+                              aria-hidden="true"
+                              class="icon"
+                              focusable="false"
+                            />
                           </span>
-                          <svg
-                            aria-hidden="true"
-                            class="icon"
-                            focusable="false"
-                          />
-                        </span>
+                        </div>
                       </div>
-                    </div>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -559,95 +565,97 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
 </div>
 `;
 
-exports[`RelatedProducts component renders correctly with GATSBY_HIDE_RECOMMENDED_PRODUCTS = true 1`] = `null`;
+exports[`RelatedProducts component renders correctly with GATSBY_HIDE_RECOMMENDED_PRODUCTS = true 1`] = `<div />`;
 
-exports[`RelatedProducts component renders correctly with no products 1`] = `null`;
+exports[`RelatedProducts component renders correctly with no products 1`] = `<div />`;
 
 exports[`RelatedProducts component renders correctly with no variants 1`] = `
-<div
-  class="Section Section--alabaster"
->
+<div>
   <div
-    class="Container"
+    class="Section Section--alabaster"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-      >
-        MC: pdp.relatedProducts.title
-      </h2>
       <div
-        class="RelatedProducts"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: pdp.relatedProducts.title
+        </h2>
         <div
-          class="Tabs Tabs--secondary"
+          class="RelatedProducts"
         >
           <div
-            class="TabsBar"
+            class="Tabs Tabs--secondary"
           >
             <div
-              class="Container"
+              class="TabsBar"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="Container"
               >
                 <div
-                  class="MuiTabs-root"
+                  class="MuiContainer-root tabStyles-ContainerRoot-1 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-scrollable"
-                    style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                  />
-                  <div
-                    class="MuiTabs-scroller MuiTabs-scrollable"
-                    style="margin-bottom: 0px;"
+                    class="MuiTabs-root tabStyles-TabsRoot-2"
                   >
                     <div
-                      aria-label="tabs"
-                      class="MuiTabs-flexContainer"
-                      role="tablist"
-                    >
-                      <button
-                        aria-controls="tabpanel-category-name"
-                        aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
-                        id="tab-category-name"
-                        role="tab"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <span
-                          class="MuiTab-wrapper"
-                        >
-                          category-name
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
-                    </div>
-                    <span
-                      class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorPrimary-2 MuiTabs-indicator"
-                      style="left: 0px; width: 0px;"
+                      class="MuiTabs-scrollable"
+                      style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
+                    <div
+                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      style="margin-bottom: 0px;"
+                    >
+                      <div
+                        aria-label="tabs"
+                        class="MuiTabs-flexContainer"
+                        role="tablist"
+                      >
+                        <button
+                          aria-controls="tabpanel-category-name"
+                          aria-selected="true"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3 Mui-selected"
+                          data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
+                          id="tab-category-name"
+                          role="tab"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiTab-wrapper"
+                          >
+                            category-name
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                      <span
+                        class="PrivateTabIndicator-root-4 PrivateTabIndicator-colorPrimary-5 MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            aria-labelledby="tab-category-name"
-            class="MuiGrid-root TabPanel MuiGrid-item"
-            heading="category-name"
-            id="tabpanel-category-name"
-            role="tabpanel"
-          >
             <div
-              class="MuiBox-root MuiBox-root-5 TabPanelBox"
-            />
+              aria-labelledby="tab-category-name"
+              class="MuiGrid-root TabPanel MuiGrid-item"
+              heading="category-name"
+              id="tabpanel-category-name"
+              role="tabpanel"
+            >
+              <div
+                class="MuiBox-root MuiBox-root-8 TabPanelBox"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -656,203 +664,205 @@ exports[`RelatedProducts component renders correctly with no variants 1`] = `
 </div>
 `;
 
-exports[`RelatedProducts component renders correctly with products 1`] = `null`;
+exports[`RelatedProducts component renders correctly with products 1`] = `<div />`;
 
-exports[`RelatedProducts component renders correctly with products without categories 1`] = `null`;
+exports[`RelatedProducts component renders correctly with products without categories 1`] = `<div />`;
 
 exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
-<div
-  class="Section Section--alabaster"
->
+<div>
   <div
-    class="Container"
+    class="Section Section--alabaster"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-      >
-        MC: pdp.relatedProducts.title
-      </h2>
       <div
-        class="RelatedProducts"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: pdp.relatedProducts.title
+        </h2>
         <div
-          class="Tabs Tabs--secondary"
+          class="RelatedProducts"
         >
           <div
-            class="TabsBar"
+            class="Tabs Tabs--secondary"
           >
             <div
-              class="Container"
+              class="TabsBar"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="Container"
               >
                 <div
-                  class="MuiTabs-root"
+                  class="MuiContainer-root tabStyles-ContainerRoot-17 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-scrollable"
-                    style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                  />
-                  <div
-                    class="MuiTabs-scroller MuiTabs-scrollable"
-                    style="margin-bottom: 0px;"
+                    class="MuiTabs-root tabStyles-TabsRoot-18"
                   >
                     <div
-                      aria-label="tabs"
-                      class="MuiTabs-flexContainer"
-                      role="tablist"
-                    >
-                      <button
-                        aria-controls="tabpanel-category-name"
-                        aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
-                        id="tab-category-name"
-                        role="tab"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <span
-                          class="MuiTab-wrapper"
-                        >
-                          category-name
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
-                    </div>
-                    <span
-                      class="PrivateTabIndicator-root-11 PrivateTabIndicator-colorPrimary-12 MuiTabs-indicator"
-                      style="left: 0px; width: 0px;"
+                      class="MuiTabs-scrollable"
+                      style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
+                    <div
+                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      style="margin-bottom: 0px;"
+                    >
+                      <div
+                        aria-label="tabs"
+                        class="MuiTabs-flexContainer"
+                        role="tablist"
+                      >
+                        <button
+                          aria-controls="tabpanel-category-name"
+                          aria-selected="true"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-19 Mui-selected"
+                          data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
+                          id="tab-category-name"
+                          role="tab"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiTab-wrapper"
+                          >
+                            category-name
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                      <span
+                        class="PrivateTabIndicator-root-20 PrivateTabIndicator-colorPrimary-21 MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            aria-labelledby="tab-category-name"
-            class="MuiGrid-root TabPanel MuiGrid-item"
-            heading="category-name"
-            id="tabpanel-category-name"
-            role="tabpanel"
-          >
             <div
-              class="MuiBox-root MuiBox-root-15 TabPanelBox"
+              aria-labelledby="tab-category-name"
+              class="MuiGrid-root TabPanel MuiGrid-item"
+              heading="category-name"
+              id="tabpanel-category-name"
+              role="tabpanel"
             >
               <div
-                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                class="MuiBox-root MuiBox-root-24 TabPanelBox"
               >
                 <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                    href="/en/some-path"
-                    role="button"
-                    tabindex="0"
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
-                    <div
-                      class="body"
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      href="/en/some-path"
+                      role="button"
+                      tabindex="0"
                     >
-                      <h5
-                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                      >
-                        product-2
-                      </h5>
-                      
                       <div
-                        class="children text"
+                        class="body"
                       >
-                        MC: pdp.nobb.label
-                        :
-                         
-                        <b>
-                          variant-product-code
-                        </b>
-                      </div>
-                      <div
-                        class="footer"
-                      >
-                        <span
-                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          type="button"
+                        <h5
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
-                          <span>
-                            MC: pdp.relatedProducts.viewDetails
+                          product-2
+                        </h5>
+                        
+                        <div
+                          class="children text"
+                        >
+                          MC: pdp.nobb.label
+                          :
+                           
+                          <b>
+                            variant-product-code
+                          </b>
+                        </div>
+                        <div
+                          class="footer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                            type="button"
+                          >
+                            <span>
+                              MC: pdp.relatedProducts.viewDetails
+                            </span>
+                            <svg
+                              aria-hidden="true"
+                              class="icon"
+                              focusable="false"
+                            />
                           </span>
-                          <svg
-                            aria-hidden="true"
-                            class="icon"
-                            focusable="false"
-                          />
-                        </span>
+                        </div>
                       </div>
-                    </div>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
-                </div>
-                <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
-                >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                    href="/en/some-path"
-                    role="button"
-                    tabindex="0"
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
-                    <div
-                      class="body"
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      href="/en/some-path"
+                      role="button"
+                      tabindex="0"
                     >
-                      <h5
-                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                      >
-                        product-1
-                      </h5>
-                      
                       <div
-                        class="children text"
+                        class="body"
                       >
-                        MC: pdp.nobb.label
-                        :
-                         
-                        <b>
-                          variant-product-code
-                        </b>
-                      </div>
-                      <div
-                        class="footer"
-                      >
-                        <span
-                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          type="button"
+                        <h5
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
-                          <span>
-                            MC: pdp.relatedProducts.viewDetails
+                          product-1
+                        </h5>
+                        
+                        <div
+                          class="children text"
+                        >
+                          MC: pdp.nobb.label
+                          :
+                           
+                          <b>
+                            variant-product-code
+                          </b>
+                        </div>
+                        <div
+                          class="footer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                            type="button"
+                          >
+                            <span>
+                              MC: pdp.relatedProducts.viewDetails
+                            </span>
+                            <svg
+                              aria-hidden="true"
+                              class="icon"
+                              focusable="false"
+                            />
                           </span>
-                          <svg
-                            aria-hidden="true"
-                            class="icon"
-                            focusable="false"
-                          />
-                        </span>
+                        </div>
                       </div>
-                    </div>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -865,145 +875,147 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
 `;
 
 exports[`RelatedProducts component renders variants correctly with products without classifications or externalProductCode 1`] = `
-<div
-  class="Section Section--alabaster"
->
+<div>
   <div
-    class="Container"
+    class="Section Section--alabaster"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-      >
-        MC: pdp.relatedProducts.title
-      </h2>
       <div
-        class="RelatedProducts"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          MC: pdp.relatedProducts.title
+        </h2>
         <div
-          class="Tabs Tabs--secondary"
+          class="RelatedProducts"
         >
           <div
-            class="TabsBar"
+            class="Tabs Tabs--secondary"
           >
             <div
-              class="Container"
+              class="TabsBar"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="Container"
               >
                 <div
-                  class="MuiTabs-root"
+                  class="MuiContainer-root tabStyles-ContainerRoot-9 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-scrollable"
-                    style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                  />
-                  <div
-                    class="MuiTabs-scroller MuiTabs-scrollable"
-                    style="margin-bottom: 0px;"
+                    class="MuiTabs-root tabStyles-TabsRoot-10"
                   >
                     <div
-                      aria-label="tabs"
-                      class="MuiTabs-flexContainer"
-                      role="tablist"
-                    >
-                      <button
-                        aria-controls="tabpanel-category-name"
-                        aria-selected="true"
-                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
-                        id="tab-category-name"
-                        role="tab"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <span
-                          class="MuiTab-wrapper"
-                        >
-                          category-name
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
-                    </div>
-                    <span
-                      class="PrivateTabIndicator-root-6 PrivateTabIndicator-colorPrimary-7 MuiTabs-indicator"
-                      style="left: 0px; width: 0px;"
+                      class="MuiTabs-scrollable"
+                      style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
+                    <div
+                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      style="margin-bottom: 0px;"
+                    >
+                      <div
+                        aria-label="tabs"
+                        class="MuiTabs-flexContainer"
+                        role="tablist"
+                      >
+                        <button
+                          aria-controls="tabpanel-category-name"
+                          aria-selected="true"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-11 Mui-selected"
+                          data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
+                          id="tab-category-name"
+                          role="tab"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiTab-wrapper"
+                          >
+                            category-name
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                      <span
+                        class="PrivateTabIndicator-root-12 PrivateTabIndicator-colorPrimary-13 MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            aria-labelledby="tab-category-name"
-            class="MuiGrid-root TabPanel MuiGrid-item"
-            heading="category-name"
-            id="tabpanel-category-name"
-            role="tabpanel"
-          >
             <div
-              class="MuiBox-root MuiBox-root-10 TabPanelBox"
+              aria-labelledby="tab-category-name"
+              class="MuiGrid-root TabPanel MuiGrid-item"
+              heading="category-name"
+              id="tabpanel-category-name"
+              role="tabpanel"
             >
               <div
-                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                class="MuiBox-root MuiBox-root-16 TabPanelBox"
               >
                 <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                    href="/en/some-path"
-                    role="button"
-                    tabindex="0"
+                  <div
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
-                    <div
-                      class="body"
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      href="/en/some-path"
+                      role="button"
+                      tabindex="0"
                     >
-                      <h5
-                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                      >
-                        product-name
-                      </h5>
-                      
                       <div
-                        class="children text"
+                        class="body"
                       >
-                        MC: pdp.nobb.label
-                        :
-                         
-                        <b>
-                          variant-product-code
-                        </b>
-                      </div>
-                      <div
-                        class="footer"
-                      >
-                        <span
-                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          type="button"
+                        <h5
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
-                          <span>
-                            MC: pdp.relatedProducts.viewDetails
+                          product-name
+                        </h5>
+                        
+                        <div
+                          class="children text"
+                        >
+                          MC: pdp.nobb.label
+                          :
+                           
+                          <b>
+                            variant-product-code
+                          </b>
+                        </div>
+                        <div
+                          class="footer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                            type="button"
+                          >
+                            <span>
+                              MC: pdp.relatedProducts.viewDetails
+                            </span>
+                            <svg
+                              aria-hidden="true"
+                              class="icon"
+                              focusable="false"
+                            />
                           </span>
-                          <svg
-                            aria-hidden="true"
-                            class="icon"
-                            focusable="false"
-                          />
-                        </span>
+                        </div>
                       </div>
-                    </div>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </a>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
