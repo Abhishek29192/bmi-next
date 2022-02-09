@@ -13,7 +13,7 @@ import { generateAccount } from "../../../lib/tests/factories/account";
 
 describe("ProjectSidePanel component", () => {
   it("renders correctly", () => {
-    const projects: GetProjectsQuery["projects"]["nodes"] = [
+    const projects: GetProjectsQuery["projectsByMarket"]["nodes"] = [
       {
         id: 1,
         name: "test",
@@ -50,7 +50,7 @@ describe("ProjectSidePanel component", () => {
     const guarantees = null;
     const company = null;
 
-    const projects: GetProjectsQuery["projects"]["nodes"] = [
+    const projects: GetProjectsQuery["projectsByMarket"]["nodes"] = [
       {
         id: 1,
         name: "test 1",
