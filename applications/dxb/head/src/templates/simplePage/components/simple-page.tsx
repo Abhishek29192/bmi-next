@@ -91,7 +91,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
     breadcrumbTitle
   );
   const {
-    config: { brandProviderToggler }
+    config: { isBrandProviderEnabled }
   } = useConfig();
   const heroProps: HeroItem = generateHeroProps(
     title,
@@ -115,7 +115,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
     path: data.contentfulSimplePage.path
   };
 
-  const isHeroKeyLine = Boolean(brandProviderToggler && brandLogo);
+  const isHeroKeyLine = Boolean(isBrandProviderEnabled && brandLogo);
 
   return (
     <Page
@@ -126,7 +126,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
       variantCodeToPathMap={pageContext.variantCodeToPathMap}
       ogImageUrl={featuredMedia?.image?.file.url}
     >
-      {renderHero(heroProps, breadcrumbsNode, heroLevel, brandLogo, heroType, {
+      {renderHero(heroProps, breadcrumbsNode, heroLevel, heroType, {
         isHeroKeyLine: isHeroKeyLine
       })}
       <TableOfContent

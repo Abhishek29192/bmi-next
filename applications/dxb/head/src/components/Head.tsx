@@ -35,7 +35,7 @@ export const Head = ({
   baseProduct,
   variantProduct,
   countryCode
-}: HeadProps): React.ReactNode => {
+}: HeadProps) => {
   const { headScripts, scriptOnetrust } = scripts;
   const {
     config: { isPreviewMode, hubSpotId, isSchemaORGActivated }

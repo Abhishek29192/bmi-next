@@ -41,7 +41,7 @@ const GTMButton =
 export const handleDownloadClick = async (
   list: CommonData[],
   token: string,
-  config: Partial<EnvConfig["config"]>
+  config: EnvConfig["config"]
 ) => {
   const { isPreviewMode, documentDownloadEndpoint } = config;
   const [currentTime] = new Date().toJSON().replace(/-|:|T/g, "").split(".");

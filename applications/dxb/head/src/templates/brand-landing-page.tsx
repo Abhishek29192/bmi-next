@@ -97,7 +97,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     path: data.contentfulBrandLandingPage.path
   };
   const {
-    config: { brandProviderToggler }
+    config: { isBrandProviderEnabled }
   } = useConfig();
 
   const firstSlide: HeroItem = {
@@ -136,7 +136,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
               }
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom
-              isHeroKeyLine={Boolean(brandProviderToggler && brandLogo)}
+              isHeroKeyLine={Boolean(isBrandProviderEnabled && brandLogo)}
             />
 
             {overlapCards && <OverlapCards data={overlapCards} />}

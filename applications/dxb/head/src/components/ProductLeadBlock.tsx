@@ -12,8 +12,8 @@ import { Launch } from "@material-ui/icons";
 import CheckIcon from "@material-ui/icons/Check";
 import Tab, { TabProps } from "@material-ui/core/Tab";
 import withGTM from "../utils/google-tag-manager";
-import { DOCUMENT_DOWNLOAD_MAX_LIMIT } from "../constants/commonConstants";
 import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/ProductLeadBlock.module.scss";
 import { useSiteContext } from "./Site";
@@ -104,6 +104,9 @@ const ProductLeadBlock = ({
   pdpSpecificationTitle,
   pdpSpecificationDescription
 }: Props) => {
+  const {
+    config: { documentDownloadMaxLimit }
+  } = useConfig();
   const { getMicroCopy, countryCode } = useSiteContext();
   const [page, setPage] = useState(1);
   const resultsElement = useRef<HTMLDivElement>(null);
@@ -353,7 +356,7 @@ const ProductLeadBlock = ({
           index="three"
         >
           <div className={styles["document-library"]} ref={resultsElement}>
-            <DownloadList maxSize={DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
+            <DownloadList maxSize={documentDownloadMaxLimit * 1048576}>
               <DocumentSimpleTableResults
                 documents={filteredDocuments}
                 page={page}

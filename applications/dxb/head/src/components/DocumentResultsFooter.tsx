@@ -37,13 +37,7 @@ type Props = {
   page: number;
   count: number;
   onPageChange: (event: React.ChangeEvent<unknown>, page: number) => void;
-  isDownloadButtonClickable?: boolean;
-  onDownloadClick?: (
-    list: Record<string, any>,
-    token: string,
-    config: Partial<EnvConfig["config"]>,
-    callback?: () => void
-  ) => void;
+  isDownloadButton?: boolean;
 };
 
 const GTMButton = withGTM<ButtonProps>(Button);
@@ -51,7 +45,7 @@ const GTMButton = withGTM<ButtonProps>(Button);
 export const handleDownloadClick = async (
   list: Record<string, any>,
   token: string,
-  config: Partial<EnvConfig["config"]>,
+  config: EnvConfig["config"],
   callback?: () => void
 ) => {
   const { isPreviewMode, documentDownloadEndpoint } = config;
@@ -152,8 +146,7 @@ const DocumentResultsFooter = ({
   page,
   count,
   onPageChange,
-  isDownloadButtonClickable = true,
-  onDownloadClick = handleDownloadClick
+  isDownloadButton = true
 }: Props) => {
   const globalClasses = useGlobalDocResFooterStyles();
   const { getMicroCopy } = useSiteContext();
@@ -174,7 +167,7 @@ const DocumentResultsFooter = ({
           globalClasses.paginationRoot
         )}
       />
-      {isDownloadButtonClickable && !isMobile && (
+      {isDownloadButton && !isMobile && (
         <>
           <DownloadList.Clear
             label={getMicroCopy(microCopy.DOWNLOAD_LIST_CLEAR)}
@@ -197,7 +190,7 @@ const DocumentResultsFooter = ({
             onClick={async (list) => {
               const token = await executeRecaptcha();
 
-              onDownloadClick(list, token, config, resetList);
+              await handleDownloadClick(list, token, config, resetList);
             }}
           />
           <RecaptchaPrivacyLinks />

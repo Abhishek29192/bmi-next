@@ -99,8 +99,6 @@ const resultTypeFormatMap: Record<
 };
 
 const DocumentLibraryPage = ({ pageContext, data }: Props) => {
-  const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
-    +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
   const {
     title,
     description,
@@ -122,6 +120,19 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     seo,
     path: data.contentfulDocumentLibraryPage.path
   };
+
+  const {
+    config: { documentDownloadMaxLimit }
+  } = useConfig();
+
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+
+  const GTMCheckbox = withGTM<CheckboxProps>(Checkbox, {
+    label: "label"
+  });
+  const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
+
   // Largely duplicated from product-lister-page.tsx
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -152,6 +163,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
       allowFilterBy || []
     ).filter(Boolean)
   );
+  const maxSize = documentDownloadMaxLimit * 1048576;
 
   const fakeSearch = async (documents, filters, page) => {
     if (isLoading) {
@@ -245,7 +257,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
               <RichText document={description} />
             </Section>
           )}
-          <DownloadList maxSize={DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
+          <DownloadList maxSize={maxSize}>
             <DownloadListContext.Consumer>
               {({ count }) => {
                 if (count === 0) {

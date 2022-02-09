@@ -54,6 +54,9 @@ const NoBrandComponent = ({ children }: NoBrandProps) => {
 };
 
 const BrandProvider = ({ brand, children }: BrandProviderProps) => {
+  const {
+    config: { isBrandProviderEnabled }
+  } = useConfig();
   if (!brand) {
     return <NoBrandComponent>{children}</NoBrandComponent>;
   }
@@ -61,9 +64,6 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
 
   const [interColor, setInterColor] = useState<string | null>(null);
   const [focusColor, setFocusColor] = useState<string | undefined>();
-  const {
-    config: { brandProviderToggler }
-  } = useConfig();
 
   const className = getBrandClassName(brand);
 
@@ -89,7 +89,7 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
     return theme;
   };
 
-  const featureToggle = brandProviderToggler as
+  const featureToggle = isBrandProviderEnabled as
     | boolean // styleguidist's webpack returns boolean value
     | string
     | undefined;

@@ -193,7 +193,7 @@ const RelatedProducts = ({
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const {
-    config: { isRecomendedProductsHide }
+    config: { isRelatedProductsHide }
   } = useConfig();
 
   if (Object.entries(products).length === 0) {
@@ -201,8 +201,6 @@ const RelatedProducts = ({
   }
 
   const productGroups = groupProductsByCategory(products);
-
-  const isRelatedProductsHide = isRecomendedProductsHide;
 
   if (!Object.keys(productGroups).length || isRelatedProductsHide) {
     return null;

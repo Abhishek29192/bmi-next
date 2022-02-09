@@ -14,8 +14,8 @@ import {
   getDocumentQueryObject
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
-import { DOCUMENT_DOWNLOAD_MAX_LIMIT } from "../constants/commonConstants";
 import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { useSiteContext } from "./Site";
 import DocumentResultsFooter from "./DocumentResultsFooter";
@@ -74,6 +74,10 @@ const SearchTabPanelDocuments = (props: Props) => {
   const { queryString, onLoadingChange, onCountChange, extraData } = props;
 
   const { getMicroCopy } = useSiteContext();
+
+  const {
+    config: { documentDownloadMaxLimit }
+  } = useConfig();
 
   // TODO: Not sure if we need this, would be nice to remove
   const isInitialLoad = useRef(true);
@@ -208,8 +212,10 @@ const SearchTabPanelDocuments = (props: Props) => {
     clearFilters();
   }, []);
 
+  const maxSize = documentDownloadMaxLimit * 1048576;
+
   return (
-    <DownloadList maxSize={DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
+    <DownloadList maxSize={maxSize}>
       <Grid container spacing={3} ref={resultsElement}>
         <Grid item xs={12} md={12} lg={3}>
           <DownloadListContext.Consumer>

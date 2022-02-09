@@ -7,6 +7,7 @@ import * as SearchTabProducts from "../../components/SearchTabProducts";
 import * as SearchTabDocuments from "../../components/SearchTabDocuments";
 import * as SearchTabPages from "../../components/SearchTabPages";
 import * as elasticSearch from "../../utils/elasticSearch";
+import { ConfigProvider } from "../../contexts/ConfigProvider";
 
 describe("Search Page Template", () => {
   const contentfulAsset = {
@@ -274,7 +275,7 @@ describe("Search Page Template", () => {
     jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(2);
     jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(1);
     const { container, getByText } = renderWithRouter(
-      <ConfigProvider customConfig={{ isPreviewMode: "true" }}>
+      <ConfigProvider customConfig={{ isPreviewMode: true }}>
         <SearchPage
           data={data}
           pageContext={{

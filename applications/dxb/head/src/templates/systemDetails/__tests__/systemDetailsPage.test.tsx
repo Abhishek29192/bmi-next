@@ -2,7 +2,6 @@ import React from "react";
 import { History } from "@reach/router";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import { createMockSiteData } from "../../../test/mockSiteData";
-import Component from "../systemDetailsPage";
 import SystemDetailsPage, {
   IGNORED_DOCUMENTS_ASSETS
 } from "../systemDetailsPage";
@@ -10,7 +9,7 @@ import { Asset, AssetAssetType, System } from "../../../components/types/pim";
 import createSystemDetails from "../../../test/systemDetailsMockData";
 import "@testing-library/jest-dom";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
-import { EnvConfig } from "../../../contexts/ConfigProvider";
+import { ConfigProvider, EnvConfig } from "../../../contexts/ConfigProvider";
 
 const systemPageId = "1234";
 const siteId = "1234";
@@ -26,11 +25,11 @@ const systemDetailsMockData = createSystemDetails();
 jest.mock("gatsby");
 
 const withProviders = ({
-  customConfig = { brandProviderToggler: true },
+  customConfig = { isBrandProviderEnabled: true },
   routerObject,
   renderComponent
 }: {
-  customConfig?: Partial<EnvConfig["config"]>;
+  customConfig?: EnvConfig["config"];
   routerObject?: { route?: string; history?: History };
   renderComponent: React.ReactElement;
 }) => {

@@ -13,19 +13,18 @@ import { local } from "../../utils/storage";
 import { SiteContextProvider } from "../Site";
 import * as BasketContextUtils from "../../contexts/SampleBasketContext";
 import { ClassificationCodeEnum } from "../types/pim";
-import { EnvConfig } from "../../contexts/ConfigProvider";
+import { ConfigProvider, EnvConfig } from "../../contexts/ConfigProvider";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
-import { ConfigProviderMock } from "./utils/ConfigProviderMock";
 
 const MockSiteContext = ({
   mockEnvConfig = { gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT" },
   children
 }: {
-  mockEnvConfig?: Partial<EnvConfig["config"]>;
+  mockEnvConfig?: EnvConfig["config"];
   children: React.ReactNode;
 }) => {
   return (
-    <ConfigProviderMock customConfig={mockEnvConfig}>
+    <ConfigProvider configObject={mockEnvConfig}>
       <SiteContextProvider
         value={{
           ...getMockSiteContext("no"),
@@ -35,7 +34,7 @@ const MockSiteContext = ({
       >
         {children}
       </SiteContextProvider>
-    </ConfigProviderMock>
+    </ConfigProvider>
   );
 };
 
@@ -163,8 +162,6 @@ describe("SampleBasketSection component", () => {
 
 describe("SampleBasketSection with form", () => {
   it("should submit form with provided samples", async () => {
-    process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT =
-      "GATSBY_GCP_FORM_SUBMIT_ENDPOINT";
     const { container } = render(
       <MockSiteContext>
         <BasketContextProvider>

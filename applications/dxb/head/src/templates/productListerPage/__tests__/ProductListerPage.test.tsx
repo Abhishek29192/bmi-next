@@ -27,8 +27,7 @@ import {
 import { Data as SiteData } from "../../../components/Site";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import * as elasticSearch from "../../../utils/elasticSearch";
-import { ConfigProviderMock } from "../../../components/__tests__/utils/ConfigProviderMock";
-import { EnvConfig } from "../../../contexts/ConfigProvider";
+import { ConfigProvider, EnvConfig } from "../../../contexts/ConfigProvider";
 
 window.alert = jest.fn();
 type Data = PageInfoData &
@@ -299,17 +298,19 @@ const renderWithStylesAndLocationProvider = (
     isLegacyFiltersUsing: isLegacyFiltersUsing,
     gatsbyReCaptchaKey: "test",
     visualizerAssetUrl: "est-test-page",
-    brandProviderToggler: true
+    isBrandProviderEnabled: true
   } as Partial<EnvConfig["config"]>;
-  const res = { ...defaultPageEnvVars, ...mockEnvVariables };
+
   return render(
-    <ConfigProviderMock customConfig={res}>
+    <ConfigProvider
+      configObject={{ ...defaultPageEnvVars, ...mockEnvVariables }}
+    >
       <ProvideStyles>
         <LocationProvider history={history}>
           <ProductListerPage data={pageData} pageContext={pageContext} />
         </LocationProvider>
       </ProvideStyles>
-    </ConfigProviderMock>
+    </ConfigProvider>
   );
 };
 
@@ -344,7 +345,7 @@ describe("ProductListerPage template", () => {
         const { container, findByText } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext,
-          { brandProviderToggler: false, isLegacyFiltersUsing: false }
+          { isBrandProviderEnabled: false, isLegacyFiltersUsing: false }
         );
         await findByText(heroTitle);
         await waitFor(() => expect(container.parentElement).toMatchSnapshot());
@@ -556,7 +557,7 @@ describe("ProductListerPage template", () => {
         const { container, findByText } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext,
-          { brandProviderToggler: false }
+          { isBrandProviderEnabled: false }
         );
         await findByText(heroTitle);
         await waitFor(() => expect(container.parentElement).toMatchSnapshot());
@@ -751,9 +752,9 @@ describe("ProductListerPage template", () => {
   });
 
   it("no search for Gatsby preview", async () => {
-    process.env.GATSBY_PREVIEW = "test";
     pageData.initialProducts = [productWithVariantAndBase];
     pageData.productFilters = [];
+    pageData.contentfulProductListerPage.heroType = "Spotlight";
     const { container, findByText } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext,
@@ -818,6 +819,7 @@ describe("ProductListerPage template", () => {
     const products = new Array(30).fill(productWithVariantAndBase);
     const esProducts = new Array(30).fill(esProduct);
     pageData.initialProducts = [...products];
+    pageData.contentfulProductListerPage.heroType = "Level 1";
     mockQueryES.mockResolvedValueOnce({
       hits: {
         hits: [...esProducts],

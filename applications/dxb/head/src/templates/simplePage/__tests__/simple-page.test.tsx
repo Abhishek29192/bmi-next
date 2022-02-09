@@ -29,7 +29,7 @@ import {
   inputBanner
 } from "../__mocks__/mocks";
 import { createMockSiteData } from "../../../test/mockSiteData";
-import { ConfigProviderMock } from "../../../components/__tests__/utils/ConfigProviderMock";
+import { ConfigProvider } from "../../../contexts/ConfigProvider";
 
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));
@@ -39,13 +39,13 @@ const renderWithStylesAndLocationProvider = (
   pageContext: PageContextType
 ): RenderResult => {
   return render(
-    <ConfigProviderMock customConfig={{ brandProviderToggler: true }}>
+    <ConfigProvider configObject={{ isBrandProviderEnabled: true }}>
       <ProvideStyles>
         <LocationProvider history={history}>
           <SimplePage data={pageData} pageContext={pageContext} />
         </LocationProvider>
       </ProvideStyles>
-    </ConfigProviderMock>
+    </ConfigProvider>
   );
 };
 

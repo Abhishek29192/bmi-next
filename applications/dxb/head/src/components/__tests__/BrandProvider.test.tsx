@@ -4,32 +4,32 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { useTheme } from "@material-ui/core/styles";
 import BrandProvider, { getBrandClassName } from "../BrandProvider";
-import { ConfigProviderMock } from "./utils/ConfigProviderMock";
+import { ConfigProvider } from "../../contexts/ConfigProvider";
 
 describe("BrandProvider", () => {
   it("renders", () => {
     const { container } = render(
-      <ConfigProviderMock>
+      <ConfigProvider>
         <BrandProvider>Test</BrandProvider>
-      </ConfigProviderMock>
+      </ConfigProvider>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("renders without BrandProvider", () => {
     const { container } = render(
-      <ConfigProviderMock customConfig={{ brandProviderToggler: false }}>
+      <ConfigProvider configObject={{ isBrandProviderEnabled: true }}>
         <BrandProvider>Test</BrandProvider>
-      </ConfigProviderMock>
+      </ConfigProvider>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("renders with brand", () => {
     const { container } = render(
-      <ConfigProviderMock>
+      <ConfigProvider>
         <BrandProvider brand="Braas">Test</BrandProvider>
-      </ConfigProviderMock>
+      </ConfigProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -41,25 +41,25 @@ describe("BrandProvider", () => {
 
   it("adds brand className only when brand is provided", () => {
     const { rerender } = render(
-      <ConfigProviderMock>
+      <ConfigProvider>
         <BrandProvider>Without brand</BrandProvider>
-      </ConfigProviderMock>
+      </ConfigProvider>
     );
     expect(screen.getByTestId("brand-colors-provider")).not.toHaveClass();
 
     rerender(
-      <ConfigProviderMock>
+      <ConfigProvider>
         <BrandProvider brand="Unknown">With brand</BrandProvider>
-      </ConfigProviderMock>
+      </ConfigProvider>
     );
     expect(screen.getByTestId("brand-colors-provider")).not.toHaveClass();
 
     const brand = "Braas";
     const className = getBrandClassName(brand);
     rerender(
-      <ConfigProviderMock>
+      <ConfigProvider>
         <BrandProvider brand={brand}>With brand</BrandProvider>
-      </ConfigProviderMock>
+      </ConfigProvider>
     );
     expect(screen.getByTestId("brand-colors-provider")).toHaveClass(className);
   });
@@ -78,11 +78,11 @@ describe("BrandProvider", () => {
     };
 
     render(
-      <ConfigProviderMock>
+      <ConfigProvider>
         <BrandProvider brand="Braas">
           <TestComponent />
         </BrandProvider>
-      </ConfigProviderMock>
+      </ConfigProvider>
     );
 
     expect(screen.getByText(interColor)).toBeInTheDocument();

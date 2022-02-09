@@ -138,7 +138,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   );
   const initialProducts = data.initialProducts || [];
   const {
-    config: { isLegacyFiltersUsing, isPreviewMode, brandProviderToggler }
+    config: { isLegacyFiltersUsing, isPreviewMode, isBrandProviderEnabled }
   } = useConfig();
 
   const heroProps: HeroItem = generateHeroProps(
@@ -378,7 +378,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const isFeaturesArrayExist = features?.length > 0;
   const isKeyFeatureBlockVisible = isFeaturesArrayExist || featuresLink;
-  const isHeroKeyLine = Boolean(brandProviderToggler && brandLogo);
+  const isHeroKeyLine = Boolean(isBrandProviderEnabled && brandLogo);
   return (
     <Page
       brand={brandLogo}
@@ -395,17 +395,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
               <ProgressIndicator theme="light" />
             </Scrim>
           ) : null}
-          {renderHero(
-            heroProps,
-            breadcrumbsNode,
-            heroLevel,
-            brandLogo,
-            heroType,
-            {
-              isHeroKeyLine: isHeroKeyLine,
-              isSpotlightHeroKeyLine: isHeroKeyLine
-            }
-          )}
+          {renderHero(heroProps, breadcrumbsNode, heroLevel, heroType, {
+            isHeroKeyLine: isHeroKeyLine,
+            isSpotlightHeroKeyLine: isHeroKeyLine
+          })}
           <Section backgroundColor="white">
             <LeadBlock>
               <LeadBlock.Content>

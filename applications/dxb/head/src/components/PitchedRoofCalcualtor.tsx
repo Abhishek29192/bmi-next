@@ -5,7 +5,6 @@ import axios from "axios";
 import { devLog } from "../utils/devLog";
 import { pushToDataLayer } from "../utils/google-tag-manager";
 import { useConfig } from "../contexts/ConfigProvider";
-import { convertStrToBool } from "../utils/convertStrToBool";
 import { Data } from "./pitched-roof-calculator/types";
 import no from "./pitched-roof-calculator/samples/copy/no.json";
 import sampleData from "./pitched-roof-calculator/samples/data.json";

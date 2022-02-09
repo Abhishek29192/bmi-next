@@ -6,8 +6,8 @@ import * as Gatsby from "gatsby";
 import FormSection, { Data, FormInputs, InputWidthType } from "../FormSection";
 import { DataTypeEnum } from "../Link";
 import { SiteContextProvider } from "../Site";
+import { ConfigProvider } from "../../contexts/ConfigProvider";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
-import { ConfigProviderMock } from "./utils/ConfigProviderMock";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -303,9 +303,9 @@ describe("FormSection component", () => {
   it("test submit when preview is on", () => {
     jest.spyOn(window, "alert").mockImplementation();
     const { container } = render(
-      <ConfigProviderMock customConfig={{ isPreviewMode: true }}>
+      <ConfigProvider configObject={{ isPreviewMode: true }}>
         <FormSection data={data} backgroundColor="white" />
-      </ConfigProviderMock>
+      </ConfigProvider>
     );
     fireEvent.submit(container.querySelector("form"));
     expect(window.alert).toHaveBeenCalledWith(
@@ -326,8 +326,8 @@ describe("FormSection component", () => {
     };
     jest.spyOn(Gatsby, "navigate").mockImplementation();
     const { container } = render(
-      <ConfigProviderMock
-        customConfig={{
+      <ConfigProvider
+        configObject={{
           gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
         }}
       >
@@ -338,7 +338,7 @@ describe("FormSection component", () => {
             onSuccess={onSuccess}
           />
         </MockSiteContext>
-      </ConfigProviderMock>
+      </ConfigProvider>
     );
 
     const textInput = container.querySelector(`input[name="text"]`);
@@ -380,8 +380,8 @@ describe("FormSection component", () => {
     };
     jest.spyOn(Gatsby, "navigate").mockImplementation();
     const { container } = render(
-      <ConfigProviderMock
-        customConfig={{
+      <ConfigProvider
+        configObject={{
           gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
         }}
       >
@@ -392,7 +392,7 @@ describe("FormSection component", () => {
             onSuccess={jest.fn()}
           />
         </MockSiteContext>
-      </ConfigProviderMock>
+      </ConfigProvider>
     );
 
     const textInput = container.querySelector(`input[name="text"]`);

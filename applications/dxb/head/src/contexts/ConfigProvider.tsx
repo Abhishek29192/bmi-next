@@ -7,7 +7,7 @@ export interface EnvConfig {
     googleTagManagerID?: string;
     hubSpotId?: string;
     isSchemaORGActivated?: boolean;
-    brandProviderToggler?: boolean;
+    isBrandProviderEnabled?: boolean;
     gatsbyReCaptchaKey?: string;
     gatsbyReCaptchaNet?: string;
     visualizerAssetUrl?: string;
@@ -20,8 +20,8 @@ export interface EnvConfig {
     webtoolsCalculatorDataUrl?: string;
     isWebToolsCalculatorEnabled?: boolean;
     webToolsCalculatorApsisEndpoint?: string;
-    documentDownloadMaxLimit?: string;
-    isRecomendedProductsHide?: boolean;
+    documentDownloadMaxLimit?: number;
+    isRelatedProductsHide?: boolean;
     googleApiKey?: string;
     esIndexNameSystem?: string;
     isDevMode?: boolean;
@@ -39,7 +39,7 @@ export const envConfig: EnvConfig = {
     isSchemaORGActivated: convertStrToBool(
       process.env.GATSBY_SCHEMA_ORG_ACTIVATED
     ),
-    brandProviderToggler: convertStrToBool(
+    isBrandProviderEnabled: convertStrToBool(
       process.env.GATSBY_ENABLE_BRAND_PROVIDER
     ),
     gatsbyReCaptchaKey: process.env.GATSBY_RECAPTCHA_KEY,
@@ -59,8 +59,9 @@ export const envConfig: EnvConfig = {
     ),
     webToolsCalculatorApsisEndpoint:
       process.env.GATSBY_WEBTOOLS_CALCULATOR_APSIS_ENDPOINT,
-    documentDownloadMaxLimit: process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT,
-    isRecomendedProductsHide: convertStrToBool(
+    documentDownloadMaxLimit:
+      +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100,
+    isRelatedProductsHide: convertStrToBool(
       process.env.GATSBY_HIDE_RECOMMENDED_PRODUCTS
     ),
     googleApiKey: process.env.GATSBY_GOOGLE_API_KEY,
@@ -82,17 +83,19 @@ interface ConfigContextValues {
 }
 
 const ConfigContext = createContext<ConfigContextValues>({
-  config: {}
+  config: envConfig.config
 });
 
 export const ConfigProvider = ({
-  configObject = envConfig,
+  configObject,
   children
 }: {
-  configObject: ConfigContextValues;
+  configObject?: EnvConfig["config"];
   children: React.ReactChild | React.ReactChildren;
 }) => (
-  <ConfigContext.Provider value={configObject}>
+  <ConfigContext.Provider
+    value={{ config: { ...envConfig.config, ...configObject } }}
+  >
     {children}
   </ConfigContext.Provider>
 );
