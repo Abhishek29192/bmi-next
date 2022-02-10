@@ -58,7 +58,9 @@ const mapHeroCarouselItems = (
     return {
       title: header,
       children: body,
-      imageSource: image?.url,
+      media: (
+        <img className={styles.carouselImage} src={image?.url} alt={header} />
+      ),
       cta: (
         <AccessControl dataModel="home" action={`CTA_${cta}`}>
           {getCta(cta)}
