@@ -909,7 +909,7 @@ describe("Making a POST request", () => {
     });
     expect(processForAllLocales).toBeCalledTimes(1);
     expect(send).toBeCalledWith({
-      to: "email@email.com",
+      to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: "Website form submission",
       text: JSON.stringify({ a: "b", uploadedAssets: ["https://localhost"] }),
@@ -963,7 +963,68 @@ describe("Making a POST request", () => {
     });
     expect(processForAllLocales).toBeCalledTimes(1);
     expect(send).toBeCalledWith({
-      to: "email@email.com",
+      to: ["email@email.com"],
+      from: process.env.SENDGRID_FROM_EMAIL,
+      subject: "Website form submission",
+      text: JSON.stringify({ a: "b", uploadedAssets: ["https://localhost"] }),
+      html: '<ul><li><b>a</b>: "b"</li><li><b>uploadedAssets</b>: ["https://localhost"]</li></ul>'
+    });
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.sendStatus).toBeCalledWith(200);
+  });
+
+  it("returns status 200 when successfully sends email with multiple recipients", async () => {
+    const req = mockRequest(
+      {
+        locale: locale,
+        recipients: "email@email.com, email1@email.com,email2@email.com",
+        values: { files: ["path/to/file"], a: "b" }
+      },
+      { "x-recaptcha-token": validToken }
+    );
+    const res = mockResponse();
+
+    getSecret
+      .mockResolvedValueOnce(recaptchaSecret)
+      .mockResolvedValueOnce(managementTokenSecret)
+      .mockResolvedValueOnce(sendGridSecret);
+
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
+        success: true,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    });
+
+    await submit(req, res);
+
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
+    expect(fetchMock).toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(getSecret).toBeCalledWith(
+      process.env.CONTENTFUL_MANAGEMENT_TOKEN_SECRET
+    );
+    expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
+    expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
+    expect(getSecret).toBeCalledWith(process.env.SENDGRID_API_KEY_SECRET);
+    expect(setApiKey).toBeCalledWith(sendGridSecret);
+    expect(createAsset).toBeCalledWith({
+      fields: {
+        title: {
+          [locale]: expect.stringContaining("User upload ")
+        },
+        file: {
+          [locale]: "path/to/file"
+        }
+      }
+    });
+    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(send).toBeCalledWith({
+      to: ["email@email.com", "email1@email.com", "email2@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: "Website form submission",
       text: JSON.stringify({ a: "b", uploadedAssets: ["https://localhost"] }),
@@ -1012,7 +1073,7 @@ describe("Making a POST request", () => {
     expect(createAsset).toBeCalledTimes(0);
     expect(processForAllLocales).toBeCalledTimes(0);
     expect(send).toBeCalledWith({
-      to: "email@email.com",
+      to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: "Website form submission",
       text: JSON.stringify({ a: "b", uploadedAssets: [] }),
@@ -1070,7 +1131,7 @@ describe("Making a POST request", () => {
     });
     expect(processForAllLocales).toBeCalledTimes(1);
     expect(send).toBeCalledWith({
-      to: "email@email.com",
+      to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: "Website form submission",
       text: JSON.stringify({ a: "b", uploadedAssets: [] }),
@@ -1135,7 +1196,7 @@ describe("Making a POST request", () => {
     });
     expect(processForAllLocales).toBeCalledTimes(1);
     expect(send).toBeCalledWith({
-      to: "email@email.com",
+      to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: "Website form submission",
       text: JSON.stringify({ a: "b", uploadedAssets: [] }),
@@ -1196,7 +1257,7 @@ describe("Making a POST request", () => {
     });
     expect(processForAllLocales).toBeCalledTimes(1);
     expect(send).toBeCalledWith({
-      to: "email@email.com",
+      to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: "Website form submission",
       text: JSON.stringify({ a: "b", uploadedAssets: [] }),
@@ -1254,7 +1315,7 @@ describe("Making a POST request", () => {
     });
     expect(processForAllLocales).toBeCalledTimes(2);
     expect(send).toBeCalledWith({
-      to: "email@email.com",
+      to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
       subject: "Website form submission",
       text: JSON.stringify({ a: "b", uploadedAssets: ["https://localhost"] }),
