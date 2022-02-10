@@ -442,7 +442,7 @@ exports[`ProductLeadBlock tests should render the specification tab 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiBox-root MuiBox-root-32 TabPanelBox"
+    class="MuiBox-root MuiBox-root-221 TabPanelBox"
   >
     <h5
       class="MuiTypography-root heading Typography MuiTypography-h5"
