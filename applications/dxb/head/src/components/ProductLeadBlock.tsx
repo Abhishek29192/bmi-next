@@ -79,10 +79,7 @@ const ProductLeadBlock = ({
   const resultsElement = useRef<HTMLDivElement>(null);
 
   const isImageAsset = (asset: Asset) => {
-    return (
-      asset.realFileName?.indexOf(".jpg") > -1 ||
-      asset.realFileName?.indexOf(".png") > -1
-    );
+    return asset.realFileName?.indexOf(".jpg") > -1;
   };
   const isPDFAsset = (asset: Asset) => {
     return (
