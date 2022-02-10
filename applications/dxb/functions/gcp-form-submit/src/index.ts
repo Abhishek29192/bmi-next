@@ -109,7 +109,9 @@ export const submit: HttpFunction = async (request, response) => {
 
       const {
         body: {
+          title,
           locale,
+          emailSubjectFormat,
           values: { files, ...fields } // @todo "files" probably shouldn't come from CMS
         }
       } = request;
@@ -201,7 +203,7 @@ export const submit: HttpFunction = async (request, response) => {
       await sendgridClient.send({
         to: recipients,
         from: SENDGRID_FROM_EMAIL,
-        subject: "Website form submission",
+        subject: generateEmailSubject(title, fields, emailSubjectFormat),
         text: JSON.stringify(formResponse),
         html
       });
@@ -212,4 +214,30 @@ export const submit: HttpFunction = async (request, response) => {
       return response.sendStatus(500);
     }
   }
+};
+
+const generateEmailSubject = (
+  formTitle: string,
+  fields: Record<string, string>,
+  emailSubjectFormat?: string
+) => {
+  if (!emailSubjectFormat) {
+    return formTitle;
+  }
+
+  const emailSubjectFields = emailSubjectFormat.match(/\{\{.+?\}\}/g) ?? [];
+
+  const emailSubjectEntries = emailSubjectFields.map((field) => {
+    const formattedField = field.replace(/\{\{/, "").replace(/\}\}/, "");
+
+    return [field, fields[formattedField.toString()] || ""];
+  });
+
+  let result = emailSubjectFormat;
+  emailSubjectEntries.forEach(([field, value]) => {
+    result = result.replace(field, value);
+  });
+
+  const title = [formTitle, result].filter(Boolean);
+  return title.join(" - ");
 };
