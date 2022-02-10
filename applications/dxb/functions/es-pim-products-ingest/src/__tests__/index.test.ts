@@ -1,13 +1,14 @@
 import { RequestParams } from "@elastic/elasticsearch";
 import mockConsole from "jest-mock-console";
 import {
-  Product,
-  System,
   createProduct as createPimProduct,
-  createSystem
+  createSystem,
+  Product,
+  System
 } from "@bmi/pim-types";
+import { DeleteItemType, ObjType } from "@bmi/gcp-pim-message-handler";
 import { ProductVariant } from "../es-model";
-import { ProductMessage, SystemMessage } from "../types";
+import { DeleteMessage, ProductMessage, SystemMessage } from "../types";
 import { EsSystem } from "../transformSystems";
 import createProductVariant from "./helpers/ProductVariantHelper";
 import { createEsSystem } from "./helpers/EsSystemHelper";
@@ -15,7 +16,7 @@ import { createEsSystem } from "./helpers/EsSystemHelper";
 const { ES_INDEX_PREFIX } = process.env;
 
 const createEvent = (
-  message?: ProductMessage | SystemMessage
+  message?: ProductMessage | SystemMessage | DeleteMessage
 ): { data: string } => {
   if (!message) {
     return { data: "" };
@@ -49,6 +50,12 @@ jest.mock("../transformSystems", () => ({
   transformSystem: (system: System): EsSystem => transformSystem(system)
 }));
 
+const deleteESItemByCode = jest.fn();
+jest.mock("../deleteESItemByCode", () => ({
+  deleteESItemByCode: (items: DeleteItemType[], type: string) =>
+    deleteESItemByCode(items, type)
+}));
+
 beforeAll(() => {
   mockConsole();
 });
@@ -68,7 +75,7 @@ const handleMessage = async (
   event: { data: string },
   context: {
     message: {
-      data: ProductMessage | SystemMessage;
+      data: ProductMessage | SystemMessage | DeleteMessage;
     };
   }
 ): Promise<any> => (await import("../index")).handleMessage(event, context);
@@ -837,5 +844,58 @@ describe("handleMessage", () => {
       body: [{ delete: { _index: index, _id: productVariant.code } }]
     });
     expect(count).toBeCalledWith({ index });
+  });
+
+  describe("delete operation", () => {
+    const createContext = (): {
+      message: { data: DeleteMessage };
+    } => ({
+      message: { data: {} as DeleteMessage }
+    });
+    it("should perform delete operation if item's code provided on delete message ", async () => {
+      ping.mockImplementation((args) => {
+        args();
+      });
+      const deleteItem: DeleteItemType = {
+        code: "test",
+        objType: ObjType.Base_product
+      };
+      const message: DeleteMessage = {
+        type: "DELETED",
+        itemType: "PRODUCTS",
+        items: [deleteItem]
+      };
+
+      await handleMessage(createEvent(message), createContext());
+
+      expect(getEsClient).toBeCalled();
+      expect(ping).toBeCalled();
+
+      expect(deleteESItemByCode).toBeCalledWith([deleteItem], "PRODUCTS");
+    });
+    it("should log message if item's code provided on update message ", async () => {
+      const consoleSpy = jest.spyOn(console, "log");
+      ping.mockImplementation((args) => {
+        args();
+      });
+      const deleteItem = { code: "test", objType: ObjType.Base_product };
+      const message: DeleteMessage = {
+        type: "UPDATED",
+        itemType: "PRODUCTS",
+        items: [deleteItem]
+      };
+
+      await handleMessage(createEvent(message), createContext());
+
+      expect(getEsClient).toBeCalled();
+      expect(ping).toBeCalled();
+
+      const logData = consoleSpy.mock.calls;
+
+      const logMessage = JSON.parse(logData[logData.length - 1][0]).message;
+      expect(logMessage).toEqual(
+        "In order to perform delete entities in ES message type should be 'DELETED' instead of 'UPDATED'"
+      );
+    });
   });
 });
