@@ -1,0 +1,17 @@
+test_media:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/media-gallery"
+    ROOT_DIR: "components/media-gallery"
+
+test_mr_coverage_media:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi/media-gallery"
+    ROOT_DIR: "components/media-gallery"
+
+build_media:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/media-gallery"
+    ROOT_DIR: "components/media-gallery"

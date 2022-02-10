@@ -929,7 +929,7 @@ HTMLCollection [
               class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
             >
               <div
-                class="ImageGallery"
+                class="MediaGallery"
               >
                 <div
                   class="image-wrapper"

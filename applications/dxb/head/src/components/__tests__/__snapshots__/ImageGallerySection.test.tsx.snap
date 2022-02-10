@@ -27,7 +27,7 @@ exports[`ImageGallerySection component renders correctly 1`] = `
             class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
           >
             <div
-              class="ImageGallery"
+              class="MediaGallery"
             >
               <div
                 class="image-wrapper"
@@ -134,7 +134,7 @@ exports[`ImageGallerySection component renders correctly with long description 1
             class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
           >
             <div
-              class="ImageGallery"
+              class="MediaGallery"
             >
               <div
                 class="image-wrapper"

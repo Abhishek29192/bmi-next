@@ -9,6 +9,7 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
+          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
           caption: null,
@@ -56,6 +57,7 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
+          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
           caption: null,
@@ -95,6 +97,7 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
+          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
           caption: null,
@@ -134,6 +137,7 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
+          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
           caption: null,
@@ -173,6 +177,7 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
+          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
           caption: null,
@@ -212,6 +217,7 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
+          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
           caption: null,
@@ -251,6 +257,7 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
+          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
           caption: null,
@@ -290,6 +297,7 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
+          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
           caption: null,
@@ -329,6 +337,7 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
+          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
           caption: null,
@@ -368,6 +377,7 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
+          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
           caption: null,
@@ -418,6 +428,7 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
+          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
           caption: null,

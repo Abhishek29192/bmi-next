@@ -9,8 +9,9 @@ import Fade from "@material-ui/core/Fade";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import classnames from "classnames";
-import React, { CSSProperties, useState } from "react";
+import React, { CSSProperties, useContext, useEffect, useState } from "react";
 import ReactPlayer from "react-player/youtube";
+import { YoutubeContext } from "@bmi/media-gallery";
 import { getDefaultPreviewImageSource, getVideoURL } from "./utils";
 import styles from "./YoutubeVideo.module.scss";
 
@@ -60,7 +61,7 @@ const playerStyle: CSSProperties = {
   transform: "translate(-50%, -50%)"
 };
 
-const getValidPrevieImage = (
+const getValidPreviewImage = (
   previewImageSource: string | React.ReactNode,
   label: React.ReactNode
 ) => {
@@ -90,11 +91,14 @@ const DialogVideo = ({
   const theme = useTheme();
   const isMobileDevice = useMediaQuery(theme.breakpoints.only("xs"));
   const isXLDevice = useMediaQuery(theme.breakpoints.only("xl"));
-
-  const [isDialogOpen, setDialogOpen] = useState(false);
+  const showYouTubeVideo = useContext(YoutubeContext);
+  const [isDialogOpen, setDialogOpen] = useState(showYouTubeVideo);
   const [ref, dimensions] = useDimensions();
   const { width, height } = getSize(embedWidth, embedHeight, dimensions);
   let calculatedHeight = dimensions.height;
+  useEffect(() => {
+    setDialogOpen(showYouTubeVideo);
+  }, [showYouTubeVideo]);
   // this is to fix safari full height issue with css properties!
   // this allows us keep player's height at max available height of container at all times
   if (dimensions.width && height > 0 && width > 0) {
@@ -105,7 +109,7 @@ const DialogVideo = ({
   if (calculatedHeight == 0 && height == 0) {
     calculatedHeight = window.innerHeight - 120;
   }
-  const validImageComponent = getValidPrevieImage(previewImageSource, label);
+  const validImageComponent = getValidPreviewImage(previewImageSource, label);
   return (
     <div className={classnames(styles["YoutubeVideo"], className)}>
       <Clickable
@@ -198,7 +202,7 @@ const InlineVideo = ({
   embedHeight = 9
 }: Props) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const validImageComponent = getValidPrevieImage(previewImageSource, label);
+  const validImageComponent = getValidPreviewImage(previewImageSource, label);
   return (
     <div
       className={classnames(

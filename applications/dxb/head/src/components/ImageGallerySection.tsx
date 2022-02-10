@@ -1,13 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
-import ImageGallery, { Image } from "@bmi/image-gallery";
 import Thumbnail, { Props as ThumbnailProps } from "@bmi/thumbnail";
 import Typography from "@bmi/typography";
 import Section from "@bmi/section";
 import Grid from "@bmi/grid";
+import MediaGallery, { Media as MediaData } from "@bmi/media-gallery";
 import withGTM from "../utils/google-tag-manager";
-import { renderImage, Data as ImageData } from "./Image";
+import { Data as ImageData, renderImage } from "./Image";
 import styles from "./styles/ImageGallerySection.module.scss";
+import { Data as ContenfulVideoData, renderVideo } from "./Video";
 import RichText, { RichTextData } from "./RichText";
 
 type GallerySectionImage = Omit<ImageData, "image"> & {
@@ -18,20 +19,47 @@ type GallerySectionImage = Omit<ImageData, "image"> & {
   };
 };
 
+type GallerySectionVideo = Omit<ContenfulVideoData, "previewMedia"> & {
+  previewMedia: ContenfulVideoData["previewMedia"] & {
+    image: ContenfulVideoData["previewMedia"]["image"] & {
+      thumbnail: {
+        src: string;
+      };
+    };
+  };
+};
+
+type GallerySectionMedias = GallerySectionImage | GallerySectionVideo;
 export type Data = {
   __typename: "ContentfulImageGallerySection";
   title: string | null;
   longDescription: null | RichTextData;
-  medias: GallerySectionImage[];
+  medias: GallerySectionMedias[];
 };
 
-export const transformImagesSrc = (images?: GallerySectionImage[]): Image[] => {
-  return (images || []).map((item) => ({
-    media: renderImage(item),
-    thumbnail: item.image.thumbnail.src,
-    caption: item.caption?.caption || undefined,
-    altText: item.altText || undefined
-  }));
+export const transformMediaSrc = (
+  media: GallerySectionMedias[] = []
+): MediaData[] => {
+  return media.map((item) => {
+    switch (item.__typename) {
+      case "ContentfulImage":
+        return {
+          media: renderImage(item),
+          thumbnail: item.image.thumbnail.src || null,
+          caption: item.caption?.caption || undefined,
+          altText: item.altText || undefined,
+          isVideo: false
+        };
+      case "ContentfulVideo":
+        return {
+          media: renderVideo(item),
+          thumbnail: item.previewMedia?.image?.thumbnail?.src || null,
+          caption: item.subtitle || undefined,
+          altText: item.previewMedia?.altText || undefined,
+          isVideo: true
+        };
+    }
+  });
 };
 
 const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
@@ -61,13 +89,13 @@ const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
           )}
         </Grid>
         <Grid item xs={12}>
-          <ImageGallery
-            images={transformImagesSrc(medias)}
-            imageSize="cover"
+          <MediaGallery
+            media={transformMediaSrc(medias)}
+            mediaSize="cover"
             thumbnailComponent={(props: ThumbnailProps) => (
               <GTMThumbnail gtm={{ id: "image-gallery1" }} {...props} />
             )}
-          ></ImageGallery>
+          />
         </Grid>
       </Grid>
     </Section>
@@ -84,11 +112,7 @@ export const query = graphql`
     }
     medias {
       ...ImageGallerySlideFragment
-      image {
-        thumbnail: resize(width: 80, height: 60) {
-          src
-        }
-      }
+      ...VideoGallerySlideFragment
     }
   }
 `;

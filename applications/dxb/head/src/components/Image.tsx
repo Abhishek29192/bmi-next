@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { GatsbyImage as Img, IGatsbyImageData } from "gatsby-plugin-image";
 
 export type Data = {
+  __typename: "ContentfulImage";
   altText: string | null;
   type: "Decorative" | "Descriptive" | null;
   image: {
@@ -105,6 +106,7 @@ export const query = graphql`
   }
 
   fragment BaseImageFragment on ContentfulImage {
+    __typename
     type
     altText
     caption {
@@ -150,6 +152,9 @@ export const query = graphql`
         width: 696
         formats: [WEBP, AUTO]
       )
+      thumbnail: resize(width: 80, height: 60) {
+        src
+      }
     }
   }
 

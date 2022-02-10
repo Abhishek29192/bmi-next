@@ -10,7 +10,7 @@ type Props = {
   /**
    * The `react-lines-ellipsis` package only accepts string.
    */
-  children: string;
+  children: string | undefined;
   lines: number | string;
   lineHeight?: string;
   component?: React.ElementType;

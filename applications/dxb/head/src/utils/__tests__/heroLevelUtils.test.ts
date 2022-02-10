@@ -1,6 +1,8 @@
 import React from "react";
 import { generateHeroLevel, generateHeroProps } from "../heroLevelUtils";
 import { Data as LinkData, DataTypeEnum } from "../../components/Link";
+import { Data as VideoData } from "../../components/Video";
+import { Data as ImageData } from "../../components/Image";
 
 const mockBreadCrumbs = [
   { id: "id-mock", label: "mock-breadcrumb", slug: "slug-mock" }
@@ -20,7 +22,8 @@ const cta: LinkData = {
   hubSpotCTAID: null
 };
 
-const featuredMedia = {
+const featuredMedia: ImageData = {
+  __typename: "ContentfulImage",
   type: null,
   altText: "Lorem ipsum",
   caption: null,
@@ -30,20 +33,17 @@ const featuredMedia = {
       fileName: "Lorem ipsum",
       url: "//images.asset.jpg"
     }
-  },
-  thumbnail: {
-    src: "//images.asset.jpg"
   }
 };
 
-const featureVideo = {
+const featureVideo: VideoData = {
+  __typename: "ContentfulVideo",
   title: "video title",
   label: "video label",
   subtitle: "video subtitle",
   youtubeId: "TDNEwZbm_Nk",
   previewMedia: null,
-  videoRatio: null,
-  className: null
+  videoRatio: null
 };
 
 describe("generateHeroLevel test", () => {

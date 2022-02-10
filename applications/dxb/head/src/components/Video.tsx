@@ -4,6 +4,7 @@ import YoutubeVideo from "@bmi/youtube-video";
 import Image, { Data as ImageData } from "./Image";
 
 export type Data = {
+  __typename: "ContentfulVideo";
   title: string;
   label: string;
   subtitle: string | null;
@@ -35,6 +36,7 @@ export const renderVideo = (data: Data) => {
 
 export const query = graphql`
   fragment VideoFragment on ContentfulVideo {
+    __typename
     title
     label
     subtitle
@@ -45,6 +47,17 @@ export const query = graphql`
     videoRatio {
       width
       height
+    }
+  }
+
+  fragment VideoGallerySlideFragment on ContentfulVideo {
+    ...VideoFragment
+    previewMedia {
+      image {
+        thumbnail: resize(width: 80, height: 60) {
+          src
+        }
+      }
     }
   }
 `;

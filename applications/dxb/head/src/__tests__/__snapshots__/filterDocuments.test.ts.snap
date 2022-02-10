@@ -37,6 +37,7 @@ Array [
     "brand": null,
     "description": null,
     "featuredMedia": Object {
+      "__typename": "ContentfulImage",
       "altText": "alt text",
       "caption": null,
       "focalPoint": Object {

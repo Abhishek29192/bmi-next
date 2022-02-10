@@ -62,6 +62,7 @@ const SampleBasketSectionProducts = () => {
   const sampleCards = basketState.products.map((sample) => {
     const media = renderImage(
       {
+        __typename: "ContentfulImage",
         type: "Descriptive",
         altText: sample.name,
         caption: { caption: sample.name },

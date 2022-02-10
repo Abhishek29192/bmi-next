@@ -41,6 +41,7 @@ const getBrandLogo = (categories: readonly Category[]): null | ImageData => {
   if (!brandCategory) return null;
 
   return {
+    __typename: "ContentfulImage",
     type: null,
     altText: null,
     image: {

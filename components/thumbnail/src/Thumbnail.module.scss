@@ -43,4 +43,10 @@
     // NOTE: This sets the Ripple's colour
     color: $color-charcoal;
   }
+
+  .play-icon {
+    font-size: 2rem;
+    fill: $color-white;
+    cursor: pointer;
+  }
 }

@@ -36,6 +36,7 @@ describe("Brand Landing Page Template", () => {
       hubSpotCTAID: null
     },
     featuredVideo: {
+      __typename: "ContentfulVideo",
       title: "featuredVideo",
       label: "label",
       subtitle: null,
@@ -59,6 +60,7 @@ describe("Brand Landing Page Template", () => {
       tags: null,
       featuredMedia: null,
       featuredVideo: {
+        __typename: "ContentfulVideo",
         title: "featuredVideo",
         label: "label",
         subtitle: null,
@@ -116,6 +118,7 @@ describe("Brand Landing Page Template", () => {
         path: "some-page",
         featuredMedia: null,
         featuredVideo: {
+          __typename: "ContentfulVideo",
           title: "featuredVideo",
           label: "label",
           subtitle: null,
@@ -130,6 +133,7 @@ describe("Brand Landing Page Template", () => {
         path: "some-page",
         featuredMedia: null,
         featuredVideo: {
+          __typename: "ContentfulVideo",
           title: "featuredVideo",
           label: "label",
           subtitle: null,
@@ -175,6 +179,7 @@ describe("Brand Landing Page Template", () => {
     const newData = { ...data };
     newData.contentfulBrandLandingPage.featuredVideo = null;
     newData.contentfulBrandLandingPage.featuredMedia = {
+      __typename: "ContentfulImage",
       type: null,
       altText: "featuredMediaAltText",
       caption: null,
@@ -231,6 +236,7 @@ describe("Brand Landing Page Template", () => {
         ...slide,
         featuredVideo: null,
         featuredMedia: {
+          __typename: "ContentfulImage",
           type: null,
           altText: "featuredMediaAltText",
           caption: null,

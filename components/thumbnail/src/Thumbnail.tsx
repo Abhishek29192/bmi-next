@@ -3,6 +3,7 @@ import classnames from "classnames";
 import { withClickable } from "@bmi/clickable";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import Media, { AcceptedNode } from "@bmi/media";
+import Icon, { iconMap } from "@bmi/icon";
 import styles from "./Thumbnail.module.scss";
 
 export enum StateEnum {
@@ -10,6 +11,7 @@ export enum StateEnum {
   DISABLED = "disabled",
   SELECTED = "selected"
 }
+
 export enum SizeEnum {
   SMALL = "small",
   LARGE = "large"
@@ -22,6 +24,8 @@ export type Props = ButtonBaseProps & {
   imageSource?: string;
   color?: string;
   size?: SizeEnum;
+  isVideo: boolean;
+  openYoutubeVideo?: (e: React.MouseEvent<SVGElement>) => void;
 };
 
 const Thumbnail = ({
@@ -32,6 +36,8 @@ const Thumbnail = ({
   state = StateEnum.ENABLED,
   size = SizeEnum.SMALL,
   className,
+  isVideo = false,
+  openYoutubeVideo,
   ...rest
 }: Props) => {
   const classList = classnames(
@@ -55,6 +61,13 @@ const Thumbnail = ({
         <span className={styles["accessibility-text"]}>{altText}</span>
       )}
       {media && <Media>{media}</Media>}
+      {isVideo && (
+        <Icon
+          source={iconMap.PlayArrow}
+          className={styles["play-icon"]}
+          onClick={(e) => openYoutubeVideo && openYoutubeVideo(e)}
+        />
+      )}
     </ButtonBase>
   );
 };

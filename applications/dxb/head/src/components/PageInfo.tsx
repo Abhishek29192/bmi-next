@@ -4,6 +4,12 @@ import { TagData } from "./Tag";
 import { Data as VideoData } from "./Video";
 import { Data as ImageData } from "./Image";
 
+export type ImageWithThumbnail = ImageData & {
+  thumbnail: {
+    src: string;
+  };
+};
+
 export type Data = {
   __typename:
     | "ContentfulSimplePage"
@@ -20,13 +26,7 @@ export type Data = {
   date: string | null;
   tags: TagData[] | null;
   // TODO: Move Video as option of Media.
-  featuredMedia:
-    | (ImageData & {
-        thumbnail: {
-          src: string;
-        };
-      })
-    | null;
+  featuredMedia: ImageWithThumbnail | null;
   featuredVideo: VideoData | null;
   heroType?: string | null;
   cta?: LinkData | null;

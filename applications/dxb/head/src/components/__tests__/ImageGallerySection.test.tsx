@@ -45,15 +45,14 @@ describe("ImageGallerySection component", () => {
       longDescription: null,
       medias: [
         {
+          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
           caption: null,
           focalPoint: null,
           image: {
             thumbnail: {
-              src: "//image.asset.jpg",
-              label: "altText",
-              action: "imageSource"
+              src: "//image.asset.jpg"
             },
             gatsbyImageData: {
               images: {
@@ -98,15 +97,14 @@ describe("ImageGallerySection component", () => {
       longDescription: document,
       medias: [
         {
+          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
           caption: null,
           focalPoint: null,
           image: {
             thumbnail: {
-              src: "//image.asset.jpg",
-              label: "altText",
-              action: "imageSource"
+              src: "//image.asset.jpg"
             },
             gatsbyImageData: {
               images: {
