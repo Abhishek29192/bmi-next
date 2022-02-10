@@ -153,7 +153,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                     <svg
                       aria-hidden="true"
                       class="icon"
-                      data-testid="internal"
+                      data-testid="external"
                       focusable="false"
                     />
                   </a>
@@ -170,7 +170,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                     <svg
                       aria-hidden="true"
                       class="icon"
-                      data-testid="internal"
+                      data-testid="external"
                       focusable="false"
                     />
                   </a>
@@ -187,11 +187,55 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                     <svg
                       aria-hidden="true"
                       class="icon"
-                      data-testid="internal"
+                      data-testid="external"
                       focusable="false"
                     />
                   </a>
                 </div>
+              </div>
+              <div
+                class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+              >
+                <h5
+                  class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                >
+                  MC: pdp.leadBlock.awardsCertificates
+                </h5>
+                <span
+                  class="document"
+                >
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-outlined MuiButton-outlinedPrimary"
+                    href="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hbc/hd9/9009904058398/Monier-garanti-30-arpdf"
+                    rel="noopener noreferrer"
+                    tabindex="0"
+                    target="_blank"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-12"
+                    >
+                      Monier garanti 30 år
+                      <span
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </span>
               </div>
             </div>
           </div>
@@ -206,7 +250,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-9 TabPanelBox"
+          class="MuiBox-root MuiBox-root-29 TabPanelBox"
         >
           <div
             class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
@@ -232,7 +276,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-10 TabPanelBox"
+          class="MuiBox-root MuiBox-root-30 TabPanelBox"
         >
           <div
             class="document-library"
@@ -281,7 +325,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
             >
               <nav
                 aria-label="pagination navigation"
-                class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-11"
+                class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-31"
               >
                 <ul
                   class="MuiPagination-ul"
@@ -337,13 +381,13 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                 </span>
               </a>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-12 MuiButton-contained buttonStyles-contained-14 MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-contained buttonStyles-contained-11 MuiButton-containedPrimary"
                 data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-15"
+                  class="MuiButton-label buttonStyles-label-12"
                 >
                   MC: downloadList.download (0)
                 </span>
@@ -383,6 +427,32 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         </div>
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`ProductLeadBlock tests should render the documents and download tab 1`] = `
+<div
+  aria-labelledby="tab-seven"
+  class="MuiGrid-root TabPanel tab-container MuiGrid-item"
+  data-testid="specification"
+  heading="MC: pdp.leadBlock.specification"
+  hidden=""
+  id="tabpanel-seven"
+  role="tabpanel"
+>
+  <div
+    class="MuiBox-root MuiBox-root-257 TabPanelBox"
+  >
+    <h5
+      class="MuiTypography-root heading Typography MuiTypography-h5"
+    >
+      Specification title
+    </h5>
+    <iframe
+      class="assetsIframe specification-tab-iframe"
+      src="https://monier.service.bouwconnect.nl/"
+    />
   </div>
 </div>
 `;

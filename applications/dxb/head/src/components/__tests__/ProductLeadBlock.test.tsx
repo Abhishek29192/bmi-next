@@ -8,8 +8,20 @@ import {
 import createSystemDetails from "../../test/systemDetailsMockData";
 import { Image } from "../types/pim";
 import { Asset } from "../types/pim";
+import { PIMDocumentData } from "../types/PIMDocumentBase";
 
 const systemDetailsMockData = createSystemDetails();
+const awardsAndCertificatesAssets: Asset[] = [
+  {
+    allowedToDownload: true,
+    assetType: "WARRANTIES",
+    fileSize: 8470,
+    mime: "application/pdf",
+    name: "Monier garanti 30 år",
+    realFileName: "Monier garanti 30 år.pdf",
+    url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hbc/hd9/9009904058398/Monier-garanti-30-arpdf"
+  }
+];
 const guaranteesAndWarrantiesAssets: Asset[] = [
   {
     allowedToDownload: true,
@@ -73,6 +85,7 @@ describe("ProductLeadBlock tests", () => {
         classificationNamespace=""
         techDrawings={[]}
         guaranteesAndWarranties={guaranteesAndWarrantiesAssets}
+        awardsAndCertificates={awardsAndCertificatesAssets}
       />
     );
     expect(container).toMatchSnapshot();
@@ -161,6 +174,44 @@ describe("ProductLeadBlock tests", () => {
     const { queryByTestId } = render(
       <ProductLeadBlock
         documents={[]}
+        validClassifications={[]}
+        classificationNamespace=""
+        techDrawings={[]}
+        specificationIframeUrl={specificationIframeUrl}
+        pdpSpecificationTitle="Specification title"
+        pdpSpecificationDescription={null}
+      />
+    );
+    const productBlock = queryByTestId("specification");
+    expect(productBlock).toMatchSnapshot();
+  });
+  it("should render the documents and download tab", () => {
+    const specificationIframeUrl = "https://monier.service.bouwconnect.nl/";
+    const document: PIMDocumentData = {
+      __typename: "PIMDocument",
+      fileSize: 234,
+      extension: "jpg",
+      format: "image/jpg",
+      id: "dummy-id",
+      url: "https://doesnt-exist.com",
+      title: "dummy-title",
+      realFileName: null,
+      product: {
+        name: "dummy-product",
+        code: "dummy-code"
+      },
+      assetType: {
+        __typename: "ContentfulAssetType",
+        id: "some-asset-id",
+        name: "Technical Approvals",
+        code: "TALS",
+        description: null,
+        pimCode: "TECHNICAL_APPROVALS"
+      }
+    };
+    const { queryByTestId } = render(
+      <ProductLeadBlock
+        documents={[document]}
         validClassifications={[]}
         classificationNamespace=""
         techDrawings={[]}
