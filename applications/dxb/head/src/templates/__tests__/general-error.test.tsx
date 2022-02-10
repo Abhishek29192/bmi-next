@@ -87,7 +87,9 @@ describe("General Error", () => {
         sampleBasketLink: null,
         keyAssetTypes: null,
         pdpFixingToolTitle: null,
-        pdpFixingToolDescription: null
+        pdpFixingToolDescription: null,
+        pdpSpecificationTitle: null,
+        pdpSpecificationDescription: null
       },
       headScripts: null,
       scriptOnetrust: null,

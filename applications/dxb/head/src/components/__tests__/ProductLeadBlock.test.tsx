@@ -73,8 +73,6 @@ describe("ProductLeadBlock tests", () => {
         classificationNamespace=""
         techDrawings={[]}
         guaranteesAndWarranties={guaranteesAndWarrantiesAssets}
-        pdpFixingToolDescription={null}
-        pdpFixingToolTitle={null}
       />
     );
     expect(container).toMatchSnapshot();
@@ -91,8 +89,6 @@ describe("ProductLeadBlock tests", () => {
         validClassifications={[]}
         classificationNamespace=""
         techDrawings={techDrawings}
-        pdpFixingToolDescription={null}
-        pdpFixingToolTitle={null}
       />
     );
     const productBlock = queryByTestId("technicalDrawings");
@@ -106,8 +102,6 @@ describe("ProductLeadBlock tests", () => {
         validClassifications={[]}
         classificationNamespace=""
         techDrawings={[]}
-        pdpFixingToolDescription={null}
-        pdpFixingToolTitle={null}
       />
     );
     const productBlock = queryByTestId("technicalDrawings");
@@ -123,8 +117,6 @@ describe("ProductLeadBlock tests", () => {
         classificationNamespace=""
         techDrawings={[]}
         fixingToolIframeUrl={fixingToolIframeUrl}
-        pdpFixingToolDescription={null}
-        pdpFixingToolTitle={null}
       />
     );
     const productBlock = queryByTestId("fixingTool");
@@ -162,5 +154,22 @@ describe("ProductLeadBlock tests", () => {
     );
     const productBlock = queryByTestId("fixingTool");
     expect(productBlock).toBe(null);
+  });
+
+  it("should render the specification tab", () => {
+    const specificationIframeUrl = "https://monier.service.bouwconnect.nl/";
+    const { queryByTestId } = render(
+      <ProductLeadBlock
+        documents={[]}
+        validClassifications={[]}
+        classificationNamespace=""
+        techDrawings={[]}
+        specificationIframeUrl={specificationIframeUrl}
+        pdpSpecificationTitle="Specification title"
+        pdpSpecificationDescription={null}
+      />
+    );
+    const productBlock = queryByTestId("specification");
+    expect(productBlock).toMatchSnapshot();
   });
 });

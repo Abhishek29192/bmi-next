@@ -1019,6 +1019,12 @@ type ContentfulResources implements Node {
 
   "The description for product details page fixing tool tab."
   pdpFixingToolDescription: ContentfulRichText
+
+  "The title for product details page specification tab."
+  pdpSpecificationTitle: String
+
+  "The description for product details page specification tab."
+  pdpSpecificationDescription: ContentfulRichText
 }
 
 """

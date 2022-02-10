@@ -29,7 +29,7 @@
   .document-library {
     padding-top: 32px;
   }
-  .fixing-tool-iframe {
+  .fixing-tool-iframe, .specification-tab-iframe {
     height: 600px;
     @media (min-width: $breakpoint-lg) {
       height: 800px;
