@@ -13,6 +13,7 @@ const THUMBNAIL_WIDTH = 86;
 beforeAll(() => {
   jest.clearAllMocks();
   jest.clearAllTimers();
+  Element.prototype.scrollTo = jest.fn();
 });
 
 const images = [

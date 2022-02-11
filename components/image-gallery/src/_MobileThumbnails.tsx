@@ -48,15 +48,10 @@ const Thumbnails = ({
 
   useEffect(() => {
     const currentElement = thumbnailsRef.current;
-    if (
-      currentElement &&
-      currentElement.parentElement &&
-      typeof currentElement.parentElement.scrollTo === "function"
-    ) {
-      currentElement.parentElement.scrollTo({
+    currentElement &&
+      currentElement.parentElement!.scrollTo({
         left: (currentElement && currentElement.offsetWidth) || undefined
       });
-    }
 
     return () => {
       clearTimeout(debouncer);
