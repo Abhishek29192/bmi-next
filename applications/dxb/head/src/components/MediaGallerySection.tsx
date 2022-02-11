@@ -5,9 +5,10 @@ import { Typography } from "@bmi/components";
 import { Section } from "@bmi/components";
 import { Grid } from "@bmi/components";
 import { MediaGallery, MediaData } from "@bmi/components";
+import { getDefaultPreviewImage } from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
 import { Data as ImageData, renderImage } from "./Image";
-import styles from "./styles/ImageGallerySection.module.scss";
+import styles from "./styles/MediaGallerySection.module.scss";
 import { Data as ContenfulVideoData, renderVideo } from "./Video";
 import RichText, { RichTextData } from "./RichText";
 
@@ -31,7 +32,7 @@ type GallerySectionVideo = Omit<ContenfulVideoData, "previewMedia"> & {
 
 type GallerySectionMedias = GallerySectionImage | GallerySectionVideo;
 export type Data = {
-  __typename: "ContentfulImageGallerySection";
+  __typename: "ContentfulMediaGallerySection";
   title: string | null;
   longDescription: null | RichTextData;
   medias: GallerySectionMedias[];
@@ -53,7 +54,9 @@ export const transformMediaSrc = (
       case "ContentfulVideo":
         return {
           media: renderVideo(item),
-          thumbnail: item.previewMedia?.image?.thumbnail?.src || null,
+          thumbnail:
+            item.previewMedia?.image?.thumbnail?.src ||
+            getDefaultPreviewImage(item.youtubeId),
           caption: item.subtitle || undefined,
           altText: item.previewMedia?.altText || undefined,
           isVideo: true
@@ -62,7 +65,7 @@ export const transformMediaSrc = (
   });
 };
 
-const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
+const IntegratedMediaGallerySection = ({ data }: { data: Data }) => {
   const { title, longDescription, medias } = data;
 
   const GTMThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
@@ -73,7 +76,7 @@ const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
   return (
     <Section
       backgroundColor="alabaster"
-      className={styles["ImageGallerySection"]}
+      className={styles["MediaGallerySection"]}
     >
       <Grid container>
         <Grid item xs={12} lg={8}>
@@ -93,7 +96,7 @@ const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
             media={transformMediaSrc(medias)}
             mediaSize="cover"
             thumbnailComponent={(props: ThumbnailProps) => (
-              <GTMThumbnail gtm={{ id: "image-gallery1" }} {...props} />
+              <GTMThumbnail gtm={{ id: "media-gallery1" }} {...props} />
             )}
           />
         </Grid>
@@ -102,10 +105,10 @@ const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
   );
 };
 
-export default IntegratedImageGallerySection;
+export default IntegratedMediaGallerySection;
 
 export const query = graphql`
-  fragment ImageGallerySectionFragment on ContentfulImageGallerySection {
+  fragment MediaGallerySectionFragment on ContentfulMediaGallerySection {
     title
     longDescription {
       ...RichTextFragment

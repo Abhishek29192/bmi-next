@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import ImageGallerySection, { Data } from "../ImageGallerySection";
+import MediaGallerySection, { Data } from "../MediaGallerySection";
 import { RichTextData } from "../RichText";
 
 const raw = {
@@ -37,10 +37,10 @@ const document: RichTextData = {
   ]
 };
 
-describe("ImageGallerySection component", () => {
+describe("MediaGallerySection component", () => {
   it("renders correctly", () => {
     const data: Data = {
-      __typename: "ContentfulImageGallerySection",
+      __typename: "ContentfulMediaGallerySection",
       title: "Lorem ipsum",
       longDescription: null,
       medias: [
@@ -85,14 +85,14 @@ describe("ImageGallerySection component", () => {
       ]
     };
 
-    const { container } = render(<ImageGallerySection data={data} />);
+    const { container } = render(<MediaGallerySection data={data} />);
 
     expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with long description", () => {
     const data: Data = {
-      __typename: "ContentfulImageGallerySection",
+      __typename: "ContentfulMediaGallerySection",
       title: "Lorem ipsum",
       longDescription: document,
       medias: [
@@ -138,7 +138,7 @@ describe("ImageGallerySection component", () => {
     };
 
     const { container, getByText } = render(
-      <ImageGallerySection data={data} />
+      <MediaGallerySection data={data} />
     );
 
     expect(getByText("this is a test paragraph")).not.toBeNull();

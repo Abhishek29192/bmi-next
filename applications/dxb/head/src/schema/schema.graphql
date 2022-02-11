@@ -718,7 +718,7 @@ type ContentfulTabsOrAccordionSection implements Node {
 """
 Represents a section with a image gallery.
 """
-type ContentfulImageGallerySection implements Node {
+type ContentfulMediaGallerySection implements Node {
   id: ID!
 
   "The title for this section."
@@ -904,7 +904,7 @@ union ContentfulSection =
   | ContentfulSyndicateSection
   | ContentfulTitleWithContent
   | ContentfulPromo
-  | ContentfulImageGallerySection
+  | ContentfulMediaGallerySection
   | ContentfulDocumentDownloadSection
   | ContentfulServiceLocatorSection
   | ContentfulVideoSection

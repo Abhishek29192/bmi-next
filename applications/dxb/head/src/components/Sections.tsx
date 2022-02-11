@@ -16,7 +16,7 @@ import ExploreBarSection, {
 import FormSection, { Data as FormSectionData } from "./FormSection";
 import ImageGallerySection, {
   Data as ImageGallerySectionData
-} from "./ImageGallerySection";
+} from "./MediaGallerySection";
 import PromoSection, { Data as PromoSectionData } from "./PromoSection";
 import ServiceLocatorSection, {
   Data as ServiceLocatorSectionData
@@ -66,7 +66,7 @@ export const sectionsMap = {
   ContentfulNavigation: ExploreBarSection,
   ContentfulTitleWithContent: TitleWithContentSection,
   ContentfulPromo: PromoSection,
-  ContentfulImageGallerySection: ImageGallerySection,
+  ContentfulMediaGallerySection: ImageGallerySection,
   ContentfulDocumentDownloadSection: DocumentDownloadSection,
   ContentfulServiceLocatorSection: ServiceLocatorSection,
   ContentfulVideoSection: VideoSection,
@@ -194,7 +194,7 @@ export const query = graphql`
     ...CardCollectionSectionFragment
     ...TitleWithContentSectionFragment
     ...PromoSectionFragment
-    ...ImageGallerySectionFragment
+    ...MediaGallerySectionFragment
     ...DocumentDownloadSectionFragment
     ...ServiceLocatorSectionFragment
     ...VideoSectionFragment

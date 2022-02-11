@@ -225,3 +225,52 @@ exports[`YoutubeVideo component renders inline layout correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`YoutubeVideo component renders with dimensions correctly 1`] = `
+<div>
+  <div
+    class="YoutubeVideo"
+  >
+    <button
+      aria-label="test video"
+      class="thumbnail"
+      type="button"
+    >
+      <img
+        alt="test video"
+        class="preview-image"
+        src="https://i.ytimg.com/vi/A - RfHC91Ewc/maxresdefault.jpg"
+      />
+      <span
+        class="AlternativeContent"
+      >
+        test video
+      </span>
+      <div
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-contained-73 play-button"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8 5v14l11-7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </button>
+  </div>
+</div>
+`;

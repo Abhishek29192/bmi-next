@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ImageGallerySection component renders correctly 1`] = `
+exports[`MediaGallerySection component renders correctly 1`] = `
 <div>
   <div
-    class="ImageGallerySection Section Section--alabaster"
+    class="MediaGallerySection Section Section--alabaster"
   >
     <div
       class="Container"
@@ -89,10 +89,10 @@ exports[`ImageGallerySection component renders correctly 1`] = `
 </div>
 `;
 
-exports[`ImageGallerySection component renders correctly with long description 1`] = `
+exports[`MediaGallerySection component renders correctly with long description 1`] = `
 <div>
   <div
-    class="ImageGallerySection Section Section--alabaster"
+    class="MediaGallerySection Section Section--alabaster"
   >
     <div
       class="Container"
