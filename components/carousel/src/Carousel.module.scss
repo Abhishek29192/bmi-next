@@ -63,18 +63,20 @@ body {
     > div {
       overflow-x: visible !important;
     }
-    :global(.Carousel__slide--global) {
-      overflow: revert !important;
+    :global {
+      [class*="Carousel__slide--global"] {
+        overflow: revert !important;
 
-      transition: 0.3s ease-in-out opacity;
+        transition: 0.3s ease-in-out opacity;
 
-      &[aria-hidden="false"] {
-        opacity: 1;
-      }
+        &[aria-hidden="false"] {
+          opacity: 1;
+        }
 
-      &[aria-hidden="true"] {
-        opacity: 0;
-        pointer-events: none;
+        &[aria-hidden="true"] {
+          opacity: 0;
+          pointer-events: none;
+        }
       }
     }
   }
@@ -94,7 +96,7 @@ body {
   }
 
   &--show-off-screen {
-    :global(.Carousel__slide--global) {
+    [class*="Carousel__slide--global"] {
       &[aria-hidden="true"] {
         opacity: 0.35;
       }
