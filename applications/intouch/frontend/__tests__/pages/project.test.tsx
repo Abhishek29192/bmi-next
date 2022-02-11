@@ -1,18 +1,17 @@
 import React from "react";
-import Projects, {
-  getServerSideProps
-} from "../../pages/projects/[[...project]]";
-import { generateProject } from "../../lib/tests/factories/project";
-import { ROLES } from "../../lib/constants";
-import { generateGlobalPageData } from "../../lib/tests/factories/globalPageData";
-import { GetGlobalDataQuery } from "../../graphql/generated/operations";
 import { renderWithUserProvider } from "../../lib/tests/utils";
-import AccountContextWrapper from "../../lib/tests/fixtures/account";
-import ApolloProvider from "../../lib/tests/fixtures/apollo";
-import { generateMarketContext } from "../../lib/tests/factories/market";
 import { generateAccount } from "../../lib/tests/factories/account";
 import MarketContextWrapper from "../../lib/tests/fixtures/market";
 import { ErrorStatusCode } from "../../lib/error";
+import { getServerSideProps } from "../../pages/projects/[[...project]]";
+import { generateProject } from "../../lib/tests/factories/project";
+import { ROLES } from "../../lib/constants";
+import AccountContextWrapper from "../../lib/tests/fixtures/account";
+import ApolloProvider from "../../lib/tests/fixtures/apollo";
+import ProjectPage from "../../pages/projects/[[...project]]";
+import { GetProjectsQuery } from "../../graphql/generated/operations";
+import { generateGlobalPageData } from "../../lib/tests/factories/globalPageData";
+import { GetGlobalDataQuery } from "../../graphql/generated/operations";
 
 jest.mock("../../lib/middleware/withPage", () => ({
   withPage: (getServerSideProps: any) => {
@@ -32,6 +31,15 @@ jest.mock("next-i18next/serverSideTranslations", () => ({
   serverSideTranslations: () => Promise.resolve({})
 }));
 
+jest.mock("next/router", () => ({
+  ...jest.requireActual("next/router"),
+  useRouter: jest.fn().mockReturnValue({
+    query: {
+      project: ["1"]
+    }
+  })
+}));
+
 describe("Projects Page", () => {
   const globalPageData: GetGlobalDataQuery = generateGlobalPageData();
   const defaultContext = {
@@ -42,6 +50,17 @@ describe("Projects Page", () => {
   };
 
   const projects = [generateProject()];
+  const projectCollection: GetProjectsQuery["projectsByMarket"] = {
+    __typename: "ProjectsConnection",
+    nodes: [
+      {
+        ...generateProject()
+      }
+    ]
+  };
+  const account = generateAccount({ role: ROLES.SUPER_ADMIN });
+  // const globalPageData: GetGlobalDataQuery = generateGlobalPageData();
+
   it("should view all projects if super admin", async () => {
     const context = {
       ...defaultContext,
@@ -178,19 +197,19 @@ describe("Projects Page", () => {
       }
     });
   });
+
   it("render correctly", async () => {
-    const acc = generateAccount({ role: "SUPER_ADMIN" });
     const { container } = renderWithUserProvider(
       <ApolloProvider>
         <MarketContextWrapper>
-          <AccountContextWrapper account={acc}>
-            <Projects
-              projects={{ nodes: projects }}
-              isPowerfulUser
+          <AccountContextWrapper>
+            <ProjectPage
+              _pageError={null}
+              projects={projectCollection}
+              isPowerfulUser={true}
               globalPageData={globalPageData}
-              market={generateMarketContext()}
-              account={acc}
-              _pageError={{ statusCode: 401 }}
+              account={account}
+              market={undefined}
             />
           </AccountContextWrapper>
         </MarketContextWrapper>

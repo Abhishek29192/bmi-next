@@ -27,7 +27,8 @@ const defaultProject: GetProjectQuery["project"] = {
   },
   siteAddress: {
     id: 1,
-    country: "UK"
+    country: "UK",
+    postcode: "12345"
   },
   buildingOwnerMail: "buildingOwnerMail",
   buildingOwnerFirstname: "buildingOwnerFirstname",
