@@ -43,10 +43,12 @@
     pointer-events: none;
     right: 30px;
 
-    :global(.MuiPaper-root) {
-      pointer-events: all;
-      background-color: rgba(255, 255, 255, 0.75);
-      box-shadow: none;
+    :global {
+      [class*="MuiPaper-root"] {
+        pointer-events: all;
+        background-color: rgba(255, 255, 255, 0.75);
+        box-shadow: none;
+      }
     }
 
     .details-logo {
@@ -86,9 +88,11 @@
     }
 
     @media (max-width: $breakpoint-sm) {
-      :global(.MuiButton-label) {
-        display: flex;
-        flex-flow: column;
+      :global {
+        [class*="MuiButton-label"] {
+          display: flex;
+          flex-flow: column;
+        }
       }
     }
   }
@@ -104,8 +108,10 @@
       align-items: center;
       justify-content: center;
 
-      :global(canvas:focus) {
-        outline: none;
+      :global {
+        [class*="canvas:focus"] {
+          outline: none;
+        }
       }
     }
   }
@@ -117,23 +123,25 @@
 }
 
 .Visualiser-popover {
-  :global(.MuiPopover-paper) {
-    padding: 0 10px;
+  :global {
+    [class*=".MuiPopover-paper"] {
+      padding: 0 10px;
 
-    @media (max-width: $breakpoint-sm) {
-      max-width: 100%;
-      width: 100%;
-      left: 0 !important;
-    }
+      @media (max-width: $breakpoint-sm) {
+        max-width: 100%;
+        width: 100%;
+        left: 0 !important;
+      }
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      margin: 0 10px;
-      border-top: 1px solid $color-pearl;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 10px;
+        border-top: 1px solid $color-pearl;
+      }
     }
   }
 }
