@@ -99,10 +99,10 @@ export const submit: HttpFunction = async (request, response) => {
       const {
         body: {
           locale,
-          recipients,
           values: { files, ...fields } // @todo "files" probably shouldn't come from CMS
         }
       } = request;
+      const recipients = request.body.recipients.replace(/\s/, "").split(",");
 
       if (!fields || !Object.entries(fields).length) {
         return response.status(400).send(Error("Fields are empty."));
