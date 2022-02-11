@@ -48,9 +48,12 @@ const Thumbnails = ({
 
   useEffect(() => {
     const currentElement = thumbnailsRef.current;
-    const scrollTo = currentElement && currentElement.parentElement!.scrollTo;
-    if (scrollTo) {
-      scrollTo({
+    if (
+      currentElement &&
+      currentElement.parentElement &&
+      typeof currentElement.parentElement.scrollTo === "function"
+    ) {
+      currentElement.parentElement.scrollTo({
         left: (currentElement && currentElement.offsetWidth) || undefined
       });
     }
