@@ -9,7 +9,7 @@ import { GTMContext, pushToDataLayer } from "../utils/google-tag-manager";
 import { Parameters } from "./visualiser/Visualiser";
 import sidingsSetData from "./visualiser/data/sidings.json";
 import tilesSetData from "./visualiser/data/tiles.json";
-import { Tile } from "./Visualiser/Types";
+import { Tile } from "./visualiser/Types";
 import { useSiteContext } from "./Site";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData

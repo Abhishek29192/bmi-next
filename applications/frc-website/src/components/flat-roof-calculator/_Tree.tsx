@@ -16,7 +16,7 @@ const getEventHandler =
     const label = (mappedOptions.find((option) => value === option.value) || {})
       .label;
     if (label && typeof window !== "undefined" && "gtag" in window) {
-      window["gtag"]("event", "Input", {
+      (window as any)["gtag"]("event", "Input", {
         event_category: `${fieldName} selection`,
         event_label: label
       });

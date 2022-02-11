@@ -181,7 +181,7 @@ const FlatRoofCalculator = ({
     }
 
     if (typeof window !== "undefined" && "gtag" in window) {
-      window["gtag"]("event", "Calculate Clicked", {
+      (window as any)["gtag"]("event", "Calculate Clicked", {
         event_category: "Calculation"
       });
     }
