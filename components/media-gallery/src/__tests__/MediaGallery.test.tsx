@@ -4,6 +4,10 @@ import { fireEvent, render, waitFor } from "@testing-library/react";
 import MediaGallery from "../";
 import YoutubeVideo from "../../../youtube-video/src";
 
+beforeAll(() => {
+  Element.prototype.scrollTo = jest.fn();
+});
+
 const mockMedia = [
   {
     media: (
