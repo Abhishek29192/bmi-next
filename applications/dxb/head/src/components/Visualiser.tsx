@@ -1,20 +1,21 @@
+// TODO: Move to under visualiser
 import React, { createContext, Suspense, useState } from "react";
 import queryString from "query-string";
-import { Parameters } from "@bmi/visualiser/src/Visualiser";
-import sidingsSetData from "@bmi/visualiser/data/sidings.json";
-import tilesSetData from "@bmi/visualiser/data/tiles.json";
-import { Tile } from "@bmi/visualiser/src/Types";
 import { graphql, navigate } from "gatsby";
 import { navigate as navigateWithParams, useLocation } from "@reach/router";
 import { devLog } from "../utils/devLog";
 import { getProductUrl } from "../utils/product-details-transforms";
 import { GTMContext, pushToDataLayer } from "../utils/google-tag-manager";
+import { Parameters } from "./visualiser/Visualiser";
+import sidingsSetData from "./visualiser/data/sidings.json";
+import tilesSetData from "./visualiser/data/tiles.json";
+import { Tile } from "./Visualiser/Types";
 import { useSiteContext } from "./Site";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "./ShareWidgetSection";
 
-const Visualiser = React.lazy(() => import("@bmi/visualiser"));
+const Visualiser = React.lazy(() => import("./visualiser/Visualiser"));
 
 type Context = {
   isOpen: boolean;

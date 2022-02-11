@@ -40,9 +40,7 @@ module.exports = {
     "\\.(woff2|ttf)$": require.resolve("./jest/src/FontImport.ts"),
     "^@bmi/(?!styles|visualiser/data)(.*)$":
       "<rootDir>/node_modules/@bmi/$1/src",
-    "^@bmi/styles$": require.resolve("./jest/src/CSSModuleImport.ts"),
-    "^@bmi/visualiser/data/(.*)$":
-      "<rootDir>/node_modules/@bmi/visualiser/data/$1"
+    "^@bmi/styles$": require.resolve("./jest/src/CSSModuleImport.ts")
   },
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",

@@ -14,13 +14,13 @@
   "scripts": {
     "build": "gatsby build --prefix-paths",
     "check:ts": "tsc",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "dev": "gatsby clean && gatsby develop",
     "start": "gatsby build && gatsby serve"
   },
   "dependencies": {
     "@bmi/button": "0.0.0",
     "@bmi/container": "0.0.0",
-    "@bmi/flat-roof-calculator": "0.0.0",
     "@bmi/footer": "0.0.0",
     "@bmi/grid": "0.0.0",
     "@bmi/logo": "0.0.0",
