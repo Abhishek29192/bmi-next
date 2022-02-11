@@ -126,6 +126,7 @@ const Content = ({ className, ...rest }: React.HTMLProps<HTMLDivElement>) => (
 Dialog.Content = Content;
 
 type ActionsProps = {
+  className?: string;
   confirmLabel?: React.ReactNode;
   onConfirmClick?: (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
