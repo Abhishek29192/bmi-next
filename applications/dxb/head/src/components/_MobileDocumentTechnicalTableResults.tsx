@@ -1,8 +1,10 @@
 import React from "react";
-import Accordion, { AccordionSummaryProps } from "@bmi/accordion";
-import Button, { IconButtonProps } from "@bmi/button";
-import Clickable, { ClickableProps } from "@bmi/clickable";
-import Icon, { iconMap } from "@bmi/icon";
+import Accordion, {
+  AccordionSummaryProps
+} from "@bmi-digital/components/accordion";
+import Button, { IconButtonProps } from "@bmi-digital/components/button";
+import Clickable, { ClickableProps } from "@bmi-digital/components/clickable";
+import Icon, { iconMap } from "@bmi-digital/components/icon";
 import withGTM from "../utils/google-tag-manager";
 import {
   PIMDocumentData,

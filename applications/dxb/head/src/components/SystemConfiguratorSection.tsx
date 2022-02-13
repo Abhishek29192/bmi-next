@@ -10,9 +10,9 @@ import React, {
 import { graphql } from "gatsby";
 import axios, { AxiosResponse, CancelToken } from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import Section from "@bmi/section";
-import RadioPane, { RadioPaneProps } from "@bmi/radio-pane";
-import Grid from "@bmi/grid";
+import Section from "@bmi-digital/components/section";
+import RadioPane, { RadioPaneProps } from "@bmi-digital/components/radio-pane";
+import Grid from "@bmi-digital/components/grid";
 import { useLocation, navigate } from "@reach/router";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
 import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";

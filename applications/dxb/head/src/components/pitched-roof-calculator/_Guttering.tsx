@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import CardRadioGroup from "@bmi/card-radio-group";
-import Grid from "@bmi/grid";
-import { FormContext } from "@bmi/form";
+import CardRadioGroup from "@bmi-digital/components/card-radio-group";
+import Grid from "@bmi-digital/components/grid";
+import { FormContext } from "@bmi-digital/components/form";
 import NumericInput from "./subcomponents/up-down-simple-numeric-input/UpDownSimpleNumericInput";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";

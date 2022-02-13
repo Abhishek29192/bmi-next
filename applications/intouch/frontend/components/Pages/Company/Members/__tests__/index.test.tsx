@@ -37,7 +37,7 @@ jest.mock("../../../../../graphql/generated/hooks", () => ({
   useGetTeamsReportLazyQuery: () => [jest.fn(), { loading: false }]
 }));
 
-jest.mock("@bmi/use-dimensions", () => ({
+jest.mock("@bmi-digital/use-dimensions", () => ({
   __esModule: true,
   default: () => [useRef(), jest.fn()]
 }));

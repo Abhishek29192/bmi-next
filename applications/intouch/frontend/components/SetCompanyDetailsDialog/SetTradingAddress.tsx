@@ -7,13 +7,13 @@ import React, {
 } from "react";
 import { useTranslation } from "react-i18next";
 import { Point } from "@bmi/intouch-api-types";
-import { FormContext } from "@bmi/form";
-import Grid from "@bmi/grid";
-import Typography from "@bmi/typography";
+import { FormContext } from "@bmi-digital/components/form";
+import Grid from "@bmi-digital/components/grid";
+import Typography from "@bmi-digital/components/typography";
 // if this MR which updates "withFormControl", is compatible with DXB
 // https://gitlab.com/bmi-digital/dxb/-/merge_requests/1672
 // we can just use the controlled "TextField" instead of wrapping it with a forked withFormControl
-import { Props as TextFieldProps, TextField } from "@bmi/text-field";
+import { TextFieldProps, TextField } from "@bmi-digital/components/text-field";
 import withFormControlWithFormValues from "../withFormControlForked";
 import { GetCompanyQuery } from "../../graphql/generated/operations";
 import { AddressAutocomplete } from "../AddressAutocomplete";

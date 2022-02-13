@@ -3,7 +3,7 @@ import { Session } from "@auth0/nextjs-auth0";
 import { gql } from "@apollo/client";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Document } from "@contentful/rich-text-types";
-import Typography from "@bmi/typography";
+import Typography from "@bmi-digital/components/typography";
 import { getAuth0Instance } from "../lib/auth0";
 import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
 import { withPublicPage } from "../lib/middleware/withPublicPage";

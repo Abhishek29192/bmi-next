@@ -1,0 +1,16 @@
+{
+  "name": "@bmi-digital/clickable",
+  "private": true,
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "check:ts": "tsc",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
+  },
+  "dependencies": {
+    "react": "^16.13.1"
+  }
+}

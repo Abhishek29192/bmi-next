@@ -1,7 +1,7 @@
 import React from "react";
-import Accordion from "@bmi/accordion";
-import Typography from "@bmi/typography";
-import Table from "@bmi/table";
+import Accordion from "@bmi-digital/components/accordion";
+import Typography from "@bmi-digital/components/typography";
+import Table from "@bmi-digital/components/table";
 import { getValidFeatures } from "../utils/product-details-transforms";
 import { microCopy } from "../constants/microCopies";
 import { Classification } from "./types/pim";

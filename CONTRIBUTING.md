@@ -7,7 +7,7 @@ This project uses yarn workspaces, to see a full list of commands, please refer 
 Dependencies should be installed for individual workspace using [yarn](https://yarnpkg.com/) commands at the root of the monorepo, e.g.
 
 ```shell
-$ yarn workspace @bmi/button add react
+$ yarn workspace @bmi-digital/components/button add react
 ```
 
 Development dependencies should be instead installed at root level, e.g.
@@ -19,7 +19,7 @@ $ yarn add --dev -W jest
 You can also install inter-dependencies between the monorepo packages, e.g.
 
 ```shell
-$ yarn workspace @bmi/button add @bmi/icon@0.0.0
+$ yarn workspace @bmi-digital/components/button add @bmi-digital/components/icon@0.0.0
 ```
 
 ## Commit messages

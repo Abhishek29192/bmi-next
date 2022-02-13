@@ -1,0 +1,52 @@
+@import "@bmi-digital/styles";
+
+.Thumbnail {
+  display: inline-block;
+  border: 1px solid $color-white;
+  margin: 2px;
+
+  background-position: center center;
+  background-color: $color-slate;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 60px;
+  height: 50px;
+
+  &:hover {
+    box-shadow: 0 0 0 2px rgba($color-theme-inter-rgb, 0.5);
+  }
+
+  &--selected,
+  &--selected:hover {
+    box-shadow: 0 0 0 2px $color-theme-accent-300;
+    cursor: default;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  &--large {
+    width: 80px;
+    height: 60px;
+    background-size: cover;
+  }
+
+  .accessibility-text {
+    text-indent: -9999px;
+    overflow: hidden;
+    display: inline-block;
+    // NOTE: This sets the Ripple's colour
+    color: $color-charcoal;
+  }
+
+  .play-icon {
+    font-size: 2rem;
+    fill: $color-white;
+    cursor: pointer;
+  }
+}

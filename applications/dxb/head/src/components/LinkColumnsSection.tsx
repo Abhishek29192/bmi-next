@@ -1,12 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
 import AddIcon from "@material-ui/icons/Add";
-import Button from "@bmi/button";
-import ExpandableLinksTextCard from "@bmi/expandable-links-text-card";
-import MasonryGrid from "@bmi/masonry-grid";
+import Button from "@bmi-digital/components/button";
+import ExpandableLinksTextCard from "@bmi-digital/components/expandable-links-text-card";
+import MasonryGrid from "@bmi-digital/components/masonry-grid";
 import RemoveIcon from "@material-ui/icons/Remove";
-import Section from "@bmi/section";
-import { ClickableAction } from "components/clickable/src";
+import Section from "@bmi-digital/components/section";
+import { ClickableAction } from "@bmi-digital/components/clickable";
 import { microCopy } from "../constants/microCopies";
 import { useSiteContext } from "./Site";
 import {

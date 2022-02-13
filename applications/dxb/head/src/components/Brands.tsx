@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import Section from "@bmi/section";
-import Button, { ButtonProps } from "@bmi/button";
-import BrandIntroCard from "@bmi/brand-intro-card";
-import Grid from "@bmi/grid";
-import { iconMap } from "@bmi/logo";
+import Section from "@bmi-digital/components/section";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import BrandIntroCard from "@bmi-digital/components/brand-intro-card";
+import Grid from "@bmi-digital/components/grid";
+import { iconMap } from "@bmi-digital/components/logo";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
 import styles from "./styles/Brands.module.scss";

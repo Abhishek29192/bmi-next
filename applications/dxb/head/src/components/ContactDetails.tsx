@@ -1,8 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
-import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
-import LocationCard, { DetailProps } from "@bmi/location-card";
-import MicroCopy from "@bmi/micro-copy";
+import AnchorLink, {
+  AnchorLinkProps
+} from "@bmi-digital/components/anchor-link";
+import LocationCard, {
+  LocationCardDetailProps
+} from "@bmi-digital/components/location-card";
+import MicroCopy from "@bmi-digital/components/micro-copy";
 import withGTM from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
 
@@ -15,14 +19,14 @@ export type Data = {
   otherInformation: RichTextData | null;
 };
 
-type Details = readonly [DetailProps, ...DetailProps[]];
+type Details = readonly [LocationCardDetailProps, ...LocationCardDetailProps[]];
 
 export const getDetails = (
   address: string | null,
   phoneNumber: string | null,
   email: string | null
 ): Details | undefined => {
-  const addressLine: [DetailProps] | undefined = address
+  const addressLine: [LocationCardDetailProps] | undefined = address
     ? [
         {
           type: "address",
@@ -37,7 +41,7 @@ export const getDetails = (
         }
       ]
     : undefined;
-  const phoneNumberLine: [DetailProps] | undefined = phoneNumber
+  const phoneNumberLine: [LocationCardDetailProps] | undefined = phoneNumber
     ? [
         {
           type: "phone",
@@ -47,7 +51,7 @@ export const getDetails = (
         }
       ]
     : undefined;
-  const emailLine: [DetailProps] | undefined = email
+  const emailLine: [LocationCardDetailProps] | undefined = email
     ? [
         {
           type: "email",

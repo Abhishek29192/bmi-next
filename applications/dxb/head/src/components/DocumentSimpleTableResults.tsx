@@ -1,8 +1,10 @@
-import Button, { ButtonProps } from "@bmi/button";
-import DownloadList, { DownloadListContext } from "@bmi/download-list";
-import { ClickableAction } from "@bmi/clickable";
-import Icon, { iconMap } from "@bmi/icon";
-import Table from "@bmi/table";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import DownloadList, {
+  DownloadListContext
+} from "@bmi-digital/components/download-list";
+import { ClickableAction } from "@bmi-digital/components/clickable";
+import Icon, { iconMap } from "@bmi-digital/components/icon";
+import Table from "@bmi-digital/components/table";
 import classnames from "classnames";
 import filesize from "filesize";
 import React, { useContext } from "react";

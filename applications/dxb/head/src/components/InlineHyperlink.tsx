@@ -1,7 +1,9 @@
 import React, { useContext, useState, useCallback } from "react";
 import { graphql, Link } from "gatsby";
 import { Inline } from "@contentful/rich-text-types";
-import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
+import AnchorLink, {
+  AnchorLinkProps
+} from "@bmi-digital/components/anchor-link";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { getClickableActionFromUrl, getLinkURL, renderDialog } from "./Link";

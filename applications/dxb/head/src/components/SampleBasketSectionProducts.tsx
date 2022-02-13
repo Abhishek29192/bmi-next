@@ -1,9 +1,9 @@
 import React from "react";
-import OverviewCard from "@bmi/overview-card";
-import Typography from "@bmi/typography";
+import OverviewCard from "@bmi-digital/components/overview-card";
+import Typography from "@bmi-digital/components/typography";
 import { Remove } from "@material-ui/icons";
-import Icon from "@bmi/icon";
-import Button from "@bmi/button";
+import Icon from "@bmi-digital/components/icon";
+import Button from "@bmi-digital/components/button";
 import { navigate } from "gatsby";
 import { useMediaQuery, useTheme } from "@material-ui/core";
 import { getPathWithCountryCode } from "../utils/path";

@@ -1,0 +1,17 @@
+test_villain:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/villain"
+    ROOT_DIR: "components/villain"
+
+test_mr_coverage_villain:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi-digital/components/villain"
+    ROOT_DIR: "components/villain"
+
+build_villain:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/villain"
+    ROOT_DIR: "components/villain"

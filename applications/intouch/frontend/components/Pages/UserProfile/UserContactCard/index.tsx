@@ -1,7 +1,7 @@
 import React from "react";
-import Card from "@bmi/card";
-import Icon from "@bmi/icon";
-import Typography from "@bmi/typography";
+import Card from "@bmi-digital/components/card";
+import Icon from "@bmi-digital/components/icon";
+import Typography from "@bmi-digital/components/typography";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { Link } from "../../../Link";
 import styles from "./styles.module.scss";

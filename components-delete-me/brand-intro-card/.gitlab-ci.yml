@@ -1,0 +1,11 @@
+test_brand-intro-card:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/brand-intro-card"
+    ROOT_DIR: "components/brand-intro-card"
+
+build_brand-intro-card:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/brand-intro-card"
+    ROOT_DIR: "components/brand-intro-card"

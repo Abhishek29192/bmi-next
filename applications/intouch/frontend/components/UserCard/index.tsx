@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import CompanyDetails, { DetailProps } from "@bmi/company-details";
-import Typography from "@bmi/typography";
+import CompanyDetails, {
+  CompanyDetailProps
+} from "@bmi-digital/components/company-details";
+import Typography from "@bmi-digital/components/typography";
 import Avatar from "@material-ui/core/Avatar";
-import Button from "@bmi/button";
+import Button from "@bmi-digital/components/button";
 import { Account, Role } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
 import AccessControl from "../../lib/permissions/AccessControl";
@@ -16,7 +18,7 @@ export type UserCardProps = {
   companyName: string;
   testid?: string;
   onAccountUpdate?: (id: number, role: Role) => void;
-  details: readonly DetailProps[];
+  details: readonly CompanyDetailProps[];
   onRemoveUser: () => void;
 };
 

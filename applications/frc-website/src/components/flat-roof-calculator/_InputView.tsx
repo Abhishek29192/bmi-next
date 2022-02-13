@@ -1,8 +1,8 @@
 import React from "react";
-import Typography from "@bmi/typography";
-import Form, { FormProps } from "@bmi/form";
+import Typography from "@bmi-digital/components/typography";
+import Form, { FormProps } from "@bmi-digital/components/form";
 import Divider from "@material-ui/core/Divider";
-import Button from "@bmi/button";
+import Button from "@bmi-digital/components/button";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Section from "./_Section";

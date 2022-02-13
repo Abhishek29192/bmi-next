@@ -1,6 +1,6 @@
 import React, { Suspense, useCallback, useEffect, useState } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import ContainerDialog from "@bmi/container-dialog";
+import ContainerDialog from "@bmi-digital/components/container-dialog";
 import { AnalyticsContext, OnAnalyticsEvent } from "./helpers/analytics";
 import styles from "./PitchedRoofCalculator.module.scss";
 import { EmailFormValues } from "./types/EmailFormValues";

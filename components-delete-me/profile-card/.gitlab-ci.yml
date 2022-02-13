@@ -1,0 +1,11 @@
+test_profile-card:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/profile-card"
+    ROOT_DIR: "components/profile-card"
+
+build_profile-card:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/profile-card"
+    ROOT_DIR: "components/profile-card"

@@ -1,0 +1,11 @@
+test_typography:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/typography"
+    ROOT_DIR: "components/typography"
+
+build_typography:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/typography"
+    ROOT_DIR: "components/typography"

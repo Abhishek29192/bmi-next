@@ -6,9 +6,9 @@ import Icon, {
   CertificationFlatRoof,
   CertificationOtherTraining,
   CertificationPitchedRoof
-} from "@bmi/icon";
-import { SVGImport } from "@bmi/svg-import";
-import Typography from "@bmi/typography";
+} from "@bmi-digital/components/icon";
+import { SVGImport } from "@bmi-digital/svg-import";
+import Typography from "@bmi-digital/components/typography";
 import { SimpleCard } from "../SimpleCard";
 import styles from "./styles.module.scss";
 

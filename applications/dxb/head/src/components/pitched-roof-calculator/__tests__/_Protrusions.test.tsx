@@ -1,6 +1,6 @@
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
-import { FormContext } from "@bmi/form";
+import { FormContext } from "@bmi-digital/components/form";
 import { MicroCopy, getMicroCopy } from "../helpers/microCopy";
 import en from "../samples/copy/en.json";
 import Protrusions from "../_Protrusions";

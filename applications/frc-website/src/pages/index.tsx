@@ -1,8 +1,8 @@
 import React from "react";
-import Hero from "@bmi/hero";
-import Typography from "@bmi/typography";
-import Grid from "@bmi/grid";
-import Button from "@bmi/button";
+import Hero from "@bmi-digital/components/hero";
+import Typography from "@bmi-digital/components/typography";
+import Grid from "@bmi-digital/components/grid";
+import Button from "@bmi-digital/components/button";
 import { Link } from "gatsby";
 import {
   parse as queryString,

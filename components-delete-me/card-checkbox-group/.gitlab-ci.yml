@@ -1,0 +1,17 @@
+test_card-checkbox-group:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/card-checkbox-group"
+    ROOT_DIR: "components/card-checkbox-group"
+
+test_mr_coverage_card-checkbox-group:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi-digital/components/card-checkbox-group"
+    ROOT_DIR: "components/card-checkbox-group"
+
+build_card-checkbox-group:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/card-checkbox-group"
+    ROOT_DIR: "components/card-checkbox-group"

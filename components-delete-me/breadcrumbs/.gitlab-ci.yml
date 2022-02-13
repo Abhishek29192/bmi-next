@@ -1,0 +1,11 @@
+test_breadcrumbs:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/breadcrumbs"
+    ROOT_DIR: "components/breadcrumbs"
+
+build_breadcrumbs:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/breadcrumbs"
+    ROOT_DIR: "components/breadcrumbs"

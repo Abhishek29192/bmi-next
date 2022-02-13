@@ -1,0 +1,59 @@
+@import "@bmi-digital/styles";
+
+.Typography {
+  &--underline {
+    &::after {
+      background-color: $color-theme-accent;
+      content: "";
+      display: block;
+      height: 4px;
+      margin-top: 1rem;
+      width: 100px;
+    }
+    &--dark-bg {
+      &::after {
+        background-color: $color-theme-accent-300;
+      }
+    }
+  }
+
+  &.body3 {
+    font-size: 0.667rem;
+  }
+}
+
+:global {
+  // NOTE: The font-size only changes at a specific breakpoint.
+  $breakpoint-lg: 1024px;
+
+  @media (min-width: $breakpoint-lg) {
+    html {
+      font-size: 1.125rem;
+    }
+  }
+
+  .MuiTypography-h3::after {
+    margin-top: 0.75rem;
+  }
+
+  .MuiTypography-h4::after {
+    margin-top: 0.5rem;
+  }
+
+  .MuiTypography-button {
+    text-transform: none;
+  }
+
+  h1.no-clamp {
+    font-size: 3rem;
+  }
+  h2.no-clamp {
+    font-size: 2.5rem;
+  }
+  h3.no-clamp {
+    font-size: 2rem;
+  }
+  h4.no-clamp {
+    font-size: 1.25rem;
+  }
+}

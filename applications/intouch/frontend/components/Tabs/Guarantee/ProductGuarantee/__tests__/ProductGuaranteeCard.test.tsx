@@ -3,7 +3,7 @@ import { renderWithI18NProvider, screen } from "../../../../../lib/tests/utils";
 import { ProjectDetailsProductFragmentFragment } from "../../../../../graphql/generated/operations";
 import ProductGuaranteeCard from "../ProductGuaranteeCard";
 
-jest.mock("@bmi/use-dimensions", () => ({
+jest.mock("@bmi-digital/use-dimensions", () => ({
   __esModule: true,
   default: () => [useRef(), jest.fn()]
 }));

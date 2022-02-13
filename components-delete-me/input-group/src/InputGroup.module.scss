@@ -1,0 +1,64 @@
+@import "@bmi-digital/styles";
+
+.InputGroup {
+  @mixin locked {
+    flex-direction: row;
+
+    .input {
+      margin: 0;
+      display: flex;
+      flex: 1;
+      background-color: #fff;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      :global(.MuiOutlinedInput-notchedOutline),
+      :global(.MuiFilledInput-root) {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-right: none;
+      }
+    }
+
+    .button {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      height: auto;
+
+      &:global(.MuiIconButton-root) {
+        width: 56px;
+      }
+    }
+  }
+
+  display: flex;
+  flex-direction: column;
+
+  .input {
+    // TODO: I have to check this spacing from designs.
+    margin-bottom: 15px;
+  }
+
+  &--locked-xs {
+    @include locked;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    &--locked-sm {
+      @include locked;
+    }
+  }
+
+  @media (min-width: $breakpoint-md) {
+    &--locked-md {
+      @include locked;
+    }
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    &--locked-lg {
+      @include locked;
+    }
+  }
+}

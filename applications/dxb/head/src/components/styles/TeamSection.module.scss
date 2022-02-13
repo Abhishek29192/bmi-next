@@ -1,4 +1,4 @@
-@import "@bmi/styles";
+@import "@bmi-digital/styles";
 
 .team-section-white {
   background-color: $color-white;
@@ -7,11 +7,11 @@
     margin-bottom: 30px;
   }
 
-  .tab-panel>div {
+  .tab-panel > div {
     background-color: $color-white;
   }
 
-  .tabs>div {
+  .tabs > div {
     background-color: $color-alabaster;
   }
 }
@@ -23,11 +23,11 @@
     margin-bottom: 30px;
   }
 
-  .tab-panel>div {
+  .tab-panel > div {
     background-color: $color-alabaster;
   }
 
-  .tabs>div {
+  .tabs > div {
     background-color: $color-white;
   }
 }

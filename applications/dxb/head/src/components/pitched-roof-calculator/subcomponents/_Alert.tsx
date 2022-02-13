@@ -1,5 +1,5 @@
 import React from "react";
-import AlertBanner from "@bmi/alert-banner";
+import AlertBanner from "@bmi-digital/components/alert-banner";
 import classnames from "classnames";
 import styles from "./_Alert.module.scss";
 

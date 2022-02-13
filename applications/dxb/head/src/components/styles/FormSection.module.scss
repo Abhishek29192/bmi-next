@@ -1,4 +1,4 @@
-@import "@bmi/styles";
+@import "@bmi-digital/styles";
 
 .Form {
   background-color: $color-white;
@@ -36,7 +36,7 @@
         &.hs-fieldtype-file,
         &.hs-fieldtype-select {
           &:focus-within {
-            > label{
+            > label {
               color: $color-theme-inter;
             }
           }

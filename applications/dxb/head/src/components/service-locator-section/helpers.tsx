@@ -1,7 +1,13 @@
 import camelCase from "lodash-es/camelCase";
-import { DetailProps, RoofProLevel } from "@bmi/company-details";
+import {
+  CompanyDetailProps,
+  RoofProLevel
+} from "@bmi-digital/components/company-details";
 import React, { useEffect, useState } from "react";
-import { computeDistanceBetween, MarkerOptionsWithData } from "@bmi/google-api";
+import {
+  computeDistanceBetween,
+  MarkerOptionsWithData
+} from "@bmi-digital/components/google-api";
 import { devLog } from "../../utils/devLog";
 import {
   EntryTypeEnum,
@@ -162,7 +168,7 @@ export const createCompanyDetails = (
       getServiceDataGTM(`mailto:${service.email}`, localization.globalEmail)
     )
   };
-  const address: DetailProps = {
+  const address: CompanyDetailProps = {
     type: "address",
     display: shouldShowIcons ? "icon" : "contentOnly",
     text: service.address,
@@ -171,7 +177,7 @@ export const createCompanyDetails = (
   };
   const detailsStart = isAddressHidden ? [] : [address];
 
-  const distance: DetailProps | undefined =
+  const distance: CompanyDetailProps | undefined =
     service.distance !== undefined
       ? {
           type: "distance",
@@ -180,13 +186,13 @@ export const createCompanyDetails = (
           label: localization.distanceLabel
         }
       : undefined;
-  const directions: DetailProps | undefined = {
+  const directions: CompanyDetailProps | undefined = {
     type: "cta",
     text: localization.directionsLabel,
     action: actions.directions,
     label: localization.directionsLabel
   };
-  const phone: DetailProps | undefined = service.phone
+  const phone: CompanyDetailProps | undefined = service.phone
     ? {
         type: "phone",
         display: shouldShowIcons ? "icon" : "label",
@@ -195,7 +201,7 @@ export const createCompanyDetails = (
         label: localization.globalTelephone
       }
     : undefined;
-  const email: DetailProps | undefined = service.email
+  const email: CompanyDetailProps | undefined = service.email
     ? {
         type: "email",
         display: shouldShowIcons ? "icon" : "label",
@@ -204,7 +210,7 @@ export const createCompanyDetails = (
         label: localization.globalEmail
       }
     : undefined;
-  const website: DetailProps | undefined = service.website
+  const website: CompanyDetailProps | undefined = service.website
     ? {
         type: "website",
         display: shouldShowIcons ? "icon" : "label",
@@ -217,7 +223,7 @@ export const createCompanyDetails = (
           : localization.websiteLabel
       }
     : undefined;
-  const fax: DetailProps | undefined = service.fax
+  const fax: CompanyDetailProps | undefined = service.fax
     ? {
         type: "content",
         text: service.fax,
@@ -225,7 +231,7 @@ export const createCompanyDetails = (
         label: localization.faxLabel
       }
     : undefined;
-  const type: DetailProps | undefined =
+  const type: CompanyDetailProps | undefined =
     service.type || service.branchType || service.merchantType
       ? {
           type: "content",
@@ -234,7 +240,7 @@ export const createCompanyDetails = (
         }
       : undefined;
 
-  const certification: DetailProps = service.certification
+  const certification: CompanyDetailProps = service.certification
     ? {
         type: "roofProLevel",
         label: localization.certificationLabel,

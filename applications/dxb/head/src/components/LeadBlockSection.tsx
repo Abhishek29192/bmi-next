@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Button from "@bmi/button";
-import LeadBlock from "@bmi/lead-block";
-import Section from "@bmi/section";
-import TableOfContent from "@bmi/table-of-content";
+import Button from "@bmi-digital/components/button";
+import LeadBlock from "@bmi-digital/components/lead-block";
+import Section from "@bmi-digital/components/section";
+import TableOfContent from "@bmi-digital/components/table-of-content";
 import { microCopy } from "../constants/microCopies";
 import { useSiteContext } from "./Site";
 import RichText, { RichTextData } from "./RichText";

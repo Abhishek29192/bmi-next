@@ -1,6 +1,6 @@
-import Button from "@bmi/button";
+import Button from "@bmi-digital/components/button";
 import { CompanyStatus } from "@bmi/intouch-api-types";
-import Typography from "@bmi/typography";
+import Typography from "@bmi-digital/components/typography";
 import { useTranslation } from "next-i18next";
 import React, { useCallback, useState } from "react";
 import { useUpdateCompanyDetailsMutation } from "../../../graphql/generated/hooks";

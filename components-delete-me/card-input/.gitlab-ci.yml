@@ -1,0 +1,11 @@
+test_card-input:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/card-input"
+    ROOT_DIR: "components/card-input"
+
+build_card-input:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/card-input"
+    ROOT_DIR: "components/card-input"

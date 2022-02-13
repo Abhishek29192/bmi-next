@@ -1,0 +1,11 @@
+test_arrow-control:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/arrow-control"
+    ROOT_DIR: "components/arrow-control"
+
+build_arrow-control:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/arrow-control"
+    ROOT_DIR: "components/arrow-control"

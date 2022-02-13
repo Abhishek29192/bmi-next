@@ -1,5 +1,5 @@
 import React from "react";
-import { DetailProps } from "@bmi/company-details";
+import { CompanyDetailProps } from "@bmi-digital/components/company-details";
 import { Account } from "@bmi/intouch-api-types";
 import { UserCard } from ".";
 
@@ -8,7 +8,7 @@ export default {
   component: UserCard
 };
 
-const mikeHaroldDetails: DetailProps[] = [
+const mikeHaroldDetails: CompanyDetailProps[] = [
   {
     type: "phone",
     text: "67 97 90 99",
@@ -23,7 +23,7 @@ const mikeHaroldDetails: DetailProps[] = [
   }
 ];
 
-const lisaSimpsonDetails: DetailProps[] = [
+const lisaSimpsonDetails: CompanyDetailProps[] = [
   {
     type: "phone",
     text: "07790 848483",

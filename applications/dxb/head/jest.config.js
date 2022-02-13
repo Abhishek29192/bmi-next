@@ -15,5 +15,6 @@ module.exports = {
       functions: "80",
       lines: "80"
     }
-  }
+  },
+  resolver: "@bmi/jest-node-exports-resolver"
 };

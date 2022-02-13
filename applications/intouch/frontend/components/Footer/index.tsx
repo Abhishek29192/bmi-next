@@ -1,6 +1,6 @@
 import React from "react";
-import Icon from "@bmi/icon";
-import Logo, { BMI, StandardPale } from "@bmi/logo";
+import Icon from "@bmi-digital/components/icon";
+import Logo, { BMI, StandardPale } from "@bmi-digital/components/logo";
 import { Link } from "../Link";
 import styles from "./styles.module.scss";
 

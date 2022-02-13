@@ -1,13 +1,15 @@
 import React, { useMemo, useState } from "react";
-import Tabs from "@bmi/tabs";
+import Tabs from "@bmi-digital/components/tabs";
 import { graphql, Link } from "gatsby";
 import Tab, { TabProps } from "@material-ui/core/Tab";
 import AddIcon from "@material-ui/icons/Add";
-import Grid from "@bmi/grid";
-import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
-import AnchorLink from "@bmi/anchor-link";
-import Button from "@bmi/button";
-import Section from "@bmi/section";
+import Grid from "@bmi-digital/components/grid";
+import OverviewCard, {
+  OverviewCardProps
+} from "@bmi-digital/components/overview-card";
+import AnchorLink from "@bmi-digital/components/anchor-link";
+import Button from "@bmi-digital/components/button";
+import Section from "@bmi-digital/components/section";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
 import { iconMap } from "../components/Icon";

@@ -1,5 +1,5 @@
 import React from "react";
-import { Filter } from "@bmi/filters";
+import { Filter } from "@bmi-digital/components/filters";
 import ColorSwatch, { COLOR_CODES } from "../components/ColorSwatch";
 
 type colourCodes = keyof typeof COLOR_CODES;

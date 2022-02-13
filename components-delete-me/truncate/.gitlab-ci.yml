@@ -1,0 +1,11 @@
+test_truncate:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/truncate"
+    ROOT_DIR: "components/truncate"
+
+build_truncate:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/truncate"
+    ROOT_DIR: "components/truncate"

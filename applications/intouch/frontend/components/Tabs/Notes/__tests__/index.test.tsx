@@ -4,7 +4,7 @@ import { GetProjectQuery } from "../../../../graphql/generated/operations";
 import AccountContextWrapper from "../../../../lib/tests/fixtures/account";
 import { NoteTab } from "..";
 
-jest.mock("@bmi/use-dimensions", () => ({
+jest.mock("@bmi-digital/use-dimensions", () => ({
   __esModule: true,
   default: () => [useRef(), jest.fn()]
 }));

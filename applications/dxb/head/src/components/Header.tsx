@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
 import { graphql, Link, withPrefix } from "gatsby";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import Button, { ButtonProps } from "@bmi/button";
-import HeaderComponent from "@bmi/header";
-import HidePrint from "@bmi/hide-print";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import HeaderComponent from "@bmi-digital/components/header";
+import HidePrint from "@bmi-digital/components/hide-print";
 import Tab, { TabProps } from "@material-ui/core/Tab";
 import withGTM from "../utils/google-tag-manager";
 import Image from "../components/Image";

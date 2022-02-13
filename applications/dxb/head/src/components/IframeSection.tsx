@@ -1,4 +1,4 @@
-import Section from "@bmi/section";
+import Section from "@bmi-digital/components/section";
 import { graphql } from "gatsby";
 import React from "react";
 import RichText, { RichTextData } from "./RichText";

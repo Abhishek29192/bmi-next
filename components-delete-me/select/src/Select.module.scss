@@ -1,0 +1,47 @@
+@import "@bmi-digital/styles";
+
+.Select {
+  &:global(.MuiFilledInput-root) {
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid $color-storm;
+    &:hover {
+      border-color: $color-slate;
+    }
+
+    &::before {
+      content: none;
+    }
+
+    &::after {
+      content: none;
+    }
+
+    &:global(.Mui-focused) {
+      border-color: $color-theme-inter;
+      box-shadow: 0 0 0 1px $color-theme-inter;
+
+      &:global(.Mui-error) {
+        box-shadow: 0 0 0 1px $color-error;
+      }
+    }
+
+    &:global(.Mui-error) {
+      border-color: $color-error;
+    }
+  }
+
+  &:global(.Mui-disabled) {
+    border: 1px solid rgba($color-storm, 0.61);
+    color: rgba($color-slate, 0.61);
+
+    :global(.MuiOutlinedInput-notchedOutline) {
+      border: 0;
+    }
+
+    &:global:hover {
+      border-color: rgba($color-storm, 0.61);
+      color: rgba($color-slate, 0.61);
+    }
+  }
+}

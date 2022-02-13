@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import CardRadioGroup from "@bmi/card-radio-group";
+import CardRadioGroup from "@bmi-digital/components/card-radio-group";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import roofs from "./calculation/roofs";
