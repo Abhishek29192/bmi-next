@@ -159,7 +159,9 @@ exports[`ProjectSidePanel component renders correctly 1`] = `
       <div
         class="results"
       >
-        <div>
+        <div
+          data-testid="projectCard"
+        >
           <button
             class="MuiButtonBase-root MuiCardActionArea-root"
             tabindex="0"
@@ -379,7 +381,9 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
       <div
         class="results"
       >
-        <div>
+        <div
+          data-testid="projectCard"
+        >
           <button
             class="MuiButtonBase-root MuiCardActionArea-root"
             tabindex="0"
@@ -429,7 +433,9 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
             />
           </button>
         </div>
-        <div>
+        <div
+          data-testid="projectCard"
+        >
           <button
             class="MuiButtonBase-root MuiCardActionArea-root"
             tabindex="0"
@@ -479,7 +485,9 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
             />
           </button>
         </div>
-        <div>
+        <div
+          data-testid="projectCard"
+        >
           <button
             class="MuiButtonBase-root MuiCardActionArea-root"
             tabindex="0"

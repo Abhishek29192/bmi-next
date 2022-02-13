@@ -1,17 +1,21 @@
 import React from "react";
-import { renderWithUserProvider } from "../../lib/tests/utils";
+import { fireEvent } from "@testing-library/react";
+import { RouterContext } from "next/dist/next-server/lib/router-context";
+import {
+  createMockRouter,
+  renderWithAllProviders,
+  screen
+} from "../../lib/tests/utils";
 import { generateAccount } from "../../lib/tests/factories/account";
-import MarketContextWrapper from "../../lib/tests/fixtures/market";
 import { ErrorStatusCode } from "../../lib/error";
 import { getServerSideProps } from "../../pages/projects/[[...project]]";
 import { generateProject } from "../../lib/tests/factories/project";
 import { ROLES } from "../../lib/constants";
-import AccountContextWrapper from "../../lib/tests/fixtures/account";
-import ApolloProvider from "../../lib/tests/fixtures/apollo";
 import ProjectPage from "../../pages/projects/[[...project]]";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
 import { generateGlobalPageData } from "../../lib/tests/factories/globalPageData";
 import { GetGlobalDataQuery } from "../../graphql/generated/operations";
+import {useGetProjectsLazyQuery} from "../../graphql/generated/hooks";
 
 jest.mock("../../lib/middleware/withPage", () => ({
   withPage: (getServerSideProps: any) => {
@@ -22,22 +26,12 @@ jest.mock("../../lib/middleware/withPage", () => ({
 }));
 
 const mockGetServerPageGetProjects = jest.fn();
-
 jest.mock("../../graphql/generated/page", () => ({
   getServerPageGetProjects: () => mockGetServerPageGetProjects()
 }));
 
 jest.mock("next-i18next/serverSideTranslations", () => ({
   serverSideTranslations: () => Promise.resolve({})
-}));
-
-jest.mock("next/router", () => ({
-  ...jest.requireActual("next/router"),
-  useRouter: jest.fn().mockReturnValue({
-    query: {
-      project: ["1"]
-    }
-  })
 }));
 
 describe("Projects Page", () => {
@@ -49,7 +43,7 @@ describe("Projects Page", () => {
     res: {}
   };
 
-  const projects = [generateProject()];
+  const projects = [generateProject(), { id: 2, name: "Project 2" }];
   const projectCollection: GetProjectsQuery["projectsByMarket"] = {
     __typename: "ProjectsConnection",
     nodes: [
@@ -199,22 +193,57 @@ describe("Projects Page", () => {
   });
 
   it("render correctly", async () => {
-    const { container } = renderWithUserProvider(
-      <ApolloProvider>
-        <MarketContextWrapper>
-          <AccountContextWrapper>
-            <ProjectPage
-              _pageError={null}
-              projects={projectCollection}
-              isPowerfulUser={true}
-              globalPageData={globalPageData}
-              account={account}
-              market={undefined}
-            />
-          </AccountContextWrapper>
-        </MarketContextWrapper>
-      </ApolloProvider>
+    const { container } = renderWithAllProviders(
+      <RouterContext.Provider value={createMockRouter({})}>
+        <ProjectPage
+          _pageError={null}
+          projects={projectCollection}
+          isPowerfulUser={true}
+          globalPageData={globalPageData}
+          account={account}
+          market={undefined}
+        />
+      </RouterContext.Provider>
     );
     expect(container).toMatchSnapshot();
+  });
+  it("should show No results found", async () => {
+    const projectCollection: GetProjectsQuery["projectsByMarket"] = {
+      __typename: "ProjectsConnection",
+      nodes: []
+    };
+    renderWithAllProviders(
+      <RouterContext.Provider value={createMockRouter({})}>
+        <ProjectPage
+          _pageError={null}
+          projects={projectCollection}
+          isPowerfulUser={true}
+          globalPageData={globalPageData}
+          account={account}
+          market={undefined}
+        />
+      </RouterContext.Provider>
+    );
+    expect(screen.getByText("fallback.noResults")).toBeInTheDocument();
+  });
+  it("check onclick behavior", async () => {
+    const router = createMockRouter({ query: { project: "1" } });
+    renderWithAllProviders(
+      <RouterContext.Provider value={createMockRouter(router)}>
+        <ProjectPage
+          _pageError={null}
+          projects={projectCollection}
+          isPowerfulUser={true}
+          globalPageData={globalPageData}
+          account={account}
+          market={undefined}
+        />
+      </RouterContext.Provider>
+    );
+    const listButton = screen
+      .getAllByTestId("projectCard")[0]
+      .querySelector("button");
+    fireEvent.click(listButton);
+    expect(router.push).toHaveBeenCalled();
   });
 });

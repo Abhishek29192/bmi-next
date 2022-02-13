@@ -437,9 +437,11 @@ exports[`Projects Page render correctly 1`] = `
                 <div
                   class="results"
                 >
-                  <div>
+                  <div
+                    data-testid="projectCard"
+                  >
                     <button
-                      class="MuiButtonBase-root MuiCardActionArea-root cardActionArea__isActive"
+                      class="MuiButtonBase-root MuiCardActionArea-root"
                       tabindex="0"
                       type="button"
                     >
@@ -499,9 +501,31 @@ exports[`Projects Page render correctly 1`] = `
               class="MuiGrid-root outerGrid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                style="min-height: 100vh;"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
               >
-                projectDetails.loading
+                <div
+                  class="main"
+                >
+                  <h4
+                    class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                  >
+                    noProjecSelected.title
+                  </h4>
+                  <div
+                    class="body"
+                  >
+                    <h6
+                      class="MuiTypography-root Typography MuiTypography-subtitle2"
+                    >
+                      noProjecSelected.body1
+                    </h6>
+                    <h6
+                      class="MuiTypography-root Typography MuiTypography-subtitle2"
+                    >
+                      noProjecSelected.body2
+                    </h6>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
