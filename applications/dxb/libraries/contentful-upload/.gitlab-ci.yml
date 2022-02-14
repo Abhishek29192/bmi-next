@@ -2,4 +2,4 @@ test_contentful-upload:
   extends: .test_jest
   variables:
     WORKSPACE: "@bmi/contentful-upload"
-    ROOT_DIR: "libraries/contentful-upload"
+    ROOT_DIR: "applications/dxb/libraries/contentful-upload"

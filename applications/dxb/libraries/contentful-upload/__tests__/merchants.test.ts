@@ -10,11 +10,11 @@ const fetchMock = fetchMockJest.sandbox();
 jest.mock("dotenv", () => ({ config: jest.fn() }));
 jest.mock("node-fetch", () => fetchMock);
 
-let answer;
-let onAsk;
-const expectQuestion = (question) =>
+let answer: (answer: string) => void;
+let onAsk: (askedQuestion: string) => void | undefined;
+const expectQuestion = (question: string) =>
   new Promise<void>((resolve, reject) => {
-    onAsk = (askedQuestion) => {
+    onAsk = (askedQuestion: string) => {
       if (askedQuestion !== question) {
         reject(`Expected ${question}, Found: ${askedQuestion}`);
       }
@@ -28,8 +28,8 @@ const question = jest.fn().mockImplementation((question, resolve) => {
   answer = resolve;
 });
 
-let onDone;
-let done;
+let onDone: (value?: unknown) => void;
+let done: Promise<unknown>;
 jest.mock("readline", () => {
   return {
     createInterface: () => {
@@ -50,9 +50,8 @@ const publish = jest.fn();
 const createEntry = jest.fn().mockReturnValue({ publish });
 const getEnvironment = jest.fn().mockReturnValue({ createEntry });
 const getSpace = jest.fn().mockReturnValue({ getEnvironment });
-let createClient;
+const createClient = jest.fn().mockImplementation(() => ({ getSpace }));
 jest.mock("contentful-management", () => {
-  createClient = jest.fn().mockImplementation(() => ({ getSpace }));
   return {
     createClient
   };
@@ -72,7 +71,7 @@ const validEnv = {
   LOCALE: "LOCALE:value"
 };
 
-const getMinimalPath = (file) => path.join("data/", file);
+const getMinimalPath = (file: string) => path.join("data", file);
 
 beforeEach(() => {
   jest.resetModules();
@@ -95,10 +94,13 @@ describe("Merchants contentful upload", () => {
   // Make path relative to this dir to make the test output the same regardless of cwd
   jest.mock("fs", () => {
     return {
-      readFile: (file, ...rest) => {
+      readFile: (file: string, ...rest: any[]) => {
         const userCallback = rest.pop();
 
-        const callback = (error, data) => {
+        const callback = (
+          error: NodeJS.ErrnoException | null,
+          data: string | Buffer
+        ) => {
           if (error) {
             userCallback(new Error(`Couldn't read ${file}`));
             return;
