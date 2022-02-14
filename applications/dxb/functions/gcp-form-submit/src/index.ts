@@ -16,6 +16,8 @@ const {
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
 
+const MAX_RECIPIENTS = 4;
+
 const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE || "1");
 const recaptchaTokenHeader = "X-Recaptcha-Token";
 
@@ -102,7 +104,9 @@ export const submit: HttpFunction = async (request, response) => {
           values: { files, ...fields } // @todo "files" probably shouldn't come from CMS
         }
       } = request;
-      const recipients = request.body.recipients.replace(/\s/, "").split(",");
+      const recipients = [
+        ...new Set<string>(request.body.recipients.replace(/\s/, "").split(","))
+      ].slice(0, MAX_RECIPIENTS);
 
       if (!fields || !Object.entries(fields).length) {
         return response.status(400).send(Error("Fields are empty."));
