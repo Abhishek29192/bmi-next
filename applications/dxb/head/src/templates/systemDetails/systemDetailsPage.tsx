@@ -15,14 +15,23 @@ import {
   System,
   Asset,
   Feature,
-  Classification
+  Classification,
+  PIMVideoDataWithTypename
 } from "../../components/types/pim";
 import { iconMap } from "../../components/Icon";
+import {
+  filterAndTransformVideoData,
+  transformMediaSrc
+} from "../../utils/images";
+import {
+  mapGalleryImages,
+  transformImages
+} from "../../utils/product-details-transforms";
 import LeadBlockSection from "./leadBlockSection";
-import ImageGallerySection from "./imageGallerySection";
 import { DocumentData } from "./types";
 import TabLeadBlock, { BimContent } from "./tabLeadBlock";
 import SystemLayersSection from "./systemLayersSection";
+import MediaGallerySection from "./mediaGallerySection";
 import styles from "./styles/systemDetailsPage.module.scss";
 
 type Props = {
@@ -90,6 +99,11 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       ({ assetType }) => assetType === "AWARDS" || assetType === "CERTIFICATES"
     );
   }, [assets]);
+
+  const videos: PIMVideoDataWithTypename[] = useMemo(() => {
+    return filterAndTransformVideoData(assets);
+  }, [assets]);
+
   const keyFeatures: Feature = useMemo(() => {
     return classifications
       ?.map(({ features }) => {
@@ -204,6 +218,10 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     </Section>
   );
 
+  const media = [
+    ...transformImages(mapGalleryImages(images)),
+    ...transformMediaSrc(videos)
+  ];
   return (
     <Page
       brand={brandName}
@@ -230,7 +248,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       >
         <Grid container spacing={3}>
           <Grid item xs={12} md={12} lg={8}>
-            <ImageGallerySection images={images || []} />
+            <MediaGallerySection media={media || []} />
           </Grid>
           {systemLayers && (
             <Grid item xs={12} md={12} lg={4}>

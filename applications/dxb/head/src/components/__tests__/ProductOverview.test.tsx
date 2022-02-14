@@ -1,5 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import { YoutubeVideo } from "@bmi/components";
 import ProductOverview from "../ProductOverview";
 
 describe("ProductOverview component", () => {
@@ -10,6 +11,22 @@ describe("ProductOverview component", () => {
     images: [
       { mainSource: "mainSource", caption: "caption" },
       { mainSource: "mainSource2", caption: "caption2" }
+    ],
+    videos: [
+      {
+        media: (
+          <YoutubeVideo
+            label="test video"
+            videoId="A-RfHC91Ewc"
+            embedHeight={720}
+            embedWidth={1280}
+            layout="dialog"
+          />
+        ),
+        thumbnail: "",
+        caption: "This is videos caption",
+        isVideo: true
+      }
     ],
     attributes: null,
     isRecapchaShown: true

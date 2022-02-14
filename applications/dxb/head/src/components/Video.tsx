@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { YoutubeVideo } from "@bmi/components";
 import Image, { Data as ImageData } from "./Image";
+import { AssetAssetType, Mime } from "./types/pim";
 
 export type Data = {
   __typename: "ContentfulVideo";
@@ -13,13 +14,29 @@ export type Data = {
   videoRatio: { width: number; height: number } | null;
 };
 
-const Video = ({ data }: { data: Data }) => {
+type videoTypeName = "ContentfulVideo" | "PimVideo";
+
+type MediaVideoData = {
+  __typename: videoTypeName;
+  title?: string;
+  label?: string;
+  subtitle?: string | null;
+  youtubeId: string;
+  previewMedia?: ImageData | null;
+  videoRatio?: { width?: number; height?: number } | null;
+  allowedToDownload?: boolean;
+  assetType?: AssetAssetType;
+  mime?: Mime;
+  name?: string;
+  url?: string;
+};
+
+const Video = ({ data }: { data: MediaVideoData }) => {
   return renderVideo(data);
 };
 
-export const renderVideo = (data: Data) => {
+export const renderVideo = (data: MediaVideoData) => {
   const { label, subtitle, youtubeId, previewMedia, videoRatio } = data;
-
   return (
     <YoutubeVideo
       label={label}

@@ -43,6 +43,10 @@ import { getAssetsIframeUrl } from "../components/AssetsIframe";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { combineVariantClassifications } from "../utils/filters";
 import { microCopy } from "../constants/microCopies";
+import {
+  filterAndTransformVideoData,
+  transformMediaSrc
+} from "../utils/images";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -151,6 +155,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     "SPECIFICATION"
   );
 
+  const videos = filterAndTransformVideoData(product.assets);
+
   const variantCodeToPathMap: VariantCodeToPathMap =
     product.variantOptions.reduce(
       (carry, { code, path }) => ({ ...carry, [code]: path }),
@@ -256,6 +262,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                       ...(product.images || [])
                     ])
                   ),
+                  videos: transformMediaSrc(videos),
                   attributes: getProductAttributes(
                     productClassifications,
                     selfProduct,

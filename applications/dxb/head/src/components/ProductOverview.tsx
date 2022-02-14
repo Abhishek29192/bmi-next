@@ -1,8 +1,9 @@
 import React from "react";
 import { Grid } from "@bmi/components";
 import { ProductOverviewPane, ProductOverviewPaneProps } from "@bmi/components";
-import { ImageGallery, Image } from "@bmi/components";
+import { Image } from "@bmi/components";
 import { Thumbnail, ThumbnailProps } from "@bmi/components";
+import { MediaGallery, MediaData } from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
 import styles from "./styles/ProductOverview.module.scss";
@@ -17,10 +18,19 @@ export type Data = {
   images: readonly Image[];
   attributes: ProductOverviewPaneProps["attributes"] | null;
   isRecapchaShown?: boolean;
+  videos?: MediaData[];
 };
 
 const ProductOverview = ({
-  data: { name, brandName, nobb, images, attributes, isRecapchaShown },
+  data: {
+    name,
+    brandName,
+    nobb,
+    images,
+    attributes,
+    isRecapchaShown,
+    videos = []
+  },
   children
 }: {
   data: Data;
@@ -32,12 +42,11 @@ const ProductOverview = ({
     action: "imageSource",
     label: "altText"
   });
-
   return (
     <div className={styles["ProductOverview"]}>
       <Grid container spacing={3}>
         <Grid item xs={12} md={12} lg={8}>
-          <ImageGallery images={images} layout="short" />
+          <MediaGallery media={[...images, ...videos]} layout="short" />
         </Grid>
         <Grid item xs={12} md={12} lg={4}>
           <ProductOverviewPane

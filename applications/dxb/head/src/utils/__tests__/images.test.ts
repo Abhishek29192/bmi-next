@@ -1,4 +1,4 @@
-import getJpgImage from "../images";
+import getJpgImage, { transformMediaSrc } from "../images";
 
 describe("getJpgImage function", () => {
   it("does nothing if undefined", () => {
@@ -30,5 +30,60 @@ describe("getJpgImage function", () => {
       "https://images.ctfassets.net/18fop5x17y3g/7JfBbAmDeTWlHzSlc1auWm/dead1b50a4dcf1ee9f6fba135f9135b3/BMI-Zanda-Logo-Web.webp";
 
     expect(getJpgImage(img)).toContain(img + "?fm=jpg");
+  });
+});
+
+describe("transformMediaSrc function", () => {
+  it("test functionality", () => {
+    const mockMedia = [
+      {
+        __typename: "ContentfulImage",
+        altText: "alt text",
+        type: null,
+        image: {
+          file: {
+            fileName: "file",
+            url: "//images.asset.jpg"
+          },
+          thumbnail: {
+            fileName: "thumbnail",
+            src: "//images.asset.jpg"
+          }
+        },
+        caption: {
+          caption: "CAPTION"
+        }
+      },
+      {
+        __typename: "ContentfulVideo",
+        title: "featuredVideo",
+        label: "label",
+        subtitle: null,
+        youtubeId: "youtubeId",
+        previewMedia: null,
+        videoRatio: null
+      },
+      {
+        __typename: "PimVideo",
+        allowedToDownload: true,
+        assetType: "VIDEO",
+        mime: "application/octet-stream",
+        name: "testVideo",
+        url: "https://www.youtube.com/watch?v=AGVIbPFLDcI%22",
+        youtubeId: "AGVIbPFLDcI%22"
+      }
+    ];
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const expectResult = transformMediaSrc(mockMedia);
+
+    expect(expectResult[0]).toEqual(
+      expect.objectContaining({
+        thumbnail: "//images.asset.jpg",
+        isVideo: false,
+        caption: "CAPTION",
+        altText: "alt text"
+      })
+    );
   });
 });

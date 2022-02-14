@@ -17,7 +17,7 @@ type Props = {
   className?: string;
 };
 
-const Truncate = ({ children, lines, component, className }: Props) => {
+const Truncate = ({ children = "", lines, component, className }: Props) => {
   return (
     <ResponsiveEllipsis
       className={classnames(className, styles["Truncate"])}
