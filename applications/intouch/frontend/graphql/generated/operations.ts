@@ -3453,6 +3453,7 @@ export type GetCompaniesByMarketQuery = { readonly __typename?: "Query" } & {
           | "taxNumber"
           | "tier"
           | "certifications"
+          | "updatedAt"
         > & {
             readonly tradingAddress?: SchemaTypes.Maybe<
               { readonly __typename?: "Address" } & Pick<
