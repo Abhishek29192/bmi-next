@@ -14,7 +14,7 @@ fetchMock.config.overwriteRoutes = false;
 jest.mock("node-fetch", () => fetchMock);
 
 const getSecret = jest.fn();
-jest.mock("@bmi/functions-secret-client", () => {
+jest.mock("@bmi-digital/functions-secret-client", () => {
   return { getSecret };
 });
 

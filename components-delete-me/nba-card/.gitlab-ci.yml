@@ -1,0 +1,11 @@
+test_nba-card:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/nba-card"
+    ROOT_DIR: "components/nba-card"
+
+build_nba-card:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/nba-card"
+    ROOT_DIR: "components/nba-card"

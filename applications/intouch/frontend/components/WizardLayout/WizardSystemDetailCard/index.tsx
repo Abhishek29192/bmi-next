@@ -1,9 +1,9 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import Typography from "@bmi/typography";
-import Card, { CardContent, CardHeader } from "@bmi/card";
-import Table from "@bmi/table";
-import Icon from "@bmi/icon";
+import Typography from "@bmi-digital/components/typography";
+import Card, { CardContent, CardHeader } from "@bmi-digital/components/card";
+import Table from "@bmi-digital/components/table";
+import Icon from "@bmi-digital/components/icon";
 import { Delete } from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
 import { Product } from "@bmi/intouch-api-types";

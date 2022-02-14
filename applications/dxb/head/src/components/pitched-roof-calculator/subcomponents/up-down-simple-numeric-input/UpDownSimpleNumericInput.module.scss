@@ -1,0 +1,94 @@
+@import "@bmi-digital/styles";
+
+.UpDownSimpleNumericInput {
+  @mixin locked {
+    flex-direction: row;
+
+    .input {
+      margin: 0;
+      display: flex;
+      flex: 1;
+
+      :global(.MuiOutlinedInput-notchedOutline),
+      :global(.MuiFilledInput-root),
+      :global(.MuiFilledInput-input) {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-right: none;
+        height: 48px;
+        padding-bottom: 13px;
+        text-align: center;
+      }
+
+      &-in-middle {
+        :global(.MuiOutlinedInput-notchedOutline),
+        :global(.MuiFilledInput-root),
+        :global(.MuiFilledInput-input) {
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          border-left: none;
+        }
+      }
+    }
+
+    .button {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      height: auto;
+
+      &:global(.MuiIconButton-root) {
+        width: 56px;
+      }
+    }
+
+    .button-sides {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      height: auto;
+
+      &:global(.MuiIconButton-root) {
+        width: 56px;
+      }
+    }
+
+    .button-right {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-right-color: $color-theme-focus;
+      border-right-style: solid;
+      border-right-width: 1px;
+      height: auto;
+
+      &:global(.MuiIconButton-root) {
+        width: 56px;
+      }
+    }
+  }
+
+  display: flex;
+  flex-direction: column;
+
+  &--locked-xs {
+    @include locked;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    &--locked-sm {
+      @include locked;
+    }
+  }
+
+  @media (min-width: $breakpoint-md) {
+    &--locked-md {
+      @include locked;
+    }
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    &--locked-lg {
+      @include locked;
+    }
+  }
+}

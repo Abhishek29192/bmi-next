@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "@bmi/typography";
+import Typography from "@bmi-digital/components/typography";
 import TimeAgo from "javascript-time-ago";
 import { useTranslation } from "next-i18next";
 import ReactTimeAgo from "react-time-ago";

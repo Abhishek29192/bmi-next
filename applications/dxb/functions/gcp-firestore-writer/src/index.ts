@@ -1,4 +1,4 @@
-import logger from "@bmi/functions-logger";
+import logger from "@bmi-digital/functions-logger";
 import { getFirestore } from "@bmi/functions-firestore";
 import { DeleteItemType, ObjType } from "@bmi/gcp-pim-message-handler";
 import type { EventFunction } from "@google-cloud/functions-framework/build/src/functions";

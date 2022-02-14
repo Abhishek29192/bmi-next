@@ -1,0 +1,17 @@
+test_grid:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/grid"
+    ROOT_DIR: "components/grid"
+
+test_mr_coverage_grid:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi-digital/components/grid"
+    ROOT_DIR: "components/grid"
+
+build_grid:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/grid"
+    ROOT_DIR: "components/grid"

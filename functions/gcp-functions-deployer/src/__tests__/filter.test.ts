@@ -4,7 +4,7 @@ import path from "path";
 import mockConsole from "jest-mock-console";
 import { filterFunctionMetadata } from "../filter";
 
-jest.mock("@bmi/functions-logger");
+jest.mock("@bmi-digital/functions-logger");
 
 const resourcesBasePath = `${path.resolve(__dirname)}/resources`;
 

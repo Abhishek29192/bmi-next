@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "@bmi/typography";
+import Typography from "@bmi-digital/components/typography";
 import { useTranslation } from "next-i18next";
 import classnames from "classnames";
 import { InfoPair } from "../../InfoPair";

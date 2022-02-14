@@ -9,15 +9,16 @@ module.exports = {
   coverageThreshold: {
     global: {
       ...sharedConfig.coverageThreshold.global,
-      statements: "50",
+      statements: "52",
       branches: "25",
-      functions: "32",
-      lines: "50"
+      functions: "31",
+      lines: "53"
     }
   },
   collectCoverageFrom: [
     ...sharedConfig.collectCoverageFrom,
     "!<rootDir>/.next/",
     "!<rootDir>/.storybook/"
-  ]
+  ],
+  resolver: "@bmi/jest-node-exports-resolver"
 };

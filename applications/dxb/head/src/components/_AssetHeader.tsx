@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import InfoIcon from "@material-ui/icons/Info";
-import Icon from "@bmi/icon";
-import Tooltip from "@bmi/tooltip";
-import AnchorLink from "@bmi/anchor-link";
-import Dialog from "@bmi/dialog";
-import Button from "@bmi/button";
+import { Icon } from "@bmi-digital/components";
+import Tooltip from "@bmi-digital/components/tooltip";
+import { AnchorLink } from "@bmi-digital/components";
+import Dialog from "@bmi-digital/components/dialog";
+import { Button } from "@bmi-digital/components";
 import {
   PIMDocumentData,
   PIMLinkDocumentData

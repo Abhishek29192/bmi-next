@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { gql } from "@apollo/client";
-import Typography from "@bmi/typography";
-import Table from "@bmi/table";
-import Button from "@bmi/button";
-import Icon, { FilePDF, FilePNG, FileJPG, FileJPEG } from "@bmi/icon";
+import Typography from "@bmi-digital/components/typography";
+import Table from "@bmi-digital/components/table";
+import Button from "@bmi-digital/components/button";
+import Icon, {
+  FilePDF,
+  FilePNG,
+  FileJPG,
+  FileJPEG
+} from "@bmi-digital/components/icon";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { useTranslation } from "next-i18next";
 import { CompanyDocumentType } from "@bmi/intouch-api-types";

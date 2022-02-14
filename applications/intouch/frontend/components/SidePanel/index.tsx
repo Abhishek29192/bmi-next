@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import Typography from "@bmi/typography";
+import Typography from "@bmi-digital/components/typography";
 
 import { FilterInput } from "../FilterInput";
 import { FilterButton } from "../FilterButton";

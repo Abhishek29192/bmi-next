@@ -1,0 +1,67 @@
+@import "@bmi-digital/styles";
+
+.PromoSection {
+  .title {
+    margin-bottom: 32px;
+  }
+
+  .subtitle {
+    display: none;
+    margin-bottom: 24px;
+  }
+
+  .content {
+    padding-bottom: 0 24px;
+    font-size: 1rem;
+  }
+
+  .image {
+    height: 300px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    .image {
+      height: 430px;
+    }
+
+    .content {
+      padding-right: 60px;
+      padding-bottom: 0;
+    }
+
+    &:nth-child(even),
+    &--reversed {
+      .content {
+        padding-right: 0;
+        padding-left: 60px;
+      }
+    }
+  }
+
+  // NOTE: Handle PromoSection series
+  & + & {
+    padding-top: 0px;
+    .title {
+      display: none;
+    }
+    // NOTE: I'm sorry.
+    .subtitle {
+      display: block;
+    }
+  }
+
+  &:nth-of-type(even),
+  &--reversed {
+    .grid {
+      flex-direction: row-reverse;
+    }
+  }
+
+  // NOTE: This unfortunately is inhibited by the TableOfContents wrapper in head
+  &:nth-of-type(even) {
+    background-color: $color-alabaster;
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { useTranslation } from "next-i18next";
-import Dialog from "@bmi/dialog";
+import Dialog from "@bmi-digital/components/dialog";
 import { gql } from "@apollo/client";
 import { ProjectSiteAddressIdFkeyInput } from "@bmi/intouch-api-types";
 import { useUpdateProjectMutation } from "../../../../graphql/generated/hooks";

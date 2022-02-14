@@ -1,5 +1,5 @@
 import validator from "validator";
-import { ValidationResult } from "@bmi/form";
+import { ValidationResult } from "@bmi-digital/components/form";
 import { getNestedValue } from "../utils/object";
 
 export type ValidateObjectResult = {

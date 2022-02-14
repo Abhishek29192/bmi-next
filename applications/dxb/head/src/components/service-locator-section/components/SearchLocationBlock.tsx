@@ -2,12 +2,12 @@ import React, { MouseEvent } from "react";
 import {
   GeocoderResult as GoogleGeocoderResult,
   LatLngLiteral as GoogleLatLngLiteral
-} from "@bmi/google-api/src";
-import Grid from "@bmi/grid";
-import Autocomplete from "@bmi/autocomplete";
-import Typography from "@bmi/typography";
-import GoogleAutocomplete from "@bmi/google-autocomplete";
-import GeolocationButton from "@bmi/geolocation-button";
+} from "@bmi-digital/components/google-api";
+import Grid from "@bmi-digital/components/grid";
+import Autocomplete from "@bmi-digital/components/autocomplete";
+import Typography from "@bmi-digital/components/typography";
+import GoogleAutocomplete from "@bmi-digital/components/google-autocomplete";
+import GeolocationButton from "@bmi-digital/components/geolocation-button";
 import AutoCompleteCountryMap from "../../../countries/GoogleCountryCodeMap";
 import styles from "../styles/ServiceLocatorSection.module.scss";
 import { useSiteContext } from "../../Site";

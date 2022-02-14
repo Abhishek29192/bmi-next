@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Table from "@bmi/table";
+import Table from "@bmi-digital/components/table";
 import { GetUserProfileQuery } from "../../../../graphql/generated/operations";
 import { CertificationRow } from "../../../Tables/CertificationRow";
 

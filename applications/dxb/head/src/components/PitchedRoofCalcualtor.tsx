@@ -1,15 +1,15 @@
 import React, { createContext, Suspense, useEffect, useState } from "react";
-import MicroCopy from "@bmi/micro-copy";
-// import sampleData from "@bmi/pitched-roof-calculator/src/samples/data.json";
-// import no from "@bmi/pitched-roof-calculator/src/samples/copy/no.json";
-import { Data, no, sampleData } from "@bmi/pitched-roof-calculator";
+import MicroCopy from "@bmi-digital/components/micro-copy";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import axios from "axios";
 import { devLog } from "../utils/devLog";
 import { pushToDataLayer } from "../utils/google-tag-manager";
+import { Data } from "./pitched-roof-calculator/types";
+import no from "./pitched-roof-calculator/samples/copy/no.json";
+import sampleData from "./pitched-roof-calculator/samples/data.json";
 
 const PitchedRoofCalculator = React.lazy(
-  () => import("@bmi/pitched-roof-calculator")
+  () => import("./pitched-roof-calculator/PitchedRoofCalculator")
 );
 
 type Parameters = {

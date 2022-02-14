@@ -8,8 +8,10 @@ import {
   Inline
 } from "@contentful/rich-text-types";
 import { Options } from "@contentful/rich-text-react-renderer";
-import Typography from "@bmi/typography";
-import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
+import Typography from "@bmi-digital/components/typography";
+import AnchorLink, {
+  AnchorLinkProps
+} from "@bmi-digital/components/anchor-link";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { graphql } from "gatsby";
 import withGTM from "../utils/google-tag-manager";

@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Typography from "@bmi/typography";
-import Button from "@bmi/button";
-import Icon, { FilePDF, Arrow } from "@bmi/icon";
+import Typography from "@bmi-digital/components/typography";
+import Button from "@bmi-digital/components/button";
+import Icon, { FilePDF, Arrow } from "@bmi-digital/components/icon";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
 import AccessControl from "../../../../lib/permissions/AccessControl";
 import { ProductCard } from "../ProductCard";

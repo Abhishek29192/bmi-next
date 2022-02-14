@@ -16,7 +16,6 @@
     "baseUrl": ".",
     "rootDirs": ["src"],
     "paths": {
-      "@bmi/visualiser/data/": ["./node_modules/@bmi/visualiser/data/"],
       "@bmi/*": ["./node_modules/@bmi/*/src"]
     },
     "typeRoots": ["./node_modules/@types", "./@types"]

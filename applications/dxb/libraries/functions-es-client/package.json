@@ -9,6 +9,6 @@
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
-    "@bmi/functions-secret-client": "0.0.0"
+    "@bmi-digital/functions-secret-client": "1.1.1"
   }
 }

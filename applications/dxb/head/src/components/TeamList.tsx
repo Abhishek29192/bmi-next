@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
-import Grid from "@bmi/grid";
-import ProfileCard from "@bmi/profile-card";
-import EqualHeights from "@bmi/equal-heights";
-import Button from "@bmi/button";
+import Grid from "@bmi-digital/components/grid";
+import ProfileCard from "@bmi-digital/components/profile-card";
+import EqualHeights from "@bmi-digital/components/equal-heights";
+import Button from "@bmi-digital/components/button";
 import { microCopy } from "../constants/microCopies";
 import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";

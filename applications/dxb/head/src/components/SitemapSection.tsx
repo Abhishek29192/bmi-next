@@ -1,5 +1,5 @@
 import React from "react";
-import Section from "@bmi/section";
+import Section from "@bmi-digital/components/section";
 import SitemapBlock from "./SitemapBlock";
 import { NavigationData } from "./Link";
 

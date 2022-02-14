@@ -2,7 +2,7 @@ import React from "react";
 import { act, fireEvent, screen } from "@testing-library/react";
 import { LocationProvider } from "@reach/router";
 import camelCase from "lodash-es/camelCase";
-import * as GoogleMockApi from "@bmi/google-api";
+import * as GoogleMockApi from "@bmi-digital/components/google-api";
 import {
   rooferTypes,
   branchTypes,
@@ -19,7 +19,7 @@ import { googleMock } from "../__mocks__/google";
 
 let callMarkerOnClick;
 
-jest.mock("@bmi/google-map", () => {
+jest.mock("@bmi-digital/components/google-map", () => {
   const GoogleMap = jest
     .fn()
     .mockImplementation(({ children, onMarkerClick }) => {

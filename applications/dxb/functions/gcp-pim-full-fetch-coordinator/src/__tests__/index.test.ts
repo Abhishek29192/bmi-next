@@ -1,7 +1,11 @@
 import mockConsole from "jest-mock-console";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import { mockResponse, mockRequest, mockResponses } from "@bmi/fetch-mocks";
+import {
+  mockResponse,
+  mockRequest,
+  mockResponses
+} from "@bmi-digital/fetch-mocks";
 import {
   createProductsApiResponse,
   createSystemsApiResponse

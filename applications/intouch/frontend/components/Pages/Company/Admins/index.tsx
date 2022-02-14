@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { gql } from "@apollo/client";
-import Grid from "@bmi/grid";
+import Grid from "@bmi-digital/components/grid";
 import { GetCompanyQuery } from "../../../../graphql/generated/operations";
 import { SmallProfileCard } from "../../../Cards/SmallProfileCard";
 

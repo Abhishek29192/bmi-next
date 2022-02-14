@@ -1,9 +1,9 @@
 import React from "react";
 import { gql } from "@apollo/client";
 import Head from "next/head";
-import Icon from "@bmi/icon";
-import BmiThemeProvider from "@bmi/theme-provider";
-import { BMI } from "@bmi/logo";
+import Icon from "@bmi-digital/components/icon";
+import BmiThemeProvider from "@bmi-digital/components/theme-provider";
+import { BMI } from "@bmi-digital/components/logo";
 import { Sidebar } from "../Sidebar";
 import { Header } from "../Header";
 import { Footer, Props as FooterProps } from "../Footer";

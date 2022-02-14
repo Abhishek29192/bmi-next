@@ -1,0 +1,117 @@
+@import "@bmi-digital/styles";
+
+body {
+  overflow-x: hidden;
+}
+
+.Carousel {
+  @media (min-width: $breakpoint-md) {
+    position: relative;
+    flex: 1;
+    height: 100%;
+
+    > div {
+      height: 100%;
+    }
+
+    :global {
+      [class*="react-swipeable-view-container"] {
+        height: 100%;
+      }
+    }
+
+    .slide {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &--with-gutter .slide {
+    padding: 0 8px;
+
+    @media (min-width: $breakpoint-md) {
+      padding: 0 12px;
+    }
+  }
+
+  .page {
+    @media (min-width: $breakpoint-md) {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+
+      .wrapper--show-off-screen & {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  &--swipable .page {
+    &:hover {
+      cursor: grab;
+    }
+
+    &:active {
+      cursor: grabbing;
+      user-select: none;
+    }
+  }
+
+  &--opacity {
+    > div {
+      overflow-x: visible !important;
+    }
+    :global {
+      [class*="Carousel__slide--global"] {
+        overflow: revert !important;
+
+        transition: 0.3s ease-in-out opacity;
+
+        &[aria-hidden="false"] {
+          opacity: 1;
+        }
+
+        &[aria-hidden="true"] {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}
+
+// TODO: Add this to class at hero level
+.wrapper {
+  height: 100%;
+  position: relative;
+
+  &--with-gutter {
+    margin: 0 -8px;
+
+    @media (min-width: $breakpoint-md) {
+      margin: 0 -12px;
+    }
+  }
+
+  &--show-off-screen {
+    [class*="Carousel__slide--global"] {
+      &[aria-hidden="true"] {
+        opacity: 0.35;
+      }
+    }
+
+    // NOTE: 16px is the grid gutter
+    margin: 0 calc(16px / 2 + 30px);
+
+    @media (min-width: $breakpoint-md) {
+      // NOTE: 16px is the grid gutter
+      margin: 0 calc(24px / 2 + 50px);
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      margin: 0;
+    }
+  }
+}

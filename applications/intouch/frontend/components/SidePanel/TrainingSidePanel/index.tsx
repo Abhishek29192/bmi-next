@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Typography from "@bmi/typography";
+import Typography from "@bmi-digital/components/typography";
 import { Technology } from "@bmi/intouch-api-types";
-import Icon from "@bmi/icon";
+import Icon from "@bmi-digital/components/icon";
 import { FilterResult } from "../../FilterResult";
 import { SidePanel } from "../";
 import { TrainingQuery } from "../../../graphql/generated/operations";

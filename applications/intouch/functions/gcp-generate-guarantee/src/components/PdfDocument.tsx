@@ -169,8 +169,8 @@ export const PdfDocument = ({
           />
         </Col>
       </Row>
-      <View marginTop={20} marginBottom={20}>
-        <Img src={signatureEncoded} width={100} />
+      <View marginBottom={20}>
+        <Img src={signatureEncoded} maxWidth={100} maxHeight={100} />
         <Typography>{template.signatory}</Typography>
       </View>
 

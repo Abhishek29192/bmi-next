@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Thumbnail, { Props as ThumbnailProps } from "@bmi/thumbnail";
-import Typography from "@bmi/typography";
-import Section from "@bmi/section";
-import Grid from "@bmi/grid";
-import MediaGallery, { Media as MediaData } from "@bmi/media-gallery";
+import Thumbnail, { ThumbnailProps } from "@bmi-digital/components/thumbnail";
+import Typography from "@bmi-digital/components/typography";
+import Section from "@bmi-digital/components/section";
+import Grid from "@bmi-digital/components/grid";
+import MediaGallery, { MediaData } from "@bmi-digital/components/media-gallery";
 import withGTM from "../utils/google-tag-manager";
 import { Data as ImageData, renderImage } from "./Image";
 import styles from "./styles/ImageGallerySection.module.scss";

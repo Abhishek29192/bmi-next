@@ -1,9 +1,9 @@
 import React from "react";
 import { Technology } from "@bmi/intouch-api-types";
-import Typography from "@bmi/typography";
-import Icon from "@bmi/icon";
+import Typography from "@bmi-digital/components/typography";
+import Icon from "@bmi-digital/components/icon";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import Button from "@bmi/button";
+import Button from "@bmi-digital/components/button";
 import { useTranslation } from "next-i18next";
 import { SimpleCard } from "../SimpleCard";
 import { technologyIcon, technologyNames } from "../../../lib/utils/course";

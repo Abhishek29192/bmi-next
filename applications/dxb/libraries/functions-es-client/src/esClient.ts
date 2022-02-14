@@ -1,5 +1,5 @@
 import { Client } from "@elastic/elasticsearch";
-import { getSecret } from "@bmi/functions-secret-client";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 
 const { ES_PASSWORD_SECRET, ES_CLOUD_ID, ES_USERNAME, USE_LOCAL_ES } =
   process.env;

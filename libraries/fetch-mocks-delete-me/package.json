@@ -1,0 +1,14 @@
+{
+  "name": "@bmi/fetch-mocks-delete-me",
+  "version": "0.0.0",
+  "private": true,
+  "license": "BMI-DXB",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.9",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  }
+}

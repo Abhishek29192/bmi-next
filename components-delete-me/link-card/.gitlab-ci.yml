@@ -1,0 +1,17 @@
+test_link-card:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/link-card"
+    ROOT_DIR: "components/link-card"
+
+test_mr_coverage_link-card:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi-digital/components/link-card"
+    ROOT_DIR: "components/link-card"
+
+build_link-card:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/link-card"
+    ROOT_DIR: "components/link-card"

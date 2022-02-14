@@ -1,0 +1,11 @@
+test_thumbnail:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/thumbnail"
+    ROOT_DIR: "components/thumbnail"
+
+build_thumbnail:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/thumbnail"
+    ROOT_DIR: "components/thumbnail"

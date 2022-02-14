@@ -1,6 +1,6 @@
 import { IncomingHttpHeaders } from "http";
-import logger from "@bmi/functions-logger";
-import { getSecret } from "@bmi/functions-secret-client";
+import logger from "@bmi-digital/functions-logger";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { Status } from "simple-http-status";
 import { getById, getYoutubeDetails, saveById } from "./db";

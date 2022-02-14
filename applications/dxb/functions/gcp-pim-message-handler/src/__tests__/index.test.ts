@@ -1,7 +1,11 @@
 import mockConsole from "jest-mock-console";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import { mockRequest, mockResponse, mockResponses } from "@bmi/fetch-mocks";
+import {
+  mockRequest,
+  mockResponse,
+  mockResponses
+} from "@bmi-digital/fetch-mocks";
 import { ObjType } from "../types";
 
 const fetchMock = fetchMockJest.sandbox();

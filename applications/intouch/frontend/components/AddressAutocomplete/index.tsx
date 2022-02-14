@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import GoogleAutocomplete, {
-  Props as GoogleAutocompleteProps
-} from "@bmi/google-autocomplete";
-import GoogleApi, { loadGoogleApi, GeocoderResult } from "@bmi/google-api";
-import GoogleMap, { Props as GoogleMapProps } from "@bmi/google-map";
+  GoogleAutocompleteProps
+} from "@bmi-digital/components/google-autocomplete";
+import GoogleApi, {
+  loadGoogleApi,
+  GeocoderResult
+} from "@bmi-digital/components/google-api";
+import GoogleMap, { GoogleMapProps } from "@bmi-digital/components/google-map";
 import { Address, Point } from "@bmi/intouch-api-types";
 import { addressFromPlaceApiResponse } from "./placeApiResponseToAddress";
 import styles from "./styles.module.scss";

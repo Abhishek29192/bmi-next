@@ -1,0 +1,11 @@
+test_header:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/header"
+    ROOT_DIR: "components/header"
+
+build_header:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/header"
+    ROOT_DIR: "components/header"

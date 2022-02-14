@@ -1,4 +1,4 @@
-import logger from "@bmi/functions-logger";
+import logger from "@bmi-digital/functions-logger";
 import { DownloadResponse } from "@google-cloud/storage/build/src/file";
 import { FunctionMetadata } from "./types";
 

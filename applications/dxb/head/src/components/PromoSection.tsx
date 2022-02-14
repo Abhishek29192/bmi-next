@@ -1,6 +1,6 @@
-import Button, { ButtonProps } from "@bmi/button";
-import { ClickableAction } from "@bmi/clickable";
-import PromoSection from "@bmi/promo-section";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import { ClickableAction } from "@bmi-digital/components/clickable";
+import PromoSection from "@bmi-digital/components/promo-section";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
 import withGTM from "../utils/google-tag-manager";

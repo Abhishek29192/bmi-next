@@ -1,0 +1,11 @@
+test_icon-list:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/icon-list"
+    ROOT_DIR: "components/icon-list"
+
+build_icon-list:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/icon-list"
+    ROOT_DIR: "components/icon-list"

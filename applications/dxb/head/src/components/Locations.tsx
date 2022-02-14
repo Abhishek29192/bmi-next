@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 import React, { useState } from "react";
-import Grid from "@bmi/grid";
-import Button from "@bmi/button";
+import Grid from "@bmi-digital/components/grid";
+import Button from "@bmi-digital/components/button";
 import { microCopy } from "../constants/microCopies";
 import { useSiteContext } from "./Site";
 import styles from "./styles/Locations.module.scss";

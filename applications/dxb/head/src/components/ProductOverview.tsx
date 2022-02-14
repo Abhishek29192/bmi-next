@@ -1,10 +1,10 @@
 import React from "react";
-import Grid from "@bmi/grid";
+import Grid from "@bmi-digital/components/grid";
 import ProductOverviewPane, {
-  Props as ProductOverviewProps
-} from "@bmi/product-overview-pane";
-import ImageGallery, { Image } from "@bmi/image-gallery";
-import Thumbnail, { Props as ThumbnailProps } from "@bmi/thumbnail";
+  ProductOverviewPaneProps
+} from "@bmi-digital/components/product-overview-pane";
+import ImageGallery, { Image } from "@bmi-digital/components/image-gallery";
+import Thumbnail, { ThumbnailProps } from "@bmi-digital/components/thumbnail";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
 import styles from "./styles/ProductOverview.module.scss";
@@ -17,7 +17,7 @@ export type Data = {
   brandName: string;
   nobb: string | null;
   images: readonly Image[];
-  attributes: ProductOverviewProps["attributes"] | null;
+  attributes: ProductOverviewPaneProps["attributes"] | null;
   isRecapchaShown?: boolean;
 };
 

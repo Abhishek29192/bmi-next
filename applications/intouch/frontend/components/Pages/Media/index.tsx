@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useRouter } from "next/router";
-import Breadcrumbs from "@bmi/breadcrumbs";
-import Tabs from "@bmi/tabs";
+import Breadcrumbs from "@bmi-digital/components/breadcrumbs";
+import Tabs from "@bmi-digital/components/tabs";
 import {
   MediaTool,
   MediaFolder,

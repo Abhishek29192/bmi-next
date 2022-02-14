@@ -1,4 +1,4 @@
-import logger from "@bmi/functions-logger";
+import logger from "@bmi-digital/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch, { RequestInit } from "node-fetch";
 

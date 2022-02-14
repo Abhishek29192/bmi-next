@@ -1,5 +1,0 @@
-include:
-  - local: "/libraries/contentful-upload/.gitlab-ci.yml"
-  - local: "/libraries/functions-logger/.gitlab-ci.yml"
-  - local: "/libraries/functions-secret-client/.gitlab-ci.yml"
-  - local: "/libraries/react-pdf-maker/.gitlab-ci.yml"

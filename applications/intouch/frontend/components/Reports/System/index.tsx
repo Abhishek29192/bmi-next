@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import Button from "@bmi/button";
+import Button from "@bmi-digital/components/button";
 import { gql } from "@apollo/client";
 import { exportCsv } from "../../../lib/utils/report";
 import { useGetSystemsReportLazyQuery } from "../../../graphql/generated/hooks";

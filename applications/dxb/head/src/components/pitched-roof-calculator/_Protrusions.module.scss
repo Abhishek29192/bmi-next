@@ -1,0 +1,21 @@
+@import "@bmi-digital/styles";
+
+.Protrusions {
+  .dimensions {
+    display: flex;
+    flex-flow: column nowrap;
+
+    @media (min-width: $breakpoint-lg) {
+      flex-flow: row-reverse nowrap;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.showOnLarge {
+  display: none;
+
+  @media (min-width: $breakpoint-lg) {
+    display: block;
+  }
+}

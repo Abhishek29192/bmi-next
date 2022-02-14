@@ -1,4 +1,4 @@
-import { getSecret } from "@bmi/functions-secret-client";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 import { youtube_v3 } from "googleapis/build/src/apis/youtube/v3";
 import { youtube } from "googleapis/build/src/apis/youtube";
 import { getFirestore } from "@bmi/functions-firestore";

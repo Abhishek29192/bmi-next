@@ -1,15 +1,15 @@
 import {
   LatLngLiteral as GoogleLatLngLiteral,
   MarkerOptionsWithData
-} from "@bmi/google-api/src";
-import { DetailProps } from "@bmi/company-details/src";
-import GoogleMap from "@bmi/google-map";
-import Card from "@bmi/card";
-import { CardContent, CardHeader } from "@bmi/card";
-import Button from "@bmi/button";
+} from "@bmi-digital/components/google-api";
+import { CompanyDetailProps } from "@bmi-digital/components/company-details";
+import GoogleMap from "@bmi-digital/components/google-map";
+import Card from "@bmi-digital/components/card";
+import { CardContent, CardHeader } from "@bmi-digital/components/card";
+import Button from "@bmi-digital/components/button";
 import CloseIcon from "@material-ui/icons/Close";
-import CompanyDetails from "@bmi/company-details";
-import Typography from "@bmi/typography";
+import CompanyDetails from "@bmi-digital/components/company-details";
+import Typography from "@bmi-digital/components/typography";
 import React from "react";
 import { EVENT_CAT_ID_LINK_CLICKS } from "../constants";
 import styles from "../styles/ServiceLocatorSection.module.scss";
@@ -29,7 +29,7 @@ export interface MapProps {
     eventCategoryId: string,
     service: Service,
     isAddressHidden?: boolean
-  ) => DetailProps[];
+  ) => CompanyDetailProps[];
 }
 
 export const ServiceLocatorMap = ({

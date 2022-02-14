@@ -1,6 +1,6 @@
 import { DeleteItemType, ObjType } from "@bmi/gcp-pim-message-handler";
 import { getEsClient } from "@bmi/functions-es-client";
-import logger from "@bmi/functions-logger";
+import logger from "@bmi-digital/functions-logger";
 
 export const deleteESItemByCode = async (
   items: DeleteItemType[],

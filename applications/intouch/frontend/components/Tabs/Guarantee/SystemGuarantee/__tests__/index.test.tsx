@@ -11,7 +11,7 @@ const mockSystem: GetProjectQuery["project"]["guarantees"]["nodes"][0]["systemBy
     systemMembersBySystemBmiRef: null
   };
 
-jest.mock("@bmi/use-dimensions", () => ({
+jest.mock("@bmi-digital/use-dimensions", () => ({
   __esModule: true,
   default: () => [useRef(), jest.fn()]
 }));

@@ -1,6 +1,6 @@
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
-import { mockResponses } from "@bmi/fetch-mocks";
+import { mockResponses } from "@bmi-digital/fetch-mocks";
 import { PimTypes } from "@bmi/pim-types";
 import {
   createProductsApiResponse,
@@ -12,7 +12,7 @@ const pimProductsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.
 const pimSystemsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&approvalStatus=APPROVED`;
 
 const getSecret = jest.fn();
-jest.mock("@bmi/functions-secret-client", () => {
+jest.mock("@bmi-digital/functions-secret-client", () => {
   return { getSecret };
 });
 

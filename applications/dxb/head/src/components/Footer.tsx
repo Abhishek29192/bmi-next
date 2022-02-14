@@ -1,7 +1,9 @@
-import Button, { ButtonProps } from "@bmi/button";
-import Footer, { MenuItem } from "@bmi/footer";
-import BmiIcon from "@bmi/footer/src/svgs/BMI.svg";
-import HidePrint from "@bmi/hide-print";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
+import Footer, {
+  MenuItem,
+  BMI as BmiIcon
+} from "@bmi-digital/components/footer";
+import HidePrint from "@bmi-digital/components/hide-print";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";

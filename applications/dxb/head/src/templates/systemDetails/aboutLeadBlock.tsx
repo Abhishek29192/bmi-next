@@ -1,10 +1,10 @@
 import React from "react";
-import LeadBlock from "@bmi/lead-block";
-import Typography from "@bmi/typography";
-import IconList from "@bmi/icon-list";
-import Icon from "@bmi/icon";
+import LeadBlock from "@bmi-digital/components/lead-block";
+import Typography from "@bmi-digital/components/typography";
+import IconList from "@bmi-digital/components/icon-list";
+import Icon from "@bmi-digital/components/icon";
 import CheckIcon from "@material-ui/icons/Check";
-import Button, { ButtonProps } from "@bmi/button";
+import Button, { ButtonProps } from "@bmi-digital/components/button";
 import { Launch } from "@material-ui/icons";
 import { microCopy } from "../../constants/microCopies";
 import { useSiteContext } from "../../components/Site";

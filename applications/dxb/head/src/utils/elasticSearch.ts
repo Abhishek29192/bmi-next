@@ -1,4 +1,4 @@
-import { Filter } from "@bmi/filters";
+import { Filter } from "@bmi-digital/components/filters";
 import { devLog } from "../utils/devLog";
 import {
   getVariantsByBaseProductCodeQuery,
