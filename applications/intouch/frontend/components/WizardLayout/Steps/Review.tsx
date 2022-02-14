@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import Typography from "@bmi/typography";
-import AlertBanner from "@bmi/alert-banner";
+import Typography from "@bmi-digital/components/typography";
+import AlertBanner from "@bmi-digital/components/alert-banner";
 import { useTranslation } from "next-i18next";
 import { InfoPair } from "../../InfoPair";
 import { useWizardContext } from "../WizardContext";

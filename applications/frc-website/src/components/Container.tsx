@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "@bmi/container";
+import Container from "@bmi-digital/components/container";
 import styles from "./Container.module.scss";
 
 type Props = {

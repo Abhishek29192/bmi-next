@@ -1,0 +1,17 @@
+test_select:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/select"
+    ROOT_DIR: "components/select"
+
+test_mr_coverage_select:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi-digital/components/select"
+    ROOT_DIR: "components/select"
+
+build_select:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/select"
+    ROOT_DIR: "components/select"

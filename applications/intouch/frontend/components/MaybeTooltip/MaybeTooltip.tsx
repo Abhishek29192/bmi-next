@@ -1,5 +1,5 @@
 import React from "react";
-import Tooltip, { TooltipProps } from "@bmi/tooltip";
+import Tooltip, { TooltipProps } from "@bmi-digital/components/tooltip";
 
 export type MaybeTooltipProps = {
   show: boolean;

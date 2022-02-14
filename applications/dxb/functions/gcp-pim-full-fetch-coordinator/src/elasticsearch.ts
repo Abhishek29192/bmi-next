@@ -1,4 +1,4 @@
-import logger from "@bmi/functions-logger";
+import logger from "@bmi-digital/functions-logger";
 import { getEsClient } from "@bmi/functions-es-client";
 
 const { ES_INDEX_PREFIX } = process.env;

@@ -1,0 +1,17 @@
+test_location-card:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/location-card"
+    ROOT_DIR: "components/location-card"
+
+test_mr_coverage_location-card:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi-digital/components/location-card"
+    ROOT_DIR: "components/location-card"
+
+build_location-card:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/location-card"
+    ROOT_DIR: "components/location-card"

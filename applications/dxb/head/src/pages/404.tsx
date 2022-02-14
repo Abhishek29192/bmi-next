@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Button from "@bmi/button";
-import Typography from "@bmi/typography";
-import PromoSection from "@bmi/promo-section";
+import Button from "@bmi-digital/components/button";
+import Typography from "@bmi-digital/components/typography";
+import PromoSection from "@bmi-digital/components/promo-section";
 import Page from "../components/Page";
 import { Data as SiteData } from "../components/Site";
 import { getClickableActionFromUrl } from "../components/Link";

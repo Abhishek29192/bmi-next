@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
-import Typography from "@bmi/typography";
-import Grid from "@bmi/grid";
-import Form from "@bmi/form";
-import AlertBanner from "@bmi/alert-banner";
+import Typography from "@bmi-digital/components/typography";
+import Grid from "@bmi-digital/components/grid";
+import Form from "@bmi-digital/components/form";
+import AlertBanner from "@bmi-digital/components/alert-banner";
 import { useImportAccountsCompaniesFromCvsMutation } from "../../../graphql/generated/hooks";
 import { ImportAccountsCompaniesFromCvsMutation } from "../../../graphql/generated/operations";
 import { getNestedValue } from "../../../lib/utils/object";

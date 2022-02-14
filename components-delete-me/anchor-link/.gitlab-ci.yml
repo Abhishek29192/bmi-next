@@ -1,0 +1,11 @@
+test_anchor-link:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/anchor-link"
+    ROOT_DIR: "components/anchor-link"
+
+build_anchor-link:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/anchor-link"
+    ROOT_DIR: "components/anchor-link"

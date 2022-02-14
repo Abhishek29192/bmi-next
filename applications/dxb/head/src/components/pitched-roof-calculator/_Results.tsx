@@ -1,9 +1,9 @@
 import React, { useContext, useMemo, useState } from "react";
-import Typography from "@bmi/typography";
-import Grid from "@bmi/grid";
-import Form, { Values as FormValues } from "@bmi/form";
-import TextField from "@bmi/text-field";
-import Checkbox from "@bmi/checkbox";
+import Typography from "@bmi-digital/components/typography";
+import Grid from "@bmi-digital/components/grid";
+import Form, { Values as FormValues } from "@bmi-digital/components/form";
+import TextField from "@bmi-digital/components/text-field";
+import Checkbox from "@bmi-digital/components/checkbox";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import QuantityTable from "./subcomponents/quantity-table/QuantityTable";

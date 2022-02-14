@@ -1,0 +1,14 @@
+{
+  "name": "@bmi-digital/use-dimensions-delete-me",
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "react": "^16.13.1"
+  }
+}

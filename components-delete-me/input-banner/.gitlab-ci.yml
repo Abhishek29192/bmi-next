@@ -1,0 +1,17 @@
+test_input-banner:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/input-banner"
+    ROOT_DIR: "components/input-banner"
+
+test_mr_coverage_input-banner:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi-digital/components/input-banner"
+    ROOT_DIR: "components/input-banner"
+
+build_input-banner:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/input-banner"
+    ROOT_DIR: "components/input-banner"

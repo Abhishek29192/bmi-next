@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Grid from "@bmi/grid";
+import Grid from "@bmi-digital/components/grid";
 import { GetCompanyQuery } from "../../../graphql/generated/operations";
 import { GlobalPageProps } from "../../../lib/middleware/withPage";
 import { ROLES } from "../../../lib/constants";

@@ -1,0 +1,11 @@
+test_radio-button:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/radio-button"
+    ROOT_DIR: "components/radio-button"
+
+build_radio-button:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/radio-button"
+    ROOT_DIR: "components/radio-button"

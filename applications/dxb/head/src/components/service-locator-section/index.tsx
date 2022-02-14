@@ -1,13 +1,13 @@
-import { DetailProps } from "@bmi/company-details";
+import { CompanyDetailProps } from "@bmi-digital/components/company-details";
 import GoogleApi, {
   GeocoderResult as GoogleGeocoderResult,
   Google,
   LatLngLiteral as GoogleLatLngLiteral,
   loadGoogleApi
-} from "@bmi/google-api";
-import Grid from "@bmi/grid";
-import Section from "@bmi/section";
-import Tabs from "@bmi/tabs";
+} from "@bmi-digital/components/google-api";
+import Grid from "@bmi-digital/components/grid";
+import Section from "@bmi-digital/components/section";
+import Tabs from "@bmi-digital/components/tabs";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useState } from "react";
 import { useTheme } from "@material-ui/core/styles";
@@ -177,7 +177,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     eventCategoryId: string,
     service: Service,
     isAddressHidden?: boolean
-  ): DetailProps[] => {
+  ): CompanyDetailProps[] => {
     const googleURLLatLng = centre ? `${centre.lat},+${centre.lng}` : "";
 
     return createCompanyDetails(

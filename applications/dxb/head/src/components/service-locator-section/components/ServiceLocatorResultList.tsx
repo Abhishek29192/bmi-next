@@ -1,12 +1,15 @@
-import { DetailProps, RoofProLevel } from "@bmi/company-details/src";
+import {
+  CompanyDetailProps,
+  RoofProLevel
+} from "@bmi-digital/components/company-details";
 import Logo, {
   RoofProElite,
   RoofProExpert,
   RoofProPartnerSmall
-} from "@bmi/logo";
-import CompanyDetails from "@bmi/company-details";
-import Typography from "@bmi/typography";
-import { SVGImport } from "@bmi/svg-import";
+} from "@bmi-digital/components/logo";
+import CompanyDetails from "@bmi-digital/components/company-details";
+import Typography from "@bmi-digital/components/typography";
+import { SVGImport } from "@bmi-digital/svg-import";
 import React from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
@@ -25,7 +28,7 @@ interface ResultListProps {
     eventCategoryId: string,
     service: Service,
     isAddressHidden?: boolean
-  ) => DetailProps[];
+  ) => CompanyDetailProps[];
   selectedRoofer: Service;
   shouldListCertification: boolean;
 }

@@ -1,10 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Accordion, { AccordionSummaryProps } from "@bmi/accordion";
-import Section from "@bmi/section";
-import Tabs from "@bmi/tabs";
+import Accordion, {
+  AccordionSummaryProps
+} from "@bmi-digital/components/accordion";
+import Section from "@bmi-digital/components/section";
+import Tabs from "@bmi-digital/components/tabs";
 import Tab, { TabProps } from "@material-ui/core/Tab";
-import Typography from "@bmi/typography";
+import Typography from "@bmi-digital/components/typography";
 import withGTM from "../utils/google-tag-manager";
 import RichText from "../components/RichText";
 import { Data as TitleWithContentData } from "./TitleWithContent";

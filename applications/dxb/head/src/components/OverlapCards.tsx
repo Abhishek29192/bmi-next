@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Grid from "@bmi/grid";
-import CTACard from "@bmi/cta-card";
-import Container from "@bmi/container";
+import Grid from "@bmi-digital/components/grid";
+import CTACard from "@bmi-digital/components/cta-card";
+import Container from "@bmi-digital/components/container";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import withGTM from "../utils/google-tag-manager";
 import { renderVideo } from "./Video";

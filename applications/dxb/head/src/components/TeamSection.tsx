@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Grid from "@bmi/grid";
-import Tabs from "@bmi/tabs";
-import Section, { BackgroundColor } from "@bmi/section";
+import Grid from "@bmi-digital/components/grid";
+import Tabs from "@bmi-digital/components/tabs";
+import Section, { BackgroundColor } from "@bmi-digital/components/section";
 import { Tab, TabProps } from "@material-ui/core";
-import Container from "@bmi/container";
+import Container from "@bmi-digital/components/container";
 import classnames from "classnames";
 import RichText, { RichTextData } from "../components/RichText";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";

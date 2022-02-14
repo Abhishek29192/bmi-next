@@ -1,0 +1,17 @@
+test_perfect-scrollbar:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/perfect-scrollbar"
+    ROOT_DIR: "components/perfect-scrollbar"
+
+test_mr_coverage_perfect-scrollbar:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi-digital/components/perfect-scrollbar"
+    ROOT_DIR: "components/perfect-scrollbar"
+
+build_perfect-scrollbar:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/perfect-scrollbar"
+    ROOT_DIR: "components/perfect-scrollbar"

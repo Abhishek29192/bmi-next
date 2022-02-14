@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "@bmi/typography";
+import Typography from "@bmi-digital/components/typography";
 import styles from "./styles.module.scss";
 
 export type NoProjectsCardProps = {

@@ -1,10 +1,10 @@
 import { gql } from "@apollo/client";
 import React, { useState, useCallback } from "react";
 import { useTranslation } from "next-i18next";
-import AlertBanner from "@bmi/alert-banner";
-import Typography from "@bmi/typography";
-import Grid from "@bmi/grid";
-import Button from "@bmi/button";
+import AlertBanner from "@bmi-digital/components/alert-banner";
+import Typography from "@bmi-digital/components/typography";
+import Grid from "@bmi-digital/components/grid";
+import Button from "@bmi-digital/components/button";
 import { useBulkImportMutation } from "../../../graphql/generated/hooks";
 import styles from "./styles.module.scss";
 import ErrorsAlert from "./ErrorsAlert";

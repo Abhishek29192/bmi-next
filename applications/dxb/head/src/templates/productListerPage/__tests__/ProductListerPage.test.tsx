@@ -10,8 +10,8 @@ import {
   createMemorySource,
   LocationProvider
 } from "@reach/router";
-import * as all from "@bmi/use-dimensions";
-import { Filter } from "@bmi/filters";
+import * as all from "@bmi-digital/use-dimensions";
+import { Filter } from "@bmi-digital/components/filters";
 import ProductListerPage, {
   PageContextType
 } from "../components/product-lister-page";

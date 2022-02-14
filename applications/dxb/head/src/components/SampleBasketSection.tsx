@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 
-import Button from "@bmi/button";
-import Section from "@bmi/section";
+import Button from "@bmi-digital/components/button";
+import Section from "@bmi-digital/components/section";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import {

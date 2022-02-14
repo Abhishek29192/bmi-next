@@ -1,5 +1,5 @@
 import { URLSearchParams } from "url";
-import { getSecret } from "@bmi/functions-secret-client";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 import fetch, { RequestRedirect } from "node-fetch";
 import {
   AuthResponse,

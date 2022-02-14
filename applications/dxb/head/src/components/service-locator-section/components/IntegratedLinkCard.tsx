@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import LinkCard, { Props as LinkCardProps } from "@bmi/link-card";
+import LinkCard, { LinkCardProps } from "@bmi-digital/components/link-card";
 import withGTM from "../../../utils/google-tag-manager";
 import { useScrollTo } from "../helpers";
 

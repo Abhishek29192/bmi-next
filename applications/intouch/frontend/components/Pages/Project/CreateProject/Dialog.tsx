@@ -6,7 +6,7 @@ import {
   ProjectSiteAddressIdFkeyInput,
   ProjectCompanyIdFkeyInput
 } from "@bmi/intouch-api-types";
-import Dialog from "@bmi/dialog";
+import Dialog from "@bmi-digital/components/dialog";
 import ProjectForm from "../Form";
 import { spreadObjectKeys } from "../../../../lib/utils/object";
 import { useCreateProjectMutation } from "../../../../graphql/generated/hooks";

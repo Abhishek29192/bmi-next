@@ -1,0 +1,11 @@
+test_language-selection:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/language-selection"
+    ROOT_DIR: "components/language-selection"
+
+build_language-selection:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/language-selection"
+    ROOT_DIR: "components/language-selection"

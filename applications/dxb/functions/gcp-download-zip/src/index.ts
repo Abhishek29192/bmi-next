@@ -1,6 +1,6 @@
 import { Writable } from "stream";
-import logger from "@bmi/functions-logger";
-import { getSecret } from "@bmi/functions-secret-client";
+import logger from "@bmi-digital/functions-logger";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
 import { File, Storage } from "@google-cloud/storage";

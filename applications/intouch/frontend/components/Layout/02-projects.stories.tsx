@@ -1,8 +1,8 @@
 import React from "react";
-import Grid from "@bmi/grid";
-import Typography from "@bmi/typography";
-import Button from "@bmi/button";
-import Tabs from "@bmi/tabs";
+import Grid from "@bmi-digital/components/grid";
+import Typography from "@bmi-digital/components/typography";
+import Button from "@bmi-digital/components/button";
+import Tabs from "@bmi-digital/components/tabs";
 import GridStyles from "../../styles/Grid.module.scss";
 import { Projects } from "../SidePanel/index.stories";
 import { NoProjectsCard } from "../Cards/NoProjects";

@@ -1,0 +1,11 @@
+@import "@bmi-digital/styles";
+
+.EmailDialog {
+  .input {
+    margin-top: 1rem;
+  }
+
+  :global(.MuiInputBase-root) {
+    background-color: $color-white;
+  }
+}

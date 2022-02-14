@@ -1,0 +1,14 @@
+{
+  "name": "@bmi-digital/styles-delete-me",
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "main": "./index.scss",
+  "types": "./index.d.ts",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.10"
+  }
+}

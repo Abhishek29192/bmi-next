@@ -1,5 +1,5 @@
 import { getEsClient, BulkApiResponse } from "@bmi/functions-es-client";
-import logger from "@bmi/functions-logger";
+import logger from "@bmi-digital/functions-logger";
 import { Operation, ProductVariant } from "./es-model";
 import { EsSystem } from "./transformSystems";
 import { DeleteOperation, IndexOperation } from "./types";

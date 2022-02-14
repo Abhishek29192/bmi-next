@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
-import AlertBanner from "@bmi/alert-banner";
-import Dialog from "@bmi/dialog";
-import Upload from "@bmi/upload";
+import AlertBanner from "@bmi-digital/components/alert-banner";
+import Dialog from "@bmi-digital/components/dialog";
+import Upload from "@bmi-digital/components/upload";
 
 type UploadDialogProps = {
   isOpen: boolean;

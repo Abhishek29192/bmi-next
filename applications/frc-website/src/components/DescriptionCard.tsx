@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "@bmi/typography";
+import Typography from "@bmi-digital/components/typography";
 import styles from "./DescriptionCard.module.scss";
 
 const DescriptionCard = ({ title, icon: Icon, children }: any) => (

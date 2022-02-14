@@ -1,10 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import Icon from "@bmi/icon";
-import { BMI } from "@bmi/logo";
-import Typography from "@bmi/typography";
-import AlertBanner from "@bmi/alert-banner";
-import Button from "@bmi/button";
+import Icon from "@bmi-digital/components/icon";
+import { BMI } from "@bmi-digital/components/logo";
+import Typography from "@bmi-digital/components/typography";
+import AlertBanner from "@bmi-digital/components/alert-banner";
+import Button from "@bmi-digital/components/button";
 import Dialog from "@material-ui/core/Dialog";
 import CloseIcon from "@material-ui/icons/Close";
 import { useTranslation } from "next-i18next";

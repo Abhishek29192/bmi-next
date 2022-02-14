@@ -19,8 +19,8 @@ COPY .lintstagedrc.js .
 COPY ./@types ./@types
 
 COPY ./libraries ./libraries
-COPY ./components ./components
 COPY ./applications/intouch/frontend ./applications/intouch/frontend
+COPY ./applications/intouch/libraries ./applications/intouch/libraries
 COPY ./applications/intouch/api/types ./applications/intouch/api/types
 
 RUN yarn install --pure-lockfile --non-interactive --ignore-optional --cache-folder ./ycache && \
@@ -57,8 +57,8 @@ COPY .lintstagedrc.js .
 COPY ./@types ./@types
 
 COPY ./libraries ./libraries
-COPY ./components ./components
 COPY ./applications/intouch/frontend ./applications/intouch/frontend
+COPY ./applications/intouch/libraries ./applications/intouch/libraries
 COPY ./applications/intouch/api/types ./applications/intouch/api/types
 
 COPY --from=build /usr/src/app/applications/intouch/frontend/.next ./applications/intouch/frontend/.next

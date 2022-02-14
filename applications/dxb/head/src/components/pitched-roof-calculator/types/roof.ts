@@ -1,4 +1,4 @@
-import { SVGImport } from "@bmi/svg-import";
+import { SVGImport } from "@bmi-digital/svg-import";
 import { Type } from "../helpers/fieldTypes";
 
 export type RoofType = "gable" | "hipped" | "sloped";

@@ -3,13 +3,13 @@ import { youtube_v3 } from "googleapis";
 import mockConsole from "jest-mock-console";
 import fetchMockJest from "fetch-mock-jest";
 import { Request, Response } from "express";
-import { mockResponse } from "@bmi/fetch-mocks";
+import { mockResponse } from "@bmi-digital/fetch-mocks";
 import { getById, saveById, getYoutubeDetails } from "../db";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 const getSecret = jest.fn();
-jest.mock("@bmi/functions-secret-client", () => {
+jest.mock("@bmi-digital/functions-secret-client", () => {
   return { getSecret };
 });
 jest.mock("../db");

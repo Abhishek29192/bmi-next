@@ -6,7 +6,7 @@ import {
   mockRequest as fetchMockRequest,
   mockResponse,
   mockResponses
-} from "@bmi/fetch-mocks";
+} from "@bmi-digital/fetch-mocks";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -27,7 +27,7 @@ const mockRequest = (
 ): Partial<Request> => fetchMockRequest("POST", headers, "/", body);
 
 const getSecret = jest.fn();
-jest.mock("@bmi/functions-secret-client", () => {
+jest.mock("@bmi-digital/functions-secret-client", () => {
   return { getSecret };
 });
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Select, { MenuItem } from "@bmi/select";
+import Select, { MenuItem } from "@bmi-digital/components/select";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { useGetGuaranteeTemplatesLazyQuery } from "../../../graphql/generated/hooks";

@@ -1,9 +1,9 @@
 import capitalize from "lodash/capitalize";
 import React from "react";
 import { useTranslation } from "next-i18next";
-import Grid from "@bmi/grid";
-import Checkbox from "@bmi/checkbox";
-import Typography from "@bmi/typography";
+import Grid from "@bmi-digital/components/grid";
+import Checkbox from "@bmi-digital/components/checkbox";
+import Typography from "@bmi-digital/components/typography";
 import { OPERATION_TYPES } from "../../lib/constants";
 import AccessControl from "../../lib/permissions/AccessControl";
 import { GetCompanyQuery } from "../../graphql/generated/operations";

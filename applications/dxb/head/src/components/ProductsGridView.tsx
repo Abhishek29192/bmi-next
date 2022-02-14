@@ -1,7 +1,9 @@
-import AnchorLink from "@bmi/anchor-link";
-import Grid from "@bmi/grid";
-import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
-import Typography from "@bmi/typography";
+import AnchorLink from "@bmi-digital/components/anchor-link";
+import Grid from "@bmi-digital/components/grid";
+import OverviewCard, {
+  OverviewCardProps
+} from "@bmi-digital/components/overview-card";
+import Typography from "@bmi-digital/components/typography";
 import { Link } from "gatsby";
 import React from "react";
 import { iconMap } from "../components/Icon";

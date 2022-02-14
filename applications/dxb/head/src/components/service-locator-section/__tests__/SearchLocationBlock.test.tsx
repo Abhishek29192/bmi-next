@@ -1,5 +1,5 @@
 import { act, fireEvent, render } from "@testing-library/react";
-import GoogleApi from "@bmi/google-api";
+import GoogleApi from "@bmi-digital/components/google-api";
 import React from "react";
 import { SearchLocationBlock } from "../components";
 import { EntryTypeEnum } from "../../Service";

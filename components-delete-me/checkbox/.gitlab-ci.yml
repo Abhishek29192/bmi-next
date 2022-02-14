@@ -1,0 +1,17 @@
+test_checkbox:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/checkbox"
+    ROOT_DIR: "components/checkbox"
+
+test_mr_coverage_checkbox:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi-digital/components/checkbox"
+    ROOT_DIR: "components/checkbox"
+
+build_checkbox:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/checkbox"
+    ROOT_DIR: "components/checkbox"

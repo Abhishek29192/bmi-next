@@ -1,0 +1,17 @@
+test_logo:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/logo"
+    ROOT_DIR: "components/logo"
+
+test_mr_coverage_logo:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi-digital/components/logo"
+    ROOT_DIR: "components/logo"
+
+build_logo:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/logo"
+    ROOT_DIR: "components/logo"

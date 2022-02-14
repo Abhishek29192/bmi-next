@@ -1,0 +1,17 @@
+test_tooltip:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/components/tooltip"
+    ROOT_DIR: "components/tooltip"
+
+test_mr_coverage_tooltip:
+  extends: .test_jest_mr_coverage
+  variables:
+    WORKSPACE: "@bmi-digital/components/tooltip"
+    ROOT_DIR: "components/tooltip"
+
+build_tooltip:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/components/tooltip"
+    ROOT_DIR: "components/tooltip"

@@ -1,11 +1,11 @@
-// This has been forked from @bmi/form
+// This has been forked from @bmi-digital/components/form
 // <root>/components/form/src/withFormControl.tsx
 
-// TODO: use @bmi/form withFormControl - if this MR is merged
+// TODO: use @bmi-digital/components/form withFormControl - if this MR is merged
 // https://gitlab.com/bmi-digital/dxb/-/merge_requests/1672
 
 import React, { useEffect, useContext, useState, ElementType } from "react";
-import { FormContext, ValidationResult } from "@bmi/form";
+import { FormContext, ValidationResult } from "@bmi-digital/components/form";
 
 export type InputValue = string | number | boolean | File[] | string[];
 

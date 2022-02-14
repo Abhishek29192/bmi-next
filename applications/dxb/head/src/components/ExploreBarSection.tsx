@@ -1,5 +1,5 @@
-import ExploreBar from "@bmi/explore-bar";
-import Section from "@bmi/section";
+import ExploreBar from "@bmi-digital/components/explore-bar";
+import Section from "@bmi-digital/components/section";
 import { graphql } from "gatsby";
 import React from "react";
 import { devLog } from "../utils/devLog";

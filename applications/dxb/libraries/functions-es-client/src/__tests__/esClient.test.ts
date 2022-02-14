@@ -8,7 +8,7 @@ jest.mock("@elastic/elasticsearch", () => {
 });
 
 const getSecret = jest.fn();
-jest.mock("@bmi/functions-secret-client", () => {
+jest.mock("@bmi-digital/functions-secret-client", () => {
   return { getSecret };
 });
 

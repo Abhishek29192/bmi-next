@@ -1,11 +1,11 @@
-import Hero from "@bmi/hero";
-import Container from "@bmi/container";
-import Section from "@bmi/section";
-import Tabs from "@bmi/tabs";
-import { QUERY_KEY } from "@bmi/search";
+import Hero from "@bmi-digital/components/hero";
+import Container from "@bmi-digital/components/container";
+import Section from "@bmi-digital/components/section";
+import Tabs from "@bmi-digital/components/tabs";
+import { QUERY_KEY } from "@bmi-digital/components/search";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useState, FormEvent } from "react";
-import { Filter } from "@bmi/filters";
+import { Filter } from "@bmi-digital/components/filters";
 import { microCopy } from "../constants/microCopies";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";

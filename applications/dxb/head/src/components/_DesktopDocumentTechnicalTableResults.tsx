@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import classnames from "classnames";
-import Button, { IconButtonProps } from "@bmi/button";
-import Clickable, { ClickableProps } from "@bmi/clickable";
-import Icon, { iconMap } from "@bmi/icon";
-import Table from "@bmi/table";
-import DownloadList, { DownloadListContext } from "@bmi/download-list";
+import Button, { IconButtonProps } from "@bmi-digital/components/button";
+import Clickable, { ClickableProps } from "@bmi-digital/components/clickable";
+import Icon, { iconMap } from "@bmi-digital/components/icon";
+import Table from "@bmi-digital/components/table";
+import DownloadList, {
+  DownloadListContext
+} from "@bmi-digital/components/download-list";
 import axios from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { downloadAs } from "../utils/client-download";
