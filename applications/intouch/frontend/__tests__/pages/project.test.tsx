@@ -15,7 +15,6 @@ import ProjectPage from "../../pages/projects/[[...project]]";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
 import { generateGlobalPageData } from "../../lib/tests/factories/globalPageData";
 import { GetGlobalDataQuery } from "../../graphql/generated/operations";
-import {useGetProjectsLazyQuery} from "../../graphql/generated/hooks";
 
 jest.mock("../../lib/middleware/withPage", () => ({
   withPage: (getServerSideProps: any) => {
