@@ -2,7 +2,7 @@
 import path from "path";
 import fs from "fs";
 import mockConsole from "jest-mock-console";
-import { mockResponses } from "@bmi/fetch-mocks";
+import { mockResponses } from "@bmi-digital/fetch-mocks";
 import fetchMockJest from "fetch-mock-jest";
 
 const fetchMock = fetchMockJest.sandbox();

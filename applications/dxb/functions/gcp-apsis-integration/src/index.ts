@@ -1,8 +1,8 @@
 import { escape } from "querystring";
-import logger from "@bmi/functions-logger";
+import logger from "@bmi-digital/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
-import { getSecret } from "@bmi/functions-secret-client";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 
 type RequestRedirect = "error" | "follow" | "manual";
 

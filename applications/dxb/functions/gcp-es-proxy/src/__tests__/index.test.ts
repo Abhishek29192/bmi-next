@@ -8,7 +8,7 @@ import {
   mockRequest,
   mockResponse,
   mockResponses
-} from "@bmi/fetch-mocks";
+} from "@bmi-digital/fetch-mocks";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);

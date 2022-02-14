@@ -2562,6 +2562,23 @@
     react-swipeable-views-core "^0.14.0"
     react-swipeable-views-utils "^0.14.0"
 
+"@bmi-digital/fetch-mocks@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/fetch-mocks/-/fetch-mocks-1.1.1.tgz#e6bbf2666a92e5b11c54be73bd80356bfac7df16"
+  integrity sha512-uybFzdDy7a3xpXjQzLnb4voJEZwQIb4VnEaHjQJBX5ss+B/ZlSHoYLDTFp7cNh2rswtPBUur+jAcs3MneXPwVw==
+
+"@bmi-digital/functions-logger@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/functions-logger/-/functions-logger-1.1.1.tgz#ef59c3d31b2920226afc7205857619fe523bbce1"
+  integrity sha512-VGKfeehMvflCcfDkKBCfn8lT53z8SUiXkbtHj9vhzzyTs5DdilS2r59yAilu1yXVajHGZyaLLYDAUqojbUwZ2A==
+
+"@bmi-digital/functions-secret-client@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/functions-secret-client/-/functions-secret-client-1.1.1.tgz#51cd5916abeb0759a3d9dee8d00706d5ec95057c"
+  integrity sha512-69zlxo6rMkxUgiFMstXUINikcag7c3153oQDHIFCq/EREtgmNEJkEti6lWK/qwQZnBdBXfjuNqkhkFK56HPW7g==
+  dependencies:
+    "@google-cloud/secret-manager" "^3.7.1"
+
 "@bmi-digital/logger@0.0.11":
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/@bmi-digital/logger/-/logger-0.0.11.tgz#7dec7c18475ec6ec183f569f5498a6cfa715c541"
@@ -2574,12 +2591,12 @@
     mask-deep "^3.0.7"
     winston "^3.3.3"
 
-"@bmi-digital/react-pdf-maker@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/react-pdf-maker/-/react-pdf-maker-0.0.0.tgz#3b09e060081122df47f6e03b81c0b500275d2718"
-  integrity sha512-+KuInTQVIxjy4u+SK032zwpg1+gdX6ftdU2OcRKQHRJYuNO4NB4BRQcC8QKbqz4EV+o1ROi5AKQ6scB0R7EzJg==
+"@bmi-digital/react-pdf-maker@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/react-pdf-maker/-/react-pdf-maker-1.1.1.tgz#0995deee6c9929e0eaa38919fbdb775e37a06b12"
+  integrity sha512-V/EilNt7e/SLMHVK2QxygxPomJRcWYaNl6SdQWIe7qJmuNXs/21LOfpETmGrDWbaQ6hCXmBvzr2PPdy9RPA/LQ==
   dependencies:
-    pdfmake "^0.1.68"
+    pdfmake "^0.2.2"
     react-is "^16.13.1"
 
 "@bmi-digital/styles@1.0.1":
@@ -27258,27 +27275,6 @@ pdfkit@>=0.8.1:
     fontkit "^1.8.1"
     linebreak "^1.0.2"
     png-js "^1.0.0"
-
-pdfkit@^0.12.0:
-  version "0.12.3"
-  resolved "https://registry.yarnpkg.com/pdfkit/-/pdfkit-0.12.3.tgz#527da4a4bad9a6b456a6939037d63d5ff9306302"
-  integrity sha512-+qDLgm2yq6WOKcxTb43lDeo3EtMIDQs0CK1RNqhHC9iT6u0KOmgwAClkYh9xFw2ATbmUZzt4f7KMwDCOfPDluA==
-  dependencies:
-    crypto-js "^4.0.0"
-    fontkit "^1.8.1"
-    linebreak "^1.0.2"
-    png-js "^1.0.0"
-
-pdfmake@^0.1.68:
-  version "0.1.72"
-  resolved "https://registry.yarnpkg.com/pdfmake/-/pdfmake-0.1.72.tgz#b5ef0057e40e7a22b23a19aaf0be35ada902a3bf"
-  integrity sha512-xZrPS+Safjf1I8ZYtMoXX83E6C6Pd1zFwa168yNTeeJWHclqf1z9DoYajjlY2uviN7gGyxwVZeou39uSk1oh1g==
-  dependencies:
-    iconv-lite "^0.6.2"
-    linebreak "^1.0.2"
-    pdfkit "^0.12.0"
-    svg-to-pdfkit "^0.1.8"
-    xmldoc "^1.1.2"
 
 pdfmake@^0.2.2:
   version "0.2.2"

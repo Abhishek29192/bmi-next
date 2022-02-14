@@ -10,7 +10,7 @@ import {
   Table,
   Text,
   View
-} from "@bmi/react-pdf-maker";
+} from "@bmi-digital/react-pdf-maker";
 import EffraNormal from "./fonts/Effra_Rg.ttf";
 import EffraBold from "./fonts/Effra_Bd.ttf";
 import { ResultsObject, ResultsRow } from "./types";

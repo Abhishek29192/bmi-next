@@ -12,7 +12,6 @@ include:
   - local: "/applications/redirects-website-fr-siplast/.gitlab-ci.yml"
   - local: "/applications/redirects-website-fr-monier/.gitlab-ci.yml"
   - local: "/functions/.gitlab-ci.yml"
-  - local: "/libraries/.gitlab-ci.yml"
 
 image: !reference [.node-full-image, image]
 

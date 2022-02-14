@@ -1,7 +1,11 @@
 /* eslint-disable no-console */
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
-import { mockRequest, mockResponse, mockResponses } from "@bmi/fetch-mocks";
+import {
+  mockRequest,
+  mockResponse,
+  mockResponses
+} from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import responses from "./responses.json";
 
@@ -12,7 +16,7 @@ const SECRET = "SOME_SECRET";
 const CONTENTFUL_TOKEN = "SOME_TOKEN";
 
 const getSecret = jest.fn();
-jest.mock("@bmi/functions-secret-client", () => {
+jest.mock("@bmi-digital/functions-secret-client", () => {
   return { getSecret };
 });
 

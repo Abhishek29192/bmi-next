@@ -15,7 +15,7 @@ import {
   Link,
   ContentTable,
   ComponentProps
-} from "@bmi/react-pdf-maker";
+} from "@bmi-digital/react-pdf-maker";
 import EffraNormal from "./fonts/Effra_Rg.ttf";
 import EffraBold from "./fonts/Effra_Bd.ttf";
 import { ResultsContent } from "./types/ResultsContent";

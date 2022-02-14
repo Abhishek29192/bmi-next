@@ -6,7 +6,7 @@ A library for creating PDFs with React's JSX.
 
 ```jsx
 import React from "react";
-import { pdf, Document, Text } from "@bmi/react-pdf-maker";
+import { pdf, Document, Text } from "@bmi-digital/react-pdf-maker";
 
 pdf(
   <Document>

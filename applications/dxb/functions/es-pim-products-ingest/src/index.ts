@@ -1,5 +1,5 @@
 import { getEsClient } from "@bmi/functions-es-client";
-import logger from "@bmi/functions-logger";
+import logger from "@bmi-digital/functions-logger";
 import { Product as PIMProduct, System } from "@bmi/pim-types";
 import { updateElasticSearch } from "./elasticsearch";
 import { ProductVariant } from "./es-model";

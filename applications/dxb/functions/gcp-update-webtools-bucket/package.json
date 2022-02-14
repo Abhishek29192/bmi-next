@@ -13,8 +13,8 @@
     "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json process-top ./node_modules/.bin/functions-framework --source=dist --target=handleRequest --port=9058"
   },
   "dependencies": {
-    "@bmi/functions-logger": "0.0.0",
-    "@bmi/functions-secret-client": "0.0.0",
+    "@bmi-digital/functions-logger": "1.1.1",
+    "@bmi-digital/functions-secret-client": "1.1.1",
     "@google-cloud/functions-framework": "^1.7.1",
     "@google-cloud/storage": "^5.7.0",
     "joi": "^17.4.0",

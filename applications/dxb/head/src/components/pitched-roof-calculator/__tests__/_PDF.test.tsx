@@ -1,5 +1,5 @@
 import React from "react";
-import { pdf } from "@bmi/react-pdf-maker";
+import { pdf } from "@bmi-digital/react-pdf-maker";
 import en from "../samples/copy/en.json";
 import { getPDF, Typography } from "../_PDF";
 import { getMicroCopy } from "../helpers/microCopy";

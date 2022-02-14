@@ -1,6 +1,6 @@
 import { PubSub, Topic } from "@google-cloud/pubsub";
 import { Request, Response } from "express";
-import logger from "@bmi/functions-logger";
+import logger from "@bmi-digital/functions-logger";
 import { fetchData } from "@bmi/pim-api";
 import {
   PimTypes,

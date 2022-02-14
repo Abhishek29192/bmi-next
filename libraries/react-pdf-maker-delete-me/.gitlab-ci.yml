@@ -1,5 +1,5 @@
 build_react-pdf-maker:
   extends: .build
   variables:
-    WORKSPACE: "@bmi/react-pdf-maker"
+    WORKSPACE: "@bmi-digital/react-pdf-maker"
     ROOT_DIR: "libraries/react-pdf-maker"
