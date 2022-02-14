@@ -53,13 +53,15 @@ function getPackageJson(packageName) {
     return require(`${packageName}/package.json`);
   } catch (requireError) {
     if (requireError.code === "MODULE_NOT_FOUND") {
-      throw requireError;
+      console.log(`Module not found for ${packageName}:`, requireError);
+      return undefined;
     }
     if (requireError.code !== "ERR_PACKAGE_PATH_NOT_EXPORTED") {
-      return console.error(
+      console.log(
         `Unexpected error while requiring ${packageName}:`,
         requireError
       );
+      return undefined;
     }
   }
 
@@ -104,8 +106,7 @@ module.exports = (request, options) => {
   const isNodeModuleRequest = !(
     request.startsWith(".") ||
     request.startsWith("/") ||
-    request.startsWith("jest-sequencer") ||
-    request.startsWith("gatsby-source-contentful")
+    request.startsWith("jest-sequencer")
   );
 
   if (isNodeModuleRequest) {
