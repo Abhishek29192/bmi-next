@@ -756,7 +756,9 @@ describe("ProductListerPage template", () => {
       pageContext
     );
     fireEvent.click(getByLabelText("Go to next page"));
-    expect(window.scrollTo).toHaveBeenCalledWith(0, -200);
+    await waitFor(() => {
+      expect(window.scrollTo).toHaveBeenCalledWith(0, -200);
+    });
   });
 
   it("test hande fetch product by click on pagination when ES return hits", async () => {
