@@ -123,7 +123,7 @@ export const query = graphql`
       ...AssetFragment
       gatsbyImageData(
         placeholder: DOMINANT_COLOR
-        width: 500
+        width: 1000
         formats: [WEBP, AUTO]
       )
     }
