@@ -73,6 +73,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     title,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     description,
+    cta,
     brandLogo,
     featuredMedia,
     slides,
@@ -101,7 +102,12 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     media: featuredVideo
       ? renderVideo(featuredVideo)
       : renderImage(featuredMedia, { size: "cover" }),
-    hasUnderline: false
+    hasUnderline: false,
+    cta: cta ? (
+      <Link component={Button} data={cta}>
+        {cta.label}
+      </Link>
+    ) : null
   };
 
   return (
@@ -147,6 +153,9 @@ export const pageQuery = graphql`
     contentfulBrandLandingPage(id: { eq: $pageId }) {
       description {
         description
+      }
+      cta {
+        ...LinkFragment
       }
       slides {
         ... on ContentfulPromoOrPage {

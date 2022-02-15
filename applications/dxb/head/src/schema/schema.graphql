@@ -489,9 +489,7 @@ union ContentfulRichTextReference =
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
 
-union ContentfulMediasTypes =
-    ContentfulImage
-  | ContentfulVideo
+union ContentfulMediasTypes = ContentfulImage | ContentfulVideo
 
 """
 Represents a lead block section post it card type.
@@ -1589,6 +1587,9 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
 
   "The name of this page, representative of the type."
   title: String
+
+  "The link for the first slide."
+  cta: ContentfulLink @link(from: "cta___NODE")
 
   "The url for this page, devoid of any prefix."
   slug: String!
