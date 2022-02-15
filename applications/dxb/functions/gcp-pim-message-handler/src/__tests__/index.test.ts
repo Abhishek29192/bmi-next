@@ -6,6 +6,7 @@ import {
   mockResponse,
   mockResponses
 } from "@bmi-digital/fetch-mocks";
+import { ObjType } from "../types";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
