@@ -3,6 +3,10 @@ import { render } from "@testing-library/react";
 import ImageGallery from "../";
 import mockImage from "./images/demo-tiles.jpg";
 
+beforeAll(() => {
+  Element.prototype.scrollTo = jest.fn();
+});
+
 describe("ImageGallery component", () => {
   it("renders correctly with default layout", () => {
     const images = [
