@@ -15,7 +15,6 @@ import ProjectPage from "../../pages/projects/[[...project]]";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
 import { generateGlobalPageData } from "../../lib/tests/factories/globalPageData";
 import { GetGlobalDataQuery } from "../../graphql/generated/operations";
-// import * as ProjectDetail from "../../components/ProjectDetail";
 
 jest.mock("../../lib/middleware/withPage", () => ({
   withPage: (getServerSideProps: any) => {
@@ -76,7 +75,6 @@ describe("Projects Page", () => {
     ]
   };
   const account = generateAccount({ role: ROLES.SUPER_ADMIN });
-  // const globalPageData: GetGlobalDataQuery = generateGlobalPageData();
 
   it("should view all projects if super admin", async () => {
     const context = {
@@ -160,7 +158,7 @@ describe("Projects Page", () => {
         role: ROLES.SUPER_ADMIN
       },
       params: {
-        project: [{ name: "not existing project", id: 9999 }]
+        project: 9999
       },
       market: { id: 1 }
     };
@@ -214,6 +212,98 @@ describe("Projects Page", () => {
       }
     });
   });
+  it("installer should view own projects", async () => {
+    const context = {
+      ...defaultContext,
+      account: {
+        role: ROLES.INSTALLER,
+        projectMembers: {
+          totalCount: true
+        },
+        market: {
+          projectsEnabled: true
+        }
+      },
+      params: {},
+      market: { id: 1 }
+    };
+    mockGetServerPageGetProjects.mockImplementation(() => {
+      return {
+        props: {
+          data: {
+            projectsByMarket: { nodes: projects }
+          }
+        }
+      };
+    });
+
+    const result = await getServerSideProps(context);
+    expect(result).toEqual({
+      redirect: {
+        destination: "/projects/1",
+        permanent: false
+      }
+    });
+  });
+  it("check for empty projectsByMarket", async () => {
+    const context = {
+      ...defaultContext,
+      account: {
+        role: ROLES.SUPER_ADMIN
+      },
+      params: {},
+      market: { id: 1 }
+    };
+    mockGetServerPageGetProjects.mockImplementation(() => {
+      return {
+        props: {
+          data: {
+            projectsByMarket: null
+          }
+        }
+      };
+    });
+
+    const result = await getServerSideProps(context);
+    expect(result).toEqual({
+      props: {
+        isPowerfulUser: true,
+        projects: null
+      }
+    });
+  });
+  it("check for available params.project but empty projectsByMarket", async () => {
+    const context = {
+      ...defaultContext,
+      account: {
+        role: ROLES.SUPER_ADMIN
+      },
+      params: {
+        project: 1
+      },
+      market: { id: 1 }
+    };
+    mockGetServerPageGetProjects.mockImplementation(() => {
+      return {
+        props: {
+          data: {
+            projectsByMarket: null
+          }
+        }
+      };
+    });
+
+    const result = await getServerSideProps(context);
+    expect(result).toEqual({
+      props: {
+        _pageError: {
+          statusCode: ErrorStatusCode.NOT_FOUND,
+          title: "Not found"
+        },
+        globalPageData: undefined
+      }
+    });
+  });
 
   it("render correctly", async () => {
     const { container } = renderWithAllProviders(
@@ -249,7 +339,6 @@ describe("Projects Page", () => {
     );
     expect(screen.getByText("fallback.noResults")).toBeInTheDocument();
   });
-
   it("check onclick behavior", async () => {
     const router = createMockRouter({ query: { project: "1" } });
 
@@ -277,5 +366,50 @@ describe("Projects Page", () => {
     });
     projectDetailProps.onUpdateGuarantee();
     expect(screen.getByText("updatedProject")).toBeTruthy();
+  });
+  it("check for empty nodes array", async () => {
+    const projectCollection: GetProjectsQuery["projectsByMarket"] = {
+      __typename: "ProjectsConnection",
+      nodes: null
+    };
+    renderWithAllProviders(
+      <RouterContext.Provider value={createMockRouter({})}>
+        <ProjectPage
+          _pageError={null}
+          projects={projectCollection}
+          isPowerfulUser={true}
+          globalPageData={globalPageData}
+          account={account}
+          market={undefined}
+        />
+      </RouterContext.Provider>
+    );
+    expect(screen.getByText("fallback.noResults")).toBeInTheDocument();
+  });
+  it("check sorting of project name is missing", async () => {
+    const projectCollection: GetProjectsQuery["projectsByMarket"] = {
+      __typename: "ProjectsConnection",
+      nodes: [
+        {
+          ...generateProject()
+        },
+        {
+          ...generateProject({ id: 2, name: null })
+        }
+      ]
+    };
+    const { container } = renderWithAllProviders(
+      <RouterContext.Provider value={createMockRouter({})}>
+        <ProjectPage
+          _pageError={null}
+          projects={projectCollection}
+          isPowerfulUser={true}
+          globalPageData={globalPageData}
+          account={account}
+          market={undefined}
+        />
+      </RouterContext.Provider>
+    );
+    expect(container).toMatchSnapshot();
   });
 });
