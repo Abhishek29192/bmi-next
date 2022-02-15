@@ -500,32 +500,8 @@ exports[`Projects Page render correctly 1`] = `
             <div
               class="MuiGrid-root outerGrid MuiGrid-container MuiGrid-spacing-xs-3"
             >
-              <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
-              >
-                <div
-                  class="main"
-                >
-                  <h4
-                    class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-                  >
-                    noProjecSelected.title
-                  </h4>
-                  <div
-                    class="body"
-                  >
-                    <h6
-                      class="MuiTypography-root Typography MuiTypography-subtitle2"
-                    >
-                      noProjecSelected.body1
-                    </h6>
-                    <h6
-                      class="MuiTypography-root Typography MuiTypography-subtitle2"
-                    >
-                      noProjecSelected.body2
-                    </h6>
-                  </div>
-                </div>
+              <div>
+                projectDetails
               </div>
             </div>
           </div>

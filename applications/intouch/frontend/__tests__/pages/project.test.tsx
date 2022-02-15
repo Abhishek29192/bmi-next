@@ -15,6 +15,7 @@ import ProjectPage from "../../pages/projects/[[...project]]";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
 import { generateGlobalPageData } from "../../lib/tests/factories/globalPageData";
 import { GetGlobalDataQuery } from "../../graphql/generated/operations";
+// import * as ProjectDetail from "../../components/ProjectDetail";
 
 jest.mock("../../lib/middleware/withPage", () => ({
   withPage: (getServerSideProps: any) => {
@@ -22,6 +23,29 @@ jest.mock("../../lib/middleware/withPage", () => ({
       return getServerSideProps(context);
     };
   }
+}));
+
+let projectDetailProps;
+jest.mock("../../components/ProjectDetail", () => ({
+  __esModule: true,
+  ...jest.requireActual("../../components/ProjectDetail"),
+  default: jest.fn().mockImplementation((props) => {
+    projectDetailProps = props;
+    return <div>projectDetails</div>;
+  })
+}));
+
+jest.mock("@apollo/client", () => ({
+  ...jest.requireActual("@apollo/client"),
+  useLazyQuery: (_, { onCompleted }) => [
+    jest.fn(() => {
+      onCompleted({
+        projectsByMarket: {
+          nodes: [generateProject({ name: "updatedProject" })]
+        }
+      });
+    })
+  ]
 }));
 
 const mockGetServerPageGetProjects = jest.fn();
@@ -225,8 +249,10 @@ describe("Projects Page", () => {
     );
     expect(screen.getByText("fallback.noResults")).toBeInTheDocument();
   });
+
   it("check onclick behavior", async () => {
     const router = createMockRouter({ query: { project: "1" } });
+
     renderWithAllProviders(
       <RouterContext.Provider value={createMockRouter(router)}>
         <ProjectPage
@@ -239,10 +265,17 @@ describe("Projects Page", () => {
         />
       </RouterContext.Provider>
     );
+    expect(screen.getByText("projectDetails")).toBeTruthy();
     const listButton = screen
       .getAllByTestId("projectCard")[0]
       .querySelector("button");
     fireEvent.click(listButton);
     expect(router.push).toHaveBeenCalled();
+    expect(projectDetailProps).toMatchObject({
+      projectId: 1,
+      onUpdateGuarantee: expect.any(Function)
+    });
+    projectDetailProps.onUpdateGuarantee();
+    expect(screen.getByText("updatedProject")).toBeTruthy();
   });
 });
