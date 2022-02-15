@@ -1,5 +1,115 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          string
+        </h2>
+        <p
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          string
+        </p>
+        <div
+          style="margin-top: 40px;"
+        >
+          <div
+            class="accordionStyles-root-28"
+          >
+            <div
+              class="MuiPaper-root MuiAccordion-root accordionStyles-item-29 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+            >
+              <div
+                aria-disabled="false"
+                aria-expanded="false"
+                class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-32"
+                data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"name\\",\\"action\\":\\"Selector – Accordion\\"}"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="MuiAccordionSummary-content accordionStyles-summaryContent-34"
+                >
+                  <h3
+                    class="MuiTypography-root Typography MuiTypography-h6"
+                  >
+                    name
+                  </h3>
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-hidden="true"
+                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <div
+                class="MuiCollapse-root MuiCollapse-hidden"
+                style="min-height: 0px;"
+              >
+                <div
+                  class="MuiCollapse-wrapper"
+                >
+                  <div
+                    class="MuiCollapse-wrapperInner"
+                  >
+                    <div
+                      role="region"
+                    >
+                      <div
+                        class="MuiAccordionDetails-root accordionStyles-details-30 accordionStyles-details-38"
+                      >
+                        <div
+                          class="RichText"
+                        >
+                          <p
+                            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                          >
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
 <div>
   <div
@@ -364,10 +474,10 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
                 class="Container"
               >
                 <div
-                  class="MuiContainer-root tabStyles-ContainerRoot-36 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root tabStyles-ContainerRoot-47 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-root tabStyles-TabsRoot-37"
+                    class="MuiTabs-root tabStyles-TabsRoot-48"
                   >
                     <div
                       class="MuiTabs-scrollable"
@@ -383,7 +493,7 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
                         role="tablist"
                       />
                       <span
-                        class="PrivateTabIndicator-root-39 PrivateTabIndicator-colorPrimary-40 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-50 PrivateTabIndicator-colorPrimary-51 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -433,10 +543,10 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                 class="Container"
               >
                 <div
-                  class="MuiContainer-root tabStyles-ContainerRoot-28 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root tabStyles-ContainerRoot-39 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-root tabStyles-TabsRoot-29"
+                    class="MuiTabs-root tabStyles-TabsRoot-40"
                   >
                     <div
                       class="MuiTabs-scrollable"
@@ -454,7 +564,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                         <button
                           aria-controls="tabpanel-title"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-30 Mui-selected"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-41 Mui-selected"
                           data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"title\\",\\"action\\":\\"Selector – Tabs\\"}"
                           id="tab-title"
                           role="tab"
@@ -472,7 +582,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-31 PrivateTabIndicator-colorPrimary-32 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-42 PrivateTabIndicator-colorPrimary-43 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -488,7 +598,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-35 TabPanelBox"
+                class="MuiBox-root MuiBox-root-46 TabPanelBox"
               >
                 <div
                   class="RichText"

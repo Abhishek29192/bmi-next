@@ -78,6 +78,15 @@ describe("TabsOrAccordionSection", () => {
     expect(queryByText("name")).not.toBeNull();
     expect(container).toMatchSnapshot();
   });
+  it("Accordion default to name if title is null", () => {
+    const { container, queryByText } = render(
+      <TabsOrAccordionSection
+        data={getDummyData({ name: "name", title: null, type: "Accordion" })}
+      />
+    );
+    expect(queryByText("name")).not.toBeNull();
+    expect(container).toMatchSnapshot();
+  });
   it("title attribute is rendered if both name and title exists for tab panels", () => {
     const { container, queryByText } = render(
       <TabsOrAccordionSection

@@ -28,26 +28,28 @@ const SectionAccordion = ({
 }) => {
   return (
     <Accordion>
-      {items.map(({ title, content }) => {
-        return (
-          <Accordion.Item key={title}>
-            <GTMAccordionSummary
-              gtm={{
-                id: "selector-accordion1",
-                label: title,
-                action: "Selector – Accordion"
-              }}
-            >
-              <Typography component="h3" variant="h6">
-                {title}
-              </Typography>
-            </GTMAccordionSummary>
-            <Accordion.Details>
-              <RichText document={content} />
-            </Accordion.Details>
-          </Accordion.Item>
-        );
-      })}
+      {items.length > 0 &&
+        items.map(({ title, name, content }) => {
+          const newTitle = title || name;
+          return (
+            <Accordion.Item key={title}>
+              <GTMAccordionSummary
+                gtm={{
+                  id: "selector-accordion1",
+                  label: newTitle,
+                  action: "Selector – Accordion"
+                }}
+              >
+                <Typography component="h3" variant="h6">
+                  {newTitle}
+                </Typography>
+              </GTMAccordionSummary>
+              <Accordion.Details>
+                <RichText document={content} />
+              </Accordion.Details>
+            </Accordion.Item>
+          );
+        })}
     </Accordion>
   );
 };
