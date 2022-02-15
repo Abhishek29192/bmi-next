@@ -3,8 +3,8 @@ This is a variant of the hero with a full-width background image and a gradient 
 ## Colors
 
 ```jsx
-import Breadcrumbs from "@bmi-digital/components/breadcrumbs";
-import Typography from "@bmi-digital/components/typography";
+import { Breadcrumbs } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import imageSource from "./images/demo-house.png";
 
 const breadcrumbNode = (
@@ -89,8 +89,8 @@ const breadcrumbNode = (
 ### With Video
 
 ```jsx
-import YoutubeVideo from "@bmi-digital/components/youtube-video";
-import Typography from "@bmi-digital/components/typography";
+import { YoutubeVideo } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 
 <SpotlightHero
   title="H1 Heading desktop"
@@ -112,8 +112,8 @@ import Typography from "@bmi-digital/components/typography";
 This is going to be deprecated in `0.2.0`. Please use one of the examples above instead.
 
 ```jsx
-import Breadcrumbs from "@bmi-digital/components/breadcrumbs";
-import Typography from "@bmi-digital/components/typography";
+import { Breadcrumbs } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import imageSource from "./images/demo-house.png";
 
 const breadcrumbNode = (

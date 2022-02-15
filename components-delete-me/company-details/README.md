@@ -12,7 +12,7 @@ Notes:
 ### Default
 
 ```jsx
-import Card from "@bmi-digital/components/card";
+import { Card } from "@bmi-digital/components";
 
 const details = [
   {
@@ -52,7 +52,7 @@ const details = [
   {
     type: "content",
     label: "Type of roof",
-    text: (<b>Flat</b>)
+    text: <b>Flat</b>
   },
   {
     type: "roofProLevel",
@@ -73,19 +73,19 @@ const details = [
 
 const cardStyling = {
   padding: "20px",
-  maxHeight: "100%",
+  maxHeight: "100%"
 };
 
 <Card style={cardStyling}>
-  <CompanyDetails
-    name="Name of the company"
-    details={details}
-  >
+  <CompanyDetails name="Name of the company" details={details}>
     <p>
-      Brief summary of company here in a single paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum felis, viverra vel nunc vitae, fermentum auctor velit. Suspendisse tempor, arcu eu fermentum bibendum, dolor sem consectetur lacus, vitae fermentum augue.
+      Brief summary of company here in a single paragraph. Lorem ipsum dolor sit
+      amet, consectetur adipiscing elit. Sed ipsum felis, viverra vel nunc
+      vitae, fermentum auctor velit. Suspendisse tempor, arcu eu fermentum
+      bibendum, dolor sem consectetur lacus, vitae fermentum augue.
     </p>
   </CompanyDetails>
-</Card>
+</Card>;
 ```
 
 ## Scrollable content
@@ -119,7 +119,7 @@ const details = [
   {
     type: "content",
     label: "Type of roof",
-    text: (<b>Flat</b>)
+    text: <b>Flat</b>
   },
   {
     type: "roofProLevel",
@@ -128,15 +128,14 @@ const details = [
   }
 ];
 
-
 <div style={{ height: 300 }}>
-  <CompanyDetails
-    name="Name of the company"
-    details={details}
-  >
+  <CompanyDetails name="Name of the company" details={details}>
     <p>
-      Brief summary of company here in a single paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum felis, viverra vel nunc vitae, fermentum auctor velit. Suspendisse tempor, arcu eu fermentum bibendum, dolor sem consectetur lacus, vitae fermentum augue.
+      Brief summary of company here in a single paragraph. Lorem ipsum dolor sit
+      amet, consectetur adipiscing elit. Sed ipsum felis, viverra vel nunc
+      vitae, fermentum auctor velit. Suspendisse tempor, arcu eu fermentum
+      bibendum, dolor sem consectetur lacus, vitae fermentum augue.
     </p>
   </CompanyDetails>
-</div>
+</div>;
 ```

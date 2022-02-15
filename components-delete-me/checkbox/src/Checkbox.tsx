@@ -3,7 +3,7 @@ import MuiCheckbox, { CheckboxProps } from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import { withFormControl } from "@bmi-digital/components/form";
+import { withFormControl } from "@bmi-digital/components";
 import styles from "./Checkbox.module.scss";
 
 export type Props = CheckboxProps & {

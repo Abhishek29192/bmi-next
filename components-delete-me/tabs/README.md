@@ -5,7 +5,7 @@ This component wraps the [Material-UI Tabs component](https://material-ui.com/co
 ### Default
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 <Tabs initialValue="one">
   <Tabs.TabPanel heading="Lorem" index="one">
@@ -29,7 +29,7 @@ import Typography from "@bmi-digital/components/typography";
 ### Secondary theme
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 <Tabs initialValue="one" theme="secondary">
   <Tabs.TabPanel heading="Lorem" index="one">

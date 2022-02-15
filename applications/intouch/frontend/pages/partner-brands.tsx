@@ -1,7 +1,7 @@
 import React from "react";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useTranslation } from "next-i18next";
-import Section from "@bmi-digital/components/section";
+import { Section } from "@bmi-digital/components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetPartnerBrandsQuery } from "../graphql/generated/operations";
 import { findAccountTier } from "../lib/account";

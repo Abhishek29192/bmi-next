@@ -1,10 +1,10 @@
 import React, { FormEvent, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { gql } from "@apollo/client";
-import Form, { InputValue } from "@bmi-digital/components/form";
-import Dialog from "@bmi-digital/components/dialog";
-import TextField from "@bmi-digital/components/text-field";
-import Typography from "@bmi-digital/components/typography";
+import { Form, InputValue } from "@bmi-digital/components";
+import { Dialog } from "@bmi-digital/components";
+import { TextField } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import log from "../../../../lib/logger";
 import {
   GetProjectDocument,

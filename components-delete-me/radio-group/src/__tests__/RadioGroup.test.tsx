@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import RadioButton from "@bmi-digital/components/radio-button";
+import { RadioButton } from "@bmi-digital/components";
 import RadioGroup from "../";
 
 describe("RadioGroup component", () => {

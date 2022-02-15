@@ -22,7 +22,7 @@ At the moment, this is the only case where the `InputBanner` has been used.
 You can use the Dialog component to create some confirmation logic around the `InputBanner`.
 
 ```jsx
-import Dialog from "@bmi-digital/components/dialog";
+import { Dialog } from "@bmi-digital/components";
 
 const [email, setEmail] = React.useState("");
 const [dialogOpen, setDialogOpen] = React.useState(false);

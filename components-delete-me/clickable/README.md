@@ -80,7 +80,7 @@ const action = {
 In alternative, `Clickable` also exports `withClickable` that does that logic for you:
 
 ```jsx static
-import { withClickable } from "@bmi-digital/components/clickable";
+import { { withClickable } } from "@bmi-digital/components";
 
 const ClickableFancyButton = withClickable(FancyButton);
 
@@ -162,7 +162,7 @@ const FancyButton = ({ children, action }) => {
 The Button itself is wrapped in a Clickable component.
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 
 const Link = React.forwardRef(({ children, ...props }, ref) => (
   <span ref={ref} {...props}>

@@ -226,3 +226,9 @@
     :why: Licensed under PUBLIC DOMAIN, but not provided in a format license_finder can find
     :versions: []
     :when: 2021-11-25 12:37:45.891775000 Z
+- - :permit
+  - LGPL
+  - :who: Benjamin Sproule
+    :why: Acceptable license
+    :versions: []
+    :when: 2022-02-17 08:43:13.523566000 Z

@@ -1,7 +1,7 @@
 import React from "react";
-import Card from "@bmi-digital/components/card";
+import { Card } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import classnames from "classnames";
 import styles from "./ToggleCard.module.scss";

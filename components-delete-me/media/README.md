@@ -21,7 +21,7 @@ import imageSource from "./images/demo-tiles.jpg";
 ### With Video
 
 ```jsx
-import YoutubeVideo from "@bmi-digital/components/youtube-video";
+import { YoutubeVideo } from "@bmi-digital/components";
 
 <div
   style={{

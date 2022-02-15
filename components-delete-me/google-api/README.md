@@ -4,7 +4,7 @@ GoogleApi context definition and loader. Uses the
 ## Usage
 
 ```jsx
-import GoogleApi, { loadGoogleApi } from "@bmi-digital/components/google-api";
+import { GoogleApi, { loadGoogleApi } } from "@bmi-digital/components";
 import React, { useContext, useEffect, useState, useRef } from "react";
 
 const Page = () => {

@@ -1,9 +1,10 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
-import Footer, {
-  MenuItem,
+import { Button, ButtonProps } from "@bmi-digital/components";
+import {
+  Footer,
+  FooterMenuItem,
   BMI as BmiIcon
-} from "@bmi-digital/components/footer";
-import HidePrint from "@bmi-digital/components/hide-print";
+} from "@bmi-digital/components";
+import { HidePrint } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
@@ -19,7 +20,7 @@ import { useSiteContext } from "./Site";
 const parseNavigation = (
   navigationItems: NavigationData["links"],
   countryCode: string
-): MenuItem[] => {
+): FooterMenuItem[] => {
   if (!navigationItems) {
     return [];
   }

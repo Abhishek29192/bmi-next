@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Button from "@bmi-digital/components/button";
-import Hero, { HeroItem } from "@bmi-digital/components/hero";
-import Section from "@bmi-digital/components/section";
+import { Button } from "@bmi-digital/components";
+import { Hero, HeroItem } from "@bmi-digital/components";
+import { Section } from "@bmi-digital/components";
 import { microCopy } from "../constants/microCopies";
 import { Data as SiteData } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";

@@ -1,4 +1,4 @@
-import DefaultButton, { ButtonProps } from "@bmi-digital/components/button";
+import { Button as DefaultButton, ButtonProps } from "@bmi-digital/components";
 import React, { useContext } from "react";
 import { FormContext } from "./Form";
 import styles from "./Form.module.scss";

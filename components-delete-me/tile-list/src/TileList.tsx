@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Button from "@bmi-digital/components/button";
-import Card from "@bmi-digital/components/card";
-import Icon from "@bmi-digital/components/icon";
+import { Button } from "@bmi-digital/components";
+import { Card } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
 import classnames from "classnames";
 import styles from "./TileList.module.scss";

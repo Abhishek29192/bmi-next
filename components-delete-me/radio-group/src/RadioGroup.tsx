@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import RadioButton, {
-  Props as RadioButtonProps
-} from "@bmi-digital/components/radio-button";
-import { withFormControl } from "@bmi-digital/components/form";
+import { RadioButton, RadioButtonProps } from "@bmi-digital/components";
+import { withFormControl } from "@bmi-digital/components";
 import classnames from "classnames";
 import styles from "./RadioGroup.module.scss";
 

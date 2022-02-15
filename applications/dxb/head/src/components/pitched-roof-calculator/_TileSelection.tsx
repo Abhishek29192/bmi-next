@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import Typography from "@bmi-digital/components/typography";
-import CardRadioGroup from "@bmi-digital/components/card-radio-group";
+import { Typography } from "@bmi-digital/components";
+import { CardRadioGroup } from "@bmi-digital/components";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import validateRangesAgainstPitchValues from "./helpers/validateRangesAgainstPitchValues";

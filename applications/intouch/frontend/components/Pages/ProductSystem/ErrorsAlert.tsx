@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import AlertBanner from "@bmi-digital/components/alert-banner";
-import Typography from "@bmi-digital/components/typography";
+import { AlertBanner } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import styles from "./styles.module.scss";
 
 type MessageProp = {

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import classnames from "classnames";
 import MuiPagination, { PaginationProps } from "@material-ui/lab/Pagination";
 import MuiPaginationItem from "@material-ui/lab/PaginationItem";
-import Icon from "@bmi-digital/components/icon";
-import Button from "@bmi-digital/components/button";
-import DoubleLeftArrow from "@bmi-digital/components/pagination/svgs/arrow-left-double.svg";
-import DoubleRightArrow from "@bmi-digital/components/pagination/svgs/arrow-right-double.svg";
-import Ellipsis from "@bmi-digital/components/pagination/svgs/ellipsis.svg";
+import { Icon } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
+import { DoubleLeftArrow } from "@bmi-digital/components";
+import { DoubleRightArrow } from "@bmi-digital/components";
+import { Ellipsis } from "@bmi-digital/components";
 import useDimensions, { DimensionObject } from "@bmi-digital/use-dimensions";
 import styles from "./Pagination.module.scss";
 

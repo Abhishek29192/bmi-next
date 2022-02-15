@@ -1,11 +1,9 @@
 import React from "react";
 import classnames from "classnames";
-import { Colors } from "@bmi-digital/components/color-pair";
-import Grid from "@bmi-digital/components/grid";
-import PostItCard from "@bmi-digital/components/post-it-card";
-import Typography, {
-  Props as TypographyProps
-} from "@bmi-digital/components/typography";
+import { Colors } from "@bmi-digital/components";
+import { Grid } from "@bmi-digital/components";
+import { PostItCard } from "@bmi-digital/components";
+import { Typography, TypographyProps } from "@bmi-digital/components";
 import { GridProps } from "@material-ui/core/Grid";
 import styles from "./LeadBlock.module.scss";
 

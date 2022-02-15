@@ -1,12 +1,12 @@
 import React, { useCallback, useState } from "react";
-import DefaultButton from "@bmi-digital/components/button";
-import Container from "@bmi-digital/components/container";
-import Grid from "@bmi-digital/components/grid";
-import InputGroup from "@bmi-digital/components/input-group";
-import TextField from "@bmi-digital/components/text-field";
-import Typography from "@bmi-digital/components/typography";
+import { DefaultButton } from "@bmi-digital/components";
+import { Container } from "@bmi-digital/components";
+import { Grid } from "@bmi-digital/components";
+import { InputGroup } from "@bmi-digital/components";
+import { TextField } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import ColorPair from "@bmi-digital/components/color-pair";
+import { ColorPair } from "@bmi-digital/components";
 import styles from "./InputBanner.module.scss";
 
 const validateEmail = (email: string): boolean => {

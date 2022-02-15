@@ -1,11 +1,11 @@
 import React from "react";
-import Card from "@bmi-digital/components/card";
-import Typography from "@bmi-digital/components/typography";
+import { Card } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import classnames from "classnames";
-import { withClickable } from "@bmi-digital/components/clickable";
-import Media, { AcceptedNode } from "@bmi-digital/components/media";
+import { withClickable } from "@bmi-digital/components";
+import { Media, AcceptedNode } from "@bmi-digital/components";
 import styles from "./CTACard.module.scss";
 
 type Props = ButtonBaseProps & {

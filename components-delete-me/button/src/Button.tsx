@@ -6,7 +6,7 @@ import MaterialIconButton, {
   IconButtonProps as MuiIconButtonProps
 } from "@material-ui/core/IconButton";
 import classnames from "classnames";
-import { withClickable } from "@bmi-digital/components/clickable";
+import { withClickable } from "@bmi-digital/components";
 import { useButtonStyles, useIconButtonStyles } from "./styles";
 
 type Variant = "text" | "outlined" | "contained" | "opaqueOutlined";

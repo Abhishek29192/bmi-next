@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
-import Grid from "@bmi-digital/components/grid";
-import ProfileCard from "@bmi-digital/components/profile-card";
-import EqualHeights from "@bmi-digital/components/equal-heights";
-import Button from "@bmi-digital/components/button";
+import { Grid } from "@bmi-digital/components";
+import { ProfileCard } from "@bmi-digital/components";
+import { EqualHeights } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
 import { microCopy } from "../constants/microCopies";
 import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
@@ -26,7 +26,7 @@ const TeamList = ({ data }: { data: Data | null }) => {
   return (
     <div>
       <EqualHeights>
-        <Grid container justify="center" spacing={3}>
+        <Grid container justifyContent="center" spacing={3}>
           {data?.slice(0, numberVisible).map((teamMember, index) => {
             const { name, jobTitle, profileImage, links } = teamMember;
 

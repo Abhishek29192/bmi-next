@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import { MuiThemeProvider } from "@material-ui/core/styles";
-import { StylesProvider, StylesOptions } from "@material-ui/styles/";
+import { StylesProvider, StylesOptions } from "@material-ui/styles";
 import { useTheme } from "@material-ui/core/styles";
 
 const generateClassName: StylesOptions["generateClassName"] = (

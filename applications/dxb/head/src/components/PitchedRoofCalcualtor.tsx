@@ -1,5 +1,5 @@
 import React, { createContext, Suspense, useEffect, useState } from "react";
-import MicroCopy from "@bmi-digital/components/micro-copy";
+import { MicroCopy } from "@bmi-digital/components";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import axios from "axios";
 import { devLog } from "../utils/devLog";

@@ -1,12 +1,12 @@
 import React, { useEffect, useContext } from "react";
 import { useTranslation } from "next-i18next";
 import { Technology } from "@bmi/intouch-api-types";
-import { FormContext, ValidationResult } from "@bmi-digital/components/form";
-import Grid from "@bmi-digital/components/grid";
-import RadioGroup from "@bmi-digital/components/radio-group";
-import Typography from "@bmi-digital/components/typography";
-import Icon, { FlatRoof, PitchedRoof } from "@bmi-digital/components/icon";
-import { TextFieldProps } from "@bmi-digital/components/text-field";
+import { FormContext, ValidationResult } from "@bmi-digital/components";
+import { Grid } from "@bmi-digital/components";
+import { RadioGroup } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
+import { Icon, FlatRoof, PitchedRoof } from "@bmi-digital/components";
+import { TextFieldProps } from "@bmi-digital/components";
 import { getFieldValueLabel } from "./Form";
 // TODO: move/split styles?
 import styles from "./CreateProject/styles.module.scss";

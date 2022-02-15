@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import ExpandableLinksTextCard from "../";
 
 describe("ExpandableLinksTextCard component", () => {

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import classnames from "classnames";
-import DefaultThumbnail from "@bmi-digital/components/thumbnail";
+import { DefaultThumbnail } from "@bmi-digital/components";
 import { StateEnum, SizeEnum } from "../../thumbnail/src/Thumbnail";
 import styles from "./ImageGallery.module.scss";
 import { Image } from "./types";

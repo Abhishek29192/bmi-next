@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import Grid from "@bmi-digital/components/grid";
-import Button from "@bmi-digital/components/button";
-import { TextField } from "@bmi-digital/components/text-field";
-import { FormContext, InputValue } from "@bmi-digital/components/form";
-import CardInput from "@bmi-digital/components/card-input";
+import { Grid } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
+import { TextField } from "@bmi-digital/components";
+import { FormContext, InputValue } from "@bmi-digital/components";
+import { CardInput } from "@bmi-digital/components";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import { getFieldTypes, Type } from "./helpers/fieldTypes";

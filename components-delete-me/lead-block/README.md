@@ -5,11 +5,11 @@ The Lead Block generally appears at the top of the page, below the header and he
 ### Default
 
 ```jsx
-import Button from "@bmi-digital/components/button";
-import IconList from "@bmi-digital/components/icon-list";
+import { Button } from "@bmi-digital/components";
+import { IconList } from "@bmi-digital/components";
 import CheckIcon from "@material-ui/icons/Check";
-import Typography from "@bmi-digital/components/typography";
-import Icon from "@bmi-digital/components/icon";
+import { Typography } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
 
 const BlueCheckIcon = <Icon source={CheckIcon} style={{ color: "#009fe3" }} />;
 
@@ -73,12 +73,12 @@ const BlueCheckIcon = <Icon source={CheckIcon} style={{ color: "#009fe3" }} />;
 ### With other component in copy area
 
 ```jsx
-import Button from "@bmi-digital/components/button";
-import IconList from "@bmi-digital/components/icon-list";
+import { Button } from "@bmi-digital/components";
+import { IconList } from "@bmi-digital/components";
 import CheckIcon from "@material-ui/icons/Check";
-import Typography from "@bmi-digital/components/typography";
-import Table from "@bmi-digital/components/table";
-import AnchorLink from "@bmi-digital/components/anchor-link";
+import { Typography } from "@bmi-digital/components";
+import { Table } from "@bmi-digital/components";
+import { AnchorLink } from "@bmi-digital/components";
 
 <LeadBlock>
   <LeadBlock.Content>

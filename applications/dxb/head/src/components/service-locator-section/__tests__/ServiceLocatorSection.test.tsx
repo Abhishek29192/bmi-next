@@ -2,7 +2,7 @@ import React from "react";
 import { act, fireEvent, screen } from "@testing-library/react";
 import { LocationProvider } from "@reach/router";
 import camelCase from "lodash-es/camelCase";
-import * as GoogleMockApi from "@bmi-digital/components/google-api";
+import * as GoogleMockApi from "@bmi-digital/components";
 import {
   rooferTypes,
   branchTypes,

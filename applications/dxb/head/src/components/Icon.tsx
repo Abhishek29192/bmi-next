@@ -1,8 +1,9 @@
 import React from "react";
-import IconComponent, {
+import {
+  Icon as IconComponent,
   iconMap as iconIconMap
-} from "@bmi-digital/components/icon";
-import { iconMap as logoIconMap } from "@bmi-digital/components/logo";
+} from "@bmi-digital/components";
+import { logoIconMap } from "@bmi-digital/components";
 import QuestionMark from "@material-ui/icons/Help";
 
 export const iconMap = {

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
-import Typography from "@bmi-digital/components/typography";
-import Button from "@bmi-digital/components/button";
+import { Typography } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
 import PdfIcon from "@material-ui/icons/PictureAsPdf";
 import FileIcon from "@material-ui/icons/FileCopy";
-import Icon from "@bmi-digital/components/icon";
+import { Icon } from "@bmi-digital/components";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import axios from "axios";
 import styles from "./Upload.module.scss";

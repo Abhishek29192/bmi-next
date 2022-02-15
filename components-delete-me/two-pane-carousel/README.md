@@ -5,14 +5,14 @@ The 2-pane Carousel consists of 2 separate areas (or "panes") - one contains the
 ### Default
 
 ```jsx
-import Section from "@bmi-digital/components/section";
-import AnchorLink from "@bmi-digital/components/anchor-link";
-import Button from "@bmi-digital/components/button";
+import { Section } from "@bmi-digital/components";
+import { AnchorLink } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import demoHouseImage from "./images/demo-house.png";
 import demoTilesBlack from "./images/demo-tiles-black.png";
 import demoTiles from "./images/demo-tiles.jpg";
-import { AeroDek } from "@bmi-digital/components/logo";
+import { { AeroDek } } from "@bmi-digital/components";
 
 const slides = [
   {
@@ -53,14 +53,14 @@ const slides = [
 This is going to be deprecated in `0.2.0`. Please use one of the examples above instead.
 
 ```jsx
-import Section from "@bmi-digital/components/section";
-import AnchorLink from "@bmi-digital/components/anchor-link";
-import Button from "@bmi-digital/components/button";
+import { Section } from "@bmi-digital/components";
+import { AnchorLink } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import demoHouseImage from "./images/demo-house.png";
 import demoTilesBlack from "./images/demo-tiles-black.png";
 import demoTiles from "./images/demo-tiles.jpg";
-import { AeroDek } from "@bmi-digital/components/logo";
+import { { AeroDek } } from "@bmi-digital/components";
 
 const slides = [
   {

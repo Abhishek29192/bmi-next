@@ -1,11 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { Button, ButtonProps, ClickableAction } from "@bmi-digital/components";
 import { GetApp } from "@material-ui/icons";
-import Button, {
-  ButtonProps,
-  ClickableAction
-} from "@bmi-digital/components/button";
 import { getDownloadLink, downloadAs } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
 import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";

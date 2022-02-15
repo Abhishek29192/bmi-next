@@ -5,9 +5,9 @@ A card component displaying an overview of a product. The card is not clickable 
 ### Default
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import demoHouseImage from "./images/demo-tiles.jpg";
-import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
+import { { AeroDek as brandLogo } } from "@bmi-digital/components";
 
 <OverviewCard
   title="Unde Mmnis Iste"
@@ -23,8 +23,8 @@ import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
 ### No Image
 
 ```jsx
-import Button from "@bmi-digital/components/button";
-import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
+import { Button } from "@bmi-digital/components";
+import { { AeroDek as brandLogo } } from "@bmi-digital/components";
 
 <OverviewCard
   title="Unde Mmnis Iste"
@@ -39,7 +39,7 @@ import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
 ### No Brand Logo
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import demoHouseImage from "./images/demo-tiles.jpg";
 
 <OverviewCard
@@ -56,7 +56,7 @@ import demoHouseImage from "./images/demo-tiles.jpg";
 
 ```jsx
 import demoHouseImage from "./images/demo-tiles.jpg";
-import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
+import { { AeroDek as brandLogo } } from "@bmi-digital/components";
 
 <OverviewCard
   title="Unde Mmnis Iste"
@@ -72,9 +72,9 @@ import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
 ### Small Title
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import demoHouseImage from "./images/demo-tiles.jpg";
-import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
+import { { AeroDek as brandLogo } } from "@bmi-digital/components";
 
 <OverviewCard
   title="Unde Mmnis Iste"
@@ -90,9 +90,9 @@ import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
 ### Medium Title (h5) and subtitle (Related Product Card)
 
 ```jsx
-import AnchorLink from "@bmi-digital/components/anchor-link";
+import { AnchorLink } from "@bmi-digital/components";
 import demoHouseImage from "./images/demo-tiles.jpg";
-import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
+import { { AeroDek as brandLogo } } from "@bmi-digital/components";
 
 <OverviewCard
   title="Unde Mmnis Iste"
@@ -110,9 +110,9 @@ import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
 ### Flattened (News Summary Card)
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import demoHouseImage from "./images/demo-tiles.jpg";
-import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
+import { { AeroDek as brandLogo } } from "@bmi-digital/components";
 
 <OverviewCard
   title="Unde Mmnis Iste"
@@ -128,8 +128,8 @@ import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
 ### With Video
 
 ```jsx
-import Button from "@bmi-digital/components/button";
-import YoutubeVideo from "@bmi-digital/components/youtube-video";
+import { Button } from "@bmi-digital/components";
+import { YoutubeVideo } from "@bmi-digital/components";
 
 <OverviewCard
   title="Unde Mmnis Iste"
@@ -148,9 +148,9 @@ import YoutubeVideo from "@bmi-digital/components/youtube-video";
 This is going to be deprecated in `0.2.0`. Please use one of the examples above instead.
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import demoHouseImage from "./images/demo-tiles.jpg";
-import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
+import { { AeroDek as brandLogo } } from "@bmi-digital/components";
 
 <OverviewCard
   title="Unde Mmnis Iste"
@@ -166,9 +166,9 @@ import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
 ### Highlighted (shows border arond the card)
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import demoHouseImage from "./images/demo-tiles.jpg";
-import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
+import { { AeroDek as brandLogo } } from "@bmi-digital/components";
 
 <OverviewCard
   title="Unde Mmnis Iste"

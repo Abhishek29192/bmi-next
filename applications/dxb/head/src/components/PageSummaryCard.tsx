@@ -1,6 +1,6 @@
 import React from "react";
-import Typography from "@bmi-digital/components/typography";
-import AnchorLink from "@bmi-digital/components/anchor-link";
+import { Typography } from "@bmi-digital/components";
+import { AnchorLink } from "@bmi-digital/components";
 import { getClickableActionFromUrl } from "./Link";
 import styles from "./styles/PageSummaryCard.module.scss";
 

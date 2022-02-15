@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
-import Table from "@bmi-digital/components/table";
-import Button from "@bmi-digital/components/button";
+import { Table } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
 import AccessControl from "../../../lib/permissions/AccessControl";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
 import { NoContent } from "../../NoContent";

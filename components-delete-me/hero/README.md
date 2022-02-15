@@ -3,8 +3,8 @@
 ### Hero Level One
 
 ```jsx
-import Breadcrumbs from "@bmi-digital/components/breadcrumbs";
-import Typography from "@bmi-digital/components/typography";
+import { Breadcrumbs } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import imageSource from "./images/demo-tiles.jpg";
 
 const media = <img src={imageSource} alt="Just some tiles" />;
@@ -33,7 +33,7 @@ const breadcrumbNode = (
 ### Hero Level Two
 
 ```jsx
-import Breadcrumbs from "@bmi-digital/components/breadcrumbs";
+import { Breadcrumbs } from "@bmi-digital/components";
 
 const breadcrumbNode = (
   <Breadcrumbs isDarkThemed>
@@ -56,7 +56,7 @@ const breadcrumbNode = (
 ### Hero Level Three
 
 ```jsx
-import Breadcrumbs from "@bmi-digital/components/breadcrumbs";
+import { Breadcrumbs } from "@bmi-digital/components";
 
 const breadcrumbNode = (
   <Breadcrumbs>
@@ -83,8 +83,8 @@ This is the most complex variation of the Hero, and it handles slightly differen
 When `autoPlayInterval` is specified, then the carousel will receive an `hasAutoPlay`
 
 ```jsx
-import Button from "@bmi-digital/components/button";
-import Search from "@bmi-digital/components/search";
+import { Button } from "@bmi-digital/components";
+import { Search } from "@bmi-digital/components";
 import firstImageSource from "./images/demo-tiles.jpg";
 import secondImageSource from "./images/demo-tiles-black.png";
 import thirdImageSource from "./images/demo-house.png";
@@ -123,7 +123,7 @@ import thirdImageSource from "./images/demo-house.png";
 ### With Video
 
 ```jsx
-import YoutubeVideo from "@bmi-digital/components/youtube-video";
+import { YoutubeVideo } from "@bmi-digital/components";
 
 <Hero
   media={
@@ -145,8 +145,8 @@ The property `imageSource` got deprecated, the correct implementation, as shown 
 However, this component still handles this property.
 
 ```jsx
-import Breadcrumbs from "@bmi-digital/components/breadcrumbs";
-import Typography from "@bmi-digital/components/typography";
+import { Breadcrumbs } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import imageSource from "./images/demo-tiles.jpg";
 
 const breadcrumbNode = (

@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { ColorPairContext } from "@bmi-digital/components/color-pair";
+import { ColorPairContext } from "@bmi-digital/components";
 import AnchorLink from "..";
 
 describe("AnchorLink component", () => {

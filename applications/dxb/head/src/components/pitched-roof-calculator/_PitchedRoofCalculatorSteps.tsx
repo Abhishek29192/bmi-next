@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { BMI as brandLogo } from "@bmi-digital/components/logo";
-import Icon from "@bmi-digital/components/icon";
+import { BMI as brandLogo } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
 import CalculatorStepper from "./subcomponents/calculator-stepper/CalculatorStepper";
 import { AnalyticsContext } from "./helpers/analytics";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";

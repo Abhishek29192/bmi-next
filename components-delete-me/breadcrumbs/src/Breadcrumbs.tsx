@@ -5,9 +5,9 @@ import MaterialBreadcrumbs, {
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { ArrowBack } from "@material-ui/icons";
 import { useTheme } from "@material-ui/core/styles";
-import Button, { ClickableAction } from "@bmi-digital/components/button";
-import Icon from "@bmi-digital/components/icon";
-import Typography from "@bmi-digital/components/typography";
+import { Button, ClickableAction } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import classnames from "classnames";
 import styles from "./Breadcrumbs.module.scss";
 

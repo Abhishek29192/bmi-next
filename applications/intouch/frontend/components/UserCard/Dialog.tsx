@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import Dialog from "@bmi-digital/components/dialog";
+import { Dialog } from "@bmi-digital/components";
 
 export type DialogProps = {
   title: string;

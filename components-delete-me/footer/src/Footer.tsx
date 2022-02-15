@@ -1,8 +1,11 @@
 import React from "react";
-import DefaultButton, { ClickableAction } from "@bmi-digital/components/button";
-import Container from "@bmi-digital/components/container";
-import Typography from "@bmi-digital/components/typography";
-import Grid from "@bmi-digital/components/grid";
+import {
+  Button as DefaultButton,
+  ClickableAction
+} from "@bmi-digital/components";
+import { Container } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
+import { Grid } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
 import classnames from "classnames";
 import { useTheme } from "@material-ui/core/styles";
@@ -78,7 +81,7 @@ const MainNavigation = ({
   menu: readonly MenuItem[];
 }) => {
   return (
-    <Grid container spacing={3} justify="space-between">
+    <Grid container spacing={3} justifyContent="space-between">
       {menu.map((menuItem, index) => {
         return (
           <Grid key={index} item>

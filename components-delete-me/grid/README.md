@@ -6,7 +6,7 @@ When `justify` is set to center, then it'll follow the rules dictated by the DS.
 
 ```jsx
 import { useState } from "react";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 const [rows, setRows] = useState(5);
 
@@ -40,7 +40,7 @@ const card = () => (
     items: {rows}
   </div>
 
-  <Grid container spacing={3} justify="center">
+  <Grid container spacing={3} justifyContent="center">
     {Array.from({ length: rows }).map((_, index) => (
       <Grid item xs={12} md={6} xl={3}>
         {card()}

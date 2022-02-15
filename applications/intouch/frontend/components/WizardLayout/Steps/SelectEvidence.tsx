@@ -1,5 +1,5 @@
 import React from "react";
-import Upload from "@bmi-digital/components/upload";
+import { Upload } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
 import { useWizardContext } from "../WizardContext";
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import UpArrow from "@material-ui/icons/ExpandLess";
-import Icon from "@bmi-digital/components/icon";
+import { Icon } from "@bmi-digital/components";
 import classnames from "classnames";
 import styles from "./BackToTop.module.scss";
 

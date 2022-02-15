@@ -1,5 +1,5 @@
 import { createTheme, ThemeOptions } from "@material-ui/core/styles";
-import MaterialThemeProvider from "@material-ui/styles/ThemeProvider";
+import { ThemeProvider as MaterialThemeProvider } from "@material-ui/styles";
 import { CssBaseline } from "@material-ui/core";
 
 import React from "react";

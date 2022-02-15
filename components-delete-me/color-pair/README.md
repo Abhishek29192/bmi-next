@@ -7,7 +7,7 @@ This component manages the pairing of possible background/font colours, in respe
 You can use the `ColorPair` with any of the themes that you can find in the Props.
 
 ```jsx
-import { availableThemes } from "@bmi-digital/components/color-pair";
+import { { availableThemes } } from "@bmi-digital/components";
 
 const colorBoxStyle = {
   width: "25%",
@@ -42,7 +42,7 @@ You can pass a `markupComponent` that accepts any `ElementType`.
 This component also exports a utility function to wrap any `ComponentType` with a ColorPair functionality.
 
 ```tsx
-import { withColorPair } from "@bmi-digital/components/color-pair";
+import { { withColorPair } } from "@bmi-digital/components";
 
 const Section = ({ children, ...rest }) => (
   <div style={{ padding: "40px" }} {...rest}>

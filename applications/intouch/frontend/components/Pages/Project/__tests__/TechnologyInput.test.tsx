@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import Form from "@bmi-digital/components/form";
+import { Form } from "@bmi-digital/components";
 import TechnologyInput from "../TechnologyInput";
 import I18nProvider from "../../../../lib/tests/fixtures/i18n";
 

@@ -1,8 +1,8 @@
 import React from "react";
-import Typography from "@bmi-digital/components/typography";
-import Button from "@bmi-digital/components/button";
+import { Typography } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
 import { GuaranteeEventType, Technology } from "@bmi/intouch-api-types";
-import Icon, { FlatRoof, PitchedRoof } from "@bmi-digital/components/icon";
+import { Icon, FlatRoof, PitchedRoof } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
 import {
   GuaranteeStatus,

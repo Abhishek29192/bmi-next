@@ -1,14 +1,14 @@
 import React, { memo, useMemo, useState } from "react";
 import { graphql } from "gatsby";
-import AnchorLink from "@bmi-digital/components/anchor-link";
-import Button, { ButtonProps } from "@bmi-digital/components/button";
-import Section from "@bmi-digital/components/section";
-import OverviewCard from "@bmi-digital/components/overview-card";
-import Typography from "@bmi-digital/components/typography";
-import Chip, { Props as ChipProps } from "@bmi-digital/components/chip";
-import Carousel from "@bmi-digital/components/carousel";
-import Grid from "@bmi-digital/components/grid";
-import { withClickable } from "@bmi-digital/components/clickable";
+import { AnchorLink } from "@bmi-digital/components";
+import { Button, ButtonProps } from "@bmi-digital/components";
+import { Section } from "@bmi-digital/components";
+import { OverviewCard } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
+import { Chip, ChipProps } from "@bmi-digital/components";
+import { Carousel } from "@bmi-digital/components";
+import { Grid } from "@bmi-digital/components";
+import { withClickable } from "@bmi-digital/components";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import withGTM from "../utils/google-tag-manager";
@@ -381,7 +381,7 @@ const CardCollectionSection = ({
             <Carousel.Controls type="arrows" />
           </Carousel>
         ) : (
-          <Grid container justify={justifyCenter ? "center" : undefined}>
+          <Grid container justifyContent={justifyCenter ? "center" : undefined}>
             {sortedIterableCards.map((card, i) => {
               const { id } = card;
               const cardIsVisible = i >= numberOfCardsToShow;

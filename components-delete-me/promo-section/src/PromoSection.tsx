@@ -1,9 +1,9 @@
 import React from "react";
-import Grid, { GridSize } from "@bmi-digital/components/grid";
-import Typography from "@bmi-digital/components/typography";
-import Media, { AcceptedNode } from "@bmi-digital/components/media";
+import { Grid, GridSize } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
+import { Media, AcceptedNode } from "@bmi-digital/components";
 import classnames from "classnames";
-import Section, { BackgroundColor } from "@bmi-digital/components/section";
+import { Section, SectionBackgroundColor } from "@bmi-digital/components";
 import styles from "./PromoSection.module.scss";
 
 type Layout = "half" | "two-thirds";
@@ -15,7 +15,7 @@ type Props = {
   layout?: Layout;
   isReversed?: boolean;
   className?: string;
-  backgroundColor?: BackgroundColor;
+  backgroundColor?: SectionBackgroundColor;
 };
 
 const layoutRowsMap: Record<Layout, GridSize[]> = {

@@ -5,8 +5,8 @@ A component to provide a masonry grid layout.
 ### Default
 
 ```jsx
-import Button from "@bmi-digital/components/button";
-import ExpandableLinksTextCard from "@bmi-digital/components/expandable-links-text-card";
+import { Button } from "@bmi-digital/components";
+import { ExpandableLinksTextCard } from "@bmi-digital/components";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 

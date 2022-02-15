@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import classnames from "classnames";
 import styles from "./IconList.module.scss";

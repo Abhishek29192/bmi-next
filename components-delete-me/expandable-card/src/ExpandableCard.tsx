@@ -8,11 +8,11 @@ import React, {
   useLayoutEffect,
   TransitionEvent
 } from "react";
-import DefaultCard, { CardContent } from "@bmi-digital/components/card";
-import Button from "@bmi-digital/components/button";
+import { Card as DefaultCard, CardContent } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
 import CloseIcon from "@material-ui/icons/Close";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import classnames from "classnames";
 import styles from "./ExpandableCard.module.scss";
 import listStyles from "./ExpandableCardList.module.scss";

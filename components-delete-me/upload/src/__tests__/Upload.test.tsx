@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
-import { FormContext } from "@bmi-digital/components/form";
+import { FormContext } from "@bmi-digital/components";
 import mediaQuery from "css-mediaquery";
 import axios from "axios";
 import Upload from "../";

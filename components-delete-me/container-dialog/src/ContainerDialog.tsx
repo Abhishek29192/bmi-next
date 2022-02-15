@@ -1,10 +1,10 @@
 import React, { isValidElement, useMemo, useContext } from "react";
 import Modal, { ModalProps } from "@material-ui/core/Modal";
 import classnames from "classnames";
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import CloseIcon from "@material-ui/icons/Close";
 import Fade from "@material-ui/core/Fade";
-import { DialogClassNameContext } from "@bmi-digital/components/dialog";
+import { DialogClassNameContext } from "@bmi-digital/components";
 import styles from "./ContainerDialog.module.scss";
 
 type Props = {

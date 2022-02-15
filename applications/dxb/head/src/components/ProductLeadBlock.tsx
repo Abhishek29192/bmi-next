@@ -1,18 +1,16 @@
 import React, { useRef, useState } from "react";
-import LeadBlock from "@bmi-digital/components/lead-block";
+import { LeadBlock } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
+import { IconList } from "@bmi-digital/components";
+import { Tabs } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
+import { DownloadList } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
+import { ImageGallery, Image } from "@bmi-digital/components";
+import { AnchorLink, AnchorLinkProps } from "@bmi-digital/components";
 import { Launch } from "@material-ui/icons";
-import Button from "@bmi-digital/components/button";
-import IconList from "@bmi-digital/components/icon-list";
-import Tabs from "@bmi-digital/components/tabs";
-import Typography from "@bmi-digital/components/typography";
 import CheckIcon from "@material-ui/icons/Check";
 import Tab, { TabProps } from "@material-ui/core/Tab";
-import DownloadList from "@bmi-digital/components/download-list";
-import Icon from "@bmi-digital/components/icon";
-import ImageGallery, { Image } from "@bmi-digital/components/image-gallery";
-import AnchorLink, {
-  AnchorLinkProps
-} from "@bmi-digital/components/anchor-link";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
 import RichText, { RichTextData } from "./RichText";

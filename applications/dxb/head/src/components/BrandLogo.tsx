@@ -1,6 +1,6 @@
 import React from "react";
-import Icon from "@bmi-digital/components/icon";
-import { iconMap } from "@bmi-digital/components/logo";
+import { Icon } from "@bmi-digital/components";
+import { logoIconMap } from "@bmi-digital/components";
 import classnames from "classnames";
 import styles from "./styles/BrandLogo.module.scss";
 
@@ -11,7 +11,7 @@ type Props = {
 
 const BrandLogo = ({ brandName, className }: Props) => {
   // eslint-disable-next-line security/detect-object-injection
-  const iconLogo = iconMap[brandName];
+  const iconLogo = logoIconMap[brandName];
 
   return iconLogo ? (
     <Icon

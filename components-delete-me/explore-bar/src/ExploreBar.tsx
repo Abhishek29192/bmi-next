@@ -1,6 +1,6 @@
 import React from "react";
-import Button, { ClickableAction } from "@bmi-digital/components/button";
-import Typography from "@bmi-digital/components/typography";
+import { Button, ClickableAction } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import styles from "./ExploreBar.module.scss";
 
 type Link = {

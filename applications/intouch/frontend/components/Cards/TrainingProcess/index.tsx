@@ -1,6 +1,6 @@
 import React from "react";
-import Typography from "@bmi-digital/components/typography";
-import Icon from "@bmi-digital/components/icon";
+import { Typography } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
 import { Search, School, VerifiedUser } from "@material-ui/icons";
 import { TrainingQuery } from "../../../graphql/generated/operations";
 import { InfoPair } from "../../InfoPair";

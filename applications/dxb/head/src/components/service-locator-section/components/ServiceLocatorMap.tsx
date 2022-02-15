@@ -1,15 +1,15 @@
 import {
   LatLngLiteral as GoogleLatLngLiteral,
   MarkerOptionsWithData
-} from "@bmi-digital/components/google-api";
-import { CompanyDetailProps } from "@bmi-digital/components/company-details";
-import GoogleMap from "@bmi-digital/components/google-map";
-import Card from "@bmi-digital/components/card";
-import { CardContent, CardHeader } from "@bmi-digital/components/card";
-import Button from "@bmi-digital/components/button";
+} from "@bmi-digital/components";
+import { CompanyDetailProps } from "@bmi-digital/components";
+import { GoogleMap } from "@bmi-digital/components";
+import { Card } from "@bmi-digital/components";
+import { CardContent, CardHeader } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
+import { CompanyDetails } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import CloseIcon from "@material-ui/icons/Close";
-import CompanyDetails from "@bmi-digital/components/company-details";
-import Typography from "@bmi-digital/components/typography";
 import React from "react";
 import { EVENT_CAT_ID_LINK_CLICKS } from "../constants";
 import styles from "../styles/ServiceLocatorSection.module.scss";

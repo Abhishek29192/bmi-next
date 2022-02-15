@@ -2,8 +2,8 @@ import React from "react";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Divider from "@material-ui/core/Divider";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import Typography from "@bmi-digital/components/typography";
-import Icon from "@bmi-digital/components/icon";
+import { Typography } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
 import classnames from "classnames";
 import styles from "./RadioPane.module.scss";
 

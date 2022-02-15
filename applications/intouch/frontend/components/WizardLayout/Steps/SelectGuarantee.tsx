@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Tooltip from "@bmi-digital/components/tooltip";
+import { Tooltip } from "@bmi-digital/components";
 import { GuaranteeType } from "@bmi/intouch-api-types";
-import AlertBanner from "@bmi-digital/components/alert-banner";
+import { AlertBanner } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
 import { ActionTile } from "../../../components/ActionTile";
 import { useWizardContext } from "../WizardContext";

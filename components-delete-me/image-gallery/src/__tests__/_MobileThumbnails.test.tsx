@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Thumbnail from "@bmi-digital/components/thumbnail";
+import { Thumbnail } from "@bmi-digital/components";
 import MobileThumbnails from "../_MobileThumbnails";
 import mockImage from "./images/demo-tiles.jpg";
 

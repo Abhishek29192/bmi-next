@@ -76,7 +76,7 @@ const [current, setCurrent] = React.useState(1);
 The `@bmi-digital/components/slide-controls` package also exports a version with internal state, `StateSlideControls`.
 
 ```tsx
-import { StateSlideControls as SlideControls } from "@bmi-digital/components/slide-controls";
+import { { StateSlideControls as SlideControls } } from "@bmi-digital/components";
 
 // Set this to true to see the vertical controlled.
 const isVertical = false;

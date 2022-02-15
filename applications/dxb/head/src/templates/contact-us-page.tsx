@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Typography from "@bmi-digital/components/typography";
-import Section from "@bmi-digital/components/section";
-import Hero, { HeroItem } from "@bmi-digital/components/hero";
+import { Typography } from "@bmi-digital/components";
+import { Section } from "@bmi-digital/components";
+import { Hero, HeroItem } from "@bmi-digital/components";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";

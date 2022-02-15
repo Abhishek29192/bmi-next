@@ -1,10 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
-import CardInput, {
-  Props as CardInputProps
-} from "@bmi-digital/components/card-input";
-import { withFormControl } from "@bmi-digital/components/form";
+import { CardInput, CardInputProps } from "@bmi-digital/components";
+import { withFormControl } from "@bmi-digital/components";
 import classnames from "classnames";
-import Grid from "@bmi-digital/components/grid";
+import { Grid } from "@bmi-digital/components";
 import styles from "./CardRadioGroup.module.scss";
 
 export type Props = {

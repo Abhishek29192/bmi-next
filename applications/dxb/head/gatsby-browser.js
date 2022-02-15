@@ -1,9 +1,7 @@
 import "./src/styles/global.css";
 import React from "react";
-import BmiThemeProvider from "@bmi-digital/components/theme-provider";
+import { ThemeProvider } from "@bmi-digital/components";
 
 export const wrapRootElement = ({ element }) => {
-  return (
-    <BmiThemeProvider includeCssBaseline={false}>{element}</BmiThemeProvider>
-  );
+  return <ThemeProvider includeCssBaseline={false}>{element}</ThemeProvider>;
 };

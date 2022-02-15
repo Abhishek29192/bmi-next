@@ -7,11 +7,11 @@ Routing is not part of this component. The section title is translated into a hy
 You can set an `offset: number` for the top spacing needed between the top of the page and the anchor element.
 
 ```tsx
-import Typography from "@bmi-digital/components/typography";
-import Section from "@bmi-digital/components/section";
-import PostItCard from "@bmi-digital/components/post-it-card";
-import Tabs from "@bmi-digital/components/tabs";
-import AnchorLink from "@bmi-digital/components/anchor-link";
+import { Typography } from "@bmi-digital/components";
+import { Section } from "@bmi-digital/components";
+import { PostItCard } from "@bmi-digital/components";
+import { Tabs } from "@bmi-digital/components";
+import { AnchorLink } from "@bmi-digital/components";
 
 <TableOfContent
   renderLink={(_sectionId, title) => <AnchorLink>{title}</AnchorLink>}

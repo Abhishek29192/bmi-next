@@ -1,9 +1,12 @@
 import React from "react";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import Card from "@bmi-digital/components/card";
+import { Card } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import Typography from "@bmi-digital/components/typography";
-import DefaultButton, { ClickableAction } from "@bmi-digital/components/button";
+import { Typography } from "@bmi-digital/components";
+import {
+  Button as DefaultButton,
+  ClickableAction
+} from "@bmi-digital/components";
 import styles from "./BrandIntroCard.module.scss";
 
 type Props = {

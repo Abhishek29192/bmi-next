@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import EmailIcon from "@material-ui/icons/Email";
 import WarningIcon from "@material-ui/icons/Warning";
 import ResponseMessage from "../";

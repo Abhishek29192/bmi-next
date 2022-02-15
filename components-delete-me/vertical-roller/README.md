@@ -5,11 +5,11 @@ The Vertical Roller is a carousel which slides vertically (if using a motion tra
 ### Default
 
 ```jsx
-import Section from "@bmi-digital/components/section";
+import { Section } from "@bmi-digital/components";
 import rooferGunImage from "./images/roofer-gun.png";
 import houseImage from "./images/house.png";
 import tilesBlack from "./images/demo-tiles-black.png";
-import { AeroDek } from "@bmi-digital/components/logo";
+import { { AeroDek } } from "@bmi-digital/components";
 
 const slides = [
   {
@@ -45,11 +45,11 @@ const slides = [
 This is going to be deprecated in `0.2.0`. Please use one of the examples above instead.
 
 ```jsx
-import Section from "@bmi-digital/components/section";
+import { Section } from "@bmi-digital/components";
 import rooferGunImage from "./images/roofer-gun.png";
 import houseImage from "./images/house.png";
 import tilesBlack from "./images/demo-tiles-black.png";
-import { AeroDek } from "@bmi-digital/components/logo";
+import { { AeroDek } } from "@bmi-digital/components";
 
 const slides = [
   {

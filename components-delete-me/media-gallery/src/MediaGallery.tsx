@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import classnames from "classnames";
-import Media from "@bmi-digital/components/media";
-import Typography from "@bmi-digital/components/typography";
-import Truncate from "@bmi-digital/components/truncate";
+import { Media } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
+import { Truncate } from "@bmi-digital/components";
 import DesktopThumbnails from "./_DesktopThumbnails";
 import MobileThumbnails from "./_MobileThumbnails";
 import { Media as MediaData } from "./types";

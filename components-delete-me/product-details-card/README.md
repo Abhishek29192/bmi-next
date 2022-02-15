@@ -6,7 +6,7 @@ A simple card component to display details of a product. Only the action prop is
 
 ```jsx
 import demoProduct from "./images/demo-product.png";
-import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
+import { { AeroDek as brandLogo } } from "@bmi-digital/components";
 
 <ProductDetailsCard
   media={<img src={demoProduct} alt="Lorem ipsum" />}
@@ -23,7 +23,7 @@ This is going to be deprecated in `0.2.0`. Please use one of the examples above 
 
 ```jsx
 import demoProduct from "./images/demo-product.png";
-import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
+import { { AeroDek as brandLogo } } from "@bmi-digital/components";
 
 <ProductDetailsCard
   imageSource={demoProduct}

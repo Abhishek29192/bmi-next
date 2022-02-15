@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
+import { AeroDek as brandLogo } from "@bmi-digital/components";
 import BrandIntroCard from "../";
 
 describe("BrandIntroCard component", () => {

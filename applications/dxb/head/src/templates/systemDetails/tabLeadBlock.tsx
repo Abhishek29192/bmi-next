@@ -1,9 +1,9 @@
 import React from "react";
-import Tabs from "@bmi-digital/components/tabs";
+import { Tabs } from "@bmi-digital/components";
+import { Section } from "@bmi-digital/components";
+import { LeadBlock } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import Tab, { TabProps } from "@material-ui/core/Tab";
-import Section from "@bmi-digital/components/section";
-import LeadBlock from "@bmi-digital/components/lead-block";
-import Typography from "@bmi-digital/components/typography";
 import { useSiteContext } from "../../components/Site";
 import withGTM from "../../utils/google-tag-manager";
 import { microCopy } from "../../constants/microCopies";

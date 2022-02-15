@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import green from "../images/green.jpg";
 import brown from "../images/brown.jpg";
 import charcoal from "../images/charcoal.jpg";

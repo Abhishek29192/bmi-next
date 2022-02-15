@@ -1,5 +1,5 @@
-import { ClickableAction } from "@bmi-digital/components/anchor-link";
-import { AcceptedNode } from "@bmi-digital/components/media";
+import { ClickableAction } from "@bmi-digital/components";
+import { AcceptedNode } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
 
 export type Slide = {

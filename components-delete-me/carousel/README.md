@@ -66,8 +66,8 @@ const Slide = ({ children, color }) => (
 ### Controlled
 
 ```jsx
-import { getPageFromAbsoluteIndex } from "@bmi-digital/components/carousel";
-import SlideControls from "@bmi-digital/components/slide-controls";
+import { { getPageFromAbsoluteIndex } } from "@bmi-digital/components";
+import { SlideControls } from "@bmi-digital/components";
 
 const [index, setIndex] = React.useState(0);
 const total = 3;

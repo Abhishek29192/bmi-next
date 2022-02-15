@@ -1,5 +1,5 @@
 import React, { MutableRefObject } from "react";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import AnchorLink, {
   ClickableAction
 } from "@bmi-digital/components/anchor-link";

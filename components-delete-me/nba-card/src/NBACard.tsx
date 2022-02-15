@@ -1,8 +1,8 @@
 import React from "react";
 import classnames from "classnames";
-import ColorPair, { Colors } from "@bmi-digital/components/color-pair";
-import Typography from "@bmi-digital/components/typography";
-import { withClickable } from "@bmi-digital/components/clickable";
+import { ColorPair, Colors } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
+import { withClickable } from "@bmi-digital/components";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import styles from "./NBACard.module.scss";
 

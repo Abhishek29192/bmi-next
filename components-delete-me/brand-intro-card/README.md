@@ -5,7 +5,7 @@ Brand Intro cards do not have a block background or elevation shadow and are not
 ### Default
 
 ```jsx
-import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
+import { { AeroDek as brandLogo } } from "@bmi-digital/components";
 
 <BrandIntroCard
   logoIcon={brandLogo}
@@ -17,8 +17,8 @@ import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
 ### With background
 
 ```jsx
-import { AeroDek as brandLogo } from "@bmi-digital/components/logo";
-import Section from "@bmi-digital/components/section";
+import { { AeroDek as brandLogo } } from "@bmi-digital/components";
+import { Section } from "@bmi-digital/components";
 
 const card = (
   <BrandIntroCard

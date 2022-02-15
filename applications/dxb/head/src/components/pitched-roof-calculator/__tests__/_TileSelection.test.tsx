@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { FormContext } from "@bmi-digital/components/form";
+import { FormContext } from "@bmi-digital/components";
 import { MicroCopy } from "../helpers/microCopy";
 import en from "../samples/copy/en.json";
 import data from "../samples/data.json";

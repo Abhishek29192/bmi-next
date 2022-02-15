@@ -1,6 +1,6 @@
 import React from "react";
-import Typography from "@bmi-digital/components/typography";
-import Icon from "@bmi-digital/components/icon";
+import { Typography } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
 import classnames from "classnames";
 import styles from "./ResponseMessage.module.scss";

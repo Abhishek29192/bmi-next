@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import classnames from "classnames";
-import Media, { AcceptedNode } from "@bmi-digital/components/media";
+import { Media, AcceptedNode } from "@bmi-digital/components";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
-import Typography from "@bmi-digital/components/typography";
-import { withClickable } from "@bmi-digital/components/clickable";
+import { Typography } from "@bmi-digital/components";
+import { withClickable } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
 import styles from "./OverviewCard.module.scss";
 

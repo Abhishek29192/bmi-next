@@ -5,7 +5,7 @@ import {
   CertificationFlatRoof,
   CertificationOtherTraining,
   CertificationPitchedRoof
-} from "@bmi-digital/components/icon";
+} from "@bmi-digital/components";
 
 const CERTIFICATION_ICONS: {
   [K in Technology]: React.FC<React.SVGProps<SVGSVGElement>>;

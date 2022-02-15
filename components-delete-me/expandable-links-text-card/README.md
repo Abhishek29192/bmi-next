@@ -5,7 +5,7 @@ A component for displaying a title with links.
 ### Default
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 
@@ -45,7 +45,7 @@ const links = [
 ### Link count than separator
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 

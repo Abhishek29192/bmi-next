@@ -1,9 +1,9 @@
-import AlternativeContent from "@bmi-digital/components/alternative-content";
-import Button from "@bmi-digital/components/button";
-import Clickable from "@bmi-digital/components/clickable";
-import ContainerDialog from "@bmi-digital/components/container-dialog";
-import Icon, { iconMap } from "@bmi-digital/components/icon";
-import Typography from "@bmi-digital/components/typography";
+import { AlternativeContent } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
+import { Clickable } from "@bmi-digital/components";
+import { ContainerDialog } from "@bmi-digital/components";
+import { Icon, iconMap } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import useDimensions, { DimensionObject } from "@bmi-digital/use-dimensions";
 import Fade from "@material-ui/core/Fade";
 import { useTheme } from "@material-ui/core/styles";
@@ -11,7 +11,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import classnames from "classnames";
 import React, { CSSProperties, useContext, useEffect, useState } from "react";
 import ReactPlayer from "react-player/youtube";
-import { YoutubeContext } from "@bmi-digital/components/media-gallery";
+import { YoutubeContext } from "@bmi-digital/components";
 import { getDefaultPreviewImageSource, getVideoURL } from "./utils";
 import styles from "./YoutubeVideo.module.scss";
 

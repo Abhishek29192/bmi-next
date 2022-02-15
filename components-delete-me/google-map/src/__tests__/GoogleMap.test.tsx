@@ -1,4 +1,4 @@
-import GoogleApi from "@bmi-digital/components/google-api";
+import { GoogleApi } from "@bmi-digital/components";
 import { initialize, Map } from "@googlemaps/jest-mocks";
 import { render } from "@testing-library/react";
 import React from "react";

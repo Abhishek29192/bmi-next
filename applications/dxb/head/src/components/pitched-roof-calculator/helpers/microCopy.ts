@@ -1,5 +1,5 @@
 export {
-  default as MicroCopy,
+  MicroCopy,
   MicroCopyContext,
   getMicroCopy
-} from "@bmi-digital/components/micro-copy";
+} from "@bmi-digital/components";

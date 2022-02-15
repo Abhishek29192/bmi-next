@@ -1,12 +1,12 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
-import Grid from "@bmi-digital/components/grid";
-import Form from "@bmi-digital/components/form";
-import Dialog from "@bmi-digital/components/dialog";
-import Typography from "@bmi-digital/components/typography";
-import TextField from "@bmi-digital/components/text-field";
-import Select, { MenuItem } from "@bmi-digital/components/select";
-import AlertBanner from "@bmi-digital/components/alert-banner";
+import { Grid } from "@bmi-digital/components";
+import { Form } from "@bmi-digital/components";
+import { Dialog } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
+import { TextField } from "@bmi-digital/components";
+import { Select, SelectMenuItem } from "@bmi-digital/components";
+import { AlertBanner } from "@bmi-digital/components";
 import { useMarketContext } from "../../context/MarketContext";
 import {
   validateEmailInput,
@@ -167,9 +167,9 @@ export const SetCompanyDetailsDialog = ({
 
               <Select {...getFieldProps("businessType")} isRequired>
                 {Object.entries(BUSINESS_TYPES).map(([key, businessType]) => (
-                  <MenuItem key={key} value={businessType}>
+                  <SelectMenuItem key={key} value={businessType}>
                     {t(`company-page:businessType.${businessType}`)}
-                  </MenuItem>
+                  </SelectMenuItem>
                 ))}
               </Select>
 
@@ -190,9 +190,9 @@ export const SetCompanyDetailsDialog = ({
               >
                 <Select {...getFieldProps("tier")} isRequired>
                   {Object.entries(TIERS).map(([, tier]) => (
-                    <MenuItem key={tier} value={tier}>
+                    <SelectMenuItem key={tier} value={tier}>
                       {t(`common:tier.${tier}`)}
-                    </MenuItem>
+                    </SelectMenuItem>
                   ))}
                 </Select>
               </AccessControl>

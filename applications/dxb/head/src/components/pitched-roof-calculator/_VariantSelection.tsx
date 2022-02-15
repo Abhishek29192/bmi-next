@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import CardRadioGroup from "@bmi-digital/components/card-radio-group";
+import { CardRadioGroup } from "@bmi-digital/components";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import validateRangesAgainstPitchValues from "./helpers/validateRangesAgainstPitchValues";
 import getPitchValues from "./helpers/getPitchValues";

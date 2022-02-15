@@ -5,7 +5,7 @@ A navigation section to explore bar of links. Compose with the `Section` compone
 ### Default
 
 ```jsx
-import Section from "@bmi-digital/components/section";
+import { Section } from "@bmi-digital/components";
 
 <Section backgroundColor="alabaster">
   <ExploreBar
@@ -26,7 +26,7 @@ import Section from "@bmi-digital/components/section";
 ### ExploreBar with link components
 
 ```jsx
-import Section from "@bmi-digital/components/section";
+import { Section } from "@bmi-digital/components";
 
 const Link = React.forwardRef(({ children, ...props }, ref) => (
   <div {...props} ref={ref}>

@@ -3,7 +3,7 @@
 ### Info
 
 ```jsx
-import AnchorLink from "@bmi-digital/components/anchor-link";
+import { AnchorLink } from "@bmi-digital/components";
 
 <AlertBanner severity="info">
   <AlertBanner.Title>Info</AlertBanner.Title>
@@ -23,7 +23,7 @@ import AnchorLink from "@bmi-digital/components/anchor-link";
 ### Warning
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import CloseIcon from "@material-ui/icons/Close";
 
 <AlertBanner
@@ -51,7 +51,7 @@ import CloseIcon from "@material-ui/icons/Close";
 ### Sticky
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import CloseIcon from "@material-ui/icons/Close";
 
 <div style={{ height: "1000px" }}>

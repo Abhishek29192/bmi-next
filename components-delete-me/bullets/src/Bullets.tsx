@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import styles from "./Bullets.module.scss";
 
 const Bullets = ({ className, ...rest }: React.HTMLProps<HTMLUListElement>) => {

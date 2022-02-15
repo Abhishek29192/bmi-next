@@ -5,10 +5,8 @@ import React, {
   useState,
   useRef
 } from "react";
-import DefaultButton, { ButtonProps } from "@bmi-digital/components/button";
-import AnchorLink, {
-  Props as AnchorLinkProps
-} from "@bmi-digital/components/anchor-link";
+import { Button as DefaultButton, ButtonProps } from "@bmi-digital/components";
+import { AnchorLink, AnchorLinkProps } from "@bmi-digital/components";
 import Checkbox, {
   Props as CheckboxProps
 } from "@bmi-digital/components/checkbox";

@@ -5,9 +5,9 @@ A Card with multiple sections and each section contains a title, content and cal
 ### Default
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
-import Button from "@bmi-digital/components/button";
-import AnchorLink from "@bmi-digital/components/anchor-link";
+import { Typography } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
+import { AnchorLink } from "@bmi-digital/components";
 
 <PostItCard>
   <PostItCard.Section>
@@ -46,9 +46,9 @@ import AnchorLink from "@bmi-digital/components/anchor-link";
 ### Custom ColorPair
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
-import Button from "@bmi-digital/components/button";
-import IconList from "@bmi-digital/components/icon-list";
+import { Typography } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
+import { IconList } from "@bmi-digital/components";
 import CheckIcon from "@material-ui/icons/Check";
 
 <PostItCard theme="blue-900">

@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import imageSource from "mock-image.jpg";

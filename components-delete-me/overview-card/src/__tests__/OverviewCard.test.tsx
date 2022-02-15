@@ -1,6 +1,6 @@
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import mockImage from "path-to-image.jpg";
 import mockLogo from "mock-to-logo.svg";
 import OverviewCard from "../";

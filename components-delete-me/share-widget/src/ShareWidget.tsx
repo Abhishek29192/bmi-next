@@ -1,6 +1,6 @@
-import DefaultButton from "@bmi-digital/components/button";
-import Icon from "@bmi-digital/components/icon";
-import Typography from "@bmi-digital/components/typography";
+import { DefaultButton } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import Tooltip from "@material-ui/core/Tooltip";
 import Email from "@material-ui/icons/Email";
 import Facebook from "@material-ui/icons/Facebook";

@@ -5,7 +5,7 @@ A component for toggling content.
 Use a BMI button as a trigger to toggle child content.
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 
 <>
   <ShowMore openButton={<Button>Show more</Button>}>

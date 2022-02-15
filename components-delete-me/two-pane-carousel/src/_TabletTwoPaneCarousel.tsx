@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Grid from "@bmi-digital/components/grid";
-import AnchorLink from "@bmi-digital/components/anchor-link";
+import { Grid } from "@bmi-digital/components";
+import { AnchorLink } from "@bmi-digital/components";
 import Carousel, {
   getPageFromAbsoluteIndex
 } from "@bmi-digital/components/carousel";
-import Media from "@bmi-digital/components/media";
-import Typography from "@bmi-digital/components/typography";
-import SlideControls from "@bmi-digital/components/slide-controls";
+import { Media } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
+import { SlideControls } from "@bmi-digital/components";
 import { Props } from "./types";
 import styles from "./TwoPaneCarousel.module.scss";
 

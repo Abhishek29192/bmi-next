@@ -1,13 +1,14 @@
-import { CompanyDetailProps } from "@bmi-digital/components/company-details";
-import GoogleApi, {
+import { CompanyDetailProps } from "@bmi-digital/components";
+import {
+  GoogleApi,
   GeocoderResult as GoogleGeocoderResult,
   Google,
   LatLngLiteral as GoogleLatLngLiteral,
   loadGoogleApi
-} from "@bmi-digital/components/google-api";
-import Grid from "@bmi-digital/components/grid";
-import Section from "@bmi-digital/components/section";
-import Tabs from "@bmi-digital/components/tabs";
+} from "@bmi-digital/components";
+import { Grid } from "@bmi-digital/components";
+import { Section } from "@bmi-digital/components";
+import { Tabs } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useState } from "react";
 import { useTheme } from "@material-ui/core/styles";

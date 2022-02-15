@@ -1,8 +1,8 @@
 import React from "react";
-import Typography from "@bmi-digital/components/typography";
-import Icon from "@bmi-digital/components/icon";
-import Grid from "@bmi-digital/components/grid";
-import { NavigationListButton } from "@bmi-digital/components/navigation";
+import { Typography } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
+import { Grid } from "@bmi-digital/components";
+import { NavigationListButton } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
 import styles from "./LanguageSelection.module.scss";
 

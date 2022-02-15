@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import { FilterResult } from "../FilterResult";
 import { SidePanel } from ".";
 

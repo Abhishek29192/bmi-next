@@ -1,22 +1,25 @@
-import Button from "@bmi-digital/components/button";
-import Icon from "@bmi-digital/components/icon";
-import Search from "@bmi-digital/components/search";
-import LanguageSelection, {
+import { Button } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
+import { Search } from "@bmi-digital/components";
+import {
+  LanguageSelection,
   LanguageSelectionItem,
   LanguageSelectionList
-} from "@bmi-digital/components/language-selection";
-import { BMI as BmiIcon } from "@bmi-digital/components/logo";
-import Clickable, {
+} from "@bmi-digital/components";
+import { BMI as BmiIcon } from "@bmi-digital/components";
+import {
+  Clickable,
   ClickableAction,
   ClickableProps
-} from "@bmi-digital/components/clickable";
-import Navigation, {
+} from "@bmi-digital/components";
+import {
+  Navigation,
   LinkList,
   NavigationList,
   NavigationListButton
-} from "@bmi-digital/components/navigation";
-import Container from "@bmi-digital/components/container";
-import Typography from "@bmi-digital/components/typography";
+} from "@bmi-digital/components";
+import { Container } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import DefaultTab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import Backdrop from "@material-ui/core/Backdrop";

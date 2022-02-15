@@ -1,10 +1,10 @@
 import React from "react";
-import { ClickableAction } from "@bmi-digital/components/clickable";
-import Media, { AcceptedNode } from "@bmi-digital/components/media";
+import { ClickableAction } from "@bmi-digital/components";
+import { Media, AcceptedNode } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import Typography from "@bmi-digital/components/typography";
-import AnchorLink from "@bmi-digital/components/anchor-link";
-import MicroCopy from "@bmi-digital/components/micro-copy";
+import { Typography } from "@bmi-digital/components";
+import { AnchorLink } from "@bmi-digital/components";
+import { MicroCopy } from "@bmi-digital/components";
 import styles from "./ProductDetailsCard.module.scss";
 
 type Props = {

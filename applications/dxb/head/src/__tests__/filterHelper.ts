@@ -1,4 +1,4 @@
-import { Filter } from "@bmi-digital/components/filters";
+import { Filter } from "@bmi-digital/components";
 
 export const createBrandFilterCriteria = (
   partialProps?: Partial<Filter>

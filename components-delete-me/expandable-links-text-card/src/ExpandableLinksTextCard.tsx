@@ -2,10 +2,10 @@ import React from "react";
 import AnchorLink, {
   ClickableAction
 } from "@bmi-digital/components/anchor-link";
-import Icon, { iconMap } from "@bmi-digital/components/icon";
-import ShowMore from "@bmi-digital/components/show-more";
-import Typography from "@bmi-digital/components/typography";
-import { ButtonProps, IconButtonProps } from "@bmi-digital/components/button";
+import { Icon, iconMap } from "@bmi-digital/components";
+import { ShowMore } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
+import { ButtonProps, IconButtonProps } from "@bmi-digital/components";
 import styles from "./ExpandableLinksTextCard.module.scss";
 
 function partitionLinks(links: Link[], separator?: number) {

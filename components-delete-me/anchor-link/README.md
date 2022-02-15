@@ -47,7 +47,7 @@ The `AnchorLink` is wrapped in a `Clickable` component and it accepts a `action?
 Even when inside a paragraph, the minimum clickable height of the link is `42px`.
 
 ```tsx
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 <Typography>
   Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
@@ -90,8 +90,8 @@ The component has a `color` property to define a different colour from its defau
 The `AnchorLink` component uses the `ColorPair` context to understand the colour it should use (unless specified, see the example above).
 
 ```tsx
-import ColorPair from "@bmi-digital/components/color-pair";
-import Typography from "@bmi-digital/components/typography";
+import { ColorPair } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 
 const colorBoxStyle = {
   width: "33%",

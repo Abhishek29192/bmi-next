@@ -2,7 +2,7 @@ import React from "react";
 import capitalize from "lodash/capitalize";
 import { gql } from "@apollo/client";
 import { Operation } from "@bmi/intouch-api-types";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
 import { GetCompanyQuery } from "../../../../graphql/generated/operations";
 import { InfoPair } from "../../../InfoPair";

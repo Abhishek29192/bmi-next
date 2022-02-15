@@ -7,7 +7,7 @@ This component wraps the [Material-UI Container component](https://material-ui.c
 By default the section background is `transparent`.
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 <Section>
   <Typography variant="body1" gutterBottom>
@@ -34,7 +34,7 @@ import Typography from "@bmi-digital/components/typography";
 Limited to BMI colours `white` and `pearl`.
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 <Section backgroundColor="pearl">
   <Typography variant="body1" gutterBottom>
@@ -66,7 +66,7 @@ import Typography from "@bmi-digital/components/typography";
 `Section.Title` is the same component as the `Typography` but with some overridable properties (`variant=h2`, `hasUnderline`) and a margin-bottom.
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 <Section backgroundColor="pearl">
   <Section.Title>H2 Heading</Section.Title>
@@ -81,7 +81,7 @@ import Typography from "@bmi-digital/components/typography";
 ### Witouth vertical spacing
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 <Section backgroundColor="pearl" spacing="none">
   <Section.Title>H2 Heading</Section.Title>
@@ -96,7 +96,7 @@ import Typography from "@bmi-digital/components/typography";
 ### Slim
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 <Section backgroundColor="pearl" isSlim>
   <Section.Title>H2 Heading</Section.Title>

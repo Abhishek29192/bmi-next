@@ -1,4 +1,4 @@
-import { AcceptedNode } from "@bmi-digital/components/media";
+import { AcceptedNode } from "@bmi-digital/components";
 
 export type Image = {
   media?: React.ReactElement<AcceptedNode>;

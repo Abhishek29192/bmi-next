@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import Tabs from "@bmi-digital/components/tabs";
+import { Tabs } from "@bmi-digital/components";
 import { ProductsAndSystemsQuery } from "../../../graphql/generated/operations";
 import ImportTab from "./ImportTab";
 import ListTab from "./ListTab";

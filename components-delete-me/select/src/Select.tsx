@@ -4,7 +4,7 @@ import React from "react";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import classnames from "classnames";
-import { withFormControl } from "@bmi-digital/components/form";
+import { withFormControl } from "@bmi-digital/components";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import styles from "./Select.module.scss";
 

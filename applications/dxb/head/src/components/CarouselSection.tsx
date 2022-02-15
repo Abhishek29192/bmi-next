@@ -1,14 +1,10 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
+import { TwoPaneCarousel, TwoPaneCarouselSlide } from "@bmi-digital/components";
+import { VerticalRoller, VerticalRollerSlide } from "@bmi-digital/components";
+import { Section } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
-import TwoPaneCarousel, {
-  Slide as TwoPaneCarouselSlide
-} from "@bmi-digital/components/two-pane-carousel";
-import VerticalRoller, {
-  Slide as VerticalRollerSlide
-} from "@bmi-digital/components/vertical-roller";
-import Section from "@bmi-digital/components/section";
-import Button from "@bmi-digital/components/button";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { Data as PromoData } from "../components/Promo";
 import withGTM from "../utils/google-tag-manager";

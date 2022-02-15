@@ -1,8 +1,8 @@
 import React, { forwardRef, MutableRefObject } from "react";
 import classnames from "classnames";
 import ChevronRightIcon from "@material-ui/icons/KeyboardArrowRight";
-import Card from "@bmi-digital/components/card";
-import Typography from "@bmi-digital/components/typography";
+import { Card } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import Collapse from "@material-ui/core/Collapse";
 import styles from "./LinkCard.module.scss";
 

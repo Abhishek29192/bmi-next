@@ -17,7 +17,7 @@ import BuildIcon from "@material-ui/icons/Build";
 Has to be in a relative positioned element, as it's going to take the width and the (minimum) height of its parent.
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import BuildIcon from "@material-ui/icons/Build";
 
 <div style={{ position: "relative", height: "300px" }}>
@@ -45,9 +45,9 @@ import BuildIcon from "@material-ui/icons/Build";
 When used inside a `ExpandableCard.List` component, or with other flex elements and controlled, the Cards expand and collapse using their flex parent.
 
 ```tsx
-import Button from "@bmi-digital/components/button";
-import Typography from "@bmi-digital/components/typography";
-import IconList from "@bmi-digital/components/icon-list";
+import { Button } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
+import { IconList } from "@bmi-digital/components";
 import BuildIcon from "@material-ui/icons/Build";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import LocalShippingIcon from "@material-ui/icons/LocalShipping";

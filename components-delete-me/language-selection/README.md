@@ -5,7 +5,7 @@ Language selection panel.
 Example language list is exported from `"@bmi-digital/components/language-selection"`;
 
 ```jsx
-import { languages } from "@bmi-digital/components/language-selection";
+import { { languages } } from "@bmi-digital/components";
 
 <LanguageSelection languages={languages} />;
 ```

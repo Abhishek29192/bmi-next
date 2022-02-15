@@ -4,10 +4,8 @@ import DefaultTab from "@material-ui/core/Tab";
 import MaterialTabs, {
   TabsProps as MaterialTabsProps
 } from "@material-ui/core/Tabs";
-import Container, {
-  Props as ContainerProps
-} from "@bmi-digital/components/container";
-import Grid, { GridProps } from "@bmi-digital/components/grid";
+import { Container, ContainerProps } from "@bmi-digital/components";
+import { Grid, GridProps } from "@bmi-digital/components";
 import classnames from "classnames";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";

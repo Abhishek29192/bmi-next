@@ -1,5 +1,5 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
-import Icon from "@bmi-digital/components/icon";
+import { Button, ButtonProps } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import NearMe from "@material-ui/icons/NearMe";
 import React, { MouseEvent, useEffect, useState } from "react";

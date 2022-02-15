@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Button from "@bmi-digital/components/button";
-import TextField from "@bmi-digital/components/text-field";
+import { Button } from "@bmi-digital/components";
+import { TextField } from "@bmi-digital/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import InputGroup from "../";
 

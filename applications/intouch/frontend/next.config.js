@@ -2,8 +2,8 @@
 
 const path = require("path");
 const withFonts = require("next-fonts");
-const { withConfigs, styles } = require("../../../libraries/webpack");
 const { i18n } = require("./next-i18next.config");
+const { withConfigs, styles } = require("./webpack-config");
 
 module.exports = withFonts({
   i18n,
@@ -29,7 +29,8 @@ module.exports = withFonts({
       config.resolve = {
         ...config.resolve,
         fallback: {
-          fs: false
+          fs: false,
+          process: false
         }
       };
     }

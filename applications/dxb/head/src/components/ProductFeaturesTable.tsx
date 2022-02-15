@@ -1,5 +1,5 @@
 import React from "react";
-import Table from "@bmi-digital/components/table";
+import { Table } from "@bmi-digital/components";
 import { Feature } from "./types/pim";
 
 type featureTableProps = {

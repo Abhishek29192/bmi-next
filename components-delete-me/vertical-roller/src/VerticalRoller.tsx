@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import Button, { ClickableAction } from "@bmi-digital/components/button";
-import Carousel, {
-  getPageFromAbsoluteIndex
-} from "@bmi-digital/components/carousel";
-import SlideControls from "@bmi-digital/components/slide-controls";
+import { Button, ClickableAction } from "@bmi-digital/components";
+import { Carousel, getPageFromAbsoluteIndex } from "@bmi-digital/components";
+import { SlideControls } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import Typography from "@bmi-digital/components/typography";
-import Media, { AcceptedNode } from "@bmi-digital/components/media";
-import RollerSelector from "@bmi-digital/components/roller-selector";
+import { Typography } from "@bmi-digital/components";
+import { Media, AcceptedNode } from "@bmi-digital/components";
+import { RollerSelector } from "@bmi-digital/components";
 import ArrowIcon from "@material-ui/icons/ArrowForward";
-import Grid from "@bmi-digital/components/grid";
+import { Grid } from "@bmi-digital/components";
 import classnames from "classnames";
 import styles from "./VerticalRoller.module.scss";
 

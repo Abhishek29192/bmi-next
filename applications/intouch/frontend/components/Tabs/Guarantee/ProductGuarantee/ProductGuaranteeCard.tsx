@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Typography from "@bmi-digital/components/typography";
-import Button from "@bmi-digital/components/button";
-import Icon, { FilePDF } from "@bmi-digital/components/icon";
+import { Typography } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
+import { Icon, FilePDF } from "@bmi-digital/components";
 import { ProjectDetailsProductFragmentFragment } from "../../../../graphql/generated/operations";
 import { ProductCard } from "../ProductCard";
 import styles from "./styles.module.scss";

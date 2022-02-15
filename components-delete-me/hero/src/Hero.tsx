@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import Container from "@bmi-digital/components/container";
-import Typography from "@bmi-digital/components/typography";
-import Carousel, {
-  getPageFromAbsoluteIndex
-} from "@bmi-digital/components/carousel";
-import SlideControls from "@bmi-digital/components/slide-controls";
-import Media, { AcceptedNode } from "@bmi-digital/components/media";
+import { Container } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
+import { Carousel, getPageFromAbsoluteIndex } from "@bmi-digital/components";
+import { SlideControls } from "@bmi-digital/components";
+import { Media, AcceptedNode } from "@bmi-digital/components";
 import classnames from "classnames";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import styles from "./Hero.module.scss";

@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import classnames from "classnames";
-import DefaultThumbnail from "@bmi-digital/components/thumbnail";
-import ThumbScrollerButton from "@bmi-digital/components/thumb-scroller-button";
+import { DefaultThumbnail } from "@bmi-digital/components";
+import { ThumbScrollerButton } from "@bmi-digital/components";
 import styles from "./MediaGallery.module.scss";
 import { Media as MediaData } from "./types";
 

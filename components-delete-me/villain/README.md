@@ -7,9 +7,9 @@ There are 2 varieties of the Villain - Full Width and Grid Width. Each of these 
 ### Contained
 
 ```jsx
-import Button from "@bmi-digital/components/button";
-import Section from "@bmi-digital/components/section";
-import YoutubeVideo from "@bmi-digital/components/youtube-video";
+import { Button } from "@bmi-digital/components";
+import { Section } from "@bmi-digital/components";
+import { YoutubeVideo } from "@bmi-digital/components";
 import greyTiles from "./images/grey-tiles.png";
 import greyRoofHouseImage from "./images/grey-roof-house.png";
 
@@ -72,7 +72,7 @@ import greyRoofHouseImage from "./images/grey-roof-house.png";
 #### With Video
 
 ```jsx
-import YoutubeVideo from "@bmi-digital/components/youtube-video";
+import { YoutubeVideo } from "@bmi-digital/components";
 
 <Villain
   title="H2 Heading"
@@ -133,7 +133,7 @@ import greyRoofHouseImage from "./images/grey-roof-house.png";
 This is going to be deprecated in `0.2.0`. Please use one of the examples above instead.
 
 ```jsx
-import Section from "@bmi-digital/components/section";
+import { Section } from "@bmi-digital/components";
 import greyTiles from "./images/grey-tiles.png";
 
 <Section>

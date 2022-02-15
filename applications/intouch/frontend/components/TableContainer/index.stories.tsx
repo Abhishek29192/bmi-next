@@ -1,5 +1,5 @@
 import React from "react";
-import Table from "@bmi-digital/components/table";
+import { Table } from "@bmi-digital/components";
 import { TableContainer } from ".";
 
 export default {

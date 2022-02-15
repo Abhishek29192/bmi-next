@@ -1,9 +1,9 @@
 import React from "react";
 import classnames from "classnames";
-import { withClickable } from "@bmi-digital/components/clickable";
+import { withClickable } from "@bmi-digital/components";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
-import Media, { AcceptedNode } from "@bmi-digital/components/media";
-import Icon, { iconMap } from "@bmi-digital/components/icon";
+import { Media, AcceptedNode } from "@bmi-digital/components";
+import { Icon, iconMap } from "@bmi-digital/components";
 import styles from "./Thumbnail.module.scss";
 
 export enum StateEnum {

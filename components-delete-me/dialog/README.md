@@ -5,7 +5,7 @@ Dialog component, based on Material UI Modal.
 ### With Title, Content, and Actions
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 const [open, setOpen] = React.useState(false);
 <>
   <Button onClick={() => setOpen(true)}>Open Dialog</Button>
@@ -33,7 +33,7 @@ const [open, setOpen] = React.useState(false);
 ### With Two action buttons
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 const [open, setOpen] = React.useState(false);
 <>
   <Button onClick={() => setOpen(true)}>Open Dialog</Button>
@@ -55,7 +55,7 @@ const [open, setOpen] = React.useState(false);
 By default, it has the same value as `onCloseClick`.
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 const [open, setOpen] = React.useState(false);
 <>
   <Button onClick={() => setOpen(true)}>Open Dialog</Button>

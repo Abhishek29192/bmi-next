@@ -1,9 +1,9 @@
 import React from "react";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
-import { Arrow } from "@bmi-digital/components/icon";
-import Clickable from "@bmi-digital/components/clickable";
-import { languages } from "@bmi-digital/components/language-selection";
+import { Arrow } from "@bmi-digital/components";
+import { Clickable } from "@bmi-digital/components";
+import { languages } from "@bmi-digital/components";
 import Header from "../";
 
 const productsLabel = "Products";

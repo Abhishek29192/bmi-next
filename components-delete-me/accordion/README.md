@@ -3,7 +3,7 @@ This component wraps the [Material-UI ExpansionPanel component](https://material
 ## Default
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 <Accordion>
   <Accordion.Item>
@@ -52,7 +52,7 @@ import Typography from "@bmi-digital/components/typography";
 ## Radio
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 <Accordion isRadio>
   <Accordion.Item>
@@ -101,7 +101,7 @@ import Typography from "@bmi-digital/components/typography";
 ## With initially expanded item
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 <Accordion>
   <Accordion.Item defaultExpanded>
@@ -150,7 +150,7 @@ import Typography from "@bmi-digital/components/typography";
 ## Radio with initially expanded item
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 <Accordion isRadio>
   <Accordion.Item defaultExpanded>

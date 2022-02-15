@@ -1,13 +1,10 @@
 import camelCase from "lodash-es/camelCase";
-import {
-  CompanyDetailProps,
-  RoofProLevel
-} from "@bmi-digital/components/company-details";
 import React, { useEffect, useState } from "react";
+import { CompanyDetailProps, RoofProLevel } from "@bmi-digital/components";
 import {
   computeDistanceBetween,
   MarkerOptionsWithData
-} from "@bmi-digital/components/google-api";
+} from "@bmi-digital/components";
 import { devLog } from "../../utils/devLog";
 import {
   EntryTypeEnum,

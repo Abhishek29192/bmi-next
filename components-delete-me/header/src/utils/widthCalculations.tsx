@@ -1,4 +1,4 @@
-import { NavigationList } from "@bmi-digital/components/navigation";
+import { NavigationList } from "@bmi-digital/components";
 import styles from "../Header.module.scss";
 
 const charWidthSm = parseInt(styles["char-width-sm"]!);

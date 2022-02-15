@@ -1,14 +1,14 @@
 import React from "react";
 import classnames from "classnames";
-import PureChip from "@bmi-digital/components/chip";
+import { PureChip } from "@bmi-digital/components";
 import {
   ClickableAction,
   withClickable
 } from "@bmi-digital/components/clickable";
 import { SVGImport } from "@bmi-digital/svg-import";
-import DefaultThumbnail from "@bmi-digital/components/thumbnail";
-import Typography from "@bmi-digital/components/typography";
-import ToolTip from "@bmi-digital/components/tooltip";
+import { DefaultThumbnail } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
+import { ToolTip } from "@bmi-digital/components";
 import styles from "./ProductOverviewPane.module.scss";
 
 const Chip = withClickable((props) => <PureChip {...props} />);

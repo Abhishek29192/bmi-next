@@ -1,6 +1,6 @@
 import React from "react";
-import Typography from "@bmi-digital/components/typography";
-import Grid from "@bmi-digital/components/grid";
+import { Typography } from "@bmi-digital/components";
+import { Grid } from "@bmi-digital/components";
 import styles from "./OptionCard.module.scss";
 
 const OptionCard = ({ title, description, children }: any) => (

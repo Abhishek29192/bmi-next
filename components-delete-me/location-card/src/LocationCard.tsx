@@ -1,9 +1,9 @@
 import React from "react";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import DefaultAnchorLink, {
   ClickableAction
 } from "@bmi-digital/components/anchor-link";
-import Icon from "@bmi-digital/components/icon";
+import { Icon } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
 import { LocationOn, Phone, Mail } from "@material-ui/icons";
 import classnames from "classnames";

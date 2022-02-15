@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import classnames from "classnames";
 import styles from "./FlatRoofCalculator.module.scss";
 import Section, { SectionProps } from "./_Section";

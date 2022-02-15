@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import classnames from "classnames";
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
+import { withFormControl } from "@bmi-digital/components";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
-import Icon from "@bmi-digital/components/icon";
-import { withFormControl } from "@bmi-digital/components/form";
 import RawTextField from "../raw-text-field/RawTextField";
 import styles from "./UpDownSimpleNumericInput.module.scss";
 

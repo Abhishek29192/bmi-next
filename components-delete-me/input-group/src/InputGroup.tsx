@@ -1,6 +1,6 @@
 import React from "react";
-import { ButtonProps, IconButtonProps } from "@bmi-digital/components/button";
-import { Props as TextFieldProps } from "@bmi-digital/components/text-field";
+import { ButtonProps, IconButtonProps } from "@bmi-digital/components";
+import { TextFieldProps } from "@bmi-digital/components";
 import classnames from "classnames";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";

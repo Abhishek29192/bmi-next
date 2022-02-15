@@ -1,12 +1,12 @@
 import React, { createContext, useContext } from "react";
-import Typography from "@bmi-digital/components/typography";
-import ColorPair, { Colors } from "@bmi-digital/components/color-pair";
+import { Typography } from "@bmi-digital/components";
+import { ColorPair, Colors } from "@bmi-digital/components";
 import WarningIcon from "@material-ui/icons/Warning";
 import InfoIcon from "@material-ui/icons/Info";
 import ErrorIcon from "@material-ui/icons/Error";
 import ThumbUp from "@material-ui/icons/ThumbUp";
-import Container from "@bmi-digital/components/container";
-import Icon from "@bmi-digital/components/icon";
+import { Container } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
 import classnames from "classnames";
 import styles from "./AlertBanner.module.scss";
 

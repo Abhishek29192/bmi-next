@@ -1,4 +1,4 @@
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import Link, { Data as LinkData } from "./Link";

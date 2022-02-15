@@ -1,19 +1,20 @@
 import React from "react";
-import Accordion, {
-  AccordionSummaryProps
-} from "@bmi-digital/components/accordion";
-import Button, { IconButtonProps } from "@bmi-digital/components/button";
-import Clickable, { ClickableProps } from "@bmi-digital/components/clickable";
-import Icon, { iconMap } from "@bmi-digital/components/icon";
-import withGTM from "../utils/google-tag-manager";
 import {
-  PIMDocumentData,
-  PIMLinkDocumentData
-} from "../components/types/PIMDocumentBase";
+  Accordion,
+  AccordionSummaryProps,
+  Button,
+  Clickable,
+  ClickableProps,
+  Icon,
+  IconButtonProps,
+  iconMap
+} from "@bmi-digital/components";
+import withGTM from "../utils/google-tag-manager";
 import AssetHeader from "./_AssetHeader";
 import { Data as AssetTypeData } from "./AssetType";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import { Format } from "./types";
+import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
 
 interface Props {
   documentsByProduct: [string, (PIMDocumentData | PIMLinkDocumentData)[]][];

@@ -1,8 +1,8 @@
 import React from "react";
 import classnames from "classnames";
-import Typography from "@bmi-digital/components/typography";
-import Media, { AcceptedNode } from "@bmi-digital/components/media";
-import Container from "@bmi-digital/components/container";
+import { Typography } from "@bmi-digital/components";
+import { Media, AcceptedNode } from "@bmi-digital/components";
+import { Container } from "@bmi-digital/components";
 import styles from "./SpotlightHero.module.scss";
 
 type BackgroundColor = "cyan" | "teal" | "blue" | "charcoal";

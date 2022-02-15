@@ -9,7 +9,7 @@ To see the selected state in action see CardRadioGroup or [CardInput](http://loc
 ### Default
 
 ```jsx
-import Grid from "@bmi-digital/components/grid";
+import { Grid } from "@bmi-digital/components";
 import demoImage from "./images/demo-product.jpg";
 import demoFormattedImage from "./images/demo-product-format.jpg";
 
@@ -33,7 +33,7 @@ import demoFormattedImage from "./images/demo-product-format.jpg";
 ### With Multiple Paragraphs
 
 ```jsx
-import Grid from "@bmi-digital/components/grid";
+import { Grid } from "@bmi-digital/components";
 import demoImage from "./images/demo-product.jpg";
 import demoFormattedImage from "./images/demo-product-format.jpg";
 
@@ -67,7 +67,7 @@ import demoFormattedImage from "./images/demo-product-format.jpg";
 ### Tile example
 
 ```jsx
-import Grid from "@bmi-digital/components/grid";
+import { Grid } from "@bmi-digital/components";
 import demoFormattedImage from "./images/demo-product-format.jpg";
 import demoImage from "./images/demo-product.jpg";
 import demoRoofShape from "./images/demo-roof-shape.svg";
@@ -125,7 +125,7 @@ import demoRoofShape from "./images/demo-roof-shape.svg";
 ### "Select roof shape" example
 
 ```jsx
-import Grid from "@bmi-digital/components/grid";
+import { Grid } from "@bmi-digital/components";
 import demoRoofShape from "./images/demo-roof-shape.svg";
 
 <Grid container spacing={2}>

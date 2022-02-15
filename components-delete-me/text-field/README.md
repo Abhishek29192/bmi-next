@@ -8,7 +8,7 @@ If a validation error occurs, it will be shown in red instead of the helper text
 
 ```tsx
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import Form from "@bmi-digital/components/form";
+import { Form } from "@bmi-digital/components";
 
 <Form>
   <Form.Row>
@@ -99,7 +99,7 @@ This is an addition to MaterialUI. The rational behind this is to use the same s
 
 ```tsx
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import Form from "@bmi-digital/components/form";
+import { Form } from "@bmi-digital/components";
 
 <div style={{ background: "#eee", padding: "10px" }}>
   <Form>

@@ -5,8 +5,8 @@ Autocomplete component using the Google Places API. This component uses the
 
 ```jsx
 import React, { useContext, useEffect, useRef, useState } from "react";
-import GoogleApi, { loadGoogleApi } from "@bmi-digital/components/google-api";
-import GoogleAutocomplete from "@bmi-digital/components/google-autocomplete";
+import { GoogleApi, { loadGoogleApi } } from "@bmi-digital/components";
+import { GoogleAutocomplete } from "@bmi-digital/components";
 
 const GoogleAutocompleteDemo = ({ apiKey }) => {
   const [place, setPlace] = useState(null);

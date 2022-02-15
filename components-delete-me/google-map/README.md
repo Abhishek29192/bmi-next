@@ -6,7 +6,7 @@ See the Google Maps JavaScript API
 
 ```jsx
 import { markers } from "./src/__tests__/__fixtures__";
-import GoogleApi, { loadGoogleApi } from "@bmi-digital/components/google-api";
+import { GoogleApi, { loadGoogleApi } } from "@bmi-digital/components";
 import React, { useEffect, useState } from "react";
 
 const GoogleMapDemo = () => {
@@ -37,9 +37,9 @@ const GoogleMapDemo = () => {
 
 ```jsx
 import { markers as initialMarkers } from "./src/__tests__/__fixtures__";
-import Button from "@bmi-digital/components/button";
-import CompanyDetails from "@bmi-digital/components/company-details";
-import GoogleApi, { loadGoogleApi } from "@bmi-digital/components/google-api";
+import { Button } from "@bmi-digital/components";
+import { CompanyDetails } from "@bmi-digital/components";
+import { GoogleApi, { loadGoogleApi } } from "@bmi-digital/components";
 import React, { useEffect, useState } from "react";
 
 const ControlledGoogleMap = () => {

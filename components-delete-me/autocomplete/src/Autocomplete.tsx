@@ -1,7 +1,7 @@
-import Grid from "@bmi-digital/components/grid";
-import { TextField } from "@bmi-digital/components/text-field";
-import Icon, { iconMap, IconName } from "@bmi-digital/components/icon";
-import Typography from "@bmi-digital/components/typography";
+import { Grid } from "@bmi-digital/components";
+import { TextField } from "@bmi-digital/components";
+import { Icon, iconMap, IconName } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import MuiAutocomplete, {
   AutocompleteProps,

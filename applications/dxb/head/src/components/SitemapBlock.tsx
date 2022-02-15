@@ -1,8 +1,8 @@
 import React from "react";
 import classnames from "classnames";
-import AnchorLink from "@bmi-digital/components/anchor-link";
-import MasonryGrid from "@bmi-digital/components/masonry-grid";
-import Typography from "@bmi-digital/components/typography";
+import { AnchorLink } from "@bmi-digital/components";
+import { MasonryGrid } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import {
   Data as LinkData,
   NavigationData,

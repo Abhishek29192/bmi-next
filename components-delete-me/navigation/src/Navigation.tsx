@@ -1,11 +1,12 @@
-import DefaultButton, {
+import {
+  Button as DefaultButton,
   ButtonProps,
   ClickableAction
-} from "@bmi-digital/components/button";
-import Icon from "@bmi-digital/components/icon";
+} from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import Typography from "@bmi-digital/components/typography";
-import type { LanguageSelectionItem } from "@bmi-digital/components/language-selection";
+import { Typography } from "@bmi-digital/components";
+import type { LanguageSelectionItem } from "@bmi-digital/components";
 import { ChevronLeft, ChevronRight } from "@material-ui/icons";
 import classnames from "classnames";
 import React from "react";

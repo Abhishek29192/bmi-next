@@ -21,7 +21,7 @@ This, with `primary` colour, is the BMI default button
 ### Styled Button
 
 ```tsx
-import ThemeProvider from "@bmi-digital/components/theme-provider";
+import { ThemeProvider } from "@bmi-digital/components";
 
 const modifyTheme = (theme) => {
   theme.palette = theme.palette || {};

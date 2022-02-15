@@ -1,4 +1,4 @@
-import MaterialButton, { ButtonProps } from "@bmi-digital/components/button";
+import { Button as MaterialButton, ButtonProps } from "@bmi-digital/components";
 import React from "react";
 import styles from "./Form.module.scss";
 

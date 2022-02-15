@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import Grid from "@bmi-digital/components/grid";
-import DownloadList, {
-  DownloadListContext
-} from "@bmi-digital/components/download-list";
+import { Grid } from "@bmi-digital/components";
+import { DownloadList, DownloadListContext } from "@bmi-digital/components";
 import FiltersSidebar from "../components/FiltersSidebar";
 import {
   clearFilterValues,

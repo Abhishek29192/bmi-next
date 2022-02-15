@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Section from "@bmi-digital/components/section";
-import LeadBlock from "@bmi-digital/components/lead-block";
-import Typography from "@bmi-digital/components/typography";
+import { Section } from "@bmi-digital/components";
+import { LeadBlock } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
+import { Button, ButtonProps } from "@bmi-digital/components";
+import { IconList } from "@bmi-digital/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import Button, { ButtonProps } from "@bmi-digital/components/button";
-import IconList from "@bmi-digital/components/icon-list";
 import { SVGImport } from "@bmi-digital/svg-import";
 import CheckIcon from "@material-ui/icons/Check";
 import { useLocation } from "@reach/router";

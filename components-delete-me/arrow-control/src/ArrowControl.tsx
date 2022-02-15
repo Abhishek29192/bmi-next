@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import classnames from "classnames";
 import ChevronRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import ChevronLeftIcon from "@material-ui/icons/KeyboardArrowLeft";

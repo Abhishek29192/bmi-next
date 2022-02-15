@@ -6,7 +6,7 @@ This component is a list cards with an icon and text, that can be paginated with
 
 ```jsx
 import UserIcon from "@material-ui/icons/Person";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 const descriptions = [
   "Place, change or amend order",
@@ -32,7 +32,7 @@ const tiles = descriptions.map((description, index) => (
 
 ```jsx
 import UserIcon from "@material-ui/icons/Person";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import { Tile } from "./src";
 
 const tiles = new Array(13).fill(

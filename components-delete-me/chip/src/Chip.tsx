@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import MaterialChip from "@material-ui/core/Chip";
 import ClearIcon from "@material-ui/icons/Clear";
-import { Colors } from "@bmi-digital/components/color-pair";
+import { Colors } from "@bmi-digital/components";
 import styles from "./Chip.module.scss";
 
 export type Props = {

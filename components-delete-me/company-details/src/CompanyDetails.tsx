@@ -1,15 +1,15 @@
 import AnchorLink, {
   ClickableAction
 } from "@bmi-digital/components/anchor-link";
-import Button from "@bmi-digital/components/button";
-import Icon from "@bmi-digital/components/icon";
+import { Button } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
 import Logo, {
   RoofProElite,
   RoofProExpert,
   RoofProPartnerSmall
 } from "@bmi-digital/components/logo";
 import { SVGImport } from "@bmi-digital/svg-import";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import {
   Directions,
   LocationOn,
@@ -17,7 +17,7 @@ import {
   Phone,
   Public
 } from "@material-ui/icons";
-import PerfectScrollbar from "@bmi-digital/components/perfect-scrollbar";
+import { PerfectScrollbar } from "@bmi-digital/components";
 import React from "react";
 import classnames from "classnames";
 import styles from "./CompanyDetails.module.scss";

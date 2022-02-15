@@ -1,8 +1,6 @@
 import React from "react";
-import ColorPair, { Colors } from "@bmi-digital/components/color-pair";
-import Typography, {
-  Props as TypographyProps
-} from "@bmi-digital/components/typography";
+import { ColorPair, Colors } from "@bmi-digital/components";
+import { Typography, TypographyProps } from "@bmi-digital/components";
 import styles from "./PostItCard.module.scss";
 
 type Props = {

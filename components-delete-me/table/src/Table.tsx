@@ -14,7 +14,7 @@ import MuiTableBody, { TableBodyProps } from "@material-ui/core/TableBody";
 import MuiTableCell, { TableCellProps } from "@material-ui/core/TableCell";
 import MuiTableHead, { TableHeadProps } from "@material-ui/core/TableHead";
 import MuiTableRow, { TableRowProps } from "@material-ui/core/TableRow";
-import ColorPair, { Colors } from "@bmi-digital/components/color-pair";
+import { ColorPair, Colors } from "@bmi-digital/components";
 import useDimensions from "@bmi-digital/use-dimensions";
 import TableBody from "@material-ui/core/TableBody";
 import styles from "./Table.module.scss";

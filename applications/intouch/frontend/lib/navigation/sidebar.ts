@@ -6,7 +6,7 @@ import {
   Business,
   Place
 } from "@material-ui/icons";
-import { Box, Design } from "@bmi-digital/components/icon";
+import { Box, Design } from "@bmi-digital/components";
 import { Account } from "@bmi/intouch-api-types";
 import { SVGImport } from "@bmi-digital/svg-import";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars -- Being used but not picked up

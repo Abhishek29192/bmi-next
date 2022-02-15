@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import DefaultCheckbox from "@bmi-digital/components/checkbox";
-import Typography from "@bmi-digital/components/typography";
+import { DefaultCheckbox } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import {
   getMicroCopy,
   MicroCopyContext
 } from "@bmi-digital/components/micro-copy";
-import Accordion from "@bmi-digital/components/accordion";
+import { Accordion } from "@bmi-digital/components";
 import styles from "./Filters.module.scss";
 
 type FilterOption = {

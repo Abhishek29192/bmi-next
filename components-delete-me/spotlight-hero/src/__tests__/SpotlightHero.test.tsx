@@ -1,8 +1,8 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Breadcrumbs from "@bmi-digital/components/breadcrumbs";
-import Button from "@bmi-digital/components/button";
-import Typography from "@bmi-digital/components/typography";
+import { Breadcrumbs } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import SpotlightHero from "../";
 import imageSource from "./images/demo-house.png";
 

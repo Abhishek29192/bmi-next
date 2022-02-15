@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import details1 from "../images/details1.jpeg";
 import details2 from "../images/details2.jpeg";
 import fieldArea1 from "../images/fieldArea1.jpg";

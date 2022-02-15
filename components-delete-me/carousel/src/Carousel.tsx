@@ -16,7 +16,7 @@ import classnames from "classnames";
 import SlideControls, {
   Props as SlideControlsProps
 } from "@bmi-digital/components/slide-controls";
-import ArrowControl from "@bmi-digital/components/arrow-control";
+import { ArrowControl } from "@bmi-digital/components";
 import withWidth, { WithWidth } from "@material-ui/core/withWidth";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";

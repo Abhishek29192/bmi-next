@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { HeroItem } from "@bmi-digital/components/hero";
-import Section from "@bmi-digital/components/section";
-import TableOfContent from "@bmi-digital/components/table-of-content";
-import AnchorLink from "@bmi-digital/components/anchor-link";
+import { HeroItem } from "@bmi-digital/components";
+import { Section } from "@bmi-digital/components";
+import { TableOfContent } from "@bmi-digital/components";
+import { AnchorLink } from "@bmi-digital/components";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../../../components/Breadcrumbs";

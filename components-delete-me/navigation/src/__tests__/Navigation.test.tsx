@@ -1,8 +1,8 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { Arrow } from "@bmi-digital/components/icon";
-import Clickable from "@bmi-digital/components/clickable";
+import { Arrow } from "@bmi-digital/components";
+import { Clickable } from "@bmi-digital/components";
 import Navigation from "../";
 
 const utilities = [

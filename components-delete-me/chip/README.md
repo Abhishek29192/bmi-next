@@ -5,7 +5,7 @@ In the BMI sites, Chips are used for filtering, toggling options or allowing a c
 ### white background
 
 ```jsx
-import Section from "@bmi-digital/components/section";
+import { Section } from "@bmi-digital/components";
 import CloseIcon from "@material-ui/icons/Close";
 
 <Section>
@@ -46,7 +46,7 @@ import CloseIcon from "@material-ui/icons/Close";
 ### on coloured background
 
 ```jsx
-import Section from "@bmi-digital/components/section";
+import { Section } from "@bmi-digital/components";
 
 <Section backgroundColor="pearl">
   <Chip theme="white">Fish dishes</Chip>

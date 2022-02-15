@@ -1,4 +1,4 @@
-import { Filter } from "@bmi-digital/components/filters";
+import { Filter } from "@bmi-digital/components";
 import {
   Product,
   Category,

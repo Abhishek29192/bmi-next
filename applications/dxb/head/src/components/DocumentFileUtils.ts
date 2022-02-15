@@ -1,4 +1,4 @@
-import { PIMDocumentData } from "../components/types/PIMDocumentBase";
+import { PIMDocumentData } from "./types/PIMDocumentBase";
 
 export interface AssetUniqueFileCountMap {
   uniqueFileMap: { [fileName: string]: number };

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import BmiThemeProvider from "@bmi-digital/components/theme-provider";
+import { ThemeProvider } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
 import { Account } from "@bmi/intouch-api-types";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
-import TextField from "@bmi-digital/components/text-field";
-import Checkbox from "@bmi-digital/components/checkbox";
-import Dialog from "@bmi-digital/components/dialog";
-import Form from "@bmi-digital/components/form";
+import { TextField } from "@bmi-digital/components";
+import { Checkbox } from "@bmi-digital/components";
+import { Dialog } from "@bmi-digital/components";
+import { Form } from "@bmi-digital/components";
 import { useUpdateAccountMutation } from "../graphql/generated/hooks";
 import { withPage } from "../lib/middleware/withPage";
 import { getMarketAndEnvFromReq } from "../lib/utils";
@@ -48,7 +48,7 @@ const UserRegistration = ({ account, termsToAccept, baseUrl }: Props) => {
   };
 
   return (
-    <BmiThemeProvider>
+    <ThemeProvider>
       <Dialog open={true} data-testid="dialog">
         <Dialog.Title hasUnderline>{t("dialog.title")}</Dialog.Title>
         <Dialog.Content>
@@ -96,7 +96,7 @@ const UserRegistration = ({ account, termsToAccept, baseUrl }: Props) => {
           </Form>
         </Dialog.Content>
       </Dialog>
-    </BmiThemeProvider>
+    </ThemeProvider>
   );
 };
 

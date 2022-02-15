@@ -8,7 +8,7 @@ import {
   Document
 } from "@contentful/rich-text-types";
 import Link from "next/link";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import styles from "./styles.module.scss";
 

@@ -1,9 +1,9 @@
 Footer is a component that can be split in three different sections: Newsletter, Main Navigation, and Secondary Navigation.
 
 ```jsx
-import InputBanner from "@bmi-digital/components/input-banner";
-import { Facebook, LinkedIn, YouTube, Phone, Mail } from "@bmi-digital/components/icon";
-import { BMI as BmiIcon } from "@bmi-digital/components/logo";
+import { InputBanner } from "@bmi-digital/components";
+import { { Facebook, LinkedIn, YouTube, Phone, Mail } } from "@bmi-digital/components";
+import { { BMI as BmiIcon } } from "@bmi-digital/components";
 
 const mainNavigation = [
   {

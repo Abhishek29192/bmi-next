@@ -1,8 +1,8 @@
-import Checkbox from "@bmi-digital/components/checkbox";
-import Dialog from "@bmi-digital/components/dialog";
-import Form from "@bmi-digital/components/form";
-import { InputValue } from "@bmi-digital/components/form/src/withFormControl";
-import TextField from "@bmi-digital/components/text-field";
+import { Checkbox } from "@bmi-digital/components";
+import { Dialog } from "@bmi-digital/components";
+import { Form } from "@bmi-digital/components";
+import { InputValue } from "@bmi-digital/components";
+import { TextField } from "@bmi-digital/components";
 import React, { Dispatch, FormEvent, SetStateAction } from "react";
 import styles from "./EmailDialog.module.scss";
 

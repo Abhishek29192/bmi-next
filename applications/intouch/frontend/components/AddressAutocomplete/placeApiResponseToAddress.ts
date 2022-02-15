@@ -1,4 +1,4 @@
-import { GeocoderResult } from "@bmi-digital/components/google-api";
+import { GeocoderResult } from "@bmi-digital/components";
 import { Address } from "@bmi/intouch-api-types";
 
 const findAddressComponent = (

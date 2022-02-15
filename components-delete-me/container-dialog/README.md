@@ -5,7 +5,7 @@ ContainerDialog component, based on Material UI Modal.
 ### With Content
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 const [open, setOpen] = React.useState(false);
 <>
   <Button onClick={() => setOpen(true)}>Open Dialog</Button>
@@ -28,7 +28,7 @@ const [open, setOpen] = React.useState(false);
 By default, it has the same value as `onCloseClick`.
 
 ```jsx
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 const [open, setOpen] = React.useState(false);
 <>
   <Button onClick={() => setOpen(true)}>Open Dialog</Button>

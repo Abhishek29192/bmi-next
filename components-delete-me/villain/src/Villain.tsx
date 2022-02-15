@@ -1,15 +1,15 @@
 import React, { useContext, useMemo } from "react";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import Container from "@bmi-digital/components/container";
+import { Container } from "@bmi-digital/components";
 import ColorPair, {
   Colors,
   darkThemes
 } from "@bmi-digital/components/color-pair";
-import Grid from "@bmi-digital/components/grid";
-import { SectionContext } from "@bmi-digital/components/section";
-import Typography from "@bmi-digital/components/typography";
-import Media, { AcceptedNode } from "@bmi-digital/components/media";
+import { Grid } from "@bmi-digital/components";
+import { SectionContext } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
+import { Media, AcceptedNode } from "@bmi-digital/components";
 import classnames from "classnames";
 import styles from "./Villain.module.scss";
 

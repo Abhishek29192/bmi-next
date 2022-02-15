@@ -1,4 +1,4 @@
-import GoogleApi, { Google } from "@bmi-digital/components/google-api";
+import { GoogleApi, Google } from "@bmi-digital/components";
 import { render } from "@testing-library/react";
 import React from "react";
 import GoogleAutocomplete from "../";

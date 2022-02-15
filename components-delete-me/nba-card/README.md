@@ -5,9 +5,9 @@ NBA (Next best action) cards have no elevation and are used in a collection at t
 ### Default
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
-import AnchorLink from "@bmi-digital/components/anchor-link";
-import Clickable from "@bmi-digital/components/clickable";
+import { Typography } from "@bmi-digital/components";
+import { AnchorLink } from "@bmi-digital/components";
+import { Clickable } from "@bmi-digital/components";
 
 <NBACard
   theme="blue-900"
@@ -34,8 +34,8 @@ import Clickable from "@bmi-digital/components/clickable";
 ### different theme with button for footer
 
 ```jsx
-import Typography from "@bmi-digital/components/typography";
-import Button from "@bmi-digital/components/button";
+import { Typography } from "@bmi-digital/components";
+import { Button } from "@bmi-digital/components";
 
 <NBACard
   theme="teal-500"

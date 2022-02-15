@@ -1,4 +1,4 @@
-import { ButtonProps, IconButtonProps } from "@bmi-digital/components/button";
+import { ButtonProps, IconButtonProps } from "@bmi-digital/components";
 import React, { useState } from "react";
 
 type ShowMoreProps = {

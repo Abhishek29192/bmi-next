@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import classnames from "classnames";
-import Icon from "@bmi-digital/components/icon";
-import { withClickable } from "@bmi-digital/components/clickable";
+import { Icon } from "@bmi-digital/components";
+import { withClickable } from "@bmi-digital/components";
 import Link, { LinkProps } from "@material-ui/core/Link";
-import { ColorPairContext } from "@bmi-digital/components/color-pair";
+import { ColorPairContext } from "@bmi-digital/components";
 import arrowForwardIcon from "./icons/arrow-right.svg";
 import styles from "./AnchorLink.module.scss";
 

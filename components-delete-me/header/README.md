@@ -6,10 +6,10 @@ The header must be placed in the DOM at the top of the `body`. For the demo, cli
 
 ```jsx
 import { useRef } from "react";
-import Button from "@bmi-digital/components/button";
-import Icon, { Arrow } from "@bmi-digital/components/icon";
-import { languages } from "@bmi-digital/components/language-selection";
-import { AeroDek, Icopal, Monarplan, Monier, Zanda } from "@bmi-digital/components/logo";
+import { Button } from "@bmi-digital/components";
+import { Icon, { Arrow } } from "@bmi-digital/components";
+import { { languages } } from "@bmi-digital/components";
+import { { AeroDek, Icopal, Monarplan, Monier, Zanda } } from "@bmi-digital/components";
 import { Fullscreen } from "@material-ui/icons";
 import systemsImage from "./images/systems.jpg";
 

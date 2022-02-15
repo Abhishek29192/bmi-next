@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useCallback } from "react";
-import Grid from "@bmi-digital/components/grid";
-import Typography from "@bmi-digital/components/typography";
+import { Grid } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";

@@ -1,8 +1,8 @@
-import DefaultButton from "@bmi-digital/components/button";
-import Form, { FormProps, InputValue } from "@bmi-digital/components/form";
-import Icon from "@bmi-digital/components/icon";
-import InputGroup from "@bmi-digital/components/input-group";
-import TextField from "@bmi-digital/components/text-field";
+import { Button as DefaultButton } from "@bmi-digital/components";
+import { Form, FormProps, InputValue } from "@bmi-digital/components";
+import { Icon } from "@bmi-digital/components";
+import { InputGroup } from "@bmi-digital/components";
+import { TextField } from "@bmi-digital/components";
 import { Cancel, Search as SearchIcon } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import styles from "./Search.module.scss";

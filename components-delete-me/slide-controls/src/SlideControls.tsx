@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classnames from "classnames";
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi-digital/components";
 import ChevronTopIcon from "@material-ui/icons/KeyboardArrowUp";
 import ChevronRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import ChevronBottomIcon from "@material-ui/icons/KeyboardArrowDown";

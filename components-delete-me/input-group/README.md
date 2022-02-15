@@ -7,8 +7,8 @@ You can set a `lockBreakpoint` variable to set at what breakpoint the component 
 ### Outlined TextField
 
 ```jsx
-import Button from "@bmi-digital/components/button";
-import TextField, { InputAdornment } from "@bmi-digital/components/text-field";
+import { Button } from "@bmi-digital/components";
+import { TextField, { InputAdornment } } from "@bmi-digital/components";
 
 <InputGroup
   input={<TextField name="first-name" label="First name" />}
@@ -19,8 +19,8 @@ import TextField, { InputAdornment } from "@bmi-digital/components/text-field";
 ### Hybrid TextField
 
 ```jsx
-import Button from "@bmi-digital/components/button";
-import TextField, { InputAdornment } from "@bmi-digital/components/text-field";
+import { Button } from "@bmi-digital/components";
+import { TextField, { InputAdornment } } from "@bmi-digital/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 <InputGroup
@@ -32,8 +32,8 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 ### Icon Button
 
 ```jsx
-import Button from "@bmi-digital/components/button";
-import TextField, { InputAdornment } from "@bmi-digital/components/text-field";
+import { Button } from "@bmi-digital/components";
+import { TextField, { InputAdornment } } from "@bmi-digital/components";
 import SearchIcon from "@material-ui/icons/Search";
 
 <InputGroup

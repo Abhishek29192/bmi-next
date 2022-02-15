@@ -1,14 +1,14 @@
 /* eslint-disable no-unreachable */
 import React, { useState, useCallback } from "react";
 import { graphql } from "gatsby";
-import InputBanner from "@bmi-digital/components/input-banner";
-import Dialog from "@bmi-digital/components/dialog";
-import Form, { FormContext } from "@bmi-digital/components/form";
+import { InputBanner } from "@bmi-digital/components";
+import { Dialog } from "@bmi-digital/components";
+import { Form, FormContext } from "@bmi-digital/components";
+import { Button, ButtonProps } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import axios from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ErrorIcon from "@material-ui/icons/WarningOutlined";
-import Button, { ButtonProps } from "@bmi-digital/components/button";
-import Typography from "@bmi-digital/components/typography";
 import { devLog } from "../utils/devLog";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";

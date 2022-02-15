@@ -5,9 +5,9 @@ This component contains an icon, title and children and displays an outcome or m
 ### Success
 
 ```jsx
-import Icon from "@bmi-digital/components/icon";
+import { Icon } from "@bmi-digital/components";
 import EmailIcon from "@material-ui/icons/Email";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 <ResponseMessage title="Thank you!" icon={EmailIcon}>
   <Typography style={{ padding: "10px 0" }}>
@@ -22,9 +22,9 @@ import Typography from "@bmi-digital/components/typography";
 ### Error
 
 ```jsx
-import Icon from "@bmi-digital/components/icon";
+import { Icon } from "@bmi-digital/components";
 import WarningIcon from "@material-ui/icons/Warning";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi-digital/components";
 
 <ResponseMessage title="Error" icon={WarningIcon} error>
   <Typography style={{ padding: "10px 0" }}>

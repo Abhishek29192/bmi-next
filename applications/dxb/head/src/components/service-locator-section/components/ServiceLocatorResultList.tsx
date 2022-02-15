@@ -1,14 +1,12 @@
+import { CompanyDetailProps, RoofProLevel } from "@bmi-digital/components";
 import {
-  CompanyDetailProps,
-  RoofProLevel
-} from "@bmi-digital/components/company-details";
-import Logo, {
+  Logo,
   RoofProElite,
   RoofProExpert,
   RoofProPartnerSmall
-} from "@bmi-digital/components/logo";
-import CompanyDetails from "@bmi-digital/components/company-details";
-import Typography from "@bmi-digital/components/typography";
+} from "@bmi-digital/components";
+import { CompanyDetails } from "@bmi-digital/components";
+import { Typography } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
 import React from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";

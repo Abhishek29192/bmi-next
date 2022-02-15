@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent, createEvent } from "@testing-library/react";
-import YoutubeVideo from "@bmi-digital/components/youtube-video";
+import { YoutubeVideo } from "@bmi-digital/components";
 import Media from "../";
 
 describe("Media component", () => {

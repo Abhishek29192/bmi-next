@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
 import classnames from "classnames";
-import { withFormControl } from "@bmi-digital/components/form";
+import { withFormControl } from "@bmi-digital/components";
 import MaterialTextField, { TextFieldProps } from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import ErrorRounded from "@material-ui/icons/ErrorRounded";

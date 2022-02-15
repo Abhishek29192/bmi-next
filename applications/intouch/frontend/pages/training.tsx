@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Course } from "@bmi/intouch-api-types";
-import Grid from "@bmi-digital/components/grid";
+import { Grid } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";

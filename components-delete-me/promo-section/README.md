@@ -56,7 +56,7 @@ import imageSource from "./images/tiles-on-sea.png";
 ### With Video
 
 ```jsx
-import YoutubeVideo from "@bmi-digital/components/youtube-video";
+import { YoutubeVideo } from "@bmi-digital/components";
 
 <PromoSection
   title="H2 Heading"
