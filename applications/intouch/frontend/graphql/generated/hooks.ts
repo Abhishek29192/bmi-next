@@ -901,6 +901,9 @@ export const UpdateMarketDocument = gql`
             doceboInstallersBranchId
             doceboCompanyAdminBranchId
             doceboCatalogueId
+            doceboCatalogueIdT2
+            doceboCatalogueIdT3
+            doceboCatalogueIdT4
             merchandisingUrl
             projectsEnabled
             locationBiasRadiusKm
@@ -3527,6 +3530,9 @@ export const GetMarketsByDomainDocument = gql`
         language
         domain
         doceboCatalogueId
+        doceboCatalogueIdT2
+        doceboCatalogueIdT3
+        doceboCatalogueIdT4
         doceboInstallersBranchId
         doceboCompanyAdminBranchId
         merchandisingUrl
@@ -4000,6 +4006,9 @@ export const MarketsDocument = gql`
         doceboInstallersBranchId
         doceboCompanyAdminBranchId
         doceboCatalogueId
+        doceboCatalogueIdT2
+        doceboCatalogueIdT3
+        doceboCatalogueIdT4
         merchandisingUrl
         projectsEnabled
         gtag
@@ -4746,6 +4755,9 @@ export const DoceboCatalogIdByMarketDomainDocument = gql`
   query DoceboCatalogIdByMarketDomain($domain: String!) {
     marketByDomain(domain: $domain) {
       doceboCatalogueId
+      doceboCatalogueIdT2
+      doceboCatalogueIdT3
+      doceboCatalogueIdT4
     }
   }
 `;

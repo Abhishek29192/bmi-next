@@ -4,6 +4,7 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
 <div>
   <div
     class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
+    data-testid="courseDescription"
   >
     <div
       class="MuiCardContent-root"
@@ -102,6 +103,7 @@ exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
 <div>
   <div
     class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
+    data-testid="courseDescription"
   >
     <div
       class="MuiCardContent-root"

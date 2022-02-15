@@ -417,6 +417,9 @@ export type AccountMarketIdFkeyMarketCreateInput = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   gtagMarketMedia?: Maybe<Scalars["String"]>;
+  doceboCatalogueIdT2?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: Maybe<Scalars["Int"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -2368,6 +2371,9 @@ export type CompanyMarketIdFkeyMarketCreateInput = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   gtagMarketMedia?: Maybe<Scalars["String"]>;
+  doceboCatalogueIdT2?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: Maybe<Scalars["Int"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -2755,6 +2761,9 @@ export type CompanyMemberMarketIdFkeyMarketCreateInput = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   gtagMarketMedia?: Maybe<Scalars["String"]>;
+  doceboCatalogueIdT2?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: Maybe<Scalars["Int"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -10281,6 +10290,9 @@ export type Market = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   gtagMarketMedia?: Maybe<Scalars["String"]>;
+  doceboCatalogueIdT2?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: Maybe<Scalars["Int"]>;
   /** Reads and enables pagination through a set of `Account`. */
   accounts: AccountsConnection;
   /** Reads and enables pagination through a set of `Company`. */
@@ -10664,6 +10676,9 @@ export type MarketInput = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   gtagMarketMedia?: Maybe<Scalars["String"]>;
+  doceboCatalogueIdT2?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: Maybe<Scalars["Int"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -10957,6 +10972,9 @@ export type MarketPatch = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   gtagMarketMedia?: Maybe<Scalars["String"]>;
+  doceboCatalogueIdT2?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: Maybe<Scalars["Int"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -13576,6 +13594,9 @@ export type ProductMarketIdFkeyMarketCreateInput = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   gtagMarketMedia?: Maybe<Scalars["String"]>;
+  doceboCatalogueIdT2?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: Maybe<Scalars["Int"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -16485,6 +16506,9 @@ export type SystemMarketIdFkeyMarketCreateInput = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   gtagMarketMedia?: Maybe<Scalars["String"]>;
+  doceboCatalogueIdT2?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: Maybe<Scalars["Int"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -16690,6 +16714,9 @@ export type SystemMemberMarketIdFkeyMarketCreateInput = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   gtagMarketMedia?: Maybe<Scalars["String"]>;
+  doceboCatalogueIdT2?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: Maybe<Scalars["Int"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -20832,6 +20859,9 @@ export type UpdateMarketOnAccountForAccountMarketIdFkeyPatch = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   gtagMarketMedia?: Maybe<Scalars["String"]>;
+  doceboCatalogueIdT2?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: Maybe<Scalars["Int"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -20875,6 +20905,9 @@ export type UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   gtagMarketMedia?: Maybe<Scalars["String"]>;
+  doceboCatalogueIdT2?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: Maybe<Scalars["Int"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -20918,6 +20951,9 @@ export type UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   gtagMarketMedia?: Maybe<Scalars["String"]>;
+  doceboCatalogueIdT2?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: Maybe<Scalars["Int"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -20961,6 +20997,9 @@ export type UpdateMarketOnProductForProductMarketIdFkeyPatch = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   gtagMarketMedia?: Maybe<Scalars["String"]>;
+  doceboCatalogueIdT2?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: Maybe<Scalars["Int"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -21004,6 +21043,9 @@ export type UpdateMarketOnSystemForSystemMarketIdFkeyPatch = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   gtagMarketMedia?: Maybe<Scalars["String"]>;
+  doceboCatalogueIdT2?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: Maybe<Scalars["Int"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;
@@ -21047,6 +21089,9 @@ export type UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch = {
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
   gtagMarketMedia?: Maybe<Scalars["String"]>;
+  doceboCatalogueIdT2?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: Maybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: Maybe<Scalars["Int"]>;
   accountsUsingId?: Maybe<AccountMarketIdFkeyInverseInput>;
   companiesUsingId?: Maybe<CompanyMarketIdFkeyInverseInput>;
   companyMembersUsingId?: Maybe<CompanyMemberMarketIdFkeyInverseInput>;

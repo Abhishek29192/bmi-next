@@ -10,6 +10,9 @@ export const queryMarketsByDomain = gql`
         language
         domain
         doceboCatalogueId
+        doceboCatalogueIdT2
+        doceboCatalogueIdT3
+        doceboCatalogueIdT4
         doceboInstallersBranchId
         doceboCompanyAdminBranchId
         merchandisingUrl

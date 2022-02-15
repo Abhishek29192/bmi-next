@@ -4,6 +4,7 @@ exports[`CourseDescription component renders correctly 1`] = `
 <div>
   <div
     class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
+    data-testid="courseDescription"
   >
     <div
       class="MuiCardContent-root"
@@ -95,6 +96,7 @@ exports[`CourseDescription component should not show technology button if techno
 <div>
   <div
     class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
+    data-testid="courseDescription"
   >
     <div
       class="MuiCardContent-root"
