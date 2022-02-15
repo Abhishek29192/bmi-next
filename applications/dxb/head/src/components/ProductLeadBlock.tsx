@@ -338,31 +338,12 @@ const ProductLeadBlock = ({
             </LeadBlock>
           </Tabs.TabPanel>
         )}
-        {Boolean(fixingToolIframeUrl) && (
-          <Tabs.TabPanel
-            heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_FIXING_TOOL)}
-            index="six"
-            data-testid="fixingTool"
-          >
-            {pdpFixingToolTitle && (
-              <Typography variant="h5" className={styles["heading"]}>
-                {pdpFixingToolTitle}
-              </Typography>
-            )}
-            {pdpFixingToolDescription && (
-              <RichText document={pdpFixingToolDescription} />
-            )}
-            <AssetsIframe
-              url={fixingToolIframeUrl}
-              className={styles["fixing-tool-iframe"]}
-            />
-          </Tabs.TabPanel>
-        )}
         {Boolean(specificationIframeUrl) && (
           <Tabs.TabPanel
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_SPECIFICATION)}
             index="seven"
             data-testid="specification"
+            className={styles["tab-container"]}
           >
             {pdpSpecificationTitle && (
               <Typography variant="h5" className={styles["heading"]}>
@@ -375,6 +356,27 @@ const ProductLeadBlock = ({
             <AssetsIframe
               url={specificationIframeUrl}
               className={styles["specification-tab-iframe"]}
+            />
+          </Tabs.TabPanel>
+        )}
+        {Boolean(fixingToolIframeUrl) && (
+          <Tabs.TabPanel
+            heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_FIXING_TOOL)}
+            index="six"
+            data-testid="fixingTool"
+            className={styles["tab-container"]}
+          >
+            {pdpFixingToolTitle && (
+              <Typography variant="h5" className={styles["heading"]}>
+                {pdpFixingToolTitle}
+              </Typography>
+            )}
+            {pdpFixingToolDescription && (
+              <RichText document={pdpFixingToolDescription} />
+            )}
+            <AssetsIframe
+              url={fixingToolIframeUrl}
+              className={styles["fixing-tool-iframe"]}
             />
           </Tabs.TabPanel>
         )}
