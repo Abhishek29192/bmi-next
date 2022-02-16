@@ -26,14 +26,16 @@ const pingEsCluster = async () => {
   });
 };
 
-const buildEsProducts = (products: readonly PIMProduct[]): ProductVariant[] => {
+export const buildEsProducts = (
+  products: readonly PIMProduct[]
+): ProductVariant[] => {
   return products.reduce(
     (allProducts, product) => [...allProducts, ...transformProduct(product)],
     [] as ProductVariant[]
   );
 };
 
-const buildEsSystems = (systems: readonly System[]): EsSystem[] => {
+export const buildEsSystems = (systems: readonly System[]): EsSystem[] => {
   return systems.reduce(
     (allSystems, system) => allSystems.concat(transformSystem(system)),
     [] as EsSystem[]
@@ -57,20 +59,6 @@ export const handleMessage: MessageFunction = async (data, context) => {
     return;
   }
 
-  const deleteCandidates = items as unknown as DeleteItemType[];
-
-  if (type === "DELETED" && deleteCandidates[0]?.objType) {
-    await deleteESItemByCode(deleteCandidates, itemType);
-    return;
-  }
-  if (type === "UPDATED" && deleteCandidates[0]?.objType) {
-    logger.info({
-      message:
-        "In order to perform delete entities in ES message type should be 'DELETED' instead of 'UPDATED'"
-    });
-    return;
-  }
-
   logger.info({
     message: `Received message: {
     type: ${type},
@@ -79,12 +67,18 @@ export const handleMessage: MessageFunction = async (data, context) => {
   }`
   });
 
-  const esDocuments: (ProductVariant | EsSystem)[] =
-    itemType === "PRODUCTS"
-      ? buildEsProducts(items as PIMProduct[])
-      : buildEsSystems(items as System[]);
+  const getEsDocuments = (): (ProductVariant | EsSystem)[] => {
+    if (type === "UPDATED") {
+      return itemType === "PRODUCTS"
+        ? buildEsProducts(items as PIMProduct[])
+        : buildEsSystems(items as System[]);
+    }
+    return [];
+  };
 
-  if (esDocuments.length === 0) {
+  const esDocuments = getEsDocuments();
+
+  if (type === "UPDATED" && esDocuments.length === 0) {
     logger.warning({
       message: `ES Products not found. Ignoring the ${type}.`
     });
@@ -96,11 +90,7 @@ export const handleMessage: MessageFunction = async (data, context) => {
       await updateElasticSearch(itemType, esDocuments);
       break;
     case "DELETED":
-      await updateElasticSearch(itemType, esDocuments, "delete");
+      await deleteESItemByCode(items as DeleteItemType[], itemType);
       break;
-    default:
-      logger.error({
-        message: `[ERROR]: Unrecognised message type [${type}]`
-      });
   }
 };

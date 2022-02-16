@@ -34,8 +34,11 @@ export const deleteESItemByCode = async (
       /* istanbul ignore next */
       (error, response) => {
         if (error) {
+          logger.info({
+            message: `[ERROR]: Status code ${response.statusCode}`
+          });
           logger.error({
-            message: `[ERROR]: ${error}`
+            message: `[ERROR]: Type - ${error.message}`
           });
         } else {
           logger.info({

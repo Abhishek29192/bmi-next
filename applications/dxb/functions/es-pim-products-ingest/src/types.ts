@@ -1,8 +1,8 @@
 import { Product as PIMProduct, System } from "@bmi/pim-types";
-import { DeleteItemType } from "@bmi/gcp-pim-message-handler";
+import { DeleteItemType, MessageType } from "@bmi/gcp-pim-message-handler";
 
 type Message = {
-  type: string;
+  type: MessageType;
   itemType: "CATEGORIES" | "PRODUCTS" | "SYSTEMS";
 };
 
