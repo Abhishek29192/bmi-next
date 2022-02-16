@@ -387,7 +387,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
 exports[`ProductLeadBlock tests should render the fixing tool tab 1`] = `
 <div
   aria-labelledby="tab-six"
-  class="MuiGrid-root TabPanel MuiGrid-item"
+  class="MuiGrid-root TabPanel tab-container MuiGrid-item"
   data-testid="fixingTool"
   heading="MC: pdp.leadBlock.fixingTool"
   hidden=""
@@ -408,7 +408,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab 1`] = `
 exports[`ProductLeadBlock tests should render the fixing tool tab with title and iframe 1`] = `
 <div
   aria-labelledby="tab-six"
-  class="MuiGrid-root TabPanel MuiGrid-item"
+  class="MuiGrid-root TabPanel tab-container MuiGrid-item"
   data-testid="fixingTool"
   heading="MC: pdp.leadBlock.fixingTool"
   hidden=""
@@ -434,7 +434,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab with title and
 exports[`ProductLeadBlock tests should render the specification tab 1`] = `
 <div
   aria-labelledby="tab-seven"
-  class="MuiGrid-root TabPanel MuiGrid-item"
+  class="MuiGrid-root TabPanel tab-container MuiGrid-item"
   data-testid="specification"
   heading="MC: pdp.leadBlock.specification"
   hidden=""
