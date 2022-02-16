@@ -93,10 +93,8 @@ const Page = ({
 
   const { breadcrumbs, inputBanner, seo, path } = pageData;
 
-  const reCaptchaKey =
-    !process.env.GATSBY_PREVIEW && process.env.GATSBY_RECAPTCHA_KEY;
-  const reCaptchaNet =
-    !process.env.GATSBY_PREVIEW && process.env.GATSBY_RECAPTCHA_NET === "true";
+  const reCaptchaKey = process.env.GATSBY_RECAPTCHA_KEY;
+  const reCaptchaNet = process.env.GATSBY_RECAPTCHA_NET === "true";
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
