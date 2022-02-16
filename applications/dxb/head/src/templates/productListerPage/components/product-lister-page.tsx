@@ -186,12 +186,17 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     Math.ceil(products.length / PAGE_SIZE)
   );
 
-  const handlePageChange = (_, page) => {
+  const handlePageChange = async (_, page) => {
+    await fetchProducts(
+      filters,
+      pageContext.categoryCodes,
+      page - 1,
+      PAGE_SIZE
+    );
     const scrollY = resultsElement.current
       ? resultsElement.current.offsetTop - 200
       : 0;
     window.scrollTo(0, scrollY);
-    fetchProducts(filters, pageContext.categoryCodes, page - 1, PAGE_SIZE);
   };
 
   const onFiltersChange = async (newFilters: ProductFilter[]) => {
