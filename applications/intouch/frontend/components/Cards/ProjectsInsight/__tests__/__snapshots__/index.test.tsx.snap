@@ -9,7 +9,7 @@ exports[`ProjectsInsight component renders correctly 1`] = `
       class="MuiCardContent-root"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
         style="font-size: 1.25rem;"
       >
         projectInsight
@@ -18,7 +18,7 @@ exports[`ProjectsInsight component renders correctly 1`] = `
         class="body"
       >
         <h2
-          class="MuiTypography-root Typography MuiTypography-h2"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h2"
         >
           0
         </h2>
@@ -26,12 +26,12 @@ exports[`ProjectsInsight component renders correctly 1`] = `
           style="margin-bottom: 1.5rem;"
         >
           <h6
-            class="MuiTypography-root Typography MuiTypography-h6"
+            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
           >
             daysRemaining
           </h6>
           <div
-            class="MuiTypography-root Typography MuiTypography-body1"
+            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
           />
         </div>
       </div>
@@ -39,7 +39,7 @@ exports[`ProjectsInsight component renders correctly 1`] = `
         class="body"
       >
         <h2
-          class="MuiTypography-root certificate certificate--warning Typography MuiTypography-h2"
+          class="MuiTypography-root certificate certificate--warning Typography-module_Typography__aA2Zb MuiTypography-h2"
           data-testid="certified-installers"
         >
           0
@@ -48,12 +48,12 @@ exports[`ProjectsInsight component renders correctly 1`] = `
           style="margin-bottom: 1.5rem;"
         >
           <h6
-            class="MuiTypography-root Typography MuiTypography-h6"
+            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
           >
             certifiedInstallers
           </h6>
           <div
-            class="MuiTypography-root Typography MuiTypography-body1"
+            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
           >
             noCertifiedInstallers
           </div>

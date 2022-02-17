@@ -3,10 +3,10 @@
 exports[`DocumentsLeadBlock tests should render correctly 1`] = `
 <div>
   <div
-    class="section"
+    class="PostItCard-module_section__sfiQz"
   >
     <div
-      class="content"
+      class="PostItCard-module_content__Bvxw0"
     >
       <div>
         <div
@@ -17,10 +17,10 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
           >
             <div>
               <table
-                class="MuiTable-root Table Table--row-no-color"
+                class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-no-color__pf1f2"
               >
                 <thead
-                  class="MuiTableHead-root ColorPair ColorPair--pearl"
+                  class="MuiTableHead-root ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--pearl__gkooI"
                 >
                   <tr
                     class="MuiTableRow-root MuiTableRow-head"
@@ -87,7 +87,37 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                           >
                             <svg
                               class="download-icon"
-                            />
+                              viewBox="0 0 32 32"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M0 0h32v32H0z"
+                                fill="none"
+                              />
+                              <path
+                                d="M21 2H8v28h21V10Z"
+                                fill="#aeb1b1"
+                              />
+                              <path
+                                d="M9 29V3h12v7h7v19Z"
+                                fill="#fff"
+                              />
+                              <rect
+                                fill="#d43533"
+                                height="10"
+                                rx="1"
+                                width="21"
+                                x="3"
+                                y="15"
+                              />
+                              <g
+                                fill="#fff"
+                              >
+                                <path
+                                  d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                                />
+                              </g>
+                            </svg>
                           </span>
                           264.2 KB
                         </span>
@@ -103,7 +133,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                         class=""
                       >
                         <div
-                          class="MuiFormControl-root Checkbox"
+                          class="MuiFormControl-root Checkbox-module_Checkbox__zn5Y8"
                         >
                           <label
                             class="MuiFormControlLabel-root"
@@ -164,7 +194,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
               <li>
                 <button
                   aria-label="Go to previous page"
-                  class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+                  class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-module_PaginationItem__NgRVx MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
                   disabled=""
                   tabindex="-1"
                   type="button"
@@ -185,7 +215,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                 <button
                   aria-current="true"
                   aria-label="page 1"
-                  class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+                  class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-module_PaginationItem__NgRVx MuiPaginationItem-textPrimary Mui-selected"
                   tabindex="0"
                   type="button"
                 >
@@ -198,7 +228,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
               <li>
                 <button
                   aria-label="Go to next page"
-                  class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+                  class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-module_PaginationItem__NgRVx MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
                   disabled=""
                   tabindex="-1"
                   type="button"
@@ -218,7 +248,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
             </ul>
           </nav>
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-downloads Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-downloads AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
             type="button"
           >
             <span>
@@ -241,11 +271,11 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
             />
           </button>
           <p
-            class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+            class="MuiTypography-root RecaptchaPrivacyLinks Typography-module_Typography__aA2Zb MuiTypography-body1"
           >
             This site is protected by reCAPTCHA and the Google 
             <a
-              class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
               href="https://policies.google.com/privacy"
               rel="noreferrer noopener"
               target="_blank"
@@ -256,7 +286,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
             </a>
              and 
             <a
-              class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
               href="https://policies.google.com/terms"
               rel="noreferrer noopener"
               target="_blank"

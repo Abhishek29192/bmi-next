@@ -3,14 +3,14 @@
 exports[`ImageGallerySection tests When ONLY master images are provided should render single master image 1`] = `
 <div>
   <div
-    class="ImageGallery gallery"
+    class="ImageGallery-module_ImageGallery__IY-1c gallery"
   >
     <div
-      class="image-wrapper"
+      class="ImageGallery-module_image-wrapper__O9qhN"
     >
       <img
         alt="TBK SN-403 T"
-        class="main-image-wrapper main-image-wrapper--short Media Media--contain"
+        class="ImageGallery-module_main-image-wrapper__muxiV ImageGallery-module_main-image-wrapper--short__xVqmg Media-module_Media__GKPD2 Media-module_Media--contain__O6qQ4"
         src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
       />
     </div>
@@ -23,28 +23,28 @@ exports[`ImageGallerySection tests When images are empty array should render emp
 exports[`ImageGallerySection tests When master images and gallery images are provided should render single master image and multiple gallery images 1`] = `
 <div>
   <div
-    class="ImageGallery gallery"
+    class="ImageGallery-module_ImageGallery__IY-1c gallery"
   >
     <div
-      class="image-wrapper"
+      class="ImageGallery-module_image-wrapper__O9qhN"
     >
       <img
         alt="TBK SN-403 T"
-        class="main-image-wrapper main-image-wrapper--short Media Media--contain"
+        class="ImageGallery-module_main-image-wrapper__muxiV ImageGallery-module_main-image-wrapper--short__xVqmg Media-module_Media__GKPD2 Media-module_Media--contain__O6qQ4"
         src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
       />
     </div>
     <div
-      class="thumbnails"
+      class="ImageGallery-module_thumbnails__hJEUD"
     >
       <button
-        class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+        class="MuiButtonBase-root ImageGallery-module_thumb-scroller__Oi-K- ImageGallery-module_thumb-scroller--left__QzW7b ThumbScrollerButton-module_ThumbScrollerButton__AmmLO ThumbScrollerButton-module_ThumbScrollerButton--left__YslS3"
         tabindex="-1"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root icon"
+          class="MuiSvgIcon-root ThumbScrollerButton-module_icon__dw0Sg"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -57,13 +57,13 @@ exports[`ImageGallerySection tests When master images and gallery images are pro
         />
       </button>
       <button
-        class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+        class="MuiButtonBase-root ImageGallery-module_thumb-scroller__Oi-K- ImageGallery-module_thumb-scroller--right__Ze5Sy ImageGallery-module_thumb-scroller--hidden__GIXCG ThumbScrollerButton-module_ThumbScrollerButton__AmmLO ThumbScrollerButton-module_ThumbScrollerButton--right__0-QGE"
         tabindex="-1"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root icon"
+          class="MuiSvgIcon-root ThumbScrollerButton-module_icon__dw0Sg"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -76,43 +76,43 @@ exports[`ImageGallerySection tests When master images and gallery images are pro
         />
       </button>
       <div
-        class="scroller"
+        class="ImageGallery-module_scroller__pD0qV"
         style="margin-right: 0%;"
       >
         <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+          class="MuiButtonBase-root ImageGallery-module_thumbnail__-eV18 Thumbnail-module_Thumbnail__8EKru Thumbnail-module_Thumbnail--selected__zPXWJ Thumbnail-module_Thumbnail--large__UGNHe"
           tabindex="0"
           type="button"
         >
           <img
             alt="TBK SN-403 T"
-            class="Media"
+            class="Media-module_Media__GKPD2"
             src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
           />
         </button>
         <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+          class="MuiButtonBase-root ImageGallery-module_thumbnail__-eV18 Thumbnail-module_Thumbnail__8EKru Thumbnail-module_Thumbnail--large__UGNHe"
           style="background-image: url(gallery__image_1);"
           tabindex="0"
           type="button"
         >
           <img
             alt="gallery__image_1"
-            class="Media"
+            class="Media-module_Media__GKPD2"
           />
           <span
             class="MuiTouchRipple-root"
           />
         </button>
         <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+          class="MuiButtonBase-root ImageGallery-module_thumbnail__-eV18 Thumbnail-module_Thumbnail__8EKru Thumbnail-module_Thumbnail--large__UGNHe"
           style="background-image: url(gallery__image_2);"
           tabindex="0"
           type="button"
         >
           <img
             alt="gallery__image_2"
-            class="Media"
+            class="Media-module_Media__GKPD2"
           />
           <span
             class="MuiTouchRipple-root"

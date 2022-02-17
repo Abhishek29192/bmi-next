@@ -9,23 +9,23 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
       class="Alert Alert--first"
     >
       <div
-        class="Alert ColorPair ColorPair--alert"
+        class="AlertBanner-module_Alert__z1ObX ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--alert__OgfrZ"
       >
         <div
-          class="actions"
+          class="AlertBanner-module_actions__L3JAE"
         />
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root AlertBanner-module_title__p5vTr Typography-module_Typography__aA2Zb MuiTypography-h5"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root AlertBanner-module_icon__FmwZQ"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -44,23 +44,23 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
       class="Alert Alert--last"
     >
       <div
-        class="Alert ColorPair ColorPair--alabaster"
+        class="AlertBanner-module_Alert__z1ObX ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--alabaster__5JP-z"
       >
         <div
-          class="actions"
+          class="AlertBanner-module_actions__L3JAE"
         />
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root AlertBanner-module_title__p5vTr Typography-module_Typography__aA2Zb MuiTypography-h5"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root AlertBanner-module_icon__FmwZQ"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -76,10 +76,10 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
       </div>
     </div>
     <form
-      class="Form form"
+      class="Form-module_Form__Fe-5R form"
     >
       <h4
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
       >
         Print this list
       </h4>
@@ -87,10 +87,10 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         class="MuiGrid-root help MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <p
-            class="MuiTypography-root Typography MuiTypography-body1"
+            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
           >
             To access your list of materials in pdf format that can be saved, shared or printed please supply your name and email address
           </p>
@@ -100,10 +100,10 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         class="MuiGrid-root fieldsContainer MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -137,10 +137,10 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -178,10 +178,10 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         class="MuiGrid-root gdprContainer MuiGrid-container MuiGrid-spacing-xs-6 MuiGrid-direction-xs-column"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="MuiFormControl-root Checkbox-module_Checkbox__zn5Y8"
           >
             <label
               class="MuiFormControlLabel-root"
@@ -224,10 +224,10 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="MuiFormControl-root Checkbox-module_Checkbox__zn5Y8"
           >
             <label
               class="MuiFormControlLabel-root"
@@ -270,7 +270,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <button
             class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-contained buttonStyles-contained-11 submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
@@ -300,23 +300,23 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       class="Alert Alert--first"
     >
       <div
-        class="Alert ColorPair ColorPair--alert"
+        class="AlertBanner-module_Alert__z1ObX ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--alert__OgfrZ"
       >
         <div
-          class="actions"
+          class="AlertBanner-module_actions__L3JAE"
         />
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root AlertBanner-module_title__p5vTr Typography-module_Typography__aA2Zb MuiTypography-h5"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root AlertBanner-module_icon__FmwZQ"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -335,23 +335,23 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       class="Alert Alert--last"
     >
       <div
-        class="Alert ColorPair ColorPair--alabaster"
+        class="AlertBanner-module_Alert__z1ObX ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--alabaster__5JP-z"
       >
         <div
-          class="actions"
+          class="AlertBanner-module_actions__L3JAE"
         />
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root AlertBanner-module_title__p5vTr Typography-module_Typography__aA2Zb MuiTypography-h5"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root AlertBanner-module_icon__FmwZQ"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -367,10 +367,10 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       </div>
     </div>
     <form
-      class="Form form"
+      class="Form-module_Form__Fe-5R form"
     >
       <h4
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
       >
         Print this list
       </h4>
@@ -378,10 +378,10 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         class="MuiGrid-root help MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <p
-            class="MuiTypography-root Typography MuiTypography-body1"
+            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
           >
             To access your list of materials in pdf format that can be saved, shared or printed please supply your name and email address
           </p>
@@ -391,10 +391,10 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         class="MuiGrid-root fieldsContainer MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -428,10 +428,10 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -469,10 +469,10 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         class="MuiGrid-root gdprContainer MuiGrid-container MuiGrid-spacing-xs-6 MuiGrid-direction-xs-column"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="MuiFormControl-root Checkbox-module_Checkbox__zn5Y8"
           >
             <label
               class="MuiFormControlLabel-root"
@@ -515,10 +515,10 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="MuiFormControl-root Checkbox-module_Checkbox__zn5Y8"
           >
             <label
               class="MuiFormControlLabel-root"
@@ -561,7 +561,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <button
             class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-contained buttonStyles-contained-39 submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
@@ -582,12 +582,12 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       class="FieldContainer"
     >
       <h3
-        class="MuiTypography-root Typography MuiTypography-h3"
+        class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h3"
       >
         Measurements (showing because debugging mode is ON)
       </h3>
       <h4
-        class="MuiTypography-root Typography MuiTypography-h4"
+        class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h4"
       >
         Lines
       </h4>
@@ -626,7 +626,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         </li>
       </ul>
       <h4
-        class="MuiTypography-root Typography MuiTypography-h4"
+        class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h4"
       >
         Faces
       </h4>
@@ -664,23 +664,23 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       class="Alert Alert--first"
     >
       <div
-        class="Alert ColorPair ColorPair--alert"
+        class="AlertBanner-module_Alert__z1ObX ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--alert__OgfrZ"
       >
         <div
-          class="actions"
+          class="AlertBanner-module_actions__L3JAE"
         />
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root AlertBanner-module_title__p5vTr Typography-module_Typography__aA2Zb MuiTypography-h5"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root AlertBanner-module_icon__FmwZQ"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -699,23 +699,23 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       class="Alert Alert--last"
     >
       <div
-        class="Alert ColorPair ColorPair--alabaster"
+        class="AlertBanner-module_Alert__z1ObX ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--alabaster__5JP-z"
       >
         <div
-          class="actions"
+          class="AlertBanner-module_actions__L3JAE"
         />
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root AlertBanner-module_title__p5vTr Typography-module_Typography__aA2Zb MuiTypography-h5"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root AlertBanner-module_icon__FmwZQ"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -731,10 +731,10 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       </div>
     </div>
     <form
-      class="Form form"
+      class="Form-module_Form__Fe-5R form"
     >
       <h4
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
       >
         Print this list
       </h4>
@@ -742,10 +742,10 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         class="MuiGrid-root help MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <p
-            class="MuiTypography-root Typography MuiTypography-body1"
+            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
           >
             To access your list of materials in pdf format that can be saved, shared or printed please supply your name and email address
           </p>
@@ -755,10 +755,10 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         class="MuiGrid-root fieldsContainer MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -792,10 +792,10 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -833,10 +833,10 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         class="MuiGrid-root gdprContainer MuiGrid-container MuiGrid-spacing-xs-6 MuiGrid-direction-xs-column"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="MuiFormControl-root Checkbox-module_Checkbox__zn5Y8"
           >
             <label
               class="MuiFormControlLabel-root"
@@ -879,10 +879,10 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="MuiFormControl-root Checkbox-module_Checkbox__zn5Y8"
           >
             <label
               class="MuiFormControlLabel-root"
@@ -925,7 +925,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <button
             class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-contained buttonStyles-contained-123 submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
@@ -955,23 +955,23 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       class="Alert Alert--first"
     >
       <div
-        class="Alert ColorPair ColorPair--alert"
+        class="AlertBanner-module_Alert__z1ObX ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--alert__OgfrZ"
       >
         <div
-          class="actions"
+          class="AlertBanner-module_actions__L3JAE"
         />
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root AlertBanner-module_title__p5vTr Typography-module_Typography__aA2Zb MuiTypography-h5"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root AlertBanner-module_icon__FmwZQ"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -990,23 +990,23 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       class="Alert Alert--last"
     >
       <div
-        class="Alert ColorPair ColorPair--alabaster"
+        class="AlertBanner-module_Alert__z1ObX ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--alabaster__5JP-z"
       >
         <div
-          class="actions"
+          class="AlertBanner-module_actions__L3JAE"
         />
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root AlertBanner-module_title__p5vTr Typography-module_Typography__aA2Zb MuiTypography-h5"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root AlertBanner-module_icon__FmwZQ"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -1022,10 +1022,10 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       </div>
     </div>
     <form
-      class="Form form"
+      class="Form-module_Form__Fe-5R form"
     >
       <h4
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
       >
         Print this list
       </h4>
@@ -1033,10 +1033,10 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         class="MuiGrid-root help MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <p
-            class="MuiTypography-root Typography MuiTypography-body1"
+            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
           >
             To access your list of materials in pdf format that can be saved, shared or printed please supply your name and email address
           </p>
@@ -1046,10 +1046,10 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         class="MuiGrid-root fieldsContainer MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1083,10 +1083,10 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1124,10 +1124,10 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         class="MuiGrid-root gdprContainer MuiGrid-container MuiGrid-spacing-xs-6 MuiGrid-direction-xs-column"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="MuiFormControl-root Checkbox-module_Checkbox__zn5Y8"
           >
             <label
               class="MuiFormControlLabel-root"
@@ -1170,10 +1170,10 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="MuiFormControl-root Checkbox-module_Checkbox__zn5Y8"
           >
             <label
               class="MuiFormControlLabel-root"
@@ -1216,7 +1216,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <button
             class="MuiButtonBase-root MuiButton-root buttonStyles-root-93 MuiButton-contained buttonStyles-contained-95 submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
@@ -1246,23 +1246,23 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       class="Alert Alert--first"
     >
       <div
-        class="Alert ColorPair ColorPair--alert"
+        class="AlertBanner-module_Alert__z1ObX ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--alert__OgfrZ"
       >
         <div
-          class="actions"
+          class="AlertBanner-module_actions__L3JAE"
         />
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root AlertBanner-module_title__p5vTr Typography-module_Typography__aA2Zb MuiTypography-h5"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root AlertBanner-module_icon__FmwZQ"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -1281,23 +1281,23 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       class="Alert Alert--last"
     >
       <div
-        class="Alert ColorPair ColorPair--alabaster"
+        class="AlertBanner-module_Alert__z1ObX ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--alabaster__5JP-z"
       >
         <div
-          class="actions"
+          class="AlertBanner-module_actions__L3JAE"
         />
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root AlertBanner-module_title__p5vTr Typography-module_Typography__aA2Zb MuiTypography-h5"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root AlertBanner-module_icon__FmwZQ"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -1313,10 +1313,10 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       </div>
     </div>
     <form
-      class="Form form"
+      class="Form-module_Form__Fe-5R form"
     >
       <h4
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
       >
         Print this list
       </h4>
@@ -1324,10 +1324,10 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         class="MuiGrid-root help MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <p
-            class="MuiTypography-root Typography MuiTypography-body1"
+            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
           >
             To access your list of materials in pdf format that can be saved, shared or printed please supply your name and email address
           </p>
@@ -1337,10 +1337,10 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         class="MuiGrid-root fieldsContainer MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1374,10 +1374,10 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1415,10 +1415,10 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         class="MuiGrid-root gdprContainer MuiGrid-container MuiGrid-spacing-xs-6 MuiGrid-direction-xs-column"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="MuiFormControl-root Checkbox-module_Checkbox__zn5Y8"
           >
             <label
               class="MuiFormControlLabel-root"
@@ -1461,10 +1461,10 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="MuiFormControl-root Checkbox-module_Checkbox__zn5Y8"
           >
             <label
               class="MuiFormControlLabel-root"
@@ -1507,7 +1507,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
         >
           <button
             class="MuiButtonBase-root MuiButton-root buttonStyles-root-65 MuiButton-contained buttonStyles-contained-67 submit MuiButton-containedPrimary Mui-disabled Mui-disabled"

@@ -6,7 +6,7 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
     class="main"
   >
     <h4
-      class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
       style="font-size: 1.2rem;"
     >
       details.registeredDetails
@@ -18,12 +18,12 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
         >
           details.name
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
         >
           Integrated Solutions Inc
         </div>
@@ -32,12 +32,12 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
         >
           details.referenceNumber
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
         >
           937392
         </div>
@@ -46,12 +46,12 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
         >
           details.registeredAddress
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
         >
           <div
             data-testid="address"
@@ -93,12 +93,12 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
         >
           details.taxNumber
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
         >
           63323-463
         </div>
@@ -107,12 +107,12 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
         >
           Tier
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
         >
           tier.T2
         </div>
@@ -121,12 +121,12 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
         >
           companyOperations
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
         >
           Operationtypes.pitched and operationTypes.FLAT companyOperationsSuffix
         </div>

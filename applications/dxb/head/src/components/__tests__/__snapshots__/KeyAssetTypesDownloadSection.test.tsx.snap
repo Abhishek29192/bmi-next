@@ -18,7 +18,31 @@ exports[`KeyAssetTypesDownloadSection component renders correctly 1`] = `
           <span
             class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
           >
-            <svg />
+            <svg
+              data-name="Ico 24 Folder Zip"
+              height="24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                data-name="Group 1778"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                  data-name="Rectangle 3041"
+                  fill="none"
+                />
+              </g>
+              <g
+                data-name="Group 1779"
+              >
+                <path
+                  d="M20 6h-8l-2-2H4a2 2 0 0 0-1.99 2L2 18a2.006 2.006 0 0 0 2 2h16a2.006 2.006 0 0 0 2-2V8a2.006 2.006 0 0 0-2-2Zm-2 6h-2v2h2v2h-2v2h-2v-2h2v-2h-2v-2h2v-2h-2V8h2v2h2Z"
+                  data-name="Path 2117"
+                  fill="#0072b0"
+                />
+              </g>
+            </svg>
           </span>
           Some Asset Type
         </span>

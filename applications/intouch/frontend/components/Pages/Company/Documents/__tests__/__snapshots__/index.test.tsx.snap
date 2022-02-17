@@ -12,7 +12,7 @@ exports[`CompanyDocuments Components render correctly if there is document 1`] =
         class="MuiCardContent-root"
       >
         <h4
-          class="MuiTypography-root Typography Typography--underline MuiTypography-h4 MuiTypography-colorPrimary"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4 MuiTypography-colorPrimary"
           style="font-size: 1.2rem;"
         >
           document.title
@@ -25,10 +25,10 @@ exports[`CompanyDocuments Components render correctly if there is document 1`] =
         >
           <div>
             <table
-              class="MuiTable-root Table Table--row-even-color"
+              class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-even-color__rIiXD"
             >
               <thead
-                class="MuiTableHead-root ColorPair ColorPair--pearl"
+                class="MuiTableHead-root ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--pearl__gkooI"
               >
                 <tr
                   class="MuiTableRow-root MuiTableRow-head"
@@ -100,7 +100,7 @@ exports[`CompanyDocuments Components render correctly if there is no document 1`
         class="MuiCardContent-root"
       >
         <h4
-          class="MuiTypography-root Typography Typography--underline MuiTypography-h4 MuiTypography-colorPrimary"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4 MuiTypography-colorPrimary"
           style="font-size: 1.2rem;"
         >
           document.title

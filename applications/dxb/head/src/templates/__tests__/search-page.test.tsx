@@ -49,16 +49,20 @@ describe("Search Page Template", () => {
 
     expect(container).toMatchSnapshot();
     expect(container.querySelector("header")).toBeTruthy();
-    expect(container.querySelector(".Footer")).toBeTruthy();
+    expect(container.querySelector("[class^='Footer']")).toBeTruthy();
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelector(".Hero")).toBeTruthy();
-    expect(container.querySelector(".Breadcrumbs")).toBeTruthy();
+    expect(container.querySelector("[class^='Hero']")).toBeTruthy();
+    expect(container.querySelector("[class^='Breadcrumbs']")).toBeTruthy();
     expect(getByText("Home")).toBeTruthy();
-    expect(container.querySelector(".content .title").textContent).toBe(
-      "MC: searchPage.title"
-    );
     expect(
-      container.querySelector(".Section.Section--white.Section--slim")
+      container.querySelector(
+        "[class^='Hero-module_content'] [class*='Hero-module_title']"
+      ).textContent
+    ).toBe("MC: searchPage.title");
+    expect(
+      container.querySelector(
+        "[class*='Section-module_Section'][class*='Section-module_Section--white'][class*='Section-module_Section--slim']"
+      )
     ).toBeTruthy();
     expect(container.querySelector(".SearchBlock")).toBeTruthy();
     expect(
@@ -102,7 +106,9 @@ describe("Search Page Template", () => {
     await new Promise((r) => setTimeout(r, 10));
     expect(container).toMatchSnapshot();
     expect(getByText("MC: searchPage.title.withQuery")).toBeTruthy();
-    expect(container.querySelectorAll(".TabPanel").length).toBe(3);
+    expect(
+      container.querySelectorAll("[class*='Tabs-module_TabPanel_']").length
+    ).toBe(3);
     expect(getByText("MC: search.tabHeadings.products (3)")).toBeTruthy();
     expect(getByText("MC: search.tabHeadings.documents (2)")).toBeTruthy();
     expect(getByText("MC: search.tabHeadings.pages (1)")).toBeTruthy();
@@ -141,7 +147,9 @@ describe("Search Page Template", () => {
 
     await new Promise((r) => setTimeout(r, 10));
     expect(container).toMatchSnapshot();
-    expect(container.querySelectorAll(".TabPanel").length).toBe(2);
+    expect(
+      container.querySelectorAll("[class*='Tabs-module_TabPanel_']").length
+    ).toBe(2);
     expect(getByText("MC: search.tabHeadings.documents (2)")).toBeTruthy();
     expect(getByText("MC: search.tabHeadings.pages (1)")).toBeTruthy();
   });
@@ -202,7 +210,7 @@ describe("Search Page Template", () => {
     fireEvent.click(documentTabButton);
     expect(
       container.querySelector(
-        "[heading='MC: search.tabHeadings.documents (1)'] .Container"
+        "[heading='MC: search.tabHeadings.documents (1)'] [class*='Container-module_Container_']"
       )
     ).toBeTruthy();
   });
@@ -274,7 +282,7 @@ describe("Search Page Template", () => {
     process.env.GATSBY_PREVIEW = "true";
 
     await new Promise((r) => setTimeout(r, 10));
-    const form = container.querySelector(".Search");
+    const form = container.querySelector("[class^='Search']");
 
     fireEvent.submit(form);
     expect(alertSpy).toHaveBeenCalledWith(
@@ -307,7 +315,7 @@ describe("Search Page Template", () => {
     delete process.env.GATSBY_PREVIEW;
 
     await new Promise((r) => setTimeout(r, 10));
-    const form = container.querySelector(".Search");
+    const form = container.querySelector("[class^='Search']");
 
     fireEvent.submit(form);
     expect(alertSpy).toHaveBeenCalledTimes(0);

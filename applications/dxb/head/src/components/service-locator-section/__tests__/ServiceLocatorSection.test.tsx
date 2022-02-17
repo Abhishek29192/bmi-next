@@ -2,12 +2,11 @@ import React from "react";
 import { act, fireEvent, screen } from "@testing-library/react";
 import { LocationProvider } from "@reach/router";
 import camelCase from "lodash-es/camelCase";
-import * as GoogleMockApi from "@bmi-digital/components";
 import {
-  rooferTypes,
   branchTypes,
-  merchantTypes,
   EntryTypeEnum,
+  merchantTypes,
+  rooferTypes,
   RooferTypesEnum
 } from "../../Service";
 import createService from "../../../__tests__/ServiceHelper";
@@ -19,7 +18,9 @@ import { googleMock } from "../__mocks__/google";
 
 let callMarkerOnClick;
 
-jest.mock("@bmi-digital/components/google-map", () => {
+jest.mock("@bmi-digital/components", () => {
+  const originalModule = jest.requireActual("@bmi-digital/components");
+
   const GoogleMap = jest
     .fn()
     .mockImplementation(({ children, onMarkerClick }) => {
@@ -31,10 +32,14 @@ jest.mock("@bmi-digital/components/google-map", () => {
         </div>
       );
     });
+  const loadGoogleApi = jest.fn().mockImplementation();
+  const computeDistanceBetween = jest.fn().mockImplementation();
 
   return {
-    __esModule: true,
-    default: GoogleMap
+    ...originalModule,
+    GoogleMap,
+    loadGoogleApi,
+    computeDistanceBetween
   };
 });
 
@@ -1087,8 +1092,6 @@ describe("ServiceLocatorSection component", () => {
       window.google = googleMock;
     });
     it("should render GoogleAutocomplete component", async () => {
-      jest.spyOn(GoogleMockApi, "loadGoogleApi").mockImplementation();
-
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.MERCHANT_TYPE,
@@ -1112,9 +1115,6 @@ describe("ServiceLocatorSection component", () => {
       expect(container).toMatchSnapshot();
     });
     it("should execute GoogleAutocomplete onChange event when location changed", async () => {
-      jest.spyOn(GoogleMockApi, "loadGoogleApi").mockImplementation();
-      jest.spyOn(GoogleMockApi, "computeDistanceBetween").mockImplementation();
-
       const data: serviceLocatorDataType = {
         __typename: "ContentfulServiceLocatorSection",
         type: EntryTypeEnum.MERCHANT_TYPE,

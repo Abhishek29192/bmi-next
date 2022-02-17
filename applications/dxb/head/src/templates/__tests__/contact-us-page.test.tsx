@@ -288,20 +288,34 @@ describe("Contact us page", () => {
 
     expect(container).toMatchSnapshot();
     expect(container.querySelectorAll("header").length).toBe(1);
-    expect(container.querySelectorAll(".Footer").length).toBe(1);
+    expect(
+      container.querySelectorAll("[class*='Footer-module_Footer_']").length
+    ).toBe(1);
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelector(".Hero")).toBeTruthy();
-    expect(container.querySelector(".Hero .Breadcrumbs")).toBeTruthy();
-    expect(container.querySelector(".Section--pearl")).toBeTruthy();
+    expect(
+      container.querySelector("[class*='Hero-module_Hero_']")
+    ).toBeTruthy();
+    expect(
+      container.querySelector(
+        "[class*='Hero-module_Hero_'] [class*='Breadcrumbs-module_Breadcrumbs_']"
+      )
+    ).toBeTruthy();
+    expect(
+      container.querySelector("[class*='Section-module_Section--pearl']")
+    ).toBeTruthy();
     expect(getByText("What do you wish to contact us about?")).toBeTruthy();
     expect(container.querySelector(".ContactTopics")).toBeTruthy();
     expect(getByText("No footer")).toBeTruthy();
     expect(getByText("Did you know?")).toBeTruthy();
     expect(
-      container.querySelector(".Section--alabaster.Section--slim")
+      container.querySelector(
+        "[class*='Section-module_Section--alabaster'][class*='Section-module_Section--slim']"
+      )
     ).toBeTruthy();
     expect(
-      container.querySelector(".Section--alabaster.Section--slim .Breadcrumbs")
+      container.querySelector(
+        "[class*='Section-module_Section--alabaster'][class*='Section-module_Section--slim'] [class*='Breadcrumbs-module_Breadcrumbs']"
+      )
     ).toBeTruthy();
   });
 
@@ -335,11 +349,15 @@ describe("Contact us page", () => {
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelector(".Section--white")).toBeTruthy();
+    expect(
+      container.querySelector("[class*='Section-module_Section--white']")
+    ).toBeTruthy();
     expect(getByText("Locations")).toBeTruthy();
-    expect(container.querySelectorAll(".Locations .LocationCard").length).toBe(
-      3
-    );
+    expect(
+      container.querySelectorAll(
+        ".Locations [class*='LocationCard-module_LocationCard_']"
+      ).length
+    ).toBe(3);
   });
 
   it("render NextBestActions correctly", () => {
@@ -349,7 +367,9 @@ describe("Contact us page", () => {
 
     expect(container).toMatchSnapshot();
     expect(getByText("Mer informasjon")).toBeTruthy();
-    expect(container.querySelectorAll(".NBACard").length).toBe(2);
+    expect(
+      container.querySelectorAll("[class*='NBACard-module_NBACard_']").length
+    ).toBe(2);
   });
 
   it("render firstslide featuredMedia instead when no featuredVideo", () => {

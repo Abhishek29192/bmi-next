@@ -6,13 +6,13 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
     class="ProductLeadBlock"
   >
     <div
-      class="Tabs Tabs--primary"
+      class="Tabs-module_Tabs__qVSaa"
     >
       <div
-        class="TabsBar"
+        class="Tabs-module_TabsBar__iaTiJ"
       >
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root tabStyles-ContainerRoot-1 MuiContainer-maxWidthXl"
@@ -102,32 +102,32 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
       </div>
       <div
         aria-labelledby="tab-one"
-        class="MuiGrid-root TabPanel MuiGrid-item"
+        class="MuiGrid-root Tabs-module_TabPanel__YBHHf MuiGrid-item"
         heading="MC: pdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-8 TabPanelBox"
+          class="MuiBox-root MuiBox-root-8 Tabs-module_TabPanelBox__TIzx-"
         >
           <div
-            class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
             >
               <div
-                class="LeadBlockContentSection"
+                class="LeadBlock-module_LeadBlockContentSection__CUG63"
               >
                 <div
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                 />
               </div>
               <div
-                class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+                class="GuaranteesAndAwardsAsset LeadBlock-module_LeadBlockContentSection__CUG63"
               >
                 <h5
-                  class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                  class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h5"
                 >
                   MC: pdp.leadBlock.guaranteesWarranties
                 </h5>
@@ -143,7 +143,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                 />
                 <div>
                   <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover inline-link Anchorlink MuiTypography-colorPrimary"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover inline-link AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read more about guarantees\\",\\"action\\":\\"http://localhost:8000/other\\"}"
                     type="button"
                   >
@@ -152,14 +152,20 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                     </span>
                     <svg
                       aria-hidden="true"
-                      class="icon"
+                      class="AnchorLink-module_icon__SvfZD"
                       focusable="false"
-                    />
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                      />
+                    </svg>
                   </a>
                 </div>
                 <div>
                   <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover inline-link Anchorlink MuiTypography-colorPrimary"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover inline-link AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Read more about Warranties\\",\\"action\\":\\"http://bmigroup.com\\"}"
                     type="button"
                   >
@@ -168,14 +174,20 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                     </span>
                     <svg
                       aria-hidden="true"
-                      class="icon"
+                      class="AnchorLink-module_icon__SvfZD"
                       focusable="false"
-                    />
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                      />
+                    </svg>
                   </a>
                 </div>
                 <div>
                   <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover inline-link Anchorlink MuiTypography-colorPrimary"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover inline-link AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"external\\",\\"action\\":\\"http://facebook.com\\"}"
                     type="button"
                   >
@@ -184,9 +196,15 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                     </span>
                     <svg
                       aria-hidden="true"
-                      class="icon"
+                      class="AnchorLink-module_icon__SvfZD"
                       focusable="false"
-                    />
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                      />
+                    </svg>
                   </a>
                 </div>
               </div>
@@ -196,20 +214,20 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
       </div>
       <div
         aria-labelledby="tab-two"
-        class="MuiGrid-root TabPanel MuiGrid-item"
+        class="MuiGrid-root Tabs-module_TabPanel__YBHHf MuiGrid-item"
         heading="MC: pdp.leadBlock.technicalSpecifications"
         hidden=""
         id="tabpanel-two"
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-9 TabPanelBox"
+          class="MuiBox-root MuiBox-root-9 Tabs-module_TabPanelBox__TIzx-"
         >
           <div
-            class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
             >
               <div
                 class="ProductTechnicalSpec"
@@ -222,14 +240,14 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
       </div>
       <div
         aria-labelledby="tab-three"
-        class="MuiGrid-root TabPanel MuiGrid-item"
+        class="MuiGrid-root Tabs-module_TabPanel__YBHHf MuiGrid-item"
         heading="MC: pdp.leadBlock.documents"
         hidden=""
         id="tabpanel-three"
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-10 TabPanelBox"
+          class="MuiBox-root MuiBox-root-10 Tabs-module_TabPanelBox__TIzx-"
         >
           <div
             class="document-library"
@@ -239,10 +257,10 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
             >
               <div>
                 <table
-                  class="MuiTable-root Table Table--row-no-color"
+                  class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-no-color__pf1f2"
                 >
                   <thead
-                    class="MuiTableHead-root ColorPair ColorPair--pearl"
+                    class="MuiTableHead-root ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--pearl__gkooI"
                   >
                     <tr
                       class="MuiTableRow-root MuiTableRow-head"
@@ -286,7 +304,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                   <li>
                     <button
                       aria-label="Go to previous page"
-                      class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+                      class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-module_PaginationItem__NgRVx MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
                       disabled=""
                       tabindex="-1"
                       type="button"
@@ -306,7 +324,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                   <li>
                     <button
                       aria-label="Go to next page"
-                      class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+                      class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-module_PaginationItem__NgRVx MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
                       disabled=""
                       tabindex="-1"
                       type="button"
@@ -326,7 +344,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                 </ul>
               </nav>
               <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-downloads Anchorlink MuiTypography-colorPrimary"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-downloads AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
@@ -349,11 +367,11 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                 />
               </button>
               <p
-                class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+                class="MuiTypography-root RecaptchaPrivacyLinks Typography-module_Typography__aA2Zb MuiTypography-body1"
               >
                 This site is protected by reCAPTCHA and the Google 
                 <a
-                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
                   href="https://policies.google.com/privacy"
                   rel="noreferrer noopener"
                   target="_blank"
@@ -364,7 +382,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                 </a>
                  and 
                 <a
-                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
                   href="https://policies.google.com/terms"
                   rel="noreferrer noopener"
                   target="_blank"
@@ -387,7 +405,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
 exports[`ProductLeadBlock tests should render the fixing tool tab 1`] = `
 <div
   aria-labelledby="tab-six"
-  class="MuiGrid-root TabPanel tab-container MuiGrid-item"
+  class="MuiGrid-root Tabs-module_TabPanel__YBHHf tab-container MuiGrid-item"
   data-testid="fixingTool"
   heading="MC: pdp.leadBlock.fixingTool"
   hidden=""
@@ -395,7 +413,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiBox-root MuiBox-root-126 TabPanelBox"
+    class="MuiBox-root MuiBox-root-126 Tabs-module_TabPanelBox__TIzx-"
   >
     <iframe
       class="assetsIframe fixing-tool-iframe"
@@ -408,7 +426,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab 1`] = `
 exports[`ProductLeadBlock tests should render the fixing tool tab with title and iframe 1`] = `
 <div
   aria-labelledby="tab-six"
-  class="MuiGrid-root TabPanel tab-container MuiGrid-item"
+  class="MuiGrid-root Tabs-module_TabPanel__YBHHf tab-container MuiGrid-item"
   data-testid="fixingTool"
   heading="MC: pdp.leadBlock.fixingTool"
   hidden=""
@@ -416,10 +434,10 @@ exports[`ProductLeadBlock tests should render the fixing tool tab with title and
   role="tabpanel"
 >
   <div
-    class="MuiBox-root MuiBox-root-158 TabPanelBox"
+    class="MuiBox-root MuiBox-root-158 Tabs-module_TabPanelBox__TIzx-"
   >
     <h5
-      class="MuiTypography-root heading Typography MuiTypography-h5"
+      class="MuiTypography-root heading Typography-module_Typography__aA2Zb MuiTypography-h5"
     >
       Fixing tool title
     </h5>
@@ -434,7 +452,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab with title and
 exports[`ProductLeadBlock tests should render the specification tab 1`] = `
 <div
   aria-labelledby="tab-seven"
-  class="MuiGrid-root TabPanel tab-container MuiGrid-item"
+  class="MuiGrid-root Tabs-module_TabPanel__YBHHf tab-container MuiGrid-item"
   data-testid="specification"
   heading="MC: pdp.leadBlock.specification"
   hidden=""
@@ -442,10 +460,10 @@ exports[`ProductLeadBlock tests should render the specification tab 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiBox-root MuiBox-root-221 TabPanelBox"
+    class="MuiBox-root MuiBox-root-221 Tabs-module_TabPanelBox__TIzx-"
   >
     <h5
-      class="MuiTypography-root heading Typography MuiTypography-h5"
+      class="MuiTypography-root heading Typography-module_Typography__aA2Zb MuiTypography-h5"
     >
       Specification title
     </h5>
@@ -460,7 +478,7 @@ exports[`ProductLeadBlock tests should render the specification tab 1`] = `
 exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
 <div
   aria-labelledby="tab-five"
-  class="MuiGrid-root TabPanel MuiGrid-item"
+  class="MuiGrid-root Tabs-module_TabPanel__YBHHf MuiGrid-item"
   data-testid="technicalDrawings"
   heading="MC: pdp.leadBlock.technicalDrawings"
   hidden=""
@@ -468,40 +486,40 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiBox-root MuiBox-root-63 TabPanelBox"
+    class="MuiBox-root MuiBox-root-63 Tabs-module_TabPanelBox__TIzx-"
   >
     <div
-      class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+      class="MuiGrid-root LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
     >
       <div
-        class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
       >
         <div
-          class="LeadBlockContentSection"
+          class="LeadBlock-module_LeadBlockContentSection__CUG63"
         >
           <div
-            class="ImageGallery"
+            class="ImageGallery-module_ImageGallery__IY-1c"
           >
             <div
-              class="image-wrapper"
+              class="ImageGallery-module_image-wrapper__O9qhN"
             >
               <img
                 alt="490189 wireløper"
-                class="main-image-wrapper main-image-wrapper--default Media Media--contain"
+                class="ImageGallery-module_main-image-wrapper__muxiV ImageGallery-module_main-image-wrapper--default__blBAJ Media-module_Media__GKPD2 Media-module_Media--contain__O6qQ4"
                 src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
               />
             </div>
             <div
-              class="thumbnails"
+              class="ImageGallery-module_thumbnails__hJEUD"
             >
               <button
-                class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+                class="MuiButtonBase-root ImageGallery-module_thumb-scroller__Oi-K- ImageGallery-module_thumb-scroller--left__QzW7b ThumbScrollerButton-module_ThumbScrollerButton__AmmLO ThumbScrollerButton-module_ThumbScrollerButton--left__YslS3"
                 tabindex="-1"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root icon"
+                  class="MuiSvgIcon-root ThumbScrollerButton-module_icon__dw0Sg"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -514,13 +532,13 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
                 />
               </button>
               <button
-                class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+                class="MuiButtonBase-root ImageGallery-module_thumb-scroller__Oi-K- ImageGallery-module_thumb-scroller--right__Ze5Sy ImageGallery-module_thumb-scroller--hidden__GIXCG ThumbScrollerButton-module_ThumbScrollerButton__AmmLO ThumbScrollerButton-module_ThumbScrollerButton--right__0-QGE"
                 tabindex="-1"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root icon"
+                  class="MuiSvgIcon-root ThumbScrollerButton-module_icon__dw0Sg"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -533,30 +551,30 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
                 />
               </button>
               <div
-                class="scroller"
+                class="ImageGallery-module_scroller__pD0qV"
                 style="margin-right: 0%;"
               >
                 <button
-                  class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                  class="MuiButtonBase-root ImageGallery-module_thumbnail__-eV18 Thumbnail-module_Thumbnail__8EKru Thumbnail-module_Thumbnail--selected__zPXWJ Thumbnail-module_Thumbnail--large__UGNHe"
                   style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
                   tabindex="0"
                   type="button"
                 >
                   <img
                     alt="490189 wireløper"
-                    class="Media"
+                    class="Media-module_Media__GKPD2"
                     src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
                   />
                 </button>
                 <button
-                  class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                  class="MuiButtonBase-root ImageGallery-module_thumbnail__-eV18 Thumbnail-module_Thumbnail__8EKru Thumbnail-module_Thumbnail--large__UGNHe"
                   style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
                   tabindex="0"
                   type="button"
                 >
                   <img
                     alt="Print_490189 wireløper"
-                    class="Media"
+                    class="Media-module_Media__GKPD2"
                     src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
                   />
                   <span

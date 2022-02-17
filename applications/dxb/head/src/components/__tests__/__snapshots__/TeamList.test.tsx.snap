@@ -4,22 +4,22 @@ exports[`TeamList component renders correctly 1`] = `
 <div>
   <div>
     <div
-      class="EqualHeights"
+      class="EqualHeights-module_EqualHeights__62pC0"
     >
       <div
-        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+        class="MuiGrid-root Grid-module_Grid--justifyContent__EK865 MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-module_ProfileCard__dt4VU"
           >
             <div
-              class="head"
+              class="ProfileCard-module_head__O89e2"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-module_profile-picture__oLH56 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -71,20 +71,20 @@ exports[`TeamList component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-module_content-box__wmtYX"
             >
               <div
-                class="body"
+                class="ProfileCard-module_body__et0Qn"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-module_title__3umXK Typography-module_Typography__aA2Zb MuiTypography-body2"
                   >
                     Job Title
                   </p>
@@ -103,22 +103,22 @@ exports[`TeamList component renders correctly when incomplete 1`] = `
 <div>
   <div>
     <div
-      class="EqualHeights"
+      class="EqualHeights-module_EqualHeights__62pC0"
     >
       <div
-        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+        class="MuiGrid-root Grid-module_Grid--justifyContent__EK865 MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-module_ProfileCard__dt4VU"
           >
             <div
-              class="head"
+              class="ProfileCard-module_head__O89e2"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-module_profile-picture__oLH56 MuiAvatar-colorDefault"
               >
                 <svg
                   aria-hidden="true"
@@ -133,15 +133,15 @@ exports[`TeamList component renders correctly when incomplete 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-module_content-box__wmtYX"
             >
               <div
-                class="body"
+                class="ProfileCard-module_body__et0Qn"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
                   />
                 </div>
               </div>
@@ -158,22 +158,22 @@ exports[`TeamList component renders correctly with links 1`] = `
 <div>
   <div>
     <div
-      class="EqualHeights"
+      class="EqualHeights-module_EqualHeights__62pC0"
     >
       <div
-        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+        class="MuiGrid-root Grid-module_Grid--justifyContent__EK865 MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-module_ProfileCard__dt4VU"
           >
             <div
-              class="head"
+              class="ProfileCard-module_head__O89e2"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-module_profile-picture__oLH56 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -225,20 +225,20 @@ exports[`TeamList component renders correctly with links 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-module_content-box__wmtYX"
             >
               <div
-                class="body"
+                class="ProfileCard-module_body__et0Qn"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-module_title__3umXK Typography-module_Typography__aA2Zb MuiTypography-body2"
                   >
                     Job Title
                   </p>
@@ -246,10 +246,10 @@ exports[`TeamList component renders correctly with links 1`] = `
               </div>
             </div>
             <div
-              class="footer"
+              class="ProfileCard-module_footer__ATrRo"
             >
               <span
-                class="row"
+                class="ProfileCard-module_row__guFc7"
               >
                 Contact us
               </span>
@@ -266,22 +266,22 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
 <div>
   <div>
     <div
-      class="EqualHeights"
+      class="EqualHeights-module_EqualHeights__62pC0"
     >
       <div
-        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+        class="MuiGrid-root Grid-module_Grid--justifyContent__EK865 MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-module_ProfileCard__dt4VU"
           >
             <div
-              class="head"
+              class="ProfileCard-module_head__O89e2"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-module_profile-picture__oLH56 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -333,20 +333,20 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-module_content-box__wmtYX"
             >
               <div
-                class="body"
+                class="ProfileCard-module_body__et0Qn"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-module_title__3umXK Typography-module_Typography__aA2Zb MuiTypography-body2"
                   >
                     Job Title
                   </p>
@@ -356,16 +356,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-module_ProfileCard__dt4VU"
           >
             <div
-              class="head"
+              class="ProfileCard-module_head__O89e2"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-module_profile-picture__oLH56 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -417,20 +417,20 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-module_content-box__wmtYX"
             >
               <div
-                class="body"
+                class="ProfileCard-module_body__et0Qn"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-module_title__3umXK Typography-module_Typography__aA2Zb MuiTypography-body2"
                   >
                     Job Title
                   </p>
@@ -440,16 +440,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-module_ProfileCard__dt4VU"
           >
             <div
-              class="head"
+              class="ProfileCard-module_head__O89e2"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-module_profile-picture__oLH56 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -501,20 +501,20 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-module_content-box__wmtYX"
             >
               <div
-                class="body"
+                class="ProfileCard-module_body__et0Qn"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-module_title__3umXK Typography-module_Typography__aA2Zb MuiTypography-body2"
                   >
                     Job Title
                   </p>
@@ -524,16 +524,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-module_ProfileCard__dt4VU"
           >
             <div
-              class="head"
+              class="ProfileCard-module_head__O89e2"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-module_profile-picture__oLH56 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -585,20 +585,20 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-module_content-box__wmtYX"
             >
               <div
-                class="body"
+                class="ProfileCard-module_body__et0Qn"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-module_title__3umXK Typography-module_Typography__aA2Zb MuiTypography-body2"
                   >
                     Job Title
                   </p>
@@ -608,16 +608,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-module_ProfileCard__dt4VU"
           >
             <div
-              class="head"
+              class="ProfileCard-module_head__O89e2"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-module_profile-picture__oLH56 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -669,20 +669,20 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-module_content-box__wmtYX"
             >
               <div
-                class="body"
+                class="ProfileCard-module_body__et0Qn"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-module_title__3umXK Typography-module_Typography__aA2Zb MuiTypography-body2"
                   >
                     Job Title
                   </p>
@@ -692,16 +692,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-module_ProfileCard__dt4VU"
           >
             <div
-              class="head"
+              class="ProfileCard-module_head__O89e2"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-module_profile-picture__oLH56 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -753,20 +753,20 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-module_content-box__wmtYX"
             >
               <div
-                class="body"
+                class="ProfileCard-module_body__et0Qn"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-module_title__3umXK Typography-module_Typography__aA2Zb MuiTypography-body2"
                   >
                     Job Title
                   </p>
@@ -776,16 +776,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-module_ProfileCard__dt4VU"
           >
             <div
-              class="head"
+              class="ProfileCard-module_head__O89e2"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-module_profile-picture__oLH56 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -837,20 +837,20 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-module_content-box__wmtYX"
             >
               <div
-                class="body"
+                class="ProfileCard-module_body__et0Qn"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-module_title__3umXK Typography-module_Typography__aA2Zb MuiTypography-body2"
                   >
                     Job Title
                   </p>
@@ -860,16 +860,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-module_ProfileCard__dt4VU"
           >
             <div
-              class="head"
+              class="ProfileCard-module_head__O89e2"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-module_profile-picture__oLH56 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -921,20 +921,20 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-module_content-box__wmtYX"
             >
               <div
-                class="body"
+                class="ProfileCard-module_body__et0Qn"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-module_title__3umXK Typography-module_Typography__aA2Zb MuiTypography-body2"
                   >
                     Job Title
                   </p>
@@ -944,16 +944,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-module_ProfileCard__dt4VU"
           >
             <div
-              class="head"
+              class="ProfileCard-module_head__O89e2"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-module_profile-picture__oLH56 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -1005,20 +1005,20 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-module_content-box__wmtYX"
             >
               <div
-                class="body"
+                class="ProfileCard-module_body__et0Qn"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-module_title__3umXK Typography-module_Typography__aA2Zb MuiTypography-body2"
                   >
                     Job Title
                   </p>

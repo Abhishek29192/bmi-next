@@ -63,6 +63,12 @@ export type Data = {
   zoom: number | null;
 };
 
+declare global {
+  interface Window {
+    google?: Google;
+  }
+}
+
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const {
     type: sectionType,
@@ -215,8 +221,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       "places",
       "geometry"
     ]);
-    /* global google */
-    setGoogleApi(typeof google !== "undefined" ? google : null);
+    setGoogleApi(typeof window?.google !== "undefined" ? window.google : null);
   };
 
   const getPosition = () => {

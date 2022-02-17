@@ -6,16 +6,16 @@ exports[`CardCollectionSection component Card label doesn't render button if car
     class="CardCollectionSection"
   >
     <div
-      class="Section Section--pearl"
+      class="Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
     >
       <div
-        class="Container"
+        class="Container-module_Container__4e9IW"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
           >
             test title
           </h2>
@@ -23,36 +23,36 @@ exports[`CardCollectionSection component Card label doesn't render button if car
             class="RichText"
           >
             <p
-              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
             >
               test rich text
             </p>
           </div>
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
             >
               <button
-                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":null,\\"action\\":\\"visualiser\\"}"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="body"
+                  class="OverviewCard-module_body__ECyj2"
                 >
                   <h4
-                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                   >
                     test
                   </h4>
                   <div
-                    class="children text"
+                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                   />
                   <div
-                    class="footer"
+                    class="OverviewCard-module_footer__MMw-Y"
                   />
                 </div>
                 <span
@@ -104,16 +104,16 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
       class="CardCollectionSection"
     >
       <div
-        class="Section Section--pearl"
+        class="Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
       >
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
             >
               test title
             </h2>
@@ -121,16 +121,16 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
               class="RichText"
             >
               <p
-                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
               >
                 test rich text
               </p>
             </div>
             <div
-              class="wrapper wrapper--with-gutter"
+              class="Carousel-module_wrapper__PjLbh Carousel-module_wrapper--with-gutter__GKGGX"
             >
               <div
-                class="Carousel Carousel--opacity Carousel--with-gutter"
+                class="Carousel-module_Carousel__XzW0N Carousel-module_Carousel--opacity__zIODA Carousel-module_Carousel--with-gutter__CJq3m"
                 data-testid="carousel"
               >
                 <div
@@ -147,36 +147,36 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                       style="width: 100%; flex-shrink: 0; overflow: auto;"
                     >
                       <div
-                        class="page"
+                        class="Carousel-module_page__zUQNj"
                       >
                         <div
-                          class="slide"
+                          class="Carousel-module_slide__7h-hP"
                           style="width: 33.333333333333336%;"
                         >
                           <a
                             aria-disabled="false"
-                            class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                            class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                             data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
                             href="/en"
                             role="button"
                             tabindex="0"
                           >
                             <div
-                              class="body"
+                              class="OverviewCard-module_body__ECyj2"
                             >
                               <h4
-                                class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                                class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                               >
                                 test
                               </h4>
                               <div
-                                class="children text"
+                                class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                               />
                               <div
-                                class="footer"
+                                class="OverviewCard-module_footer__MMw-Y"
                               >
                                 <h6
-                                  class="MuiTypography-root date Typography MuiTypography-h6"
+                                  class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                                 >
                                   1 June 2021
                                 </h6>
@@ -224,16 +224,16 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
       class="CardCollectionSection"
     >
       <div
-        class="Section Section--pearl"
+        class="Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
       >
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
             >
               test title
             </h2>
@@ -243,35 +243,35 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
               test rich text
             </div>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         1 June 2021
                       </h6>
@@ -314,16 +314,16 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
       class="CardCollectionSection"
     >
       <div
-        class="Section Section--pearl"
+        class="Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
       >
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
             >
               test title
             </h2>
@@ -331,41 +331,41 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
               class="RichText"
             >
               <h2
-                class="MuiTypography-root title Typography MuiTypography-h2"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h2"
               >
                 test rich text
               </h2>
             </div>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         1 June 2021
                       </h6>
@@ -408,16 +408,16 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
       class="CardCollectionSection"
     >
       <div
-        class="Section Section--pearl"
+        class="Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
       >
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
             >
               test title
             </h2>
@@ -425,41 +425,41 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
               class="RichText"
             >
               <h3
-                class="MuiTypography-root title Typography MuiTypography-h3"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3"
               >
                 test rich text
               </h3>
             </div>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         1 June 2021
                       </h6>
@@ -502,16 +502,16 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
       class="CardCollectionSection"
     >
       <div
-        class="Section Section--pearl"
+        class="Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
       >
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
             >
               test title
             </h2>
@@ -519,41 +519,41 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
               class="RichText"
             >
               <h4
-                class="MuiTypography-root title Typography MuiTypography-h4"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h4"
               >
                 test rich text
               </h4>
             </div>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         1 June 2021
                       </h6>
@@ -596,16 +596,16 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
       class="CardCollectionSection"
     >
       <div
-        class="Section Section--pearl"
+        class="Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
       >
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
             >
               test title
             </h2>
@@ -613,41 +613,41 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
               class="RichText"
             >
               <h5
-                class="MuiTypography-root title Typography MuiTypography-h5"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h5"
               >
                 test rich text
               </h5>
             </div>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         1 June 2021
                       </h6>
@@ -690,16 +690,16 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
       class="CardCollectionSection"
     >
       <div
-        class="Section Section--pearl"
+        class="Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
       >
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
             >
               test title
             </h2>
@@ -707,41 +707,41 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
               class="RichText"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 test rich text
               </h6>
             </div>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         1 June 2021
                       </h6>
@@ -784,16 +784,16 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
       class="CardCollectionSection"
     >
       <div
-        class="Section Section--pearl"
+        class="Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
       >
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
             >
               test title
             </h2>
@@ -801,41 +801,41 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
               class="RichText"
             >
               <p
-                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
               >
                 
               </p>
             </div>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         1 June 2021
                       </h6>
@@ -878,16 +878,16 @@ exports[`CardCollectionSection component Renders correctly When when dialogConte
       class="CardCollectionSection"
     >
       <div
-        class="Section Section--pearl"
+        class="Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
       >
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
             >
               test title
             </h2>
@@ -895,41 +895,41 @@ exports[`CardCollectionSection component Renders correctly When when dialogConte
               class="RichText"
             >
               <p
-                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
               >
                 test rich text
               </p>
             </div>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         1 June 2021
                       </h6>
@@ -1004,21 +1004,21 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
       class="CardCollectionSection"
     >
       <div
-        class="Section Section--pearl"
+        class="Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
       >
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
             >
               test title
             </h2>
             <h3
-              class="MuiTypography-root Typography MuiTypography-h4"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h4"
             >
               MC: cardCollection.groupTitle
             </h3>
@@ -1029,7 +1029,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 class="chips"
               >
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT Chip-module_Chip--theme-white__HdsO- MuiChip-clickable"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Mushrooms\\",\\"action\\":\\"Selector – Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -1044,7 +1044,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT Chip-module_Chip--theme-white__HdsO- MuiChip-clickable"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Badgers\\",\\"action\\":\\"Selector – Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -1060,7 +1060,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 </div>
               </div>
               <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all AnchorLink-module_Anchorlink__OMERU AnchorLink-module_Anchorlink--disabled__YqlDg MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
@@ -1069,28 +1069,28 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
               </a>
             </div>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <div
-                  class="OverviewCard"
+                  class="OverviewCard-module_OverviewCard__eOihI"
                   type="button"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       Villain 1
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     />
                   </div>
                 </div>
@@ -1100,28 +1100,28 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         1. juni 2021
                       </h6>
@@ -1153,28 +1153,28 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test 2
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         2. juni 2021
                       </h6>
@@ -1206,28 +1206,28 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test 3
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         3. juni 2021
                       </h6>
@@ -1270,21 +1270,21 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
       class="CardCollectionSection"
     >
       <div
-        class="Section Section--pearl"
+        class="Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
       >
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
             >
               test title
             </h2>
             <h3
-              class="MuiTypography-root Typography MuiTypography-h4"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h4"
             >
               MC: cardCollection.groupTitle
             </h3>
@@ -1295,7 +1295,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 class="chips"
               >
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT Chip-module_Chip--theme-white__HdsO- MuiChip-clickable"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Mushrooms\\",\\"action\\":\\"Selector – Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -1310,7 +1310,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT Chip-module_Chip--theme-white__HdsO- MuiChip-clickable"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Badgers\\",\\"action\\":\\"Selector – Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -1326,7 +1326,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 </div>
               </div>
               <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all AnchorLink-module_Anchorlink__OMERU AnchorLink-module_Anchorlink--disabled__YqlDg MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
@@ -1335,35 +1335,35 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
               </a>
             </div>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test 3
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         3. juni 2021
                       </h6>
@@ -1395,28 +1395,28 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test 2
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         2. juni 2021
                       </h6>
@@ -1448,28 +1448,28 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         1. juni 2021
                       </h6>
@@ -1500,22 +1500,22 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <div
-                  class="OverviewCard"
+                  class="OverviewCard-module_OverviewCard__eOihI"
                   type="button"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       Villain 1
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     />
                   </div>
                 </div>
@@ -1536,21 +1536,21 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
       class="CardCollectionSection"
     >
       <div
-        class="Section Section--pearl"
+        class="Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
       >
         <div
-          class="Container"
+          class="Container-module_Container__4e9IW"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
             >
               test title
             </h2>
             <h3
-              class="MuiTypography-root Typography MuiTypography-h4"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h4"
             >
               MC: cardCollection.groupTitle
             </h3>
@@ -1561,7 +1561,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 class="chips"
               >
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT Chip-module_Chip--theme-white__HdsO- MuiChip-clickable"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Mushrooms\\",\\"action\\":\\"Selector – Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -1576,7 +1576,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT Chip-module_Chip--theme-white__HdsO- MuiChip-clickable"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Badgers\\",\\"action\\":\\"Selector – Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -1592,7 +1592,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 </div>
               </div>
               <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all AnchorLink-module_Anchorlink__OMERU AnchorLink-module_Anchorlink--disabled__YqlDg MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
@@ -1601,35 +1601,35 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
               </a>
             </div>
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         1. juni 2021
                       </h6>
@@ -1661,28 +1661,28 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test 2
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         2. juni 2021
                       </h6>
@@ -1714,28 +1714,28 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       test 3
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     >
                       <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
+                        class="MuiTypography-root date Typography-module_Typography__aA2Zb MuiTypography-h6"
                       >
                         3. juni 2021
                       </h6>
@@ -1766,22 +1766,22 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <div
-                  class="OverviewCard"
+                  class="OverviewCard-module_OverviewCard__eOihI"
                   type="button"
                 >
                   <div
-                    class="body"
+                    class="OverviewCard-module_body__ECyj2"
                   >
                     <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                      class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
                     >
                       Villain 1
                     </h4>
                     <div
-                      class="children text"
+                      class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                     />
                     <div
-                      class="footer"
+                      class="OverviewCard-module_footer__MMw-Y"
                     />
                   </div>
                 </div>

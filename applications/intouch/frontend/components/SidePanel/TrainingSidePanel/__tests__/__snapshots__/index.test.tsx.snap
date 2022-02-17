@@ -13,7 +13,7 @@ exports[`TrainingSidePanel component render no status text when status is missin
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc TextField-module_TextField--leftAdornment__9xLGN MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -143,19 +143,19 @@ exports[`TrainingSidePanel component render no status text when status is missin
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 Pitch Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   
                 </p>
@@ -199,7 +199,7 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc TextField-module_TextField--leftAdornment__9xLGN MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -329,23 +329,34 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 Flat Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 48"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 0h48v48H0z"
+                      fill="none"
+                    />
+                    <path
+                      d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>
@@ -381,19 +392,19 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 Pitch Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   enrolled
                 </p>
@@ -430,23 +441,30 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 Other Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 36.309"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.727 20.535V28.6L24 36.309 39.273 28.6v-8.065L24 28.24ZM24 0 0 12.1l24 12.1 19.636-9.9v13.94H48V12.1Z"
+                      fill="#3b3b3b"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>
@@ -489,7 +507,7 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc TextField-module_TextField--leftAdornment__9xLGN MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -605,7 +623,7 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
         </div>
       </div>
       <h5
-        class="MuiTypography-root noResult Typography MuiTypography-h5"
+        class="MuiTypography-root noResult Typography-module_Typography__aA2Zb MuiTypography-h5"
       >
         fallback.noResults
       </h5>
@@ -627,7 +645,7 @@ exports[`TrainingSidePanel component renders correctly when no technology is pas
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc TextField-module_TextField--leftAdornment__9xLGN MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -757,19 +775,19 @@ exports[`TrainingSidePanel component renders correctly when no technology is pas
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 Flat Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   
                 </p>
@@ -813,7 +831,7 @@ exports[`TrainingSidePanel component run filter correctly 1`] = `
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc TextField-module_TextField--leftAdornment__9xLGN MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -943,23 +961,34 @@ exports[`TrainingSidePanel component run filter correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 Flat Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 48"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 0h48v48H0z"
+                      fill="none"
+                    />
+                    <path
+                      d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>
@@ -995,19 +1024,19 @@ exports[`TrainingSidePanel component run filter correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 Pitch Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   enrolled
                 </p>
@@ -1044,23 +1073,30 @@ exports[`TrainingSidePanel component run filter correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 Other Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 36.309"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.727 20.535V28.6L24 36.309 39.273 28.6v-8.065L24 28.24ZM24 0 0 12.1l24 12.1 19.636-9.9v13.94H48V12.1Z"
+                      fill="#3b3b3b"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>
@@ -1103,7 +1139,7 @@ exports[`TrainingSidePanel component run onCourseSelected correctly when select 
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc TextField-module_TextField--leftAdornment__9xLGN MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1233,23 +1269,34 @@ exports[`TrainingSidePanel component run onCourseSelected correctly when select 
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 Flat Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 48"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 0h48v48H0z"
+                      fill="none"
+                    />
+                    <path
+                      d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>
@@ -1285,19 +1332,19 @@ exports[`TrainingSidePanel component run onCourseSelected correctly when select 
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 Pitch Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   enrolled
                 </p>
@@ -1334,23 +1381,30 @@ exports[`TrainingSidePanel component run onCourseSelected correctly when select 
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 Other Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 36.309"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.727 20.535V28.6L24 36.309 39.273 28.6v-8.065L24 28.24ZM24 0 0 12.1l24 12.1 19.636-9.9v13.94H48V12.1Z"
+                      fill="#3b3b3b"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>
@@ -1393,7 +1447,7 @@ exports[`TrainingSidePanel component run search correctly 1`] = `
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc TextField-module_TextField--leftAdornment__9xLGN MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1523,23 +1577,34 @@ exports[`TrainingSidePanel component run search correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 Flat Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 48"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 0h48v48H0z"
+                      fill="none"
+                    />
+                    <path
+                      d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>
@@ -1575,19 +1640,19 @@ exports[`TrainingSidePanel component run search correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 Pitch Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   enrolled
                 </p>
@@ -1624,23 +1689,30 @@ exports[`TrainingSidePanel component run search correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 Other Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 36.309"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.727 20.535V28.6L24 36.309 39.273 28.6v-8.065L24 28.24ZM24 0 0 12.1l24 12.1 19.636-9.9v13.94H48V12.1Z"
+                      fill="#3b3b3b"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>

@@ -267,7 +267,13 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                     >
                       <svg
                         class="external-link-icon"
-                      />
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                        />
+                      </svg>
                     </div>
                     <div
                       class="icon-container"
@@ -278,7 +284,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       class="info-icon-container"
                     >
                       <div
-                        class="Tooltip"
+                        class="Tooltip-module_Tooltip__zWahO"
                       >
                         <button
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-95 iconButtonStyles-42-94 iconButtonStyles-text-97"
@@ -323,7 +329,14 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         >
                           <svg
                             class="all-files-icon"
-                          />
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </span>
                         <span
                           class="MuiTouchRipple-root"
@@ -339,7 +352,13 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                     >
                       <svg
                         class="external-link-icon"
-                      />
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                        />
+                      </svg>
                     </div>
                     <div
                       class="icon-container"
@@ -350,7 +369,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       class="info-icon-container"
                     >
                       <div
-                        class="Tooltip"
+                        class="Tooltip-module_Tooltip__zWahO"
                       >
                         <button
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-95 iconButtonStyles-42-94 iconButtonStyles-text-97"
@@ -395,7 +414,14 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         >
                           <svg
                             class="all-files-icon"
-                          />
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </span>
                         <span
                           class="MuiTouchRipple-root"
@@ -469,7 +495,13 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                     >
                       <svg
                         class="external-link-icon"
-                      />
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                        />
+                      </svg>
                     </div>
                     <div
                       class="icon-container"
@@ -480,7 +512,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       class="info-icon-container"
                     >
                       <div
-                        class="Tooltip"
+                        class="Tooltip-module_Tooltip__zWahO"
                       >
                         <button
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-95 iconButtonStyles-42-94 iconButtonStyles-text-97"
@@ -525,7 +557,14 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         >
                           <svg
                             class="all-files-icon"
-                          />
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </span>
                         <span
                           class="MuiTouchRipple-root"
@@ -541,7 +580,13 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                     >
                       <svg
                         class="external-link-icon"
-                      />
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                        />
+                      </svg>
                     </div>
                     <div
                       class="icon-container"
@@ -552,7 +597,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                       class="info-icon-container"
                     >
                       <div
-                        class="Tooltip"
+                        class="Tooltip-module_Tooltip__zWahO"
                       >
                         <button
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-95 iconButtonStyles-42-94 iconButtonStyles-text-97"
@@ -597,7 +642,14 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
                         >
                           <svg
                             class="all-files-icon"
-                          />
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </span>
                         <span
                           class="MuiTouchRipple-root"
@@ -743,7 +795,13 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                     >
                       <svg
                         class="external-link-icon"
-                      />
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                        />
+                      </svg>
                     </div>
                     <div
                       class="icon-container"
@@ -754,7 +812,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                       class="info-icon-container"
                     >
                       <div
-                        class="Tooltip"
+                        class="Tooltip-module_Tooltip__zWahO"
                       >
                         <button
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-59 iconButtonStyles-42-58 iconButtonStyles-text-61"
@@ -799,7 +857,14 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         >
                           <svg
                             class="all-files-icon"
-                          />
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </span>
                         <span
                           class="MuiTouchRipple-root"
@@ -873,7 +938,13 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                     >
                       <svg
                         class="external-link-icon"
-                      />
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                        />
+                      </svg>
                     </div>
                     <div
                       class="icon-container"
@@ -884,7 +955,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                       class="info-icon-container"
                     >
                       <div
-                        class="Tooltip"
+                        class="Tooltip-module_Tooltip__zWahO"
                       >
                         <button
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-59 iconButtonStyles-42-58 iconButtonStyles-text-61"
@@ -929,7 +1000,14 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
                         >
                           <svg
                             class="all-files-icon"
-                          />
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </span>
                         <span
                           class="MuiTouchRipple-root"
@@ -1075,7 +1153,13 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
                     >
                       <svg
                         class="external-link-icon"
-                      />
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                        />
+                      </svg>
                     </div>
                     <div
                       class="icon-container"
@@ -1086,7 +1170,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
                       class="info-icon-container"
                     >
                       <div
-                        class="Tooltip"
+                        class="Tooltip-module_Tooltip__zWahO"
                       >
                         <button
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-23 iconButtonStyles-42-22 iconButtonStyles-text-25"
@@ -1131,7 +1215,14 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
                         >
                           <svg
                             class="all-files-icon"
-                          />
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </span>
                         <span
                           class="MuiTouchRipple-root"
@@ -1205,7 +1296,13 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
                     >
                       <svg
                         class="external-link-icon"
-                      />
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                        />
+                      </svg>
                     </div>
                     <div
                       class="icon-container"
@@ -1216,7 +1313,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
                       class="info-icon-container"
                     >
                       <div
-                        class="Tooltip"
+                        class="Tooltip-module_Tooltip__zWahO"
                       >
                         <button
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-23 iconButtonStyles-42-22 iconButtonStyles-text-25"
@@ -1261,7 +1358,14 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
                         >
                           <svg
                             class="all-files-icon"
-                          />
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
+                            />
+                          </svg>
                         </span>
                         <span
                           class="MuiTouchRipple-root"

@@ -3,16 +3,16 @@
 exports[`SystemConfiguratorSection component When returning from valid referer highlights last selected system 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -33,7 +33,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                 class="MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Question One: 
                   <span
@@ -84,10 +84,10 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
@@ -95,21 +95,21 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1a title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -124,10 +124,10 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
@@ -135,21 +135,21 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1b title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -164,11 +164,11 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
                           checked=""
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
@@ -176,21 +176,21 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1c title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -216,16 +216,16 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
   </div>
   <div>
     <div
-      class="SystemConfigurator-result Section Section--pearl"
+      class="SystemConfigurator-result Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
     >
       <div
-        class="Container"
+        class="Container-module_Container__4e9IW"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root Section-module_title__sia8j title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
           >
             Result Title
           </h2>
@@ -236,51 +236,52 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
               class="RichText"
             >
               <h3
-                class="MuiTypography-root title Typography MuiTypography-h3"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3"
               >
                 Rich Text heading 3
               </h3>
               <p
-                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
               >
                 Rich Text paragraph text
               </p>
             </div>
           </div>
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
+                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--highlighted__JotqJ OverviewCard-module_OverviewCard--clickable__r8kzu"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
+                data-testid="efgh"
                 href="/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
                 <img
                   alt="efgh name"
-                  class="header-picture Media Media--contain"
+                  class="OverviewCard-module_header-picture__uBGaH Media-module_Media__GKPD2 Media-module_Media--contain__O6qQ4"
                   src="product-listing-card-small-desktop-tablet"
                 />
                 <div
-                  class="body"
+                  class="OverviewCard-module_body__ECyj2"
                 >
                   <h5
-                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     efgh name
                   </h5>
                   <div
-                    class="children text"
+                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                   >
                     efgh description
                   </div>
                   <div
-                    class="footer"
+                    class="OverviewCard-module_footer__MMw-Y"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -314,16 +315,16 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
 exports[`SystemConfiguratorSection component When returning from valid referer removes query string from path 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -344,7 +345,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                 class="MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Question One: 
                   <span
@@ -395,10 +396,10 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
@@ -406,21 +407,21 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1a title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -435,10 +436,10 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
@@ -446,21 +447,21 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1b title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -475,11 +476,11 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
                           checked=""
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
@@ -487,21 +488,21 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1c title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -527,16 +528,16 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
   </div>
   <div>
     <div
-      class="SystemConfigurator-result Section Section--pearl"
+      class="SystemConfigurator-result Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
     >
       <div
-        class="Container"
+        class="Container-module_Container__4e9IW"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root Section-module_title__sia8j title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
           >
             Result Title
           </h2>
@@ -547,51 +548,52 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
               class="RichText"
             >
               <h3
-                class="MuiTypography-root title Typography MuiTypography-h3"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3"
               >
                 Rich Text heading 3
               </h3>
               <p
-                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
               >
                 Rich Text paragraph text
               </p>
             </div>
           </div>
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
+                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--highlighted__JotqJ OverviewCard-module_OverviewCard--clickable__r8kzu"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
+                data-testid="efgh"
                 href="/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
                 <img
                   alt="efgh name"
-                  class="header-picture Media Media--contain"
+                  class="OverviewCard-module_header-picture__uBGaH Media-module_Media__GKPD2 Media-module_Media--contain__O6qQ4"
                   src="product-listing-card-small-desktop-tablet"
                 />
                 <div
-                  class="body"
+                  class="OverviewCard-module_body__ECyj2"
                 >
                   <h5
-                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     efgh name
                   </h5>
                   <div
-                    class="children text"
+                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                   >
                     efgh description
                   </div>
                   <div
-                    class="footer"
+                    class="OverviewCard-module_footer__MMw-Y"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -625,16 +627,16 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
 exports[`SystemConfiguratorSection component redirect to 404 page if no matches to pimSystem code 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -655,7 +657,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                 class="MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Question One: 
                   <span
@@ -706,10 +708,10 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
@@ -717,21 +719,21 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1a title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -746,10 +748,10 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
@@ -757,21 +759,21 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1b title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -786,11 +788,11 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
                           checked=""
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
@@ -798,21 +800,21 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1c title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -838,16 +840,16 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
   </div>
   <div>
     <div
-      class="SystemConfigurator-result Section Section--pearl"
+      class="SystemConfigurator-result Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
     >
       <div
-        class="Container"
+        class="Container-module_Container__4e9IW"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root Section-module_title__sia8j title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
           >
             Result Title
           </h2>
@@ -858,12 +860,12 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
               class="RichText"
             >
               <h3
-                class="MuiTypography-root title Typography MuiTypography-h3"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3"
               >
                 Rich Text heading 3
               </h3>
               <p
-                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
               >
                 Rich Text paragraph text
               </p>
@@ -879,16 +881,16 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
 exports[`SystemConfiguratorSection component renders System Configurator Block with initial question and answer data 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -909,7 +911,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                 class="MuiAccordionSummary-content Mui-expanded"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Question One
                 </h3>
@@ -955,10 +957,10 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
@@ -966,21 +968,21 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1a title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -995,10 +997,10 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
@@ -1006,21 +1008,21 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1b title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1035,10 +1037,10 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
@@ -1046,21 +1048,21 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1c title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1090,16 +1092,16 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
 exports[`SystemConfiguratorSection component renders a no result section when answer clicked 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -1120,7 +1122,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                 class="MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Question One: 
                   <span
@@ -1171,10 +1173,10 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
@@ -1182,21 +1184,21 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1a title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1211,11 +1213,11 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
                           checked=""
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
@@ -1223,21 +1225,21 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1b title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1252,10 +1254,10 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
@@ -1263,21 +1265,21 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1c title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1303,16 +1305,16 @@ exports[`SystemConfiguratorSection component renders a no result section when an
   </div>
   <div>
     <div
-      class="Section Section--alabaster"
+      class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
     >
       <div
-        class="Container"
+        class="Container-module_Container__4e9IW"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
           >
             No Result Title
           </h2>
@@ -1320,12 +1322,12 @@ exports[`SystemConfiguratorSection component renders a no result section when an
             class="RichText"
           >
             <h3
-              class="MuiTypography-root title Typography MuiTypography-h3"
+              class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3"
             >
               Rich Text heading 3
             </h3>
             <p
-              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
             >
               Rich Text paragraph text
             </p>
@@ -1340,16 +1342,16 @@ exports[`SystemConfiguratorSection component renders a no result section when an
 exports[`SystemConfiguratorSection component renders a result section when answer clicked 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -1370,7 +1372,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                 class="MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Question One: 
                   <span
@@ -1421,10 +1423,10 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
@@ -1432,21 +1434,21 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1a title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1461,10 +1463,10 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
@@ -1472,21 +1474,21 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1b title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1501,11 +1503,11 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
                           checked=""
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
@@ -1513,21 +1515,21 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1c title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1553,16 +1555,16 @@ exports[`SystemConfiguratorSection component renders a result section when answe
   </div>
   <div>
     <div
-      class="SystemConfigurator-result Section Section--pearl"
+      class="SystemConfigurator-result Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
     >
       <div
-        class="Container"
+        class="Container-module_Container__4e9IW"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root Section-module_title__sia8j title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
           >
             Result Title
           </h2>
@@ -1573,51 +1575,52 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               class="RichText"
             >
               <h3
-                class="MuiTypography-root title Typography MuiTypography-h3"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3"
               >
                 Rich Text heading 3
               </h3>
               <p
-                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
               >
                 Rich Text paragraph text
               </p>
             </div>
           </div>
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
+                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--highlighted__JotqJ OverviewCard-module_OverviewCard--clickable__r8kzu"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
+                data-testid="efgh"
                 href="/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
                 <img
                   alt="efgh name"
-                  class="header-picture Media Media--contain"
+                  class="OverviewCard-module_header-picture__uBGaH Media-module_Media__GKPD2 Media-module_Media--contain__O6qQ4"
                   src="product-listing-card-small-desktop-tablet"
                 />
                 <div
-                  class="body"
+                  class="OverviewCard-module_body__ECyj2"
                 >
                   <h5
-                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     efgh name
                   </h5>
                   <div
-                    class="children text"
+                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                   >
                     efgh description
                   </div>
                   <div
-                    class="footer"
+                    class="OverviewCard-module_footer__MMw-Y"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -1651,16 +1654,16 @@ exports[`SystemConfiguratorSection component renders a result section when answe
 exports[`SystemConfiguratorSection component renders an expanded panel when previous panel is clicked 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -1681,7 +1684,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                 class="MuiAccordionSummary-content Mui-expanded"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Question One: 
                   <span
@@ -1732,10 +1735,10 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
@@ -1743,21 +1746,21 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1a title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1772,10 +1775,10 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
@@ -1783,21 +1786,21 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1b title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1812,11 +1815,11 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
                           checked=""
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
@@ -1824,21 +1827,21 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1c title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1876,7 +1879,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                 class="MuiAccordionSummary-content Mui-expanded"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Next Question Title
                 </h3>
@@ -1922,10 +1925,10 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title A\\"}"
                           name="Next Question Title"
                           type="radio"
@@ -1933,21 +1936,21 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Next Answer Title A
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1962,10 +1965,10 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title B\\"}"
                           name="Next Question Title"
                           type="radio"
@@ -1973,21 +1976,21 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Next Answer Title B
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -2017,16 +2020,16 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
 exports[`SystemConfiguratorSection component renders correctly 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -2039,16 +2042,16 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
 exports[`SystemConfiguratorSection component renders next question and answer block when answer clicked 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -2069,7 +2072,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                 class="MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Question One: 
                   <span
@@ -2104,7 +2107,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
               </div>
             </div>
             <div
-              class="MuiCollapse-root"
+              class="MuiCollapse-root MuiCollapse-hidden"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
@@ -2120,10 +2123,10 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
@@ -2131,21 +2134,21 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1a title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -2160,10 +2163,10 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
@@ -2171,21 +2174,21 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1b title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -2200,11 +2203,11 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
                           checked=""
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
@@ -2212,21 +2215,21 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1c title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -2264,7 +2267,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                 class="MuiAccordionSummary-content Mui-expanded"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Next Question Title
                 </h3>
@@ -2310,10 +2313,10 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title A\\"}"
                           name="Next Question Title"
                           type="radio"
@@ -2321,21 +2324,21 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Next Answer Title A
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -2350,10 +2353,10 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title B\\"}"
                           name="Next Question Title"
                           type="radio"
@@ -2361,21 +2364,21 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Next Answer Title B
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -2405,16 +2408,16 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
 exports[`SystemConfiguratorSection component renders no result section while ignoring assets other than image 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -2435,7 +2438,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                 class="MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Question One: 
                   <span
@@ -2486,10 +2489,10 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
@@ -2497,21 +2500,21 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1a title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -2526,11 +2529,11 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
                           checked=""
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
@@ -2538,21 +2541,21 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1b title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -2567,10 +2570,10 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
@@ -2578,21 +2581,21 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1c title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -2618,16 +2621,16 @@ exports[`SystemConfiguratorSection component renders no result section while ign
   </div>
   <div>
     <div
-      class="Section Section--alabaster"
+      class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
     >
       <div
-        class="Container"
+        class="Container-module_Container__4e9IW"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
           >
             No Result Title
           </h2>
@@ -2644,16 +2647,16 @@ exports[`SystemConfiguratorSection component renders no result section while ign
 exports[`SystemConfiguratorSection component renders no result section while ignoring invalid asset references 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -2674,7 +2677,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                 class="MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Question One: 
                   <span
@@ -2725,10 +2728,10 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
@@ -2736,21 +2739,21 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1a title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -2765,11 +2768,11 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
                           checked=""
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
@@ -2777,21 +2780,21 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1b title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -2806,10 +2809,10 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
@@ -2817,21 +2820,21 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1c title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -2857,16 +2860,16 @@ exports[`SystemConfiguratorSection component renders no result section while ign
   </div>
   <div>
     <div
-      class="Section Section--alabaster"
+      class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
     >
       <div
-        class="Container"
+        class="Container-module_Container__4e9IW"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
           >
             No Result Title
           </h2>
@@ -2883,16 +2886,16 @@ exports[`SystemConfiguratorSection component renders no result section while ign
 exports[`SystemConfiguratorSection component renders no result section with the correct image url 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -2913,7 +2916,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                 class="MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Question One: 
                   <span
@@ -2964,10 +2967,10 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
@@ -2975,21 +2978,21 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1a title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -3004,11 +3007,11 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
                           checked=""
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
@@ -3016,21 +3019,21 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1b title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -3045,10 +3048,10 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
@@ -3056,21 +3059,21 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1c title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -3096,16 +3099,16 @@ exports[`SystemConfiguratorSection component renders no result section with the 
   </div>
   <div>
     <div
-      class="Section Section--alabaster"
+      class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
     >
       <div
-        class="Container"
+        class="Container-module_Container__4e9IW"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
           >
             No Result Title
           </h2>
@@ -3128,16 +3131,16 @@ exports[`SystemConfiguratorSection component renders no result section with the 
 exports[`SystemConfiguratorSection component renders only max of 4 recommendedSystems 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -3158,7 +3161,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                 class="MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Question One: 
                   <span
@@ -3209,10 +3212,10 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
@@ -3220,21 +3223,21 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1a title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -3249,10 +3252,10 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
@@ -3260,21 +3263,21 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1b title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -3289,11 +3292,11 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
                           checked=""
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
@@ -3301,21 +3304,21 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1c title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -3341,16 +3344,16 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
   </div>
   <div>
     <div
-      class="SystemConfigurator-result Section Section--pearl"
+      class="SystemConfigurator-result Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
     >
       <div
-        class="Container"
+        class="Container-module_Container__4e9IW"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root Section-module_title__sia8j title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
           >
             Result Title
           </h2>
@@ -3361,44 +3364,45 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               class="RichText"
             >
               <h3
-                class="MuiTypography-root title Typography MuiTypography-h3"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3"
               >
                 Rich Text heading 3
               </h3>
               <p
-                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
               >
                 Rich Text paragraph text
               </p>
             </div>
           </div>
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
+                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--highlighted__JotqJ OverviewCard-module_OverviewCard--clickable__r8kzu"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/s/ijkl-name-2172393344/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
+                data-testid="ijkl"
                 href="/no/s/ijkl-name-2172393344/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="body"
+                  class="OverviewCard-module_body__ECyj2"
                 >
                   <h5
-                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     ijkl name
                   </h5>
                   <div
-                    class="children text"
+                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                   />
                   <div
-                    class="footer"
+                    class="OverviewCard-module_footer__MMw-Y"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -3422,29 +3426,30 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               </a>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
+                data-testid="efgh"
                 href="/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="body"
+                  class="OverviewCard-module_body__ECyj2"
                 >
                   <h5
-                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     efgh name
                   </h5>
                   <div
-                    class="children text"
+                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                   />
                   <div
-                    class="footer"
+                    class="OverviewCard-module_footer__MMw-Y"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -3468,29 +3473,30 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               </a>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"abcd name\\",\\"action\\":\\"/no/s/abcd-name-1139631978/?selected_system=abcd&prev_page=/test-path&referer=sys_details\\"}"
+                data-testid="abcd"
                 href="/no/s/abcd-name-1139631978/?selected_system=abcd&prev_page=/test-path&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="body"
+                  class="OverviewCard-module_body__ECyj2"
                 >
                   <h5
-                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     abcd name
                   </h5>
                   <div
-                    class="children text"
+                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                   />
                   <div
-                    class="footer"
+                    class="OverviewCard-module_footer__MMw-Y"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -3514,29 +3520,30 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               </a>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"mnop name\\",\\"action\\":\\"/no/s/mnop-name-2284218567/?selected_system=mnop&prev_page=/test-path&referer=sys_details\\"}"
+                data-testid="mnop"
                 href="/no/s/mnop-name-2284218567/?selected_system=mnop&prev_page=/test-path&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="body"
+                  class="OverviewCard-module_body__ECyj2"
                 >
                   <h5
-                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     mnop name
                   </h5>
                   <div
-                    class="children text"
+                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                   />
                   <div
-                    class="footer"
+                    class="OverviewCard-module_footer__MMw-Y"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -3570,16 +3577,16 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
 exports[`SystemConfiguratorSection component renders only the recommendedSystems that match the pimSystem list from contentful 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -3600,7 +3607,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                 class="MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Question One: 
                   <span
@@ -3651,10 +3658,10 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
@@ -3662,21 +3669,21 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1a title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -3691,10 +3698,10 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
@@ -3702,21 +3709,21 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1b title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -3731,11 +3738,11 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
                           checked=""
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
@@ -3743,21 +3750,21 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1c title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -3783,16 +3790,16 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
   </div>
   <div>
     <div
-      class="SystemConfigurator-result Section Section--pearl"
+      class="SystemConfigurator-result Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
     >
       <div
-        class="Container"
+        class="Container-module_Container__4e9IW"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
-            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root Section-module_title__sia8j title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
           >
             Result Title
           </h2>
@@ -3803,44 +3810,45 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               class="RichText"
             >
               <h3
-                class="MuiTypography-root title Typography MuiTypography-h3"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3"
               >
                 Rich Text heading 3
               </h3>
               <p
-                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
               >
                 Rich Text paragraph text
               </p>
             </div>
           </div>
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
+                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--highlighted__JotqJ OverviewCard-module_OverviewCard--clickable__r8kzu"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/s/ijkl-name-2172393344/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
+                data-testid="ijkl"
                 href="/no/s/ijkl-name-2172393344/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="body"
+                  class="OverviewCard-module_body__ECyj2"
                 >
                   <h5
-                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     ijkl name
                   </h5>
                   <div
-                    class="children text"
+                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                   />
                   <div
-                    class="footer"
+                    class="OverviewCard-module_footer__MMw-Y"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -3864,36 +3872,37 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               </a>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
                 data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
+                data-testid="efgh"
                 href="/no/s/efgh-name-635154487/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
                 <img
                   alt="efgh name"
-                  class="header-picture Media Media--contain"
+                  class="OverviewCard-module_header-picture__uBGaH Media-module_Media__GKPD2 Media-module_Media--contain__O6qQ4"
                   src="product-listing-card-small-desktop-tablet"
                 />
                 <div
-                  class="body"
+                  class="OverviewCard-module_body__ECyj2"
                 >
                   <h5
-                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     efgh name
                   </h5>
                   <div
-                    class="children text"
+                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
                   >
                     efgh description
                   </div>
                   <div
-                    class="footer"
+                    class="OverviewCard-module_footer__MMw-Y"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -3927,16 +3936,16 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
 exports[`SystemConfiguratorSection component renders skipping a block with only one answer 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -3957,7 +3966,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                 class="MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Question One: 
                   <span
@@ -4008,10 +4017,10 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
@@ -4019,21 +4028,21 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1a title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -4048,10 +4057,10 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
@@ -4059,21 +4068,21 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1b title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -4088,11 +4097,11 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
                           checked=""
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
@@ -4100,21 +4109,21 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1c title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -4152,7 +4161,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                 class="MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Skipped Title: 
                   <span
@@ -4203,11 +4212,11 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
                           checked=""
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Skipped Title\\",\\"action\\":\\"Skipped Answer Title\\"}"
                           name="Skipped Title"
                           type="radio"
@@ -4215,21 +4224,21 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Skipped Answer Title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -4267,7 +4276,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                 class="MuiAccordionSummary-content Mui-expanded"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Next Question Title
                 </h3>
@@ -4313,10 +4322,10 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title A\\"}"
                           name="Next Question Title"
                           type="radio"
@@ -4324,21 +4333,21 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Next Answer Title A
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -4353,10 +4362,10 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title B\\"}"
                           name="Next Question Title"
                           type="radio"
@@ -4364,21 +4373,21 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Next Answer Title B
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -4408,16 +4417,16 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
 exports[`SystemConfiguratorSection component renders toggled closed configurator panel 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -4438,7 +4447,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                 class="MuiAccordionSummary-content"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Question One: 
                   <span
@@ -4489,10 +4498,10 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1a title\\"}"
                           name="Question One"
                           type="radio"
@@ -4500,21 +4509,21 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1a title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -4529,10 +4538,10 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1b title\\"}"
                           name="Question One"
                           type="radio"
@@ -4540,21 +4549,21 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1b title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -4569,11 +4578,11 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
                           checked=""
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Question One\\",\\"action\\":\\"Answer 1c title\\"}"
                           name="Question One"
                           type="radio"
@@ -4581,21 +4590,21 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Answer 1c title
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -4633,7 +4642,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                 class="MuiAccordionSummary-content Mui-expanded"
               >
                 <h3
-                  class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
                 >
                   Next Question Title
                 </h3>
@@ -4679,10 +4688,10 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                       class="MuiAccordionDetails-root details"
                     >
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title A\\"}"
                           name="Next Question Title"
                           type="radio"
@@ -4690,21 +4699,21 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Next Answer Title A
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -4719,10 +4728,10 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                         </div>
                       </label>
                       <label
-                        class="RadioPane"
+                        class="RadioPane-module_RadioPane__UvK8J"
                       >
                         <input
-                          class="input"
+                          class="RadioPane-module_input__QFLB8"
                           data-gtm="{\\"id\\":\\"system-configurator01-selected\\",\\"label\\":\\"Next Question Title\\",\\"action\\":\\"Next Answer Title B\\"}"
                           name="Next Question Title"
                           type="radio"
@@ -4730,21 +4739,21 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                         />
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root pane"
+                          class="MuiButtonBase-root RadioPane-module_pane__hADBV"
                           role="button"
                           tabindex="-1"
                         >
                           <div
-                            class="header"
+                            class="RadioPane-module_header__XMVbS"
                           >
                             <h6
-                              class="MuiTypography-root title Typography MuiTypography-h6"
+                              class="MuiTypography-root RadioPane-module_title__jOwMU Typography-module_Typography__aA2Zb MuiTypography-h6"
                             >
                               Next Answer Title B
                             </h6>
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root checkedIcon"
+                              class="MuiSvgIcon-root RadioPane-module_checkedIcon__NuG2y"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -4774,16 +4783,16 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
 exports[`SystemConfiguratorSection component renders with description rich text 1`] = `
 <div>
   <div
-    class="SystemConfigurator Section Section--white"
+    class="SystemConfigurator Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           System Configurator Section Title
         </h2>
@@ -4791,12 +4800,12 @@ exports[`SystemConfiguratorSection component renders with description rich text 
           class="RichText"
         >
           <h3
-            class="MuiTypography-root title Typography MuiTypography-h3"
+            class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3"
           >
             Rich Text heading 3
           </h3>
           <p
-            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
           >
             Rich Text paragraph text
           </p>

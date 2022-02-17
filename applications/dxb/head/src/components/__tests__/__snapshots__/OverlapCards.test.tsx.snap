@@ -6,38 +6,38 @@ exports[`IntegratedOverlapCards component renders correctly 1`] = `
     class="OverlapCards"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+          class="MuiGrid-root Grid-module_Grid--justifyContent__EK865 MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root Card"
+              class="MuiButtonBase-root CTACard-module_Card__5X-42"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
               href="/uk/some-page"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                class="MuiPaper-root MuiCard-root CTACard-module_body__GLU4A MuiPaper-elevation1 MuiPaper-rounded"
               >
                 <section
-                  class="top-box"
+                  class="CTACard-module_top-box__xUGLG"
                 >
                   <h5
-                    class="MuiTypography-root heading Typography MuiTypography-h5"
+                    class="MuiTypography-root CTACard-module_heading__YmdeX Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Call to action
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
+                      class="MuiSvgIcon-root CTACard-module_icon__o1CZW"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -48,7 +48,7 @@ exports[`IntegratedOverlapCards component renders correctly 1`] = `
                   </h5>
                 </section>
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained image Media"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained CTACard-module_image__WhZl7 Media-module_Media__GKPD2"
                   data-gatsby-image-wrapper=""
                   style="overflow: hidden; display: inline-block;"
                 >
@@ -101,29 +101,29 @@ exports[`IntegratedOverlapCards component renders correctly 1`] = `
             </a>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root Card"
+              class="MuiButtonBase-root CTACard-module_Card__5X-42"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
               href="/uk/some-page"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                class="MuiPaper-root MuiCard-root CTACard-module_body__GLU4A MuiPaper-elevation1 MuiPaper-rounded"
               >
                 <section
-                  class="top-box"
+                  class="CTACard-module_top-box__xUGLG"
                 >
                   <h5
-                    class="MuiTypography-root heading Typography MuiTypography-h5"
+                    class="MuiTypography-root CTACard-module_heading__YmdeX Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Call to action
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
+                      class="MuiSvgIcon-root CTACard-module_icon__o1CZW"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -134,7 +134,7 @@ exports[`IntegratedOverlapCards component renders correctly 1`] = `
                   </h5>
                 </section>
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained image Media"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained CTACard-module_image__WhZl7 Media-module_Media__GKPD2"
                   data-gatsby-image-wrapper=""
                   style="overflow: hidden; display: inline-block;"
                 >
@@ -187,29 +187,29 @@ exports[`IntegratedOverlapCards component renders correctly 1`] = `
             </a>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
           >
             <div
-              class="Card"
+              class="CTACard-module_Card__5X-42"
             >
               <div
-                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                class="MuiPaper-root MuiCard-root CTACard-module_body__GLU4A MuiPaper-elevation1 MuiPaper-rounded"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root top-box"
+                  class="MuiButtonBase-root CTACard-module_top-box__xUGLG"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card with Video\\",\\"action\\":\\"/uk/some-page\\"}"
                   href="/uk/some-page"
                   role="button"
                   tabindex="0"
                 >
                   <h5
-                    class="MuiTypography-root heading Typography MuiTypography-h5"
+                    class="MuiTypography-root CTACard-module_heading__YmdeX Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Card with Video
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
+                      class="MuiSvgIcon-root CTACard-module_icon__o1CZW"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -223,18 +223,18 @@ exports[`IntegratedOverlapCards component renders correctly 1`] = `
                   />
                 </a>
                 <div
-                  class="image Media"
+                  class="CTACard-module_image__WhZl7 Media-module_Media__GKPD2"
                 >
                   <div
-                    class="YoutubeVideo"
+                    class="YoutubeVideo-module_YoutubeVideo__uwD32"
                   >
                     <button
                       aria-label="video label"
-                      class="thumbnail"
+                      class="YoutubeVideo-module_thumbnail__tM38Y"
                       type="button"
                     >
                       <div
-                        class="gatsby-image-wrapper gatsby-image-wrapper-constrained preview-image"
+                        class="gatsby-image-wrapper gatsby-image-wrapper-constrained YoutubeVideo-module_preview-image__x88z4"
                         data-gatsby-image-wrapper=""
                         style="overflow: hidden; display: inline-block;"
                       >
@@ -281,13 +281,13 @@ exports[`IntegratedOverlapCards component renders correctly 1`] = `
                         </script>
                       </div>
                       <span
-                        class="AlternativeContent"
+                        class="AlternativeContent-module_AlternativeContent__qJWek"
                       >
                         video label
                       </span>
                       <div
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 play-button"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 YoutubeVideo-module_play-button__OYvCK"
                         role="button"
                         tabindex="0"
                       >
@@ -328,38 +328,38 @@ exports[`OverlapCards component renders correctly 1`] = `
     class="OverlapCards"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+          class="MuiGrid-root Grid-module_Grid--justifyContent__EK865 MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root Card"
+              class="MuiButtonBase-root CTACard-module_Card__5X-42"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
               href="/uk/some-page"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                class="MuiPaper-root MuiCard-root CTACard-module_body__GLU4A MuiPaper-elevation1 MuiPaper-rounded"
               >
                 <section
-                  class="top-box"
+                  class="CTACard-module_top-box__xUGLG"
                 >
                   <h5
-                    class="MuiTypography-root heading Typography MuiTypography-h5"
+                    class="MuiTypography-root CTACard-module_heading__YmdeX Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Call to action
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
+                      class="MuiSvgIcon-root CTACard-module_icon__o1CZW"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -370,7 +370,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                   </h5>
                 </section>
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained image Media"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained CTACard-module_image__WhZl7 Media-module_Media__GKPD2"
                   data-gatsby-image-wrapper=""
                   style="overflow: hidden; display: inline-block;"
                 >
@@ -423,29 +423,29 @@ exports[`OverlapCards component renders correctly 1`] = `
             </a>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root Card"
+              class="MuiButtonBase-root CTACard-module_Card__5X-42"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
               href="/uk/some-page"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                class="MuiPaper-root MuiCard-root CTACard-module_body__GLU4A MuiPaper-elevation1 MuiPaper-rounded"
               >
                 <section
-                  class="top-box"
+                  class="CTACard-module_top-box__xUGLG"
                 >
                   <h5
-                    class="MuiTypography-root heading Typography MuiTypography-h5"
+                    class="MuiTypography-root CTACard-module_heading__YmdeX Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Call to action
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
+                      class="MuiSvgIcon-root CTACard-module_icon__o1CZW"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -456,7 +456,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                   </h5>
                 </section>
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained image Media"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained CTACard-module_image__WhZl7 Media-module_Media__GKPD2"
                   data-gatsby-image-wrapper=""
                   style="overflow: hidden; display: inline-block;"
                 >
@@ -509,29 +509,29 @@ exports[`OverlapCards component renders correctly 1`] = `
             </a>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
           >
             <div
-              class="Card"
+              class="CTACard-module_Card__5X-42"
             >
               <div
-                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                class="MuiPaper-root MuiCard-root CTACard-module_body__GLU4A MuiPaper-elevation1 MuiPaper-rounded"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root top-box"
+                  class="MuiButtonBase-root CTACard-module_top-box__xUGLG"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card with Video\\",\\"action\\":\\"/uk/some-page\\"}"
                   href="/uk/some-page"
                   role="button"
                   tabindex="0"
                 >
                   <h5
-                    class="MuiTypography-root heading Typography MuiTypography-h5"
+                    class="MuiTypography-root CTACard-module_heading__YmdeX Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     Card with Video
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
+                      class="MuiSvgIcon-root CTACard-module_icon__o1CZW"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -545,18 +545,18 @@ exports[`OverlapCards component renders correctly 1`] = `
                   />
                 </a>
                 <div
-                  class="image Media"
+                  class="CTACard-module_image__WhZl7 Media-module_Media__GKPD2"
                 >
                   <div
-                    class="YoutubeVideo"
+                    class="YoutubeVideo-module_YoutubeVideo__uwD32"
                   >
                     <button
                       aria-label="video label"
-                      class="thumbnail"
+                      class="YoutubeVideo-module_thumbnail__tM38Y"
                       type="button"
                     >
                       <div
-                        class="gatsby-image-wrapper gatsby-image-wrapper-constrained preview-image"
+                        class="gatsby-image-wrapper gatsby-image-wrapper-constrained YoutubeVideo-module_preview-image__x88z4"
                         data-gatsby-image-wrapper=""
                         style="overflow: hidden; display: inline-block;"
                       >
@@ -603,13 +603,13 @@ exports[`OverlapCards component renders correctly 1`] = `
                         </script>
                       </div>
                       <span
-                        class="AlternativeContent"
+                        class="AlternativeContent-module_AlternativeContent__qJWek"
                       >
                         video label
                       </span>
                       <div
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 YoutubeVideo-module_play-button__OYvCK"
                         role="button"
                         tabindex="0"
                       >

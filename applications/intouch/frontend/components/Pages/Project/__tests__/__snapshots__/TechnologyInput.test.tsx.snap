@@ -3,40 +3,51 @@
 exports[`TechnologyInput should render correctly 1`] = `
 <div>
   <div
-    class="RadioGroup"
+    class="RadioGroup-module_RadioGroup__v57CZ"
   >
     <div
-      class="container"
+      class="RadioGroup-module_container__e6YSI"
     >
       <div
         class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-md-6"
         >
           <div
-            class="RadioButton"
+            class="RadioButton-module_RadioButton__l7GOG"
           >
             <input
-              class="input"
+              class="RadioButton-module_input__xnTZu"
               id="radio-technology-PITCHED"
               name="technology"
               type="radio"
               value="PITCHED"
             />
             <label
-              class="label"
+              class="RadioButton-module_label__uUjxg"
               for="radio-technology-PITCHED"
             >
               <div
                 aria-disabled="false"
-                class="MuiButtonBase-root text"
+                class="MuiButtonBase-root RadioButton-module_text__dvrjI"
                 role="button"
                 tabindex="-1"
               >
                 <svg
                   class="technologyIcon"
-                />
+                  viewBox="0 0 48 44.488"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h48v44.488H0z"
+                    fill="none"
+                  />
+                  <path
+                    d="M24 3 1 20.961l2.53 3.4 3.743-2.929v20.056h33.454V21.431l3.743 2.908L47 20.961Z"
+                    fill="currentColor"
+                  />
+                </svg>
                 addProject.dialog.form.values.technology.PITCHED
                 <span
                   class="MuiTouchRipple-root"
@@ -45,38 +56,48 @@ exports[`TechnologyInput should render correctly 1`] = `
             </label>
           </div>
           <div
-            class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+            class="MuiTypography-root technologyCaption Typography-module_Typography__aA2Zb MuiTypography-caption"
           >
             addProject.dialog.form.hints.technology.PITCHED
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-md-6"
         >
           <div
-            class="RadioButton"
+            class="RadioButton-module_RadioButton__l7GOG"
           >
             <input
-              class="input"
+              class="RadioButton-module_input__xnTZu"
               id="radio-technology-FLAT"
               name="technology"
               type="radio"
               value="FLAT"
             />
             <label
-              class="label"
+              class="RadioButton-module_label__uUjxg"
               for="radio-technology-FLAT"
             >
               <div
                 aria-disabled="false"
-                class="MuiButtonBase-root text"
+                class="MuiButtonBase-root RadioButton-module_text__dvrjI"
                 role="button"
                 tabindex="-1"
               >
                 <svg
                   class="technologyIcon"
                   viewBox="0 7 48 48"
-                />
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h48v48H0z"
+                    fill="none"
+                  />
+                  <path
+                    d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                    fill="currentColor"
+                  />
+                </svg>
                 addProject.dialog.form.values.technology.FLAT
                 <span
                   class="MuiTouchRipple-root"
@@ -85,7 +106,7 @@ exports[`TechnologyInput should render correctly 1`] = `
             </label>
           </div>
           <div
-            class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+            class="MuiTypography-root technologyCaption Typography-module_Typography__aA2Zb MuiTypography-caption"
           >
             addProject.dialog.form.hints.technology.FLAT
           </div>
@@ -99,22 +120,22 @@ exports[`TechnologyInput should render correctly 1`] = `
 exports[`TechnologyInput should render disabled 1`] = `
 <div>
   <div
-    class="RadioGroup"
+    class="RadioGroup-module_RadioGroup__v57CZ"
   >
     <div
-      class="container"
+      class="RadioGroup-module_container__e6YSI"
     >
       <div
         class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-md-6"
         >
           <div
-            class="RadioButton RadioButton--disabled"
+            class="RadioButton-module_RadioButton__l7GOG RadioButton-module_RadioButton--disabled__vlev1"
           >
             <input
-              class="input"
+              class="RadioButton-module_input__xnTZu"
               disabled=""
               id="radio-technology-PITCHED"
               name="technology"
@@ -122,36 +143,47 @@ exports[`TechnologyInput should render disabled 1`] = `
               value="PITCHED"
             />
             <label
-              class="label"
+              class="RadioButton-module_label__uUjxg"
               for="radio-technology-PITCHED"
             >
               <div
                 aria-disabled="true"
-                class="MuiButtonBase-root text Mui-disabled"
+                class="MuiButtonBase-root RadioButton-module_text__dvrjI Mui-disabled"
                 role="button"
                 tabindex="-1"
               >
                 <svg
                   class="technologyIcon"
-                />
+                  viewBox="0 0 48 44.488"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h48v44.488H0z"
+                    fill="none"
+                  />
+                  <path
+                    d="M24 3 1 20.961l2.53 3.4 3.743-2.929v20.056h33.454V21.431l3.743 2.908L47 20.961Z"
+                    fill="currentColor"
+                  />
+                </svg>
                 addProject.dialog.form.values.technology.PITCHED
               </div>
             </label>
           </div>
           <div
-            class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+            class="MuiTypography-root technologyCaption Typography-module_Typography__aA2Zb MuiTypography-caption"
           >
             addProject.dialog.form.hints.technology.PITCHED
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+          class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-md-6"
         >
           <div
-            class="RadioButton RadioButton--disabled"
+            class="RadioButton-module_RadioButton__l7GOG RadioButton-module_RadioButton--disabled__vlev1"
           >
             <input
-              class="input"
+              class="RadioButton-module_input__xnTZu"
               disabled=""
               id="radio-technology-FLAT"
               name="technology"
@@ -159,25 +191,35 @@ exports[`TechnologyInput should render disabled 1`] = `
               value="FLAT"
             />
             <label
-              class="label"
+              class="RadioButton-module_label__uUjxg"
               for="radio-technology-FLAT"
             >
               <div
                 aria-disabled="true"
-                class="MuiButtonBase-root text Mui-disabled"
+                class="MuiButtonBase-root RadioButton-module_text__dvrjI Mui-disabled"
                 role="button"
                 tabindex="-1"
               >
                 <svg
                   class="technologyIcon"
                   viewBox="0 7 48 48"
-                />
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h48v48H0z"
+                    fill="none"
+                  />
+                  <path
+                    d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                    fill="currentColor"
+                  />
+                </svg>
                 addProject.dialog.form.values.technology.FLAT
               </div>
             </label>
           </div>
           <div
-            class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+            class="MuiTypography-root technologyCaption Typography-module_Typography__aA2Zb MuiTypography-caption"
           >
             addProject.dialog.form.hints.technology.FLAT
           </div>

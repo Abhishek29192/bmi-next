@@ -13,7 +13,7 @@ exports[`ProjectSidePanel component renders correctly 1`] = `
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc TextField-module_TextField--leftAdornment__9xLGN MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -169,23 +169,34 @@ exports[`ProjectSidePanel component renders correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 test
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   LONDON, N11 111
                 </p>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="display: flex;"
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 48"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 0h48v48H0z"
+                      fill="none"
+                    />
+                    <path
+                      d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                   filters.labels.IN_PROGRESS
                 </p>
               </div>
@@ -233,7 +244,7 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc TextField-module_TextField--leftAdornment__9xLGN MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -389,23 +400,34 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 test 1
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   LONDON, N11 111
                 </p>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="display: flex;"
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 48"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 0h48v48H0z"
+                      fill="none"
+                    />
+                    <path
+                      d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                   filters.labels.COMPLETED
                 </p>
               </div>
@@ -439,23 +461,34 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 test 2
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   LONDON, N11 111
                 </p>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="display: flex;"
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 44.488"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 0h48v44.488H0z"
+                      fill="none"
+                    />
+                    <path
+                      d="M24 3 1 20.961l2.53 3.4 3.743-2.929v20.056h33.454V21.431l3.743 2.908L47 20.961Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                   filters.labels.IN_PROGRESS
                 </p>
               </div>
@@ -489,23 +522,34 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 test 3
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                 >
                   LONDON, N11 111
                 </p>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
                   style="display: flex;"
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 48"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 0h48v48H0z"
+                      fill="none"
+                    />
+                    <path
+                      d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                   filters.labels.NOT_STARTED
                 </p>
               </div>

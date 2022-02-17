@@ -1,6 +1,10 @@
 import camelCase from "lodash-es/camelCase";
 import React, { useEffect, useState } from "react";
-import { CompanyDetailProps, RoofProLevel } from "@bmi-digital/components";
+import {
+  CompanyDetailProps,
+  LatLngLiteral,
+  RoofProLevel
+} from "@bmi-digital/components";
 import {
   computeDistanceBetween,
   MarkerOptionsWithData
@@ -314,7 +318,7 @@ export const createMarker = (selectedRoofer: Service | null) => {
   });
 };
 
-export const sortServices = (centre: google.maps.LatLngLiteral | null) => {
+export const sortServices = (centre: LatLngLiteral | null) => {
   return (serviceA, serviceB) => {
     const distanceSort = centre ? serviceA.distance - serviceB.distance : 0;
 
@@ -376,7 +380,7 @@ export const typeFilter = (
 };
 
 export const filterServices = (
-  centre: google.maps.LatLngLiteral | null,
+  centre: LatLngLiteral | null,
   activeFilters: Record<ServiceType, boolean>,
   activeSearchString
 ) => {
@@ -439,7 +443,7 @@ export const getFilterOptions = () => {
 };
 
 export const calculateCenter = (
-  centre: google.maps.LatLngLiteral | null,
+  centre: LatLngLiteral | null,
   initialMapCentre: { lat: number; lon: number } | null
 ) => {
   return (

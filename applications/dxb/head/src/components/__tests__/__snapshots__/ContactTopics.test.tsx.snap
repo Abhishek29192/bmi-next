@@ -3,20 +3,20 @@
 exports[`ContactTopics component renders correctly 1`] = `
 <div>
   <div
-    class="ExpandableCardList ContactTopics"
+    class="ExpandableCardList-module_ExpandableCardList__2KC1p ContactTopics"
   >
     <div
-      class="item"
+      class="ExpandableCardList-module_item__1NXDM"
     >
       <div
         aria-label="Did you know?1"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-module_ExpandableCard__5pRiO MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 ExpandableCard-module_close__kXNtc"
           tabindex="0"
           type="button"
         >
@@ -39,14 +39,14 @@ exports[`ContactTopics component renders correctly 1`] = `
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-module_content__aDXG3"
         >
           <div
-            class="header"
+            class="ExpandableCard-module_header__dG1qd"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root icon"
+              class="MuiSvgIcon-root ExpandableCard-module_icon__UzGlT"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -55,27 +55,27 @@ exports[`ContactTopics component renders correctly 1`] = `
               />
             </svg>
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-module_title__UB5pa ExpandableCard-module_title--static__pUPa8 Typography-module_Typography__aA2Zb MuiTypography-h5"
             >
               Did you know?1
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-module_body__QAqUP"
           >
             <h4
-              class="MuiTypography-root Typography MuiTypography-h6"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
             >
               Did you know?2
             </h4>
             <ul
-              class="IconList"
+              class="IconList-module_IconList__KweQa"
             >
               <li
-                class="ListItem"
+                class="IconList-module_ListItem__WMqQr"
               >
                 <div
-                  class="icon"
+                  class="IconList-module_icon__KKtTa"
                 >
                   <svg
                     aria-hidden="true"
@@ -98,21 +98,21 @@ exports[`ContactTopics component renders correctly 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="content"
+                  class="IconList-module_content__21w5w"
                 >
                   <h5
-                    class="MuiTypography-root title Typography MuiTypography-h6"
+                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
                   >
                     Frequently Asked Questions
                   </h5>
                   <span
-                    class="description"
+                    class="IconList-module_description__DmsAZ"
                   >
                     <div
                       class="RichText"
                     >
                       <p
-                        class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                        class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
                       >
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
                       </p>
@@ -121,10 +121,10 @@ exports[`ContactTopics component renders correctly 1`] = `
                 </div>
               </li>
               <li
-                class="ListItem"
+                class="IconList-module_ListItem__WMqQr"
               >
                 <div
-                  class="icon"
+                  class="IconList-module_icon__KKtTa"
                 >
                   <svg
                     aria-hidden="true"
@@ -147,21 +147,21 @@ exports[`ContactTopics component renders correctly 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="content"
+                  class="IconList-module_content__21w5w"
                 >
                   <h5
-                    class="MuiTypography-root title Typography MuiTypography-h6"
+                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
                   >
                     CloseDach
                   </h5>
                   <span
-                    class="description"
+                    class="IconList-module_description__DmsAZ"
                   >
                     <div
                       class="RichText"
                     >
                       <p
-                        class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                        class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
                       >
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
                       </p>
@@ -172,26 +172,26 @@ exports[`ContactTopics component renders correctly 1`] = `
             </ul>
           </div>
           <div
-            class="footer"
+            class="ExpandableCard-module_footer__bT76r"
           >
             <div>
               <h6
-                class="MuiTypography-root Typography MuiTypography-h6"
+                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
                 style="margin-bottom: 42px;"
               >
                 footer title
               </h6>
               <div
-                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
               >
                 <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4"
+                  class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4"
                 >
                   <div
                     class="BorderedItem"
                   />
                   <h5
-                    class="MuiTypography-root heading Typography MuiTypography-h5"
+                    class="MuiTypography-root heading Typography-module_Typography__aA2Zb MuiTypography-h5"
                   >
                     teste
                   </h5>
@@ -199,7 +199,7 @@ exports[`ContactTopics component renders correctly 1`] = `
                     class="RichText"
                   >
                     <p
-                      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
                     >
                       Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
                     </p>

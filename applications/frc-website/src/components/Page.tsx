@@ -1,5 +1,5 @@
 import React from "react";
-import { BmiThemeProvider } from "@bmi-digital/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { Helmet } from "react-helmet";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -12,7 +12,7 @@ type Props = {
 
 const Page = ({ title, children }: Props) => {
   return (
-    <BmiThemeProvider>
+    <ThemeProvider>
       <Helmet title={title} />
       <div className={styles.Page}>
         <Header />
@@ -43,7 +43,7 @@ const Page = ({ title, children }: Props) => {
           ]}
         />
       </div>
-    </BmiThemeProvider>
+    </ThemeProvider>
   );
 };
 

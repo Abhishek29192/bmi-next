@@ -3,56 +3,62 @@
 exports[`NextBestActions component renders correctly 1`] = `
 <div>
   <div
-    class="Section Section--alabaster"
+    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--color-theme-secondary-1"
+              class="MuiButtonBase-root NBACard-module_NBACard__m3jld NBACard-module_NBACard--clickable__jUhZw ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--color-theme-secondary-1__k-UGX"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/somewhere\\",\\"label\\":\\"MC: page.linkLabel\\"}"
               href="/en/somewhere"
               role="button"
               tabindex="0"
             >
               <h4
-                class="MuiTypography-root title Typography MuiTypography-h4"
+                class="MuiTypography-root NBACard-module_title__5cmKr Typography-module_Typography__aA2Zb MuiTypography-h4"
               >
                 test
               </h4>
               <div
-                class="body"
+                class="NBACard-module_body__hlQDP"
               />
               <div
-                class="footer"
+                class="NBACard-module_footer__s9iWI"
               >
                 <div
                   style="font-size: 1rem;"
                 >
                   <span
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU AnchorLink-module_Anchorlink--white__BbTPt MuiTypography-colorPrimary"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="icon"
+                      class="AnchorLink-module_icon__SvfZD"
                       focusable="false"
-                    />
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                      />
+                    </svg>
                     <span>
                       MC: page.linkLabel
                     </span>
@@ -65,11 +71,11 @@ exports[`NextBestActions component renders correctly 1`] = `
             </a>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--color-theme-secondary-2"
+              class="MuiButtonBase-root NBACard-module_NBACard__m3jld NBACard-module_NBACard--clickable__jUhZw ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--color-theme-secondary-2__DhzAn"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
@@ -77,30 +83,36 @@ exports[`NextBestActions component renders correctly 1`] = `
               target="_blank"
             >
               <h4
-                class="MuiTypography-root title Typography MuiTypography-h4"
+                class="MuiTypography-root NBACard-module_title__5cmKr Typography-module_Typography__aA2Zb MuiTypography-h4"
               >
                 test
               </h4>
               <div
-                class="body"
+                class="NBACard-module_body__hlQDP"
               >
                 I am a subtitle
               </div>
               <div
-                class="footer"
+                class="NBACard-module_footer__s9iWI"
               >
                 <div
                   style="font-size: 1rem;"
                 >
                   <span
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU AnchorLink-module_Anchorlink--white__BbTPt MuiTypography-colorPrimary"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="icon"
+                      class="AnchorLink-module_icon__SvfZD"
                       focusable="false"
-                    />
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                      />
+                    </svg>
                     <span>
                       string
                     </span>
@@ -122,28 +134,28 @@ exports[`NextBestActions component renders correctly 1`] = `
 exports[`NextBestActions component renders name with no title 1`] = `
 <div>
   <div
-    class="Section Section--alabaster"
+    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--color-theme-secondary-1"
+              class="MuiButtonBase-root NBACard-module_NBACard__m3jld NBACard-module_NBACard--clickable__jUhZw ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--color-theme-secondary-1__k-UGX"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
@@ -151,30 +163,36 @@ exports[`NextBestActions component renders name with no title 1`] = `
               target="_blank"
             >
               <h4
-                class="MuiTypography-root title Typography MuiTypography-h4"
+                class="MuiTypography-root NBACard-module_title__5cmKr Typography-module_Typography__aA2Zb MuiTypography-h4"
               >
                 test name
               </h4>
               <div
-                class="body"
+                class="NBACard-module_body__hlQDP"
               >
                 I am a subtitle
               </div>
               <div
-                class="footer"
+                class="NBACard-module_footer__s9iWI"
               >
                 <div
                   style="font-size: 1rem;"
                 >
                   <span
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU AnchorLink-module_Anchorlink--white__BbTPt MuiTypography-colorPrimary"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="icon"
+                      class="AnchorLink-module_icon__SvfZD"
                       focusable="false"
-                    />
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                      />
+                    </svg>
                     <span>
                       string
                     </span>
@@ -196,36 +214,36 @@ exports[`NextBestActions component renders name with no title 1`] = `
 exports[`NextBestActions component renders with no promo cta 1`] = `
 <div>
   <div
-    class="Section Section--alabaster"
+    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
           >
             <div
-              class="NBACard ColorPair ColorPair--color-theme-secondary-1"
+              class="NBACard-module_NBACard__m3jld ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--color-theme-secondary-1__k-UGX"
               type="button"
             >
               <h4
-                class="MuiTypography-root title Typography MuiTypography-h4"
+                class="MuiTypography-root NBACard-module_title__5cmKr Typography-module_Typography__aA2Zb MuiTypography-h4"
               >
                 test
               </h4>
               <div
-                class="body"
+                class="NBACard-module_body__hlQDP"
               >
                 I am a subtitle
               </div>
@@ -241,28 +259,28 @@ exports[`NextBestActions component renders with no promo cta 1`] = `
 exports[`NextBestActions component renders with no promo cta label 1`] = `
 <div>
   <div
-    class="Section Section--alabaster"
+    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--color-theme-secondary-1"
+              class="MuiButtonBase-root NBACard-module_NBACard__m3jld NBACard-module_NBACard--clickable__jUhZw ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--color-theme-secondary-1__k-UGX"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":null}"
               href="https://www.external.co.uk"
               rel="noopener noreferrer"
@@ -270,12 +288,12 @@ exports[`NextBestActions component renders with no promo cta label 1`] = `
               target="_blank"
             >
               <h4
-                class="MuiTypography-root title Typography MuiTypography-h4"
+                class="MuiTypography-root NBACard-module_title__5cmKr Typography-module_Typography__aA2Zb MuiTypography-h4"
               >
                 test
               </h4>
               <div
-                class="body"
+                class="NBACard-module_body__hlQDP"
               >
                 I am a subtitle
               </div>

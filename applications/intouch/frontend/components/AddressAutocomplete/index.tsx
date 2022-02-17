@@ -4,6 +4,7 @@ import {
   GoogleAutocompleteProps
 } from "@bmi-digital/components";
 import {
+  Google,
   GoogleApi,
   loadGoogleApi,
   GeocoderResult
@@ -20,6 +21,12 @@ type AddressAutocompleteProps = GoogleAutocompleteProps & {
   searchBiasRadiusKm?: number;
   mapsApiKey: string;
 };
+
+declare global {
+  interface Window {
+    google?: Google;
+  }
+}
 
 const DEFAULT_SEARCH_BIAS_RADIUS_KM = 100 * 1000;
 

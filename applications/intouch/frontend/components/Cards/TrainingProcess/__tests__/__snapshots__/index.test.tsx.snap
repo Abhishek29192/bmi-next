@@ -10,7 +10,7 @@ exports[`TrainingProcessCard component renders correctly 1`] = `
       class="MuiCardContent-root"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
       >
         The Training Process
       </h4>
@@ -34,7 +34,7 @@ exports[`TrainingProcessCard component renders correctly 1`] = `
               />
             </svg>
             <h5
-              class="MuiTypography-root Typography MuiTypography-h5"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
             >
               Step 1
             </h5>
@@ -43,12 +43,12 @@ exports[`TrainingProcessCard component renders correctly 1`] = `
             style="margin-bottom: 1.5rem;"
           >
             <h6
-              class="MuiTypography-root Typography MuiTypography-h6"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
             >
               Find the right training
             </h6>
             <div
-              class="MuiTypography-root Typography MuiTypography-body1"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
             >
               Search our extensive library of classroom training, workshops,
       online webinars and e-learning courses to find what you need and
@@ -73,7 +73,7 @@ exports[`TrainingProcessCard component renders correctly 1`] = `
               />
             </svg>
             <h5
-              class="MuiTypography-root Typography MuiTypography-h5"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
             >
               Step 2
             </h5>
@@ -82,12 +82,12 @@ exports[`TrainingProcessCard component renders correctly 1`] = `
             style="margin-bottom: 1.5rem;"
           >
             <h6
-              class="MuiTypography-root Typography MuiTypography-h6"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
             >
               Increase your skills
             </h6>
             <div
-              class="MuiTypography-root Typography MuiTypography-body1"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
             >
               Continue personal development to hone your skills in areas where you
       need additional knowledge.
@@ -111,7 +111,7 @@ exports[`TrainingProcessCard component renders correctly 1`] = `
               />
             </svg>
             <h5
-              class="MuiTypography-root Typography MuiTypography-h5"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
             >
               Step 3
             </h5>
@@ -120,12 +120,12 @@ exports[`TrainingProcessCard component renders correctly 1`] = `
             style="margin-bottom: 1.5rem;"
           >
             <h6
-              class="MuiTypography-root Typography MuiTypography-h6"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
             >
               Get certified
             </h6>
             <div
-              class="MuiTypography-root Typography MuiTypography-body1"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
             >
               Develop your training achievements by collecting BMI certificates,
       which you can additionally share with others. They will always be

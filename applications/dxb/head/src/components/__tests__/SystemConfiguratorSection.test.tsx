@@ -1,14 +1,14 @@
 import React from "react";
-import { render, fireEvent, within, cleanup } from "@testing-library/react";
+import { cleanup, fireEvent, render } from "@testing-library/react";
 import { ErrorBoundary } from "react-error-boundary";
 import mockConsole from "jest-mock-console";
 import axios from "axios";
+import * as ReactRoter from "@reach/router";
 import {
   createHistory,
   createMemorySource,
   LocationProvider
 } from "@reach/router";
-import * as ReactRoter from "@reach/router";
 import { SiteContextProvider } from "../Site";
 import SystemConfiguratorSection, {
   Data,
@@ -719,7 +719,13 @@ describe("SystemConfiguratorSection component", () => {
       }
     });
 
-    const { container, findByLabelText, findByRole, findByText } = render(
+    const {
+      container,
+      findByLabelText,
+      findByRole,
+      findByText,
+      queryByTestId
+    } = render(
       <SiteContextProvider value={getSiteContext()}>
         <LocationProvider>
           <SystemConfiguratorSection data={initialData} />
@@ -739,16 +745,9 @@ describe("SystemConfiguratorSection component", () => {
     expect(container).toMatchSnapshot();
     expect(mockQueryES).toBeCalledTimes(1);
 
-    const renderedSystems = Array.from(
-      container.querySelectorAll<HTMLElement>(
-        ".SystemConfigurator-result .OverviewCard"
-      )
-    );
-
-    expect(renderedSystems.length).toBe(2);
-    //verify the order matches 'recommendedSystems' in which they are rendred within results section
-    expect(within(renderedSystems[0]).getByText("ijkl name")).not.toBeNull();
-    expect(within(renderedSystems[1]).getByText("efgh name")).not.toBeNull();
+    expect(queryByTestId("ijkl")).not.toBeNull();
+    expect(queryByTestId("efgh")).not.toBeNull();
+    expect(queryByTestId("abcd")).toBeNull();
   });
 
   it("renders only max of 4 recommendedSystems", async () => {
@@ -801,7 +800,13 @@ describe("SystemConfiguratorSection component", () => {
       }
     });
 
-    const { container, findByLabelText, findByRole, findByText } = render(
+    const {
+      container,
+      findByLabelText,
+      findByRole,
+      findByText,
+      queryByTestId
+    } = render(
       <SiteContextProvider value={getSiteContext()}>
         <LocationProvider>
           <SystemConfiguratorSection data={initialData} />
@@ -818,18 +823,11 @@ describe("SystemConfiguratorSection component", () => {
     expect(container).toMatchSnapshot();
     expect(mockQueryES).toBeCalledTimes(1);
 
-    const renderedSystems = Array.from(
-      container.querySelectorAll<HTMLElement>(
-        ".SystemConfigurator-result .OverviewCard"
-      )
-    );
-
-    expect(renderedSystems.length).toBe(4);
-    //verify the order matches 'recommendedSystems' in which they are rendred within results section
-    expect(within(renderedSystems[0]).getByText("ijkl name")).not.toBeNull();
-    expect(within(renderedSystems[1]).getByText("efgh name")).not.toBeNull();
-    expect(within(renderedSystems[2]).getByText("abcd name")).not.toBeNull();
-    expect(within(renderedSystems[3]).getByText("mnop name")).not.toBeNull();
+    expect(queryByTestId("ijkl")).not.toBeNull();
+    expect(queryByTestId("efgh")).not.toBeNull();
+    expect(queryByTestId("abcd")).not.toBeNull();
+    expect(queryByTestId("mnop")).not.toBeNull();
+    expect(queryByTestId("qrst")).toBeNull();
   });
 
   it("redirect to 404 page if no matches to pimSystem code", async () => {

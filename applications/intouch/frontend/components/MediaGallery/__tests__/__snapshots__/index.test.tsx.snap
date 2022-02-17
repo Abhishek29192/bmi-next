@@ -22,19 +22,19 @@ exports[`MediaGallery should download fileUrl 1`] = `
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--white__ON4XF"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-lg modal makeStyles-paper-85"
+        class="Dialog-module_Dialog__mjp2p Dialog-module_Dialog--bg-white__VB5k7 Dialog-module_Dialog--width-lg__B9QT4 modal makeStyles-paper-85"
       >
         <div
-          class="header"
+          class="Dialog-module_header__-B9IJ"
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-97 iconButtonStyles-medium-103 iconButtonStyles-text-99 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-97 iconButtonStyles-medium-103 iconButtonStyles-text-99 Dialog-module_iconButton__hWdbD"
             tabindex="0"
             type="button"
           >
@@ -58,10 +58,10 @@ exports[`MediaGallery should download fileUrl 1`] = `
           </button>
         </div>
         <div
-          class="wrapper"
+          class="Carousel-module_wrapper__PjLbh"
         >
           <div
-            class="Carousel Carousel--swipable"
+            class="Carousel-module_Carousel__XzW0N Carousel-module_Carousel--swipable__YldeI"
             data-testid="carousel"
           >
             <div
@@ -78,10 +78,10 @@ exports[`MediaGallery should download fileUrl 1`] = `
                   style="width: 100%; flex-shrink: 0; overflow: auto;"
                 >
                   <div
-                    class="page"
+                    class="Carousel-module_page__zUQNj"
                   >
                     <div
-                      class="slide slide"
+                      class="Carousel-module_slide__7h-hP slide"
                       style="width: 100%;"
                     >
                       <div>
@@ -89,7 +89,7 @@ exports[`MediaGallery should download fileUrl 1`] = `
                           class="mediaHeader"
                         >
                           <h6
-                            class="MuiTypography-root mediaTitle Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            class="MuiTypography-root mediaTitle Typography-module_Typography__aA2Zb MuiTypography-subtitle2 MuiTypography-displayBlock"
                           >
                             test-title-2
                           </h6>
@@ -216,19 +216,19 @@ exports[`MediaGallery should preview as bmi icon if url is empty 1`] = `
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--white__ON4XF"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-lg modal makeStyles-paper-43"
+        class="Dialog-module_Dialog__mjp2p Dialog-module_Dialog--bg-white__VB5k7 Dialog-module_Dialog--width-lg__B9QT4 modal makeStyles-paper-43"
       >
         <div
-          class="header"
+          class="Dialog-module_header__-B9IJ"
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-55 iconButtonStyles-medium-61 iconButtonStyles-text-57 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-55 iconButtonStyles-medium-61 iconButtonStyles-text-57 Dialog-module_iconButton__hWdbD"
             tabindex="0"
             type="button"
           >
@@ -252,10 +252,10 @@ exports[`MediaGallery should preview as bmi icon if url is empty 1`] = `
           </button>
         </div>
         <div
-          class="wrapper"
+          class="Carousel-module_wrapper__PjLbh"
         >
           <div
-            class="Carousel Carousel--swipable"
+            class="Carousel-module_Carousel__XzW0N Carousel-module_Carousel--swipable__YldeI"
             data-testid="carousel"
           >
             <div
@@ -272,10 +272,10 @@ exports[`MediaGallery should preview as bmi icon if url is empty 1`] = `
                   style="width: 100%; flex-shrink: 0; overflow: auto;"
                 >
                   <div
-                    class="page"
+                    class="Carousel-module_page__zUQNj"
                   >
                     <div
-                      class="slide slide"
+                      class="Carousel-module_slide__7h-hP slide"
                       style="width: 100%;"
                     >
                       <div>
@@ -283,7 +283,7 @@ exports[`MediaGallery should preview as bmi icon if url is empty 1`] = `
                           class="mediaHeader"
                         >
                           <h6
-                            class="MuiTypography-root mediaTitle Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            class="MuiTypography-root mediaTitle Typography-module_Typography__aA2Zb MuiTypography-subtitle2 MuiTypography-displayBlock"
                           >
                             test-title
                           </h6>
@@ -320,7 +320,21 @@ exports[`MediaGallery should preview as bmi icon if url is empty 1`] = `
                         <svg
                           color="primary"
                           data-testid="bmi-icon"
-                        />
+                          viewBox="0 0 250 250"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h250v250H0z"
+                            fill="#009fe3"
+                          />
+                          <g
+                            fill="#fff"
+                          >
+                            <path
+                              d="M155.393 86.416 144.565 131h-.212l-10.829-44.584H100.3v50.634c-.76-9.718-6.732-14.589-13.079-16.771 5.626-3.078 9.342-7.218 9.342-14.862 0-7.749-4.247-19-24.2-19H30.848v75.8h42.994c12.786 0 25.368-7.183 26.455-21.075v21.075h22.081V113.6h.212l13.164 48.62h17.41l13.163-48.62h.213v48.62h22.081v-75.8ZM54.2 104.461h12.317c4.777 0 7.962 1.381 7.962 5.2 0 4.884-3.079 6.264-7.962 6.264H54.2Zm13.694 39.7H54.2v-14.115h14.652c5.521 0 8.174 2.442 8.174 6.9 0 5.839-4.246 7.219-9.126 7.219ZM195.798 86.416h23.355v75.797h-23.355z"
+                            />
+                          </g>
+                        </svg>
                       </div>
                     </div>
                   </div>
@@ -409,19 +423,19 @@ exports[`MediaGallery should preview as url if any 1`] = `
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--white__ON4XF"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-lg modal makeStyles-paper-22"
+        class="Dialog-module_Dialog__mjp2p Dialog-module_Dialog--bg-white__VB5k7 Dialog-module_Dialog--width-lg__B9QT4 modal makeStyles-paper-22"
       >
         <div
-          class="header"
+          class="Dialog-module_header__-B9IJ"
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-34 iconButtonStyles-medium-40 iconButtonStyles-text-36 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-34 iconButtonStyles-medium-40 iconButtonStyles-text-36 Dialog-module_iconButton__hWdbD"
             tabindex="0"
             type="button"
           >
@@ -445,10 +459,10 @@ exports[`MediaGallery should preview as url if any 1`] = `
           </button>
         </div>
         <div
-          class="wrapper"
+          class="Carousel-module_wrapper__PjLbh"
         >
           <div
-            class="Carousel Carousel--swipable"
+            class="Carousel-module_Carousel__XzW0N Carousel-module_Carousel--swipable__YldeI"
             data-testid="carousel"
           >
             <div
@@ -465,10 +479,10 @@ exports[`MediaGallery should preview as url if any 1`] = `
                   style="width: 100%; flex-shrink: 0; overflow: auto;"
                 >
                   <div
-                    class="page"
+                    class="Carousel-module_page__zUQNj"
                   >
                     <div
-                      class="slide slide"
+                      class="Carousel-module_slide__7h-hP slide"
                       style="width: 100%;"
                     >
                       <div>
@@ -476,7 +490,7 @@ exports[`MediaGallery should preview as url if any 1`] = `
                           class="mediaHeader"
                         >
                           <h6
-                            class="MuiTypography-root mediaTitle Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            class="MuiTypography-root mediaTitle Typography-module_Typography__aA2Zb MuiTypography-subtitle2 MuiTypography-displayBlock"
                           >
                             test-title-2
                           </h6>
@@ -603,19 +617,19 @@ exports[`MediaGallery should preview as vimeo if type vimeo 1`] = `
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--white__ON4XF"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-lg modal makeStyles-paper-64"
+        class="Dialog-module_Dialog__mjp2p Dialog-module_Dialog--bg-white__VB5k7 Dialog-module_Dialog--width-lg__B9QT4 modal makeStyles-paper-64"
       >
         <div
-          class="header"
+          class="Dialog-module_header__-B9IJ"
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-76 iconButtonStyles-medium-82 iconButtonStyles-text-78 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-76 iconButtonStyles-medium-82 iconButtonStyles-text-78 Dialog-module_iconButton__hWdbD"
             tabindex="0"
             type="button"
           >
@@ -639,10 +653,10 @@ exports[`MediaGallery should preview as vimeo if type vimeo 1`] = `
           </button>
         </div>
         <div
-          class="wrapper"
+          class="Carousel-module_wrapper__PjLbh"
         >
           <div
-            class="Carousel Carousel--swipable"
+            class="Carousel-module_Carousel__XzW0N Carousel-module_Carousel--swipable__YldeI"
             data-testid="carousel"
           >
             <div
@@ -659,10 +673,10 @@ exports[`MediaGallery should preview as vimeo if type vimeo 1`] = `
                   style="width: 100%; flex-shrink: 0; overflow: auto;"
                 >
                   <div
-                    class="page"
+                    class="Carousel-module_page__zUQNj"
                   >
                     <div
-                      class="slide slide"
+                      class="Carousel-module_slide__7h-hP slide"
                       style="width: 100%;"
                     >
                       <div>
@@ -670,7 +684,7 @@ exports[`MediaGallery should preview as vimeo if type vimeo 1`] = `
                           class="mediaHeader"
                         >
                           <h6
-                            class="MuiTypography-root mediaTitle Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            class="MuiTypography-root mediaTitle Typography-module_Typography__aA2Zb MuiTypography-subtitle2 MuiTypography-displayBlock"
                           >
                             test-title-3
                           </h6>
@@ -682,7 +696,21 @@ exports[`MediaGallery should preview as vimeo if type vimeo 1`] = `
                             <svg
                               color="primary"
                               style="height: 360px;"
-                            />
+                              viewBox="0 0 250 250"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M0 0h250v250H0z"
+                                fill="#009fe3"
+                              />
+                              <g
+                                fill="#fff"
+                              >
+                                <path
+                                  d="M155.393 86.416 144.565 131h-.212l-10.829-44.584H100.3v50.634c-.76-9.718-6.732-14.589-13.079-16.771 5.626-3.078 9.342-7.218 9.342-14.862 0-7.749-4.247-19-24.2-19H30.848v75.8h42.994c12.786 0 25.368-7.183 26.455-21.075v21.075h22.081V113.6h.212l13.164 48.62h17.41l13.163-48.62h.213v48.62h22.081v-75.8ZM54.2 104.461h12.317c4.777 0 7.962 1.381 7.962 5.2 0 4.884-3.079 6.264-7.962 6.264H54.2Zm13.694 39.7H54.2v-14.115h14.652c5.521 0 8.174 2.442 8.174 6.9 0 5.839-4.246 7.219-9.126 7.219ZM195.798 86.416h23.355v75.797h-23.355z"
+                                />
+                              </g>
+                            </svg>
                           </div>
                           <iframe
                             allow="autoplay; fullscreen; picture-in-picture"
@@ -782,19 +810,19 @@ exports[`MediaGallery should render component 1`] = `
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--white__ON4XF"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-lg modal makeStyles-paper-1"
+        class="Dialog-module_Dialog__mjp2p Dialog-module_Dialog--bg-white__VB5k7 Dialog-module_Dialog--width-lg__B9QT4 modal makeStyles-paper-1"
       >
         <div
-          class="header"
+          class="Dialog-module_header__-B9IJ"
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-13 iconButtonStyles-medium-19 iconButtonStyles-text-15 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-13 iconButtonStyles-medium-19 iconButtonStyles-text-15 Dialog-module_iconButton__hWdbD"
             tabindex="0"
             type="button"
           >
@@ -818,10 +846,10 @@ exports[`MediaGallery should render component 1`] = `
           </button>
         </div>
         <div
-          class="wrapper"
+          class="Carousel-module_wrapper__PjLbh"
         >
           <div
-            class="Carousel Carousel--swipable"
+            class="Carousel-module_Carousel__XzW0N Carousel-module_Carousel--swipable__YldeI"
             data-testid="carousel"
           >
             <div
@@ -838,10 +866,10 @@ exports[`MediaGallery should render component 1`] = `
                   style="width: 100%; flex-shrink: 0; overflow: auto;"
                 >
                   <div
-                    class="page"
+                    class="Carousel-module_page__zUQNj"
                   >
                     <div
-                      class="slide slide"
+                      class="Carousel-module_slide__7h-hP slide"
                       style="width: 100%;"
                     >
                       <div>
@@ -849,7 +877,7 @@ exports[`MediaGallery should render component 1`] = `
                           class="mediaHeader"
                         >
                           <h6
-                            class="MuiTypography-root mediaTitle Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            class="MuiTypography-root mediaTitle Typography-module_Typography__aA2Zb MuiTypography-subtitle2 MuiTypography-displayBlock"
                           >
                             test-title
                           </h6>
@@ -886,7 +914,21 @@ exports[`MediaGallery should render component 1`] = `
                         <svg
                           color="primary"
                           data-testid="bmi-icon"
-                        />
+                          viewBox="0 0 250 250"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h250v250H0z"
+                            fill="#009fe3"
+                          />
+                          <g
+                            fill="#fff"
+                          >
+                            <path
+                              d="M155.393 86.416 144.565 131h-.212l-10.829-44.584H100.3v50.634c-.76-9.718-6.732-14.589-13.079-16.771 5.626-3.078 9.342-7.218 9.342-14.862 0-7.749-4.247-19-24.2-19H30.848v75.8h42.994c12.786 0 25.368-7.183 26.455-21.075v21.075h22.081V113.6h.212l13.164 48.62h17.41l13.163-48.62h.213v48.62h22.081v-75.8ZM54.2 104.461h12.317c4.777 0 7.962 1.381 7.962 5.2 0 4.884-3.079 6.264-7.962 6.264H54.2Zm13.694 39.7H54.2v-14.115h14.652c5.521 0 8.174 2.442 8.174 6.9 0 5.839-4.246 7.219-9.126 7.219ZM195.798 86.416h23.355v75.797h-23.355z"
+                            />
+                          </g>
+                        </svg>
                       </div>
                     </div>
                   </div>

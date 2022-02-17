@@ -7,10 +7,10 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
   >
     <div>
       <table
-        class="MuiTable-root Table Table--row-no-color"
+        class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-no-color__pf1f2"
       >
         <thead
-          class="MuiTableHead-root ColorPair ColorPair--pearl"
+          class="MuiTableHead-root ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--pearl__gkooI"
         >
           <tr
             class="MuiTableRow-root MuiTableRow-head"
@@ -47,7 +47,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
 exports[`DocumentResults component cards: renders correctly 1`] = `
 <div>
   <div
-    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
   />
 </div>
 `;

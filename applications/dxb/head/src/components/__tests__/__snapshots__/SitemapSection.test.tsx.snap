@@ -3,16 +3,16 @@
 exports[`SitemapSection component renders correctly 1`] = `
 <div>
   <div
-    class="Section"
+    class="Section-module_Section__yrYL2"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         >
           Main
         </h2>
@@ -20,15 +20,15 @@ exports[`SitemapSection component renders correctly 1`] = `
           class="SitemapBlock"
         >
           <div
-            class="MasonryGrid"
+            class="MasonryGrid-module_MasonryGrid__ZknAQ"
           >
             <div
-              class="column"
+              class="MasonryGrid-module_column__aCcAR"
               style="width: 33.333333333333336%;"
             >
               <div>
                 <h4
-                  class="MuiTypography-root Typography MuiTypography-h4 MuiTypography-gutterBottom"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h4 MuiTypography-gutterBottom"
                 >
                   Get in touch
                 </h4>
@@ -37,10 +37,10 @@ exports[`SitemapSection component renders correctly 1`] = `
                 >
                   <div>
                     <h6
-                      class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+                      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6 MuiTypography-gutterBottom"
                     >
                       <a
-                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
                         type="button"
                       >
                         <span>
@@ -53,12 +53,12 @@ exports[`SitemapSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="column"
+              class="MasonryGrid-module_column__aCcAR"
               style="width: 33.333333333333336%;"
             >
               <div>
                 <h4
-                  class="MuiTypography-root Typography MuiTypography-h4 MuiTypography-gutterBottom"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h4 MuiTypography-gutterBottom"
                 >
                   About BMI
                 </h4>
@@ -67,10 +67,10 @@ exports[`SitemapSection component renders correctly 1`] = `
                 >
                   <div>
                     <h6
-                      class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+                      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6 MuiTypography-gutterBottom"
                     >
                       <a
-                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
                         type="button"
                       >
                         <span>
@@ -93,22 +93,22 @@ exports[`SitemapSection component renders correctly 1`] = `
 exports[`SitemapSection component renders correctly if incomplete 1`] = `
 <div>
   <div
-    class="Section"
+    class="Section-module_Section__yrYL2"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
         />
         <div
           class="SitemapBlock"
         >
           <div
-            class="MasonryGrid"
+            class="MasonryGrid-module_MasonryGrid__ZknAQ"
           />
         </div>
       </div>

@@ -6,37 +6,37 @@ exports[`RichText component closes dialog 1`] = `
     class="RichText"
   >
     <h2
-      class="MuiTypography-root title Typography MuiTypography-h2"
+      class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h2"
     >
       Heading 2
     </h2>
     <h3
-      class="MuiTypography-root title Typography MuiTypography-h3"
+      class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3"
     >
       Heading 3
     </h3>
     <h4
-      class="MuiTypography-root title Typography MuiTypography-h4"
+      class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h4"
     >
       Heading 4
     </h4>
     <h5
-      class="MuiTypography-root title Typography MuiTypography-h5"
+      class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h5"
     >
       Heading 5
     </h5>
     <h6
-      class="MuiTypography-root title Typography MuiTypography-h6"
+      class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
     >
       Heading 6
     </h6>
     <p
-      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
     >
       
     </p>
     <p
-      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
     >
       Paragraph 
       <strong>
@@ -50,7 +50,7 @@ exports[`RichText component closes dialog 1`] = `
       </u>
         
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"External\\",\\"action\\":\\"https://google.co.uk\\"}"
         href="https://google.co.uk"
         rel="noopener noreferrer"
@@ -62,7 +62,7 @@ exports[`RichText component closes dialog 1`] = `
       </a>
        
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Entry\\",\\"action\\":\\"/testing-simple-page/\\"}"
         href="/testing-simple-page/"
       >
@@ -72,7 +72,7 @@ exports[`RichText component closes dialog 1`] = `
       </a>
        
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Asset\\",\\"action\\":\\"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png\\"}"
         href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
         rel="noopener noreferrer"
@@ -102,7 +102,7 @@ exports[`RichText component closes dialog 1`] = `
     <ul>
       <li>
         <p
-          class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
         >
           UL
         </p>
@@ -111,7 +111,7 @@ exports[`RichText component closes dialog 1`] = `
     <ol>
       <li>
         <p
-          class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
         >
           OL
         </p>
@@ -119,7 +119,7 @@ exports[`RichText component closes dialog 1`] = `
     </ol>
     <blockquote>
       <p
-        class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+        class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
       >
         Blockquote
       </p>
@@ -145,15 +145,15 @@ exports[`RichText component closes dialog 1`] = `
       src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
     />
     <p
-      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
     >
       
     </p>
     <p
-      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
     >
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Open dialog\\",\\"action\\":\\"Dialog\\"}"
         type="button"
       >
@@ -173,7 +173,7 @@ exports[`RichText component falls back with incorrect data 1`] = `
     class="RichText"
   >
     <p
-      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
     />
   </div>
 </div>
@@ -185,37 +185,37 @@ exports[`RichText component renders correctly 1`] = `
     class="RichText"
   >
     <h2
-      class="MuiTypography-root title Typography MuiTypography-h2"
+      class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h2"
     >
       Heading 2
     </h2>
     <h3
-      class="MuiTypography-root title Typography MuiTypography-h3"
+      class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3"
     >
       Heading 3
     </h3>
     <h4
-      class="MuiTypography-root title Typography MuiTypography-h4"
+      class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h4"
     >
       Heading 4
     </h4>
     <h5
-      class="MuiTypography-root title Typography MuiTypography-h5"
+      class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h5"
     >
       Heading 5
     </h5>
     <h6
-      class="MuiTypography-root title Typography MuiTypography-h6"
+      class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
     >
       Heading 6
     </h6>
     <p
-      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
     >
       
     </p>
     <p
-      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
     >
       Paragraph 
       <strong>
@@ -229,7 +229,7 @@ exports[`RichText component renders correctly 1`] = `
       </u>
         
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"External\\",\\"action\\":\\"https://google.co.uk\\"}"
         href="https://google.co.uk"
         rel="noopener noreferrer"
@@ -241,7 +241,7 @@ exports[`RichText component renders correctly 1`] = `
       </a>
        
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Entry\\",\\"action\\":\\"/testing-simple-page/\\"}"
         href="/testing-simple-page/"
       >
@@ -251,7 +251,7 @@ exports[`RichText component renders correctly 1`] = `
       </a>
        
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Asset\\",\\"action\\":\\"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png\\"}"
         href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
         rel="noopener noreferrer"
@@ -281,7 +281,7 @@ exports[`RichText component renders correctly 1`] = `
     <ul>
       <li>
         <p
-          class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
         >
           UL
         </p>
@@ -290,7 +290,7 @@ exports[`RichText component renders correctly 1`] = `
     <ol>
       <li>
         <p
-          class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
         >
           OL
         </p>
@@ -298,7 +298,7 @@ exports[`RichText component renders correctly 1`] = `
     </ol>
     <blockquote>
       <p
-        class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+        class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
       >
         Blockquote
       </p>
@@ -324,15 +324,15 @@ exports[`RichText component renders correctly 1`] = `
       src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
     />
     <p
-      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
     >
       
     </p>
     <p
-      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
     >
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Open dialog\\",\\"action\\":\\"Dialog\\"}"
         type="button"
       >
@@ -354,37 +354,37 @@ exports[`RichText component renders when dialog clicked 1`] = `
     class="RichText"
   >
     <h2
-      class="MuiTypography-root title Typography MuiTypography-h2"
+      class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h2"
     >
       Heading 2
     </h2>
     <h3
-      class="MuiTypography-root title Typography MuiTypography-h3"
+      class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3"
     >
       Heading 3
     </h3>
     <h4
-      class="MuiTypography-root title Typography MuiTypography-h4"
+      class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h4"
     >
       Heading 4
     </h4>
     <h5
-      class="MuiTypography-root title Typography MuiTypography-h5"
+      class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h5"
     >
       Heading 5
     </h5>
     <h6
-      class="MuiTypography-root title Typography MuiTypography-h6"
+      class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h6"
     >
       Heading 6
     </h6>
     <p
-      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
     >
       
     </p>
     <p
-      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
     >
       Paragraph 
       <strong>
@@ -398,7 +398,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
       </u>
         
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"External\\",\\"action\\":\\"https://google.co.uk\\"}"
         href="https://google.co.uk"
         rel="noopener noreferrer"
@@ -410,7 +410,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
       </a>
        
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Entry\\",\\"action\\":\\"/testing-simple-page/\\"}"
         href="/testing-simple-page/"
       >
@@ -420,7 +420,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
       </a>
        
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Asset\\",\\"action\\":\\"https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png\\"}"
         href="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
         rel="noopener noreferrer"
@@ -450,7 +450,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
     <ul>
       <li>
         <p
-          class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
         >
           UL
         </p>
@@ -459,7 +459,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
     <ol>
       <li>
         <p
-          class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
         >
           OL
         </p>
@@ -467,7 +467,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
     </ol>
     <blockquote>
       <p
-        class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+        class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
       >
         Blockquote
       </p>
@@ -493,15 +493,15 @@ exports[`RichText component renders when dialog clicked 1`] = `
       src="https://images.ctfassets.net/lyjgwec8n2tq/70GS3lLVmrS7k71kH3iSbq/425f76789e7f7a8cb10d1d4ed9073d95/Customer-support.png"
     />
     <p
-      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
     >
       
     </p>
     <p
-      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
     >
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Open dialog\\",\\"action\\":\\"Dialog\\"}"
         type="button"
       >

@@ -3,7 +3,7 @@
 exports[`ProductsGridView component renders correctly when empty 1`] = `
 <div>
   <p
-    class="MuiTypography-root Typography MuiTypography-body1"
+    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
   >
     MC: plp.product.noResultsFound
   </p>
@@ -13,11 +13,11 @@ exports[`ProductsGridView component renders correctly when empty 1`] = `
 exports[`ProductsGridView component renders correctly when not empty 1`] = `
 <div>
   <div
-    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
+    class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
   >
     <a
       aria-disabled="false"
-      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+      class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/undefined/test1\\"}"
       href="/undefined/test1"
       role="button"
@@ -25,25 +25,25 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
     >
       <img
         alt=" imaproduct"
-        class="header-picture Media Media--contain"
+        class="OverviewCard-module_header-picture__uBGaH Media-module_Media__GKPD2 Media-module_Media--contain__O6qQ4"
       />
       <div
-        class="body"
+        class="OverviewCard-module_body__ECyj2"
       >
         <h5
-          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+          class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
         >
           imaproduct
         </h5>
         
         <div
-          class="children text"
+          class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
         />
         <div
-          class="footer"
+          class="OverviewCard-module_footer__MMw-Y"
         >
           <span
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
             type="button"
           >
             <span>
@@ -51,9 +51,15 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
             </span>
             <svg
               aria-hidden="true"
-              class="icon"
+              class="AnchorLink-module_icon__SvfZD"
               focusable="false"
-            />
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+              />
+            </svg>
           </span>
         </div>
       </div>

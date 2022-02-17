@@ -19,9 +19,12 @@ import { Data as PageInfoData } from "../../../components/PageInfo";
 import { Data as PageData } from "../../../components/Page";
 import { RichTextData } from "../../../components/RichText";
 import { Data as BreadcrumbsData } from "../../../components/Breadcrumbs";
-import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
+import {
+  Data as LinkData,
+  DataTypeEnum,
+  NavigationData
+} from "../../../components/Link";
 import { Data as SiteData } from "../../../components/Site";
-import { NavigationData } from "../../../components/Link";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import * as elasticSearch from "../../../utils/elasticSearch";
 
@@ -452,7 +455,9 @@ describe("ProductListerPage template", () => {
           pageContext
         );
         await waitFor(() =>
-          expect(container.getElementsByClassName("Hero--lvl-1").length).toBe(1)
+          expect(
+            container.querySelectorAll("[class*='Hero--lvl-1']").length
+          ).toBe(1)
         );
         await waitFor(() => expect(container.parentElement).toMatchSnapshot());
       });
@@ -494,9 +499,9 @@ describe("ProductListerPage template", () => {
             pageContext
           );
           await waitFor(() =>
-            expect(container.getElementsByClassName("Hero--lvl-1").length).toBe(
-              1
-            )
+            expect(
+              container.querySelectorAll("[class*='Hero--lvl-1']").length
+            ).toBe(1)
           );
           await waitFor(() =>
             expect(container.parentElement).toMatchSnapshot()
@@ -698,9 +703,9 @@ describe("ProductListerPage template", () => {
             pageContext
           );
           await waitFor(() =>
-            expect(container.getElementsByClassName("Hero--lvl-1").length).toBe(
-              1
-            )
+            expect(
+              container.querySelectorAll("[class*='Hero--lvl-1']").length
+            ).toBe(1)
           );
           await waitFor(() =>
             expect(container.parentElement).toMatchSnapshot()

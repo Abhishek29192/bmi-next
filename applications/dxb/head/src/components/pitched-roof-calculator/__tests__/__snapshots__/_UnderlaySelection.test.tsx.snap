@@ -7,49 +7,49 @@ exports[`PitchedRoofCalculator UnderlaySelection component renders correctly 1`]
       class="FieldContainer"
     >
       <div
-        class="CardRadioGroup"
+        class="CardRadioGroup-module_CardRadioGroup__I38qD"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
           >
             <div
-              class="CardInput item"
+              class="CardInput-module_CardInput__chxNC CardRadioGroup-module_item__mJQ4b"
             >
               <label>
                 <input
-                  class="input"
+                  class="CardInput-module_input__mbax0"
                   name="underlay"
                   type="radio"
                   value="45917056"
                 />
                 <div
                   aria-disabled="false"
-                  class="MuiButtonBase-root ToggleCard card"
+                  class="MuiButtonBase-root ToggleCard-module_ToggleCard__Thw-b CardInput-module_card__8-hw7"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                    class="MuiPaper-root MuiCard-root ToggleCard-module_body__TatyN MuiPaper-elevation1 MuiPaper-rounded"
                   >
                     <div
-                      class="image"
+                      class="ToggleCard-module_image__1nzmJ"
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg);"
                     />
                     <h6
-                      class="MuiTypography-root title Typography MuiTypography-h6"
+                      class="MuiTypography-root ToggleCard-module_title__497KF Typography-module_Typography__aA2Zb MuiTypography-h6"
                     >
                       Underlay Divoroll Prima 1-5x50m
                     </h6>
                     <p
-                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                      class="MuiTypography-root ToggleCard-module_paragraph__VrXBV Typography-module_Typography__aA2Zb MuiTypography-body1"
                     >
                       Short underlay description
                     </p>
                     <p
-                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                      class="MuiTypography-root ToggleCard-module_paragraph__VrXBV Typography-module_Typography__aA2Zb MuiTypography-body1"
                     >
                       Nobb: 
                       45917056
@@ -63,43 +63,43 @@ exports[`PitchedRoofCalculator UnderlaySelection component renders correctly 1`]
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
           >
             <div
-              class="CardInput item"
+              class="CardInput-module_CardInput__chxNC CardRadioGroup-module_item__mJQ4b"
             >
               <label>
                 <input
-                  class="input"
+                  class="CardInput-module_input__mbax0"
                   name="underlay"
                   type="radio"
                   value="26583450"
                 />
                 <div
                   aria-disabled="false"
-                  class="MuiButtonBase-root ToggleCard card"
+                  class="MuiButtonBase-root ToggleCard-module_ToggleCard__Thw-b CardInput-module_card__8-hw7"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                    class="MuiPaper-root MuiCard-root ToggleCard-module_body__TatyN MuiPaper-elevation1 MuiPaper-rounded"
                   >
                     <div
-                      class="image"
+                      class="ToggleCard-module_image__1nzmJ"
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg);"
                     />
                     <h6
-                      class="MuiTypography-root title Typography MuiTypography-h6"
+                      class="MuiTypography-root ToggleCard-module_title__497KF Typography-module_Typography__aA2Zb MuiTypography-h6"
                     >
                       Underlay Divoroll TOP RU
                     </h6>
                     <p
-                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                      class="MuiTypography-root ToggleCard-module_paragraph__VrXBV Typography-module_Typography__aA2Zb MuiTypography-body1"
                     >
                       Short underlay description
                     </p>
                     <p
-                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                      class="MuiTypography-root ToggleCard-module_paragraph__VrXBV Typography-module_Typography__aA2Zb MuiTypography-body1"
                     >
                       Nobb: 
                       26583450
@@ -123,7 +123,7 @@ exports[`PitchedRoofCalculator UnderlaySelection component renders with no optio
 <div>
   <div>
     <h4
-      class="MuiTypography-root Typography MuiTypography-h4"
+      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h4"
     >
       Couldn't find suitable underlays for the entered dimensions. Please click "Go back" and double-check the dimensions.
     </h4>

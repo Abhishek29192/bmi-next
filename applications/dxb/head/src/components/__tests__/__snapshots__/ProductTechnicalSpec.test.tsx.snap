@@ -23,7 +23,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
               class="MuiAccordionSummary-content accordionStyles-summaryContent-21 Mui-expanded accordionStyles-summaryExpanded-20"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-h6"
+                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 measurements
               </h6>
@@ -70,7 +70,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
                   >
                     <div>
                       <table
-                        class="MuiTable-root Table Table--row-even-color Table--no-border"
+                        class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-even-color__rIiXD Table-module_Table--no-border__qGT3p"
                       >
                         <tbody
                           class="MuiTableBody-root"
@@ -126,7 +126,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
               class="MuiAccordionSummary-content accordionStyles-summaryContent-21 Mui-expanded accordionStyles-summaryExpanded-20"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-h6"
+                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 measurements
               </h6>
@@ -173,7 +173,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
                   >
                     <div>
                       <table
-                        class="MuiTable-root Table Table--row-even-color Table--no-border"
+                        class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-even-color__rIiXD Table-module_Table--no-border__qGT3p"
                       >
                         <tbody
                           class="MuiTableBody-root"
@@ -244,7 +244,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
               class="MuiAccordionSummary-content accordionStyles-summaryContent-7 Mui-expanded accordionStyles-summaryExpanded-6"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-h6"
+                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 measurements
               </h6>
@@ -291,7 +291,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
                   >
                     <div>
                       <table
-                        class="MuiTable-root Table Table--row-even-color Table--no-border"
+                        class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-even-color__rIiXD Table-module_Table--no-border__qGT3p"
                       >
                         <tbody
                           class="MuiTableBody-root"
@@ -333,7 +333,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
               class="MuiAccordionSummary-content accordionStyles-summaryContent-7 Mui-expanded accordionStyles-summaryExpanded-6"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-h6"
+                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
               >
                 measurements
               </h6>
@@ -380,7 +380,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
                   >
                     <div>
                       <table
-                        class="MuiTable-root Table Table--row-even-color Table--no-border"
+                        class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-even-color__rIiXD Table-module_Table--no-border__qGT3p"
                       >
                         <tbody
                           class="MuiTableBody-root"
@@ -422,10 +422,10 @@ exports[`ProductTechnicalSpec component Renders correctly when One classificatio
     >
       <div>
         <table
-          class="MuiTable-root Table Table--row-even-color"
+          class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-even-color__rIiXD"
         >
           <thead
-            class="MuiTableHead-root ColorPair ColorPair--pearl"
+            class="MuiTableHead-root ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--pearl__gkooI"
           >
             <tr
               class="MuiTableRow-root MuiTableRow-head"
@@ -475,10 +475,10 @@ exports[`ProductTechnicalSpec component Renders correctly when One classificatio
     >
       <div>
         <table
-          class="MuiTable-root Table Table--row-even-color"
+          class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-even-color__rIiXD"
         >
           <thead
-            class="MuiTableHead-root ColorPair ColorPair--pearl"
+            class="MuiTableHead-root ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--pearl__gkooI"
           >
             <tr
               class="MuiTableRow-root MuiTableRow-head"

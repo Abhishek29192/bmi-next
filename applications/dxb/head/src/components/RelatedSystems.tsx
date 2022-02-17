@@ -51,7 +51,8 @@ export const SystemCard = ({
   countryCode,
   path,
   gtm,
-  isHighlighted
+  isHighlighted,
+  ...rest
 }: SystemCardProps) => {
   const { getMicroCopy } = useSiteContext();
   const brandLogoCode = findSystemBrandLogoCode(system);
@@ -81,6 +82,7 @@ export const SystemCard = ({
           </Button>
         }
         isHighlighted={isHighlighted}
+        {...rest}
       >
         {system.shortDescription}
       </GTMOverviewCard>

@@ -3,37 +3,37 @@
 exports[`ImageGallerySection component renders correctly 1`] = `
 <div>
   <div
-    class="ImageGallerySection Section Section--alabaster"
+    class="ImageGallerySection Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
           >
             <h2
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
             >
               Lorem ipsum
             </h2>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12"
           >
             <div
-              class="MediaGallery"
+              class="MediaGallery-module_MediaGallery__4z5tB"
             >
               <div
-                class="image-wrapper"
+                class="MediaGallery-module_image-wrapper__aiaGc"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained main-image-wrapper main-image-wrapper--cover main-image-wrapper--default Media"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-module_main-image-wrapper__RoyQY MediaGallery-module_main-image-wrapper--cover__5UdVv MediaGallery-module_main-image-wrapper--default__yS86A Media-module_Media__GKPD2"
                   data-gatsby-image-wrapper=""
                   style="overflow: hidden; display: inline-block;"
                 >
@@ -92,22 +92,22 @@ exports[`ImageGallerySection component renders correctly 1`] = `
 exports[`ImageGallerySection component renders correctly with long description 1`] = `
 <div>
   <div
-    class="ImageGallerySection Section Section--alabaster"
+    class="ImageGallerySection Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
   >
     <div
-      class="Container"
+      class="Container-module_Container__4e9IW"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
           >
             <h2
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
             >
               Lorem ipsum
             </h2>
@@ -118,12 +118,12 @@ exports[`ImageGallerySection component renders correctly with long description 1
                 class="RichText"
               >
                 <h2
-                  class="MuiTypography-root title Typography MuiTypography-h2"
+                  class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h2"
                 >
                   Heading 2
                 </h2>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                  class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
                 >
                   this is a test paragraph
                 </p>
@@ -131,16 +131,16 @@ exports[`ImageGallerySection component renders correctly with long description 1
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12"
           >
             <div
-              class="MediaGallery"
+              class="MediaGallery-module_MediaGallery__4z5tB"
             >
               <div
-                class="image-wrapper"
+                class="MediaGallery-module_image-wrapper__aiaGc"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained main-image-wrapper main-image-wrapper--cover main-image-wrapper--default Media"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-module_main-image-wrapper__RoyQY MediaGallery-module_main-image-wrapper--cover__5UdVv MediaGallery-module_main-image-wrapper--default__yS86A Media-module_Media__GKPD2"
                   data-gatsby-image-wrapper=""
                   style="overflow: hidden; display: inline-block;"
                 >

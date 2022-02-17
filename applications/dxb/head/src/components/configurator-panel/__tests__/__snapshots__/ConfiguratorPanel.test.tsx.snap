@@ -19,7 +19,7 @@ exports[`ConfiguratorPanel component renders collapsed 1`] = `
           class="MuiAccordionSummary-content"
         >
           <h3
-            class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+            class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
           >
             Question One
           </h3>
@@ -92,7 +92,7 @@ exports[`ConfiguratorPanel component renders correctly 1`] = `
           class="MuiAccordionSummary-content Mui-expanded"
         >
           <h3
-            class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+            class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
           >
             Question One
           </h3>
@@ -165,7 +165,7 @@ exports[`ConfiguratorPanel component renders disabled 1`] = `
           class="MuiAccordionSummary-content Mui-expanded"
         >
           <h3
-            class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+            class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
           >
             Question One
           </h3>
@@ -253,7 +253,7 @@ exports[`ConfiguratorPanel component renders expanded with child content 1`] = `
           class="MuiAccordionSummary-content Mui-expanded"
         >
           <h3
-            class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+            class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
           >
             Question One
           </h3>
@@ -332,7 +332,7 @@ exports[`ConfiguratorPanel component renders expanded with child content and opt
           class="MuiAccordionSummary-content Mui-expanded"
         >
           <h3
-            class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+            class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
           >
             Question One
           </h3>
@@ -420,7 +420,7 @@ exports[`ConfiguratorPanel component renders with title with selected option tit
           class="MuiAccordionSummary-content Mui-expanded"
         >
           <h3
-            class="MuiTypography-root title Typography MuiTypography-h3 MuiTypography-colorInherit"
+            class="MuiTypography-root title Typography-module_Typography__aA2Zb MuiTypography-h3 MuiTypography-colorInherit"
           >
             Question one: 
             <span
