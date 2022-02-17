@@ -8,5 +8,7 @@ module.exports = {
   roots: ["<rootDir>/applications/dxb/functions/gcp-pim-message-handler/src"],
   collectCoverageFrom: [
     "<rootDir>/applications/dxb/functions/gcp-pim-message-handler/src/**/*.{ts,tsx,js}"
-  ]
+  ],
+  testEnvironment: "node",
+  resetMocks: true
 };
