@@ -257,14 +257,14 @@ describe("AboutLeadBlock tests", () => {
       );
       expect(container).toMatchSnapshot();
       const leadBlockSections = container.querySelectorAll(
-        ".LeadBlockContentSection"
+        "[class*='LeadBlock-module_LeadBlockContentSection']"
       );
       const descriptionSection = queryByText(longDescription, {
         exact: false
-      }).closest(".LeadBlockContentSection");
+      }).closest("[class*='LeadBlock-module_LeadBlockContentSection']");
       const specificationSection = queryByText(specificationMicroCopy, {
         exact: false
-      }).closest(".LeadBlockContentSection");
+      }).closest("[class*='LeadBlock-module_LeadBlockContentSection']");
       expect(leadBlockSections[0]).toBe(descriptionSection);
       expect(leadBlockSections[1]).toBe(specificationSection);
     });
