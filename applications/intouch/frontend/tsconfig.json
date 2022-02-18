@@ -8,6 +8,9 @@
       "@bmi/*": [
         "../../../node_modules/@bmi/*/src",
         "./node_modules/@bmi/*/src"
+      ],
+      "@bmi-digital/components": [
+        "../../../node_modules/@bmi/components-delete-me"
       ]
     },
     "allowJs": false,

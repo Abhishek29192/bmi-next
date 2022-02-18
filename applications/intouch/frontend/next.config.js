@@ -12,7 +12,11 @@ module.exports = withFonts({
     // solution taken from https://github.com/jeantil/next-9-ts-aliases-workspaces/blob/master/packages/web-app/next.config.js
     config.module.rules.push({
       test: /\.(tsx|ts|js|mjs|jsx)$/,
-      include: [path.resolve(config.context, "../../../")],
+      include: [
+        path
+          .resolve(config.context, "../../../")
+          .replace("@bmi-digital/components", "@bmi/components-delete-me")
+      ],
       use: defaultLoaders.babel,
       exclude: (excludePath) => {
         return /node_modules/.test(excludePath);

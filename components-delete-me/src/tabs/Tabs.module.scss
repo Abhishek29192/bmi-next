@@ -1,0 +1,79 @@
+@import "@bmi-digital/styles";
+
+.Tabs {
+  position: relative;
+
+  .TabPanel {
+    &[hidden] {
+      position: absolute;
+      top: -9999px;
+      left: -99999px;
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .TabPanelBox {
+    background: $color-white;
+    padding: 24px 24px 0 24px;
+  }
+
+  .TabsBar {
+    background-color: $color-white;
+    font-size: 1.25rem;
+  }
+
+  &--secondary {
+    .TabsBar {
+      background-color: $color-pearl;
+      border-bottom: 1px solid $color-storm;
+      border-top: 1px solid $color-storm;
+
+      @media (min-width: $breakpoint-lg) {
+        border: none;
+      }
+    }
+  }
+
+  &--visible-until-md {
+    @media (min-width: $breakpoint-lg) {
+      display: flex;
+
+      .TabsBar {
+        display: none;
+      }
+
+      .TabPanel,
+      .TabPanelBox {
+        display: initial;
+
+        &[hidden] {
+          position: initial;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+
+  &--visible-until-sm {
+    @media (min-width: $breakpoint-md) {
+      display: flex;
+
+      .TabsBar {
+        display: none;
+      }
+
+      .TabPanel,
+      .TabPanelBox {
+        display: initial;
+
+        &[hidden] {
+          position: initial;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,290 @@
+@import "@bmi-digital/styles";
+
+$hero-breakpoint-sm: 769px;
+
+:export {
+  breakpoint-sm: $hero-breakpoint-sm;
+}
+
+.Hero {
+  // NOTE: Overriding for the Hero module
+  $breakpoint-sm: $hero-breakpoint-sm;
+
+  min-height: auto;
+  flex-direction: column;
+  background-color: $color-blue-800;
+  color: $color-white;
+  position: relative;
+  overflow: hidden;
+
+  &--light {
+    background-color: $color-pearl;
+    color: $color-charcoal;
+  }
+
+  .title {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    margin: 10px 0 24px;
+    // NOTE: This gets rid of the next line high characters
+    line-height: 1.4em;
+
+    // NOTE: none of the headers are truncated on mobile
+    @media (min-width: $hero-breakpoint-sm) {
+      &--truncated {
+        -webkit-line-clamp: 2;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    &::after {
+      // NOTE: Fix the next slide being visible
+      margin-left: 1px;
+    }
+  }
+
+  &--light .title {
+    -webkit-line-clamp: inherit;
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  .wrapper {
+    display: flex;
+    width: 100%;
+    min-height: auto;
+    padding: 24px 0 40px 0;
+    flex-direction: column;
+  }
+
+  &--slim .wrapper {
+    padding-bottom: 8px;
+  }
+
+  .content {
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .image-carousel {
+    margin-top: 40px;
+  }
+
+  .image {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
+  }
+
+  .text {
+    min-height: auto;
+    width: 100%;
+    font-size: 18px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    @media (min-width: $hero-breakpoint-sm) {
+      margin-top: -10px;
+
+      &::before {
+        background-color: $color-theme-accent-300;
+        content: "";
+        display: block;
+        height: 4px;
+        margin-top: 0.6rem;
+        width: 100px;
+        position: relative;
+        top: -10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .text-no-underline {
+    min-height: auto;
+    width: 100%;
+    font-size: 18px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+
+  .cta {
+    margin-top: 24px;
+    display: block;
+    width: fit-content;
+    // NOTE: Fix the next slide being visible
+    margin-left: 1px;
+  }
+
+  .controls {
+    margin: 24px 0 32px;
+  }
+
+  &--keyline {
+    border-bottom: 12px solid $color-theme-accent;
+
+    &.Hero--lvl-1 {
+      border-bottom: 8px solid $color-theme-accent;
+    }
+
+    &.Hero--lvl-2,
+    &.Hero--lvl-3 {
+      border-bottom: 4px solid $color-theme-accent;
+    }
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    flex-direction: row;
+    height: auto;
+
+    &--lvl-1 {
+      min-height: 450px;
+    }
+
+    &--slim {
+      height: auto;
+    }
+
+    &--carousel {
+      height: 650px;
+      padding-bottom: 60px;
+    }
+
+    &--space-bottom {
+      padding-bottom: 140px;
+    }
+
+    .wrapper {
+      width: calc(50% + 12px);
+      height: 100%;
+      padding-right: 24px;
+    }
+
+    &--slim:not(&--carousel) .wrapper {
+      width: auto;
+    }
+
+    .content {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    &--carousel .content {
+      padding-bottom: 32px;
+    }
+
+    .image {
+      position: absolute;
+      top: 0;
+      left: calc(50% + 12px);
+      width: calc(50vw - 12px);
+      height: 100%;
+      max-height: none;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    .image-carousel {
+      position: absolute;
+      top: 0;
+      left: calc(50% + 12px);
+      width: calc(50vw - 12px);
+      height: 100%;
+      max-height: none;
+      margin-top: 0;
+
+      .image {
+        position: relative;
+        width: auto;
+        height: 100%;
+        left: 0;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        z-index: 0;
+        top: 50%;
+        width: 100%;
+        bottom: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba($color-blue-800, 0) 0%,
+          $color-blue-800 70%,
+          $color-blue-800 100%
+        );
+      }
+    }
+
+    .text {
+      width: 100%;
+      font-size: 20.25px;
+    }
+
+    .controls {
+      position: absolute;
+      z-index: 3;
+      right: 24px;
+      bottom: 24px;
+      margin: 0;
+    }
+
+    &--space-bottom .controls {
+      bottom: 124px;
+    }
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    &--carousel {
+      height: 650px;
+    }
+
+    .controls {
+      margin: 24px 0 32px;
+    }
+
+    .children {
+      max-width: 566px;
+    }
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    &--carousel {
+      height: 720px;
+    }
+
+    &--carousel .content {
+      padding-bottom: 0;
+    }
+
+    .content {
+      padding-bottom: none;
+    }
+
+    .controls {
+      position: static;
+    }
+
+    .image-carousel::after {
+      content: none;
+    }
+  }
+}
