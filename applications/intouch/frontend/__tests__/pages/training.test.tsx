@@ -1,19 +1,24 @@
-// import React from "react";
-// import { fireEvent } from "@testing-library/react";
-import { getServerSideProps } from "../../pages/training";
-import { TrainingQuery } from "../../graphql/generated/operations";
-// import { generateGlobalPageData } from "../../lib/tests/factories/globalPageData";
+import React from "react";
+import { fireEvent } from "@testing-library/react";
+import * as nextRouter from "next/router";
+import TrainingPage, { getServerSideProps } from "../../pages/training";
+import {
+  TrainingQuery,
+  GetGlobalDataQuery
+} from "../../graphql/generated/operations";
+import { generateGlobalPageData } from "../../lib/tests/factories/globalPageData";
 import {
   generateTrainingContentCollection,
-  generateTrainingCourseCatalogues
+  generateTrainingCourseCatalogues,
+  generateCourse
 } from "../../lib/tests/factories/training";
-// import { renderWithUserProvider } from "../../lib/tests/utils";
-// import AccountContextWrapper from "../../lib/tests/fixtures/account";
-// import ApolloProvider from "../../lib/tests/fixtures/apollo";
+import { renderWithUserProvider } from "../../lib/tests/utils";
+import AccountContextWrapper from "../../lib/tests/fixtures/account";
+import ApolloProvider from "../../lib/tests/fixtures/apollo";
 import { getServerPageTraining } from "../../graphql/generated/page";
 
-// TODO: Uncomment the tests and fix mocking of 'withPageAuthRequired' !!
-// just want to make the pipeline to succeed to un-block everyone!!
+nextRouter.useRouter = jest.fn();
+nextRouter.useRouter.mockImplementation(() => ({ route: "/" }));
 
 jest.mock("../../lib/middleware/withPage", () => ({
   withPage: (fn) => {
@@ -36,7 +41,7 @@ describe("Training Page", () => {
       courseCatalogues: generateTrainingCourseCatalogues()
     }
   });
-  // const globalPageData: GetGlobalDataQuery = generateGlobalPageData();
+  const globalPageData: GetGlobalDataQuery = generateGlobalPageData();
   const mockApolloQuery = jest.fn();
   const generateTrainingContext = () => ({
     apolloClient: {
@@ -188,7 +193,7 @@ describe("Training Page", () => {
     });
   });
 
-  /*   it("render correctly", async () => {
+  it("render correctly", async () => {
     const { container } = renderWithUserProvider(
       <ApolloProvider>
         <AccountContextWrapper>
@@ -202,8 +207,8 @@ describe("Training Page", () => {
     expect(container).toMatchSnapshot();
     expect(container.querySelector(".sidePanelWrapper")).toBeTruthy();
   });
- */
-  /*   it("render correctly when no items in trainingContentCollection", async () => {
+
+  it("render correctly when no items in trainingContentCollection", async () => {
     const trainingData = {
       data: {
         ...generateTrainingData(),
@@ -222,9 +227,9 @@ describe("Training Page", () => {
     );
     expect(container).toMatchSnapshot();
     expect(getAllByText("Training").length).toBe(2);
-  }); */
+  });
 
-  /*   it("render correctly when error in trainingData", async () => {
+  it("render correctly when error in trainingData", async () => {
     const message = "error message";
     const trainingData = {
       data: null,
@@ -245,9 +250,9 @@ describe("Training Page", () => {
     expect(container).toMatchSnapshot();
     expect(getAllByText("Training").length).toBe(2);
     expect(getByText(`Oops... ${message}`)).toBeTruthy();
-  }); */
+  });
 
-  /*   it("run onCourseSelected correctly when select course", () => {
+  it("run onCourseSelected correctly when select course", () => {
     const { getByText, getByTestId, queryByTestId } = renderWithUserProvider(
       <ApolloProvider>
         <AccountContextWrapper>
@@ -264,8 +269,8 @@ describe("Training Page", () => {
     fireEvent.click(getByText("Pitch Course"));
     expect(getByTestId("courseDescription")).toBeTruthy();
   });
- */
-  /*   it("reset activeCourse when click on filter button", () => {
+
+  it("reset activeCourse when click on filter button", () => {
     const { container, queryByTestId } = renderWithUserProvider(
       <ApolloProvider>
         <AccountContextWrapper>
@@ -280,9 +285,9 @@ describe("Training Page", () => {
 
     fireEvent.click(filterButton[1]);
     expect(queryByTestId("courseDescription")).toBeFalsy();
-  }); */
+  });
 
-  /*   it("sort course correctly by status", () => {
+  it("sort course correctly by status", () => {
     const nodes = [
       generateCourse({}, { status: "completed" }),
       generateCourse({ name: "nullStatus" }, { status: null }),
@@ -321,5 +326,5 @@ describe("Training Page", () => {
     expect(courses[4].getElementsByClassName("icon")[0].textContent).toBe(
       "completed"
     );
-  }); */
+  });
 });
