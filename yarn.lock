@@ -2527,8 +2527,10 @@
   resolved "https://registry.yarnpkg.com/@blakeembrey/template/-/template-1.0.0.tgz#bf8828bc3ae8004d97904d78f64e3cc2cd216438"
   integrity sha512-J6WGZqCLdRMHUkyRG6fBSIFJ0rL60/nsQNh5rQvsYZ5u0PsKw6XQcJcA3DWvd9cN3j/IQx5yB1fexhCafwwUUw==
 
-"@bmi-digital/components@1.0.4", "@bmi-digital/components@file:.yalc/@bmi-digital/components":
+"@bmi-digital/components@1.0.4":
   version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.0.4.tgz#86c8ce5f56d43ecbaa1ea7dd64775994dac016b0"
+  integrity sha512-eg7sW4cYkJc79JlERCU6TJXOOjYGnwZ3HMDj5j9yjxQYgWejJwW2kUDUoiJfQqbVb1calZzPYkekam1DfvS3xA==
   dependencies:
     "@bmi-digital/styles" "1.0.1"
     "@bmi-digital/svg-import" "1.0.1"

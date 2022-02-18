@@ -2107,7 +2107,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
               </div>
             </div>
             <div
-              class="MuiCollapse-root MuiCollapse-hidden"
+              class="MuiCollapse-root"
               style="min-height: 0px; height: 0px; transition-duration: 500ms;"
             >
               <div
