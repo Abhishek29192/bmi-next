@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent } from "@testing-library/react";
+import { fireEvent, waitFor } from "@testing-library/react";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import SearchPage, { Props as SearchPageData } from "../search-page";
 import { createMockSiteData } from "../../test/mockSiteData";
@@ -235,9 +235,13 @@ describe("Search Page Template", () => {
         }}
       />
     );
-    await new Promise((r) => setTimeout(r, 10));
+
+    await waitFor(() =>
+      expect(getByText("MC: search.tabHeadings.products (2)")).toBeTruthy()
+    );
+
     expect(container).toMatchSnapshot();
-    expect(getByText("MC: search.tabHeadings.products (2)")).toBeTruthy();
+
     const elasticSearchSpy = jest
       .spyOn(elasticSearch, "queryElasticSearch")
       .mockResolvedValueOnce({
@@ -252,9 +256,10 @@ describe("Search Page Template", () => {
     const nextPageButton = getByText("MC: plp.filters.clearAll");
 
     fireEvent.click(nextPageButton);
-    await new Promise((r) => setTimeout(r, 10));
+    await waitFor(() =>
+      expect(getByText("MC: search.tabHeadings.products (3)")).toBeTruthy()
+    );
     expect(elasticSearchSpy).toBeCalledTimes(1);
-    expect(getByText("MC: search.tabHeadings.products (3)")).toBeTruthy();
   });
 
   it("run handleSubmit and return message correctly when GATSBY_PREVIEW exists", async () => {
