@@ -10797,7 +10797,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                       <div
                         class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
                         data-gatsby-image-wrapper=""
-                        style="overflow: hidden; display: inline-block;"
+                        style="overflow: hidden; display: inline-block; vertical-align: top;"
                       >
                         <div
                           style="max-width: 948px; display: block;"
@@ -18663,7 +18663,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                       <div
                         class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
                         data-gatsby-image-wrapper=""
-                        style="overflow: hidden; display: inline-block;"
+                        style="overflow: hidden; display: inline-block; vertical-align: top;"
                       >
                         <div
                           style="max-width: 948px; display: block;"
@@ -30478,7 +30478,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                       <div
                         class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
                         data-gatsby-image-wrapper=""
-                        style="overflow: hidden; display: inline-block;"
+                        style="overflow: hidden; display: inline-block; vertical-align: top;"
                       >
                         <div
                           style="max-width: 948px; display: block;"
@@ -34440,7 +34440,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                       <div
                         class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
                         data-gatsby-image-wrapper=""
-                        style="overflow: hidden; display: inline-block;"
+                        style="overflow: hidden; display: inline-block; vertical-align: top;"
                       >
                         <div
                           style="max-width: 948px; display: block;"

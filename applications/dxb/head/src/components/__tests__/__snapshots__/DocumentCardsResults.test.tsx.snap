@@ -20,7 +20,7 @@ exports[`Brands component renders correctly 1`] = `
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained OverviewCard-module_header-picture__uBGaH Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 5184px; display: block;"
@@ -182,7 +182,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained OverviewCard-module_header-picture__uBGaH Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 5184px; display: block;"

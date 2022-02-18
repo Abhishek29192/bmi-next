@@ -75,7 +75,9 @@ describe("deleteElasticSearchIndex", () => {
       await deleteElasticSearchIndex(ElasticsearchIndexes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("index_not_found_exception");
+      expect(error.message).toEqual(
+        "index_not_found_exception: [index_not_found_exception] Reason: no such index [dxb_test_products]"
+      );
     }
 
     expect(getEsClient).toHaveBeenCalled();

@@ -655,7 +655,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained SpotlightHero-module_image__x0k4m Media-module_Media__GKPD2"
             data-gatsby-image-wrapper=""
-            style="overflow: hidden; display: inline-block;"
+            style="overflow: hidden; display: inline-block; vertical-align: top;"
           >
             <div
               style="max-width: 948px; display: block;"
@@ -1890,7 +1890,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained SpotlightHero-module_image__x0k4m Media-module_Media__GKPD2"
             data-gatsby-image-wrapper=""
-            style="overflow: hidden; display: inline-block;"
+            style="overflow: hidden; display: inline-block; vertical-align: top;"
           >
             <div
               style="max-width: 948px; display: block;"
@@ -3062,7 +3062,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -4438,7 +4438,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -5860,7 +5860,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -7325,7 +7325,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained SpotlightHero-module_image__x0k4m Media-module_Media__GKPD2"
             data-gatsby-image-wrapper=""
-            style="overflow: hidden; display: inline-block;"
+            style="overflow: hidden; display: inline-block; vertical-align: top;"
           >
             <div
               style="max-width: 948px; display: block;"
@@ -8495,7 +8495,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained SpotlightHero-module_image__x0k4m Media-module_Media__GKPD2"
             data-gatsby-image-wrapper=""
-            style="overflow: hidden; display: inline-block;"
+            style="overflow: hidden; display: inline-block; vertical-align: top;"
           >
             <div
               style="max-width: 948px; display: block;"
@@ -9649,7 +9649,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -10871,7 +10871,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -12093,7 +12093,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -13310,7 +13310,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -14480,7 +14480,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -15856,7 +15856,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -17278,7 +17278,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -18727,7 +18727,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -19879,7 +19879,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -21027,7 +21027,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -22269,7 +22269,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -23735,7 +23735,7 @@ exports[`ProductListerPage template test filter resolver utils when no filters a
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -24980,7 +24980,7 @@ exports[`ProductListerPage template test hande change url by click on filters an
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -26456,7 +26456,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -29340,7 +29340,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-module_image__AvlbN Media-module_Media__GKPD2"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block;"
+          style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"

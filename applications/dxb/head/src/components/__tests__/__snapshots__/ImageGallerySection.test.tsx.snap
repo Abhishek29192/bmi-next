@@ -35,7 +35,7 @@ exports[`ImageGallerySection component renders correctly 1`] = `
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-module_main-image-wrapper__RoyQY MediaGallery-module_main-image-wrapper--cover__5UdVv MediaGallery-module_main-image-wrapper--default__yS86A Media-module_Media__GKPD2"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block;"
+                  style="overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
@@ -142,7 +142,7 @@ exports[`ImageGallerySection component renders correctly with long description 1
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-module_main-image-wrapper__RoyQY MediaGallery-module_main-image-wrapper--cover__5UdVv MediaGallery-module_main-image-wrapper--default__yS86A Media-module_Media__GKPD2"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block;"
+                  style="overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
