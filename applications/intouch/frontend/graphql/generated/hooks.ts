@@ -2,7 +2,7 @@ import * as OperationTypes from "./operations";
 
 import { gql } from "@apollo/client";
 import * as Apollo from "@apollo/client";
-const defaultOptions = {};
+const defaultOptions = {} as const;
 export const ContactDetailsCollectionFragmentFragmentDoc = gql`
   fragment ContactDetailsCollectionFragment on ContactDetailsCollection {
     items {

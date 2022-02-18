@@ -264,7 +264,8 @@ const sendMail = async (
       email: account.email,
       firstname: account.first_name,
       role: account.role,
-      project: `${projectCompanyDetail.name}`
+      project: `${projectCompanyDetail.name}`,
+      projectId
     });
   }
 };

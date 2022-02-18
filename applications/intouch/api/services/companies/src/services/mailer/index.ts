@@ -30,6 +30,9 @@ export const sendMessageWithTemplate = async (
       const [template] = messageTemplateCollection.items;
       for (const format of template.format || []) {
         if (format === "NOTIFICATION") {
+          if (body.projectId) {
+            body.project = `[${body.project}](/projects/${body.projectId})`;
+          }
           await addNotification(context, template, body);
         } else if (format === "EMAIL") {
           await sendMail(context, template, body);
