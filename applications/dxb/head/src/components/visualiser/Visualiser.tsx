@@ -369,8 +369,9 @@ const SharePopover = ({
   shareWidget: ReactNode;
   anchorRef: RefObject<HTMLDivElement>;
 }) => {
-  const [anchorElement, setAnchorElement] =
-    useState<HTMLDivElement | null>(null);
+  const [anchorElement, setAnchorElement] = useState<HTMLDivElement | null>(
+    null
+  );
 
   const handlePopoverClick = () => {
     setAnchorElement(anchorRef.current);

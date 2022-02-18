@@ -57,13 +57,16 @@ const PitchedRoofCalculatorSteps = ({
   const [roof, setRoof] = useState<Roof | undefined>(undefined);
   const [dimensions, setDimensions] = useState<DimensionsValues>({});
   const [tile, setTile] = useState<MainTile | undefined>(undefined);
-  const [variant, setVariant] =
-    useState<MainTileVariant | undefined>(undefined);
-  const [tileOptions, setTileOptions] =
-    useState<TileOptionsSeletions | undefined>(undefined);
+  const [variant, setVariant] = useState<MainTileVariant | undefined>(
+    undefined
+  );
+  const [tileOptions, setTileOptions] = useState<
+    TileOptionsSeletions | undefined
+  >(undefined);
   const [underlay, setUnderlay] = useState<Underlay | undefined>(undefined);
-  const [guttering, setGuttering] =
-    useState<GutteringSelections | undefined>(undefined);
+  const [guttering, setGuttering] = useState<GutteringSelections | undefined>(
+    undefined
+  );
 
   const selectRoof = (newRoof: Roof) => {
     setSelected("enter-dimensions");

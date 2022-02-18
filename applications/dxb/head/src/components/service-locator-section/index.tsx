@@ -105,13 +105,12 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     initialMapZoom || DEFAULT_LEVEL_ZOOM
   );
   const [activeSearchString, setActiveSearchString] = useState<string>("");
-  const [userPosition, setUserPosition] =
-    useState<
-      | undefined
-      | {
-          location: GoogleLatLngLiteral;
-        }
-    >();
+  const [userPosition, setUserPosition] = useState<
+    | undefined
+    | {
+        location: GoogleLatLngLiteral;
+      }
+  >();
 
   const serviceTypesByEntityItems: ServiceType[] =
     serviceTypesByEntity(sectionType);

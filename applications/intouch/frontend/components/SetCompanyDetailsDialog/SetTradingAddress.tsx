@@ -20,8 +20,10 @@ import { AddressAutocomplete } from "../AddressAutocomplete";
 import { getNestedValue } from "../../lib/utils/object";
 import styles from "./styles.module.scss";
 
-const ControlledTextInput =
-  withFormControlWithFormValues<TextFieldProps, string>(TextField);
+const ControlledTextInput = withFormControlWithFormValues<
+  TextFieldProps,
+  string
+>(TextField);
 
 type Props = {
   existingTradingAddress: GetCompanyQuery["company"]["tradingAddress"];

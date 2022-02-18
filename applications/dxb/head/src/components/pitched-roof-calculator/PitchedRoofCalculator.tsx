@@ -41,17 +41,16 @@ const PitchedRoofCalculator = ({
     [onAnalyticsEvent]
   );
 
-  const [selected, setSelected] =
-    useState<
-      | "select-roof"
-      | "enter-dimensions"
-      | "select-tile"
-      | "select-variant"
-      | "tile-options"
-      | "select-underlay"
-      | "guttering"
-      | "your-solution-contains"
-    >("select-roof");
+  const [selected, setSelected] = useState<
+    | "select-roof"
+    | "enter-dimensions"
+    | "select-tile"
+    | "select-variant"
+    | "tile-options"
+    | "select-underlay"
+    | "guttering"
+    | "your-solution-contains"
+  >("select-roof");
 
   useEffect(() => {
     if (!isOpen && selected !== "select-roof") {

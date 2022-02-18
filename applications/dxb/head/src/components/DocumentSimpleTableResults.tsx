@@ -41,12 +41,11 @@ type Props = {
   headers?: AvailableHeader[];
 };
 
-const GTMButton =
-  withGTM<
-    ButtonProps & {
-      action?: ClickableAction;
-    }
-  >(Button);
+const GTMButton = withGTM<
+  ButtonProps & {
+    action?: ClickableAction;
+  }
+>(Button);
 
 export const mapAssetToFileDownload = (
   data: DocumentData | PIMDocumentData | SDPDocumentData

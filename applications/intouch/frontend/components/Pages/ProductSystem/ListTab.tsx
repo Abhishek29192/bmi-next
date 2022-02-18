@@ -79,13 +79,13 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
     filters: projectFilters
   });
 
-  const [items, setItems] =
-    useState<
-      ProductsAndSystemsQuery["products"] | ProductsAndSystemsQuery["systems"]
-    >(ssrItems);
+  const [items, setItems] = useState<
+    ProductsAndSystemsQuery["products"] | ProductsAndSystemsQuery["systems"]
+  >(ssrItems);
 
-  const [selectedItem, setSelectedItem] =
-    useState<Partial<Product> | Partial<System>>();
+  const [selectedItem, setSelectedItem] = useState<
+    Partial<Product> | Partial<System>
+  >();
 
   const [udpateProduct] = useUpdateProductMutation({
     onCompleted: (data) => {

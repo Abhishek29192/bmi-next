@@ -11,8 +11,9 @@ import { getFieldValueLabel } from "./Form";
 // TODO: move/split styles?
 import styles from "./CreateProject/styles.module.scss";
 
-const FlatIconWrapper: React.FunctionComponent<React.SVGProps<SVGSVGElement>> =
-  (props) => <FlatRoof viewBox="0 7 48 48" {...props} />;
+const FlatIconWrapper: React.FunctionComponent<
+  React.SVGProps<SVGSVGElement>
+> = (props) => <FlatRoof viewBox="0 7 48 48" {...props} />;
 
 // TODO: Use this once "OTHER" is removed from it
 const technologyIcons: Record<

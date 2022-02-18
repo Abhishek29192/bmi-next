@@ -72,8 +72,9 @@ const CardRadioGroup = ({
   );
 };
 
-const controlledRadioGroupFormControl =
-  withFormControl<Props, string>(CardRadioGroup);
+const controlledRadioGroupFormControl = withFormControl<Props, string>(
+  CardRadioGroup
+);
 const CardRadioGroupFormControl = Object.defineProperty(
   controlledRadioGroupFormControl,
   "Item",

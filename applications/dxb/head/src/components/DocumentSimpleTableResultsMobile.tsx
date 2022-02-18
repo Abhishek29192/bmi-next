@@ -16,12 +16,11 @@ type ListProps = {
   documents: Document[];
 };
 
-const GTMButton =
-  withGTM<
-    ButtonProps & {
-      action?: ClickableAction;
-    }
-  >(Button);
+const GTMButton = withGTM<
+  ButtonProps & {
+    action?: ClickableAction;
+  }
+>(Button);
 
 export const DocumentSimpleTableResultsMobile = ({ documents }: ListProps) => {
   const list = documents.map((document) => {

@@ -85,8 +85,9 @@ const Table = ({
   const [containerRef, containerDimensions] = useDimensions();
   const [normalTableRef, normalTableDimensions] = useDimensions();
   const [mediumTableRef, mediumTableDimensions] = useDimensions();
-  const [tableSize, setTableSize] =
-    useState<"normal" | "medium" | "small">("normal");
+  const [tableSize, setTableSize] = useState<"normal" | "medium" | "small">(
+    "normal"
+  );
 
   const header = useMemo(
     () =>

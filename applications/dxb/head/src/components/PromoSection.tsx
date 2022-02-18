@@ -31,12 +31,11 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
     backgroundColor
   } = data;
 
-  const GTMButton =
-    withGTM<
-      ButtonProps & {
-        action?: ClickableAction;
-      }
-    >(Button);
+  const GTMButton = withGTM<
+    ButtonProps & {
+      action?: ClickableAction;
+    }
+  >(Button);
 
   const { [id]: theme } = useContext(SectionsContext);
 

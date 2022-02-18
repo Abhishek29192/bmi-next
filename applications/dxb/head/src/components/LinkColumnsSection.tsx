@@ -52,23 +52,27 @@ const LinkColumnsSection = ({ data }: { data: Data }) => {
           columns.map(({ label, links }, index) => {
             const linksWithActions = (links || [])
               .filter((link) => link.__typename === "ContentfulLink")
-              .map((link: LinkData): {
-                action: ClickableAction | undefined;
-                label: string;
-              } => {
-                const action = getClickableActionFromUrl(
-                  link.linkedPage,
-                  link.url,
-                  countryCode,
-                  link.asset ? `https:${link.asset?.file?.url}` : undefined,
-                  link.label
-                );
+              .map(
+                (
+                  link: LinkData
+                ): {
+                  action: ClickableAction | undefined;
+                  label: string;
+                } => {
+                  const action = getClickableActionFromUrl(
+                    link.linkedPage,
+                    link.url,
+                    countryCode,
+                    link.asset ? `https:${link.asset?.file?.url}` : undefined,
+                    link.label
+                  );
 
-                return {
-                  action,
-                  label: link.label
-                };
-              });
+                  return {
+                    action,
+                    label: link.label
+                  };
+                }
+              );
 
             return (
               <ExpandableLinksTextCard
