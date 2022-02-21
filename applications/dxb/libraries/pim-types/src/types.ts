@@ -160,7 +160,7 @@ export type SystemLayer = {
   addon: boolean;
   approvalStatus: ApprovalStatus;
   code: string;
-  layerNumber: number;
+  layerNumber: string;
   longDescription: string;
   optionalProducts?: SystemLayerProduct[];
   products?: SystemLayerProduct[];
