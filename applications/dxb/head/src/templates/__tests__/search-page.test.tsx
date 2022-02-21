@@ -249,13 +249,18 @@ describe("Search Page Template", () => {
 
     const elasticSearchSpy = jest
       .spyOn(elasticSearch, "queryElasticSearch")
-      .mockResolvedValueOnce({
+      .mockResolvedValue({
         hits: {
-          hits: []
+          hits: [],
+          total: { value: 20 }
         },
         aggregations: {
           total: { value: 1 },
-          unique_base_products_count: { value: 3 }
+          unique_base_products_count: { value: 3 },
+          assetTypes: { buckets: [] },
+          tags: {
+            buckets: []
+          }
         }
       });
     const nextPageButton = getByText("MC: plp.filters.clearAll");
