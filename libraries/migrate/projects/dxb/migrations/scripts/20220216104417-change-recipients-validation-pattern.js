@@ -4,7 +4,9 @@ module.exports.up = (migration) => {
   const form = migration.editContentType("form");
   form.editField("recipients").validations([
     {
-      regexp: { pattern: "^(?:\\b[\\w\\d@.]+\\b[\\s,]*){1,4}$" },
+      regexp: {
+        pattern: "^(?:\\b\\w[\\w.-]*@([\\w-]+\\.)+[\\w-]+\\b[\\s,]*){1,4}$"
+      },
       message: "You should provide up to 4 valid emails"
     }
   ]);
