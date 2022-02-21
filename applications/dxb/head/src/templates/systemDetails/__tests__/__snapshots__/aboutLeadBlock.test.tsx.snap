@@ -3,25 +3,25 @@
 exports[`AboutLeadBlock tests should not render if no awardsAndCertificates assets 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <div
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+          class="MuiTypography-root Typography MuiTypography-body1"
         >
           Long Dec System 2 NO
         </div>
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.guaranteesWarranties
         </h6>
@@ -32,10 +32,10 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
         />
       </div>
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: sdp.leadBlock.specification
         </h6>
@@ -74,34 +74,34 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
       </div>
     </div>
     <div
-      class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
       data-testid="sidebar"
     >
       <div
-        class="ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--pearl__gkooI"
+        class="ColorPair ColorPair--pearl"
       >
         <div
-          class="PostItCard-module_PostItCard__h-kTp"
+          class="PostItCard"
         >
           <div
-            class="PostItCard-module_section__sfiQz"
+            class="section"
           >
             <h4
-              class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
               Key Features
             </h4>
             <div
-              class="PostItCard-module_content__Bvxw0"
+              class="content"
             >
               <ul
-                class="IconList-module_IconList__KweQa"
+                class="IconList"
               >
                 <li
-                  class="IconList-module_ListItem__WMqQr IconList-module_ListItem--isCompact__Um1fv"
+                  class="ListItem ListItem--isCompact"
                 >
                   <div
-                    class="IconList-module_icon__KKtTa"
+                    class="icon"
                   >
                     <svg
                       aria-hidden="true"
@@ -115,20 +115,20 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
                     </svg>
                   </div>
                   <div
-                    class="IconList-module_content__21w5w"
+                    class="content"
                   >
                     <p
-                      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+                      class="MuiTypography-root title Typography MuiTypography-body1"
                     >
                       Sample KF value
                     </p>
                   </div>
                 </li>
                 <li
-                  class="IconList-module_ListItem__WMqQr IconList-module_ListItem--isCompact__Um1fv"
+                  class="ListItem ListItem--isCompact"
                 >
                   <div
-                    class="IconList-module_icon__KKtTa"
+                    class="icon"
                   >
                     <svg
                       aria-hidden="true"
@@ -142,10 +142,10 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
                     </svg>
                   </div>
                   <div
-                    class="IconList-module_content__21w5w"
+                    class="content"
                   >
                     <p
-                      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+                      class="MuiTypography-root title Typography MuiTypography-body1"
                     >
                       Sample KF value 2
                     </p>
@@ -155,24 +155,24 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
             </div>
           </div>
           <div
-            class="PostItCard-module_section__sfiQz"
+            class="section"
           >
             <h4
-              class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
               MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
-              class="PostItCard-module_content__Bvxw0"
+              class="content"
             >
               <ul
-                class="IconList-module_IconList__KweQa"
+                class="IconList"
               >
                 <li
-                  class="IconList-module_ListItem__WMqQr IconList-module_ListItem--isCompact__Um1fv"
+                  class="ListItem ListItem--isCompact"
                 >
                   <div
-                    class="IconList-module_icon__KKtTa"
+                    class="icon"
                   >
                     <svg
                       aria-hidden="true"
@@ -186,10 +186,10 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
                     </svg>
                   </div>
                   <div
-                    class="IconList-module_content__21w5w"
+                    class="content"
                   >
                     <p
-                      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+                      class="MuiTypography-root title Typography MuiTypography-body1"
                     >
                       Benefit 3 NO, Benefit 4 NO
                     </p>
@@ -208,25 +208,25 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificates asse
 exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties assets 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <div
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+          class="MuiTypography-root Typography MuiTypography-body1"
         >
           Long Dec System 2 NO
         </div>
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.awardsCertificates
         </h6>
@@ -237,10 +237,10 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
         />
       </div>
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: sdp.leadBlock.specification
         </h6>
@@ -279,34 +279,34 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
       </div>
     </div>
     <div
-      class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
       data-testid="sidebar"
     >
       <div
-        class="ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--pearl__gkooI"
+        class="ColorPair ColorPair--pearl"
       >
         <div
-          class="PostItCard-module_PostItCard__h-kTp"
+          class="PostItCard"
         >
           <div
-            class="PostItCard-module_section__sfiQz"
+            class="section"
           >
             <h4
-              class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
               Key Features
             </h4>
             <div
-              class="PostItCard-module_content__Bvxw0"
+              class="content"
             >
               <ul
-                class="IconList-module_IconList__KweQa"
+                class="IconList"
               >
                 <li
-                  class="IconList-module_ListItem__WMqQr IconList-module_ListItem--isCompact__Um1fv"
+                  class="ListItem ListItem--isCompact"
                 >
                   <div
-                    class="IconList-module_icon__KKtTa"
+                    class="icon"
                   >
                     <svg
                       aria-hidden="true"
@@ -320,20 +320,20 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
                     </svg>
                   </div>
                   <div
-                    class="IconList-module_content__21w5w"
+                    class="content"
                   >
                     <p
-                      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+                      class="MuiTypography-root title Typography MuiTypography-body1"
                     >
                       Sample KF value
                     </p>
                   </div>
                 </li>
                 <li
-                  class="IconList-module_ListItem__WMqQr IconList-module_ListItem--isCompact__Um1fv"
+                  class="ListItem ListItem--isCompact"
                 >
                   <div
-                    class="IconList-module_icon__KKtTa"
+                    class="icon"
                   >
                     <svg
                       aria-hidden="true"
@@ -347,10 +347,10 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
                     </svg>
                   </div>
                   <div
-                    class="IconList-module_content__21w5w"
+                    class="content"
                   >
                     <p
-                      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+                      class="MuiTypography-root title Typography MuiTypography-body1"
                     >
                       Sample KF value 2
                     </p>
@@ -360,24 +360,24 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
             </div>
           </div>
           <div
-            class="PostItCard-module_section__sfiQz"
+            class="section"
           >
             <h4
-              class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
               MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
-              class="PostItCard-module_content__Bvxw0"
+              class="content"
             >
               <ul
-                class="IconList-module_IconList__KweQa"
+                class="IconList"
               >
                 <li
-                  class="IconList-module_ListItem__WMqQr IconList-module_ListItem--isCompact__Um1fv"
+                  class="ListItem ListItem--isCompact"
                 >
                   <div
-                    class="IconList-module_icon__KKtTa"
+                    class="icon"
                   >
                     <svg
                       aria-hidden="true"
@@ -391,10 +391,10 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
                     </svg>
                   </div>
                   <div
-                    class="IconList-module_content__21w5w"
+                    class="content"
                   >
                     <p
-                      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+                      class="MuiTypography-root title Typography MuiTypography-body1"
                     >
                       Benefit 3 NO, Benefit 4 NO
                     </p>
@@ -413,25 +413,25 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
 exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <div
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+          class="MuiTypography-root Typography MuiTypography-body1"
         >
           Long Dec System 2 NO
         </div>
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.guaranteesWarranties
         </h6>
@@ -442,10 +442,10 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
         />
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.awardsCertificates
         </h6>
@@ -457,34 +457,34 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
       data-testid="sidebar"
     >
       <div
-        class="ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--pearl__gkooI"
+        class="ColorPair ColorPair--pearl"
       >
         <div
-          class="PostItCard-module_PostItCard__h-kTp"
+          class="PostItCard"
         >
           <div
-            class="PostItCard-module_section__sfiQz"
+            class="section"
           >
             <h4
-              class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
               MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
-              class="PostItCard-module_content__Bvxw0"
+              class="content"
             >
               <ul
-                class="IconList-module_IconList__KweQa"
+                class="IconList"
               >
                 <li
-                  class="IconList-module_ListItem__WMqQr IconList-module_ListItem--isCompact__Um1fv"
+                  class="ListItem ListItem--isCompact"
                 >
                   <div
-                    class="IconList-module_icon__KKtTa"
+                    class="icon"
                   >
                     <svg
                       aria-hidden="true"
@@ -498,10 +498,10 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="IconList-module_content__21w5w"
+                    class="content"
                   >
                     <p
-                      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+                      class="MuiTypography-root title Typography MuiTypography-body1"
                     >
                       Benefit 3 NO, Benefit 4 NO
                     </p>
@@ -520,25 +520,25 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
 exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBenefits 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <div
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+          class="MuiTypography-root Typography MuiTypography-body1"
         >
           Long Dec System 2 NO
         </div>
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.guaranteesWarranties
         </h6>
@@ -549,10 +549,10 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
         />
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.awardsCertificates
         </h6>
@@ -564,25 +564,25 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
       </div>
     </div>
     <div
-      class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
       data-testid="sidebar"
     >
       <div
-        class="ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--pearl__gkooI"
+        class="ColorPair ColorPair--pearl"
       >
         <div
-          class="PostItCard-module_PostItCard__h-kTp"
+          class="PostItCard"
         >
           <div
-            class="PostItCard-module_section__sfiQz"
+            class="section"
           >
             <h4
-              class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
               siderBarItem
             </h4>
             <div
-              class="PostItCard-module_content__Bvxw0"
+              class="content"
             >
               <div
                 class="RichText"
@@ -599,16 +599,16 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
 exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and systemBenefits 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <div
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+          class="MuiTypography-root Typography MuiTypography-body1"
         >
           Long Dec System 2 NO
         </div>
@@ -621,25 +621,25 @@ exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and 
 exports[`AboutLeadBlock tests should not render if no specification asset 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <div
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+          class="MuiTypography-root Typography MuiTypography-body1"
         >
           Long Dec System 2 NO
         </div>
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.guaranteesWarranties
         </h6>
@@ -650,10 +650,10 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
         />
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.awardsCertificates
         </h6>
@@ -665,34 +665,34 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
       </div>
     </div>
     <div
-      class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
       data-testid="sidebar"
     >
       <div
-        class="ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--pearl__gkooI"
+        class="ColorPair ColorPair--pearl"
       >
         <div
-          class="PostItCard-module_PostItCard__h-kTp"
+          class="PostItCard"
         >
           <div
-            class="PostItCard-module_section__sfiQz"
+            class="section"
           >
             <h4
-              class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
               MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
-              class="PostItCard-module_content__Bvxw0"
+              class="content"
             >
               <ul
-                class="IconList-module_IconList__KweQa"
+                class="IconList"
               >
                 <li
-                  class="IconList-module_ListItem__WMqQr IconList-module_ListItem--isCompact__Um1fv"
+                  class="ListItem ListItem--isCompact"
                 >
                   <div
-                    class="IconList-module_icon__KKtTa"
+                    class="icon"
                   >
                     <svg
                       aria-hidden="true"
@@ -706,10 +706,10 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
                     </svg>
                   </div>
                   <div
-                    class="IconList-module_content__21w5w"
+                    class="content"
                   >
                     <p
-                      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+                      class="MuiTypography-root title Typography MuiTypography-body1"
                     >
                       Benefit 3 NO, Benefit 4 NO
                     </p>
@@ -728,25 +728,25 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
 exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <div
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+          class="MuiTypography-root Typography MuiTypography-body1"
         >
           Long Dec System 2 NO
         </div>
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.guaranteesWarranties
         </h6>
@@ -757,10 +757,10 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
         />
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.awardsCertificates
         </h6>
@@ -778,25 +778,25 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
 exports[`AboutLeadBlock tests should render 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <div
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+          class="MuiTypography-root Typography MuiTypography-body1"
         >
           longDescription
         </div>
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.guaranteesWarranties
         </h6>
@@ -807,10 +807,10 @@ exports[`AboutLeadBlock tests should render 1`] = `
         />
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="guaranteesAndAwardsAsset LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: pdp.leadBlock.awardsCertificates
         </h6>
@@ -821,10 +821,10 @@ exports[`AboutLeadBlock tests should render 1`] = `
         />
       </div>
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: sdp.leadBlock.specification
         </h6>
@@ -863,34 +863,34 @@ exports[`AboutLeadBlock tests should render 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
       data-testid="sidebar"
     >
       <div
-        class="ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--pearl__gkooI"
+        class="ColorPair ColorPair--pearl"
       >
         <div
-          class="PostItCard-module_PostItCard__h-kTp"
+          class="PostItCard"
         >
           <div
-            class="PostItCard-module_section__sfiQz"
+            class="section"
           >
             <h4
-              class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
               Key Features
             </h4>
             <div
-              class="PostItCard-module_content__Bvxw0"
+              class="content"
             >
               <ul
-                class="IconList-module_IconList__KweQa"
+                class="IconList"
               >
                 <li
-                  class="IconList-module_ListItem__WMqQr IconList-module_ListItem--isCompact__Um1fv"
+                  class="ListItem ListItem--isCompact"
                 >
                   <div
-                    class="IconList-module_icon__KKtTa"
+                    class="icon"
                   >
                     <svg
                       aria-hidden="true"
@@ -904,20 +904,20 @@ exports[`AboutLeadBlock tests should render 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="IconList-module_content__21w5w"
+                    class="content"
                   >
                     <p
-                      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+                      class="MuiTypography-root title Typography MuiTypography-body1"
                     >
                       Sample KF value
                     </p>
                   </div>
                 </li>
                 <li
-                  class="IconList-module_ListItem__WMqQr IconList-module_ListItem--isCompact__Um1fv"
+                  class="ListItem ListItem--isCompact"
                 >
                   <div
-                    class="IconList-module_icon__KKtTa"
+                    class="icon"
                   >
                     <svg
                       aria-hidden="true"
@@ -931,10 +931,10 @@ exports[`AboutLeadBlock tests should render 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="IconList-module_content__21w5w"
+                    class="content"
                   >
                     <p
-                      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+                      class="MuiTypography-root title Typography MuiTypography-body1"
                     >
                       Sample KF value 2
                     </p>
@@ -944,24 +944,24 @@ exports[`AboutLeadBlock tests should render 1`] = `
             </div>
           </div>
           <div
-            class="PostItCard-module_section__sfiQz"
+            class="section"
           >
             <h4
-              class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
               MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
-              class="PostItCard-module_content__Bvxw0"
+              class="content"
             >
               <ul
-                class="IconList-module_IconList__KweQa"
+                class="IconList"
               >
                 <li
-                  class="IconList-module_ListItem__WMqQr IconList-module_ListItem--isCompact__Um1fv"
+                  class="ListItem ListItem--isCompact"
                 >
                   <div
-                    class="IconList-module_icon__KKtTa"
+                    class="icon"
                   >
                     <svg
                       aria-hidden="true"
@@ -975,10 +975,10 @@ exports[`AboutLeadBlock tests should render 1`] = `
                     </svg>
                   </div>
                   <div
-                    class="IconList-module_content__21w5w"
+                    class="content"
                   >
                     <p
-                      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+                      class="MuiTypography-root title Typography MuiTypography-body1"
                     >
                       Benefit 3 NO, Benefit 4 NO
                     </p>
@@ -988,15 +988,15 @@ exports[`AboutLeadBlock tests should render 1`] = `
             </div>
           </div>
           <div
-            class="PostItCard-module_section__sfiQz"
+            class="section"
           >
             <h4
-              class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
             >
               siderBarItem
             </h4>
             <div
-              class="PostItCard-module_content__Bvxw0"
+              class="content"
             >
               <div
                 class="RichText"
@@ -1013,25 +1013,25 @@ exports[`AboutLeadBlock tests should render 1`] = `
 exports[`AboutLeadBlock tests specification section move up if no guaranteesAndWarranties and awardsAndCertificates assets 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <div
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+          class="MuiTypography-root Typography MuiTypography-body1"
         >
           longDescription
         </div>
       </div>
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <h6
-          class="MuiTypography-root LeadBlock-module_LeadBlockContentHeading__VeQLQ Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
         >
           MC: sdp.leadBlock.specification
         </h6>

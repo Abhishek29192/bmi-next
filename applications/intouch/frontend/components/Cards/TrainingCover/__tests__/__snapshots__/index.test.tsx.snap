@@ -3,32 +3,32 @@
 exports[`TrainingCover component render correctly 1`] = `
 <div>
   <div
-    class="Hero-module_Hero__VRXZG Hero-module_Hero--lvl-1__Xcwsa"
+    class="Hero Hero--lvl-1"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
-        class="MuiContainer-root Hero-module_container__yD7Wq MuiContainer-maxWidthXl"
+        class="MuiContainer-root container MuiContainer-maxWidthXl"
       >
         <div
-          class="Hero-module_wrapper__eWMso"
+          class="wrapper"
         >
           <div
-            class="Hero-module_content__0cqEX"
+            class="content"
           >
             <h1
-              class="MuiTypography-root Hero-module_title__-dTGL Hero-module_title--truncated__0YI2p Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs Typography-module_Typography--underline--dark-bg__45FUV MuiTypography-h1"
+              class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
             >
               BMI Academy
             </h1>
             <div
-              class="Hero-module_text__372DJ"
+              class="text"
             >
               BMI Academy provides you with the skills you need to fit BMI products.
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-outlinedDarkBg-7 Hero-module_cta__3erL1 MuiButton-outlinedPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-outlinedDarkBg-7 cta MuiButton-outlinedPrimary"
               label="Your training plan"
               rel="noopener noreferrer"
               tabindex="0"
@@ -49,7 +49,7 @@ exports[`TrainingCover component render correctly 1`] = `
       </div>
     </div>
     <img
-      class="Hero-module_image__AvlbN Media-module_Media__GKPD2"
+      class="image Media"
       src=""
     />
   </div>
@@ -61,7 +61,7 @@ exports[`TrainingCover component render correctly 1`] = `
       class="MuiCardContent-root"
     >
       <h4
-        class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
       >
         The training process
       </h4>
@@ -85,7 +85,7 @@ exports[`TrainingCover component render correctly 1`] = `
               />
             </svg>
             <h5
-              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
+              class="MuiTypography-root Typography MuiTypography-h5"
             >
               Step 1
             </h5>
@@ -94,12 +94,12 @@ exports[`TrainingCover component render correctly 1`] = `
             style="margin-bottom: 1.5rem;"
           >
             <h6
-              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+              class="MuiTypography-root Typography MuiTypography-h6"
             >
               Find the right training
             </h6>
             <div
-              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+              class="MuiTypography-root Typography MuiTypography-body1"
             >
               Browse our extensive list of online and on-site training options from the BMI Academy training catalogue to find out which course will take your skills to the next level.
             </div>
@@ -122,7 +122,7 @@ exports[`TrainingCover component render correctly 1`] = `
               />
             </svg>
             <h5
-              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
+              class="MuiTypography-root Typography MuiTypography-h5"
             >
               Step 2
             </h5>
@@ -131,12 +131,12 @@ exports[`TrainingCover component render correctly 1`] = `
             style="margin-bottom: 1.5rem;"
           >
             <h6
-              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+              class="MuiTypography-root Typography MuiTypography-h6"
             >
               Improve your skills
             </h6>
             <div
-              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+              class="MuiTypography-root Typography MuiTypography-body1"
             >
               Continuous personal development will keep your skills sharp and make you a valuable asset to the projects you work on.
             </div>
@@ -159,7 +159,7 @@ exports[`TrainingCover component render correctly 1`] = `
               />
             </svg>
             <h5
-              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
+              class="MuiTypography-root Typography MuiTypography-h5"
             >
               Step 3
             </h5>
@@ -168,12 +168,12 @@ exports[`TrainingCover component render correctly 1`] = `
             style="margin-bottom: 1.5rem;"
           >
             <h6
-              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+              class="MuiTypography-root Typography MuiTypography-h6"
             >
               Get certified
             </h6>
             <div
-              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+              class="MuiTypography-root Typography MuiTypography-body1"
             >
               Taking courses that carry certifications will let others know that you have the skills needed to carry out certain work.
             </div>

@@ -113,13 +113,9 @@ describe("General Error", () => {
 
     expect(container).toMatchSnapshot();
     expect(container.querySelector("header")).toBeTruthy();
-    expect(
-      container.querySelector("[class*='Footer-module_Footer_']")
-    ).toBeTruthy();
+    expect(container.querySelector(".Footer")).toBeTruthy();
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(
-      container.querySelector("[class*='PromoSection-module_PromoSection']")
-    ).toBeTruthy();
+    expect(container.querySelector(".PromoSection")).toBeTruthy();
     expect(
       queryAllByText(data.contentfulSite.resources.errorGeneral.title).length
     ).toBe(2);
@@ -134,9 +130,7 @@ describe("General Error", () => {
     );
 
     expect(container).toMatchSnapshot();
-    expect(
-      container.querySelector("[class*='PromoSection-module_PromoSection']")
-    ).toBeTruthy();
+    expect(container.querySelector(".PromoSection")).toBeTruthy();
     expect(
       queryAllByText(data.contentfulSite.resources.errorGeneral.title).length
     ).toBe(0);

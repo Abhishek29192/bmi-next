@@ -12,24 +12,13 @@ exports[`ProjectsHeader component render correctly 1`] = `
         style="display: flex;"
       >
         <h3
-          class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h3"
+          class="MuiTypography-root Typography Typography--underline MuiTypography-h3"
         >
           Old Brompton Library
         </h3>
         <svg
           class="technologyIcon"
-          viewBox="0 0 48 48"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 0h48v48H0z"
-            fill="none"
-          />
-          <path
-            d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
-            fill="currentColor"
-          />
-        </svg>
+        />
       </div>
       <div
         class="body"
@@ -38,12 +27,12 @@ exports[`ProjectsHeader component render correctly 1`] = `
           style="margin-bottom: 1.5rem;"
         >
           <h6
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+            class="MuiTypography-root Typography MuiTypography-h6"
           >
             projectDetails.code
           </h6>
           <div
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+            class="MuiTypography-root Typography MuiTypography-body1"
           >
             PROFLO-d1847
           </div>
@@ -52,12 +41,12 @@ exports[`ProjectsHeader component render correctly 1`] = `
           style="margin-bottom: 1.5rem;"
         >
           <h6
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+            class="MuiTypography-root Typography MuiTypography-h6"
           >
             projectDetails.status
           </h6>
           <div
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+            class="MuiTypography-root Typography MuiTypography-body1"
           >
             In progress
           </div>
@@ -66,12 +55,12 @@ exports[`ProjectsHeader component render correctly 1`] = `
           style="margin-bottom: 1.5rem;"
         >
           <h6
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+            class="MuiTypography-root Typography MuiTypography-h6"
           >
             projectDetails.roofArea
           </h6>
           <div
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+            class="MuiTypography-root Typography MuiTypography-body1"
           >
             100
             m
@@ -84,12 +73,12 @@ exports[`ProjectsHeader component render correctly 1`] = `
           style="margin-bottom: 1.5rem;"
         >
           <h6
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+            class="MuiTypography-root Typography MuiTypography-h6"
           >
             projectDetails.buildingAddress
           </h6>
           <div
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+            class="MuiTypography-root Typography MuiTypography-body1"
           >
             <div
               data-testid="address"
@@ -121,12 +110,12 @@ exports[`ProjectsHeader component render correctly 1`] = `
           style="margin-bottom: 1.5rem;"
         >
           <h6
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+            class="MuiTypography-root Typography MuiTypography-h6"
           >
             projectDetails.description
           </h6>
           <div
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+            class="MuiTypography-root Typography MuiTypography-body1"
           >
             Lorem ipsum dolor sit amet
           </div>
@@ -135,12 +124,12 @@ exports[`ProjectsHeader component render correctly 1`] = `
           style="margin-bottom: 1.5rem;"
         >
           <h6
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+            class="MuiTypography-root Typography MuiTypography-h6"
           >
             projectDetails.startDate
           </h6>
           <div
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+            class="MuiTypography-root Typography MuiTypography-body1"
           >
             24 February 2021
           </div>
@@ -149,12 +138,12 @@ exports[`ProjectsHeader component render correctly 1`] = `
           style="margin-bottom: 1.5rem;"
         >
           <h6
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+            class="MuiTypography-root Typography MuiTypography-h6"
           >
             projectDetails.endDate
           </h6>
           <div
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+            class="MuiTypography-root Typography MuiTypography-body1"
           >
             30 March 2022
           </div>
@@ -163,12 +152,12 @@ exports[`ProjectsHeader component render correctly 1`] = `
           style="margin-bottom: 1.5rem;"
         >
           <h6
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+            class="MuiTypography-root Typography MuiTypography-h6"
           >
             projectDetails.guaranteeType
           </h6>
           <div
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+            class="MuiTypography-root Typography MuiTypography-body1"
           >
             Not requested
           </div>
@@ -177,12 +166,12 @@ exports[`ProjectsHeader component render correctly 1`] = `
           style="margin-bottom: 1.5rem;"
         >
           <h6
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+            class="MuiTypography-root Typography MuiTypography-h6"
           >
             projectDetails.guaranteeStatus
           </h6>
           <div
-            class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+            class="MuiTypography-root Typography MuiTypography-body1"
           >
             <div
               style="display: flex;"

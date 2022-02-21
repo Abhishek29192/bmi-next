@@ -3,26 +3,26 @@
 exports[`ExploreBarSection component renders correctly 1`] = `
 <div>
   <div
-    class="Section-module_Section__yrYL2"
+    class="Section"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <nav
           aria-labelledby="explore-bar"
-          class="ExploreBar-module_ExploreBar__aBook"
+          class="ExploreBar"
         >
           <h2
-            class="MuiTypography-root ExploreBar-module_heading__mJm2b Typography-module_Typography__aA2Zb MuiTypography-h6"
+            class="MuiTypography-root heading Typography MuiTypography-h6"
             id="explore-bar"
           >
             Lorem ipsum
           </h2>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-opaqueOutlined-8 ExploreBar-module_link__M7s9g MuiButton-outlinedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-opaqueOutlined-8 link MuiButton-outlinedPrimary"
             tabindex="0"
             type="button"
           >
@@ -36,7 +36,7 @@ exports[`ExploreBarSection component renders correctly 1`] = `
             />
           </button>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-opaqueOutlined-8 ExploreBar-module_link__M7s9g MuiButton-outlinedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-opaqueOutlined-8 link MuiButton-outlinedPrimary"
             tabindex="0"
             type="button"
           >

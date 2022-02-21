@@ -6,25 +6,25 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
     class="ProductOverview"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
     >
       <div
-        class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
       >
         <div
-          class="ImageGallery-module_ImageGallery__IY-1c"
+          class="ImageGallery"
         >
           <div
-            class="ImageGallery-module_image-wrapper__O9qhN"
+            class="image-wrapper"
           >
             <div
-              class="ImageGallery-module_caption__IGNKx"
+              class="caption"
             >
               <p
-                class="MuiTypography-root ImageGallery-module_caption-text__oqSQ3 Typography-module_Typography__aA2Zb MuiTypography-h6"
+                class="MuiTypography-root caption-text Typography MuiTypography-h6"
               >
                 <span
-                  class="LinesEllipsis  Truncate-module_Truncate__BVmFW"
+                  class="LinesEllipsis  Truncate"
                 >
                   caption
                   <wbr />
@@ -33,16 +33,16 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
             </div>
           </div>
           <div
-            class="ImageGallery-module_thumbnails__hJEUD"
+            class="thumbnails"
           >
             <button
-              class="MuiButtonBase-root ImageGallery-module_thumb-scroller__Oi-K- ImageGallery-module_thumb-scroller--left__QzW7b ThumbScrollerButton-module_ThumbScrollerButton__AmmLO ThumbScrollerButton-module_ThumbScrollerButton--left__YslS3"
+              class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
               tabindex="-1"
               type="button"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root ThumbScrollerButton-module_icon__dw0Sg"
+                class="MuiSvgIcon-root icon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -55,13 +55,13 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
               />
             </button>
             <button
-              class="MuiButtonBase-root ImageGallery-module_thumb-scroller__Oi-K- ImageGallery-module_thumb-scroller--right__Ze5Sy ImageGallery-module_thumb-scroller--hidden__GIXCG ThumbScrollerButton-module_ThumbScrollerButton__AmmLO ThumbScrollerButton-module_ThumbScrollerButton--right__0-QGE"
+              class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
               tabindex="-1"
               type="button"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root ThumbScrollerButton-module_icon__dw0Sg"
+                class="MuiSvgIcon-root icon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -74,16 +74,16 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
               />
             </button>
             <div
-              class="ImageGallery-module_scroller__pD0qV"
+              class="scroller"
               style="margin-right: 0%;"
             >
               <button
-                class="MuiButtonBase-root ImageGallery-module_thumbnail__-eV18 Thumbnail-module_Thumbnail__8EKru Thumbnail-module_Thumbnail--selected__zPXWJ Thumbnail-module_Thumbnail--large__UGNHe"
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
                 tabindex="0"
                 type="button"
               />
               <button
-                class="MuiButtonBase-root ImageGallery-module_thumbnail__-eV18 Thumbnail-module_Thumbnail__8EKru Thumbnail-module_Thumbnail--large__UGNHe"
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
                 tabindex="0"
                 type="button"
               >
@@ -96,18 +96,18 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
       >
         <div
-          class="ProductOverviewPane-module_ProductOverview__WnqcK"
+          class="ProductOverview"
         >
           <h1
-            class="MuiTypography-root ProductOverviewPane-module_heading__YvaLU Typography-module_Typography__aA2Zb MuiTypography-h3"
+            class="MuiTypography-root heading Typography MuiTypography-h3"
           >
             name
           </h1>
           <ul
-            class="ProductOverviewPane-module_attributes__nM8bL"
+            class="attributes"
           />
           <div>
             block
@@ -117,11 +117,11 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
           </p>
         </div>
         <p
-          class="MuiTypography-root keyAssetTypesDownload Typography-module_Typography__aA2Zb MuiTypography-body1"
+          class="MuiTypography-root keyAssetTypesDownload Typography MuiTypography-body1"
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -132,7 +132,7 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
           </a>
            and 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -155,25 +155,25 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
     class="ProductOverview"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
     >
       <div
-        class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
       >
         <div
-          class="ImageGallery-module_ImageGallery__IY-1c"
+          class="ImageGallery"
         >
           <div
-            class="ImageGallery-module_image-wrapper__O9qhN"
+            class="image-wrapper"
           >
             <div
-              class="ImageGallery-module_caption__IGNKx"
+              class="caption"
             >
               <p
-                class="MuiTypography-root ImageGallery-module_caption-text__oqSQ3 Typography-module_Typography__aA2Zb MuiTypography-h6"
+                class="MuiTypography-root caption-text Typography MuiTypography-h6"
               >
                 <span
-                  class="LinesEllipsis  Truncate-module_Truncate__BVmFW"
+                  class="LinesEllipsis  Truncate"
                 >
                   caption
                   <wbr />
@@ -182,16 +182,16 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
             </div>
           </div>
           <div
-            class="ImageGallery-module_thumbnails__hJEUD"
+            class="thumbnails"
           >
             <button
-              class="MuiButtonBase-root ImageGallery-module_thumb-scroller__Oi-K- ImageGallery-module_thumb-scroller--left__QzW7b ThumbScrollerButton-module_ThumbScrollerButton__AmmLO ThumbScrollerButton-module_ThumbScrollerButton--left__YslS3"
+              class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
               tabindex="-1"
               type="button"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root ThumbScrollerButton-module_icon__dw0Sg"
+                class="MuiSvgIcon-root icon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -204,13 +204,13 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
               />
             </button>
             <button
-              class="MuiButtonBase-root ImageGallery-module_thumb-scroller__Oi-K- ImageGallery-module_thumb-scroller--right__Ze5Sy ImageGallery-module_thumb-scroller--hidden__GIXCG ThumbScrollerButton-module_ThumbScrollerButton__AmmLO ThumbScrollerButton-module_ThumbScrollerButton--right__0-QGE"
+              class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
               tabindex="-1"
               type="button"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root ThumbScrollerButton-module_icon__dw0Sg"
+                class="MuiSvgIcon-root icon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -223,16 +223,16 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
               />
             </button>
             <div
-              class="ImageGallery-module_scroller__pD0qV"
+              class="scroller"
               style="margin-right: 0%;"
             >
               <button
-                class="MuiButtonBase-root ImageGallery-module_thumbnail__-eV18 Thumbnail-module_Thumbnail__8EKru Thumbnail-module_Thumbnail--selected__zPXWJ Thumbnail-module_Thumbnail--large__UGNHe"
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
                 tabindex="0"
                 type="button"
               />
               <button
-                class="MuiButtonBase-root ImageGallery-module_thumbnail__-eV18 Thumbnail-module_Thumbnail__8EKru Thumbnail-module_Thumbnail--large__UGNHe"
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
                 tabindex="0"
                 type="button"
               >
@@ -245,18 +245,18 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
       >
         <div
-          class="ProductOverviewPane-module_ProductOverview__WnqcK"
+          class="ProductOverview"
         >
           <h1
-            class="MuiTypography-root ProductOverviewPane-module_heading__YvaLU Typography-module_Typography__aA2Zb MuiTypography-h3"
+            class="MuiTypography-root heading Typography MuiTypography-h3"
           >
             name
           </h1>
           <ul
-            class="ProductOverviewPane-module_attributes__nM8bL"
+            class="attributes"
           />
           <div>
             block

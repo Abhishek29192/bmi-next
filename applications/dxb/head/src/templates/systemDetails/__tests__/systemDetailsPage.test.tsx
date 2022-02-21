@@ -78,9 +78,7 @@ describe("SystemDetailsPage template component", () => {
         }}
       />
     );
-    const tabSection = container.querySelector(
-      "[class^='Tabs-module_TabsBar']"
-    );
+    const tabSection = container.querySelector(".TabsBar");
 
     expect(container).toMatchSnapshot();
     expect(tabSection).toBeInTheDocument();

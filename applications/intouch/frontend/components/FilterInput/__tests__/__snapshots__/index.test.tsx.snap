@@ -4,7 +4,7 @@ exports[`FilterInput Component renders correctly 1`] = `
 <div>
   <nav>
     <div
-      class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc TextField-module_TextField--leftAdornment__9xLGN MuiFormControl-fullWidth"
+      class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"

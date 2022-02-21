@@ -3,13 +3,13 @@
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when Multiple classifications provided With more than one feature units 1`] = `
 <div>
   <div
-    class="MuiGrid-root LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <div
           class="SystemDetailsTechnicalSpec"
@@ -32,7 +32,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                   class="MuiAccordionSummary-content accordionStyles-summaryContent-21 Mui-expanded accordionStyles-summaryExpanded-20"
                 >
                   <h6
-                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+                    class="MuiTypography-root Typography MuiTypography-h6"
                   >
                     systemAttributes
                   </h6>
@@ -79,7 +79,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                       >
                         <div>
                           <table
-                            class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-even-color__rIiXD Table-module_Table--no-border__qGT3p"
+                            class="MuiTable-root Table Table--row-even-color Table--no-border"
                           >
                             <tbody
                               class="MuiTableBody-root"
@@ -136,7 +136,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                   class="MuiAccordionSummary-content accordionStyles-summaryContent-21 Mui-expanded accordionStyles-summaryExpanded-20"
                 >
                   <h6
-                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+                    class="MuiTypography-root Typography MuiTypography-h6"
                   >
                     systemAttributes
                   </h6>
@@ -183,7 +183,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                       >
                         <div>
                           <table
-                            class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-even-color__rIiXD Table-module_Table--no-border__qGT3p"
+                            class="MuiTable-root Table Table--row-even-color Table--no-border"
                           >
                             <tbody
                               class="MuiTableBody-root"
@@ -236,13 +236,13 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when Multiple classifications provided With no feature units 1`] = `
 <div>
   <div
-    class="MuiGrid-root LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <div
           class="SystemDetailsTechnicalSpec"
@@ -265,7 +265,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                   class="MuiAccordionSummary-content accordionStyles-summaryContent-7 Mui-expanded accordionStyles-summaryExpanded-6"
                 >
                   <h6
-                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+                    class="MuiTypography-root Typography MuiTypography-h6"
                   >
                     systemAttributes
                   </h6>
@@ -312,7 +312,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                       >
                         <div>
                           <table
-                            class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-even-color__rIiXD Table-module_Table--no-border__qGT3p"
+                            class="MuiTable-root Table Table--row-even-color Table--no-border"
                           >
                             <tbody
                               class="MuiTableBody-root"
@@ -355,7 +355,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                   class="MuiAccordionSummary-content accordionStyles-summaryContent-7 Mui-expanded accordionStyles-summaryExpanded-6"
                 >
                   <h6
-                    class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+                    class="MuiTypography-root Typography MuiTypography-h6"
                   >
                     systemAttributes
                   </h6>
@@ -402,7 +402,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                       >
                         <div>
                           <table
-                            class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-even-color__rIiXD Table-module_Table--no-border__qGT3p"
+                            class="MuiTable-root Table Table--row-even-color Table--no-border"
                           >
                             <tbody
                               class="MuiTableBody-root"
@@ -441,23 +441,23 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when One classifications provided With a feature units 1`] = `
 <div>
   <div
-    class="MuiGrid-root LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <div
           class="SystemDetailsTechnicalSpec"
         >
           <div>
             <table
-              class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-even-color__rIiXD"
+              class="MuiTable-root Table Table--row-even-color"
             >
               <thead
-                class="MuiTableHead-root ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--pearl__gkooI"
+                class="MuiTableHead-root ColorPair ColorPair--pearl"
               >
                 <tr
                   class="MuiTableRow-root MuiTableRow-head"
@@ -504,23 +504,23 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when One classifications provided With no feature units 1`] = `
 <div>
   <div
-    class="MuiGrid-root LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       >
         <div
           class="SystemDetailsTechnicalSpec"
         >
           <div>
             <table
-              class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-even-color__rIiXD"
+              class="MuiTable-root Table Table--row-even-color"
             >
               <thead
-                class="MuiTableHead-root ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--pearl__gkooI"
+                class="MuiTableHead-root ColorPair ColorPair--pearl"
               >
                 <tr
                   class="MuiTableRow-root MuiTableRow-head"
@@ -567,13 +567,13 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when no classifications provided With tech spec an empty set 1`] = `
 <div>
   <div
-    class="MuiGrid-root LeadBlock-module_LeadBlock__FSWP0 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlock-module_LeadBlockContentSection__CUG63"
+        class="LeadBlockContentSection"
       />
     </div>
   </div>

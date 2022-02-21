@@ -51,20 +51,16 @@ describe("Search Page Template", () => {
 
     // expect(container).toMatchSnapshot();
     expect(container.querySelector("header")).toBeTruthy();
-    expect(container.querySelector("[class^='Footer']")).toBeTruthy();
+    expect(container.querySelector(".Footer")).toBeTruthy();
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelector("[class^='Hero']")).toBeTruthy();
-    expect(container.querySelector("[class^='Breadcrumbs']")).toBeTruthy();
+    expect(container.querySelector(".Hero")).toBeTruthy();
+    expect(container.querySelector(".Breadcrumbs")).toBeTruthy();
     expect(getByText("Home")).toBeTruthy();
+    expect(container.querySelector(".content .title").textContent).toBe(
+      "MC: searchPage.title"
+    );
     expect(
-      container.querySelector(
-        "[class^='Hero-module_content'] [class*='Hero-module_title']"
-      ).textContent
-    ).toBe("MC: searchPage.title");
-    expect(
-      container.querySelector(
-        "[class*='Section-module_Section'][class*='Section-module_Section--white'][class*='Section-module_Section--slim']"
-      )
+      container.querySelector(".Section.Section--white.Section--slim")
     ).toBeTruthy();
     expect(container.querySelector(".SearchBlock")).toBeTruthy();
     expect(
@@ -110,9 +106,7 @@ describe("Search Page Template", () => {
       expect(getByText("MC: searchPage.title.withQuery")).toBeTruthy()
     );
     // expect(container).toMatchSnapshot();
-    expect(
-      container.querySelectorAll("[class*='Tabs-module_TabPanel_']").length
-    ).toBe(3);
+    expect(container.querySelectorAll(".TabPanel").length).toBe(3);
     expect(getByText("MC: search.tabHeadings.products (3)")).toBeTruthy();
     expect(getByText("MC: search.tabHeadings.documents (2)")).toBeTruthy();
     expect(getByText("MC: search.tabHeadings.pages (1)")).toBeTruthy();
@@ -154,9 +148,7 @@ describe("Search Page Template", () => {
       expect(getByText("MC: search.tabHeadings.documents (2)")).toBeTruthy()
     );
     // expect(container).toMatchSnapshot();
-    expect(
-      container.querySelectorAll("[class*='Tabs-module_TabPanel_']").length
-    ).toBe(2);
+    expect(container.querySelectorAll(".TabPanel").length).toBe(2);
     expect(getByText("MC: search.tabHeadings.pages (1)")).toBeTruthy();
   });
 
@@ -219,7 +211,7 @@ describe("Search Page Template", () => {
     fireEvent.click(documentTabButton);
     expect(
       container.querySelector(
-        "[heading='MC: search.tabHeadings.documents (1)'] [class*='Container-module_Container_']"
+        "[heading='MC: search.tabHeadings.documents (1)'] .Container"
       )
     ).toBeTruthy();
   });
@@ -304,7 +296,7 @@ describe("Search Page Template", () => {
       expect(getByText("MC: searchPage.helperText")).toBeTruthy()
     );
 
-    const form = container.querySelector("[class^='Search']");
+    const form = container.querySelector(".Search");
 
     fireEvent.submit(form);
     expect(alertSpy).toHaveBeenCalledWith(
@@ -339,7 +331,7 @@ describe("Search Page Template", () => {
     await waitFor(() =>
       expect(getByText("MC: searchPage.helperText")).toBeTruthy()
     );
-    const form = container.querySelector("[class^='Search']");
+    const form = container.querySelector(".Search");
 
     fireEvent.submit(form);
     expect(alertSpy).toHaveBeenCalledTimes(0);

@@ -3,16 +3,16 @@
 exports[`RelatedProducts component renders correctly when scoringweight equal & names equal 1`] = `
 <div>
   <div
-    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
+    class="Section Section--alabaster"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         >
           MC: pdp.relatedProducts.title
         </h2>
@@ -20,13 +20,13 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
           class="RelatedProducts"
         >
           <div
-            class="Tabs-module_Tabs__qVSaa Tabs-module_Tabs--secondary__HQsrV"
+            class="Tabs Tabs--secondary"
           >
             <div
-              class="Tabs-module_TabsBar__iaTiJ"
+              class="TabsBar"
             >
               <div
-                class="Container-module_Container__4e9IW"
+                class="Container"
               >
                 <div
                   class="MuiContainer-root tabStyles-ContainerRoot-33 MuiContainer-maxWidthXl"
@@ -78,39 +78,39 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
             </div>
             <div
               aria-labelledby="tab-category-name"
-              class="MuiGrid-root Tabs-module_TabPanel__YBHHf MuiGrid-item"
+              class="MuiGrid-root TabPanel MuiGrid-item"
               heading="category-name"
               id="tabpanel-category-name"
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-40 Tabs-module_TabPanelBox__TIzx-"
+                class="MuiBox-root MuiBox-root-40 TabPanelBox"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
                     >
                       <div
-                        class="OverviewCard-module_body__ECyj2"
+                        class="body"
                       >
                         <h5
-                          class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
                           product
                         </h5>
                         
                         <div
-                          class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                          class="children text"
                         >
                           MC: pdp.nobb.label
                           :
@@ -120,10 +120,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                           </b>
                         </div>
                         <div
-                          class="OverviewCard-module_footer__MMw-Y"
+                          class="footer"
                         >
                           <span
-                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             type="button"
                           >
                             <span>
@@ -131,15 +131,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                             </span>
                             <svg
                               aria-hidden="true"
-                              class="AnchorLink-module_icon__SvfZD"
+                              class="icon"
+                              data-testid="internal"
                               focusable="false"
-                              viewBox="0 0 16 16"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-                              />
-                            </svg>
+                            />
                           </span>
                         </div>
                       </div>
@@ -162,16 +157,16 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
 exports[`RelatedProducts component renders correctly when scoringweight equal & names sorted opposite 1`] = `
 <div>
   <div
-    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
+    class="Section Section--alabaster"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         >
           MC: pdp.relatedProducts.title
         </h2>
@@ -179,13 +174,13 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
           class="RelatedProducts"
         >
           <div
-            class="Tabs-module_Tabs__qVSaa Tabs-module_Tabs--secondary__HQsrV"
+            class="Tabs Tabs--secondary"
           >
             <div
-              class="Tabs-module_TabsBar__iaTiJ"
+              class="TabsBar"
             >
               <div
-                class="Container-module_Container__4e9IW"
+                class="Container"
               >
                 <div
                   class="MuiContainer-root tabStyles-ContainerRoot-41 MuiContainer-maxWidthXl"
@@ -237,39 +232,39 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
             </div>
             <div
               aria-labelledby="tab-category-name"
-              class="MuiGrid-root Tabs-module_TabPanel__YBHHf MuiGrid-item"
+              class="MuiGrid-root TabPanel MuiGrid-item"
               heading="category-name"
               id="tabpanel-category-name"
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-48 Tabs-module_TabPanelBox__TIzx-"
+                class="MuiBox-root MuiBox-root-48 TabPanelBox"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
                     >
                       <div
-                        class="OverviewCard-module_body__ECyj2"
+                        class="body"
                       >
                         <h5
-                          class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
                           product-1
                         </h5>
                         
                         <div
-                          class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                          class="children text"
                         >
                           MC: pdp.nobb.label
                           :
@@ -279,10 +274,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                           </b>
                         </div>
                         <div
-                          class="OverviewCard-module_footer__MMw-Y"
+                          class="footer"
                         >
                           <span
-                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             type="button"
                           >
                             <span>
@@ -290,15 +285,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                             </span>
                             <svg
                               aria-hidden="true"
-                              class="AnchorLink-module_icon__SvfZD"
+                              class="icon"
+                              data-testid="internal"
                               focusable="false"
-                              viewBox="0 0 16 16"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-                              />
-                            </svg>
+                            />
                           </span>
                         </div>
                       </div>
@@ -308,27 +298,27 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
                     >
                       <div
-                        class="OverviewCard-module_body__ECyj2"
+                        class="body"
                       >
                         <h5
-                          class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
                           product-2
                         </h5>
                         
                         <div
-                          class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                          class="children text"
                         >
                           MC: pdp.nobb.label
                           :
@@ -338,10 +328,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                           </b>
                         </div>
                         <div
-                          class="OverviewCard-module_footer__MMw-Y"
+                          class="footer"
                         >
                           <span
-                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             type="button"
                           >
                             <span>
@@ -349,15 +339,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                             </span>
                             <svg
                               aria-hidden="true"
-                              class="AnchorLink-module_icon__SvfZD"
+                              class="icon"
+                              data-testid="internal"
                               focusable="false"
-                              viewBox="0 0 16 16"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-                              />
-                            </svg>
+                            />
                           </span>
                         </div>
                       </div>
@@ -380,16 +365,16 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
 exports[`RelatedProducts component renders correctly when scoringweight equal 1`] = `
 <div>
   <div
-    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
+    class="Section Section--alabaster"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         >
           MC: pdp.relatedProducts.title
         </h2>
@@ -397,13 +382,13 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
           class="RelatedProducts"
         >
           <div
-            class="Tabs-module_Tabs__qVSaa Tabs-module_Tabs--secondary__HQsrV"
+            class="Tabs Tabs--secondary"
           >
             <div
-              class="Tabs-module_TabsBar__iaTiJ"
+              class="TabsBar"
             >
               <div
-                class="Container-module_Container__4e9IW"
+                class="Container"
               >
                 <div
                   class="MuiContainer-root tabStyles-ContainerRoot-25 MuiContainer-maxWidthXl"
@@ -455,39 +440,39 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
             </div>
             <div
               aria-labelledby="tab-category-name"
-              class="MuiGrid-root Tabs-module_TabPanel__YBHHf MuiGrid-item"
+              class="MuiGrid-root TabPanel MuiGrid-item"
               heading="category-name"
               id="tabpanel-category-name"
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-32 Tabs-module_TabPanelBox__TIzx-"
+                class="MuiBox-root MuiBox-root-32 TabPanelBox"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
                     >
                       <div
-                        class="OverviewCard-module_body__ECyj2"
+                        class="body"
                       >
                         <h5
-                          class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
                           product-1
                         </h5>
                         
                         <div
-                          class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                          class="children text"
                         >
                           MC: pdp.nobb.label
                           :
@@ -497,10 +482,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                           </b>
                         </div>
                         <div
-                          class="OverviewCard-module_footer__MMw-Y"
+                          class="footer"
                         >
                           <span
-                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             type="button"
                           >
                             <span>
@@ -508,15 +493,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                             </span>
                             <svg
                               aria-hidden="true"
-                              class="AnchorLink-module_icon__SvfZD"
+                              class="icon"
+                              data-testid="internal"
                               focusable="false"
-                              viewBox="0 0 16 16"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-                              />
-                            </svg>
+                            />
                           </span>
                         </div>
                       </div>
@@ -526,27 +506,27 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
                     >
                       <div
-                        class="OverviewCard-module_body__ECyj2"
+                        class="body"
                       >
                         <h5
-                          class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
                           product-2
                         </h5>
                         
                         <div
-                          class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                          class="children text"
                         >
                           MC: pdp.nobb.label
                           :
@@ -556,10 +536,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                           </b>
                         </div>
                         <div
-                          class="OverviewCard-module_footer__MMw-Y"
+                          class="footer"
                         >
                           <span
-                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             type="button"
                           >
                             <span>
@@ -567,15 +547,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                             </span>
                             <svg
                               aria-hidden="true"
-                              class="AnchorLink-module_icon__SvfZD"
+                              class="icon"
+                              data-testid="internal"
                               focusable="false"
-                              viewBox="0 0 16 16"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-                              />
-                            </svg>
+                            />
                           </span>
                         </div>
                       </div>
@@ -602,16 +577,16 @@ exports[`RelatedProducts component renders correctly with no products 1`] = `<di
 exports[`RelatedProducts component renders correctly with no variants 1`] = `
 <div>
   <div
-    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
+    class="Section Section--alabaster"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         >
           MC: pdp.relatedProducts.title
         </h2>
@@ -619,13 +594,13 @@ exports[`RelatedProducts component renders correctly with no variants 1`] = `
           class="RelatedProducts"
         >
           <div
-            class="Tabs-module_Tabs__qVSaa Tabs-module_Tabs--secondary__HQsrV"
+            class="Tabs Tabs--secondary"
           >
             <div
-              class="Tabs-module_TabsBar__iaTiJ"
+              class="TabsBar"
             >
               <div
-                class="Container-module_Container__4e9IW"
+                class="Container"
               >
                 <div
                   class="MuiContainer-root tabStyles-ContainerRoot-1 MuiContainer-maxWidthXl"
@@ -677,13 +652,13 @@ exports[`RelatedProducts component renders correctly with no variants 1`] = `
             </div>
             <div
               aria-labelledby="tab-category-name"
-              class="MuiGrid-root Tabs-module_TabPanel__YBHHf MuiGrid-item"
+              class="MuiGrid-root TabPanel MuiGrid-item"
               heading="category-name"
               id="tabpanel-category-name"
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-8 Tabs-module_TabPanelBox__TIzx-"
+                class="MuiBox-root MuiBox-root-8 TabPanelBox"
               />
             </div>
           </div>
@@ -701,16 +676,16 @@ exports[`RelatedProducts component renders correctly with products without categ
 exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
 <div>
   <div
-    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
+    class="Section Section--alabaster"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         >
           MC: pdp.relatedProducts.title
         </h2>
@@ -718,13 +693,13 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
           class="RelatedProducts"
         >
           <div
-            class="Tabs-module_Tabs__qVSaa Tabs-module_Tabs--secondary__HQsrV"
+            class="Tabs Tabs--secondary"
           >
             <div
-              class="Tabs-module_TabsBar__iaTiJ"
+              class="TabsBar"
             >
               <div
-                class="Container-module_Container__4e9IW"
+                class="Container"
               >
                 <div
                   class="MuiContainer-root tabStyles-ContainerRoot-17 MuiContainer-maxWidthXl"
@@ -776,39 +751,39 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
             </div>
             <div
               aria-labelledby="tab-category-name"
-              class="MuiGrid-root Tabs-module_TabPanel__YBHHf MuiGrid-item"
+              class="MuiGrid-root TabPanel MuiGrid-item"
               heading="category-name"
               id="tabpanel-category-name"
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-24 Tabs-module_TabPanelBox__TIzx-"
+                class="MuiBox-root MuiBox-root-24 TabPanelBox"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
                     >
                       <div
-                        class="OverviewCard-module_body__ECyj2"
+                        class="body"
                       >
                         <h5
-                          class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
                           product-2
                         </h5>
                         
                         <div
-                          class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                          class="children text"
                         >
                           MC: pdp.nobb.label
                           :
@@ -818,10 +793,10 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                           </b>
                         </div>
                         <div
-                          class="OverviewCard-module_footer__MMw-Y"
+                          class="footer"
                         >
                           <span
-                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             type="button"
                           >
                             <span>
@@ -829,15 +804,10 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                             </span>
                             <svg
                               aria-hidden="true"
-                              class="AnchorLink-module_icon__SvfZD"
+                              class="icon"
+                              data-testid="internal"
                               focusable="false"
-                              viewBox="0 0 16 16"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-                              />
-                            </svg>
+                            />
                           </span>
                         </div>
                       </div>
@@ -847,27 +817,27 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
                     >
                       <div
-                        class="OverviewCard-module_body__ECyj2"
+                        class="body"
                       >
                         <h5
-                          class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
                           product-1
                         </h5>
                         
                         <div
-                          class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                          class="children text"
                         >
                           MC: pdp.nobb.label
                           :
@@ -877,10 +847,10 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                           </b>
                         </div>
                         <div
-                          class="OverviewCard-module_footer__MMw-Y"
+                          class="footer"
                         >
                           <span
-                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             type="button"
                           >
                             <span>
@@ -888,15 +858,10 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                             </span>
                             <svg
                               aria-hidden="true"
-                              class="AnchorLink-module_icon__SvfZD"
+                              class="icon"
+                              data-testid="internal"
                               focusable="false"
-                              viewBox="0 0 16 16"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-                              />
-                            </svg>
+                            />
                           </span>
                         </div>
                       </div>
@@ -919,16 +884,16 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
 exports[`RelatedProducts component renders variants correctly with products without classifications or externalProductCode 1`] = `
 <div>
   <div
-    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
+    class="Section Section--alabaster"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         >
           MC: pdp.relatedProducts.title
         </h2>
@@ -936,13 +901,13 @@ exports[`RelatedProducts component renders variants correctly with products with
           class="RelatedProducts"
         >
           <div
-            class="Tabs-module_Tabs__qVSaa Tabs-module_Tabs--secondary__HQsrV"
+            class="Tabs Tabs--secondary"
           >
             <div
-              class="Tabs-module_TabsBar__iaTiJ"
+              class="TabsBar"
             >
               <div
-                class="Container-module_Container__4e9IW"
+                class="Container"
               >
                 <div
                   class="MuiContainer-root tabStyles-ContainerRoot-9 MuiContainer-maxWidthXl"
@@ -994,39 +959,39 @@ exports[`RelatedProducts component renders variants correctly with products with
             </div>
             <div
               aria-labelledby="tab-category-name"
-              class="MuiGrid-root Tabs-module_TabPanel__YBHHf MuiGrid-item"
+              class="MuiGrid-root TabPanel MuiGrid-item"
               heading="category-name"
               id="tabpanel-category-name"
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-16 Tabs-module_TabPanelBox__TIzx-"
+                class="MuiBox-root MuiBox-root-16 TabPanelBox"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
                     >
                       <div
-                        class="OverviewCard-module_body__ECyj2"
+                        class="body"
                       >
                         <h5
-                          class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                         >
                           product-name
                         </h5>
                         
                         <div
-                          class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                          class="children text"
                         >
                           MC: pdp.nobb.label
                           :
@@ -1036,10 +1001,10 @@ exports[`RelatedProducts component renders variants correctly with products with
                           </b>
                         </div>
                         <div
-                          class="OverviewCard-module_footer__MMw-Y"
+                          class="footer"
                         >
                           <span
-                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-module_Anchorlink__OMERU MuiTypography-colorPrimary"
+                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
                             type="button"
                           >
                             <span>
@@ -1047,15 +1012,10 @@ exports[`RelatedProducts component renders variants correctly with products with
                             </span>
                             <svg
                               aria-hidden="true"
-                              class="AnchorLink-module_icon__SvfZD"
+                              class="icon"
+                              data-testid="internal"
                               focusable="false"
-                              viewBox="0 0 16 16"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-                              />
-                            </svg>
+                            />
                           </span>
                         </div>
                       </div>

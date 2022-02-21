@@ -3,16 +3,16 @@
 exports[`ServiceLocatorSection resulst list pannel component should render results list panel on page load if at list one chip exists in query params 1`] = `
 <div>
   <div
-    class="ServiceLocationSection Section-module_Section__yrYL2 Section-module_Section--white__C7uPc"
+    class="ServiceLocationSection Section Section--white"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         >
           Main
         </h2>
@@ -28,7 +28,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
               role="combobox"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc MuiFormControl-fullWidth"
+                class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined"
@@ -42,22 +42,8 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   class="MuiInputBase-root MuiOutlinedInput-root MuiAutocomplete-inputRoot MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiOutlinedInput-adornedStart MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
                 >
                   <svg
-                    class="Autocomplete-module_start-adornment-icon__tav-G"
-                    viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0 0h16v16H0z"
-                      fill="none"
-                    />
-                    <g
-                      fill="currentColor"
-                    >
-                      <path
-                        d="M1.384 9.581A44 44 0 0 0 8 10.086a44 44 0 0 0 6.616-.505 1.063 1.063 0 0 0 .869-1.227 1.148 1.148 0 0 0-.027-.116 1.6 1.6 0 0 0-.683-.945c-.069-.045-.076-.223-.079-.34a7.773 7.773 0 0 0-1.148-4A6.184 6.184 0 0 0 11.132.741c-.39-.2-.388-.2-.561.2l-.426 5.467L9.6 6.2S9.578.375 9.6.336a.244.244 0 0 0-.188-.288.294.294 0 0 0-.042 0A7.414 7.414 0 0 0 8-.086a7.413 7.413 0 0 0-1.362.132.243.243 0 0 0-.238.248V.3a.294.294 0 0 0 0 .042c.022.039 0 5.864 0 5.864l-.55.206L5.429.941c-.173-.4-.171-.4-.561-.2A6.19 6.19 0 0 0 2.452 2.95a7.753 7.753 0 0 0-1.147 4c0 .117-.011.295-.08.34a1.6 1.6 0 0 0-.683.945 1.064 1.064 0 0 0 .726 1.317.925.925 0 0 0 .116.026ZM8 11.086a45.359 45.359 0 0 1-5.815-.386C2.836 13.741 5.189 16 8 16s5.164-2.259 5.815-5.3A45.108 45.108 0 0 1 8 11.086Z"
-                      />
-                    </g>
-                  </svg>
+                    class="start-adornment-icon"
+                  />
                   <input
                     aria-autocomplete="list"
                     aria-invalid="false"
@@ -115,7 +101,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
               </div>
             </div>
             <p
-              class="MuiTypography-root and-or-label Typography-module_Typography__aA2Zb MuiTypography-body1"
+              class="MuiTypography-root and-or-label Typography MuiTypography-body1"
             >
               <span>
                 MC: findARoofer.andOr
@@ -145,7 +131,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
               </div>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-text buttonStyles-text-6 GeolocationButton-module_GeolocationButton__WBmIy MuiButton-textPrimary Mui-disabled Mui-disabled"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-text buttonStyles-text-6 GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
               disabled=""
               tabindex="-1"
               type="button"
@@ -172,7 +158,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
             </button>
           </div>
           <div
-            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
           >
             <div
               class="filters"
@@ -181,12 +167,12 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 class="chips"
               >
                 <h6
-                  class="MuiTypography-root chips-label Typography-module_Typography__aA2Zb MuiTypography-h6"
+                  class="MuiTypography-root chips-label Typography MuiTypography-h6"
                 >
                   MC: findARoofer.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
                   role="button"
                   tabindex="0"
                 >
@@ -200,7 +186,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                   role="button"
                   tabindex="0"
                 >
@@ -214,7 +200,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                   role="button"
                   tabindex="0"
                 >
@@ -228,7 +214,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                   role="button"
                   tabindex="0"
                 >
@@ -242,7 +228,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                   role="button"
                   tabindex="0"
                 >
@@ -256,7 +242,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                   role="button"
                   tabindex="0"
                 >
@@ -270,7 +256,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                   role="button"
                   tabindex="0"
                 >
@@ -284,7 +270,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                   role="button"
                   tabindex="0"
                 >
@@ -298,7 +284,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                   role="button"
                   tabindex="0"
                 >
@@ -312,7 +298,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                   role="button"
                   tabindex="0"
                 >
@@ -326,7 +312,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                   role="button"
                   tabindex="0"
                 >
@@ -340,7 +326,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                   role="button"
                   tabindex="0"
                 >
@@ -354,7 +340,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip-module_Chip__-CMbK Chip-module_Chip--default__RMwmT MuiChip-clickable"
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                   role="button"
                   tabindex="0"
                 >
@@ -372,13 +358,13 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
         </div>
         <div
-          class="Tabs-module_Tabs__qVSaa Tabs-module_Tabs--secondary__HQsrV Tabs-module_Tabs--visible-until-md__LPluA tabs"
+          class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
         >
           <div
-            class="Tabs-module_TabsBar__iaTiJ"
+            class="TabsBar"
           >
             <div
-              class="Container-module_Container__4e9IW"
+              class="Container"
             >
               <div
                 class="MuiContainer-root tabStyles-ContainerRoot-25 MuiContainer-maxWidthXl"
@@ -443,38 +429,38 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
           <div
             aria-labelledby="tab-list"
-            class="MuiGrid-root Tabs-module_TabPanel__YBHHf tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
+            class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-33 Tabs-module_TabPanelBox__TIzx-"
+              class="MuiBox-root MuiBox-root-33 TabPanelBox"
             >
               <div
                 class="list"
               >
                 <div
-                  class="MuiPaper-root MuiCard-root LinkCard-module_LinkCard__Biuzd MuiPaper-elevation1 MuiPaper-rounded"
+                  class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
                   data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
-                    class="LinkCard-module_item__0LJDq"
+                    class="item"
                   >
                     <h6
-                      class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6 MuiTypography-gutterBottom"
+                      class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
                     >
                       roofer 1
                     </h6>
                     <p
-                      class="MuiTypography-root LinkCard-module_subtitle__Pju8s Typography-module_Typography__aA2Zb MuiTypography-body1"
+                      class="MuiTypography-root subtitle Typography MuiTypography-body1"
                     >
                       address 1
                     </p>
                   </div>
                   <div
-                    class="LinkCard-module_icon__I7XlT"
+                    class="icon"
                   >
                     <svg
                       aria-hidden="true"
@@ -488,7 +474,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                     </svg>
                   </div>
                   <div
-                    class="MuiCollapse-root LinkCard-module_details__mFRrY MuiCollapse-hidden"
+                    class="MuiCollapse-root details MuiCollapse-hidden"
                     style="min-height: 0px;"
                   >
                     <div
@@ -498,19 +484,19 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                         class="MuiCollapse-wrapperInner"
                       >
                         <div
-                          class="CompanyDetails-module_CompanyDetails__q2MJv"
+                          class="CompanyDetails"
                         >
                           <div
                             class="scrollbar-container ps"
                           >
                             <dl
-                              class="CompanyDetails-module_list__TIDM-"
+                              class="list"
                             >
                               <div
-                                class="CompanyDetails-module_row__VYrxI, CompanyDetails-module_row--cta__wyKqN"
+                                class="row, row--cta"
                               >
                                 <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-contained buttonStyles-contained-7 CompanyDetails-module_cta-button__YQWJM MuiButton-containedPrimary"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-contained buttonStyles-contained-7 cta-button MuiButton-containedPrimary"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -525,14 +511,14 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                                 </button>
                               </div>
                               <div
-                                class="CompanyDetails-module_row__VYrxI"
+                                class="row"
                               >
                                 <dt
-                                  class="CompanyDetails-module_term__1n8sr"
+                                  class="term"
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class="MuiSvgIcon-root CompanyDetails-module_icon__3gpy7"
+                                    class="MuiSvgIcon-root icon"
                                     focusable="false"
                                     viewBox="0 0 24 24"
                                   >
@@ -541,26 +527,26 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                                     />
                                   </svg>
                                   <span
-                                    class="MuiTypography-root CompanyDetails-module_label__lGSnT CompanyDetails-module_accessibility-label__dvpPG Typography-module_Typography__aA2Zb MuiTypography-body1"
+                                    class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                   >
                                     MC: global.telephone
                                   </span>
                                 </dt>
                                 <dd
-                                  class="CompanyDetails-module_description__ReVKH"
+                                  class="description"
                                 >
                                   phone 1
                                 </dd>
                               </div>
                               <div
-                                class="CompanyDetails-module_row__VYrxI"
+                                class="row"
                               >
                                 <dt
-                                  class="CompanyDetails-module_term__1n8sr"
+                                  class="term"
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class="MuiSvgIcon-root CompanyDetails-module_icon__3gpy7"
+                                    class="MuiSvgIcon-root icon"
                                     focusable="false"
                                     viewBox="0 0 24 24"
                                   >
@@ -569,26 +555,26 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                                     />
                                   </svg>
                                   <span
-                                    class="MuiTypography-root CompanyDetails-module_label__lGSnT CompanyDetails-module_accessibility-label__dvpPG Typography-module_Typography__aA2Zb MuiTypography-body1"
+                                    class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                   >
                                     MC: global.email
                                   </span>
                                 </dt>
                                 <dd
-                                  class="CompanyDetails-module_description__ReVKH"
+                                  class="description"
                                 >
                                   test@test.com
                                 </dd>
                               </div>
                               <div
-                                class="CompanyDetails-module_row__VYrxI"
+                                class="row"
                               >
                                 <dt
-                                  class="CompanyDetails-module_term__1n8sr"
+                                  class="term"
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class="MuiSvgIcon-root CompanyDetails-module_icon__3gpy7"
+                                    class="MuiSvgIcon-root icon"
                                     focusable="false"
                                     viewBox="0 0 24 24"
                                   >
@@ -597,31 +583,31 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                                     />
                                   </svg>
                                   <span
-                                    class="MuiTypography-root CompanyDetails-module_label__lGSnT CompanyDetails-module_accessibility-label__dvpPG Typography-module_Typography__aA2Zb MuiTypography-body1"
+                                    class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                   >
                                     MC: findARoofer.websiteLabel
                                   </span>
                                 </dt>
                                 <dd
-                                  class="CompanyDetails-module_description__ReVKH"
+                                  class="description"
                                 >
                                   MC: findARoofer.websiteLabel
                                 </dd>
                               </div>
                               <div
-                                class="CompanyDetails-module_row__VYrxI"
+                                class="row"
                               >
                                 <dt
-                                  class="CompanyDetails-module_term__1n8sr"
+                                  class="term"
                                 >
                                   <span
-                                    class="MuiTypography-root CompanyDetails-module_label__lGSnT Typography-module_Typography__aA2Zb MuiTypography-body1"
+                                    class="MuiTypography-root label Typography MuiTypography-body1"
                                   >
                                     MC: findARoofer.roofTypeLabel
                                   </span>
                                 </dt>
                                 <dd
-                                  class="CompanyDetails-module_description__ReVKH"
+                                  class="description"
                                 >
                                   <b>
                                     MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.flachdachsysteme | MC: findARoofer.filters.steildachsysteme | MC: findARoofer.filters.bauwerksabdichtung | MC: findARoofer.filters.verkehrsbauwerke | MC: findARoofer.filters.verarbeiter | MC: findARoofer.filters.topDachPartner | MC: findARoofer.filters.7Dachdecker | MC: findARoofer.filters.handler
@@ -632,7 +618,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                               </div>
                             </dl>
                             <p
-                              class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+                              class="MuiTypography-root Typography MuiTypography-body1"
                             >
                               roofer summary
                             </p>
@@ -667,23 +653,23 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
           <div
             aria-labelledby="tab-map"
-            class="MuiGrid-root Tabs-module_TabPanel__YBHHf tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
+            class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
             heading="MC: findARoofer.mapLabel"
             hidden=""
             id="tabpanel-map"
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-28 Tabs-module_TabPanelBox__TIzx-"
+              class="MuiBox-root MuiBox-root-28 TabPanelBox"
             >
               <div
                 class="map"
               >
                 <div
-                  class="GoogleMap-module_GoogleMap__DeKaD"
+                  class="GoogleMap"
                 >
                   <div
-                    class="GoogleMap-module_map__SXEet"
+                    class="map"
                   >
                     <div
                       class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"

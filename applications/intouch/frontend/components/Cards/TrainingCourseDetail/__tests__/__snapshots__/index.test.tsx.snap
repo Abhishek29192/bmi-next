@@ -10,7 +10,7 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
       class="MuiCardContent-root"
     >
       <h4
-        class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
       >
         GCP roofing methodology
       </h4>
@@ -28,25 +28,18 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
               type.classroom
             </div>
             <p
-              class="MuiTypography-root tech Typography-module_Typography__aA2Zb MuiTypography-body1"
+              class="MuiTypography-root tech Typography MuiTypography-body1"
             >
               <svg
                 class="technologyIcon"
-                viewBox="0 0 48 36.309"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8.727 20.535V28.6L24 36.309 39.273 28.6v-8.065L24 28.24ZM24 0 0 12.1l24 12.1 19.636-9.9v13.94H48V12.1Z"
-                  fill="#3b3b3b"
-                />
-              </svg>
+              />
               technology.OTHER
             </p>
             <div
               class="status"
             >
               <p
-                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+                class="MuiTypography-root Typography MuiTypography-body1"
               />
             </div>
           </div>
@@ -91,12 +84,12 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
         class="body"
       >
         <h5
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
+          class="MuiTypography-root Typography MuiTypography-h5"
         >
           Description
         </h5>
         <div
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+          class="MuiTypography-root Typography MuiTypography-body1"
         >
           GCP roofing methodology description
         </div>
@@ -116,7 +109,7 @@ exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
       class="MuiCardContent-root"
     >
       <h4
-        class="MuiTypography-root Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h4"
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
       >
         GCP roofing methodology
       </h4>
@@ -134,25 +127,18 @@ exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
               type.classroom
             </div>
             <p
-              class="MuiTypography-root tech Typography-module_Typography__aA2Zb MuiTypography-body1"
+              class="MuiTypography-root tech Typography MuiTypography-body1"
             >
               <svg
                 class="technologyIcon"
-                viewBox="0 0 48 36.309"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8.727 20.535V28.6L24 36.309 39.273 28.6v-8.065L24 28.24ZM24 0 0 12.1l24 12.1 19.636-9.9v13.94H48V12.1Z"
-                  fill="#3b3b3b"
-                />
-              </svg>
+              />
               technology.OTHER
             </p>
             <div
               class="status"
             >
               <p
-                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+                class="MuiTypography-root Typography MuiTypography-body1"
               />
             </div>
           </div>
@@ -197,12 +183,12 @@ exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
         class="body"
       >
         <h5
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h5"
+          class="MuiTypography-root Typography MuiTypography-h5"
         >
           Description
         </h5>
         <div
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1"
+          class="MuiTypography-root Typography MuiTypography-body1"
         >
           GCP roofing methodology description
         </div>

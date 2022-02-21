@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "rootDirs": ["src"],
     "paths": {
-      "@bmi/*": ["./node_modules/@bmi/*/src"]
+      "@bmi/*": ["./node_modules/@bmi/*/src"],
+      "@bmi-digital/components": ["./node_modules/@bmi-digital/components/src"]
     },
     "typeRoots": ["./node_modules/@types", "./@types"]
   },

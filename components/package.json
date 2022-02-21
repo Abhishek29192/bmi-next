@@ -1,0 +1,701 @@
+{
+  "name": "@bmi-digital/components",
+  "version": "1.2.0",
+  "license": "UNLICENSED",
+  "src": "src/index.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "check:ts": "tsc",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
+    "build": "yarn run check:ts -p tsconfig.build.json && copyfiles -e 'node_modules/**' -e 'dist/**' package.json **/*.woff2 **/*.scss **/*.svg dist",
+    "prepare": "husky install",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "files": [
+    "dist/",
+    "package.json"
+  ],
+  "typesVersions": {
+    "*": {
+      "accordion": [
+        "./dist/src/accordion/index.d.ts"
+      ],
+      "alert-banner": [
+        "./dist/src/alert-banner/index.d.ts"
+      ],
+      "alternative-content": [
+        "./dist/src/alternative-content/index.d.ts"
+      ],
+      "anchor-link": [
+        "./dist/src/anchor-link/index.d.ts"
+      ],
+      "arrow-control": [
+        "./dist/src/arrow-control/index.d.ts"
+      ],
+      "autocomplete": [
+        "./dist/src/autocomplete/index.d.ts"
+      ],
+      "back-to-top": [
+        "./dist/src/back-to-top/index.d.ts"
+      ],
+      "brand-intro-card": [
+        "./dist/src/brand-intro-card/index.d.ts"
+      ],
+      "breadcrumbs": [
+        "./dist/src/breadcrumbs/index.d.ts"
+      ],
+      "bullets": [
+        "./dist/src/bullets/index.d.ts"
+      ],
+      "button": [
+        "./dist/src/button/index.d.ts"
+      ],
+      "card": [
+        "./dist/src/card/index.d.ts"
+      ],
+      "card-checkbox-group": [
+        "./dist/src/card-checkbox-group/index.d.ts"
+      ],
+      "card-input": [
+        "./dist/src/card-input/index.d.ts"
+      ],
+      "card-radio-group": [
+        "./dist/src/card-radio-group/index.d.ts"
+      ],
+      "carousel": [
+        "./dist/src/carousel/index.d.ts"
+      ],
+      "checkbox": [
+        "./dist/src/checkbox/index.d.ts"
+      ],
+      "chip": [
+        "./dist/src/chip/index.d.ts"
+      ],
+      "clickable": [
+        "./dist/src/clickable/index.d.ts"
+      ],
+      "color-pair": [
+        "./dist/src/color-pair/index.d.ts"
+      ],
+      "company-details": [
+        "./dist/src/company-details/index.d.ts"
+      ],
+      "container": [
+        "./dist/src/container/index.d.ts"
+      ],
+      "container-dialog": [
+        "./dist/src/container-dialog/index.d.ts"
+      ],
+      "cta-card": [
+        "./dist/src/cta-card/index.d.ts"
+      ],
+      "dialog": [
+        "./dist/src/dialog/index.d.ts"
+      ],
+      "download-list": [
+        "./dist/src/download-list/index.d.ts"
+      ],
+      "equal-heights": [
+        "./dist/src/equal-heights/index.d.ts"
+      ],
+      "expandable-card": [
+        "./dist/src/expandable-card/index.d.ts"
+      ],
+      "expandable-links-text-card": [
+        "./dist/src/expandable-links-text-card/index.d.ts"
+      ],
+      "explore-bar": [
+        "./dist/src/explore-bar/index.d.ts"
+      ],
+      "filters": [
+        "./dist/src/filters/index.d.ts"
+      ],
+      "footer": [
+        "./dist/src/footer/index.d.ts"
+      ],
+      "form": [
+        "./dist/src/form/index.d.ts"
+      ],
+      "geolocation-button": [
+        "./dist/src/geolocation-button/index.d.ts"
+      ],
+      "google-api": [
+        "./dist/src/google-api/index.d.ts"
+      ],
+      "google-autocomplete": [
+        "./dist/src/google-autocomplete/index.d.ts"
+      ],
+      "google-map": [
+        "./dist/src/google-map/index.d.ts"
+      ],
+      "grid": [
+        "./dist/src/grid/index.d.ts"
+      ],
+      "header": [
+        "./dist/src/header/index.d.ts"
+      ],
+      "hero": [
+        "./dist/src/hero/index.d.ts"
+      ],
+      "hide-print": [
+        "./dist/src/hide-print/index.d.ts"
+      ],
+      "icon": [
+        "./dist/src/icon/index.d.ts"
+      ],
+      "icon-list": [
+        "./dist/src/icon-list/index.d.ts"
+      ],
+      "image-gallery": [
+        "./dist/src/image-gallery/index.d.ts"
+      ],
+      "input-banner": [
+        "./dist/src/input-banner/index.d.ts"
+      ],
+      "input-group": [
+        "./dist/src/input-group/index.d.ts"
+      ],
+      "langauge-selection": [
+        "./dist/src/langauge-selection/index.d.ts"
+      ],
+      "lead-block": [
+        "./dist/src/lead-block/index.d.ts"
+      ],
+      "link-card": [
+        "./dist/src/link-card/index.d.ts"
+      ],
+      "location-card": [
+        "./dist/src/location-card/index.d.ts"
+      ],
+      "logo": [
+        "./dist/src/logo/index.d.ts"
+      ],
+      "masonry-grid": [
+        "./dist/src/masonry-grid/index.d.ts"
+      ],
+      "media": [
+        "./dist/src/media/index.d.ts"
+      ],
+      "media-gallery": [
+        "./dist/src/media-gallery/index.d.ts"
+      ],
+      "micro-copy": [
+        "./dist/src/micro-copy/index.d.ts"
+      ],
+      "navigation": [
+        "./dist/src/navigation/index.d.ts"
+      ],
+      "nba-card": [
+        "./dist/src/nba-card/index.d.ts"
+      ],
+      "overview-card": [
+        "./dist/src/overview-card/index.d.ts"
+      ],
+      "pagination": [
+        "./dist/src/pagination/index.d.ts"
+      ],
+      "perfect-scrollbar": [
+        "./dist/src/perfect-scrollbar/index.d.ts"
+      ],
+      "post-it-card": [
+        "./dist/src/post-it-card/index.d.ts"
+      ],
+      "product-details-card": [
+        "./dist/src/product-details-card/index.d.ts"
+      ],
+      "product-overview-pane": [
+        "./dist/src/product-overview-pane/index.d.ts"
+      ],
+      "profile-card": [
+        "./dist/src/profile-card/index.d.ts"
+      ],
+      "promo-section": [
+        "./dist/src/promo-section/index.d.ts"
+      ],
+      "radio-button": [
+        "./dist/src/radio-button/index.d.ts"
+      ],
+      "radio-group": [
+        "./dist/src/radio-group/index.d.ts"
+      ],
+      "radio-pane": [
+        "./dist/src/radio-pane/index.d.ts"
+      ],
+      "response-message": [
+        "./dist/src/response-message/index.d.ts"
+      ],
+      "roller-selector": [
+        "./dist/src/roller-selector/index.d.ts"
+      ],
+      "search": [
+        "./dist/src/search/index.d.ts"
+      ],
+      "section": [
+        "./dist/src/section/index.d.ts"
+      ],
+      "select": [
+        "./dist/src/select/index.d.ts"
+      ],
+      "share-widget": [
+        "./dist/src/share-widget/index.d.ts"
+      ],
+      "show-more": [
+        "./dist/src/show-more/index.d.ts"
+      ],
+      "slide-controls": [
+        "./dist/src/slide-controls/index.d.ts"
+      ],
+      "spotlight-hero": [
+        "./dist/src/spotlight-hero/index.d.ts"
+      ],
+      "table": [
+        "./dist/src/table/index.d.ts"
+      ],
+      "table-of-content": [
+        "./dist/src/table-of-content/index.d.ts"
+      ],
+      "tabs": [
+        "./dist/src/tabs/index.d.ts"
+      ],
+      "text-field": [
+        "./dist/src/text-field/index.d.ts"
+      ],
+      "theme-provider": [
+        "./dist/src/theme-provider/index.d.ts"
+      ],
+      "thumb-scroller-button": [
+        "./dist/src/thumb-scroller-button/index.d.ts"
+      ],
+      "thumbnail": [
+        "./dist/src/thumbnail/index.d.ts"
+      ],
+      "tile-list": [
+        "./dist/src/tile-list/index.d.ts"
+      ],
+      "toggle-card": [
+        "./dist/src/toggle-card/index.d.ts"
+      ],
+      "tooltip": [
+        "./dist/src/tooltip/index.d.ts"
+      ],
+      "truncate": [
+        "./dist/src/truncate/index.d.ts"
+      ],
+      "two-pane-carousel": [
+        "./dist/src/two-pane-carousel/index.d.ts"
+      ],
+      "typography": [
+        "./dist/src/typography/index.d.ts"
+      ],
+      "upload": [
+        "./dist/src/upload/index.d.ts"
+      ],
+      "vertical-roller": [
+        "./dist/src/vertical-roller/index.d.ts"
+      ],
+      "villain": [
+        "./dist/src/villain/index.d.ts"
+      ],
+      "youtube-video": [
+        "./dist/src/youtube-video/index.d.ts"
+      ]
+    }
+  },
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./accordion": {
+      "default": "./dist/src/accordion/index.js"
+    },
+    "./alert-banner": {
+      "default": "./dist/src/alert-banner/index.js"
+    },
+    "./alternative-content": {
+      "default": "./dist/src/alternative-content/index.js"
+    },
+    "./anchor-link": {
+      "default": "./dist/src/anchor-link/index.js"
+    },
+    "./arrow-control": {
+      "default": "./dist/src/arrow-control/index.js"
+    },
+    "./autocomplete": {
+      "default": "./dist/src/autocomplete/index.js"
+    },
+    "./back-to-top": {
+      "default": "./dist/src/back-to-top/index.js"
+    },
+    "./brand-intro-card": {
+      "default": "./dist/src/brand-intro-card/index.js"
+    },
+    "./breadcrumbs": {
+      "default": "./dist/src/breadcrumbs/index.js"
+    },
+    "./bullets": {
+      "default": "./dist/src/bullets/index.js"
+    },
+    "./button": {
+      "default": "./dist/src/button/index.js"
+    },
+    "./card": {
+      "default": "./dist/src/card/index.js"
+    },
+    "./card-checkbox-group": {
+      "default": "./dist/src/card-checkbox-group/index.js"
+    },
+    "./card-input": {
+      "default": "./dist/src/card-input/index.js"
+    },
+    "./card-radio-group": {
+      "default": "./dist/src/card-radio-group/index.js"
+    },
+    "./carousel": {
+      "default": "./dist/src/carousel/index.js"
+    },
+    "./checkbox": {
+      "default": "./dist/src/checkbox/index.js"
+    },
+    "./chip": {
+      "default": "./dist/src/chip/index.js"
+    },
+    "./clickable": {
+      "default": "./dist/src/clickable/index.js"
+    },
+    "./color-pair": {
+      "default": "./dist/src/color-pair/index.js"
+    },
+    "./company-details": {
+      "default": "./dist/src/company-details/index.js"
+    },
+    "./container": {
+      "default": "./dist/src/container/index.js"
+    },
+    "./container-dialog": {
+      "default": "./dist/src/container-dialog/index.js"
+    },
+    "./cta-card": {
+      "default": "./dist/src/cta-card/index.js"
+    },
+    "./dialog": {
+      "default": "./dist/src/dialog/index.js"
+    },
+    "./download-list": {
+      "default": "./dist/src/download-list/index.js"
+    },
+    "./equal-heights": {
+      "default": "./dist/src/equal-heights/index.js"
+    },
+    "./expandable-card": {
+      "default": "./dist/src/expandable-card/index.js"
+    },
+    "./expandable-links-text-card": {
+      "default": "./dist/src/expandable-links-text-card/index.js"
+    },
+    "./explore-bar": {
+      "default": "./dist/src/explore-bar/index.js"
+    },
+    "./filters": {
+      "default": "./dist/src/filters/index.js"
+    },
+    "./footer": {
+      "default": "./dist/src/footer/index.js"
+    },
+    "./form": {
+      "default": "./dist/src/form/index.js"
+    },
+    "./geolocation-button": {
+      "default": "./dist/src/geolocation-button/index.js"
+    },
+    "./google-api": {
+      "default": "./dist/src/google-api/index.js"
+    },
+    "./google-autocomplete": {
+      "default": "./dist/src/google-autocomplete/index.js"
+    },
+    "./google-map": {
+      "default": "./dist/src/google-map/index.js"
+    },
+    "./grid": {
+      "default": "./dist/src/grid/index.js"
+    },
+    "./header": {
+      "default": "./dist/src/header/index.js"
+    },
+    "./hero": {
+      "default": "./dist/src/hero/index.js"
+    },
+    "./hide-print": {
+      "default": "./dist/src/hide-print/index.js"
+    },
+    "./icon": {
+      "default": "./dist/src/icon/index.js"
+    },
+    "./icon-list": {
+      "default": "./dist/src/icon-list/index.js"
+    },
+    "./image-gallery": {
+      "default": "./dist/src/image-gallery/index.js"
+    },
+    "./input-banner": {
+      "default": "./dist/src/input-banner/index.js"
+    },
+    "./input-group": {
+      "default": "./dist/src/input-group/index.js"
+    },
+    "./langauge-selection": {
+      "default": "./dist/src/langauge-selection/index.js"
+    },
+    "./lead-block": {
+      "default": "./dist/src/lead-block/index.js"
+    },
+    "./link-card": {
+      "default": "./dist/src/link-card/index.js"
+    },
+    "./location-card": {
+      "default": "./dist/src/location-card/index.js"
+    },
+    "./logo": {
+      "default": "./dist/src/logo/index.js"
+    },
+    "./masonry-grid": {
+      "default": "./dist/src/masonry-grid/index.js"
+    },
+    "./media": {
+      "default": "./dist/src/media/index.js"
+    },
+    "./media-gallery": {
+      "default": "./dist/src/media-gallery/index.js"
+    },
+    "./micro-copy": {
+      "default": "./dist/src/micro-copy/index.js"
+    },
+    "./navigation": {
+      "default": "./dist/src/navigation/index.js"
+    },
+    "./nba-card": {
+      "default": "./dist/src/nba-card/index.js"
+    },
+    "./overview-card": {
+      "default": "./dist/src/overview-card/index.js"
+    },
+    "./pagination": {
+      "default": "./dist/src/pagination/index.js"
+    },
+    "./perfect-scrollbar": {
+      "default": "./dist/src/perfect-scrollbar/index.js"
+    },
+    "./post-it-card": {
+      "default": "./dist/src/post-it-card/index.js"
+    },
+    "./product-details-card": {
+      "default": "./dist/src/product-details-card/index.js"
+    },
+    "./product-overview-pane": {
+      "default": "./dist/src/product-overview-pane/index.js"
+    },
+    "./profile-card": {
+      "default": "./dist/src/profile-card/index.js"
+    },
+    "./promo-section": {
+      "default": "./dist/src/promo-section/index.js"
+    },
+    "./radio-button": {
+      "default": "./dist/src/radio-button/index.js"
+    },
+    "./radio-group": {
+      "default": "./dist/src/radio-group/index.js"
+    },
+    "./radio-pane": {
+      "default": "./dist/src/radio-pane/index.js"
+    },
+    "./response-message": {
+      "default": "./dist/src/response-message/index.js"
+    },
+    "./roller-selector": {
+      "default": "./dist/src/roller-selector/index.js"
+    },
+    "./search": {
+      "default": "./dist/src/search/index.js"
+    },
+    "./section": {
+      "default": "./dist/src/section/index.js"
+    },
+    "./select": {
+      "default": "./dist/src/select/index.js"
+    },
+    "./share-widget": {
+      "default": "./dist/src/share-widget/index.js"
+    },
+    "./show-more": {
+      "default": "./dist/src/show-more/index.js"
+    },
+    "./slide-controls": {
+      "default": "./dist/src/slide-controls/index.js"
+    },
+    "./spotlight-hero": {
+      "default": "./dist/src/spotlight-hero/index.js"
+    },
+    "./table": {
+      "default": "./dist/src/table/index.js"
+    },
+    "./table-of-content": {
+      "default": "./dist/src/table-of-content/index.js"
+    },
+    "./tabs": {
+      "default": "./dist/src/tabs/index.js"
+    },
+    "./text-field": {
+      "default": "./dist/src/text-field/index.js"
+    },
+    "./theme-provider": {
+      "default": "./dist/src/theme-provider/index.js"
+    },
+    "./thumb-scroller-button": {
+      "default": "./dist/src/thumb-scroller-button/index.js"
+    },
+    "./thumbnail": {
+      "default": "./dist/src/thumbnail/index.js"
+    },
+    "./tile-list": {
+      "default": "./dist/src/tile-list/index.js"
+    },
+    "./toggle-card": {
+      "default": "./dist/src/toggle-card/index.js"
+    },
+    "./tooltip": {
+      "default": "./dist/src/tooltip/index.js"
+    },
+    "./truncate": {
+      "default": "./dist/src/truncate/index.js"
+    },
+    "./two-pane-carousel": {
+      "default": "./dist/src/two-pane-carousel/index.js"
+    },
+    "./typography": {
+      "default": "./dist/src/typography/index.js"
+    },
+    "./upload": {
+      "default": "./dist/src/upload/index.js"
+    },
+    "./vertical-roller": {
+      "default": "./dist/src/vertical-roller/index.js"
+    },
+    "./villain": {
+      "default": "./dist/src/villain/index.js"
+    },
+    "./youtube-video": {
+      "default": "./dist/src/youtube-video/index.js"
+    }
+  },
+  "dependencies": {
+    "@bmi-digital/styles": "1.0.1",
+    "@bmi-digital/svg-import": "1.0.1",
+    "@bmi-digital/use-dimensions": "1.0.1",
+    "@googlemaps/js-api-loader": "^1.11.1",
+    "@googlemaps/markerclusterer": "^1.0.15",
+    "autosuggest-highlight": "^3.1.1",
+    "axios": "^0.26.0",
+    "classnames": "^2.2.6",
+    "csstype": "^3.0.7",
+    "escape-string-regexp": "^4.0.0",
+    "react-is": "^16.13.1",
+    "react-lines-ellipsis": "^0.14.1",
+    "react-masonry-css": "^1.0.14",
+    "react-perfect-scrollbar": "^1.5.8",
+    "react-player": "^2.9.0",
+    "react-swipeable-views": "^0.14.0",
+    "react-swipeable-views-core": "^0.14.0",
+    "react-swipeable-views-utils": "^0.14.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.6",
+    "@babel/preset-typescript": "^7.9.6",
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-angular": "^8.3.4",
+    "@google/semantic-release-replace-plugin": "^1.1.0",
+    "@googlemaps/jest-mocks": "^2.2.0",
+    "@material-ui/core": "^4.10.2",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@material-ui/styles": "^4.11.4",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/gitlab": "^7.0.4",
+    "@semantic-release/release-notes-generator": "^10.0.3",
+    "@svgr/rollup": "^6.2.1",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@types/autosuggest-highlight": "^3.1.1",
+    "@types/classnames": "^2.2.10",
+    "@types/css-mediaquery": "^0.1.0",
+    "@types/googlemaps": "^3.43.2",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^14.14.10",
+    "@types/react": "^16.13.1",
+    "@types/react-dom": "^16.9.14",
+    "@types/react-is": "^16.7.2",
+    "@types/react-swipeable-views": "^0.13.0",
+    "@types/react-swipeable-views-core": "^0.13.0",
+    "@types/react-swipeable-views-utils": "^0.13.2",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "babel-jest": "^27.3.1",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-react-remove-properties": "^0.3.0",
+    "babel-preset-minify": "^0.5.1",
+    "copyfiles": "^2.4.1",
+    "css-mediaquery": "^0.1.2",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.5",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.12.0",
+    "husky": "^7.0.4",
+    "jest": "^27.3.1",
+    "jest-css-modules-transform": "^4.3.0",
+    "jest-junit": "^13.0.0",
+    "jest-mock-console": "^1.2.3",
+    "lint-staged": "^12.3.4",
+    "node-sass": "^7.0.1",
+    "postcss-nesting": "^10.1.2",
+    "prettier": "^2.5.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.67.2",
+    "rollup-plugin-collect-sass": "^1.0.9",
+    "rollup-plugin-dts": "^4.1.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-url": "^3.0.1",
+    "semantic-release": "^19.0.2",
+    "snapshot-diff": "^0.8.1",
+    "ts-jest": "^27.0.7",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.5",
+    "yalc": "^1.0.0-pre.53"
+  },
+  "peerDependencies": {
+    "@material-ui/core": "^4.10.2",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@material-ui/styles": "^4.11.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}

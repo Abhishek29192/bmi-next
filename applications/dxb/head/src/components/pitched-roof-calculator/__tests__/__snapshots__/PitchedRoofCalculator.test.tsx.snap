@@ -34,16 +34,16 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
       tabindex="0"
     />
     <div
-      class="ContainerDialog-module_ContainerDialog__kU8uv ContainerDialog-module_ContainerDialog--bg-pearl__sJm-5 ContainerDialog-module_ContainerDialog--width-xl__w23bP ContainerDialog-module_ContainerDialog--allowOverflow__lL-Hz"
+      class="ContainerDialog ContainerDialog--bg-pearl ContainerDialog--width-xl ContainerDialog--allowOverflow"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="ContainerDialog-module_header__soTo5"
+        class="header"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 ContainerDialog-module_iconButton__E2P0M"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButton"
           tabindex="0"
           type="button"
         >
@@ -67,7 +67,7 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
         </button>
       </div>
       <div
-        class="ContainerDialog-module_content__q2O94"
+        class="content"
       >
         <div
           class="PitchedRoofCalculator"
@@ -106,16 +106,16 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
       tabindex="0"
     />
     <div
-      class="ContainerDialog-module_ContainerDialog__kU8uv ContainerDialog-module_ContainerDialog--bg-pearl__sJm-5 ContainerDialog-module_ContainerDialog--width-xl__w23bP ContainerDialog-module_ContainerDialog--allowOverflow__lL-Hz"
+      class="ContainerDialog ContainerDialog--bg-pearl ContainerDialog--width-xl ContainerDialog--allowOverflow"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="ContainerDialog-module_header__soTo5"
+        class="header"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 ContainerDialog-module_iconButton__E2P0M"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButton"
           tabindex="0"
           type="button"
         >
@@ -139,7 +139,7 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
         </button>
       </div>
       <div
-        class="ContainerDialog-module_content__q2O94"
+        class="content"
       >
         <div
           class="PitchedRoofCalculator"

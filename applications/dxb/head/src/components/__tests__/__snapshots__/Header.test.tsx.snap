@@ -3,26 +3,26 @@
 exports[`Header component renders correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root Header-module_Header__5p-PN Header-module_Header--small__CWyLN Header-module_Header--medium__OMoBO Header-module_Header--large__gx0QM MuiPaper-elevation3"
+    class="MuiPaper-root Header Header--small Header--medium Header--large MuiPaper-elevation3"
   >
     <nav
       aria-label="Utilities"
-      class="Header-module_utilities-bar__KmAR5"
+      class="utilities-bar"
       role="navigation"
     >
       <div
-        class="Container-module_Container__4e9IW"
+        class="Container"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <ul>
             <li
-              class="Header-module_nav-item__ReYrR"
+              class="nav-item"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 Header-module_utilities-button__z6lSs MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
                 href="/gb/landing-page"
                 role="button"
                 tabindex="0"
@@ -38,11 +38,11 @@ exports[`Header component renders correctly 1`] = `
               </a>
             </li>
             <li
-              class="Header-module_nav-item__ReYrR"
+              class="nav-item"
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 Header-module_utilities-button__z6lSs Header-module_language-selection-button__-YELc MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button language-selection-button MuiButton-textPrimary"
                 tabindex="0"
                 type="button"
               >
@@ -51,14 +51,14 @@ exports[`Header component renders correctly 1`] = `
                 >
                   <img
                     alt="United Kingdom"
-                    class="Header-module_language-icon__BE8nR"
+                    class="language-icon"
                     height="16px"
                     src="/icons/flags/uk.svg"
                     width="20px"
                   />
                   GB
                   <span
-                    class="Header-module_down-arrow__rYgcO"
+                    class="down-arrow"
                   >
                     ▾
                   </span>
@@ -73,12 +73,12 @@ exports[`Header component renders correctly 1`] = `
       </div>
     </nav>
     <div
-      class="Header-module_drawer__Ufwdy Header-module_language-drawer__zFlmU"
+      class="drawer language-drawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 Header-module_close-button__r2CSR"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
         tabindex="0"
         type="button"
       >
@@ -101,10 +101,10 @@ exports[`Header component renders correctly 1`] = `
         />
       </button>
       <div
-        class="Header-module_back-navigation__WF2I6"
+        class="back-navigation"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 Navigation-module_NavigationListButton__j1-K- Header-module_back-button__ufGWC MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton back-button MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -116,7 +116,7 @@ exports[`Header component renders correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root Header-module_chevronLeft__X1vkQ"
+                class="MuiSvgIcon-root chevronLeft"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -132,33 +132,33 @@ exports[`Header component renders correctly 1`] = `
           />
         </button>
         <hr
-          class="Header-module_separator__ZjgQD"
+          class="separator"
         />
       </div>
       <div
-        class="Container-module_Container__4e9IW Header-module_language-container__NDAHm"
+        class="Container language-container"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="LanguageSelection-module_LanguageSelection__KEFpa"
+            class="LanguageSelection"
           >
             <div>
               <h6
-                class="MuiTypography-root LanguageSelection-module_heading__L2erY Typography-module_Typography__aA2Zb MuiTypography-h6"
+                class="MuiTypography-root heading Typography MuiTypography-h6"
               >
                 Europe
               </h6>
               <div
-                class="MuiGrid-root LanguageSelection-module_container__XjZCh MuiGrid-container MuiGrid-align-items-xs-center"
+                class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
               >
                 <div
-                  class="MuiGrid-root LanguageSelection-module_item__sQjMj MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 Navigation-module_NavigationListButton__j1-K- LanguageSelection-module_link__Cfgn4 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                     href="/al"
                     tabindex="0"
                   >
@@ -169,7 +169,7 @@ exports[`Header component renders correctly 1`] = `
                         class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
                       >
                         <img
-                          class="LanguageSelection-module_LanguageIcon__1Eauy"
+                          class="LanguageIcon"
                           height="16px"
                           src="/icons/flags/al.svg"
                           width="20px"
@@ -183,11 +183,11 @@ exports[`Header component renders correctly 1`] = `
                   </a>
                 </div>
                 <div
-                  class="MuiGrid-root LanguageSelection-module_item__sQjMj MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 Navigation-module_NavigationListButton__j1-K- LanguageSelection-module_link__Cfgn4 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                     href="/at"
                     tabindex="0"
                   >
@@ -198,7 +198,7 @@ exports[`Header component renders correctly 1`] = `
                         class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
                       >
                         <img
-                          class="LanguageSelection-module_LanguageIcon__1Eauy"
+                          class="LanguageIcon"
                           height="16px"
                           src="/icons/flags/at.svg"
                           width="20px"
@@ -212,11 +212,11 @@ exports[`Header component renders correctly 1`] = `
                   </a>
                 </div>
                 <div
-                  class="MuiGrid-root LanguageSelection-module_item__sQjMj MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 Navigation-module_NavigationListButton__j1-K- LanguageSelection-module_link__Cfgn4 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
                     href="/gb"
                     tabindex="0"
                   >
@@ -227,7 +227,7 @@ exports[`Header component renders correctly 1`] = `
                         class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
                       >
                         <img
-                          class="LanguageSelection-module_LanguageIcon__1Eauy"
+                          class="LanguageIcon"
                           height="16px"
                           src="/icons/flags/uk.svg"
                           width="20px"
@@ -247,43 +247,29 @@ exports[`Header component renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="Header-module_navigation-bar__gUWDt"
+      class="navigation-bar"
     >
       <div
-        class="Container-module_Container__4e9IW"
+        class="Container"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="Header-module_navigation-bar-content__rL1Q4"
+            class="navigation-bar-content"
           >
             <a
               aria-label="MC: global.logoLabel"
-              class="Header-module_logo-link__qJ9oV"
+              class="logo-link"
               href="/gb"
             >
               <svg
-                class="Header-module_logo__HD414"
-                viewBox="0 0 250 250"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h250v250H0z"
-                  fill="#009fe3"
-                />
-                <g
-                  fill="#fff"
-                >
-                  <path
-                    d="M155.393 86.416 144.565 131h-.212l-10.829-44.584H100.3v50.634c-.76-9.718-6.732-14.589-13.079-16.771 5.626-3.078 9.342-7.218 9.342-14.862 0-7.749-4.247-19-24.2-19H30.848v75.8h42.994c12.786 0 25.368-7.183 26.455-21.075v21.075h22.081V113.6h.212l13.164 48.62h17.41l13.163-48.62h.213v48.62h22.081v-75.8ZM54.2 104.461h12.317c4.777 0 7.962 1.381 7.962 5.2 0 4.884-3.079 6.264-7.962 6.264H54.2Zm13.694 39.7H54.2v-14.115h14.652c5.521 0 8.174 2.442 8.174 6.9 0 5.839-4.246 7.219-9.126 7.219ZM195.798 86.416h23.355v75.797h-23.355z"
-                  />
-                </g>
-              </svg>
+                class="logo"
+              />
             </a>
             <nav
               aria-label="Navigation"
-              class="Header-module_navigation__0mURF"
+              class="navigation"
               role="navigation"
             >
               <div
@@ -305,7 +291,7 @@ exports[`Header component renders correctly 1`] = `
                       aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-module_nav-item__ReYrR Header-module_nav-item--no-children__Ggkpu"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="tel:+4401234567890"
                       id="tab-undefined"
@@ -325,7 +311,7 @@ exports[`Header component renders correctly 1`] = `
                       aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-module_nav-item__ReYrR Header-module_nav-item--no-children__Ggkpu"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="/gb/landing-page"
                       id="tab-undefined"
@@ -345,7 +331,7 @@ exports[`Header component renders correctly 1`] = `
                       aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-module_nav-item__ReYrR Header-module_nav-item--no-children__Ggkpu"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="https://www.external.co.uk"
                       id="tab-undefined"
@@ -370,11 +356,11 @@ exports[`Header component renders correctly 1`] = `
               </div>
             </nav>
             <div
-              class="Header-module_navigation-bar-buttons__ycCK5"
+              class="navigation-bar-buttons"
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 Header-module_search-button__2S2-d"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 search-button"
                 tabindex="0"
                 type="button"
               >
@@ -398,7 +384,7 @@ exports[`Header component renders correctly 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 Header-module_burger-button__-aV4l"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -427,16 +413,16 @@ exports[`Header component renders correctly 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root Header-module_backdrop__vYjQU"
+      class="MuiBackdrop-root backdrop"
       style="opacity: 0; visibility: hidden;"
     />
     <div
-      class="Header-module_drawer__Ufwdy Header-module_nav-drawer__czTk2"
+      class="drawer nav-drawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 Header-module_close-button__r2CSR"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
         tabindex="0"
         type="button"
       >
@@ -459,15 +445,15 @@ exports[`Header component renders correctly 1`] = `
         />
       </button>
       <nav
-        class="Navigation-module_Navigation__cy8SG"
+        class="Navigation Navigation--small Navigation--medium Navigation--large"
       >
         <div
-          class="Navigation-module_NavigationList__UP6Jo Navigation-module_Offset0__MTEXI"
+          class="NavigationList Offset0"
         >
           <ul>
             <li>
               <h6
-                class="MuiTypography-root Navigation-module_MainMenuTitle__j0jY0 Typography-module_Typography__aA2Zb MuiTypography-h6"
+                class="MuiTypography-root MainMenuTitle Typography MuiTypography-h6"
               >
                 MC: menu.mainTitle
               </h6>
@@ -475,7 +461,7 @@ exports[`Header component renders correctly 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
                 href="tel:+4401234567890"
                 tabindex="0"
@@ -490,11 +476,11 @@ exports[`Header component renders correctly 1`] = `
                 />
               </a>
               <hr
-                class="Navigation-module_Separator__XpbMO"
+                class="Separator"
               />
             </li>
             <div
-              class="Navigation-module_NavigationList__UP6Jo Navigation-module_NavigationList--footer__LW9vH"
+              class="NavigationList NavigationList--footer"
             >
               <ul>
                 <li>
@@ -548,7 +534,7 @@ exports[`Header component renders correctly 1`] = `
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-module_NavigationListType__PVprt Typography-module_Typography__aA2Zb MuiTypography-h6"
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
                   >
                     cardTitle1
                   </h6>
@@ -604,7 +590,7 @@ exports[`Header component renders correctly 1`] = `
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-module_NavigationListType__PVprt Typography-module_Typography__aA2Zb MuiTypography-h6"
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
                   >
                     cardName2
                   </h6>
@@ -614,7 +600,7 @@ exports[`Header component renders correctly 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/gb/landing-page\\"}"
                 href="/gb/landing-page"
                 role="button"
@@ -633,7 +619,7 @@ exports[`Header component renders correctly 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
@@ -649,12 +635,12 @@ exports[`Header component renders correctly 1`] = `
               </a>
             </li>
             <ul
-              class="Navigation-module_Utilities__GsXO9"
+              class="Utilities"
             >
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page\\"}"
                   href="/gb/landing-page"
                   role="button"
@@ -673,7 +659,7 @@ exports[`Header component renders correctly 1`] = `
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"GB\\"}"
                 tabindex="0"
                 type="button"
@@ -682,11 +668,11 @@ exports[`Header component renders correctly 1`] = `
                   class="MuiButton-label buttonStyles-label-4"
                 >
                   <span
-                    class="Navigation-module_LanguageButtonContent__ZuKZX"
+                    class="LanguageButtonContent"
                   >
                     <img
                       alt="United Kingdom"
-                      class="Navigation-module_LanguageIcon__sLEuE"
+                      class="LanguageIcon"
                       height="16px"
                       src="/icons/flags/uk.svg"
                       width="20px"
@@ -698,7 +684,7 @@ exports[`Header component renders correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root Navigation-module_chevronRight__AB3Cp"
+                      class="MuiSvgIcon-root chevronRight"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -718,15 +704,15 @@ exports[`Header component renders correctly 1`] = `
       </nav>
     </div>
     <div
-      class="Header-module_search-drawer-container__IlCQ9"
+      class="search-drawer-container"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="Header-module_drawer__Ufwdy Header-module_search-drawer__UcE80"
+        class="drawer search-drawer"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 Header-module_close-button__r2CSR"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
           tabindex="0"
           type="button"
         >
@@ -749,7 +735,7 @@ exports[`Header component renders correctly 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h4"
+          class="MuiTypography-root Typography MuiTypography-h4"
         >
           MC: search.title
         </h4>
@@ -762,26 +748,26 @@ exports[`Header component renders correctly 1`] = `
 exports[`Header component renders correctly when flag doesn't exist 1`] = `
 <div>
   <header
-    class="MuiPaper-root Header-module_Header__5p-PN Header-module_Header--small__CWyLN Header-module_Header--medium__OMoBO Header-module_Header--large__gx0QM MuiPaper-elevation3"
+    class="MuiPaper-root Header Header--small Header--medium Header--large MuiPaper-elevation3"
   >
     <nav
       aria-label="Utilities"
-      class="Header-module_utilities-bar__KmAR5"
+      class="utilities-bar"
       role="navigation"
     >
       <div
-        class="Container-module_Container__4e9IW"
+        class="Container"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <ul>
             <li
-              class="Header-module_nav-item__ReYrR"
+              class="nav-item"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 Header-module_utilities-button__z6lSs MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
                 href="/grp/landing-page"
                 role="button"
                 tabindex="0"
@@ -797,11 +783,11 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               </a>
             </li>
             <li
-              class="Header-module_nav-item__ReYrR"
+              class="nav-item"
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 Header-module_utilities-button__z6lSs Header-module_language-selection-button__-YELc MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button language-selection-button MuiButton-textPrimary"
                 tabindex="0"
                 type="button"
               >
@@ -810,14 +796,14 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 >
                   <img
                     alt=""
-                    class="Header-module_language-icon__BE8nR"
+                    class="language-icon"
                     height="16px"
                     src="/icons/flags/globe.svg"
                     width="20px"
                   />
                   EN
                   <span
-                    class="Header-module_down-arrow__rYgcO"
+                    class="down-arrow"
                   >
                     ▾
                   </span>
@@ -832,12 +818,12 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
       </div>
     </nav>
     <div
-      class="Header-module_drawer__Ufwdy Header-module_language-drawer__zFlmU"
+      class="drawer language-drawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 Header-module_close-button__r2CSR"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 close-button"
         tabindex="0"
         type="button"
       >
@@ -860,10 +846,10 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
         />
       </button>
       <div
-        class="Header-module_back-navigation__WF2I6"
+        class="back-navigation"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 Navigation-module_NavigationListButton__j1-K- Header-module_back-button__ufGWC MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton back-button MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -875,7 +861,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root Header-module_chevronLeft__X1vkQ"
+                class="MuiSvgIcon-root chevronLeft"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -891,33 +877,33 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
           />
         </button>
         <hr
-          class="Header-module_separator__ZjgQD"
+          class="separator"
         />
       </div>
       <div
-        class="Container-module_Container__4e9IW Header-module_language-container__NDAHm"
+        class="Container language-container"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="LanguageSelection-module_LanguageSelection__KEFpa"
+            class="LanguageSelection"
           >
             <div>
               <h6
-                class="MuiTypography-root LanguageSelection-module_heading__L2erY Typography-module_Typography__aA2Zb MuiTypography-h6"
+                class="MuiTypography-root heading Typography MuiTypography-h6"
               >
                 Europe
               </h6>
               <div
-                class="MuiGrid-root LanguageSelection-module_container__XjZCh MuiGrid-container MuiGrid-align-items-xs-center"
+                class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
               >
                 <div
-                  class="MuiGrid-root LanguageSelection-module_item__sQjMj MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 Navigation-module_NavigationListButton__j1-K- LanguageSelection-module_link__Cfgn4 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
                     href="/al"
                     tabindex="0"
                   >
@@ -928,7 +914,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                         class="MuiButton-startIcon buttonStyles-startIcon-32 MuiButton-iconSizeMedium"
                       >
                         <img
-                          class="LanguageSelection-module_LanguageIcon__1Eauy"
+                          class="LanguageIcon"
                           height="16px"
                           src="/icons/flags/al.svg"
                           width="20px"
@@ -942,11 +928,11 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                   </a>
                 </div>
                 <div
-                  class="MuiGrid-root LanguageSelection-module_item__sQjMj MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 Navigation-module_NavigationListButton__j1-K- LanguageSelection-module_link__Cfgn4 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
                     href="/at"
                     tabindex="0"
                   >
@@ -957,7 +943,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                         class="MuiButton-startIcon buttonStyles-startIcon-32 MuiButton-iconSizeMedium"
                       >
                         <img
-                          class="LanguageSelection-module_LanguageIcon__1Eauy"
+                          class="LanguageIcon"
                           height="16px"
                           src="/icons/flags/at.svg"
                           width="20px"
@@ -971,11 +957,11 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                   </a>
                 </div>
                 <div
-                  class="MuiGrid-root LanguageSelection-module_item__sQjMj MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 Navigation-module_NavigationListButton__j1-K- LanguageSelection-module_link__Cfgn4 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
                     href="/gb"
                     tabindex="0"
                   >
@@ -986,7 +972,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                         class="MuiButton-startIcon buttonStyles-startIcon-32 MuiButton-iconSizeMedium"
                       >
                         <img
-                          class="LanguageSelection-module_LanguageIcon__1Eauy"
+                          class="LanguageIcon"
                           height="16px"
                           src="/icons/flags/uk.svg"
                           width="20px"
@@ -1006,43 +992,29 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
       </div>
     </div>
     <div
-      class="Header-module_navigation-bar__gUWDt"
+      class="navigation-bar"
     >
       <div
-        class="Container-module_Container__4e9IW"
+        class="Container"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="Header-module_navigation-bar-content__rL1Q4"
+            class="navigation-bar-content"
           >
             <a
               aria-label="MC: global.logoLabel"
-              class="Header-module_logo-link__qJ9oV"
+              class="logo-link"
               href="/grp"
             >
               <svg
-                class="Header-module_logo__HD414"
-                viewBox="0 0 250 250"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h250v250H0z"
-                  fill="#009fe3"
-                />
-                <g
-                  fill="#fff"
-                >
-                  <path
-                    d="M155.393 86.416 144.565 131h-.212l-10.829-44.584H100.3v50.634c-.76-9.718-6.732-14.589-13.079-16.771 5.626-3.078 9.342-7.218 9.342-14.862 0-7.749-4.247-19-24.2-19H30.848v75.8h42.994c12.786 0 25.368-7.183 26.455-21.075v21.075h22.081V113.6h.212l13.164 48.62h17.41l13.163-48.62h.213v48.62h22.081v-75.8ZM54.2 104.461h12.317c4.777 0 7.962 1.381 7.962 5.2 0 4.884-3.079 6.264-7.962 6.264H54.2Zm13.694 39.7H54.2v-14.115h14.652c5.521 0 8.174 2.442 8.174 6.9 0 5.839-4.246 7.219-9.126 7.219ZM195.798 86.416h23.355v75.797h-23.355z"
-                  />
-                </g>
-              </svg>
+                class="logo"
+              />
             </a>
             <nav
               aria-label="Navigation"
-              class="Header-module_navigation__0mURF"
+              class="navigation"
               role="navigation"
             >
               <div
@@ -1064,7 +1036,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                       aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-module_nav-item__ReYrR Header-module_nav-item--no-children__Ggkpu"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="tel:+4401234567890"
                       id="tab-undefined"
@@ -1084,7 +1056,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                       aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-module_nav-item__ReYrR Header-module_nav-item--no-children__Ggkpu"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="/grp/landing-page"
                       id="tab-undefined"
@@ -1104,7 +1076,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                       aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-module_nav-item__ReYrR Header-module_nav-item--no-children__Ggkpu"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="https://www.external.co.uk"
                       id="tab-undefined"
@@ -1129,11 +1101,11 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               </div>
             </nav>
             <div
-              class="Header-module_navigation-bar-buttons__ycCK5"
+              class="navigation-bar-buttons"
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 Header-module_search-button__2S2-d"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 search-button"
                 tabindex="0"
                 type="button"
               >
@@ -1157,7 +1129,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-text-41 Header-module_burger-button__-aV4l"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-text-41 burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -1186,16 +1158,16 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root Header-module_backdrop__vYjQU"
+      class="MuiBackdrop-root backdrop"
       style="opacity: 0; visibility: hidden;"
     />
     <div
-      class="Header-module_drawer__Ufwdy Header-module_nav-drawer__czTk2"
+      class="drawer nav-drawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 Header-module_close-button__r2CSR"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 close-button"
         tabindex="0"
         type="button"
       >
@@ -1218,15 +1190,15 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
         />
       </button>
       <nav
-        class="Navigation-module_Navigation__cy8SG"
+        class="Navigation Navigation--small Navigation--medium Navigation--large"
       >
         <div
-          class="Navigation-module_NavigationList__UP6Jo Navigation-module_Offset0__MTEXI"
+          class="NavigationList Offset0"
         >
           <ul>
             <li>
               <h6
-                class="MuiTypography-root Navigation-module_MainMenuTitle__j0jY0 Typography-module_Typography__aA2Zb MuiTypography-h6"
+                class="MuiTypography-root MainMenuTitle Typography MuiTypography-h6"
               >
                 MC: menu.mainTitle
               </h6>
@@ -1234,7 +1206,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
                 href="tel:+4401234567890"
                 tabindex="0"
@@ -1249,11 +1221,11 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 />
               </a>
               <hr
-                class="Navigation-module_Separator__XpbMO"
+                class="Separator"
               />
             </li>
             <div
-              class="Navigation-module_NavigationList__UP6Jo Navigation-module_NavigationList--footer__LW9vH"
+              class="NavigationList NavigationList--footer"
             >
               <ul>
                 <li>
@@ -1307,7 +1279,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-module_NavigationListType__PVprt Typography-module_Typography__aA2Zb MuiTypography-h6"
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
                   >
                     cardTitle1
                   </h6>
@@ -1363,7 +1335,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-module_NavigationListType__PVprt Typography-module_Typography__aA2Zb MuiTypography-h6"
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
                   >
                     cardName2
                   </h6>
@@ -1373,7 +1345,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/grp/landing-page\\"}"
                 href="/grp/landing-page"
                 role="button"
@@ -1392,7 +1364,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
@@ -1408,12 +1380,12 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               </a>
             </li>
             <ul
-              class="Navigation-module_Utilities__GsXO9"
+              class="Utilities"
             >
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/grp/landing-page\\"}"
                   href="/grp/landing-page"
                   role="button"
@@ -1432,7 +1404,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"EN\\"}"
                 tabindex="0"
                 type="button"
@@ -1441,11 +1413,11 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                   class="MuiButton-label buttonStyles-label-31"
                 >
                   <span
-                    class="Navigation-module_LanguageButtonContent__ZuKZX"
+                    class="LanguageButtonContent"
                   >
                     <img
                       alt=""
-                      class="Navigation-module_LanguageIcon__sLEuE"
+                      class="LanguageIcon"
                       height="16px"
                       src="/icons/flags/globe.svg"
                       width="20px"
@@ -1457,7 +1429,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root Navigation-module_chevronRight__AB3Cp"
+                      class="MuiSvgIcon-root chevronRight"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1477,15 +1449,15 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
       </nav>
     </div>
     <div
-      class="Header-module_search-drawer-container__IlCQ9"
+      class="search-drawer-container"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="Header-module_drawer__Ufwdy Header-module_search-drawer__UcE80"
+        class="drawer search-drawer"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 Header-module_close-button__r2CSR"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 close-button"
           tabindex="0"
           type="button"
         >
@@ -1508,7 +1480,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h4"
+          class="MuiTypography-root Typography MuiTypography-h4"
         >
           MC: search.title
         </h4>
@@ -1523,26 +1495,26 @@ exports[`Header component renders without navigation props 1`] = `<div />`;
 exports[`Header component shows sample basket icon 1`] = `
 <div>
   <header
-    class="MuiPaper-root Header-module_Header__5p-PN Header-module_Header--small__CWyLN Header-module_Header--medium__OMoBO Header-module_Header--large__gx0QM MuiPaper-elevation3"
+    class="MuiPaper-root Header Header--small Header--medium Header--large MuiPaper-elevation3"
   >
     <nav
       aria-label="Utilities"
-      class="Header-module_utilities-bar__KmAR5"
+      class="utilities-bar"
       role="navigation"
     >
       <div
-        class="Container-module_Container__4e9IW"
+        class="Container"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <ul>
             <li
-              class="Header-module_nav-item__ReYrR"
+              class="nav-item"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 Header-module_utilities-button__z6lSs MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
                 href="/gb/landing-page"
                 role="button"
                 tabindex="0"
@@ -1558,11 +1530,11 @@ exports[`Header component shows sample basket icon 1`] = `
               </a>
             </li>
             <li
-              class="Header-module_nav-item__ReYrR"
+              class="nav-item"
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 Header-module_utilities-button__z6lSs Header-module_language-selection-button__-YELc MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button language-selection-button MuiButton-textPrimary"
                 tabindex="0"
                 type="button"
               >
@@ -1571,14 +1543,14 @@ exports[`Header component shows sample basket icon 1`] = `
                 >
                   <img
                     alt="United Kingdom"
-                    class="Header-module_language-icon__BE8nR"
+                    class="language-icon"
                     height="16px"
                     src="/icons/flags/uk.svg"
                     width="20px"
                   />
                   GB
                   <span
-                    class="Header-module_down-arrow__rYgcO"
+                    class="down-arrow"
                   >
                     ▾
                   </span>
@@ -1593,12 +1565,12 @@ exports[`Header component shows sample basket icon 1`] = `
       </div>
     </nav>
     <div
-      class="Header-module_drawer__Ufwdy Header-module_language-drawer__zFlmU"
+      class="drawer language-drawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 Header-module_close-button__r2CSR"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 close-button"
         tabindex="0"
         type="button"
       >
@@ -1621,10 +1593,10 @@ exports[`Header component shows sample basket icon 1`] = `
         />
       </button>
       <div
-        class="Header-module_back-navigation__WF2I6"
+        class="back-navigation"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 Navigation-module_NavigationListButton__j1-K- Header-module_back-button__ufGWC MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton back-button MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -1636,7 +1608,7 @@ exports[`Header component shows sample basket icon 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root Header-module_chevronLeft__X1vkQ"
+                class="MuiSvgIcon-root chevronLeft"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -1652,33 +1624,33 @@ exports[`Header component shows sample basket icon 1`] = `
           />
         </button>
         <hr
-          class="Header-module_separator__ZjgQD"
+          class="separator"
         />
       </div>
       <div
-        class="Container-module_Container__4e9IW Header-module_language-container__NDAHm"
+        class="Container language-container"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="LanguageSelection-module_LanguageSelection__KEFpa"
+            class="LanguageSelection"
           >
             <div>
               <h6
-                class="MuiTypography-root LanguageSelection-module_heading__L2erY Typography-module_Typography__aA2Zb MuiTypography-h6"
+                class="MuiTypography-root heading Typography MuiTypography-h6"
               >
                 Europe
               </h6>
               <div
-                class="MuiGrid-root LanguageSelection-module_container__XjZCh MuiGrid-container MuiGrid-align-items-xs-center"
+                class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
               >
                 <div
-                  class="MuiGrid-root LanguageSelection-module_item__sQjMj MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 Navigation-module_NavigationListButton__j1-K- LanguageSelection-module_link__Cfgn4 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton link MuiButton-textPrimary"
                     href="/al"
                     tabindex="0"
                   >
@@ -1689,7 +1661,7 @@ exports[`Header component shows sample basket icon 1`] = `
                         class="MuiButton-startIcon buttonStyles-startIcon-86 MuiButton-iconSizeMedium"
                       >
                         <img
-                          class="LanguageSelection-module_LanguageIcon__1Eauy"
+                          class="LanguageIcon"
                           height="16px"
                           src="/icons/flags/al.svg"
                           width="20px"
@@ -1703,11 +1675,11 @@ exports[`Header component shows sample basket icon 1`] = `
                   </a>
                 </div>
                 <div
-                  class="MuiGrid-root LanguageSelection-module_item__sQjMj MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 Navigation-module_NavigationListButton__j1-K- LanguageSelection-module_link__Cfgn4 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton link MuiButton-textPrimary"
                     href="/at"
                     tabindex="0"
                   >
@@ -1718,7 +1690,7 @@ exports[`Header component shows sample basket icon 1`] = `
                         class="MuiButton-startIcon buttonStyles-startIcon-86 MuiButton-iconSizeMedium"
                       >
                         <img
-                          class="LanguageSelection-module_LanguageIcon__1Eauy"
+                          class="LanguageIcon"
                           height="16px"
                           src="/icons/flags/at.svg"
                           width="20px"
@@ -1732,11 +1704,11 @@ exports[`Header component shows sample basket icon 1`] = `
                   </a>
                 </div>
                 <div
-                  class="MuiGrid-root LanguageSelection-module_item__sQjMj MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 Navigation-module_NavigationListButton__j1-K- LanguageSelection-module_link__Cfgn4 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton link MuiButton-textPrimary"
                     href="/gb"
                     tabindex="0"
                   >
@@ -1747,7 +1719,7 @@ exports[`Header component shows sample basket icon 1`] = `
                         class="MuiButton-startIcon buttonStyles-startIcon-86 MuiButton-iconSizeMedium"
                       >
                         <img
-                          class="LanguageSelection-module_LanguageIcon__1Eauy"
+                          class="LanguageIcon"
                           height="16px"
                           src="/icons/flags/uk.svg"
                           width="20px"
@@ -1767,43 +1739,29 @@ exports[`Header component shows sample basket icon 1`] = `
       </div>
     </div>
     <div
-      class="Header-module_navigation-bar__gUWDt"
+      class="navigation-bar"
     >
       <div
-        class="Container-module_Container__4e9IW"
+        class="Container"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="Header-module_navigation-bar-content__rL1Q4"
+            class="navigation-bar-content"
           >
             <a
               aria-label="MC: global.logoLabel"
-              class="Header-module_logo-link__qJ9oV"
+              class="logo-link"
               href="/gb"
             >
               <svg
-                class="Header-module_logo__HD414"
-                viewBox="0 0 250 250"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h250v250H0z"
-                  fill="#009fe3"
-                />
-                <g
-                  fill="#fff"
-                >
-                  <path
-                    d="M155.393 86.416 144.565 131h-.212l-10.829-44.584H100.3v50.634c-.76-9.718-6.732-14.589-13.079-16.771 5.626-3.078 9.342-7.218 9.342-14.862 0-7.749-4.247-19-24.2-19H30.848v75.8h42.994c12.786 0 25.368-7.183 26.455-21.075v21.075h22.081V113.6h.212l13.164 48.62h17.41l13.163-48.62h.213v48.62h22.081v-75.8ZM54.2 104.461h12.317c4.777 0 7.962 1.381 7.962 5.2 0 4.884-3.079 6.264-7.962 6.264H54.2Zm13.694 39.7H54.2v-14.115h14.652c5.521 0 8.174 2.442 8.174 6.9 0 5.839-4.246 7.219-9.126 7.219ZM195.798 86.416h23.355v75.797h-23.355z"
-                  />
-                </g>
-              </svg>
+                class="logo"
+              />
             </a>
             <nav
               aria-label="Navigation"
-              class="Header-module_navigation__0mURF"
+              class="navigation"
               role="navigation"
             >
               <div
@@ -1825,7 +1783,7 @@ exports[`Header component shows sample basket icon 1`] = `
                       aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-module_nav-item__ReYrR Header-module_nav-item--no-children__Ggkpu"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="tel:+4401234567890"
                       id="tab-undefined"
@@ -1845,7 +1803,7 @@ exports[`Header component shows sample basket icon 1`] = `
                       aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-module_nav-item__ReYrR Header-module_nav-item--no-children__Ggkpu"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="/gb/landing-page"
                       id="tab-undefined"
@@ -1865,7 +1823,7 @@ exports[`Header component shows sample basket icon 1`] = `
                       aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-module_nav-item__ReYrR Header-module_nav-item--no-children__Ggkpu"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="https://www.external.co.uk"
                       id="tab-undefined"
@@ -1890,12 +1848,12 @@ exports[`Header component shows sample basket icon 1`] = `
               </div>
             </nav>
             <div
-              class="Header-module_navigation-bar-buttons__ycCK5"
+              class="navigation-bar-buttons"
             >
               <a
                 aria-disabled="false"
                 aria-label="MC: basket.label"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 Header-module_basket-button__amLbY"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 basket-button"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/gb/sample-basket/\\",\\"label\\":\\"sample-basket\\"}"
                 href="/gb/sample-basket/"
                 role="button"
@@ -1921,7 +1879,7 @@ exports[`Header component shows sample basket icon 1`] = `
               </a>
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 Header-module_search-button__2S2-d"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 search-button"
                 tabindex="0"
                 type="button"
               >
@@ -1945,7 +1903,7 @@ exports[`Header component shows sample basket icon 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-text-95 Header-module_burger-button__-aV4l"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-text-95 burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -1974,16 +1932,16 @@ exports[`Header component shows sample basket icon 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root Header-module_backdrop__vYjQU"
+      class="MuiBackdrop-root backdrop"
       style="opacity: 0; visibility: hidden;"
     />
     <div
-      class="Header-module_drawer__Ufwdy Header-module_nav-drawer__czTk2"
+      class="drawer nav-drawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 Header-module_close-button__r2CSR"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 close-button"
         tabindex="0"
         type="button"
       >
@@ -2006,15 +1964,15 @@ exports[`Header component shows sample basket icon 1`] = `
         />
       </button>
       <nav
-        class="Navigation-module_Navigation__cy8SG"
+        class="Navigation Navigation--small Navigation--medium Navigation--large"
       >
         <div
-          class="Navigation-module_NavigationList__UP6Jo Navigation-module_Offset0__MTEXI"
+          class="NavigationList Offset0"
         >
           <ul>
             <li>
               <h6
-                class="MuiTypography-root Navigation-module_MainMenuTitle__j0jY0 Typography-module_Typography__aA2Zb MuiTypography-h6"
+                class="MuiTypography-root MainMenuTitle Typography MuiTypography-h6"
               >
                 MC: menu.mainTitle
               </h6>
@@ -2022,7 +1980,7 @@ exports[`Header component shows sample basket icon 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
                 href="tel:+4401234567890"
                 tabindex="0"
@@ -2037,11 +1995,11 @@ exports[`Header component shows sample basket icon 1`] = `
                 />
               </a>
               <hr
-                class="Navigation-module_Separator__XpbMO"
+                class="Separator"
               />
             </li>
             <div
-              class="Navigation-module_NavigationList__UP6Jo Navigation-module_NavigationList--footer__LW9vH"
+              class="NavigationList NavigationList--footer"
             >
               <ul>
                 <li>
@@ -2095,7 +2053,7 @@ exports[`Header component shows sample basket icon 1`] = `
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-module_NavigationListType__PVprt Typography-module_Typography__aA2Zb MuiTypography-h6"
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
                   >
                     cardTitle1
                   </h6>
@@ -2151,7 +2109,7 @@ exports[`Header component shows sample basket icon 1`] = `
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-module_NavigationListType__PVprt Typography-module_Typography__aA2Zb MuiTypography-h6"
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
                   >
                     cardName2
                   </h6>
@@ -2161,7 +2119,7 @@ exports[`Header component shows sample basket icon 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/gb/landing-page\\"}"
                 href="/gb/landing-page"
                 role="button"
@@ -2180,7 +2138,7 @@ exports[`Header component shows sample basket icon 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
@@ -2196,12 +2154,12 @@ exports[`Header component shows sample basket icon 1`] = `
               </a>
             </li>
             <ul
-              class="Navigation-module_Utilities__GsXO9"
+              class="Utilities"
             >
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page\\"}"
                   href="/gb/landing-page"
                   role="button"
@@ -2220,7 +2178,7 @@ exports[`Header component shows sample basket icon 1`] = `
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"GB\\"}"
                 tabindex="0"
                 type="button"
@@ -2229,11 +2187,11 @@ exports[`Header component shows sample basket icon 1`] = `
                   class="MuiButton-label buttonStyles-label-85"
                 >
                   <span
-                    class="Navigation-module_LanguageButtonContent__ZuKZX"
+                    class="LanguageButtonContent"
                   >
                     <img
                       alt="United Kingdom"
-                      class="Navigation-module_LanguageIcon__sLEuE"
+                      class="LanguageIcon"
                       height="16px"
                       src="/icons/flags/uk.svg"
                       width="20px"
@@ -2245,7 +2203,7 @@ exports[`Header component shows sample basket icon 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root Navigation-module_chevronRight__AB3Cp"
+                      class="MuiSvgIcon-root chevronRight"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -2265,15 +2223,15 @@ exports[`Header component shows sample basket icon 1`] = `
       </nav>
     </div>
     <div
-      class="Header-module_search-drawer-container__IlCQ9"
+      class="search-drawer-container"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="Header-module_drawer__Ufwdy Header-module_search-drawer__UcE80"
+        class="drawer search-drawer"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 Header-module_close-button__r2CSR"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 close-button"
           tabindex="0"
           type="button"
         >
@@ -2296,7 +2254,7 @@ exports[`Header component shows sample basket icon 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h4"
+          class="MuiTypography-root Typography MuiTypography-h4"
         >
           MC: search.title
         </h4>
@@ -2309,26 +2267,26 @@ exports[`Header component shows sample basket icon 1`] = `
 exports[`Header component toggles search 1`] = `
 <div>
   <header
-    class="MuiPaper-root Header-module_Header__5p-PN Header-module_Header--small__CWyLN Header-module_Header--medium__OMoBO Header-module_Header--large__gx0QM MuiPaper-elevation3"
+    class="MuiPaper-root Header Header--small Header--medium Header--large MuiPaper-elevation3"
   >
     <nav
       aria-label="Utilities"
-      class="Header-module_utilities-bar__KmAR5"
+      class="utilities-bar"
       role="navigation"
     >
       <div
-        class="Container-module_Container__4e9IW"
+        class="Container"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <ul>
             <li
-              class="Header-module_nav-item__ReYrR"
+              class="nav-item"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 Header-module_utilities-button__z6lSs MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
                 href="/gb/landing-page"
                 role="button"
                 tabindex="0"
@@ -2344,11 +2302,11 @@ exports[`Header component toggles search 1`] = `
               </a>
             </li>
             <li
-              class="Header-module_nav-item__ReYrR"
+              class="nav-item"
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 Header-module_utilities-button__z6lSs Header-module_language-selection-button__-YELc MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button language-selection-button MuiButton-textPrimary"
                 tabindex="0"
                 type="button"
               >
@@ -2357,14 +2315,14 @@ exports[`Header component toggles search 1`] = `
                 >
                   <img
                     alt="United Kingdom"
-                    class="Header-module_language-icon__BE8nR"
+                    class="language-icon"
                     height="16px"
                     src="/icons/flags/uk.svg"
                     width="20px"
                   />
                   GB
                   <span
-                    class="Header-module_down-arrow__rYgcO"
+                    class="down-arrow"
                   >
                     ▾
                   </span>
@@ -2379,12 +2337,12 @@ exports[`Header component toggles search 1`] = `
       </div>
     </nav>
     <div
-      class="Header-module_drawer__Ufwdy Header-module_language-drawer__zFlmU"
+      class="drawer language-drawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 Header-module_close-button__r2CSR"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 close-button"
         tabindex="0"
         type="button"
       >
@@ -2407,10 +2365,10 @@ exports[`Header component toggles search 1`] = `
         />
       </button>
       <div
-        class="Header-module_back-navigation__WF2I6"
+        class="back-navigation"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 Navigation-module_NavigationListButton__j1-K- Header-module_back-button__ufGWC MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton back-button MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -2422,7 +2380,7 @@ exports[`Header component toggles search 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root Header-module_chevronLeft__X1vkQ"
+                class="MuiSvgIcon-root chevronLeft"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -2438,33 +2396,33 @@ exports[`Header component toggles search 1`] = `
           />
         </button>
         <hr
-          class="Header-module_separator__ZjgQD"
+          class="separator"
         />
       </div>
       <div
-        class="Container-module_Container__4e9IW Header-module_language-container__NDAHm"
+        class="Container language-container"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="LanguageSelection-module_LanguageSelection__KEFpa"
+            class="LanguageSelection"
           >
             <div>
               <h6
-                class="MuiTypography-root LanguageSelection-module_heading__L2erY Typography-module_Typography__aA2Zb MuiTypography-h6"
+                class="MuiTypography-root heading Typography MuiTypography-h6"
               >
                 Europe
               </h6>
               <div
-                class="MuiGrid-root LanguageSelection-module_container__XjZCh MuiGrid-container MuiGrid-align-items-xs-center"
+                class="MuiGrid-root container MuiGrid-container MuiGrid-align-items-xs-center"
               >
                 <div
-                  class="MuiGrid-root LanguageSelection-module_item__sQjMj MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 Navigation-module_NavigationListButton__j1-K- LanguageSelection-module_link__Cfgn4 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
                     href="/al"
                     tabindex="0"
                   >
@@ -2475,7 +2433,7 @@ exports[`Header component toggles search 1`] = `
                         class="MuiButton-startIcon buttonStyles-startIcon-59 MuiButton-iconSizeMedium"
                       >
                         <img
-                          class="LanguageSelection-module_LanguageIcon__1Eauy"
+                          class="LanguageIcon"
                           height="16px"
                           src="/icons/flags/al.svg"
                           width="20px"
@@ -2489,11 +2447,11 @@ exports[`Header component toggles search 1`] = `
                   </a>
                 </div>
                 <div
-                  class="MuiGrid-root LanguageSelection-module_item__sQjMj MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 Navigation-module_NavigationListButton__j1-K- LanguageSelection-module_link__Cfgn4 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
                     href="/at"
                     tabindex="0"
                   >
@@ -2504,7 +2462,7 @@ exports[`Header component toggles search 1`] = `
                         class="MuiButton-startIcon buttonStyles-startIcon-59 MuiButton-iconSizeMedium"
                       >
                         <img
-                          class="LanguageSelection-module_LanguageIcon__1Eauy"
+                          class="LanguageIcon"
                           height="16px"
                           src="/icons/flags/at.svg"
                           width="20px"
@@ -2518,11 +2476,11 @@ exports[`Header component toggles search 1`] = `
                   </a>
                 </div>
                 <div
-                  class="MuiGrid-root LanguageSelection-module_item__sQjMj MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 Navigation-module_NavigationListButton__j1-K- LanguageSelection-module_link__Cfgn4 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
                     href="/gb"
                     tabindex="0"
                   >
@@ -2533,7 +2491,7 @@ exports[`Header component toggles search 1`] = `
                         class="MuiButton-startIcon buttonStyles-startIcon-59 MuiButton-iconSizeMedium"
                       >
                         <img
-                          class="LanguageSelection-module_LanguageIcon__1Eauy"
+                          class="LanguageIcon"
                           height="16px"
                           src="/icons/flags/uk.svg"
                           width="20px"
@@ -2553,43 +2511,29 @@ exports[`Header component toggles search 1`] = `
       </div>
     </div>
     <div
-      class="Header-module_navigation-bar__gUWDt"
+      class="navigation-bar"
     >
       <div
-        class="Container-module_Container__4e9IW"
+        class="Container"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="Header-module_navigation-bar-content__rL1Q4"
+            class="navigation-bar-content"
           >
             <a
               aria-label="MC: global.logoLabel"
-              class="Header-module_logo-link__qJ9oV"
+              class="logo-link"
               href="/gb"
             >
               <svg
-                class="Header-module_logo__HD414"
-                viewBox="0 0 250 250"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h250v250H0z"
-                  fill="#009fe3"
-                />
-                <g
-                  fill="#fff"
-                >
-                  <path
-                    d="M155.393 86.416 144.565 131h-.212l-10.829-44.584H100.3v50.634c-.76-9.718-6.732-14.589-13.079-16.771 5.626-3.078 9.342-7.218 9.342-14.862 0-7.749-4.247-19-24.2-19H30.848v75.8h42.994c12.786 0 25.368-7.183 26.455-21.075v21.075h22.081V113.6h.212l13.164 48.62h17.41l13.163-48.62h.213v48.62h22.081v-75.8ZM54.2 104.461h12.317c4.777 0 7.962 1.381 7.962 5.2 0 4.884-3.079 6.264-7.962 6.264H54.2Zm13.694 39.7H54.2v-14.115h14.652c5.521 0 8.174 2.442 8.174 6.9 0 5.839-4.246 7.219-9.126 7.219ZM195.798 86.416h23.355v75.797h-23.355z"
-                  />
-                </g>
-              </svg>
+                class="logo"
+              />
             </a>
             <nav
               aria-label="Navigation"
-              class="Header-module_navigation__0mURF"
+              class="navigation"
               role="navigation"
             >
               <div
@@ -2611,7 +2555,7 @@ exports[`Header component toggles search 1`] = `
                       aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-module_nav-item__ReYrR Header-module_nav-item--no-children__Ggkpu"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="tel:+4401234567890"
                       id="tab-undefined"
@@ -2631,7 +2575,7 @@ exports[`Header component toggles search 1`] = `
                       aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-module_nav-item__ReYrR Header-module_nav-item--no-children__Ggkpu"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="/gb/landing-page"
                       id="tab-undefined"
@@ -2651,7 +2595,7 @@ exports[`Header component toggles search 1`] = `
                       aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-module_nav-item__ReYrR Header-module_nav-item--no-children__Ggkpu"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="https://www.external.co.uk"
                       id="tab-undefined"
@@ -2676,11 +2620,11 @@ exports[`Header component toggles search 1`] = `
               </div>
             </nav>
             <div
-              class="Header-module_navigation-bar-buttons__ycCK5"
+              class="navigation-bar-buttons"
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 Header-module_search-button__2S2-d"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 search-button"
                 tabindex="0"
                 type="button"
               >
@@ -2704,7 +2648,7 @@ exports[`Header component toggles search 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-text-68 Header-module_burger-button__-aV4l"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-text-68 burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -2733,16 +2677,16 @@ exports[`Header component toggles search 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root Header-module_backdrop__vYjQU"
+      class="MuiBackdrop-root backdrop"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      class="Header-module_drawer__Ufwdy Header-module_nav-drawer__czTk2"
+      class="drawer nav-drawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 Header-module_close-button__r2CSR"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 close-button"
         tabindex="0"
         type="button"
       >
@@ -2765,15 +2709,15 @@ exports[`Header component toggles search 1`] = `
         />
       </button>
       <nav
-        class="Navigation-module_Navigation__cy8SG"
+        class="Navigation Navigation--small Navigation--medium Navigation--large"
       >
         <div
-          class="Navigation-module_NavigationList__UP6Jo Navigation-module_Offset0__MTEXI"
+          class="NavigationList Offset0"
         >
           <ul>
             <li>
               <h6
-                class="MuiTypography-root Navigation-module_MainMenuTitle__j0jY0 Typography-module_Typography__aA2Zb MuiTypography-h6"
+                class="MuiTypography-root MainMenuTitle Typography MuiTypography-h6"
               >
                 MC: menu.mainTitle
               </h6>
@@ -2781,7 +2725,7 @@ exports[`Header component toggles search 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
                 href="tel:+4401234567890"
                 tabindex="0"
@@ -2796,11 +2740,11 @@ exports[`Header component toggles search 1`] = `
                 />
               </a>
               <hr
-                class="Navigation-module_Separator__XpbMO"
+                class="Separator"
               />
             </li>
             <div
-              class="Navigation-module_NavigationList__UP6Jo Navigation-module_NavigationList--footer__LW9vH"
+              class="NavigationList NavigationList--footer"
             >
               <ul>
                 <li>
@@ -2854,7 +2798,7 @@ exports[`Header component toggles search 1`] = `
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-module_NavigationListType__PVprt Typography-module_Typography__aA2Zb MuiTypography-h6"
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
                   >
                     cardTitle1
                   </h6>
@@ -2910,7 +2854,7 @@ exports[`Header component toggles search 1`] = `
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-module_NavigationListType__PVprt Typography-module_Typography__aA2Zb MuiTypography-h6"
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
                   >
                     cardName2
                   </h6>
@@ -2920,7 +2864,7 @@ exports[`Header component toggles search 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/gb/landing-page\\"}"
                 href="/gb/landing-page"
                 role="button"
@@ -2939,7 +2883,7 @@ exports[`Header component toggles search 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
@@ -2955,12 +2899,12 @@ exports[`Header component toggles search 1`] = `
               </a>
             </li>
             <ul
-              class="Navigation-module_Utilities__GsXO9"
+              class="Utilities"
             >
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page\\"}"
                   href="/gb/landing-page"
                   role="button"
@@ -2979,7 +2923,7 @@ exports[`Header component toggles search 1`] = `
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 Navigation-module_NavigationListButton__j1-K- MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"GB\\"}"
                 tabindex="0"
                 type="button"
@@ -2988,11 +2932,11 @@ exports[`Header component toggles search 1`] = `
                   class="MuiButton-label buttonStyles-label-58"
                 >
                   <span
-                    class="Navigation-module_LanguageButtonContent__ZuKZX"
+                    class="LanguageButtonContent"
                   >
                     <img
                       alt="United Kingdom"
-                      class="Navigation-module_LanguageIcon__sLEuE"
+                      class="LanguageIcon"
                       height="16px"
                       src="/icons/flags/uk.svg"
                       width="20px"
@@ -3004,7 +2948,7 @@ exports[`Header component toggles search 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root Navigation-module_chevronRight__AB3Cp"
+                      class="MuiSvgIcon-root chevronRight"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -3024,15 +2968,15 @@ exports[`Header component toggles search 1`] = `
       </nav>
     </div>
     <div
-      class="Header-module_search-drawer-container__IlCQ9"
+      class="search-drawer-container"
       style="webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
     >
       <div
-        class="Header-module_drawer__Ufwdy Header-module_search-drawer__UcE80"
+        class="drawer search-drawer"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 Header-module_close-button__r2CSR"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 close-button"
           tabindex="0"
           type="button"
         >
@@ -3055,19 +2999,19 @@ exports[`Header component toggles search 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h4"
+          class="MuiTypography-root Typography MuiTypography-h4"
         >
           MC: search.title
         </h4>
         <form
           action="/gb/search"
-          class="Form-module_Form__Fe-5R Search-module_Search__HBY53"
+          class="Form Search"
         >
           <div
-            class="InputGroup-module_InputGroup__rob6p InputGroup-module_InputGroup--locked-xs__gpu23"
+            class="InputGroup InputGroup--locked-xs"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root TextField-module_TextField__zD7pc InputGroup-module_input__De6Hn"
+              class="MuiFormControl-root MuiTextField-root TextField input"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
@@ -3089,7 +3033,7 @@ exports[`Header component toggles search 1`] = `
             </div>
             <button
               aria-label="MC: search.label"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 InputGroup-module_button__oWeES"
+              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 button"
               data-gtm="{\\"id\\":\\"search1\\",\\"label\\":\\"MC: search.label\\"}"
               tabindex="0"
               type="submit"

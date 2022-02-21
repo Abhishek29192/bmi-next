@@ -118,18 +118,18 @@ exports[`CalculatorStepper component ignores footer when there are no buttons 1`
     class="CalculatorStepper"
   >
     <form
-      class="Form-module_Form__Fe-5R"
+      class="Form"
     >
       <h4
-        class="MuiTypography-root step-title Typography-module_Typography__aA2Zb MuiTypography-h4"
+        class="MuiTypography-root step-title Typography MuiTypography-h4"
       >
         This is the 2nd page
       </h4>
       <h6
-        class="MuiTypography-root computation Typography-module_Typography__aA2Zb MuiTypography-h6"
+        class="MuiTypography-root computation Typography MuiTypography-h6"
       />
       <p
-        class="MuiTypography-root subtitle Typography-module_Typography__aA2Zb MuiTypography-body1"
+        class="MuiTypography-root subtitle Typography MuiTypography-body1"
       >
         Choose the closest to your roof shape
       </p>
@@ -157,15 +157,15 @@ exports[`CalculatorStepper component renders as a div 1`] = `
   >
     <div>
       <h4
-        class="MuiTypography-root step-title Typography-module_Typography__aA2Zb MuiTypography-h4"
+        class="MuiTypography-root step-title Typography MuiTypography-h4"
       >
         This is the 2nd page
       </h4>
       <h6
-        class="MuiTypography-root computation Typography-module_Typography__aA2Zb MuiTypography-h6"
+        class="MuiTypography-root computation Typography MuiTypography-h6"
       />
       <p
-        class="MuiTypography-root subtitle Typography-module_Typography__aA2Zb MuiTypography-body1"
+        class="MuiTypography-root subtitle Typography MuiTypography-body1"
       >
         Choose the closest to your roof shape
       </p>
@@ -260,18 +260,18 @@ exports[`CalculatorStepper component renders correctly 1`] = `
     class="CalculatorStepper"
   >
     <form
-      class="Form-module_Form__Fe-5R"
+      class="Form"
     >
       <h4
-        class="MuiTypography-root step-title Typography-module_Typography__aA2Zb MuiTypography-h4"
+        class="MuiTypography-root step-title Typography MuiTypography-h4"
       >
         This is the 2nd page
       </h4>
       <h6
-        class="MuiTypography-root computation Typography-module_Typography__aA2Zb MuiTypography-h6"
+        class="MuiTypography-root computation Typography MuiTypography-h6"
       />
       <p
-        class="MuiTypography-root subtitle Typography-module_Typography__aA2Zb MuiTypography-body1"
+        class="MuiTypography-root subtitle Typography MuiTypography-body1"
       >
         Choose the closest to your roof shape
       </p>

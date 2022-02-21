@@ -3,14 +3,14 @@
 exports[`Brands component renders correctly 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
     >
       <a
         aria-disabled="false"
-        class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+        class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://doesnot-exist.com/fileName\\"}"
         href="https:http://doesnot-exist.com/fileName"
         rel="noopener noreferrer"
@@ -18,7 +18,7 @@ exports[`Brands component renders correctly 1`] = `
         target="_blank"
       >
         <div
-          class="gatsby-image-wrapper gatsby-image-wrapper-constrained OverviewCard-module_header-picture__uBGaH Media-module_Media__GKPD2"
+          class="gatsby-image-wrapper gatsby-image-wrapper-constrained header-picture Media"
           data-gatsby-image-wrapper=""
           style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
@@ -65,18 +65,18 @@ exports[`Brands component renders correctly 1`] = `
           </script>
         </div>
         <div
-          class="OverviewCard-module_body__ECyj2"
+          class="body"
         >
           <h4
-            class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
+            class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
           >
             contentful-document-title
           </h4>
           <div
-            class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+            class="children text"
           />
           <div
-            class="OverviewCard-module_footer__MMw-Y"
+            class="footer"
           >
             <span
               aria-disabled="false"
@@ -101,11 +101,11 @@ exports[`Brands component renders correctly 1`] = `
       </a>
     </div>
     <div
-      class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
     >
       <a
         aria-disabled="false"
-        class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+        class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://doesnot-exist.com/fileName\\"}"
         href="https:http://doesnot-exist.com/fileName"
         rel="noopener noreferrer"
@@ -113,28 +113,28 @@ exports[`Brands component renders correctly 1`] = `
         target="_blank"
       >
         <div
-          class="OverviewCard-module_body__ECyj2"
+          class="body"
         >
           <h4
-            class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
+            class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
           >
             contentful-document-title
           </h4>
           <div
-            class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+            class="children text"
           >
             <div
               class="RichText"
             >
               <p
-                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
+                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
               >
                 test rich text
               </p>
             </div>
           </div>
           <div
-            class="OverviewCard-module_footer__MMw-Y"
+            class="footer"
           >
             <span
               aria-disabled="false"
@@ -165,14 +165,14 @@ exports[`Brands component renders correctly 1`] = `
 exports[`Brands component renders correctly for mobile 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
     >
       <a
         aria-disabled="false"
-        class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+        class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://doesnot-exist.com/fileName\\"}"
         href="https:http://doesnot-exist.com/fileName"
         rel="noopener noreferrer"
@@ -180,7 +180,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
         target="_blank"
       >
         <div
-          class="gatsby-image-wrapper gatsby-image-wrapper-constrained OverviewCard-module_header-picture__uBGaH Media-module_Media__GKPD2"
+          class="gatsby-image-wrapper gatsby-image-wrapper-constrained header-picture Media"
           data-gatsby-image-wrapper=""
           style="overflow: hidden; display: inline-block; vertical-align: top;"
         >
@@ -227,18 +227,18 @@ exports[`Brands component renders correctly for mobile 1`] = `
           </script>
         </div>
         <div
-          class="OverviewCard-module_body__ECyj2"
+          class="body"
         >
           <h4
-            class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
+            class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
           >
             contentful-document-title
           </h4>
           <div
-            class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+            class="children text"
           />
           <div
-            class="OverviewCard-module_footer__MMw-Y"
+            class="footer"
           >
             <span
               aria-disabled="false"
@@ -263,11 +263,11 @@ exports[`Brands component renders correctly for mobile 1`] = `
       </a>
     </div>
     <div
-      class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
     >
       <a
         aria-disabled="false"
-        class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+        class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://doesnot-exist.com/fileName\\"}"
         href="https:http://doesnot-exist.com/fileName"
         rel="noopener noreferrer"
@@ -275,28 +275,28 @@ exports[`Brands component renders correctly for mobile 1`] = `
         target="_blank"
       >
         <div
-          class="OverviewCard-module_body__ECyj2"
+          class="body"
         >
           <h4
-            class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h4"
+            class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
           >
             contentful-document-title
           </h4>
           <div
-            class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+            class="children text"
           >
             <div
               class="RichText"
             >
               <p
-                class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-body1 MuiTypography-gutterBottom"
+                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
               >
                 test rich text
               </p>
             </div>
           </div>
           <div
-            class="OverviewCard-module_footer__MMw-Y"
+            class="footer"
           >
             <span
               aria-disabled="false"

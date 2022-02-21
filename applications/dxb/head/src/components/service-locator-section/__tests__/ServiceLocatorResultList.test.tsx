@@ -100,7 +100,7 @@ describe("ServiceLocatorResultList component", () => {
     const integratedLinkCard = getByTestId(listItemTestId);
     let hasSelectedClass = false;
     integratedLinkCard.classList.forEach((item) => {
-      if (item.startsWith("LinkCard-module_LinkCard--selected")) {
+      if (item.startsWith("LinkCard--selected")) {
         hasSelectedClass = true;
       }
     });

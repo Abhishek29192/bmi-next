@@ -19,7 +19,7 @@
     "start": "gatsby build && gatsby serve"
   },
   "dependencies": {
-    "@bmi-digital/components": "1.0.4",
+    "@bmi-digital/components": "1.2.0",
     "@bmi-digital/styles": "1.0.1",
     "@material-ui/core": "^4.10.2",
     "@material-ui/styles": "^4.10.0",

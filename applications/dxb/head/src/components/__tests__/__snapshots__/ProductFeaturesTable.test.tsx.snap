@@ -5,7 +5,7 @@ exports[`ProductFeaturesTable component Renders correctly When no features provi
   <div>
     <div>
       <table
-        class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-odd-color__TVRT5 Table-module_Table--no-border__qGT3p"
+        class="MuiTable-root Table Table--row-odd-color Table--no-border"
       >
         <tbody
           class="MuiTableBody-root"
@@ -21,7 +21,7 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
   <div>
     <div>
       <table
-        class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-odd-color__TVRT5 Table-module_Table--no-border__qGT3p"
+        class="MuiTable-root Table Table--row-odd-color Table--no-border"
       >
         <tbody
           class="MuiTableBody-root"
@@ -66,7 +66,7 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
   <div>
     <div>
       <table
-        class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-odd-color__TVRT5"
+        class="MuiTable-root Table Table--row-odd-color"
       >
         <tbody
           class="MuiTableBody-root"
@@ -111,7 +111,7 @@ exports[`ProductFeaturesTable component Renders correctly With even row pattern 
   <div>
     <div>
       <table
-        class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-even-color__rIiXD Table-module_Table--no-border__qGT3p"
+        class="MuiTable-root Table Table--row-even-color Table--no-border"
       >
         <tbody
           class="MuiTableBody-root"
@@ -156,10 +156,10 @@ exports[`ProductFeaturesTable component Renders correctly With header row 1`] = 
   <div>
     <div>
       <table
-        class="MuiTable-root Table-module_Table__S9QdU Table-module_Table--row-odd-color__TVRT5"
+        class="MuiTable-root Table Table--row-odd-color"
       >
         <thead
-          class="MuiTableHead-root ColorPair-module_ColorPair__-7yq5 ColorPair-module_ColorPair--pearl__gkooI"
+          class="MuiTableHead-root ColorPair ColorPair--pearl"
         >
           <div>
             Header Row

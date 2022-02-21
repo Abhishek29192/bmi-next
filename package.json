@@ -6,7 +6,7 @@
   "main": "index.js",
   "workspaces": [
     "applications/**",
-    "components-delete-me/**",
+    "components/**",
     "functions/**",
     "libraries/**",
     "tools/**"

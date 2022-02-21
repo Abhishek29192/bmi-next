@@ -96,28 +96,16 @@ describe("Brand Landing Page Template", () => {
 
     expect(container).toMatchSnapshot();
     expect(container.querySelector("header")).toBeTruthy();
-    expect(container.querySelector("[class^='Footer']")).toBeTruthy();
+    expect(container.querySelector(".Footer")).toBeTruthy();
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
+    expect(container.querySelector(".Hero")).toBeTruthy();
+    expect(container.querySelector(".Hero .Breadcrumbs")).toBeTruthy();
+    expect(container.querySelectorAll(".slide").length).toBe(2);
     expect(
-      container.querySelector("[class^='Hero-module_Hero_']")
+      container.querySelector(".Section--alabaster.Section--slim")
     ).toBeTruthy();
     expect(
-      container.querySelector(
-        "[class^='Hero-module_Hero_'] [class*='Breadcrumbs-module_Breadcrumbs_']"
-      )
-    ).toBeTruthy();
-    expect(
-      container.querySelectorAll("[class*='Carousel-module_slide_']").length
-    ).toBe(2);
-    expect(
-      container.querySelector(
-        "[class*='Section-module_Section--alabaster'][class*='Section-module_Section--slim']"
-      )
-    ).toBeTruthy();
-    expect(
-      container.querySelector(
-        "[class*='Section-module_Section--alabaster'] [class*='Breadcrumbs-module_Breadcrumbs_']"
-      )
+      container.querySelector(".Section--alabaster.Section--slim .Breadcrumbs")
     ).toBeTruthy();
   });
 
@@ -164,11 +152,7 @@ describe("Brand Landing Page Template", () => {
 
     expect(container).toMatchSnapshot();
     expect(container.querySelector(".OverlapCards")).toBeTruthy();
-    expect(
-      container.querySelectorAll(
-        ".OverlapCards [class^='CTACard-module_Card_']"
-      ).length
-    ).toBe(2);
+    expect(container.querySelectorAll(".OverlapCards .Card").length).toBe(2);
   });
 
   it("render sections correctly", () => {
@@ -351,10 +335,9 @@ describe("Brand Landing Page Template", () => {
     fireEvent.click(button);
 
     expect(container).toMatchSnapshot();
-    expect(
-      container.querySelector("[class*='Hero-module_cta_'] .MuiButton-label")
-        .textContent
-    ).toBe("");
+    expect(container.querySelector(".cta .MuiButton-label").textContent).toBe(
+      ""
+    );
   });
 
   it("render no context for firstslide when no description", () => {
@@ -368,11 +351,7 @@ describe("Brand Landing Page Template", () => {
     );
 
     expect(container).toMatchSnapshot();
-    expect(
-      container.querySelectorAll(
-        "[class^='Hero-module_Hero_'] [class*='Hero-module_text_']"
-      )[0].textContent
-    ).toBe("");
+    expect(container.querySelectorAll(".Hero .text")[0].textContent).toBe("");
   });
   it("renders cta on firstSlide if not null", () => {
     const newData = {

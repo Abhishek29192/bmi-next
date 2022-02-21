@@ -3,10 +3,10 @@
 exports[`RelatedSystems component renders correctly when scoringweight equal & names equal 1`] = `
 <div>
   <div
-    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
+    class="Section Section--alabaster"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -15,39 +15,39 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
           class="RelatedSystems"
         >
           <h2
-            class="MuiTypography-root Section-module_title__sia8j title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
           >
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test\\"}"
                 href="/en/s/test"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="OverviewCard-module_body__ECyj2"
+                  class="body"
                 >
                   <h5
-                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                   >
                     NO System 1
                   </h5>
                   <div
-                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                    class="children text"
                   >
                     SDescription 1 NO
                   </div>
                   <div
-                    class="OverviewCard-module_footer__MMw-Y"
+                    class="footer"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-101 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -83,10 +83,10 @@ exports[`RelatedSystems component renders correctly with no systems 1`] = `<div 
 exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
 <div>
   <div
-    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
+    class="Section Section--alabaster"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -95,39 +95,39 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
           class="RelatedSystems"
         >
           <h2
-            class="MuiTypography-root Section-module_title__sia8j title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
           >
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test\\"}"
                 href="/en/s/test"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="OverviewCard-module_body__ECyj2"
+                  class="body"
                 >
                   <h5
-                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                   >
                     NO System 1
                   </h5>
                   <div
-                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                    class="children text"
                   >
                     SDescription 1 NO
                   </div>
                   <div
-                    class="OverviewCard-module_footer__MMw-Y"
+                    class="footer"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -151,31 +151,31 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
               </a>
             </div>
             <div
-              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 2 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test2\\"}"
                 href="/en/s/test2"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="OverviewCard-module_body__ECyj2"
+                  class="body"
                 >
                   <h5
-                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                   >
                     NO System 2
                   </h5>
                   <div
-                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                    class="children text"
                   >
                     SDescription 1 NO
                   </div>
                   <div
-                    class="OverviewCard-module_footer__MMw-Y"
+                    class="footer"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -209,10 +209,10 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
 exports[`RelatedSystems component renders correctly with scoringweight equal & names sorted opposite 1`] = `
 <div>
   <div
-    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
+    class="Section Section--alabaster"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -221,39 +221,39 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
           class="RelatedSystems"
         >
           <h2
-            class="MuiTypography-root Section-module_title__sia8j title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
           >
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test2\\"}"
                 href="/en/s/test2"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="OverviewCard-module_body__ECyj2"
+                  class="body"
                 >
                   <h5
-                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                   >
                     NO System 1
                   </h5>
                   <div
-                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                    class="children text"
                   >
                     SDescription 1 NO
                   </div>
                   <div
-                    class="OverviewCard-module_footer__MMw-Y"
+                    class="footer"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -277,31 +277,31 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
               </a>
             </div>
             <div
-              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 2 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test\\"}"
                 href="/en/s/test"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="OverviewCard-module_body__ECyj2"
+                  class="body"
                 >
                   <h5
-                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                   >
                     NO System 2
                   </h5>
                   <div
-                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                    class="children text"
                   >
                     SDescription 1 NO
                   </div>
                   <div
-                    class="OverviewCard-module_footer__MMw-Y"
+                    class="footer"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -335,10 +335,10 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
 exports[`RelatedSystems component renders correctly with scoringweight equal 1`] = `
 <div>
   <div
-    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
+    class="Section Section--alabaster"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -347,39 +347,39 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
           class="RelatedSystems"
         >
           <h2
-            class="MuiTypography-root Section-module_title__sia8j title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
           >
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test\\"}"
                 href="/en/s/test"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="OverviewCard-module_body__ECyj2"
+                  class="body"
                 >
                   <h5
-                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                   >
                     NO System 1
                   </h5>
                   <div
-                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                    class="children text"
                   >
                     SDescription 1 NO
                   </div>
                   <div
-                    class="OverviewCard-module_footer__MMw-Y"
+                    class="footer"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -403,31 +403,31 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
               </a>
             </div>
             <div
-              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 2 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test2\\"}"
                 href="/en/s/test2"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="OverviewCard-module_body__ECyj2"
+                  class="body"
                 >
                   <h5
-                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                   >
                     NO System 2
                   </h5>
                   <div
-                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                    class="children text"
                   >
                     SDescription 1 NO
                   </div>
                   <div
-                    class="OverviewCard-module_footer__MMw-Y"
+                    class="footer"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -461,10 +461,10 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
 exports[`RelatedSystems component renders correctly with systems 1`] = `
 <div>
   <div
-    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
+    class="Section Section--alabaster"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -473,39 +473,39 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
           class="RelatedSystems"
         >
           <h2
-            class="MuiTypography-root Section-module_title__sia8j title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
           >
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test\\"}"
                 href="/en/s/test"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="OverviewCard-module_body__ECyj2"
+                  class="body"
                 >
                   <h5
-                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                   >
                     NO System 1
                   </h5>
                   <div
-                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                    class="children text"
                   >
                     SDescription 1 NO
                   </div>
                   <div
-                    class="OverviewCard-module_footer__MMw-Y"
+                    class="footer"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -539,10 +539,10 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
 exports[`RelatedSystems component renders correctly without categories 1`] = `
 <div>
   <div
-    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
+    class="Section Section--alabaster"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -551,39 +551,39 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
           class="RelatedSystems"
         >
           <h2
-            class="MuiTypography-root Section-module_title__sia8j title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
           >
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test\\"}"
                 href="/en/s/test"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="OverviewCard-module_body__ECyj2"
+                  class="body"
                 >
                   <h5
-                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                   >
                     NO System 1
                   </h5>
                   <div
-                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                    class="children text"
                   >
                     SDescription 1 NO
                   </div>
                   <div
-                    class="OverviewCard-module_footer__MMw-Y"
+                    class="footer"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary"
@@ -617,10 +617,10 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
 exports[`RelatedSystems component renders systems correctly without classifications 1`] = `
 <div>
   <div
-    class="Section-module_Section__yrYL2 Section-module_Section--alabaster__aPSpj"
+    class="Section Section--alabaster"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -629,39 +629,39 @@ exports[`RelatedSystems component renders systems correctly without classificati
           class="RelatedSystems"
         >
           <h2
-            class="MuiTypography-root Section-module_title__sia8j title Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
+            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h2"
           >
             MC: sdp.recommendedSystemsTitle
           </h2>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root OverviewCard-module_OverviewCard__eOihI OverviewCard-module_OverviewCard--clickable__r8kzu"
+                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test\\"}"
                 href="/en/s/test"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="OverviewCard-module_body__ECyj2"
+                  class="body"
                 >
                   <h5
-                    class="MuiTypography-root OverviewCard-module_title__k9QGa OverviewCard-module_title--no-brand-logo__hEhnZ Typography-module_Typography__aA2Zb MuiTypography-h5"
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
                   >
                     NO System 1
                   </h5>
                   <div
-                    class="OverviewCard-module_children__nvFGE OverviewCard-module_text__fHseA"
+                    class="children text"
                   >
                     SDescription 1 NO
                   </div>
                   <div
-                    class="OverviewCard-module_footer__MMw-Y"
+                    class="footer"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"

@@ -101,13 +101,9 @@ describe("Sitemap", () => {
 
     expect(container).toMatchSnapshot();
     expect(container.querySelectorAll("header").length).toBe(1);
-    expect(
-      container.querySelectorAll("[class*='Footer-module_Footer_']").length
-    ).toBe(1);
+    expect(container.querySelectorAll(".Footer").length).toBe(1);
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(
-      container.querySelectorAll("[class*='Section-module_Section']").length
-    ).toBe(4);
+    expect(container.querySelectorAll(".Section").length).toBe(4);
     expect(queryByText(footerMainNavigation.label)).toBeTruthy();
     expect(queryByText(footerSecondaryNavigation.label)).toBeTruthy();
     expect(queryByText(menuNavigation.label)).toBeTruthy();
@@ -130,13 +126,9 @@ describe("Sitemap", () => {
 
     expect(container).toMatchSnapshot();
     expect(container.querySelectorAll("header").length).toBe(1);
-    expect(
-      container.querySelectorAll("[class*='Footer-module_Footer_']").length
-    ).toBe(1);
+    expect(container.querySelectorAll(".Footer").length).toBe(1);
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(
-      container.querySelectorAll("[class*='Section-module_Section']").length
-    ).toBe(3);
+    expect(container.querySelectorAll(".Section").length).toBe(3);
     expect(queryByText(footerMainNavigation.label)).toBeFalsy();
     expect(queryByText(footerSecondaryNavigation.label)).toBeTruthy();
     expect(queryByText(menuNavigation.label)).toBeTruthy();
@@ -159,13 +151,9 @@ describe("Sitemap", () => {
 
     expect(container).toMatchSnapshot();
     expect(container.querySelectorAll("header").length).toBe(1);
-    expect(
-      container.querySelectorAll("[class*='Footer-module_Footer_']").length
-    ).toBe(1);
+    expect(container.querySelectorAll(".Footer").length).toBe(1);
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(
-      container.querySelectorAll("[class*='Section-module_Section']").length
-    ).toBe(3);
+    expect(container.querySelectorAll(".Section").length).toBe(3);
     expect(queryByText(footerMainNavigation.label)).toBeTruthy();
     expect(queryByText(footerSecondaryNavigation.label)).toBeFalsy();
     expect(queryByText(menuNavigation.label)).toBeTruthy();
@@ -188,13 +176,9 @@ describe("Sitemap", () => {
 
     expect(container).toMatchSnapshot();
     expect(container.querySelectorAll("header").length).toBe(0);
-    expect(
-      container.querySelectorAll("[class*='Footer-module_Footer_']").length
-    ).toBe(1);
+    expect(container.querySelectorAll(".Footer").length).toBe(1);
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(
-      container.querySelectorAll("[class*='Section-module_Section']").length
-    ).toBe(3);
+    expect(container.querySelectorAll(".Section").length).toBe(3);
     expect(queryByText(footerMainNavigation.label)).toBeTruthy();
     expect(queryByText(footerSecondaryNavigation.label)).toBeTruthy();
     expect(queryByText(menuNavigation.label)).toBeFalsy();
@@ -217,13 +201,9 @@ describe("Sitemap", () => {
 
     expect(container).toMatchSnapshot();
     expect(container.querySelectorAll("header").length).toBe(0);
-    expect(
-      container.querySelectorAll("[class*='Footer-module_Footer_']").length
-    ).toBe(1);
+    expect(container.querySelectorAll(".Footer").length).toBe(1);
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(
-      container.querySelectorAll("[class*='Section-module_Section']").length
-    ).toBe(3);
+    expect(container.querySelectorAll(".Section").length).toBe(3);
     expect(queryByText(footerMainNavigation.label)).toBeTruthy();
     expect(queryByText(footerSecondaryNavigation.label)).toBeTruthy();
     expect(queryByText(menuNavigation.label)).toBeTruthy();
@@ -246,13 +226,9 @@ describe("Sitemap", () => {
 
     expect(container).toMatchSnapshot();
     expect(container.querySelectorAll("header").length).toBe(1);
-    expect(
-      container.querySelectorAll("[class*='Footer-module_Footer_']").length
-    ).toBe(1);
+    expect(container.querySelectorAll(".Footer").length).toBe(1);
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(
-      container.querySelectorAll("[class*='Section-module_Section']").length
-    ).toBe(4);
+    expect(container.querySelectorAll(".Section").length).toBe(4);
     expect(queryByText(footerMainNavigation.label)).toBeTruthy();
     expect(queryByText(footerSecondaryNavigation.label)).toBeTruthy();
     expect(queryByText(menuNavigation.label)).toBeTruthy();

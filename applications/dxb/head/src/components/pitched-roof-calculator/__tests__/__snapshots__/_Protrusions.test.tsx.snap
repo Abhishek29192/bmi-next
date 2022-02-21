@@ -90,7 +90,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-module_Typography__aA2Zb MuiTypography-h6"
+          class="MuiTypography-root Typography MuiTypography-h6"
         >
           Are there any protrusions?
         </h6>

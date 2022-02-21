@@ -1,23 +1,12 @@
 {
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
-    "jsx": "preserve",
-    "noEmit": true,
-    "baseUrl": ".",
-    "paths": {
-      "@bmi/*": [
-        "../../../node_modules/@bmi/*/src",
-        "./node_modules/@bmi/*/src"
-      ],
-      "@bmi-digital/components": [
-        "../../../node_modules/@bmi/components-delete-me"
-      ]
-    },
-    "allowJs": false,
+    "outDir": "dist",
     "strict": false,
+    "jsx": "preserve",
+    "allowJs": false,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
-  "exclude": ["**/dist/**", "node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

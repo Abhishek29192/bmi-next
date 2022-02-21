@@ -1,0 +1,18 @@
+@import "~@bmi-digital/styles";
+
+.Search {
+  max-width: 800px;
+}
+
+.helper-text {
+  color: $color-slate;
+  margin: 0;
+  font-size: 0.75rem;
+  margin-top: 3px;
+  line-height: 1.66;
+}
+
+.clear-icon {
+  font-size: 1.25rem;
+  color: $color-slate;
+}

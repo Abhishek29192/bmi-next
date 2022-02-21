@@ -3,32 +3,32 @@
 exports[`Brands component renders correctly 1`] = `
 <div>
   <div
-    class="Brands Section-module_Section__yrYL2 Section-module_Section--pearl__-3VEX"
+    class="Brands Section Section--pearl"
   >
     <div
-      class="Container-module_Container__4e9IW"
+      class="Container"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root Section-module_title__sia8j Typography-module_Typography__aA2Zb Typography-module_Typography--underline__iJdDs MuiTypography-h2"
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         >
            
           MC: homepage.brands
         </h2>
         <div
-          class="MuiGrid-root Grid-module_Grid--justifyContent__EK865 MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+          class="MuiGrid-root Grid Grid--justifyContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
         >
           <div
-            class="MuiGrid-root Grid-module_item__XHgjM MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-xl-3"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-xl-3"
           >
             <div
-              class="MuiPaper-root MuiCard-root BrandIntroCard-module_BrandIntroCard__yFvuY MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiCard-root BrandIntroCard MuiPaper-elevation1 MuiPaper-rounded"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 BrandIntroCard-module_brandLogoButton__tpAiW MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 brandLogoButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"[object Object]\\",\\"action\\":\\"/smilex\\"}"
                 href="/smilex"
                 role="button"
@@ -38,27 +38,13 @@ exports[`Brands component renders correctly 1`] = `
                   class="MuiButton-label buttonStyles-label-4"
                 >
                   <svg
-                    class="BrandIntroCard-module_brandLogo__U6P93"
+                    class="brandLogo"
                     preserveAspectRatio="xMinYMin"
-                    viewBox="0 0 250 250"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0 0h250v250H0z"
-                      fill="#009fe3"
-                    />
-                    <g
-                      fill="#fff"
-                    >
-                      <path
-                        d="M155.393 86.416 144.565 131h-.212l-10.829-44.584H100.3v50.634c-.76-9.718-6.732-14.589-13.079-16.771 5.626-3.078 9.342-7.218 9.342-14.862 0-7.749-4.247-19-24.2-19H30.848v75.8h42.994c12.786 0 25.368-7.183 26.455-21.075v21.075h22.081V113.6h.212l13.164 48.62h17.41l13.163-48.62h.213v48.62h22.081v-75.8ZM54.2 104.461h12.317c4.777 0 7.962 1.381 7.962 5.2 0 4.884-3.079 6.264-7.962 6.264H54.2Zm13.694 39.7H54.2v-14.115h14.652c5.521 0 8.174 2.442 8.174 6.9 0 5.839-4.246 7.219-9.126 7.219ZM195.798 86.416h23.355v75.797h-23.355z"
-                      />
-                    </g>
-                  </svg>
+                  />
                 </span>
               </a>
               <h6
-                class="MuiTypography-root BrandIntroCard-module_description__Yc9NB Typography-module_Typography__aA2Zb MuiTypography-subtitle1"
+                class="MuiTypography-root description Typography MuiTypography-subtitle1"
               >
                 Uh-oh.  He don't look happy. He's been using brand X
               </h6>

@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductDetailsCard component renders correctly with optional prop 1`] = `
+<div>
+  <div
+    class="OverviewCard"
+  >
+    <img
+      alt="Lorem ipsum"
+      class="header-picture Media Media--contain"
+      src="path-to-image"
+    />
+    <div
+      class="body"
+    >
+      <svg
+        class="brand-logo"
+        preserveAspectRatio="xMinYMin"
+      />
+      <h5
+        class="MuiTypography-root title Typography MuiTypography-h5"
+      >
+        Sed ut perspiciatis
+      </h5>
+      <p
+        class="MuiTypography-root Typography MuiTypography-body1"
+      >
+        productDetailsCard.externalRefLabel
+        :
+         
+        <span
+          class="bold-nobb"
+        >
+          09174907099
+        </span>
+      </p>
+      <a
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+        href="/"
+      >
+        <span>
+          Sit voluptatem
+        </span>
+        <svg
+          aria-hidden="true"
+          class="icon"
+          data-testid="internal"
+          focusable="false"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProductDetailsCard component renders correctly without optional prop 1`] = `
+<div>
+  <div
+    class="OverviewCard"
+  >
+    <img
+      alt="Lorem ipsum"
+      class="header-picture Media Media--contain"
+      src="path-to-image"
+    />
+    <div
+      class="body"
+    >
+      <svg
+        class="brand-logo"
+        preserveAspectRatio="xMinYMin"
+      />
+      <h5
+        class="MuiTypography-root title Typography MuiTypography-h5"
+      >
+        Sed ut perspiciatis
+      </h5>
+      <p
+        class="MuiTypography-root Typography MuiTypography-body1"
+      >
+        productDetailsCard.externalRefLabel
+        :
+         
+        <span
+          class="bold-nobb"
+        >
+          09174907099
+        </span>
+      </p>
+      <a
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+        type="button"
+      >
+        <span>
+          Sit voluptatem
+        </span>
+        <svg
+          aria-hidden="true"
+          class="icon"
+          data-testid="internal"
+          focusable="false"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProductDetailsCard component renders deprecated imageSource 1`] = `
+<div>
+  <div
+    class="OverviewCard"
+  >
+    <div
+      class="body"
+    >
+      <svg
+        class="brand-logo"
+        preserveAspectRatio="xMinYMin"
+      />
+      <h5
+        class="MuiTypography-root title Typography MuiTypography-h5"
+      >
+        Sed ut perspiciatis
+      </h5>
+      <p
+        class="MuiTypography-root Typography MuiTypography-body1"
+      >
+        productDetailsCard.externalRefLabel
+        :
+         
+        <span
+          class="bold-nobb"
+        >
+          09174907099
+        </span>
+      </p>
+      <a
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+        href="/"
+      >
+        <span>
+          Sit voluptatem
+        </span>
+        <svg
+          aria-hidden="true"
+          class="icon"
+          data-testid="internal"
+          focusable="false"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+`;

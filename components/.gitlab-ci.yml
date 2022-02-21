@@ -1,0 +1,75 @@
+test_components:
+  stage: test
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - components/src/**/*
+        - jest/**/*
+        - yarn.lock
+  needs:
+    - job: install
+      optional: true
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn coverage:jest
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - junit.xml
+
+build_components:
+  stage: build
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - src/**/*
+        - yarn.lock
+  needs:
+    - job: install
+      optional: true
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn check:ts
+
+build_styleguide:
+  stage: build
+  rules:
+    - when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - components/src/**/*
+        - yarn.lock
+  needs:
+    - job: install
+      optional: true
+  before_script:
+    - yarn config set cache-folder ~/.yarn
+  script:
+    - yarn styleguidist build
+  artifacts:
+    paths:
+      - styleguide
+
+deploy_styleguide:
+  stage: deploy
+  variables:
+    FIREBASE_TARGET: "styleguide"
+  rules:
+    - when: never
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - src/**/*
+  needs:
+    - build_styleguide
+  before_script:
+    - yarn config set cache-folder ~/.yarn
+    - npm install -g firebase-tools
+    - firebase use $STYLE_GUIDE_FIREBASE_PROJECT_ID
+  script:
+    - |
+      DEPLOY_RESULT=$(firebase deploy -m "Commit ID: $CI_COMMIT_SHA" --only hosting:$FIREBASE_TARGET --non-interactive) || exit 0
+      echo ${DEPLOY_RESULT}
