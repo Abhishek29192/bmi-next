@@ -32,6 +32,8 @@ describe("Search Page Template", () => {
   const locationSpy = jest.spyOn(window, "location", "get");
   const OLD_ENV = process.env;
 
+  jest.setTimeout(10000);
+
   beforeEach(() => {
     jest.resetModules();
     process.env = { ...OLD_ENV };
@@ -86,6 +88,7 @@ describe("Search Page Template", () => {
     const spyOnGetPagesCount = jest
       .spyOn(SearchTabPages, "getCount")
       .mockResolvedValueOnce("1");
+
     const { container, getByText } = renderWithRouter(
       <SearchPage
         data={data}
@@ -113,6 +116,7 @@ describe("Search Page Template", () => {
     expect(getByText("MC: search.tabHeadings.products (3)")).toBeTruthy();
     expect(getByText("MC: search.tabHeadings.documents (2)")).toBeTruthy();
     expect(getByText("MC: search.tabHeadings.pages (1)")).toBeTruthy();
+    // expect(elasticSearchSpy).toHaveBeenCalledTimes();
   });
 
   it("should not render tab when result count is null", async () => {
