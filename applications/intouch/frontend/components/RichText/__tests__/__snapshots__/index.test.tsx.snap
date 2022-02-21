@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RichText component falls back with empty data 1`] = `
+<div>
+  <div
+    class="main"
+  />
+</div>
+`;
