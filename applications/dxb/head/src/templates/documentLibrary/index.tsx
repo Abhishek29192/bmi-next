@@ -1,18 +1,13 @@
 import React, { useMemo, useRef, useState } from "react";
 import { graphql } from "gatsby";
-import { Accordion, AccordionSummaryProps } from "@bmi/components";
-import { Checkbox, CheckboxProps } from "@bmi/components";
-import { Hero } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { AlertBanner } from "@bmi/components";
-import { DownloadList, DownloadListContext } from "@bmi/components";
-import { Filters } from "@bmi/components";
-import { PerfectScrollbar } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Button } from "@bmi/components";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { useTheme } from "@material-ui/core/styles";
+import {
+  AlertBanner,
+  DownloadList,
+  DownloadListContext,
+  Grid,
+  Hero,
+  Section
+} from "@bmi/components";
 import { microCopy } from "../constants/microCopies";
 import { Data as SiteData } from "../components/Site";
 import { Data as PageInfoData } from "../components/PageInfo";
@@ -270,75 +265,20 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
               <div className={filterStyles["Filters"]}>
                 <Grid container spacing={3} ref={resultsElement}>
                   <Grid item xs={12} md={12} lg={3}>
-                    <PerfectScrollbar className={filterStyles["scroll-bar"]}>
-                      <div className={filterStyles["box"]}>
-                        <Typography variant="h5">
-                          {getMicroCopy(
-                            microCopy.DOCUMENT_LIBRARY_FILTERS_TITLE
-                          )}
-                        </Typography>
-                        <Button variant="text" onClick={clearFilters}>
-                          {getMicroCopy(
-                            microCopy.DOCUMENT_LIBRARY_FILTERS_CLEAR_ALL
-                          )}
-                        </Button>
-                      </div>
-                      <DownloadListContext.Consumer>
-                        {({ resetList }) => (
-                          <Filters
-                            filters={filters}
-                            onChange={handleFiltersChange(resetList)}
-                            checkboxComponent={(props: CheckboxProps) => (
-                              <GTMCheckbox
-                                gtm={{
-                                  id: "filter2",
-                                  action: "Selector – Filter"
-                                }}
-                                {...props}
-                              />
-                            )}
-                            accordionSummaryComponent={(
-                              props: AccordionSummaryProps
-                            ) => (
-                              <GTMAccordionSummary
-                                gtm={{
-                                  id: "filter1",
-                                  label: props.children?.["props"]?.children,
-                                  action: "Selector – Filter"
-                                }}
-                                {...props}
-                              />
-                            )}
-                          />
-                        )}
-                      </DownloadListContext.Consumer>
-                    </PerfectScrollbar>
+                    <FilterSection
+                      filters={filters}
+                      handleFiltersChange={handleFiltersChange}
+                      clearFilters={clearFilters}
+                    />
                   </Grid>
                   <Grid item xs={12} md={12} lg={9}>
-                    {results.length ? (
-                      <>
-                        <DocumentResults
-                          data={results}
-                          format={format}
-                          page={page}
-                        />
-                        <div className={filterStyles["results"]}>
-                          <DocumentResultsFooter
-                            page={page}
-                            count={pageCount}
-                            onDownloadClick={
-                              format === "cards" ||
-                              (!matches && format === "technicalTable")
-                                ? undefined
-                                : handleDownloadClick
-                            }
-                            onPageChange={handlePageChange}
-                          />
-                        </div>
-                      </>
-                    ) : (
-                      getMicroCopy(microCopy.DOCUMENT_LIBRARY_NO_RESULTS)
-                    )}
+                    <ResultSection
+                      results={results}
+                      format={format}
+                      page={page}
+                      pageCount={pageCount}
+                      handlePageChange={handlePageChange}
+                    />
                   </Grid>
                 </Grid>
               </div>

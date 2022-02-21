@@ -1,11 +1,15 @@
 import React from "react";
-import Filters, { FilterProps } from "@bmi/filters";
-import PerfectScrollbar from "@bmi/perfect-scrollbar";
-import Typography from "@bmi/typography";
-import Button from "@bmi/button";
-import { DownloadListContext } from "@bmi/download-list";
-import Accordion, { AccordionSummaryProps } from "@bmi/accordion";
-import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
+import Filters, { FilterProps } from "@bmi-digital/components/filters";
+import PerfectScrollbar from "@bmi-digital/components/perfect-scrollbar";
+import Typography from "@bmi-digital/components/typography";
+import Button from "@bmi-digital/components/button";
+import { DownloadListContext } from "@bmi-digital/components/download-list";
+import Accordion, {
+  AccordionSummaryProps
+} from "@bmi-digital/components/accordion";
+import Checkbox, {
+  Props as CheckboxProps
+} from "@bmi-digital/components/checkbox";
 import filterStyles from "../../../components/styles/Filters.module.scss";
 import withGTM from "../../../utils/google-tag-manager";
 import { useSiteContext } from "../../../components/Site";
@@ -57,7 +61,6 @@ const DocumentLibraryFilter = ({
               <GTMAccordionSummary
                 gtm={{
                   id: "filter1",
-                  // @ts-ignore
                   label: props.children!.props!.children,
                   action: "Selector – Filter"
                 }}
