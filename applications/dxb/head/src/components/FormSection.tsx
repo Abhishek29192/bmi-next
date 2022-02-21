@@ -70,6 +70,7 @@ export type InputType = {
   accept?: string;
   maxSize?: number;
   token?: string;
+  isNative?: boolean;
 };
 
 const convertMarkdownLinksToAnchorLinks = (
@@ -111,7 +112,8 @@ const Input = ({
   type,
   required,
   accept = ".pdf, .jpg, .jpeg, .png",
-  maxSize
+  maxSize,
+  isNative
 }: Omit<InputType, "width">) => {
   const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -210,6 +212,8 @@ const Input = ({
     case "select":
       return (
         <Select
+          native={isNative}
+          data-testid="form-section-select"
           isRequired={required}
           fieldIsRequiredError={getMicroCopy(
             microCopy.UPLOAD_FIELD_IS_REQUIRED
@@ -283,14 +287,15 @@ const Input = ({
 
 type FormInputs = {
   inputs: InputType[];
+  isNative?: boolean;
 };
 
-const FormInputs = ({ inputs }: FormInputs) => {
+export const FormInputs = ({ inputs, isNative = false }: FormInputs) => {
   return (
     <>
       {inputs.map(({ width, ...props }, $i) => (
         <Grid key={$i} item xs={12} md={width === "full" ? 12 : 6}>
-          <Input {...props} />
+          <Input {...props} isNative={isNative} />
         </Grid>
       ))}
     </>

@@ -3,7 +3,7 @@ import React from "react";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import axios from "axios";
 import * as Gatsby from "gatsby";
-import FormSection, { Data, InputWidthType } from "../FormSection";
+import FormSection, { Data, InputWidthType, FormInputs } from "../FormSection";
 import { DataTypeEnum } from "../Link";
 import { SiteContextProvider } from "../Site";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
@@ -205,6 +205,26 @@ describe("FormSection component", () => {
       target: { value: "test-email" }
     });
     fireEvent.blur(emailInput);
+    expect(container).toMatchSnapshot();
+  });
+
+  it("test options in a Select", () => {
+    const specificData = [
+      {
+        label: "Select",
+        name: "select",
+        options: "Option1",
+        type: "select"
+      }
+    ];
+    const { container, getByTestId, queryAllByRole } = render(
+      <FormInputs inputs={specificData} isNative />
+    );
+    const select = getByTestId("form-section-select");
+    fireEvent.mouseDown(select);
+
+    expect(queryAllByRole("menuitem")).toHaveLength(2);
+    expect(select).toHaveTextContent("MC: form.none.selection");
     expect(container).toMatchSnapshot();
   });
 
