@@ -2227,17 +2227,17 @@ enum AddressesOrderBy {
 Represents a binary file in a space. An asset can be any file type.
 """
 type Asset {
-  contentType: String
+  contentType(locale: String): String
   contentfulMetadata: ContentfulMetadata!
-  description: String
-  fileName: String
-  height: Int
+  description(locale: String): String
+  fileName(locale: String): String
+  height(locale: String): Int
   linkedFrom(allowedLocales: [String]): AssetLinkingCollections
-  size: Int
+  size(locale: String): Int
   sys: Sys!
-  title: String
-  url(transform: ImageTransformOptions): String
-  width: Int
+  title(locale: String): String
+  url(locale: String, transform: ImageTransformOptions): String
+  width(locale: String): Int
 }
 
 type AssetCollection {
@@ -2526,6 +2526,8 @@ type CarouselItem implements Entry {
   body(locale: String): String
   contentfulMetadata: ContentfulMetadata!
   cta(locale: String): String
+  customUrl(locale: String): String
+  customUrlButtonText(locale: String): String
   header(locale: String): String
   image(locale: String, preview: Boolean): Asset
   linkedFrom(allowedLocales: [String]): CarouselItemLinkingCollections
@@ -2561,6 +2563,20 @@ input CarouselItemFilter {
   cta_not: String
   cta_not_contains: String
   cta_not_in: [String]
+  customUrl: String
+  customUrlButtonText: String
+  customUrlButtonText_contains: String
+  customUrlButtonText_exists: Boolean
+  customUrlButtonText_in: [String]
+  customUrlButtonText_not: String
+  customUrlButtonText_not_contains: String
+  customUrlButtonText_not_in: [String]
+  customUrl_contains: String
+  customUrl_exists: Boolean
+  customUrl_in: [String]
+  customUrl_not: String
+  customUrl_not_contains: String
+  customUrl_not_in: [String]
   header: String
   header_contains: String
   header_exists: Boolean
@@ -2590,6 +2606,10 @@ type CarouselItemLinkingCollections {
 enum CarouselItemOrder {
   cta_ASC
   cta_DESC
+  customUrlButtonText_ASC
+  customUrlButtonText_DESC
+  customUrl_ASC
+  customUrl_DESC
   header_ASC
   header_DESC
   sys_firstPublishedAt_ASC
@@ -15636,6 +15656,8 @@ The 'HexColor' type represents color in `rgb:ffffff` string format.
 scalar HexColor
 
 enum ImageFormat {
+  AVIF
+
   """
   JPG image format.
   """
@@ -15664,7 +15686,6 @@ enum ImageFormat {
   WebP image format.
   """
   WEBP
-  AVIF
 }
 
 enum ImageResizeFocus {

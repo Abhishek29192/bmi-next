@@ -3,7 +3,7 @@ import { publish, TOPICS } from "../events";
 import { messageTemplate, EventMessage } from "../contentful";
 import { PostGraphileContext } from "../../types";
 
-const replaceData = (template, data) => {
+export const replaceData = (template, data) => {
   if (!template) return template;
   const pattern = /{{\s*(\w+?)\s*}}/g; // {property}
   return template.replace(pattern, (_, token) => data[`${token}`] || "");
@@ -26,7 +26,7 @@ export const sendMessageWithTemplate = async (
       };
     } = data;
 
-    if (messageTemplateCollection?.items?.length) {
+    if (messageTemplateCollection.items?.length) {
       const [template] = messageTemplateCollection.items;
       for (const format of template.format || []) {
         if (format === "NOTIFICATION") {

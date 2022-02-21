@@ -4,6 +4,7 @@ import {
 } from "@bmi/intouch-api-types";
 import { createGuarantee, updateGuarantee } from "..";
 import { sendMessageWithTemplate } from "../../../services/mailer";
+import * as validate from "../validate";
 
 const storage = {
   uploadFileByStream: jest.fn()
@@ -96,13 +97,13 @@ describe("Guarantee", () => {
   };
   const mockQuery = jest.fn();
   const mockClientGateway = jest.fn();
-
+  const loggerError = jest.fn();
   const context: any = {
     pubSub: {},
     logger: jest.fn().mockReturnValue({
       debug: jest.fn(),
       log: jest.fn(),
-      error: jest.fn()
+      error: loggerError
     }),
     pgRootPool: null,
     pgClient: {
@@ -139,18 +140,6 @@ describe("Guarantee", () => {
             }
           ]
         }));
-
-      mockClientGateway.mockImplementationOnce(() => ({
-        data: {
-          tierBenefitCollection: {
-            items: [
-              {
-                guaranteeValidityOffsetYears: 0
-              }
-            ]
-          }
-        }
-      }));
 
       await createGuarantee(resolve, source, args, context, resolveInfo);
 
@@ -189,6 +178,94 @@ describe("Guarantee", () => {
       expect(storage.uploadFileByStream).toHaveBeenCalledTimes(
         evidenceItemInputs.length
       );
+    });
+
+    it("call logger when createGuarantee throw error", async () => {
+      const resolve = jest.fn().mockRejectedValueOnce("I am error");
+      const args = {
+        input: {
+          ...guaranteeInput,
+          guarantee: {
+            ...guaranteeInput.guarantee,
+            evidenceItemsUsingId: {
+              create: evidenceItemInputs
+            }
+          }
+        }
+      };
+
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => ({
+          rows: [{ maximum_validity_years: 1 }]
+        }))
+        .mockImplementationOnce(() => ({
+          rows: [{ name: "project", companyId: 1, tier: "T1" }]
+        }))
+        .mockImplementationOnce(() => ({
+          rows: []
+        }));
+      await expect(
+        createGuarantee(resolve, source, args, context, resolveInfo)
+      ).rejects.toEqual("I am error");
+
+      expect(loggerError).toHaveBeenCalledWith(
+        "Error creating guarantee evidence"
+      );
+    });
+
+    it("coverage is PRODUCT", async () => {
+      const resolve = jest.fn();
+      const args = {
+        input: {
+          guarantee: {
+            ...guaranteeInput.guarantee,
+            coverage: "PRODUCT" as const
+          }
+        }
+      };
+
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => ({
+          rows: [{ maximum_validity_years: null }]
+        }))
+        .mockImplementationOnce(() => ({
+          rows: [{ name: "project", companyId: 1, tier: "T1" }]
+        }))
+        .mockImplementationOnce(() => ({
+          rows: [
+            {
+              email: "email",
+              first_name: "first_name",
+              role: "COMPANY_ADMIN"
+            }
+          ]
+        }));
+
+      await createGuarantee(resolve, source, args, context, resolveInfo);
+
+      expect(resolve).toBeCalledTimes(1);
+      expect(sendMessageWithTemplate).toBeCalledTimes(1);
+    });
+
+    it("coverage is SOLUTION", async () => {
+      const resolve = jest.fn();
+      const args = {
+        input: {
+          guarantee: {
+            ...guaranteeInput.guarantee,
+            coverage: "SOLUTION" as const
+          }
+        }
+      };
+
+      mockQuery.mockImplementationOnce(() => {});
+
+      await createGuarantee(resolve, source, args, context, resolveInfo);
+
+      expect(resolve).toBeCalledTimes(1);
+      expect(sendMessageWithTemplate).toBeCalledTimes(0);
     });
   });
 
@@ -304,30 +381,91 @@ describe("Guarantee", () => {
 
       expect(resolve).toBeCalledTimes(1);
     });
-    it("should be able to approve guarantee", async () => {
-      context.user.can = () => true;
-      const args: { input: UpdateGuaranteeInput } = {
-        input: {
-          ...guaranteeUpdateInput,
-          guaranteeEventType: "APPROVE_SOLUTION"
-        }
-      };
-      mockGuarante.status = "REVIEW";
 
-      mockQuery
-        .mockImplementationOnce(() => {})
-        .mockImplementationOnce(guaranteMockImplementation)
-        .mockImplementationOnce(() => ({
-          rows: [{ maximum_validity_years: 1 }]
+    describe("should be able to approve guarantee", () => {
+      it("with guaranteeValidityOffsetYears and maximum_validity_years returned from query", async () => {
+        context.user.can = () => true;
+        const maximum_validity_years = 3;
+        const guaranteeValidityOffsetYears = 5;
+        const args: { input: UpdateGuaranteeInput } = {
+          input: {
+            ...guaranteeUpdateInput,
+            guaranteeEventType: "APPROVE_SOLUTION"
+          }
+        };
+        mockGuarante.status = "REVIEW";
+
+        mockQuery
+          .mockImplementationOnce(() => {})
+          .mockImplementationOnce(guaranteMockImplementation)
+          .mockImplementationOnce(() => ({
+            rows: [{ tier: "T1" }]
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [{ maximum_validity_years }]
+          }));
+
+        mockClientGateway.mockImplementationOnce(() => ({
+          data: {
+            tierBenefitCollection: {
+              items: [{ guaranteeValidityOffsetYears }]
+            }
+          }
         }));
 
-      await updateGuarantee(resolve, source, args, context, resolveInfo);
+        await updateGuarantee(resolve, source, args, context, resolveInfo);
 
-      const { patch } = args.input;
-      expect(patch.status).toEqual("APPROVED");
+        const { patch } = args.input;
+        expect(patch.status).toEqual("APPROVED");
+        expect(mockClientGateway).toHaveBeenCalledTimes(1);
+        expect(patch.expiryDate.getFullYear()).toEqual(
+          new Date().getFullYear() +
+            maximum_validity_years -
+            guaranteeValidityOffsetYears
+        );
+        expect(resolve).toBeCalledTimes(1);
+      });
 
-      expect(resolve).toBeCalledTimes(1);
+      it("use default guaranteeValidityOffsetYears and maximum_validity_years", async () => {
+        context.user.can = () => true;
+        const args: { input: UpdateGuaranteeInput } = {
+          input: {
+            ...guaranteeUpdateInput,
+            guaranteeEventType: "APPROVE_SOLUTION"
+          }
+        };
+        mockGuarante.status = "REVIEW";
+
+        mockQuery
+          .mockImplementationOnce(() => {})
+          .mockImplementationOnce(guaranteMockImplementation)
+          .mockImplementationOnce(() => ({
+            rows: [{ tier: "T1" }]
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [{ maximum_validity_years: null }]
+          }));
+
+        mockClientGateway.mockImplementationOnce(() => ({
+          data: {
+            tierBenefitCollection: {
+              items: [{}]
+            }
+          }
+        }));
+
+        await updateGuarantee(resolve, source, args, context, resolveInfo);
+
+        const { patch } = args.input;
+        expect(patch.status).toEqual("APPROVED");
+        expect(mockClientGateway).toHaveBeenCalledTimes(1);
+        expect(patch.expiryDate.getFullYear()).toEqual(
+          new Date().getFullYear() + 0 - 0
+        );
+        expect(resolve).toBeCalledTimes(1);
+      });
     });
+
     it("should be able to reject guarantee", async () => {
       context.user.can = () => true;
       const args: { input: UpdateGuaranteeInput } = {
@@ -345,6 +483,154 @@ describe("Guarantee", () => {
       expect(patch.status).toEqual("REJECTED");
 
       expect(resolve).toBeCalledTimes(1);
+    });
+
+    it("call logger when isValid is false", async () => {
+      jest
+        .spyOn(validate, "solutionGuaranteeSubmitValidate")
+        .mockResolvedValueOnce(false);
+      context.user.can = () => true;
+      context.user.role = "SUPER_ADMIN";
+      mockGuarante.status = "NEW";
+
+      await expect(
+        updateGuarantee(resolve, source, args, context, resolveInfo)
+      ).rejects.toThrowError("Validation Error");
+
+      expect(loggerError).toHaveBeenCalledWith(
+        `User with id: ${mockUser.id} and role: SUPER_ADMIN is trying to submit guarantee ${guaranteeUpdateInput.id}`
+      );
+    });
+
+    it("getGuarantee throw error when no guarantee", async () => {
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => ({
+          rows: []
+        }));
+      context.user.can = () => true;
+      context.user.role = "SUPER_ADMIN";
+      mockGuarante.status = "NEW";
+
+      await expect(
+        updateGuarantee(resolve, source, args, context, resolveInfo)
+      ).rejects.toThrowError("The guarantee not exist");
+    });
+
+    it("getProjectCompanyDetail throw error when no ProjectCompanyDetail returns", async () => {
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(guaranteMockImplementation)
+        .mockImplementationOnce(() => ({
+          rows: []
+        }));
+
+      const args: { input: UpdateGuaranteeInput } = {
+        input: {
+          ...guaranteeUpdateInput,
+          guaranteeEventType: "APPROVE_SOLUTION"
+        }
+      };
+
+      context.user.can = () => true;
+      mockGuarante.status = "REVIEW";
+
+      await expect(
+        updateGuarantee(resolve, source, args, context, resolveInfo)
+      ).rejects.toThrowError("The project not exist");
+    });
+  });
+
+  describe("uploadEvidence", () => {
+    it("with no evidenceItemInput", async () => {
+      const resolve = jest.fn();
+      const args = {
+        input: {
+          ...guaranteeInput,
+          guarantee: {
+            ...guaranteeInput.guarantee
+          }
+        }
+      };
+
+      delete args.input.guarantee.evidenceItemsUsingId;
+
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => ({
+          rows: [{ maximum_validity_years: 1 }]
+        }))
+        .mockImplementationOnce(() => ({
+          rows: [{ name: "project", companyId: 1, tier: "T1" }]
+        }))
+        .mockImplementationOnce(() => ({
+          rows: []
+        }));
+
+      await createGuarantee(resolve, source, args, context, resolveInfo);
+
+      expect(resolve).toBeCalledTimes(1);
+      expect(storage.uploadFileByStream).toHaveBeenCalledTimes(0);
+    });
+
+    it("without evidenceItemInput.create", async () => {
+      const resolve = jest.fn();
+      const args = {
+        input: {
+          ...guaranteeInput,
+          guarantee: {
+            ...guaranteeInput.guarantee,
+            evidenceItemsUsingId: {}
+          }
+        }
+      };
+
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => ({
+          rows: [{ maximum_validity_years: 1 }]
+        }))
+        .mockImplementationOnce(() => ({
+          rows: [{ name: "project", companyId: 1, tier: "T1" }]
+        }))
+        .mockImplementationOnce(() => ({
+          rows: []
+        }));
+
+      await createGuarantee(resolve, source, args, context, resolveInfo);
+
+      expect(resolve).toBeCalledTimes(1);
+      expect(storage.uploadFileByStream).toHaveBeenCalledTimes(0);
+    });
+
+    it("with empty evidenceItemInput.create", async () => {
+      const resolve = jest.fn();
+      const args = {
+        input: {
+          ...guaranteeInput,
+          guarantee: {
+            ...guaranteeInput.guarantee,
+            evidenceItemsUsingId: { create: [] }
+          }
+        }
+      };
+
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => ({
+          rows: [{ maximum_validity_years: 1 }]
+        }))
+        .mockImplementationOnce(() => ({
+          rows: [{ name: "project", companyId: 1, tier: "T1" }]
+        }))
+        .mockImplementationOnce(() => ({
+          rows: []
+        }));
+
+      await createGuarantee(resolve, source, args, context, resolveInfo);
+
+      expect(resolve).toBeCalledTimes(1);
+      expect(storage.uploadFileByStream).toHaveBeenCalledTimes(0);
     });
   });
 });

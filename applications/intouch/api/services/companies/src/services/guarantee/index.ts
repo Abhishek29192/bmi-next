@@ -257,7 +257,7 @@ const sendMail = async (
     [projectCompanyDetail.companyId]
   );
 
-  for (let i = 0; i < accounts?.length; i++) {
+  for (let i = 0; i < accounts.length; i++) {
     const account = accounts[+i];
     await sendMessageWithTemplate(context, event, {
       accountId: account.id,

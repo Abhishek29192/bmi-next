@@ -1137,13 +1137,49 @@ export type Asset = {
 };
 
 /** Represents a binary file in a space. An asset can be any file type. */
+export type AssetContentTypeArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetDescriptionArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetFileNameArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetHeightArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** Represents a binary file in a space. An asset can be any file type. */
 export type AssetLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
 /** Represents a binary file in a space. An asset can be any file type. */
+export type AssetSizeArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetTitleArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** Represents a binary file in a space. An asset can be any file type. */
 export type AssetUrlArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
   transform?: InputMaybe<ImageTransformOptions>;
+};
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetWidthArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
 };
 
 export type AssetCollection = {
@@ -1363,12 +1399,12 @@ export type Carousel = Entry & {
   sys: Sys;
 };
 
-/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel) */
+/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carousel) */
 export type CarouselAudienceRoleArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel) */
+/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carousel) */
 export type CarouselLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
@@ -1381,7 +1417,7 @@ export type CarouselListCollectionArgs = {
   skip?: InputMaybe<Scalars["Int"]>;
 };
 
-/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel) */
+/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carousel) */
 export type CarouselNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -1423,39 +1459,51 @@ export type CarouselItem = Entry & {
   body?: Maybe<Scalars["String"]>;
   contentfulMetadata: ContentfulMetadata;
   cta?: Maybe<Scalars["String"]>;
+  customUrl?: Maybe<Scalars["String"]>;
+  customUrlButtonText?: Maybe<Scalars["String"]>;
   header?: Maybe<Scalars["String"]>;
   image?: Maybe<Asset>;
   linkedFrom?: Maybe<CarouselItemLinkingCollections>;
   sys: Sys;
 };
 
-/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem) */
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
 export type CarouselItemAudienceTiersArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem) */
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
 export type CarouselItemBodyArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem) */
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
 export type CarouselItemCtaArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem) */
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
+export type CarouselItemCustomUrlArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
+export type CarouselItemCustomUrlButtonTextArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
 export type CarouselItemHeaderArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem) */
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
 export type CarouselItemImageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem) */
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
 export type CarouselItemLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
@@ -1494,6 +1542,20 @@ export type CarouselItemFilter = {
   cta_not?: InputMaybe<Scalars["String"]>;
   cta_not_contains?: InputMaybe<Scalars["String"]>;
   cta_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  customUrl?: InputMaybe<Scalars["String"]>;
+  customUrlButtonText?: InputMaybe<Scalars["String"]>;
+  customUrlButtonText_contains?: InputMaybe<Scalars["String"]>;
+  customUrlButtonText_exists?: InputMaybe<Scalars["Boolean"]>;
+  customUrlButtonText_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  customUrlButtonText_not?: InputMaybe<Scalars["String"]>;
+  customUrlButtonText_not_contains?: InputMaybe<Scalars["String"]>;
+  customUrlButtonText_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  customUrl_contains?: InputMaybe<Scalars["String"]>;
+  customUrl_exists?: InputMaybe<Scalars["Boolean"]>;
+  customUrl_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  customUrl_not?: InputMaybe<Scalars["String"]>;
+  customUrl_not_contains?: InputMaybe<Scalars["String"]>;
+  customUrl_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   header?: InputMaybe<Scalars["String"]>;
   header_contains?: InputMaybe<Scalars["String"]>;
   header_exists?: InputMaybe<Scalars["Boolean"]>;
@@ -1528,6 +1590,10 @@ export type CarouselItemLinkingCollectionsEntryCollectionArgs = {
 export type CarouselItemOrder =
   | "cta_ASC"
   | "cta_DESC"
+  | "customUrlButtonText_ASC"
+  | "customUrlButtonText_DESC"
+  | "customUrl_ASC"
+  | "customUrl_DESC"
   | "header_ASC"
   | "header_DESC"
   | "sys_firstPublishedAt_ASC"
@@ -3730,7 +3796,7 @@ export type ContactDetails = Entry & {
   sys: Sys;
 };
 
-/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails) */
+/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contactDetails) */
 export type ContactDetailsEmailArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -3740,17 +3806,17 @@ export type ContactDetailsFullNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails) */
+/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contactDetails) */
 export type ContactDetailsLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails) */
+/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contactDetails) */
 export type ContactDetailsPhoneNumberArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails) */
+/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contactDetails) */
 export type ContactDetailsSubHeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -3847,12 +3913,12 @@ export type ContentArticle = Entry & {
   title?: Maybe<Scalars["String"]>;
 };
 
-/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contentArticle) */
+/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contentArticle) */
 export type ContentArticleBodyArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contentArticle) */
+/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contentArticle) */
 export type ContentArticleLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
@@ -3862,7 +3928,7 @@ export type ContentArticleRelativePathArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contentArticle) */
+/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contentArticle) */
 export type ContentArticleTitleArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -7248,27 +7314,27 @@ export type EvidenceCategory = Entry & {
   sys: Sys;
 };
 
-/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
+/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/evidenceCategory) */
 export type EvidenceCategoryDescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
+/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/evidenceCategory) */
 export type EvidenceCategoryLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
+/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/evidenceCategory) */
 export type EvidenceCategoryMinimumUploadsArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
+/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/evidenceCategory) */
 export type EvidenceCategoryNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
+/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/evidenceCategory) */
 export type EvidenceCategoryReferenceCodeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -8981,161 +9047,161 @@ export type GuaranteeTemplate = Entry & {
   titleLine2?: Maybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateApprovalMessageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateCoverageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateDisplayNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateFilenamePrefixArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateFooterArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateGuaranteeScopeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingBeneficiaryArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingBuildingAddressArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingBuildingOwnerNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingContractorArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingContractorIdArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingContractorNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingExpiryArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingGuaranteeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingGuaranteeIdArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingProductsArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingRoofAreaArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingRoofTypeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingScopeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingStartDateArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingValidityArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateLanguageCodeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateLanguageDescriptorArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateLogoArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateMailBodyArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateMaintenanceTemplateArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateRejectionMessageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateRoofTypeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateSignatoryArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateTechnologyArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -9146,12 +9212,12 @@ export type GuaranteeTemplateTermsArgs = {
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateTitleLine1Args = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateTitleLine2Args = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -9483,7 +9549,7 @@ export type GuaranteeType = Entry & {
   tiersAvailable?: Maybe<Array<Maybe<Scalars["String"]>>>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
 export type GuaranteeTypeCoverageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -9493,7 +9559,7 @@ export type GuaranteeTypeDisplayNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
 export type GuaranteeTypeEvidenceCategoriesCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -9506,7 +9572,7 @@ export type GuaranteeTypeGuaranteeReferenceCodeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
 export type GuaranteeTypeGuaranteeTemplatesCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -9514,7 +9580,7 @@ export type GuaranteeTypeGuaranteeTemplatesCollectionArgs = {
   skip?: InputMaybe<Scalars["Int"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
 export type GuaranteeTypeLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
@@ -9524,7 +9590,7 @@ export type GuaranteeTypeMaximumValidityYearsArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
 export type GuaranteeTypeNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -9534,18 +9600,18 @@ export type GuaranteeTypeRankingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
 export type GuaranteeTypeSignatureArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
 export type GuaranteeTypeTechnologyArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
 export type GuaranteeTypeTiersAvailableArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -9728,6 +9794,7 @@ export type GuaranteesOrderBy =
   | "SYSTEM_BMI_REF_DESC";
 
 export type ImageFormat =
+  | "AVIF"
   /** JPG image format. */
   | "JPG"
   /**
@@ -9745,8 +9812,7 @@ export type ImageFormat =
    */
   | "PNG8"
   /** WebP image format. */
-  | "WEBP"
-  | "AVIF";
+  | "WEBP";
 
 export type ImageResizeFocus =
   /** Focus the resizing on the bottom. */
@@ -10463,13 +10529,13 @@ export type MarketContent = Entry & {
   sys: Sys;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
 export type MarketContentContactUsPageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
 export type MarketContentContactsCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -10477,17 +10543,17 @@ export type MarketContentContactsCollectionArgs = {
   skip?: InputMaybe<Scalars["Int"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
 export type MarketContentExternalLinkLabelArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
 export type MarketContentExternalLinkUrlArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
 export type MarketContentFooterLinksCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -10495,17 +10561,17 @@ export type MarketContentFooterLinksCollectionArgs = {
   skip?: InputMaybe<Scalars["Int"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
 export type MarketContentLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
 export type MarketContentLiveArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
 export type MarketContentMediaLibraryRootCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -10513,27 +10579,27 @@ export type MarketContentMediaLibraryRootCollectionArgs = {
   skip?: InputMaybe<Scalars["Int"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
 export type MarketContentNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
 export type MarketContentNewsItemCtaArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
 export type MarketContentNewsItemHeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
 export type MarketContentNewsItemUrlArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
 export type MarketContentPartnerBrandsCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -11081,7 +11147,7 @@ export type MediaFolder = Entry & {
   sys: Sys;
 };
 
-/** A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaFolder) */
+/** A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaFolder) */
 export type MediaFolderChildrenCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -11089,12 +11155,12 @@ export type MediaFolderChildrenCollectionArgs = {
   skip?: InputMaybe<Scalars["Int"]>;
 };
 
-/** A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaFolder) */
+/** A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaFolder) */
 export type MediaFolderLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaFolder) */
+/** A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaFolder) */
 export type MediaFolderNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -11135,8 +11201,8 @@ export type MediaFolderFilter = {
 export type MediaFolderLinkingCollections = {
   __typename?: "MediaFolderLinkingCollections";
   entryCollection?: Maybe<EntryCollection>;
-  mediaFolderCollection?: Maybe<MediaFolderCollection>;
   marketContentCollection?: Maybe<MarketContentCollection>;
+  mediaFolderCollection?: Maybe<MediaFolderCollection>;
 };
 
 export type MediaFolderLinkingCollectionsEntryCollectionArgs = {
@@ -11189,18 +11255,18 @@ export type MediaToolLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
+/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaTool) */
 export type MediaToolMediaArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
+/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaTool) */
 export type MediaToolNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
+/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaTool) */
 export type MediaToolThumbnailArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
@@ -11289,7 +11355,7 @@ export type MessageTemplate = Entry & {
   sys: Sys;
 };
 
-/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
+/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/messageTemplate) */
 export type MessageTemplateEmailBodyArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -11304,7 +11370,7 @@ export type MessageTemplateFormatArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
+/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/messageTemplate) */
 export type MessageTemplateLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
@@ -11314,7 +11380,7 @@ export type MessageTemplateNotificationBodyArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
+/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/messageTemplate) */
 export type MessageTemplateSubjectArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -11412,17 +11478,17 @@ export type Migration = Entry & {
   sys: Sys;
 };
 
-/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration) */
+/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/migration) */
 export type MigrationContentTypeIdArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration) */
+/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/migration) */
 export type MigrationLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration) */
+/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/migration) */
 export type MigrationStateArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -13293,18 +13359,18 @@ export type PartnerBrand = Entry & {
   websiteUrl?: Maybe<Scalars["String"]>;
 };
 
-/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
+/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/partnerBrand) */
 export type PartnerBrandDescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
+/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/partnerBrand) */
 export type PartnerBrandImageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
+/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/partnerBrand) */
 export type PartnerBrandLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
@@ -13315,7 +13381,7 @@ export type PartnerBrandLogoArgs = {
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
+/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/partnerBrand) */
 export type PartnerBrandNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -17398,32 +17464,32 @@ export type TierBenefit = Entry & {
   tier?: Maybe<Scalars["String"]>;
 };
 
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit) */
 export type TierBenefitDescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit) */
 export type TierBenefitGuaranteeValidityOffsetYearsArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit) */
 export type TierBenefitLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit) */
 export type TierBenefitNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit) */
 export type TierBenefitShortDescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit) */
 export type TierBenefitTierArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -17561,23 +17627,23 @@ export type TrainingContent = Entry & {
   sys: Sys;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
 export type TrainingContentDescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
 export type TrainingContentImageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
 export type TrainingContentLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
 export type TrainingContentLiveArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -17587,7 +17653,7 @@ export type TrainingContentLmsCtaLabelArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
 export type TrainingContentPageHeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -17597,7 +17663,7 @@ export type TrainingContentPageSubHeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
 export type TrainingContentStep1DescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -17612,7 +17678,7 @@ export type TrainingContentStep1SubHeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
 export type TrainingContentStep2DescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -17627,7 +17693,7 @@ export type TrainingContentStep2SubHeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
 export type TrainingContentStep3DescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
