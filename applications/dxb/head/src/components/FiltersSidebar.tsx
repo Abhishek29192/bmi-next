@@ -1,10 +1,10 @@
 import React from "react";
-import { Accordion, AccordionSummaryProps } from "@bmi-digital/components";
-import { Button } from "@bmi-digital/components";
-import { Checkbox, CheckboxProps } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
-import { Filters, FilterProps } from "@bmi-digital/components";
-import { PerfectScrollbar } from "@bmi-digital/components";
+import { Accordion, AccordionSummaryProps } from "@bmi/components";
+import { Button } from "@bmi/components";
+import { Checkbox, CheckboxProps } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Filters, FilterProps } from "@bmi/components";
+import { PerfectScrollbar } from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
 import { useSiteContext } from "./Site";

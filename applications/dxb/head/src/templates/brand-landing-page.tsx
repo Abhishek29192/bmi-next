@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Button } from "@bmi-digital/components";
-import { Hero, HeroItem } from "@bmi-digital/components";
-import { Section } from "@bmi-digital/components";
+import { Button } from "@bmi/components";
+import { Hero, HeroItem } from "@bmi/components";
+import { Section } from "@bmi/components";
 import { microCopy } from "../constants/microCopies";
 import { Data as SiteData } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
@@ -126,7 +126,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
           <>
             <Hero
               level={0}
-              brand={brandLogo}
+              isHeroKeyLine={!!brandLogo}
               breadcrumbs={
                 <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
               }

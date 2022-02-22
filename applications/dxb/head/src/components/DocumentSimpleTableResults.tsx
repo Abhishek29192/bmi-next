@@ -7,7 +7,7 @@ import {
   Icon,
   iconMap,
   Table
-} from "@bmi-digital/components";
+} from "@bmi/components";
 import classnames from "classnames";
 import filesize from "filesize";
 import React, { useContext } from "react";

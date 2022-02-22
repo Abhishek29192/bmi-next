@@ -1,6 +1,6 @@
-import { Grid } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
-import { Chip } from "@bmi-digital/components";
+import { Grid } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Chip } from "@bmi/components";
 import camelCase from "lodash-es/camelCase";
 import React from "react";
 import styles from "../styles/ServiceLocatorSection.module.scss";

@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "@bmi-digital/components";
+import { Typography } from "@bmi/components";
 import styles from "./_FieldContainer.module.scss";
 
 type FieldContainerProps = {

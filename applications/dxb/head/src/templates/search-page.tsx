@@ -1,9 +1,9 @@
-import { Hero } from "@bmi-digital/components";
-import { Container } from "@bmi-digital/components";
-import { Section } from "@bmi-digital/components";
-import { Tabs } from "@bmi-digital/components";
-import { Filter } from "@bmi-digital/components";
-import { QUERY_KEY } from "@bmi-digital/components";
+import { Hero } from "@bmi/components";
+import { Container } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { Tabs } from "@bmi/components";
+import { Filter } from "@bmi/components";
+import { QUERY_KEY } from "@bmi/components";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useState, FormEvent } from "react";
 import { microCopy } from "../constants/microCopies";

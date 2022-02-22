@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from "react";
-import { Typography } from "@bmi-digital/components";
+import { Typography } from "@bmi/components";
 import TimeAgo from "javascript-time-ago";
 import { useTranslation } from "next-i18next";
 import ReactTimeAgo from "react-time-ago";

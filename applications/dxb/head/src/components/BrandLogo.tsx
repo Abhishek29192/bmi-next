@@ -1,6 +1,6 @@
 import React from "react";
-import { Icon } from "@bmi-digital/components";
-import { logoIconMap } from "@bmi-digital/components";
+import { Icon } from "@bmi/components";
+import { logoIconMap } from "@bmi/components";
 import classnames from "classnames";
 import styles from "./styles/BrandLogo.module.scss";
 

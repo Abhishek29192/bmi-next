@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Button } from "@bmi-digital/components";
-import { ExpandableLinksTextCard } from "@bmi-digital/components";
-import { MasonryGrid } from "@bmi-digital/components";
-import { Section } from "@bmi-digital/components";
-import { ClickableAction } from "@bmi-digital/components";
+import { Button } from "@bmi/components";
+import { ExpandableLinksTextCard } from "@bmi/components";
+import { MasonryGrid } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { ClickableAction } from "@bmi/components";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import { microCopy } from "../constants/microCopies";

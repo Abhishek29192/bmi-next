@@ -20,7 +20,7 @@
   "dependencies": {
     "@apollo/client": "^3.4.3",
     "@auth0/nextjs-auth0": "1.3.0",
-    "@bmi-digital/components": "1.2.0",
+    "@bmi/components": "1.2.0-monorepo",
     "@bmi/logger": "0.0.11",
     "@bmi-digital/styles": "1.0.1",
     "@bmi-digital/svg-import": "1.0.1",

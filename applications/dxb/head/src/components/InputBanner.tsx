@@ -1,11 +1,11 @@
 /* eslint-disable no-unreachable */
 import React, { useState, useCallback } from "react";
 import { graphql } from "gatsby";
-import { InputBanner } from "@bmi-digital/components";
-import { Dialog } from "@bmi-digital/components";
-import { Form, FormContext } from "@bmi-digital/components";
-import { Button, ButtonProps } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
+import { InputBanner } from "@bmi/components";
+import { Dialog } from "@bmi/components";
+import { Form, FormContext } from "@bmi/components";
+import { Button, ButtonProps } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import axios from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ErrorIcon from "@material-ui/icons/WarningOutlined";

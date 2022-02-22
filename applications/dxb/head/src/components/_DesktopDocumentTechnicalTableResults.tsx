@@ -10,7 +10,7 @@ import {
   IconButtonProps,
   iconMap,
   Table
-} from "@bmi-digital/components";
+} from "@bmi/components";
 import axios from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { downloadAs } from "../utils/client-download";

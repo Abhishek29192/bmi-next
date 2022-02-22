@@ -11,7 +11,7 @@ import {
   LocationProvider
 } from "@reach/router";
 import * as all from "@bmi-digital/use-dimensions";
-import { Filter } from "@bmi-digital/components";
+import { Filter } from "@bmi/components";
 import ProductListerPage, {
   PageContextType
 } from "../components/product-lister-page";

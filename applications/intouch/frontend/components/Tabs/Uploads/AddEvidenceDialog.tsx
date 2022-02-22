@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
-import { Dialog } from "@bmi-digital/components";
-import { Upload } from "@bmi-digital/components";
-import { Select, SelectMenuItem } from "@bmi-digital/components";
+import { Dialog } from "@bmi/components";
+import { Upload } from "@bmi/components";
+import { Select, SelectMenuItem } from "@bmi/components";
 import {
   ContentfulEvidenceCategory,
   CustomEvidenceCategoryKey,

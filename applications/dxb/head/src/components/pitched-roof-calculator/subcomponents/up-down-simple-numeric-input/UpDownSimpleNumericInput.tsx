@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import classnames from "classnames";
-import { Button } from "@bmi-digital/components";
-import { Icon } from "@bmi-digital/components";
-import { withFormControl } from "@bmi-digital/components";
+import { Button } from "@bmi/components";
+import { Icon } from "@bmi/components";
+import { withFormControl } from "@bmi/components";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import RawTextField from "../raw-text-field/RawTextField";

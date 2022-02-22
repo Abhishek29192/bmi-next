@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeProvider } from "@bmi-digital/components";
+import { ThemeProvider } from "@bmi/components";
 import { Helmet } from "react-helmet";
 import Header from "./Header";
 import Footer from "./Footer";

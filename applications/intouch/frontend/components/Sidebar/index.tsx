@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Icon } from "@bmi-digital/components";
+import { Icon } from "@bmi/components";
 import { SVGImport } from "@bmi-digital/svg-import";
 import { useTranslation } from "next-i18next";
 import { Link } from "../Link";

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
-import { TwoPaneCarousel, TwoPaneCarouselSlide } from "@bmi-digital/components";
-import { VerticalRoller, VerticalRollerSlide } from "@bmi-digital/components";
-import { Section } from "@bmi-digital/components";
-import { Button } from "@bmi-digital/components";
+import { TwoPaneCarousel, TwoPaneCarouselSlide } from "@bmi/components";
+import { VerticalRoller, VerticalRollerSlide } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { Button } from "@bmi/components";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { Data as PromoData } from "../components/Promo";

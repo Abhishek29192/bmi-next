@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { AnchorLink, AnchorLinkProps } from "@bmi-digital/components";
-import { LocationCard, LocationCardDetailProps } from "@bmi-digital/components";
-import { MicroCopy } from "@bmi-digital/components";
+import { AnchorLink, AnchorLinkProps } from "@bmi/components";
+import { LocationCard, LocationCardDetailProps } from "@bmi/components";
+import { MicroCopy } from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
 

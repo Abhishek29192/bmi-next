@@ -1,6 +1,6 @@
 import React from "react";
 import Search from "@material-ui/icons/Search";
-import { TextField } from "@bmi-digital/components";
+import { TextField } from "@bmi/components";
 
 export type FilterInputProps = {
   label?: string;

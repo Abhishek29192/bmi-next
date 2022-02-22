@@ -1,8 +1,8 @@
 import React from "react";
 import classnames from "classnames";
-import { Icopal as IcopalLogoSVG } from "@bmi-digital/components";
-import { Container } from "@bmi-digital/components";
-import { Button } from "@bmi-digital/components";
+import { Icopal as IcopalLogoSVG } from "@bmi/components";
+import { Container } from "@bmi/components";
+import { Button } from "@bmi/components";
 import styles from "./Footer.module.scss";
 
 type MenuItem = {

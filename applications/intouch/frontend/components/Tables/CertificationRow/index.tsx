@@ -1,11 +1,11 @@
 import React from "react";
-import { Table } from "@bmi-digital/components";
+import { Table } from "@bmi/components";
 import {
   Icon,
   CertificationFlatRoof,
   CertificationOtherTraining,
   CertificationPitchedRoof
-} from "@bmi-digital/components";
+} from "@bmi/components";
 import { formatDate } from "../../../lib/utils/date";
 import { GetUserProfileQuery } from "../../../graphql/generated/operations";
 import styles from "./styles.module.scss";

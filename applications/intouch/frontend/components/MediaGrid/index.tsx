@@ -1,6 +1,6 @@
 import React from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { Typography } from "@bmi-digital/components";
+import { Typography } from "@bmi/components";
 import { useTranslation } from "react-i18next";
 import { MediaFolder, MediaItem } from "../../lib/media/types";
 import { MediaTile } from "../MediaTile";

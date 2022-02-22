@@ -4,7 +4,7 @@ import {
   OverviewCard,
   OverviewCardProps,
   Typography
-} from "@bmi-digital/components";
+} from "@bmi/components";
 import { Link } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";

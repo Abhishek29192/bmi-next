@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "@bmi-digital/components";
+import { Card } from "@bmi/components";
 import CardContent from "@material-ui/core/CardContent";
 import styles from "./styles.module.scss";
 

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Section } from "@bmi-digital/components";
-import { LeadBlock } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
-import { Button, ButtonProps } from "@bmi-digital/components";
-import { IconList } from "@bmi-digital/components";
+import { Section } from "@bmi/components";
+import { LeadBlock } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Button, ButtonProps } from "@bmi/components";
+import { IconList } from "@bmi/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { SVGImport } from "@bmi-digital/svg-import";

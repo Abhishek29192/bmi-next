@@ -12,7 +12,7 @@ test_components:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @bmi-digital/components coverage:jest
+    - yarn workspace @bmi/components coverage:jest
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
   artifacts:
     when: always
@@ -33,7 +33,7 @@ build_components:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @bmi-digital/components build
+    - yarn workspace @bmi/components build
 
 build_styleguide:
   stage: build
@@ -48,10 +48,10 @@ build_styleguide:
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:
-    - yarn styleguidist build
+    - yarn workspace @bmi/components workbench:build
   artifacts:
     paths:
-      - styleguide
+      - components/styleguide
 
 deploy_styleguide:
   stage: deploy

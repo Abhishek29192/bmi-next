@@ -7,7 +7,7 @@ import {
   OverviewCardProps,
   Section,
   SectionBackgroundColor
-} from "@bmi-digital/components";
+} from "@bmi/components";
 import { Add as AddIcon } from "@material-ui/icons";
 import uniqBy from "lodash-es/uniqBy";
 import withGTM from "../utils/google-tag-manager";

@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import { Dialog } from "@bmi-digital/components";
+import { Dialog } from "@bmi/components";
 import { Document } from "@contentful/rich-text-types";
 import { RichText } from "../../RichText";
 

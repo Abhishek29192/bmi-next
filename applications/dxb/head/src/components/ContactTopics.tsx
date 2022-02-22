@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { ExpandableCard } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
-import { Grid, GridProps } from "@bmi-digital/components";
-import { IconList } from "@bmi-digital/components";
+import { ExpandableCard } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Grid, GridProps } from "@bmi/components";
+import { IconList } from "@bmi/components";
 import BuildIcon from "@material-ui/icons/Build";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import LocalShippingIcon from "@material-ui/icons/LocalShipping";

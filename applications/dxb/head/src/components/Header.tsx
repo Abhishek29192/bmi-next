@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import { graphql, Link, withPrefix } from "gatsby";
-import { Button, ButtonProps } from "@bmi-digital/components";
-import { Header as HeaderComponent } from "@bmi-digital/components";
-import { HidePrint } from "@bmi-digital/components";
+import { Button, ButtonProps } from "@bmi/components";
+import { Header as HeaderComponent } from "@bmi/components";
+import { HidePrint } from "@bmi/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import { Tab, TabProps } from "@bmi-digital/components";
+import { Tab, TabProps } from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
 import Image from "../components/Image";
 import { getPathWithCountryCode } from "../utils/path";

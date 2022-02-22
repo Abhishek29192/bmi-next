@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 
 dotenv.config();
-import { WinstonLogger } from "@bmi-digital/logger";
+import { WinstonLogger } from "@bmi/logger";
 import { graphqlUploadExpress } from "graphql-upload";
 
 import { setEnvFromSecrets } from "./services/secrets";

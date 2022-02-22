@@ -1,9 +1,9 @@
 import { Link as GatsbyLink } from "gatsby";
-import { Filter } from "@bmi-digital/components";
-import { Grid } from "@bmi-digital/components";
-import { AnchorLink } from "@bmi-digital/components";
+import { Filter } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { AnchorLink } from "@bmi/components";
 import React from "react";
-import { OverviewCard, OverviewCardProps } from "@bmi-digital/components";
+import { OverviewCard, OverviewCardProps } from "@bmi/components";
 import { enhanceColourFilterWithSwatches } from "../../../utils/filtersUI";
 import { iconMap } from "../../../components/Icon";
 import {

@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeProvider } from "@bmi-digital/components";
+import { ThemeProvider } from "@bmi/components";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { getServerPageGetCompany } from "../graphql/generated/page";

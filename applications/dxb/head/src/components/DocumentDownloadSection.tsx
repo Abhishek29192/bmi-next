@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
 import filesize from "filesize";
-import { Section } from "@bmi-digital/components";
-import { Table } from "@bmi-digital/components";
-import { Button, ButtonProps } from "@bmi-digital/components";
-import { Icon } from "@bmi-digital/components";
+import { Section } from "@bmi/components";
+import { Table } from "@bmi/components";
+import { Button, ButtonProps } from "@bmi/components";
+import { Icon } from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
 import fileIconsMap from "../components/FileIconsMap";

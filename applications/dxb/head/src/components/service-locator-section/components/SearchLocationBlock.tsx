@@ -2,12 +2,12 @@ import React, { MouseEvent } from "react";
 import {
   GeocoderResult as GoogleGeocoderResult,
   LatLngLiteral as GoogleLatLngLiteral
-} from "@bmi-digital/components";
-import { Grid } from "@bmi-digital/components";
-import { Autocomplete } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
-import { GoogleAutocomplete } from "@bmi-digital/components";
-import { GeolocationButton } from "@bmi-digital/components";
+} from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Autocomplete } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { GoogleAutocomplete } from "@bmi/components";
+import { GeolocationButton } from "@bmi/components";
 import AutoCompleteCountryMap from "../../../countries/GoogleCountryCodeMap";
 import styles from "../styles/ServiceLocatorSection.module.scss";
 import { useSiteContext } from "../../Site";
@@ -20,7 +20,7 @@ interface SearchLocationBlockProps {
   handlePlaceChange: (location?: GoogleGeocoderResult) => void;
   options: string[];
   getPosition: () => (
-    position: Position,
+    position: GeolocationPosition,
     event: MouseEvent<HTMLButtonElement>
   ) => void;
   userPosition: { location: GoogleLatLngLiteral };

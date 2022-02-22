@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useTranslation } from "next-i18next";
-import { Button } from "@bmi-digital/components";
-import { Table } from "@bmi-digital/components";
-import { AnchorLink } from "@bmi-digital/components";
-import { Accordion } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
+import { Button } from "@bmi/components";
+import { Table } from "@bmi/components";
+import { AnchorLink } from "@bmi/components";
+import { Accordion } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import Check from "@material-ui/icons/Check";
 import { gql } from "@apollo/client";
 import {

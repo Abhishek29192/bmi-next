@@ -2,19 +2,19 @@ import {
   HubspotProvider,
   useHubspotForm
 } from "@aaronhayes/react-use-hubspot-form";
-import { Button, ButtonProps } from "@bmi-digital/components";
-import { Form } from "@bmi-digital/components";
-import { InputValue } from "@bmi-digital/components";
-import { Grid } from "@bmi-digital/components";
-import { Section } from "@bmi-digital/components";
-import { AnchorLink } from "@bmi-digital/components";
-import { getFileSizeString } from "@bmi-digital/components";
-import { Upload } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
-import { RadioGroup } from "@bmi-digital/components";
-import { Select, SelectMenuItem } from "@bmi-digital/components";
-import { Checkbox } from "@bmi-digital/components";
-import { TextField } from "@bmi-digital/components";
+import { Button, ButtonProps } from "@bmi/components";
+import { Form } from "@bmi/components";
+import { InputValue } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { AnchorLink } from "@bmi/components";
+import { getFileSizeString } from "@bmi/components";
+import { Upload } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { RadioGroup } from "@bmi/components";
+import { Select, SelectMenuItem } from "@bmi/components";
+import { Checkbox } from "@bmi/components";
+import { TextField } from "@bmi/components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";

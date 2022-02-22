@@ -1,12 +1,12 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
-import { Grid } from "@bmi-digital/components";
-import { Form } from "@bmi-digital/components";
-import { Dialog } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
-import { TextField } from "@bmi-digital/components";
-import { Select, SelectMenuItem } from "@bmi-digital/components";
-import { AlertBanner } from "@bmi-digital/components";
+import { Grid } from "@bmi/components";
+import { Form } from "@bmi/components";
+import { Dialog } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { TextField } from "@bmi/components";
+import { Select, SelectMenuItem } from "@bmi/components";
+import { AlertBanner } from "@bmi/components";
 import { useMarketContext } from "../../context/MarketContext";
 import {
   validateEmailInput,

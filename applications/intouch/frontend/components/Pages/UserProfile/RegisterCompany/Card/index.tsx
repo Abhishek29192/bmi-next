@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
-import { Card, CardContent, CardActions } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
-import { Button } from "@bmi-digital/components";
+import { Card, CardContent, CardActions } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Button } from "@bmi/components";
 import { RegisterCompanyDialog } from "../Dialog";
 import styles from "./styles.module.scss";
 

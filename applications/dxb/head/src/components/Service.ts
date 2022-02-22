@@ -1,5 +1,5 @@
 import { graphql } from "gatsby";
-import { RoofProLevel } from "@bmi-digital/components";
+import { RoofProLevel } from "@bmi/components";
 
 export type ServiceType = RooferTypesEnum | BranchTypesEnum | MerchantTypesEnum;
 

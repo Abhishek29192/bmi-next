@@ -1,6 +1,6 @@
-import { Button, ButtonProps, ClickableAction } from "@bmi-digital/components";
-import { Icon, iconMap } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
+import { Button, ButtonProps, ClickableAction } from "@bmi/components";
+import { Icon, iconMap } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import { GetApp } from "@material-ui/icons";
 import filesize from "filesize";
 import React from "react";

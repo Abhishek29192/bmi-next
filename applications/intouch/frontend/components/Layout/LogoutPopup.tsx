@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "next-i18next";
-import { Dialog } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
+import { Dialog } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import { useIdleTimer } from "react-idle-timer";
 import { Warning } from "@material-ui/icons";
 import styles from "./styles.module.scss";

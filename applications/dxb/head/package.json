@@ -32,7 +32,7 @@
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.0",
     "@babel/plugin-proposal-decorators": "^7.13.5",
-    "@bmi-digital/components": "1.2.0",
+    "@bmi/components": "1.2.0-monorepo",
     "@bmi-digital/styles": "1.0.1",
     "@bmi-digital/svg-import": "1.0.1",
     "@contentful/rich-text-react-renderer": "^13.4.0",

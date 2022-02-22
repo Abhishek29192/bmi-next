@@ -8,7 +8,7 @@ import {
   Icon,
   IconButtonProps,
   iconMap
-} from "@bmi-digital/components";
+} from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
 import AssetHeader from "./_AssetHeader";
 import { Data as AssetTypeData } from "./AssetType";

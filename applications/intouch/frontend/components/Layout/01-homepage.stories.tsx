@@ -1,8 +1,8 @@
 import React from "react";
-import { Hero } from "@bmi-digital/components";
-import { Grid } from "@bmi-digital/components";
-import { Section } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
+import { Hero } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import { Layout, LayoutProps } from ".";
 
 export default {

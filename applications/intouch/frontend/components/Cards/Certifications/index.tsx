@@ -7,9 +7,9 @@ import {
   CertificationFlatRoof,
   CertificationOtherTraining,
   CertificationPitchedRoof
-} from "@bmi-digital/components";
+} from "@bmi/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import { Typography } from "@bmi-digital/components";
+import { Typography } from "@bmi/components";
 import { SimpleCard } from "../SimpleCard";
 import styles from "./styles.module.scss";
 

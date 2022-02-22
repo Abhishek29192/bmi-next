@@ -1,7 +1,7 @@
 import React from "react";
-import { Form } from "@bmi-digital/components";
-import { Grid } from "@bmi-digital/components";
-import { TextField } from "@bmi-digital/components";
+import { Form } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { TextField } from "@bmi/components";
 import Field from "./_Field";
 import FormSection from "./_FormSection";
 import styles from "./FlatRoofCalculator.module.scss";

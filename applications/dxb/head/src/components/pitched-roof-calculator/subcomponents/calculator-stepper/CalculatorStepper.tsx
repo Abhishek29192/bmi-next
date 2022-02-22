@@ -1,8 +1,8 @@
 import React, { FormEvent } from "react";
 import classnames from "classnames";
-import { Typography } from "@bmi-digital/components";
-import { Button } from "@bmi-digital/components";
-import { Form } from "@bmi-digital/components";
+import { Typography } from "@bmi/components";
+import { Button } from "@bmi/components";
+import { Form } from "@bmi/components";
 import Divider from "@material-ui/core/Divider";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import styles from "./CalculatorStepper.module.scss";

@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  AnchorLink,
-  Button,
-  Dialog,
-  Icon,
-  Tooltip
-} from "@bmi-digital/components";
+import { AnchorLink, Button, Dialog, Icon, Tooltip } from "@bmi/components";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import InfoIcon from "@material-ui/icons/Info";
 import { microCopy } from "../constants/microCopies";

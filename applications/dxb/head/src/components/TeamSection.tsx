@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Grid } from "@bmi-digital/components";
-import { Tabs } from "@bmi-digital/components";
-import { Section, SectionBackgroundColor } from "@bmi-digital/components";
-import { Container } from "@bmi-digital/components";
+import { Grid } from "@bmi/components";
+import { Tabs } from "@bmi/components";
+import { Section, SectionBackgroundColor } from "@bmi/components";
+import { Container } from "@bmi/components";
 import { Tab, TabProps } from "@material-ui/core";
 import classnames from "classnames";
 import RichText, { RichTextData } from "../components/RichText";

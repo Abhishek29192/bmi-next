@@ -5,7 +5,7 @@
 // https://gitlab.com/bmi-digital/dxb/-/merge_requests/1672
 
 import React, { useEffect, useContext, useState, ElementType } from "react";
-import { FormContext, ValidationResult } from "@bmi-digital/components";
+import { FormContext, ValidationResult } from "@bmi/components";
 
 export type InputValue = string | number | boolean | File[] | string[];
 

@@ -37,9 +37,7 @@ module.exports = {
     "(?<!\\.module)\\.s?css$": require.resolve("./jest/src/GlobalCSS.ts"),
     "\\.svg$": require.resolve("./jest/src/SVGImport.tsx"),
     "\\.(woff2|ttf)$": require.resolve("./jest/src/FontImport.ts"),
-    "^@bmi/(?!visualiser/data)(.*)$": "<rootDir>/node_modules/@bmi/$1/src",
-    "^@bmi-digital/components(.*)$":
-      "<rootDir>/node_modules/@bmi-digital/components/src"
+    "^@bmi/(?!visualiser/data)(.*)$": "<rootDir>/node_modules/@bmi/$1/src"
   },
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",

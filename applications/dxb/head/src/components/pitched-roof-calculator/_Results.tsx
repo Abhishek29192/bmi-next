@@ -6,7 +6,7 @@ import {
   Grid,
   TextField,
   Typography
-} from "@bmi-digital/components";
+} from "@bmi/components";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import QuantityTable from "./subcomponents/quantity-table/QuantityTable";

@@ -1,8 +1,8 @@
 import React from "react";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-import { Typography } from "@bmi-digital/components";
-import { Icon } from "@bmi-digital/components";
+import { Typography } from "@bmi/components";
+import { Icon } from "@bmi/components";
 import { ChevronRight } from "@material-ui/icons";
 import styles from "./styles.module.scss";
 

@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "@bmi-digital/components";
-import { OverviewCard, OverviewCardProps } from "@bmi-digital/components";
-import { Grid } from "@bmi-digital/components";
+import { Button } from "@bmi/components";
+import { OverviewCard, OverviewCardProps } from "@bmi/components";
+import { Grid } from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
 import { Data as DocumentData } from "./Document";

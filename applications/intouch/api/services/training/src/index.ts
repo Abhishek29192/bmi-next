@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-import { WinstonLogger } from "@bmi-digital/logger";
+import { WinstonLogger } from "@bmi/logger";
 import { setEnvFromSecrets } from "./services/secrets";
 import { postgraphile } from "./postgraphile";
 import docebo from "./middleware/docebo";

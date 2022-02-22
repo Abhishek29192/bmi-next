@@ -3,7 +3,7 @@ import {
   parse as queryString,
   stringify as stringifyQueryString
 } from "query-string";
-import { FormProps } from "@bmi-digital/components";
+import { FormProps } from "@bmi/components";
 import { FieldsDisplay } from "./types/FieldsDisplay";
 import styles from "./FlatRoofCalculator.module.scss";
 import { getSystem } from "./calculations/getSystem";

@@ -1,7 +1,7 @@
 import React from "react";
-import { Grid } from "@bmi-digital/components";
-import { Hero } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
+import { Grid } from "@bmi/components";
+import { Hero } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import { TrainingQuery } from "../../graphql/generated/operations";
 import { CourseDescription } from "../Cards/CourseDescription";
 import { TrainingProcessCard } from "../Cards/TrainingProcess";

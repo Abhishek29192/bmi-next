@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
-import {
-  GoogleAutocomplete,
-  GoogleAutocompleteProps
-} from "@bmi-digital/components";
+import { GoogleAutocomplete, GoogleAutocompleteProps } from "@bmi/components";
 import {
   Google,
   GoogleApi,
   loadGoogleApi,
   GeocoderResult
-} from "@bmi-digital/components";
-import { GoogleMap, GoogleMapProps } from "@bmi-digital/components";
+} from "@bmi/components";
+import { GoogleMap, GoogleMapProps } from "@bmi/components";
 import { Address, Point } from "@bmi/intouch-api-types";
 import { addressFromPlaceApiResponse } from "./placeApiResponseToAddress";
 import styles from "./styles.module.scss";

@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { Typography } from "@bmi-digital/components";
+import { Typography } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { SvgIcon } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";

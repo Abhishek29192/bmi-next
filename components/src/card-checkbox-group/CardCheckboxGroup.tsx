@@ -48,7 +48,7 @@ const CardCheckboxGroup = ({
 
   const options = useMemo(
     () =>
-      Array.from(
+      Array.from<string>(
         React.Children.toArray(children).reduce((acc: Set<string>, child) => {
           if (isRadioItemElement(child)) {
             const { value } = child.props;
@@ -56,7 +56,7 @@ const CardCheckboxGroup = ({
           }
 
           return acc;
-        }, new Set<string>())
+        }, new Set<string>()) as Set<string>
       ),
     [children]
   );

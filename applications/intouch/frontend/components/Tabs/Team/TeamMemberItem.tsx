@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
-import { Table } from "@bmi-digital/components";
-import { Button } from "@bmi-digital/components";
+import { Table } from "@bmi/components";
+import { Button } from "@bmi/components";
 import { ProjectMember, Technology } from "@bmi/intouch-api-types";
 import DeleteIcon from "@material-ui/icons/Delete";
 import CheckBoxOutlineBlank from "@material-ui/icons/CheckBoxOutlineBlank";

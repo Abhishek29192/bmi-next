@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
-import { ProfileCard } from "@bmi-digital/components";
-import { Button } from "@bmi-digital/components";
+import { ProfileCard } from "@bmi/components";
+import { Button } from "@bmi/components";
 import { Email, Phone, Edit } from "@material-ui/icons";
 import { GetUserProfileQuery } from "../../../../graphql/generated/operations";
 import { useResetPasswordMutation } from "../../../../graphql/generated/hooks";

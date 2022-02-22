@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { CardRadioGroup } from "@bmi-digital/components";
-import { CardCheckboxGroup } from "@bmi-digital/components";
+import { CardRadioGroup } from "@bmi/components";
+import { CardCheckboxGroup } from "@bmi/components";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import { AnalyticsContext } from "./helpers/analytics";

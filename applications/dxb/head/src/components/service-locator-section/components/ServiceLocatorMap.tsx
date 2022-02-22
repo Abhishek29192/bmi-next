@@ -1,14 +1,14 @@
 import {
   LatLngLiteral as GoogleLatLngLiteral,
   MarkerOptionsWithData
-} from "@bmi-digital/components";
-import { CompanyDetailProps } from "@bmi-digital/components";
-import { GoogleMap } from "@bmi-digital/components";
-import { Card } from "@bmi-digital/components";
-import { CardContent, CardHeader } from "@bmi-digital/components";
-import { Button } from "@bmi-digital/components";
-import { CompanyDetails } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
+} from "@bmi/components";
+import { CompanyDetailProps } from "@bmi/components";
+import { GoogleMap } from "@bmi/components";
+import { Card } from "@bmi/components";
+import { CardContent, CardHeader } from "@bmi/components";
+import { Button } from "@bmi/components";
+import { CompanyDetails } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import CloseIcon from "@material-ui/icons/Close";
 import React from "react";
 import { EVENT_CAT_ID_LINK_CLICKS } from "../constants";

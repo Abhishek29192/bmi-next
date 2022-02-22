@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from "react";
-import { Typography } from "@bmi-digital/components";
-import { Button } from "@bmi-digital/components";
+import { Typography } from "@bmi/components";
+import { Button } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { Technology } from "@bmi/intouch-api-types";
-import { Icon, FlatRoof, PitchedRoof } from "@bmi-digital/components";
+import { Icon, FlatRoof, PitchedRoof } from "@bmi/components";
 import { FilterResult } from "../FilterResult";
 import { SidePanel } from "../SidePanel";
 import { NewProjectDialog } from "../Pages/Project/CreateProject/Dialog";

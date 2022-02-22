@@ -8,19 +8,19 @@ import React, {
   useRef,
   useState
 } from "react";
-import { Button } from "@bmi-digital/components";
-import { Card, CardActions, CardContent } from "@bmi-digital/components";
-import { ContainerDialog } from "@bmi-digital/components";
-import { Grid } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
+import { Button } from "@bmi/components";
+import { Card, CardActions, CardContent } from "@bmi/components";
+import { ContainerDialog } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import {
   SelectRoof,
   SelectTile,
   SelectWallColour,
   TileColour
-} from "@bmi-digital/components";
-import { Logo, BMI } from "@bmi-digital/components";
-import { ToggleCard } from "@bmi-digital/components";
+} from "@bmi/components";
+import { Logo, BMI } from "@bmi/components";
+import { ToggleCard } from "@bmi/components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Popover from "@material-ui/core/Popover";
 import SvgIcon from "@material-ui/core/SvgIcon";

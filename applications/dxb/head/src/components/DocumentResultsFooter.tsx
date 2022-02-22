@@ -1,6 +1,6 @@
-import { Button, ButtonProps } from "@bmi-digital/components";
-import { DownloadList, DownloadListContext } from "@bmi-digital/components";
-import { Pagination } from "@bmi-digital/components";
+import { Button, ButtonProps } from "@bmi/components";
+import { DownloadList, DownloadListContext } from "@bmi/components";
+import { Pagination } from "@bmi/components";
 import axios from "axios";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";

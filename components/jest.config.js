@@ -4,7 +4,7 @@ const sharedConfig = require("../jest.config");
 
 module.exports = {
   ...sharedConfig,
-  rootDir: "../../../",
+  rootDir: "../",
   roots: ["<rootDir>/components/src"],
   collectCoverageFrom: ["<rootDir>/components/src/**/*.{ts,tsx,js}"],
   coverageThreshold: {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
-import { Button } from "@bmi-digital/components";
-import { Section } from "@bmi-digital/components";
+import { Button } from "@bmi/components";
+import { Section } from "@bmi/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import {

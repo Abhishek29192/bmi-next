@@ -18,8 +18,8 @@ import { googleMock } from "../__mocks__/google";
 
 let callMarkerOnClick;
 
-jest.mock("@bmi-digital/components", () => {
-  const originalModule = jest.requireActual("@bmi-digital/components");
+jest.mock("@bmi/components", () => {
+  const originalModule = jest.requireActual("@bmi/components");
 
   const GoogleMap = jest
     .fn()

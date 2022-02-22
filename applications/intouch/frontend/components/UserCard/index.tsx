@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { CompanyDetails, CompanyDetailProps } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
+import { CompanyDetails, CompanyDetailProps } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import Avatar from "@material-ui/core/Avatar";
-import { Button } from "@bmi-digital/components";
+import { Button } from "@bmi/components";
 import { Account, Role } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
 import AccessControl from "../../lib/permissions/AccessControl";

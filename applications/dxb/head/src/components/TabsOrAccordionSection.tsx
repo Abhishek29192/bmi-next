@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Accordion, AccordionSummaryProps } from "@bmi-digital/components";
-import { Section } from "@bmi-digital/components";
-import { Tabs } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
+import { Accordion, AccordionSummaryProps } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { Tabs } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import Tab, { TabProps } from "@material-ui/core/Tab";
 import withGTM from "../utils/google-tag-manager";
 import RichText from "../components/RichText";

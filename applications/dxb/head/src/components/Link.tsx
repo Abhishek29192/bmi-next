@@ -1,6 +1,6 @@
 import uniqueId from "lodash-es/uniqueId";
-import { Clickable, ClickableAction } from "@bmi-digital/components";
-import { Dialog } from "@bmi-digital/components";
+import { Clickable, ClickableAction } from "@bmi/components";
+import { Dialog } from "@bmi/components";
 import { graphql, Link as GatsbyLink } from "gatsby";
 import React, { useCallback, useContext, useMemo, useState } from "react";
 import { Data as SimplePageData } from "../templates/simplePage/components/simple-page";

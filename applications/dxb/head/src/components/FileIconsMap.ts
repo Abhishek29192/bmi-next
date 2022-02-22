@@ -1,4 +1,4 @@
-import { iconMap } from "@bmi-digital/components";
+import { iconMap } from "@bmi/components";
 import { Format } from "./types";
 
 const fileIconsMap: Record<Format, React.ComponentType> = {

@@ -15,7 +15,7 @@ module.exports = withFonts({
       include: [
         path
           .resolve(config.context, "../../../")
-          .replace("@bmi-digital/components", "@bmi/components-delete-me")
+          .replace("@bmi/components", "@bmi/components-delete-me")
       ],
       use: defaultLoaders.babel,
       exclude: (excludePath) => {

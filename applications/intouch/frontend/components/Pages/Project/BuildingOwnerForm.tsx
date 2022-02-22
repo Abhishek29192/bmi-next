@@ -1,9 +1,9 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import { Form, FormProps } from "@bmi-digital/components";
-import { TextField } from "@bmi-digital/components";
-import { Grid } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
+import { Form, FormProps } from "@bmi/components";
+import { TextField } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import { findProjectGuarantee } from "../../../lib/utils/project";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
 // TODO: move/split styles?

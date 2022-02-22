@@ -1,7 +1,7 @@
 import React, { createContext, useLayoutEffect, useRef, useState } from "react";
 import classnames from "classnames";
-import { ThemeProvider } from "@bmi-digital/components";
-import { DialogClassNameContext } from "@bmi-digital/components";
+import { ThemeProvider } from "@bmi/components";
+import { DialogClassNameContext } from "@bmi/components";
 import type { ThemeOptions } from "@material-ui/core/styles";
 
 import styles from "./styles/BrandProvider.module.scss";

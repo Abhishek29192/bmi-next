@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import { AlertBanner } from "@bmi-digital/components";
-import { Button } from "@bmi-digital/components";
-import { Cross as IconCross } from "@bmi-digital/components";
+import { AlertBanner } from "@bmi/components";
+import { Button } from "@bmi/components";
+import { Cross as IconCross } from "@bmi/components";
 import { MessageProp } from "./";
 
 type Props = {

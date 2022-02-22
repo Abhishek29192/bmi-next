@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
-import { PromoSection } from "@bmi-digital/components";
+import { Button } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { PromoSection } from "@bmi/components";
 import { Data as PromoData } from "./Promo";
 import { getClickableActionFromUrl } from "./Link";
 import { renderVideo } from "./Video";

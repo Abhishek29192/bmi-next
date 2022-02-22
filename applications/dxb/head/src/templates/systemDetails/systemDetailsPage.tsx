@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { graphql } from "gatsby";
-import { Section } from "@bmi-digital/components";
-import { Grid } from "@bmi-digital/components";
+import { Section } from "@bmi/components";
+import { Grid } from "@bmi/components";
 import Page from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {

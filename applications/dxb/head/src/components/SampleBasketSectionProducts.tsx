@@ -1,8 +1,8 @@
 import React from "react";
-import { OverviewCard } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
-import { Icon } from "@bmi-digital/components";
-import { Button } from "@bmi-digital/components";
+import { OverviewCard } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Icon } from "@bmi/components";
+import { Button } from "@bmi/components";
 import { Remove } from "@material-ui/icons";
 import { navigate } from "gatsby";
 import { useMediaQuery, useTheme } from "@material-ui/core";

@@ -15,7 +15,7 @@
   "dependencies": {
     "@apollo/federation": "^0.27.0",
     "@apollo/gateway": "^0.34.0",
-    "@bmi-digital/logger": "0.0.11",
+    "@bmi/logger": "0.0.11",
     "@google-cloud/secret-manager": "^3.8.1",
     "@graphql-tools/delegate": "^7.1.5",
     "@graphql-tools/wrap": "^7.0.8",
@@ -31,7 +31,7 @@
     "graphql-playground-middleware-express": "^1.7.22",
     "graphql-transform-federation": "^2.2.0",
     "graphql-upload": "^12.0.0",
-    "typescript": "^4.3.5"
+    "typescript": "^4.5.5"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.0.0",

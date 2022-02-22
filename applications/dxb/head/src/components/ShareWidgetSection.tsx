@@ -1,6 +1,6 @@
-import { Button, ButtonProps } from "@bmi-digital/components";
-import { Section } from "@bmi-digital/components";
-import { ShareWidget } from "@bmi-digital/components";
+import { Button, ButtonProps } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { ShareWidget } from "@bmi/components";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";

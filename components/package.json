@@ -1,6 +1,6 @@
 {
-  "name": "@bmi-digital/components",
-  "version": "1.2.0",
+  "name": "@bmi/components",
+  "version": "1.2.0-monorepo",
   "license": "UNLICENSED",
   "src": "src/index.ts",
   "main": "dist/src/index.js",
@@ -8,10 +8,10 @@
   "scripts": {
     "check:ts": "tsc",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
-    "build": "yarn run check:ts -p tsconfig.build.json && copyfiles -e 'node_modules/**' -e 'dist/**' package.json **/*.woff2 **/*.scss **/*.svg dist",
+    "build": "yarn run check:ts -p tsconfig.json && copyfiles -e 'node_modules/**' -e 'dist/**' package.json **/*.woff2 **/*.scss **/*.svg dist",
     "prepare": "husky install",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "workbench": "styleguidist server",
+    "workbench:build": "styleguidist build"
   },
   "files": [
     "dist/",
@@ -630,6 +630,7 @@
     "@semantic-release/gitlab": "^7.0.4",
     "@semantic-release/release-notes-generator": "^10.0.3",
     "@svgr/rollup": "^6.2.1",
+    "@svgr/webpack": "^6.2.1",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
@@ -671,10 +672,13 @@
     "jest-mock-console": "^1.2.3",
     "lint-staged": "^12.3.4",
     "node-sass": "^7.0.1",
+    "postcss-loader": "^6.2.1",
     "postcss-nesting": "^10.1.2",
     "prettier": "^2.5.1",
     "react": "^16.13.1",
+    "react-docgen-typescript": "^2.2.2",
     "react-dom": "^16.13.1",
+    "react-styleguidist": "11.1.6",
     "rimraf": "^3.0.2",
     "rollup": "^2.67.2",
     "rollup-plugin-collect-sass": "^1.0.9",
@@ -686,8 +690,11 @@
     "semantic-release": "^19.0.2",
     "snapshot-diff": "^0.8.1",
     "ts-jest": "^27.0.7",
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
     "tslib": "^2.3.1",
     "typescript": "^4.5.5",
+    "webpack": "^5.33.2",
+    "webpack-cli": "^4.9.2",
     "yalc": "^1.0.0-pre.53"
   },
   "peerDependencies": {

@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Dialog } from "@bmi-digital/components";
+import { Dialog } from "@bmi/components";
 import classnames from "classnames";
 import useStickyState from "../utils/sticky-state";
 import { microCopy } from "../constants/microCopies";

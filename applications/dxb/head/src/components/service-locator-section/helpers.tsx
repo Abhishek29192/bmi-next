@@ -4,11 +4,8 @@ import {
   CompanyDetailProps,
   LatLngLiteral,
   RoofProLevel
-} from "@bmi-digital/components";
-import {
-  computeDistanceBetween,
-  MarkerOptionsWithData
-} from "@bmi-digital/components";
+} from "@bmi/components";
+import { computeDistanceBetween, MarkerOptionsWithData } from "@bmi/components";
 import { devLog } from "../../utils/devLog";
 import {
   EntryTypeEnum,

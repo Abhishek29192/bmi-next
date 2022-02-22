@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
-import { ProductOverviewPaneProps } from "@bmi-digital/components";
-import { Image as ImageGalleryImage } from "@bmi-digital/components";
+import { ProductOverviewPaneProps } from "@bmi/components";
+import { Image as ImageGalleryImage } from "@bmi/components";
 import React from "react";
 import {
   Category,

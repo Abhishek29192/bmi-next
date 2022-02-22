@@ -1,8 +1,8 @@
 import React from "react";
 import classnames from "classnames";
-import { Icon } from "@bmi-digital/components";
-import { Table } from "@bmi-digital/components";
-import { Typography } from "@bmi-digital/components";
+import { Icon } from "@bmi/components";
+import { Table } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import { Delete } from "@material-ui/icons";
 import UpDownSimpleNumericInput from "../up-down-simple-numeric-input/UpDownSimpleNumericInput";
 import styles from "./QuantityTable.module.scss";
