@@ -13,4 +13,16 @@ const createAssetType = (
   ...assetType
 });
 
+export const createAssetTypeInvalid = (
+  assetType?: Partial<AssetTypeData>
+): AssetTypeData => ({
+  __typename: "ContentfulAssetType",
+  id: "asset-id",
+  name: "asset-name",
+  code: "invalid",
+  description: createRichText(),
+  pimCode: "asset-pim-code",
+  ...assetType
+});
+
 export default createAssetType;

@@ -69,3 +69,143 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`DocumentSimpleTableResultsMobile component renders correctly when invalid asset types are used 1`] = `
+<div>
+  <div
+    class="DocumentSimpleTableResultsMobile DocumentSimpleTableResults"
+  >
+    <div
+      class="list-item"
+    >
+      <div
+        class="list-title-row"
+      >
+        <div
+          class="list-icon"
+        >
+          <svg
+            class="download-icon"
+          />
+        </div>
+        <p
+          class="MuiTypography-root document-title Typography MuiTypography-body1"
+        >
+          contentful-document-title
+        </p>
+      </div>
+      <div
+        class="list-download-row"
+      >
+        <p
+          class="MuiTypography-root document-type Typography MuiTypography-body1"
+        >
+          asset-name
+        </p>
+        <a
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-text buttonStyles-text-42 MuiButton-textPrimary"
+          data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://doesnot-exist.com/fileName\\"}"
+          href="http://doesnot-exist.com/fileName"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-44"
+          >
+            87.79 KB
+            <span
+              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DocumentSimpleTableResultsMobile component renders correctly when valid asset types are used 1`] = `
+<div>
+  <div
+    class="DocumentSimpleTableResultsMobile DocumentSimpleTableResults"
+  >
+    <div
+      class="list-item"
+    >
+      <div
+        class="list-title-row"
+      >
+        <div
+          class="list-icon"
+        >
+          <svg
+            class="download-icon"
+          />
+        </div>
+        <p
+          class="MuiTypography-root document-title Typography MuiTypography-body1"
+        >
+          contentful-document-title
+        </p>
+      </div>
+      <div
+        class="list-download-row"
+      >
+        <p
+          class="MuiTypography-root document-type Typography MuiTypography-body1"
+        >
+          asset-name
+        </p>
+        <a
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 MuiButton-textPrimary"
+          data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://doesnot-exist.com/fileName\\"}"
+          href="http://doesnot-exist.com/fileName"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-24"
+          >
+            87.79 KB
+            <span
+              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
