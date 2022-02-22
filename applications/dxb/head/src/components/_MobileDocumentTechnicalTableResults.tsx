@@ -61,7 +61,9 @@ const MobileDocumentTechnicalTableResults = ({
                     <div className={styles["icon-container"]}>
                       {asset.__typename !== "PIMLinkDocument" ? (
                         <Icon
-                          source={fileIconsMap[asset.format]}
+                          source={
+                            fileIconsMap[asset.format] || iconMap.External
+                          }
                           className={styles["format-icon"]}
                         />
                       ) : (

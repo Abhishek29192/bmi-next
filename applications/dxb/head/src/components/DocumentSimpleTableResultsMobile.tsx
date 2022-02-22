@@ -39,7 +39,7 @@ export const DocumentSimpleTableResultsMobile = ({ documents }: ListProps) => {
           <div className={stylesMobile["list-icon"]}>
             {document.__typename !== "PIMLinkDocument" ? (
               <Icon
-                source={fileIconsMap[asset.format]}
+                source={fileIconsMap[asset.format] || iconMap.External}
                 className={styles["download-icon"]}
               />
             ) : (
