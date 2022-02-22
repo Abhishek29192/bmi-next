@@ -1,9 +1,9 @@
 test_components:
   stage: test
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master')) || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
-        - components/src/**/*
+        - components/**/*
         - jest/**/*
         - yarn.lock
   needs:
@@ -12,7 +12,7 @@ test_components:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn coverage:jest
+    - yarn workspace @bmi-digital/components coverage:jest
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
   artifacts:
     when: always
@@ -23,9 +23,9 @@ test_components:
 build_components:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master')) || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
-        - src/**/*
+        - components/**/*
         - yarn.lock
   needs:
     - job: install
@@ -33,15 +33,14 @@ build_components:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn check:ts
+    - yarn workspace @bmi-digital/components build
 
 build_styleguide:
   stage: build
   rules:
-    - when: never
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "($CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
-        - components/src/**/*
+        - components/**/*
         - yarn.lock
   needs:
     - job: install
@@ -59,10 +58,9 @@ deploy_styleguide:
   variables:
     FIREBASE_TARGET: "styleguide"
   rules:
-    - when: never
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
-        - src/**/*
+        - components/**/*
   needs:
     - build_styleguide
   before_script:
