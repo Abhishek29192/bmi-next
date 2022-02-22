@@ -36,7 +36,7 @@ exports[`CardCollectionSection component Card label doesn't render button if car
             >
               <button
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":null,\\"action\\":\\"visualiser\\"}"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test\\",\\"action\\":\\"visualiser\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -62,13 +62,145 @@ exports[`CardCollectionSection component Card label doesn't render button if car
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-341 MuiButton-contained buttonStyles-contained-343 link MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-361 MuiButton-contained buttonStyles-contained-363 link MuiButton-containedPrimary"
             data-gtm="{\\"id\\":\\"cta-visualiser1\\",\\"action\\":\\"visualiser\\",\\"label\\":\\"Visualiser\\"}"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-344"
+              class="MuiButton-label buttonStyles-label-364"
+            >
+              Visualiser
+              <span
+                class="MuiButton-endIcon MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CardCollectionSection component Card label renders as name if title is empty string 1`] = `
+<div>
+  <div
+    class="CardCollectionSection"
+  >
+    <div
+      class="Section Section--white"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            test title
+          </h2>
+          <div
+            class="RichText"
+          >
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            >
+              test rich text
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <div
+                class="OverviewCard OverviewCard--flat"
+              >
+                <div
+                  class="body"
+                >
+                  <h4
+                    class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                  >
+                    <button
+                      class="MuiButtonBase-root clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test Name - Visualiser\\",\\"action\\":\\"visualiser\\"}"
+                      tabindex="0"
+                      type="button"
+                    >
+                      test Name
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </h4>
+                  <div
+                    class="children text"
+                  />
+                  <div
+                    class="footer"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-281 MuiButton-outlined MuiButton-outlinedPrimary"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test Name - Visualiser\\",\\"action\\":\\"visualiser\\"}"
+                      data-testid="card-link"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-284"
+                      >
+                        <span
+                          class="MuiButton-startIcon buttonStyles-startIcon-285 MuiButton-iconSizeMedium"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                            />
+                          </svg>
+                        </span>
+                        a string
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-281 MuiButton-contained buttonStyles-contained-283 link MuiButton-containedPrimary"
+            data-gtm="{\\"id\\":\\"cta-visualiser1\\",\\"action\\":\\"visualiser\\",\\"label\\":\\"Visualiser\\"}"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-284"
             >
               Visualiser
               <span
@@ -156,7 +288,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                           <a
                             aria-disabled="false"
                             class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test\\",\\"action\\":\\"/en\\"}"
                             href="/en"
                             role="button"
                             tabindex="0"
@@ -251,7 +383,7 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
@@ -345,7 +477,7 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
@@ -439,7 +571,7 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
@@ -533,7 +665,7 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
@@ -627,7 +759,7 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
@@ -721,7 +853,7 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
@@ -815,7 +947,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
@@ -909,7 +1041,7 @@ exports[`CardCollectionSection component Renders correctly When when dialogConte
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test\\",\\"action\\":\\"/en\\"}"
                   href="/en"
                   role="button"
                   tabindex="0"
@@ -1101,7 +1233,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
@@ -1127,13 +1259,13 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-481 MuiButton-outlined MuiButton-outlinedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-501 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-484"
+                          class="MuiButton-label buttonStyles-label-504"
                         >
                           a string
                         </span>
@@ -1154,7 +1286,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
@@ -1180,13 +1312,13 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-481 MuiButton-outlined MuiButton-outlinedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-501 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-484"
+                          class="MuiButton-label buttonStyles-label-504"
                         >
                           a string
                         </span>
@@ -1207,7 +1339,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
@@ -1233,13 +1365,13 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-481 MuiButton-outlined MuiButton-outlinedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-501 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-484"
+                          class="MuiButton-label buttonStyles-label-504"
                         >
                           a string
                         </span>
@@ -1343,7 +1475,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
@@ -1369,13 +1501,13 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-501 MuiButton-outlined MuiButton-outlinedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-521 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-504"
+                          class="MuiButton-label buttonStyles-label-524"
                         >
                           a string
                         </span>
@@ -1396,7 +1528,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
@@ -1422,13 +1554,13 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-501 MuiButton-outlined MuiButton-outlinedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-521 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-504"
+                          class="MuiButton-label buttonStyles-label-524"
                         >
                           a string
                         </span>
@@ -1449,7 +1581,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
@@ -1475,13 +1607,13 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-501 MuiButton-outlined MuiButton-outlinedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-521 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-504"
+                          class="MuiButton-label buttonStyles-label-524"
                         >
                           a string
                         </span>
@@ -1609,7 +1741,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
@@ -1635,13 +1767,13 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-521 MuiButton-outlined MuiButton-outlinedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-541 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-524"
+                          class="MuiButton-label buttonStyles-label-544"
                         >
                           a string
                         </span>
@@ -1662,7 +1794,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
@@ -1688,13 +1820,13 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-521 MuiButton-outlined MuiButton-outlinedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-541 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-524"
+                          class="MuiButton-label buttonStyles-label-544"
                         >
                           a string
                         </span>
@@ -1715,7 +1847,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3\\",\\"action\\":\\"/no\\"}"
                   href="/no"
                   role="button"
                   tabindex="0"
@@ -1741,13 +1873,13 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       </h6>
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-521 MuiButton-outlined MuiButton-outlinedPrimary"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-541 MuiButton-outlined MuiButton-outlinedPrimary"
                         data-testid="card-link"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-524"
+                          class="MuiButton-label buttonStyles-label-544"
                         >
                           a string
                         </span>

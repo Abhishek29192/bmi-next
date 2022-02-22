@@ -3286,7 +3286,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Testing \\",\\"action\\":\\"frequently-asked-questions/news-article-page/\\"}"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"News article page 2\\",\\"action\\":\\"frequently-asked-questions/news-article-page/\\"}"
                     href="/en/frequently-asked-questions/news-article-page/"
                     role="button"
                     tabindex="0"
@@ -7731,7 +7731,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Testing \\",\\"action\\":\\"frequently-asked-questions/news-article-page/\\"}"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"News article page 2\\",\\"action\\":\\"frequently-asked-questions/news-article-page/\\"}"
                     href="/en/frequently-asked-questions/news-article-page/"
                     role="button"
                     tabindex="0"
@@ -12175,7 +12175,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Testing \\",\\"action\\":\\"frequently-asked-questions/news-article-page/\\"}"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"News article page 2\\",\\"action\\":\\"frequently-asked-questions/news-article-page/\\"}"
                     href="/en/frequently-asked-questions/news-article-page/"
                     role="button"
                     tabindex="0"
@@ -16620,7 +16620,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Testing \\",\\"action\\":\\"frequently-asked-questions/news-article-page/\\"}"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"News article page 2\\",\\"action\\":\\"frequently-asked-questions/news-article-page/\\"}"
                     href="/en/frequently-asked-questions/news-article-page/"
                     role="button"
                     tabindex="0"
@@ -21065,7 +21065,7 @@ exports[`Contact us page render location correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Testing \\",\\"action\\":\\"frequently-asked-questions/news-article-page/\\"}"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"News article page 2\\",\\"action\\":\\"frequently-asked-questions/news-article-page/\\"}"
                     href="/en/frequently-asked-questions/news-article-page/"
                     role="button"
                     tabindex="0"
@@ -25510,7 +25510,7 @@ exports[`Contact us page renders correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Testing \\",\\"action\\":\\"frequently-asked-questions/news-article-page/\\"}"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"News article page 2\\",\\"action\\":\\"frequently-asked-questions/news-article-page/\\"}"
                     href="/en/frequently-asked-questions/news-article-page/"
                     role="button"
                     tabindex="0"
