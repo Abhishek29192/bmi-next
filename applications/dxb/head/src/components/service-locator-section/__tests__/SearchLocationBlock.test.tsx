@@ -2,7 +2,6 @@ import { act, fireEvent, render } from "@testing-library/react";
 import { GoogleApi } from "@bmi/components";
 import React from "react";
 import { SearchLocationBlock } from "../components";
-import { EntryTypeEnum } from "../../Service";
 import "@testing-library/jest-dom";
 import { googleMock } from "../__mocks__/google";
 
@@ -12,7 +11,7 @@ describe("SearchLocationBlock component", () => {
   it("should renders correctly with CircularProgress component if google === undefined", () => {
     const { getByRole } = render(
       <SearchLocationBlock
-        sectionType={EntryTypeEnum.ROOFER_TYPE}
+        autocompleteLabel={"MC: findARoofer.companyFieldLabel"}
         handleAutocompleteOnChange={jest.fn}
         handlePlaceChange={jest.fn}
         options={[]}
@@ -36,7 +35,7 @@ describe("SearchLocationBlock component", () => {
     const testValue = "test2";
     const { getByRole } = render(
       <SearchLocationBlock
-        sectionType={EntryTypeEnum.ROOFER_TYPE}
+        autocompleteLabel={"MC: findARoofer.companyFieldLabel"}
         handleAutocompleteOnChange={jest.fn}
         handlePlaceChange={jest.fn}
         options={["test1", "test2", "test3"]}
@@ -57,7 +56,7 @@ describe("SearchLocationBlock component", () => {
     const { getByRole } = render(
       <GoogleApi.Provider value={googleMock}>
         <SearchLocationBlock
-          sectionType={EntryTypeEnum.ROOFER_TYPE}
+          autocompleteLabel={"MC: findARoofer.companyFieldLabel"}
           handleAutocompleteOnChange={jest.fn}
           handlePlaceChange={jest.fn}
           options={[]}
@@ -91,7 +90,7 @@ describe("SearchLocationBlock component", () => {
     const { getByRole } = render(
       <GoogleApi.Provider value={googleMock}>
         <SearchLocationBlock
-          sectionType={EntryTypeEnum.ROOFER_TYPE}
+          autocompleteLabel={"MC: findARoofer.companyFieldLabel"}
           handleAutocompleteOnChange={jest.fn}
           handlePlaceChange={jest.fn}
           options={[]}
@@ -108,10 +107,9 @@ describe("SearchLocationBlock component", () => {
     expect(getPosition).toHaveBeenCalled();
   });
   it("should render autocomplete input with label merchantNameSearchLabel if sectionType === EntryTypeEnum.MERCHANT_TYPE", () => {
-    const sectionType = EntryTypeEnum.MERCHANT_TYPE;
     const { getByRole } = render(
       <SearchLocationBlock
-        sectionType={sectionType}
+        autocompleteLabel={"MC: findARoofer.merchantNameSearchLabel"}
         handleAutocompleteOnChange={jest.fn}
         handlePlaceChange={jest.fn}
         options={["test1", "test2", "test3"]}
