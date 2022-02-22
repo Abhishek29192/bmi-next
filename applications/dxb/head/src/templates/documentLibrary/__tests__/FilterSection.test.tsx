@@ -31,7 +31,6 @@ describe("FilterSection", () => {
   it("render correctly", () => {
     const { container, getByText } = render(<FilterSection {...props} />);
 
-    expect(container.firstChild).toMatchSnapshot();
     expect(getByText("MC: documentLibrary.filters.title")).toBeTruthy();
     expect(getByText("MC: documentLibrary.filters.clearAll")).toBeTruthy();
     expect(container.querySelector(".Filters")).toBeTruthy();

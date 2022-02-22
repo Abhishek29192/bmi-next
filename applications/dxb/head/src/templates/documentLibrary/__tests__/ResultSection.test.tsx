@@ -49,7 +49,6 @@ describe("ResultSection", () => {
   it("render correctly", () => {
     const { container } = render(<ResultSection {...props} />);
 
-    expect(container.firstChild).toMatchSnapshot();
     expect(container.querySelector(".DocumentSimpleTableResults")).toBeTruthy();
     expect(
       container.querySelectorAll(".DocumentSimpleTableResults .row").length
@@ -74,11 +73,10 @@ describe("ResultSection", () => {
   });
 
   it("not render downloadList when format is set to technicalTable", async () => {
-    const { container, queryByText } = render(
+    const { queryByText } = render(
       <ResultSection {...{ ...props, format: "technicalTable" }} />
     );
 
-    expect(container).toMatchSnapshot();
     expect(queryByText("MC: downloadList.clear")).toBeFalsy();
     expect(queryByText("MC: downloadList.download (0)")).toBeFalsy();
   });
