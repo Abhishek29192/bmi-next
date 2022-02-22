@@ -71,7 +71,7 @@
         "logo": {
           "alt_text": "Firmalogo",
           "buttons": {
-            "remove": "Fjerne",
+            "remove": "Fjern",
             "upload": "Upload nyt billede"
           },
           "fileSizeMessage": "Maksimal filstørrelse 3 mb.",
@@ -163,8 +163,8 @@
   "titleMember": "Virksomhed",
   "order": {
     "labels": {
-      "ALPHABETICAL": "Alphabetical",
-      "UPDATED": "Last Updated"
+      "ALPHABETICAL": "Alfabetisk",
+      "UPDATED": "Sidst opdateret"
     }
   }
 }

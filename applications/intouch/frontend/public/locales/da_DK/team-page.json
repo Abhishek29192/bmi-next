@@ -2,10 +2,10 @@
   "genericError": "En fejl opstod. Prøv venligst igen, eller kontakt en administrator.",
   "invitation": {
     "dialog": {
-      "cancel": "Annuller",
+      "cancel": "Annullér",
       "emails": {
         "helperText": "Tilføj flere medlemmer ved at adskille hver e-mailadresse med et komma",
-        "label": "Modtagerens email adresse"
+        "label": "Modtagerens emailadresse"
       },
       "errorAlreadyMember": "Brugeren er allerede medlem af en anden virksomhed",
       "errorInvitationNotFound": "Ingen invitation fundet",
@@ -42,9 +42,9 @@
     "title": "Brugerhandlinger"
   },
   "user_card": {
-    "add_admin": "Tildel som administrator",
-    "cancel": "Annuller",
-    "confirm": "Bekræfte",
+    "add_admin": "Tildel administratorrettigheder",
+    "cancel": "Annullér",
+    "confirm": "Bekræft",
     "remove": "Fjern fra virksomhed",
     "remove_admin": "Fjern tildelingen som administrator",
     "remove_user_dialog": {

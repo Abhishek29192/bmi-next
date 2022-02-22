@@ -32,7 +32,7 @@
   },
   "passwordReset": {
     "dialog": {
-      "error": "Ein Fehler ist aufgetreten, bitte wenden Sie sich an einen BMI-Administrator",
+      "error": "Ein Fehler ist aufgetreten, bitte wenden Sie sich an ein Mitglied des BMI Akademie Teams",
       "success": "Wir haben Ihnen eine E-Mail mit einem Link zum Zurücksetzen Ihres Passworts gesendet, bitte folgen Sie den Anweisungen in der E-Mail",
       "title": "Passwort zurücksetzen"
     }

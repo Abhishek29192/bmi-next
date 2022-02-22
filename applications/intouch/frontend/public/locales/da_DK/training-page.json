@@ -12,15 +12,15 @@
   },
   "in_progress": "I gang",
   "search": {
-    "inputLabel": "Søg efter traeningskursus"
+    "inputLabel": "Søg efter træningskursus"
   },
   "technology": {
-    "FLAT": "Fladtage",
+    "FLAT": "Flade tage",
     "OTHER": "Andre",
     "PITCHED": "Skråtage"
   },
   "type": {
-    "classroom": "Klasseværelse",
+    "classroom": "Fysisk fremmøde",
     "elearning": "Online kursus",
     "webinar": "Webinar"
   },
