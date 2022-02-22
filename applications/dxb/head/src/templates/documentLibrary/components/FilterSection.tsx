@@ -61,7 +61,7 @@ const DocumentLibraryFilter = ({
               <GTMAccordionSummary
                 gtm={{
                   id: "filter1",
-                  label: props.children!.props!.children,
+                  label: (props.children as JSX.Element)?.props!.children || "",
                   action: "Selector – Filter"
                 }}
                 {...props}

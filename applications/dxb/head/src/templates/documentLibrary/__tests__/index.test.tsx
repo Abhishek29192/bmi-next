@@ -1,3 +1,4 @@
+/* eslint-disable prefer-spread */
 import React from "react";
 import { fireEvent, waitFor } from "@testing-library/react";
 import { renderWithRouter } from "../../../test/renderWithRouter";
@@ -12,6 +13,7 @@ import createClassification from "../../../__tests__/ClassificationHelper";
 import * as devLog from "../../../utils/devLog";
 import * as filterUtils from "../../../utils/filters";
 import * as documentResultsFooter from "../../../components/DocumentResultsFooter";
+import { Data as VideoData } from "../../../components/Video";
 
 const executeRecaptchaSpy = jest.fn().mockResolvedValue("RECAPTCHA");
 jest.mock("react-google-recaptcha-v3", () => {
@@ -38,6 +40,17 @@ describe("Document Library page", () => {
     process.env = OLD_ENV;
   });
 
+  const videoData: VideoData = {
+    __typename: "ContentfulVideo",
+    title: "BMI Group - We see further",
+    label: "BMI Group VIDEO LABEL",
+    subtitle:
+      "BMI Group - The beginning of a new era in the roofing and waterproofing industry.",
+    youtubeId: "TDNEwZbm_Nk",
+    previewMedia: null,
+    videoRatio: { width: 17776, height: 9999 }
+  };
+
   const createData = (): {
     contentfulDocumentLibraryPage: DocumentLibraryPageData;
     contentfulSite: SiteData;
@@ -53,15 +66,7 @@ describe("Document Library page", () => {
       tags: null,
       // TODO: Move Video as option of Media.
       featuredMedia: null,
-      featuredVideo: {
-        title: "BMI Group - We see further",
-        label: "BMI Group VIDEO LABEL",
-        subtitle:
-          "BMI Group - The beginning of a new era in the roofing and waterproofing industry.",
-        youtubeId: "TDNEwZbm_Nk",
-        previewMedia: null,
-        videoRatio: { width: 17776, height: 9999 }
-      },
+      featuredVideo: videoData,
       inputBanner: null,
       seo: null,
       path: "/path",
@@ -103,7 +108,6 @@ describe("Document Library page", () => {
     const { container, getByTestId, getByText } = renderWithRouter(
       <DocumentLibraryPage data={createData()} pageContext={pageContext} />
     );
-    expect(container).toMatchSnapshot();
     expect(container.querySelectorAll("header").length).toBe(1);
     expect(container.querySelectorAll(".Footer").length).toBe(1);
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
@@ -154,11 +158,10 @@ describe("Document Library page", () => {
     };
     const data = createData();
     data.contentfulDocumentLibraryPage.description = richText;
-    const { container, getByText } = renderWithRouter(
+    const { getByText } = renderWithRouter(
       <DocumentLibraryPage data={data} pageContext={pageContext} />
     );
 
-    expect(container).toMatchSnapshot();
     expect(getByText("this is a test paragraph")).toBeTruthy();
   });
 
@@ -169,7 +172,6 @@ describe("Document Library page", () => {
       <DocumentLibraryPage data={data} pageContext={pageContext} />
     );
 
-    expect(container).toMatchSnapshot();
     expect(container.querySelector(".DocumentSimpleTableResults")).toBeTruthy();
     expect(
       container.querySelectorAll(".DocumentSimpleTableResults .row").length
@@ -287,6 +289,7 @@ describe("Document Library page", () => {
     let promise;
     jest.spyOn(filterUtils, "filterDocuments").mockImplementationOnce(
       () =>
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         new Promise((r) => (promise = r))
     );
@@ -432,7 +435,6 @@ describe("Document Library page", () => {
       "MC: documentLibrary.download documentTitle1"
     );
 
-    expect(container).toMatchSnapshot();
     fireEvent.click(checkbox);
     fireEvent.mouseOver(checkbox2);
     expect(

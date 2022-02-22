@@ -92,7 +92,7 @@ exports[`FilterSection render correctly 1`] = `
                 role="region"
               >
                 <div
-                  class="MuiAccordionDetails-root accordionStyles-details-23"
+                  class="MuiAccordionDetails-root accordionStyles-details-23 accordionStyles-details-31"
                 >
                   <div
                     class="list"
@@ -106,14 +106,14 @@ exports[`FilterSection render correctly 1`] = `
                         >
                           <span
                             aria-disabled="false"
-                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-28 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-32 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                             data-gtm="{\\"id\\":\\"filter2\\",\\"label\\":\\"filterLabel\\",\\"action\\":\\"Selector – Filter\\"}"
                           >
                             <span
                               class="MuiIconButton-label"
                             >
                               <input
-                                class="PrivateSwitchBase-input-31"
+                                class="PrivateSwitchBase-input-35"
                                 data-indeterminate="false"
                                 name="value"
                                 type="checkbox"

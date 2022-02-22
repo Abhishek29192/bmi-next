@@ -9,21 +9,21 @@ exports[`ResultSection not render downloadList when format is set to technicalTa
       class="accordion-div"
     >
       <div
-        class="accordionStyles-root-49"
+        class="accordionStyles-root-51"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root accordionStyles-item-50 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-52 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-53"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-55"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product-code\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content accordionStyles-summaryContent-55"
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-57"
             >
               product-name
             </div>
@@ -86,7 +86,7 @@ exports[`ResultSection not render downloadList when format is set to technicalTa
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-67 iconButtonStyles-42-66 iconButtonStyles-text-69"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-73 iconButtonStyles-42-72 iconButtonStyles-text-75"
                           tabindex="0"
                           type="button"
                         >
@@ -142,7 +142,7 @@ exports[`ResultSection not render downloadList when format is set to technicalTa
     >
       <nav
         aria-label="pagination navigation"
-        class="MuiPagination-root pagination"
+        class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-82"
       >
         <ul
           class="MuiPagination-ul"
