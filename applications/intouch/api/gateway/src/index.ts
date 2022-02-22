@@ -1,6 +1,6 @@
 import { Buffer } from "buffer";
 import dotenv from "dotenv";
-import { WinstonLogger } from "@bmi/logger";
+import { WinstonLogger } from "@bmi-digital/logger";
 import { graphqlUploadExpress } from "graphql-upload";
 
 dotenv.config();
