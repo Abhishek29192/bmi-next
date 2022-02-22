@@ -2641,7 +2641,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="Hero Hero--lvl-1"
+      class="Hero Hero--keyline Hero--lvl-1"
     >
       <div
         class="Container"
@@ -6083,7 +6083,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="Hero Hero--lvl-1"
+      class="Hero Hero--keyline Hero--lvl-1"
     >
       <div
         class="Container"
