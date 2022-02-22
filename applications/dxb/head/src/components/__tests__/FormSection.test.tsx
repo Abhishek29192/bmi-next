@@ -208,26 +208,6 @@ describe("FormSection component", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("test options in a Select", () => {
-    const specificData = [
-      {
-        label: "Select",
-        name: "select",
-        options: "Option1",
-        type: "select"
-      }
-    ];
-    const { container, getByTestId, queryAllByRole } = render(
-      <FormInputs inputs={specificData} isNative />
-    );
-    const select = getByTestId("form-section-select");
-    fireEvent.mouseDown(select);
-
-    expect(queryAllByRole("menuitem")).toHaveLength(2);
-    expect(select).toHaveTextContent("MC: form.none.selection");
-    expect(container).toMatchSnapshot();
-  });
-
   it("test handleEmailValidation with correct email", () => {
     const specificData = {
       ...data,
@@ -503,6 +483,26 @@ describe("FormSection component", () => {
     );
     expect(ExternalLinkLabel).toHaveAttribute("rel");
     expect(InternalLinkLabel).not.toHaveAttribute("rel");
+    expect(container).toMatchSnapshot();
+  });
+
+  it("test options in a Select", () => {
+    const specificData = [
+      {
+        label: "Select",
+        name: "select",
+        options: "Option1",
+        type: "select"
+      }
+    ];
+    const { container, getByTestId, queryAllByRole } = render(
+      <FormInputs inputs={specificData} isNative />
+    );
+    const select = getByTestId("form-section-select");
+    fireEvent.mouseDown(select);
+
+    expect(queryAllByRole("menuitem")).toHaveLength(2);
+    expect(select).toHaveTextContent("MC: form.none.selection");
     expect(container).toMatchSnapshot();
   });
 });

@@ -288,6 +288,7 @@ exports[`FormSection component renders correctly 1`] = `
                 </label>
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root Select MuiInputBase-formControl"
+                  data-testid="form-section-select"
                 >
                   <div
                     aria-haspopup="listbox"
@@ -1249,10 +1250,10 @@ exports[`FormSection component test options in a Select 1`] = `
         </svg>
         <fieldset
           aria-hidden="true"
-          class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+          class="PrivateNotchedOutline-root-313 MuiOutlinedInput-notchedOutline"
         >
           <legend
-            class="PrivateNotchedOutline-legendLabelled-3"
+            class="PrivateNotchedOutline-legendLabelled-315"
           >
             <span>
               Select
