@@ -72,6 +72,24 @@ describe("handleMessage", () => {
     expect(commit).toBeCalledTimes(1);
   });
 
+  it("should execute correctly if type is UPDATED and system do not have layers", async () => {
+    const data = createEvent({
+      type: "UPDATED",
+      itemType: "SYSTEMS",
+      items: [
+        {
+          name: "Test System 1",
+          code: "System"
+        }
+      ]
+    });
+
+    await handleMessage(data, {});
+
+    expect(set).toBeCalledTimes(1);
+    expect(commit).toBeCalledTimes(1);
+  });
+
   it("should execute correctly if type is UPDATED and itemType is CATEGORIES", async () => {
     const data = createEvent({
       type: "UPDATED",
