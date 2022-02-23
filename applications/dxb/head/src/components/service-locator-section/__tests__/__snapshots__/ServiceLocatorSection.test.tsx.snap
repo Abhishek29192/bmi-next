@@ -383,7 +383,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -498,26 +498,6 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -851,7 +831,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                               class="CompanyDetails"
                             >
                               <div
-                                class="scrollbar-container ps"
+                                class="scrollbar"
                               >
                                 <dl
                                   class="list"
@@ -946,26 +926,6 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                                 >
                                   roofer summary
                                 </p>
-                                <div
-                                  class="ps__rail-x"
-                                  style="left: 0px; top: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-x"
-                                    style="left: 0px; width: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
-                                <div
-                                  class="ps__rail-y"
-                                  style="top: 0px; left: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-y"
-                                    style="top: 0px; height: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -1019,7 +979,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                               class="CompanyDetails"
                             >
                               <div
-                                class="scrollbar-container ps"
+                                class="scrollbar"
                               >
                                 <dl
                                   class="list"
@@ -1114,26 +1074,6 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                                 >
                                   roofer summary
                                 </p>
-                                <div
-                                  class="ps__rail-x"
-                                  style="left: 0px; top: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-x"
-                                    style="left: 0px; width: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
-                                <div
-                                  class="ps__rail-y"
-                                  style="top: 0px; left: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-y"
-                                    style="top: 0px; height: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -1218,7 +1158,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -1369,26 +1309,6 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -1774,7 +1694,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -1889,26 +1809,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -1962,7 +1862,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -2077,26 +1977,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -2150,7 +2030,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -2265,26 +2145,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -2338,7 +2198,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -2453,26 +2313,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -2526,7 +2366,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -2641,26 +2481,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -2993,7 +2813,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -3088,26 +2908,6 @@ exports[`ServiceLocatorSection component close button 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -3161,7 +2961,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -3256,26 +3056,6 @@ exports[`ServiceLocatorSection component close button 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -3611,7 +3391,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                               class="CompanyDetails"
                             >
                               <div
-                                class="scrollbar-container ps"
+                                class="scrollbar"
                               >
                                 <dl
                                   class="list"
@@ -3706,26 +3486,6 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                                 >
                                   roofer summary
                                 </p>
-                                <div
-                                  class="ps__rail-x"
-                                  style="left: 0px; top: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-x"
-                                    style="left: 0px; width: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
-                                <div
-                                  class="ps__rail-y"
-                                  style="top: 0px; left: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-y"
-                                    style="top: 0px; height: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -3972,7 +3732,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -4057,26 +3817,6 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -4130,7 +3870,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -4215,26 +3955,6 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -4608,7 +4328,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -4691,26 +4411,6 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -4764,7 +4464,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -4847,26 +4547,6 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -5240,7 +4920,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -5355,26 +5035,6 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -5428,7 +5088,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -5543,26 +5203,6 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -5616,7 +5256,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -5711,26 +5351,6 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -6209,7 +5829,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -6294,26 +5914,6 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -6367,7 +5967,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -6452,26 +6052,6 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -6665,7 +6245,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -6750,26 +6330,6 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -6823,7 +6383,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -6908,26 +6468,6 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -7260,7 +6800,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -7343,26 +6883,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -7416,7 +6936,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -7499,26 +7019,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -7851,7 +7351,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -7934,26 +7434,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -8007,7 +7487,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -8090,26 +7570,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -8442,7 +7902,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -8525,26 +7985,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -8598,7 +8038,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -8681,26 +8121,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -9170,7 +8590,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -9285,26 +8705,6 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -9358,7 +8758,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -9473,26 +8873,6 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -9825,7 +9205,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -9920,26 +9300,6 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -9993,7 +9353,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -10088,26 +9448,6 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -10517,7 +9857,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -10632,26 +9972,6 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -10705,7 +10025,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -10820,26 +10140,6 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -11172,7 +10472,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -11287,26 +10587,6 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -11360,7 +10640,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -11475,26 +10755,6 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -11827,7 +11087,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -11922,26 +11182,6 @@ exports[`ServiceLocatorSection component renders single service with No service 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -12274,7 +11514,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -12369,26 +11609,6 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -12768,7 +11988,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -12883,26 +12103,6 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -13235,7 +12435,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -13350,26 +12550,6 @@ exports[`ServiceLocatorSection component renders single service with single serv
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -13703,7 +12883,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                               class="CompanyDetails"
                             >
                               <div
-                                class="scrollbar-container ps"
+                                class="scrollbar"
                               >
                                 <dl
                                   class="list"
@@ -13798,26 +12978,6 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                                 >
                                   roofer summary
                                 </p>
-                                <div
-                                  class="ps__rail-x"
-                                  style="left: 0px; top: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-x"
-                                    style="left: 0px; width: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
-                                <div
-                                  class="ps__rail-y"
-                                  style="top: 0px; left: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-y"
-                                    style="top: 0px; height: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -14154,7 +13314,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                               class="CompanyDetails"
                             >
                               <div
-                                class="scrollbar-container ps"
+                                class="scrollbar"
                               >
                                 <dl
                                   class="list"
@@ -14249,26 +13409,6 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                                 >
                                   roofer summary
                                 </p>
-                                <div
-                                  class="ps__rail-x"
-                                  style="left: 0px; top: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-x"
-                                    style="left: 0px; width: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
-                                <div
-                                  class="ps__rail-y"
-                                  style="top: 0px; left: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-y"
-                                    style="top: 0px; height: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -14322,7 +13462,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                               class="CompanyDetails"
                             >
                               <div
-                                class="scrollbar-container ps"
+                                class="scrollbar"
                               >
                                 <dl
                                   class="list"
@@ -14417,26 +13557,6 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                                 >
                                   roofer summary
                                 </p>
-                                <div
-                                  class="ps__rail-x"
-                                  style="left: 0px; top: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-x"
-                                    style="left: 0px; width: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
-                                <div
-                                  class="ps__rail-y"
-                                  style="top: 0px; left: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-y"
-                                    style="top: 0px; height: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -14799,7 +13919,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -14894,26 +14014,6 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -15246,7 +14346,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -15341,26 +14441,6 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -15445,7 +14525,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                           class="CompanyDetails"
                         >
                           <div
-                            class="scrollbar-container ps"
+                            class="scrollbar"
                           >
                             <dl
                               class="list"
@@ -15568,26 +14648,6 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                             >
                               roofer summary
                             </p>
-                            <div
-                              class="ps__rail-x"
-                              style="left: 0px; top: 0px;"
-                            >
-                              <div
-                                class="ps__thumb-x"
-                                style="left: 0px; width: 0px;"
-                                tabindex="0"
-                              />
-                            </div>
-                            <div
-                              class="ps__rail-y"
-                              style="top: 0px; left: 0px;"
-                            >
-                              <div
-                                class="ps__thumb-y"
-                                style="top: 0px; height: 0px;"
-                                tabindex="0"
-                              />
-                            </div>
                           </div>
                         </div>
                       </div>
@@ -15905,7 +14965,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                               class="CompanyDetails"
                             >
                               <div
-                                class="scrollbar-container ps"
+                                class="scrollbar"
                               >
                                 <dl
                                   class="list"
@@ -16000,26 +15060,6 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                                 >
                                   roofer summary
                                 </p>
-                                <div
-                                  class="ps__rail-x"
-                                  style="left: 0px; top: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-x"
-                                    style="left: 0px; width: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
-                                <div
-                                  class="ps__rail-y"
-                                  style="top: 0px; left: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-y"
-                                    style="top: 0px; height: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -16767,7 +15807,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -16848,26 +15888,6 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                               <p
                                 class="MuiTypography-root Typography MuiTypography-body1"
                               />
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -16921,7 +15941,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -17004,26 +16024,6 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                               >
                                 GL Bygg AS har i dag 20 ansatte, 17 tømrere/snekkere, og 2 murere og 1 maler,tapetserer, gulvlegger. Av disse er en byggmester og en murmester. Alle håndverkerne har fagbrev på sine respektive fagområder
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -17077,7 +16077,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -17140,26 +16140,6 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                               <p
                                 class="MuiTypography-root Typography MuiTypography-body1"
                               />
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -17832,7 +16812,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -17947,26 +16927,6 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>

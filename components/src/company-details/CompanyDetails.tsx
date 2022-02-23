@@ -17,7 +17,6 @@ import Logo, {
   RoofProExpert,
   RoofProPartnerSmall
 } from "../logo";
-import PerfectScrollbar from "../perfect-scrollbar/PerfectScrollbar";
 import Typography from "../typography/Typography";
 import styles from "./CompanyDetails.module.scss";
 
@@ -166,7 +165,7 @@ const CompanyDetails = ({ name, details, children }: Props) => {
           {name}
         </Typography>
       )}
-      <PerfectScrollbar>
+      <div className={styles["scrollbar"]}>
         {details?.length ? (
           <dl className={styles["list"]}>
             {details.map((detail, index) => (
@@ -175,7 +174,7 @@ const CompanyDetails = ({ name, details, children }: Props) => {
           </dl>
         ) : null}
         {children}
-      </PerfectScrollbar>
+      </div>
     </div>
   );
 };

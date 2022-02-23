@@ -2901,8 +2901,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-3"
               >
                 <div
-                  class="scrollbar-container ps"
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden;"
+                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
                 >
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
@@ -3092,26 +3091,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="ps__rail-x"
-                    style="left: 0px; top: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-x"
-                      style="left: 0px; width: 0px;"
-                      tabindex="0"
-                    />
-                  </div>
-                  <div
-                    class="ps__rail-y"
-                    style="top: 0px; left: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-y"
-                      style="top: 0px; height: 0px;"
-                      tabindex="0"
-                    />
                   </div>
                 </div>
               </div>
@@ -4132,8 +4111,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-3"
               >
                 <div
-                  class="scrollbar-container ps"
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden;"
+                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
                 >
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
@@ -4317,26 +4295,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="ps__rail-x"
-                    style="left: 0px; top: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-x"
-                      style="left: 0px; width: 0px;"
-                      tabindex="0"
-                    />
-                  </div>
-                  <div
-                    class="ps__rail-y"
-                    style="top: 0px; left: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-y"
-                      style="top: 0px; height: 0px;"
-                      tabindex="0"
-                    />
                   </div>
                 </div>
               </div>
@@ -5409,8 +5367,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-3"
               >
                 <div
-                  class="scrollbar-container ps"
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden;"
+                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
                 >
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
@@ -5609,26 +5566,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="ps__rail-x"
-                    style="left: 0px; top: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-x"
-                      style="left: 0px; width: 0px;"
-                      tabindex="0"
-                    />
-                  </div>
-                  <div
-                    class="ps__rail-y"
-                    style="top: 0px; left: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-y"
-                      style="top: 0px; height: 0px;"
-                      tabindex="0"
-                    />
                   </div>
                 </div>
               </div>
@@ -13024,8 +12961,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-3"
               >
                 <div
-                  class="scrollbar-container ps"
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden;"
+                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
                 >
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
@@ -13215,26 +13151,6 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="ps__rail-x"
-                    style="left: 0px; top: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-x"
-                      style="left: 0px; width: 0px;"
-                      tabindex="0"
-                    />
-                  </div>
-                  <div
-                    class="ps__rail-y"
-                    style="top: 0px; left: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-y"
-                      style="top: 0px; height: 0px;"
-                      tabindex="0"
-                    />
                   </div>
                 </div>
               </div>
@@ -14255,8 +14171,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-3"
               >
                 <div
-                  class="scrollbar-container ps"
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden;"
+                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
                 >
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
@@ -14440,26 +14355,6 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="ps__rail-x"
-                    style="left: 0px; top: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-x"
-                      style="left: 0px; width: 0px;"
-                      tabindex="0"
-                    />
-                  </div>
-                  <div
-                    class="ps__rail-y"
-                    style="top: 0px; left: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-y"
-                      style="top: 0px; height: 0px;"
-                      tabindex="0"
-                    />
                   </div>
                 </div>
               </div>
@@ -15532,8 +15427,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-3"
               >
                 <div
-                  class="scrollbar-container ps"
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden;"
+                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
                 >
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
@@ -15732,26 +15626,6 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="ps__rail-x"
-                    style="left: 0px; top: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-x"
-                      style="left: 0px; width: 0px;"
-                      tabindex="0"
-                    />
-                  </div>
-                  <div
-                    class="ps__rail-y"
-                    style="top: 0px; left: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-y"
-                      style="top: 0px; height: 0px;"
-                      tabindex="0"
-                    />
                   </div>
                 </div>
               </div>
@@ -19978,8 +19852,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-3"
               >
                 <div
-                  class="scrollbar-container ps"
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden;"
+                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
                 >
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
@@ -20172,26 +20045,6 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="ps__rail-x"
-                    style="left: 0px; top: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-x"
-                      style="left: 0px; width: 0px;"
-                      tabindex="0"
-                    />
-                  </div>
-                  <div
-                    class="ps__rail-y"
-                    style="top: 0px; left: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-y"
-                      style="top: 0px; height: 0px;"
-                      tabindex="0"
-                    />
                   </div>
                 </div>
               </div>
@@ -22399,8 +22252,7 @@ exports[`ProductListerPage template test hande change url by click on filters an
                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-3"
               >
                 <div
-                  class="scrollbar-container ps"
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden;"
+                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
                 >
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
@@ -22599,26 +22451,6 @@ exports[`ProductListerPage template test hande change url by click on filters an
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="ps__rail-x"
-                    style="left: 0px; top: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-x"
-                      style="left: 0px; width: 0px;"
-                      tabindex="0"
-                    />
-                  </div>
-                  <div
-                    class="ps__rail-y"
-                    style="top: 0px; left: 0px;"
-                  >
-                    <div
-                      class="ps__thumb-y"
-                      style="top: 0px; height: 0px;"
-                      tabindex="0"
-                    />
                   </div>
                 </div>
               </div>
