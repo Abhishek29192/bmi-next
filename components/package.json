@@ -8,7 +8,7 @@
   "scripts": {
     "check:ts": "tsc",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
-    "build": "yarn run check:ts -p tsconfig.json && copyfiles -e 'node_modules/**' -e 'dist/**' package.json **/*.woff2 **/*.scss **/*.svg dist",
+    "build": "yarn run check:ts -p tsconfig.json",
     "prepare": "husky install",
     "workbench": "styleguidist server",
     "workbench:build": "styleguidist build"
