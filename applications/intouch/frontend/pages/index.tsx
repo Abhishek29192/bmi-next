@@ -23,7 +23,7 @@ import { NewProjectDialog } from "../components/Pages/Project/CreateProject/Dial
 import AccessControl from "../lib/permissions/AccessControl";
 import styles from "../styles/Homepage.module.scss";
 
-type HomePageProps = GlobalPageProps & {
+export type HomePageProps = GlobalPageProps & {
   marketContent: GetPartnerBrandsQuery["marketContentCollection"]["items"][0];
   carouselItems: GetPartnerBrandsQuery["carouselCollection"]["items"][0]["listCollection"]["items"];
   tierBenefit: GetPartnerBrandsQuery["tierBenefitCollection"]["items"][0];
@@ -32,13 +32,15 @@ type HomePageProps = GlobalPageProps & {
 const mapPartnerBrands = (
   marketContent: GetPartnerBrandsQuery["marketContentCollection"]["items"][0]
 ) => {
-  return marketContent?.partnerBrandsCollection?.items?.map(
-    ({ name, shortDescription, image, logo }) => ({
-      name,
-      shortDescription,
-      image,
-      logo
-    })
+  return (
+    marketContent?.partnerBrandsCollection?.items?.map(
+      ({ name, shortDescription, image, logo }) => ({
+        name,
+        shortDescription,
+        image,
+        logo
+      })
+    ) || []
   );
 };
 
@@ -46,28 +48,36 @@ const getPageTitle = (account: Account) => {
   // Show user's full name or company name if they're a company member.
   return (
     findAccountCompany(account)?.name ||
-    [account?.firstName, account?.lastName].filter(Boolean).join(" ")
+    [account.firstName, account.lastName].filter(Boolean).join(" ")
   );
 };
 
 const mapHeroCarouselItems = (
   carouselItems: GetPartnerBrandsQuery["carouselCollection"]["items"][0]["listCollection"]["items"],
-  getCta: (ctaName: string) => JSX.Element
+  getCta: (
+    ctaName: string,
+    {
+      customUrl,
+      customUrlButtonText
+    }: { customUrl: string; customUrlButtonText: string }
+  ) => JSX.Element
 ) => {
-  return carouselItems.map(({ header, body, image, cta }) => {
-    return {
-      title: header,
-      children: body,
-      media: (
-        <img className={styles.carouselImage} src={image?.url} alt={header} />
-      ),
-      cta: (
-        <AccessControl dataModel="home" action={`CTA_${cta}`}>
-          {getCta(cta)}
-        </AccessControl>
-      )
-    };
-  });
+  return carouselItems.map(
+    ({ header, body, image, cta, customUrl, customUrlButtonText }) => {
+      return {
+        title: header,
+        children: body,
+        media: (
+          <img className={styles.carouselImage} src={image?.url} alt={header} />
+        ),
+        cta: (
+          <AccessControl dataModel="home" action={`CTA_${cta}`}>
+            {getCta(cta, { customUrl, customUrlButtonText })}
+          </AccessControl>
+        )
+      };
+    }
+  );
 };
 
 // TODO: DRY up
@@ -87,14 +97,19 @@ const Homepage = ({
     severity: "INFO",
     message: "Home page loaded"
   });
-
   const pageTitle = getPageTitle(account);
   const company = findAccountCompany(account);
   const canSeePartnerBrandsCarousel = ["T2", "T3", "T4"].includes(
     company?.tier
   );
 
-  const getCta = (ctaName: string) => {
+  const getCta = (
+    ctaName: string,
+    {
+      customUrl,
+      customUrlButtonText
+    }: { customUrl: string; customUrlButtonText: string }
+  ) => {
     if (ctaName === "PROJECT") {
       return (
         <ProjectCTA
@@ -110,6 +125,15 @@ const Homepage = ({
     if (ctaName === "MERCHANDISE") {
       return <OtherCTA ctaName={ctaName} url={market.merchandisingUrl} />;
     }
+    if (ctaName === "CUSTOM") {
+      return (
+        <OtherCTA
+          ctaName={ctaName}
+          url={customUrl}
+          buttonText={customUrlButtonText}
+        />
+      );
+    }
     return null;
   };
 
@@ -121,8 +145,7 @@ const Homepage = ({
   return (
     <Layout title={pageTitle} pageData={globalPageData}>
       {/* TODO: Hero doesn't have a way to disable the controls? */}
-
-      {heroItems?.length && (
+      {heroItems.length && (
         <Hero
           level={0}
           hasSpaceBottom
@@ -191,6 +214,8 @@ export const GET_PARTNER_BRANDS = gql`
             }
             body
             cta
+            customUrl
+            customUrlButtonText
             audienceTiers
           }
         }
@@ -260,18 +285,27 @@ const ProjectCTA = ({ onClick }: { onClick: () => void }) => {
       variant="outlined"
       style={{ marginTop: "2em" }}
       onClick={onClick}
+      data-testid="project-cta"
     >
       {t(`hero.cta.PROJECT`)}
     </Button>
   );
 };
-const OtherCTA = ({ ctaName, url }: { ctaName: string; url: string }) => {
+const OtherCTA = ({
+  ctaName,
+  url,
+  buttonText
+}: {
+  ctaName: string;
+  url: string;
+  buttonText?: string;
+}) => {
   const { t } = useTranslation("home-page");
 
   return (
     <Link href={url} isExternal={true}>
       <Button hasDarkBackground variant="outlined" style={{ marginTop: "2em" }}>
-        {t(`hero.cta.${ctaName}`)}
+        {buttonText || t(`hero.cta.${ctaName}`)}
       </Button>
     </Link>
   );

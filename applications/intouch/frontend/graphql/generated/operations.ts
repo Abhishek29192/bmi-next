@@ -3782,7 +3782,12 @@ export type GetPartnerBrandsQuery = { readonly __typename?: "Query" } & {
                         SchemaTypes.Maybe<
                           { readonly __typename?: "CarouselItem" } & Pick<
                             SchemaTypes.CarouselItem,
-                            "header" | "body" | "cta" | "audienceTiers"
+                            | "header"
+                            | "body"
+                            | "cta"
+                            | "customUrl"
+                            | "customUrlButtonText"
+                            | "audienceTiers"
                           > & {
                               readonly image?: SchemaTypes.Maybe<
                                 { readonly __typename?: "Asset" } & Pick<

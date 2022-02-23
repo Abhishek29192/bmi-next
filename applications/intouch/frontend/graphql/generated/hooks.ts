@@ -4311,6 +4311,8 @@ export const GetPartnerBrandsDocument = gql`
             }
             body
             cta
+            customUrl
+            customUrlButtonText
             audienceTiers
           }
         }
