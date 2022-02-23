@@ -1498,6 +1498,7 @@ HTMLCollection [
                   </h6>
                   <div
                     class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                    data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"findARoofer.filters.pitchedRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -1512,6 +1513,7 @@ HTMLCollection [
                   </div>
                   <div
                     class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                    data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"findARoofer.filters.flatRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                     role="button"
                     tabindex="0"
                   >

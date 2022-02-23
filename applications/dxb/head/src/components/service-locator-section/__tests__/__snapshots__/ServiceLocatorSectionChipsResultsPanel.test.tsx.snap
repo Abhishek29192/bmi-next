@@ -173,6 +173,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </h6>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
@@ -187,6 +188,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.flatRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
@@ -201,6 +203,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoofBitumenRoofs\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
@@ -215,6 +218,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoofTileRoofs\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
@@ -229,6 +233,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoofRoofCoaters\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
@@ -243,6 +248,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.flachdachsysteme\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
@@ -257,6 +263,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.steildachsysteme\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
@@ -271,6 +278,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.bauwerksabdichtung\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
@@ -285,6 +293,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.verkehrsbauwerke\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
@@ -299,6 +308,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.verarbeiter\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
@@ -313,6 +323,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.topDachPartner\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
@@ -327,6 +338,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.7Dachdecker\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
@@ -341,6 +353,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.handler\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >

@@ -12,10 +12,9 @@ import AutoCompleteCountryMap from "../../../countries/GoogleCountryCodeMap";
 import styles from "../styles/ServiceLocatorSection.module.scss";
 import { useSiteContext } from "../../Site";
 import { getFilterOptions } from "../helpers";
-import { EntryTypeEnum } from "../../Service";
 
 interface SearchLocationBlockProps {
-  sectionType: EntryTypeEnum;
+  autocompleteLabel: string;
   handleAutocompleteOnChange: (_, inputValue) => void;
   handlePlaceChange: (location?: GoogleGeocoderResult) => void;
   options: string[];
@@ -27,7 +26,7 @@ interface SearchLocationBlockProps {
 }
 
 export const SearchLocationBlock = ({
-  sectionType,
+  autocompleteLabel,
   handleAutocompleteOnChange,
   options,
   handlePlaceChange,
@@ -35,17 +34,13 @@ export const SearchLocationBlock = ({
   userPosition
 }: SearchLocationBlockProps) => {
   const { getMicroCopy, countryCode } = useSiteContext();
-  const nameSearchLabelKey =
-    sectionType === EntryTypeEnum.MERCHANT_TYPE
-      ? "merchantNameSearchLabel"
-      : "companyFieldLabel";
 
   return (
     <Grid item xs={12} md={6} lg={4} className={styles["search"]}>
       <>
         <Autocomplete
           id="company-autocomplete"
-          label={getMicroCopy(`findARoofer.${nameSearchLabelKey}`)}
+          label={autocompleteLabel}
           noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
           className={styles["company-autocomplete"]}
           onChange={handleAutocompleteOnChange}

@@ -23,6 +23,7 @@ import {
   ServiceTypesPrefixesEnum
 } from "../Service";
 import { useSiteContext } from "../Site";
+import { pushToDataLayer } from "../../utils/google-tag-manager";
 import styles from "./styles/ServiceLocatorSection.module.scss";
 import {
   SearchLocationBlock,
@@ -111,6 +112,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         location: GoogleLatLngLiteral;
       }
   >();
+
+  const nameSearchLabelKey = getMicroCopy(
+    `findARoofer.${
+      sectionType === EntryTypeEnum.MERCHANT_TYPE
+        ? "merchantNameSearchLabel"
+        : "companyFieldLabel"
+    }`
+  );
 
   const serviceTypesByEntityItems: ServiceType[] =
     serviceTypesByEntity(sectionType);
@@ -207,6 +216,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const handleAutocompleteOnChange = (_, inputValue) => {
     setShowResultList(true);
     setActiveSearchString(inputValue || "");
+    pushToDataLayer({
+      id: "filter-service-locator",
+      label: nameSearchLabelKey,
+      action: inputValue
+    });
   };
 
   const onChipClick = (serviceType) => {
@@ -318,7 +332,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         >
           {shouldEnableSearch && (
             <SearchLocationBlock
-              sectionType={sectionType}
+              autocompleteLabel={nameSearchLabelKey}
               options={filteredRoofers.map(({ name }) => name)}
               handleAutocompleteOnChange={handleAutocompleteOnChange}
               handlePlaceChange={handlePlaceChange}
