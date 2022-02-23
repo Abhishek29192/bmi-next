@@ -1,0 +1,102 @@
+@import "~@bmi-digital/styles";
+
+.CompanyDetails {
+  font-style: normal;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  flex: 1;
+
+  .title {
+    margin-bottom: 30px;
+  }
+
+  .list {
+    margin: 0;
+  }
+
+  .roofProLevelIcon {
+    height: 20px;
+    vertical-align: text-bottom;
+  }
+
+  // Note: override user agent stylesheet
+  address {
+    font-style: inherit;
+  }
+
+  .row {
+    display: flex;
+    margin: 20px 0;
+  }
+
+  .row--cta {
+    margin: 24px 0 36px;
+  }
+
+  .icon {
+    height: 24px;
+    width: 24px;
+    margin-right: 12px;
+    color: $color-slate;
+  }
+
+  .term {
+    display: contents;
+  }
+
+  .description {
+    margin: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .label {
+    flex-shrink: 0;
+    display: inline-block;
+    margin-right: 12px;
+
+    &::after {
+      content: ":";
+      display: inline;
+    }
+  }
+
+  .cta-button {
+    width: 100%;
+  }
+
+  .accessibility-label {
+    display: block;
+    text-indent: -9999px;
+    overflow: hidden;
+    position: absolute;
+  }
+
+  .foot-note {
+    margin-top: 36px;
+    color: $color-charcoal;
+    font-size: 16px;
+  }
+
+  .link {
+    font-family: "Effra Medium";
+  }
+
+  @media (min-width: $breakpoint-md) {
+    .title {
+      margin-bottom: 20px;
+    }
+
+    .label {
+      margin-bottom: 0;
+    }
+
+    .cta-button {
+      width: 220px;
+    }
+  }
+}

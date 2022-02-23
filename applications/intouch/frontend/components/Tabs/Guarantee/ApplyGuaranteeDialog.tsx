@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
 import Dialog from "@material-ui/core/Dialog";
-import Modal from "@bmi-digital/components/dialog";
+import { Dialog as Modal } from "@bmi/components";
 import { gql } from "@apollo/client";
 import {
   GuaranteeCoverage,

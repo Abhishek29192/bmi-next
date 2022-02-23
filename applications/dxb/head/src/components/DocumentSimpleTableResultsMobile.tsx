@@ -1,9 +1,6 @@
-import Button, {
-  ButtonProps,
-  ClickableAction
-} from "@bmi-digital/components/button";
-import Icon, { iconMap } from "@bmi-digital/components/icon";
-import Typography from "@bmi-digital/components/typography";
+import { Button, ButtonProps, ClickableAction } from "@bmi/components";
+import { Icon, iconMap } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import { GetApp } from "@material-ui/icons";
 import filesize from "filesize";
 import React from "react";
@@ -19,12 +16,11 @@ type ListProps = {
   documents: Document[];
 };
 
-const GTMButton =
-  withGTM<
-    ButtonProps & {
-      action?: ClickableAction;
-    }
-  >(Button);
+const GTMButton = withGTM<
+  ButtonProps & {
+    action?: ClickableAction;
+  }
+>(Button);
 
 export const DocumentSimpleTableResultsMobile = ({ documents }: ListProps) => {
   const list = documents.map((document) => {

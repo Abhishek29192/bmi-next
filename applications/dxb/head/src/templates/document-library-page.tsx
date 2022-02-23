@@ -1,22 +1,16 @@
 import React, { useMemo, useRef, useState } from "react";
 import { graphql } from "gatsby";
-import Accordion, {
-  AccordionSummaryProps
-} from "@bmi-digital/components/accordion";
-import Checkbox, {
-  Props as CheckboxProps
-} from "@bmi-digital/components/checkbox";
-import Hero from "@bmi-digital/components/hero";
-import Grid from "@bmi-digital/components/grid";
-import Section from "@bmi-digital/components/section";
-import AlertBanner from "@bmi-digital/components/alert-banner";
-import DownloadList, {
-  DownloadListContext
-} from "@bmi-digital/components/download-list";
-import Filters from "@bmi-digital/components/filters";
-import PerfectScrollbar from "@bmi-digital/components/perfect-scrollbar";
-import Typography from "@bmi-digital/components/typography";
-import Button from "@bmi-digital/components/button";
+import { Accordion, AccordionSummaryProps } from "@bmi/components";
+import { Checkbox, CheckboxProps } from "@bmi/components";
+import { Hero } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { AlertBanner } from "@bmi/components";
+import { DownloadList, DownloadListContext } from "@bmi/components";
+import { Filters } from "@bmi/components";
+import { PerfectScrollbar } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Button } from "@bmi/components";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 import { microCopy } from "../constants/microCopies";

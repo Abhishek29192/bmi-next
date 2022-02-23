@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Container from "@bmi-digital/components/container";
-import Section from "@bmi-digital/components/section";
-import Grid, { GridSize } from "@bmi-digital/components/grid";
-import CTACard from "@bmi-digital/components/cta-card";
-import { Image as ImageGalleryImage } from "@bmi-digital/components/image-gallery";
+import { Container } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { Grid, GridSize } from "@bmi/components";
+import { CTACard } from "@bmi/components";
+import { Image as ImageGalleryImage } from "@bmi/components";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SiteData } from "../components/Site";
 import ProductOverview, {

@@ -1,8 +1,8 @@
 import React from "react";
 import { gql } from "@apollo/client";
 import Avatar from "@material-ui/core/Avatar";
-import Typography from "@bmi-digital/components/typography";
-import Grid from "@bmi-digital/components/grid";
+import { Typography } from "@bmi/components";
+import { Grid } from "@bmi/components";
 import { Facebook, LinkedIn } from "@material-ui/icons";
 import { useTranslation } from "next-i18next";
 import { GetCompanyQuery } from "../../../../graphql/generated/operations";

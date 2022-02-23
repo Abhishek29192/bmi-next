@@ -2,11 +2,19 @@ import {
   HubspotProvider,
   useHubspotForm
 } from "@aaronhayes/react-use-hubspot-form";
-import Button, { ButtonProps } from "@bmi-digital/components/button";
-import Form from "@bmi-digital/components/form";
-import { InputValue } from "@bmi-digital/components/form";
-import Grid from "@bmi-digital/components/grid";
-import Section from "@bmi-digital/components/section";
+import { Button, ButtonProps } from "@bmi/components";
+import { Form } from "@bmi/components";
+import { InputValue } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { AnchorLink } from "@bmi/components";
+import { getFileSizeString } from "@bmi/components";
+import { Upload } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { RadioGroup } from "@bmi/components";
+import { Select, SelectMenuItem } from "@bmi/components";
+import { Checkbox } from "@bmi/components";
+import { TextField } from "@bmi/components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
@@ -14,14 +22,6 @@ import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
-import AnchorLink from "@bmi-digital/components/anchor-link";
-import { getFileSizeString } from "@bmi-digital/components/upload";
-import Upload from "@bmi-digital/components/upload";
-import Typography from "@bmi-digital/components/typography";
-import RadioGroup from "@bmi-digital/components/radio-group";
-import Select, { MenuItem } from "@bmi-digital/components/select";
-import Checkbox from "@bmi-digital/components/checkbox";
-import TextField from "@bmi-digital/components/text-field";
 import { getPathWithCountryCode } from "../utils/path";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { isValidEmail } from "../utils/emailUtils";
@@ -217,13 +217,13 @@ const Input = ({
           label={label}
           name={name}
         >
-          <MenuItem value="none">None</MenuItem>
+          <SelectMenuItem value="none">None</SelectMenuItem>
           {options.split(/, |,/).map((option, $i) => {
             const [select, value] = option.split(/= |=/);
             return (
-              <MenuItem key={$i} value={value ? option : select}>
+              <SelectMenuItem key={$i} value={value ? option : select}>
                 {select}
-              </MenuItem>
+              </SelectMenuItem>
             );
           })}
         </Select>
@@ -265,9 +265,7 @@ const Input = ({
         <TextField
           name={name}
           isRequired={required}
-          fieldIsRequiredError={getMicroCopy(
-            microCopy.UPLOAD_FIELD_IS_REQUIRED
-          )}
+          errorText={getMicroCopy(microCopy.UPLOAD_FIELD_IS_REQUIRED)}
           isTextArea={type === "textarea"}
           variant="outlined"
           label={label}

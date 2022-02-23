@@ -1,8 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
-import BackToTop from "@bmi-digital/components/back-to-top";
-import MicroCopy from "@bmi-digital/components/micro-copy";
+import { BackToTop } from "@bmi/components";
+import { MicroCopy } from "@bmi/components";
 import { graphql, navigate } from "gatsby";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import Header from "../components/Header";

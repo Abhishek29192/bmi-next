@@ -4,7 +4,7 @@ import { Notification as NotificationType } from "@bmi/intouch-api-types";
 import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 import isToday from "dayjs/plugin/isToday";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi/components";
 import { Notification } from "../Notification";
 import styles from "./styles.module.scss";
 

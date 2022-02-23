@@ -1,13 +1,14 @@
-import { CompanyDetailProps } from "@bmi-digital/components/company-details";
-import GoogleApi, {
+import { CompanyDetailProps } from "@bmi/components";
+import {
+  GoogleApi,
   GeocoderResult as GoogleGeocoderResult,
   Google,
   LatLngLiteral as GoogleLatLngLiteral,
   loadGoogleApi
-} from "@bmi-digital/components/google-api";
-import Grid from "@bmi-digital/components/grid";
-import Section from "@bmi-digital/components/section";
-import Tabs from "@bmi-digital/components/tabs";
+} from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { Tabs } from "@bmi/components";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useState } from "react";
 import { useTheme } from "@material-ui/core/styles";
@@ -62,6 +63,12 @@ export type Data = {
   zoom: number | null;
 };
 
+declare global {
+  interface Window {
+    google?: Google;
+  }
+}
+
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const {
     type: sectionType,
@@ -98,13 +105,12 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     initialMapZoom || DEFAULT_LEVEL_ZOOM
   );
   const [activeSearchString, setActiveSearchString] = useState<string>("");
-  const [userPosition, setUserPosition] =
-    useState<
-      | undefined
-      | {
-          location: GoogleLatLngLiteral;
-        }
-    >();
+  const [userPosition, setUserPosition] = useState<
+    | undefined
+    | {
+        location: GoogleLatLngLiteral;
+      }
+  >();
 
   const serviceTypesByEntityItems: ServiceType[] =
     serviceTypesByEntity(sectionType);
@@ -214,8 +220,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       "places",
       "geometry"
     ]);
-    /* global google */
-    setGoogleApi(typeof google !== "undefined" ? google : null);
+    setGoogleApi(typeof window?.google !== "undefined" ? window.google : null);
   };
 
   const getPosition = () => {

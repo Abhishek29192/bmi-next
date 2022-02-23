@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
-import LeadBlock from "@bmi-digital/components/lead-block";
-import DownloadList from "@bmi-digital/components/download-list";
+import { LeadBlock } from "@bmi/components";
+import { DownloadList } from "@bmi/components";
 import DocumentSimpleTableResults from "../../components/DocumentSimpleTableResults";
 import DocumentResultsFooter, {
   handleDownloadClick

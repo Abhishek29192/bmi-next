@@ -1,10 +1,6 @@
 import React from "react";
 import { Technology } from "@bmi/intouch-api-types";
-import {
-  FlatRoof,
-  PitchedRoof,
-  OtherTraining
-} from "@bmi-digital/components/icon";
+import { FlatRoof, PitchedRoof, OtherTraining } from "@bmi/components";
 import { TrainingQuery } from "../../graphql/generated/operations";
 
 export const technologyIcon: {

@@ -12,6 +12,7 @@ ARG NPM_AUTH_READ_TOKEN
 COPY .npmrc .npmrc
 
 # Copy workspace source files
+COPY ./applications/intouch/libraries ./applications/intouch/libraries
 COPY ./applications/intouch/api/types ./applications/intouch/api/types
 COPY ./applications/intouch/api/services/training ./applications/intouch/api/services/training
 

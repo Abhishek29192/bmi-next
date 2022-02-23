@@ -160,8 +160,9 @@ describe("getDocumentFilters tests", () => {
 describe("filter document tests", () => {
   describe("When no filters are provided", () => {
     it("Then: returns original results", () => {
-      const inputDataItems: DocumentResultsData =
-        Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+      const inputDataItems: DocumentResultsData = Array<
+        PIMDocumentData | DocumentData | PIMLinkDocumentData
+      >();
 
       const baseUrl = "http://localhost/document/library/";
 
@@ -183,8 +184,9 @@ describe("filter document tests", () => {
   });
   describe("When querying field is invalid :: no matcher available", () => {
     it("Then: returns empty results", () => {
-      const inputDataItems: DocumentResultsData =
-        Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+      const inputDataItems: DocumentResultsData = Array<
+        PIMDocumentData | DocumentData | PIMLinkDocumentData
+      >();
 
       const baseUrl = "http://localhost/document/library/";
 
@@ -213,8 +215,9 @@ describe("filter document tests", () => {
     describe("When brand filter is provided with PIM Documents", () => {
       describe("And document with matching filter does NOT exists", () => {
         it("Then: returns empty results", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
           const baseUrl = "http://localhost/document/library/";
 
@@ -253,8 +256,9 @@ describe("filter document tests", () => {
       });
       describe("And document with single brand matching filter exists", () => {
         it("Then: returns filtered results", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
           const baseUrl = "http://localhost/document/library/";
 
@@ -294,8 +298,9 @@ describe("filter document tests", () => {
             createBrandFilterCriteria()
           ]);
 
-          const expectedResults: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const expectedResults: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
           expectedResults.push(pimDocument);
           expectedResults.push(pimLinkDocument);
           expectedResults.push(contentfulDocument);
@@ -305,8 +310,9 @@ describe("filter document tests", () => {
       });
       describe("And PIM document with multiple brands matching filter exists", () => {
         it("Then: returns result when filtered by any of the brand names", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
           const baseUrl = "http://localhost/document/library/";
 
@@ -332,8 +338,9 @@ describe("filter document tests", () => {
             })
           ]);
 
-          let expectedResults: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          let expectedResults: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
           expectedResults.push(pimDocument);
 
           expect(result).toEqual(expectedResults);
@@ -345,8 +352,9 @@ describe("filter document tests", () => {
             })
           ]);
 
-          expectedResults =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          expectedResults = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
           expectedResults.push(pimDocument);
 
           expect(result).toEqual(expectedResults);
@@ -358,8 +366,9 @@ describe("filter document tests", () => {
             })
           ]);
 
-          expectedResults =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          expectedResults = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
           expectedResults.push(pimDocument);
 
           expect(result).toEqual(expectedResults);
@@ -367,8 +376,9 @@ describe("filter document tests", () => {
       });
       describe("And PIM Link document with multiple brands matching filter exists", () => {
         it("Then: returns result when filtered by any of the brand names", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
           const baseUrl = "http://localhost/document/library/";
 
@@ -391,8 +401,9 @@ describe("filter document tests", () => {
             })
           ]);
 
-          let expectedResults: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          let expectedResults: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
           expectedResults.push(pimLinkDocument);
 
           expect(result).toEqual(expectedResults);
@@ -404,8 +415,9 @@ describe("filter document tests", () => {
             })
           ]);
 
-          expectedResults =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          expectedResults = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
           expectedResults.push(pimLinkDocument);
 
           expect(result).toEqual(expectedResults);
@@ -417,8 +429,9 @@ describe("filter document tests", () => {
             })
           ]);
 
-          expectedResults =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          expectedResults = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
           expectedResults.push(pimLinkDocument);
 
           expect(result).toEqual(expectedResults);
@@ -429,8 +442,9 @@ describe("filter document tests", () => {
     describe("When brand filter is provided with Contentful Documents", () => {
       describe("And document with matching filter does NOT exists", () => {
         it("Then: returns empty results", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
           const contenfulDocument1 = createContentfulDocument({
             id: `contentful-doc-id`
@@ -454,8 +468,9 @@ describe("filter document tests", () => {
       });
       describe("And document with matching filter exists", () => {
         it("Then: returns filtered results", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
           const contenfulDocument1 = createContentfulDocument({
             id: `contentful-doc-id`,
@@ -474,8 +489,9 @@ describe("filter document tests", () => {
             createBrandFilterCriteria({ value: ["AeroDek", "Icopal"] })
           ]);
 
-          const expectedResults: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const expectedResults: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
           expectedResults.push(contenfulDocument1);
           expectedResults.push(contenfulDocument2);
 
@@ -489,8 +505,9 @@ describe("filter document tests", () => {
     describe("When product family filter is provided with PIM Documents", () => {
       describe("And document product does not have any categories", () => {
         it("Then: returns empty results", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
           const baseUrl = "http://localhost/document/library/";
 
@@ -523,8 +540,9 @@ describe("filter document tests", () => {
       });
       describe("And document with matching filter does NOT exists", () => {
         it("Then: returns empty results", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
           const baseUrl = "http://localhost/document/library/";
 
@@ -567,8 +585,9 @@ describe("filter document tests", () => {
       });
       describe("And document with single productFamily matching filter exists", () => {
         it("Then: returns filtered results", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
           const baseUrl = "http://localhost/document/library/";
 
@@ -623,8 +642,9 @@ describe("filter document tests", () => {
             createProductFamilyFilterCriteria()
           ]);
 
-          const expectedResults: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const expectedResults: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
           expectedResults.push(pimDocument);
           expectedResults.push(pimLinkDocument);
 
@@ -633,8 +653,9 @@ describe("filter document tests", () => {
       });
       describe("And PIM documents with multiple productFamily matching filter exists", () => {
         it("Then: returns filtered results", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
           const baseUrl = "http://localhost/document/library/";
 
@@ -664,8 +685,9 @@ describe("filter document tests", () => {
             })
           ]);
 
-          const expectedResults: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const expectedResults: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
           expectedResults.push(pimDocument);
           expect(result).toEqual(expectedResults);
 
@@ -690,8 +712,9 @@ describe("filter document tests", () => {
       });
       describe("And PIM LINK documents with multiple product family matching filter exists", () => {
         it("Then: returns filtered results", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
           const baseUrl = "http://localhost/document/library/";
 
@@ -721,8 +744,9 @@ describe("filter document tests", () => {
             })
           ]);
 
-          const expectedResults: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const expectedResults: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
           expectedResults.push(pimLinkDocument);
           expect(result).toEqual(expectedResults);
 
@@ -752,8 +776,9 @@ describe("filter document tests", () => {
     describe("When filter is provided with Contentful Documents", () => {
       describe("And document with matching filter does NOT exists", () => {
         it("Then: returns empty results", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
           const contenfulDocument1 = createContentfulDocument({
             id: `contentful-doc-id`
@@ -776,8 +801,9 @@ describe("filter document tests", () => {
       });
       describe("And document with matching filter exists", () => {
         it("Then: returns filtered results", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
           const contenfulDocument1 = createContentfulDocument({
             id: `contentful-doc-id`,
@@ -796,8 +822,9 @@ describe("filter document tests", () => {
             createAssetTypeFilterCriteria({ value: ["AeroDek_Quadro_Plus"] })
           ]);
 
-          const expectedResults: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const expectedResults: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
           expectedResults.push(contenfulDocument1);
           expectedResults.push(contenfulDocument2);
 

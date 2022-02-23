@@ -1,28 +1,28 @@
 import React from "react";
-import Hero from "@bmi-digital/components/hero";
-import SpotlightHero from "@bmi-digital/components/spotlight-hero";
-import { HeroItem } from "@bmi-digital/components/hero";
+import { Hero } from "@bmi/components";
+import { SpotlightHero } from "@bmi/components";
+import { HeroItem } from "@bmi/components";
 
 type heroLevelType = 1 | 2 | 3;
 export const renderHero = (
   heroProps: HeroItem,
   breadcrumbsNode: React.ReactNode,
   heroLevel: heroLevelType,
-  brandLogo: string,
+  brandLogo: string | null,
   heroType: string
 ) => {
   return heroType === "Spotlight" ? (
     <SpotlightHero
       {...heroProps}
       breadcrumbs={breadcrumbsNode}
-      brand={brandLogo}
+      isHeroKeyLine={!!brandLogo}
     />
   ) : (
     <Hero
       level={heroLevel}
       {...heroProps}
       breadcrumbs={breadcrumbsNode}
-      brand={brandLogo}
+      isHeroKeyLine={!!brandLogo}
     />
   );
 };

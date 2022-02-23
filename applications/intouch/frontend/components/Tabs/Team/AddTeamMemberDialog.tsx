@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Table from "@bmi-digital/components/table";
+import { Table } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { CompanyMember, Technology } from "@bmi/intouch-api-types";
-import Dialog from "@bmi-digital/components/dialog";
-import Form from "@bmi-digital/components/form";
-import Typography from "@bmi-digital/components/typography";
-import Checkbox from "@bmi-digital/components/checkbox";
+import { Dialog } from "@bmi/components";
+import { Form } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Checkbox } from "@bmi/components";
 import TeamMemberCertification from "./TeamMemberCertifications";
 
 type AddTeamMemberDialogProps = {

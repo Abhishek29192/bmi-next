@@ -1,10 +1,8 @@
 import React from "react";
-import LeadBlock from "@bmi-digital/components/lead-block";
-import Table from "@bmi-digital/components/table";
-import Accordion, {
-  AccordionSummaryProps
-} from "@bmi-digital/components/accordion";
-import Typography from "@bmi-digital/components/typography";
+import { LeadBlock } from "@bmi/components";
+import { Table } from "@bmi/components";
+import { Accordion, AccordionSummaryProps } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import withGTM from "../../utils/google-tag-manager";
 import ProductFeaturesTable from "../../components/ProductFeaturesTable";
 import { Classification } from "../../components/types/pim";

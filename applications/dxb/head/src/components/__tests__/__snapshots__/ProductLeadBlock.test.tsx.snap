@@ -153,6 +153,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                     <svg
                       aria-hidden="true"
                       class="icon"
+                      data-testid="internal"
                       focusable="false"
                     />
                   </a>
@@ -169,6 +170,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                     <svg
                       aria-hidden="true"
                       class="icon"
+                      data-testid="internal"
                       focusable="false"
                     />
                   </a>
@@ -185,6 +187,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                     <svg
                       aria-hidden="true"
                       class="icon"
+                      data-testid="internal"
                       focusable="false"
                     />
                   </a>

@@ -1,5 +1,5 @@
 import React from "react";
-import { CompanyDetailProps } from "@bmi-digital/components/company-details";
+import { CompanyDetailProps } from "@bmi/components";
 import { Account } from "@bmi/intouch-api-types";
 import { UserCard } from ".";
 

@@ -7,21 +7,23 @@ import React, {
 } from "react";
 import { useTranslation } from "react-i18next";
 import { Point } from "@bmi/intouch-api-types";
-import { FormContext } from "@bmi-digital/components/form";
-import Grid from "@bmi-digital/components/grid";
-import Typography from "@bmi-digital/components/typography";
+import { FormContext } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Typography } from "@bmi/components";
 // if this MR which updates "withFormControl", is compatible with DXB
 // https://gitlab.com/bmi-digital/dxb/-/merge_requests/1672
 // we can just use the controlled "TextField" instead of wrapping it with a forked withFormControl
-import { TextFieldProps, TextField } from "@bmi-digital/components/text-field";
+import { TextFieldProps, TextField } from "@bmi/components";
 import withFormControlWithFormValues from "../withFormControlForked";
 import { GetCompanyQuery } from "../../graphql/generated/operations";
 import { AddressAutocomplete } from "../AddressAutocomplete";
 import { getNestedValue } from "../../lib/utils/object";
 import styles from "./styles.module.scss";
 
-const ControlledTextInput =
-  withFormControlWithFormValues<TextFieldProps, string>(TextField);
+const ControlledTextInput = withFormControlWithFormValues<
+  TextFieldProps,
+  string
+>(TextField);
 
 type Props = {
   existingTradingAddress: GetCompanyQuery["company"]["tradingAddress"];

@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import Section from "@bmi-digital/components/section";
-import Button, { ButtonProps } from "@bmi-digital/components/button";
-import BrandIntroCard from "@bmi-digital/components/brand-intro-card";
-import Grid from "@bmi-digital/components/grid";
-import { iconMap } from "@bmi-digital/components/logo";
+import { Section } from "@bmi/components";
+import { Button, ButtonProps } from "@bmi/components";
+import { BrandIntroCard } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { logoIconMap } from "@bmi/components";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
 import styles from "./styles/Brands.module.scss";
@@ -26,7 +26,7 @@ const Brands = ({ data }: { data: Data[] }) => {
   return (
     <Section backgroundColor={"pearl"} className={styles["Brands"]}>
       <Section.Title> {getMicroCopy(microCopy.HOMEPAGE_BRANDS)}</Section.Title>
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         {data.map((brand, index) => (
           <Grid item xs={12} md={6} xl={3} key={`${brand.path}-${index}`}>
             <BrandIntroCard
@@ -39,7 +39,7 @@ const Brands = ({ data }: { data: Data[] }) => {
                   {...props}
                 />
               )}
-              logoIcon={iconMap[brand.brandLogo]}
+              logoIcon={logoIconMap[brand.brandLogo]}
               description={brand.subtitle}
               buttonLabel={getMicroCopy(microCopy.HOMEPAGE_BRANDS_LEARN, {
                 title: brand.title

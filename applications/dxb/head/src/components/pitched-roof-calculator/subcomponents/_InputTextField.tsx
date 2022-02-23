@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import TextField from "@bmi-digital/components/text-field";
+import { TextField } from "@bmi/components";
 import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
 import { getFieldTypes, Type } from "../helpers/fieldTypes";
 import styles from "./_InputTextField.module.scss";

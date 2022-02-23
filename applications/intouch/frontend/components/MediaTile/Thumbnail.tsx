@@ -1,7 +1,7 @@
 import React from "react";
-import Icon from "@bmi-digital/components/icon";
+import { Icon } from "@bmi/components";
 import { Folder, PlayArrow } from "@material-ui/icons";
-import { BMI } from "@bmi-digital/components/logo";
+import { BMI } from "@bmi/components";
 import { resizeContentfulImage, getVimeoEmbedUrl } from "../../lib/media/utils";
 import { MediaItem } from "../../lib/media/types";
 import styles from "./styles.module.scss";

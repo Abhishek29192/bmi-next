@@ -1,5 +1,5 @@
-import { HeroItem } from "@bmi-digital/components/hero";
-import Button from "@bmi-digital/components/button";
+import { HeroItem } from "@bmi/components";
+import { Button } from "@bmi/components";
 import React from "react";
 import { Data as BreadcrumbsData } from "../components/Breadcrumbs";
 import { Data as VideoData, renderVideo } from "../components/Video";

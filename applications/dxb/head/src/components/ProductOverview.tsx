@@ -1,10 +1,8 @@
 import React from "react";
-import Grid from "@bmi-digital/components/grid";
-import ProductOverviewPane, {
-  ProductOverviewPaneProps
-} from "@bmi-digital/components/product-overview-pane";
-import ImageGallery, { Image } from "@bmi-digital/components/image-gallery";
-import Thumbnail, { ThumbnailProps } from "@bmi-digital/components/thumbnail";
+import { Grid } from "@bmi/components";
+import { ProductOverviewPane, ProductOverviewPaneProps } from "@bmi/components";
+import { ImageGallery, Image } from "@bmi/components";
+import { Thumbnail, ThumbnailProps } from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
 import styles from "./styles/ProductOverview.module.scss";

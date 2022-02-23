@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi/components";
 import { ArrowBack } from "@material-ui/icons";
 import { useWizardContext } from "./WizardContext";
 import styles from "./styles.module.scss";

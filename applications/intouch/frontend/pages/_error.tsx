@@ -1,6 +1,6 @@
 import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi/components";
 import { Layout } from "../components/Layout/Unauthenticated";
 
 const ErrorPage = ({ err, locale, ...props }: any) => {

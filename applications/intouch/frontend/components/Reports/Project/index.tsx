@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi/components";
 import { gql } from "@apollo/client";
 import { GetApp } from "@material-ui/icons";
 import { exportCsv } from "../../../lib/utils/report";

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
-import AlertBanner from "@bmi-digital/components/alert-banner";
-import Button from "@bmi-digital/components/button";
-import { Cross as IconCross } from "@bmi-digital/components/icon";
+import { AlertBanner } from "@bmi/components";
+import { Button } from "@bmi/components";
+import { Cross as IconCross } from "@bmi/components";
 import { CompanyProfileMandatoryFields } from "../../../../lib/validations/company";
 import styles from "./styles.module.scss";
 

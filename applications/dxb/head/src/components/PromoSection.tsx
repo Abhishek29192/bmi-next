@@ -1,6 +1,6 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
-import { ClickableAction } from "@bmi-digital/components/clickable";
-import PromoSection from "@bmi-digital/components/promo-section";
+import { Button, ButtonProps } from "@bmi/components";
+import { ClickableAction } from "@bmi/components";
+import { PromoSection } from "@bmi/components";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
 import withGTM from "../utils/google-tag-manager";
@@ -31,12 +31,11 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
     backgroundColor
   } = data;
 
-  const GTMButton =
-    withGTM<
-      ButtonProps & {
-        action?: ClickableAction;
-      }
-    >(Button);
+  const GTMButton = withGTM<
+    ButtonProps & {
+      action?: ClickableAction;
+    }
+  >(Button);
 
   const { [id]: theme } = useContext(SectionsContext);
 

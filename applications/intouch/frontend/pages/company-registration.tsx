@@ -1,5 +1,5 @@
 import React from "react";
-import BmiThemeProvider from "@bmi-digital/components/theme-provider";
+import { ThemeProvider } from "@bmi/components";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { getServerPageGetCompany } from "../graphql/generated/page";
@@ -18,7 +18,7 @@ const CompanyRegistrationPage = ({ company, mapsApiKey }: Props) => {
   // through an sql procedure (create_account) here we just
   // need to update it with the new values
   return (
-    <BmiThemeProvider>
+    <ThemeProvider>
       <EditCompanyDialog
         company={company}
         isOpen
@@ -29,7 +29,7 @@ const CompanyRegistrationPage = ({ company, mapsApiKey }: Props) => {
           window.location.assign("/api/silent-login?returnTo=/");
         }}
       />
-    </BmiThemeProvider>
+    </ThemeProvider>
   );
 };
 

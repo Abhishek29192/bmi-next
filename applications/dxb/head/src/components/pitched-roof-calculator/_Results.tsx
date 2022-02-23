@@ -1,21 +1,24 @@
 import React, { useContext, useMemo, useState } from "react";
-import Typography from "@bmi-digital/components/typography";
-import Grid from "@bmi-digital/components/grid";
-import Form, { Values as FormValues } from "@bmi-digital/components/form";
-import TextField from "@bmi-digital/components/text-field";
-import Checkbox from "@bmi-digital/components/checkbox";
+import {
+  Checkbox,
+  Form,
+  FormValues,
+  Grid,
+  TextField,
+  Typography
+} from "@bmi/components";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import QuantityTable from "./subcomponents/quantity-table/QuantityTable";
 import { battenCalc } from "./calculation/calculate";
 import {
+  Guttering,
   LengthBasedProduct,
   MainTileVariant,
   ResultsObject,
+  ResultsRow,
   Underlay,
-  VergeOption,
-  Guttering,
-  ResultsRow
+  VergeOption
 } from "./types";
 import { Line, LinesMap, Measurements } from "./types/roof";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
@@ -158,10 +161,7 @@ const EmailAddressCollection = ({
             variant="outlined"
             label={getMicroCopy(copy, "results.email.nameLabel")}
             isRequired
-            fieldIsRequiredError={getMicroCopy(
-              copy,
-              "validation.errors.fieldRequired"
-            )}
+            errorText={getMicroCopy(copy, "validation.errors.fieldRequired")}
             fullWidth
           />
         </Grid>
@@ -171,10 +171,7 @@ const EmailAddressCollection = ({
             variant="outlined"
             label={getMicroCopy(copy, "results.email.emailLabel")}
             isRequired
-            fieldIsRequiredError={getMicroCopy(
-              copy,
-              "validation.errors.fieldRequired"
-            )}
+            errorText={getMicroCopy(copy, "validation.errors.fieldRequired")}
             getValidationError={(value) =>
               typeof value === "string" && value.includes("@")
                 ? false

@@ -1,22 +1,23 @@
 import React, { useMemo, useState } from "react";
-import { Link, graphql } from "gatsby";
-import Grid from "@bmi-digital/components/grid";
-import OverviewCard, {
-  OverviewCardProps
-} from "@bmi-digital/components/overview-card";
-import Button from "@bmi-digital/components/button";
-import Section from "@bmi-digital/components/section";
+import { graphql, Link } from "gatsby";
+import {
+  Button,
+  Grid,
+  OverviewCard,
+  OverviewCardProps,
+  Section,
+  SectionBackgroundColor
+} from "@bmi/components";
 import { Add as AddIcon } from "@material-ui/icons";
 import uniqBy from "lodash-es/uniqBy";
-import { BackgroundColor } from "@bmi-digital/components/section";
 import withGTM from "../utils/google-tag-manager";
-import { System } from "../components/types/pim";
 import { getPathWithCountryCode } from "../utils/path";
 import { findMasterImageUrl } from "../utils/product-details-transforms";
 import { microCopy } from "../constants/microCopies";
 import { renderMedia } from "../utils/renderMedia";
 import { iconMap } from "./Icon";
 import styles from "./styles/RelatedSystems.module.scss";
+import { System } from "./types/pim";
 import { useSiteContext } from "./Site";
 
 export type SystemCardProps = {
@@ -50,7 +51,8 @@ export const SystemCard = ({
   countryCode,
   path,
   gtm,
-  isHighlighted
+  isHighlighted,
+  ...rest
 }: SystemCardProps) => {
   const { getMicroCopy } = useSiteContext();
   const brandLogoCode = findSystemBrandLogoCode(system);
@@ -80,6 +82,7 @@ export const SystemCard = ({
           </Button>
         }
         isHighlighted={isHighlighted}
+        {...rest}
       >
         {system.shortDescription}
       </GTMOverviewCard>
@@ -165,7 +168,7 @@ export type Props = {
   countryCode: string;
   sectionTitle?: string;
   sectionDescription?: string;
-  sectionBackgroundColor?: BackgroundColor;
+  sectionBackgroundColor?: SectionBackgroundColor;
 };
 
 // TODO: Do a context for countryCode and classificationNamespace

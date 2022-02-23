@@ -7,7 +7,7 @@ exports[`TeamList component renders correctly 1`] = `
       class="EqualHeights"
     >
       <div
-        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+        class="MuiGrid-root Grid Grid--justifyContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
@@ -24,7 +24,7 @@ exports[`TeamList component renders correctly 1`] = `
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block;"
+                  style="overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
@@ -106,7 +106,7 @@ exports[`TeamList component renders correctly when incomplete 1`] = `
       class="EqualHeights"
     >
       <div
-        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+        class="MuiGrid-root Grid Grid--justifyContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
@@ -161,7 +161,7 @@ exports[`TeamList component renders correctly with links 1`] = `
       class="EqualHeights"
     >
       <div
-        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+        class="MuiGrid-root Grid Grid--justifyContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
@@ -178,7 +178,7 @@ exports[`TeamList component renders correctly with links 1`] = `
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block;"
+                  style="overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
@@ -269,7 +269,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
       class="EqualHeights"
     >
       <div
-        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+        class="MuiGrid-root Grid Grid--justifyContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
@@ -286,7 +286,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block;"
+                  style="overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
@@ -370,7 +370,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block;"
+                  style="overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
@@ -454,7 +454,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block;"
+                  style="overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
@@ -538,7 +538,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block;"
+                  style="overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
@@ -622,7 +622,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block;"
+                  style="overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
@@ -706,7 +706,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block;"
+                  style="overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
@@ -790,7 +790,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block;"
+                  style="overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
@@ -874,7 +874,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block;"
+                  style="overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
@@ -958,7 +958,7 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block;"
+                  style="overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"

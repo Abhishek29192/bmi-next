@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import Typography from "@bmi-digital/components/typography";
-import AlertBanner from "@bmi-digital/components/alert-banner";
+import { Typography } from "@bmi/components";
+import { AlertBanner } from "@bmi/components";
 import { ProductGuarantee } from "../ProductGuarantee";
 import { SolutionGuarantee } from "../SolutionGuarantee";
 import { NoContent } from "../../../../components/NoContent";

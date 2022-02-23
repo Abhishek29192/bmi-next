@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import Grid from "@bmi-digital/components/grid";
-import { FilterProps, Filter } from "@bmi-digital/components/filters";
+import { Grid } from "@bmi/components";
+import { FilterProps, Filter } from "@bmi/components";
 import FiltersSidebar from "../components/FiltersSidebar";
 import ProductsGridView from "../components/ProductsGridView";
 import { clearFilterValues, updateFilterValue } from "../utils/filters";

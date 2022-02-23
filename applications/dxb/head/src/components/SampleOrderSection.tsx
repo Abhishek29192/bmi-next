@@ -1,8 +1,8 @@
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { ButtonProps } from "@bmi/components";
 import { Add, Remove, ShoppingCart } from "@material-ui/icons";
-import Section from "@bmi-digital/components/section";
 import React, { useEffect, useState } from "react";
-import { ButtonProps } from "@bmi-digital/components/button";
 import {
   ACTION_TYPES,
   createSample,

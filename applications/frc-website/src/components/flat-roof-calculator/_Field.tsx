@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import classnames from "classnames";
-import Typography from "@bmi-digital/components/typography";
-import Button from "@bmi-digital/components/button";
-import Dialog from "@bmi-digital/components/dialog";
-import Grid from "@bmi-digital/components/grid";
+import { Typography } from "@bmi/components";
+import { Button } from "@bmi/components";
+import { Dialog } from "@bmi/components";
+import { Grid } from "@bmi/components";
 import HelpIcon from "@material-ui/icons/Help";
 import styles from "./FlatRoofCalculator.module.scss";
 

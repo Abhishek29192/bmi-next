@@ -1,6 +1,6 @@
 import React from "react";
-import Hero from "@bmi-digital/components/hero";
-import Button from "@bmi-digital/components/button";
+import { Hero } from "@bmi/components";
+import { Button } from "@bmi/components";
 import { TrainingProcessCard } from "../TrainingProcess";
 import { TrainingQuery } from "../../../graphql/generated/operations";
 

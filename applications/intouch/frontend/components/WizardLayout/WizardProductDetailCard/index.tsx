@@ -1,7 +1,7 @@
 import React from "react";
-import Typography from "@bmi-digital/components/typography";
-import Card, { CardContent, CardHeader } from "@bmi-digital/components/card";
-import Icon from "@bmi-digital/components/icon";
+import { Typography } from "@bmi/components";
+import { Card, CardContent, CardHeader } from "@bmi/components";
+import { Icon } from "@bmi/components";
 import { Delete } from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
 import classnames from "classnames";

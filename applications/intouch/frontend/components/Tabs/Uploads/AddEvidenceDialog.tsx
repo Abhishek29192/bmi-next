@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
-import Dialog from "@bmi-digital/components/dialog";
-import Upload from "@bmi-digital/components/upload";
-import Select, { MenuItem } from "@bmi-digital/components/select";
+import { Dialog } from "@bmi/components";
+import { Upload } from "@bmi/components";
+import { Select, SelectMenuItem } from "@bmi/components";
 import {
   ContentfulEvidenceCategory,
   CustomEvidenceCategoryKey,
@@ -71,13 +71,13 @@ export const AddEvidenceDialog = ({
               value={evidenceCategoryKey}
               fullWidth={true}
             >
-              <MenuItem value={"MISCELLANEOUS"} key={"MISCELLANEOUS"}>
+              <SelectMenuItem value={"MISCELLANEOUS"} key={"MISCELLANEOUS"}>
                 {t("MISCELLANEOUS")}
-              </MenuItem>
+              </SelectMenuItem>
               {evidenceCategories.map(({ referenceCode, name }, index) => (
-                <MenuItem value={referenceCode} key={referenceCode}>
+                <SelectMenuItem value={referenceCode} key={referenceCode}>
                   {name}
-                </MenuItem>
+                </SelectMenuItem>
               ))}
             </Select>
           )}

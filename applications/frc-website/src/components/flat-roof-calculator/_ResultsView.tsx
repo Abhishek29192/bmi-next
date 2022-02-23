@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Typography from "@bmi-digital/components/typography";
-import Grid from "@bmi-digital/components/grid";
-import Bullets from "@bmi-digital/components/bullets";
-import AnchorLink from "@bmi-digital/components/anchor-link";
+import { Typography } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Bullets } from "@bmi/components";
+import { AnchorLink } from "@bmi/components";
 import classnames from "classnames";
 import Divider from "@material-ui/core/Divider";
-import Button from "@bmi-digital/components/button";
+import { Button } from "@bmi/components";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import SaveAltIcon from "@material-ui/icons/SaveAlt";

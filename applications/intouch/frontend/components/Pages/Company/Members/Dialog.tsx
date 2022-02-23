@@ -4,11 +4,11 @@ import validator from "validator";
 import { useTranslation } from "next-i18next";
 import { withStyles } from "@material-ui/core/styles";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import TextField from "@bmi-digital/components/text-field";
-import Button from "@bmi-digital/components/button";
-import Dialog from "@bmi-digital/components/dialog";
-import Form from "@bmi-digital/components/form";
-import AlertBanner from "@bmi-digital/components/alert-banner";
+import { TextField } from "@bmi/components";
+import { Button } from "@bmi/components";
+import { Dialog } from "@bmi/components";
+import { Form } from "@bmi/components";
+import { AlertBanner } from "@bmi/components";
 import { useInviteMutation } from "../../../../graphql/generated/hooks";
 
 export const INVITE_USER = gql`

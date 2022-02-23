@@ -1,9 +1,9 @@
 import React from "react";
 import classnames from "classnames";
 import Head from "next/head";
-import Icon from "@bmi-digital/components/icon";
-import BmiThemeProvider from "@bmi-digital/components/theme-provider";
-import { BMI } from "@bmi-digital/components/logo";
+import { Icon } from "@bmi/components";
+import { ThemeProvider } from "@bmi/components";
+import { BMI } from "@bmi/components";
 import { Footer, Props as FooterProps } from "../Footer";
 import { GetGlobalDataQuery } from "../../graphql/generated/operations";
 import styles from "./styles.module.scss";
@@ -35,7 +35,7 @@ export const Layout = ({
   const footerLinks = pageData ? mapFooterLinks(pageData) : [];
 
   return (
-    <BmiThemeProvider>
+    <ThemeProvider>
       <div>
         <Head>
           <title>BMI InTouch - {title}</title>
@@ -62,6 +62,6 @@ export const Layout = ({
           </div>
         </div>
       </div>
-    </BmiThemeProvider>
+    </ThemeProvider>
   );
 };

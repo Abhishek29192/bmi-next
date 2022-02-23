@@ -1,9 +1,9 @@
 import React from "react";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
-import Card, { CardContent, CardActions } from "@bmi-digital/components/card";
-import Typography from "@bmi-digital/components/typography";
-import Button from "@bmi-digital/components/button";
+import { Card, CardContent, CardActions } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Button } from "@bmi/components";
 import { GuaranteeEventType } from "@bmi/intouch-api-types";
 import { useUpdateProjectHiddenMutation } from "../../../graphql/generated/hooks";
 import log from "../../../lib/logger";

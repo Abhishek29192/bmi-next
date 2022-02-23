@@ -4,7 +4,8 @@ import { MapProps, ServiceLocatorMap } from "../components";
 import "@testing-library/jest-dom";
 import { selectedRooferMock } from "../__mocks__/mocks";
 
-jest.mock("@bmi-digital/components/google-map", () => {
+jest.mock("@bmi/components", () => {
+  const originalModule = jest.requireActual("@bmi/components");
   const GoogleMap = jest.fn().mockImplementation(({ children }) => {
     return (
       <div className="GoogleMap">
@@ -15,8 +16,8 @@ jest.mock("@bmi-digital/components/google-map", () => {
   });
 
   return {
-    __esModule: true,
-    default: GoogleMap
+    ...originalModule,
+    GoogleMap
   };
 });
 

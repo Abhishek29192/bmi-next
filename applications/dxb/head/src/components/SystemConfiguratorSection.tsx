@@ -10,9 +10,9 @@ import React, {
 import { graphql } from "gatsby";
 import axios, { AxiosResponse, CancelToken } from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import Section from "@bmi-digital/components/section";
-import RadioPane, { RadioPaneProps } from "@bmi-digital/components/radio-pane";
-import Grid from "@bmi-digital/components/grid";
+import { Section } from "@bmi/components";
+import { RadioPane, RadioPaneProps } from "@bmi/components";
+import { Grid } from "@bmi/components";
 import { useLocation, navigate } from "@reach/router";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
 import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
@@ -360,6 +360,7 @@ const SystemConfiguratorBlockResultSection = ({
                 const linkToSDP = `${system.path}/?selected_system=${system.code}&prev_page=${window.location.pathname}&referer=sys_details`;
                 return (
                   <SystemCard
+                    data-testid={system.code}
                     key={`${system.code}-${id}`}
                     system={system}
                     countryCode={countryCode}

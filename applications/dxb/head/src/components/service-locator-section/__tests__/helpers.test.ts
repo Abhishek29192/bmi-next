@@ -1,4 +1,4 @@
-import * as GoogleMockApi from "@bmi-digital/components/google-api";
+import * as GoogleMockApi from "@bmi/components";
 import { renderHook } from "@testing-library/react-hooks";
 import React from "react";
 import {

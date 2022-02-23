@@ -1,21 +1,19 @@
-import Button, { ButtonProps } from "@bmi-digital/components/button";
-import DownloadList, {
-  DownloadListContext
-} from "@bmi-digital/components/download-list";
-import { ClickableAction } from "@bmi-digital/components/clickable";
-import Icon, { iconMap } from "@bmi-digital/components/icon";
-import Table from "@bmi-digital/components/table";
+import {
+  Button,
+  ButtonProps,
+  ClickableAction,
+  DownloadList,
+  DownloadListContext,
+  Icon,
+  iconMap,
+  Table
+} from "@bmi/components";
 import classnames from "classnames";
 import filesize from "filesize";
 import React, { useContext } from "react";
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import withGTM from "../utils/google-tag-manager";
-
-import {
-  PIMDocumentData,
-  PIMLinkDocumentData
-} from "../components/types/PIMDocumentBase";
 import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
 import { getDownloadLink } from "../utils/client-download";
 import { microCopy } from "../constants/microCopies";
@@ -23,6 +21,7 @@ import { Data as DocumentData } from "./Document";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
 import { Format } from "./types";
+import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
 import fileIconsMap from "./FileIconsMap";
 import { DocumentSimpleTableResultsMobile } from "./DocumentSimpleTableResultsMobile";
 import { FileContentTypeEnum, Mime } from "./types/pim";
@@ -42,12 +41,11 @@ type Props = {
   headers?: AvailableHeader[];
 };
 
-const GTMButton =
-  withGTM<
-    ButtonProps & {
-      action?: ClickableAction;
-    }
-  >(Button);
+const GTMButton = withGTM<
+  ButtonProps & {
+    action?: ClickableAction;
+  }
+>(Button);
 
 export const mapAssetToFileDownload = (
   data: DocumentData | PIMDocumentData | SDPDocumentData

@@ -51,6 +51,7 @@ exports[`NextBestActions component renders correctly 1`] = `
                     <svg
                       aria-hidden="true"
                       class="icon"
+                      data-testid="internal"
                       focusable="false"
                     />
                     <span>
@@ -99,6 +100,7 @@ exports[`NextBestActions component renders correctly 1`] = `
                     <svg
                       aria-hidden="true"
                       class="icon"
+                      data-testid="internal"
                       focusable="false"
                     />
                     <span>
@@ -173,6 +175,7 @@ exports[`NextBestActions component renders name with no title 1`] = `
                     <svg
                       aria-hidden="true"
                       class="icon"
+                      data-testid="internal"
                       focusable="false"
                     />
                     <span>

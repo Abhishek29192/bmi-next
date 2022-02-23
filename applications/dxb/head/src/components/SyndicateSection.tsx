@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Button from "@bmi-digital/components/button";
-import Section from "@bmi-digital/components/section";
-import Villain, { VillainProps } from "@bmi-digital/components/villain";
+import { Button } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { Villain, VillainProps } from "@bmi/components";
 import { microCopy } from "../constants/microCopies";
 import { renderVideo } from "./Video";
 import { Data as PromoData } from "./Promo";

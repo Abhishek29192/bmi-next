@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "next-i18next";
 import { gql } from "@apollo/client";
 import UserIcon from "@material-ui/icons/Person";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi/components";
 import { GetCompanyQuery } from "../../../graphql/generated/operations";
 import { SimpleCard } from "../SimpleCard";
 import { EmailLink, PhoneNumberLink } from "../../IconLink";

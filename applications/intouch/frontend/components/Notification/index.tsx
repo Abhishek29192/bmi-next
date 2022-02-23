@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from "react";
-import Typography from "@bmi-digital/components/typography";
+import { Typography } from "@bmi/components";
 import TimeAgo from "javascript-time-ago";
 import { useTranslation } from "next-i18next";
 import ReactTimeAgo from "react-time-ago";
@@ -29,9 +30,13 @@ const ReactMarkdown: React.ComponentType<Record<string, any>> = dynamic(
 );
 
 export const Notification = ({
+  // eslint-disable-next-line react/prop-types
   message,
+  // eslint-disable-next-line react/prop-types
   date,
+  // eslint-disable-next-line react/prop-types
   read,
+  // eslint-disable-next-line react/prop-types
   id
 }: NotificationProps) => {
   const { i18n } = useTranslation();
@@ -39,7 +44,10 @@ export const Notification = ({
     <div className={`${styles.main} ${read ? null : styles.unread}`}>
       <Typography variant="body1" component="div" className={styles.body}>
         <div className={styles.timeAgo}>
-          <ReactTimeAgo date={date} locale={i18n.language.replace("_", "-")} />
+          <ReactTimeAgo
+            date={Date.parse(date)}
+            locale={i18n.language.replace("_", "-")}
+          />
         </div>
         <div>
           <ReactMarkdown

@@ -1,11 +1,9 @@
-import { Filter } from "@bmi-digital/components/filters";
-import Grid from "@bmi-digital/components/grid";
 import { Link as GatsbyLink } from "gatsby";
-import AnchorLink from "@bmi-digital/components/anchor-link";
+import { Filter } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { AnchorLink } from "@bmi/components";
 import React from "react";
-import OverviewCard, {
-  OverviewCardProps
-} from "@bmi-digital/components/overview-card";
+import { OverviewCard, OverviewCardProps } from "@bmi/components";
 import { enhanceColourFilterWithSwatches } from "../../../utils/filtersUI";
 import { iconMap } from "../../../components/Icon";
 import {

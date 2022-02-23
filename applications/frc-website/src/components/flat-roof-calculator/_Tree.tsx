@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from "react";
-import RadioGroup from "@bmi-digital/components/radio-group";
-import { FormContext, Values } from "@bmi-digital/components/form";
+import { RadioGroup } from "@bmi/components";
+import { FormContext, FormValues } from "@bmi/components";
 import Field from "./_Field";
 import { FieldsDisplay } from "./types/FieldsDisplay";
 import { Path, Tree as CalculatorDataTree } from "./types/CalculatorData";
@@ -87,7 +87,7 @@ const Decision = ({
 };
 
 const populateFieldOptions = (
-  values: Values,
+  values: FormValues,
   tree: CalculatorDataTree,
   fields = new Map<string, string[]>()
 ) => {

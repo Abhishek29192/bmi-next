@@ -1,15 +1,15 @@
 import { gql } from "@apollo/client";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import Typography from "@bmi-digital/components/typography";
-import Button from "@bmi-digital/components/button";
+import { Typography } from "@bmi/components";
+import { Button } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import {
   CertificationFlatRoof,
   CertificationOtherTraining,
   CertificationPitchedRoof
-} from "@bmi-digital/components/icon";
-import Table from "@bmi-digital/components/table";
+} from "@bmi/components";
+import { Table } from "@bmi/components";
 import { SvgIcon } from "@material-ui/core";
 import {
   Technology,

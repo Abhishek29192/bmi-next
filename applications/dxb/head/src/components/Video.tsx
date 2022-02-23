@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import YoutubeVideo from "@bmi-digital/components/youtube-video";
+import { YoutubeVideo } from "@bmi/components";
 import Image, { Data as ImageData } from "./Image";
 
 export type Data = {

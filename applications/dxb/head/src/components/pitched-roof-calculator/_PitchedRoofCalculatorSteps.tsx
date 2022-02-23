@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { BMI as brandLogo } from "@bmi-digital/components/logo";
-import Icon from "@bmi-digital/components/icon";
+import { BMI as brandLogo } from "@bmi/components";
+import { Icon } from "@bmi/components";
 import CalculatorStepper from "./subcomponents/calculator-stepper/CalculatorStepper";
 import { AnalyticsContext } from "./helpers/analytics";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
@@ -57,13 +57,16 @@ const PitchedRoofCalculatorSteps = ({
   const [roof, setRoof] = useState<Roof | undefined>(undefined);
   const [dimensions, setDimensions] = useState<DimensionsValues>({});
   const [tile, setTile] = useState<MainTile | undefined>(undefined);
-  const [variant, setVariant] =
-    useState<MainTileVariant | undefined>(undefined);
-  const [tileOptions, setTileOptions] =
-    useState<TileOptionsSeletions | undefined>(undefined);
+  const [variant, setVariant] = useState<MainTileVariant | undefined>(
+    undefined
+  );
+  const [tileOptions, setTileOptions] = useState<
+    TileOptionsSeletions | undefined
+  >(undefined);
   const [underlay, setUnderlay] = useState<Underlay | undefined>(undefined);
-  const [guttering, setGuttering] =
-    useState<GutteringSelections | undefined>(undefined);
+  const [guttering, setGuttering] = useState<GutteringSelections | undefined>(
+    undefined
+  );
 
   const selectRoof = (newRoof: Roof) => {
     setSelected("enter-dimensions");

@@ -1,11 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { Button, ButtonProps, ClickableAction } from "@bmi/components";
 import { GetApp } from "@material-ui/icons";
-import Button, {
-  ButtonProps,
-  ClickableAction
-} from "@bmi-digital/components/button";
 import { getDownloadLink, downloadAs } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
 import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
@@ -33,12 +30,11 @@ type CommonData = {
   assetType: string;
 };
 
-const GTMButton =
-  withGTM<
-    ButtonProps & {
-      action?: ClickableAction;
-    }
-  >(Button);
+const GTMButton = withGTM<
+  ButtonProps & {
+    action?: ClickableAction;
+  }
+>(Button);
 
 export const handleDownloadClick = async (
   list: CommonData[],

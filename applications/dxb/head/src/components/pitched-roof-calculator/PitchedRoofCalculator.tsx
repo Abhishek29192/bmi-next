@@ -1,6 +1,6 @@
 import React, { Suspense, useCallback, useEffect, useState } from "react";
+import { ContainerDialog } from "@bmi/components";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import ContainerDialog from "@bmi-digital/components/container-dialog";
 import { AnalyticsContext, OnAnalyticsEvent } from "./helpers/analytics";
 import styles from "./PitchedRoofCalculator.module.scss";
 import { EmailFormValues } from "./types/EmailFormValues";
@@ -41,17 +41,16 @@ const PitchedRoofCalculator = ({
     [onAnalyticsEvent]
   );
 
-  const [selected, setSelected] =
-    useState<
-      | "select-roof"
-      | "enter-dimensions"
-      | "select-tile"
-      | "select-variant"
-      | "tile-options"
-      | "select-underlay"
-      | "guttering"
-      | "your-solution-contains"
-    >("select-roof");
+  const [selected, setSelected] = useState<
+    | "select-roof"
+    | "enter-dimensions"
+    | "select-tile"
+    | "select-variant"
+    | "tile-options"
+    | "select-underlay"
+    | "guttering"
+    | "your-solution-contains"
+  >("select-roof");
 
   useEffect(() => {
     if (!isOpen && selected !== "select-roof") {

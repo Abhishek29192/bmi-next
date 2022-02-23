@@ -1,30 +1,31 @@
 import React, { useContext } from "react";
 import classnames from "classnames";
-import Button, { IconButtonProps } from "@bmi-digital/components/button";
-import Clickable, { ClickableProps } from "@bmi-digital/components/clickable";
-import Icon, { iconMap } from "@bmi-digital/components/icon";
-import Table from "@bmi-digital/components/table";
-import DownloadList, {
-  DownloadListContext
-} from "@bmi-digital/components/download-list";
+import {
+  Button,
+  Clickable,
+  ClickableProps,
+  DownloadList,
+  DownloadListContext,
+  Icon,
+  IconButtonProps,
+  iconMap,
+  Table
+} from "@bmi/components";
 import axios from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { downloadAs } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
-import {
-  PIMDocumentData,
-  PIMLinkDocumentData
-} from "../components/types/PIMDocumentBase";
 import { microCopy } from "../constants/microCopies";
 import AssetHeader from "./_AssetHeader";
 import { useSiteContext } from "./Site";
 import { Data as AssetTypeData } from "./AssetType";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import { Format } from "./types";
+import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
 import createAssetFileCountMap, {
-  generateFileNamebyTitle,
+  AssetUniqueFileCountMap,
   generateFilenameByRealFileName,
-  AssetUniqueFileCountMap
+  generateFileNamebyTitle
 } from "./DocumentFileUtils";
 
 interface Props {
