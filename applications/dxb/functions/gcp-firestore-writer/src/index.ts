@@ -45,12 +45,16 @@ const setItemsInFirestore = async (collectionPath: string, items: any) => {
           ? objectTypes.VARIANT_OPTIONS
           : objectTypes.SYSTEM_LAYERS;
 
-      const updatedItem = {
-        ...item,
-        [key]: item[`${objType}`].map((obj: any) => obj.code)
-      };
+      if (item[`${objType}`] && item[`${objType}`].length) {
+        const updatedItem = {
+          ...item,
+          [key]: item[`${objType}`].map((obj: any) => obj.code)
+        };
 
-      batch.set(docRef, updatedItem);
+        batch.set(docRef, updatedItem);
+      } else {
+        batch.set(docRef, item);
+      }
     }
 
     logger.info({ message: `Set ${docPath}` });
