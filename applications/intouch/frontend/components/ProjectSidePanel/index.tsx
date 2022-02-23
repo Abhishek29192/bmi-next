@@ -282,6 +282,7 @@ export const ProjectSidePanel = ({
               onClick={() => {
                 onProjectSelected && onProjectSelected(id);
               }}
+              testId={"projectCard"}
             >
               <Typography>{filterResultBody}</Typography>
               <Typography style={{ display: "flex" }}>
