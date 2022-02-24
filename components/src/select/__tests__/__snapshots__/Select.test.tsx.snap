@@ -6,11 +6,18 @@ exports[`Select component displays errorText instead of helperText if error is p
     class="MuiFormControl-root MuiFormControl-fullWidth"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-error Mui-error"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-error Mui-error Mui-required Mui-required"
       data-shrink="false"
       id="outlined-country-simple"
     >
       Country
+      <span
+        aria-hidden="true"
+        class="MuiFormLabel-asterisk MuiInputLabel-asterisk Mui-error Mui-error"
+      >
+         
+        *
+      </span>
     </label>
     <div
       class="MuiInputBase-root MuiOutlinedInput-root Select Mui-error Mui-error MuiInputBase-formControl"
@@ -31,6 +38,7 @@ exports[`Select component displays errorText instead of helperText if error is p
         aria-hidden="true"
         class="MuiSelect-nativeInput"
         name="Country"
+        required=""
         tabindex="-1"
         value=""
       />
@@ -58,7 +66,7 @@ exports[`Select component displays errorText instead of helperText if error is p
       </fieldset>
     </div>
     <p
-      class="MuiFormHelperText-root MuiFormHelperText-contained Mui-error"
+      class="MuiFormHelperText-root MuiFormHelperText-contained Mui-error Mui-required"
     >
       fieldIsRequiredError
     </p>

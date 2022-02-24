@@ -27,4 +27,14 @@
       margin-top: -9px;
     }
   }
+  &--asterisks_decorator {
+    position: relative;
+    &:before {
+      content: "*";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -15px;
+    }
+  }
 }

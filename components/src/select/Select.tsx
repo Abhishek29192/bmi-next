@@ -13,6 +13,7 @@ export type Props = Omit<SelectProps, "variant"> & {
   onChange: (value: string) => void;
   errorText?: string;
   helperText?: string;
+  isRequired?: boolean;
 };
 
 const Select = ({
@@ -25,6 +26,7 @@ const Select = ({
   className,
   onChange,
   helperText,
+  isRequired,
   ...props
 }: Props) => {
   const handleChange = (
@@ -38,6 +40,7 @@ const Select = ({
       disabled={disabled}
       fullWidth
       variant={variant === "hybrid" ? "filled" : "outlined"}
+      required={isRequired}
     >
       <InputLabel id={labelId}>{label}</InputLabel>
       <MuiSelect

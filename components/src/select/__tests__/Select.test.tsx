@@ -120,7 +120,7 @@ describe("Select component", () => {
         <MenuItem value="fr">France</MenuItem>
       </Select>
     );
-    fireEvent.blur(getByLabelText(label));
+    fireEvent.blur(getByLabelText(`${label} *`));
 
     expect(container).toMatchSnapshot();
   });

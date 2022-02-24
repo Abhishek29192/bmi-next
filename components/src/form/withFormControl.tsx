@@ -70,6 +70,7 @@ const withFormControl = <P, I extends InputValue>(
     return (
       <WrappedComponent
         {...props}
+        isRequired={isRequired}
         name={name}
         errorText={error}
         onBlur={() => setBlurred(true)}
