@@ -21,37 +21,41 @@ export type Data = {
 const Brands = ({ data }: { data: Data[] }) => {
   const { getMicroCopy } = useSiteContext();
 
-  const GTMButton = withGTM<ButtonProps>(Button, { label: "children" });
+  const GTMButton = withGTM<ButtonProps>(Button);
 
   return (
     <Section backgroundColor={"pearl"} className={styles["Brands"]}>
       <Section.Title> {getMicroCopy(microCopy.HOMEPAGE_BRANDS)}</Section.Title>
-      <Grid container justifyContent="center">
-        {data.map((brand, index) => (
-          <Grid item xs={12} md={6} xl={3} key={`${brand.path}-${index}`}>
-            <BrandIntroCard
-              buttonComponent={(props: ButtonProps) => (
-                <GTMButton
-                  gtm={{
-                    id: "cta-click1",
-                    action: props["action"]?.to
-                  }}
-                  {...props}
-                />
-              )}
-              logoIcon={logoIconMap[brand.brandLogo]}
-              description={brand.subtitle}
-              buttonLabel={getMicroCopy(microCopy.HOMEPAGE_BRANDS_LEARN, {
-                title: brand.title
-              })}
-              action={{
-                model: "routerLink",
-                to: brand.path,
-                linkComponent: Link
-              }}
-            />
-          </Grid>
-        ))}
+      <Grid container justify="center">
+        {data.map((brand, index) => {
+          const buttonLabel = getMicroCopy(microCopy.HOMEPAGE_BRANDS_LEARN, {
+            title: brand.title
+          });
+          return (
+            <Grid item xs={12} md={6} xl={3} key={`${brand.path}-${index}`}>
+              <BrandIntroCard
+                buttonComponent={(props: ButtonProps) => (
+                  <GTMButton
+                    gtm={{
+                      id: "cta-click1",
+                      label: `${brand.title} - ${buttonLabel}`,
+                      action: props["action"]?.to
+                    }}
+                    {...props}
+                  />
+                )}
+                logoIcon={logoIconMap[brand.brandLogo]}
+                description={brand.subtitle}
+                buttonLabel={buttonLabel}
+                action={{
+                  model: "routerLink",
+                  to: brand.path,
+                  linkComponent: Link
+                }}
+              />
+            </Grid>
+          );
+        })}
       </Grid>
     </Section>
   );

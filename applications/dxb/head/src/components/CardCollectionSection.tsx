@@ -77,7 +77,7 @@ const CardCollectionItem = ({
       data={link}
       gtm={{
         id: "cta-click1",
-        label: transformedCardLabel,
+        label: `${title || name}${link.label ? " - " + link.label : ""}`,
         action: link.linkedPage?.path || link.url
       }}
       {...props}
