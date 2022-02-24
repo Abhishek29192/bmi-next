@@ -507,10 +507,17 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
                   >
                     Total field area
+                    <span
+                      aria-hidden="true"
+                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
                   </label>
                   <div
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
@@ -519,6 +526,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
                       name="fieldArea"
+                      required=""
                       type="text"
                       value=""
                     />
@@ -541,6 +549,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                       >
                         <span>
                           Total field area
+                           *
                         </span>
                       </legend>
                     </fieldset>
