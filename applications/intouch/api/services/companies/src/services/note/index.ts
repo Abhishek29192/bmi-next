@@ -72,12 +72,13 @@ where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
 
   const users: Account[] = [...companyAdmins, ...marketAdmins];
 
-  for (let i = 0; i < users?.length; i++) {
+  for (let i = 0; i < users.length; i++) {
     const account = users[+i];
     await sendMessageWithTemplate(context, "NOTE_ADDED", {
       accountId: account.id,
       email: account.email,
-      project: `${projectDetails.name}`
+      project: `${projectDetails.name}`,
+      projectId
     });
   }
 };
