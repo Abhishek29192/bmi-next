@@ -84,6 +84,31 @@ describe("SystemDetailsPage template component", () => {
     expect(tabSection).toBeInTheDocument();
   });
 
+  it("should render without systemLayers", async () => {
+    process.env.SPACE_MARKET_CODE = "no";
+    const systemDetails = createSystemDetails({ systemLayers: null });
+    const { container } = renderWithRouter(
+      <SystemDetailsPage
+        data={{
+          contentfulSite: createMockSiteData(),
+          shareWidget: null,
+          systems: systemDetails,
+          allContentfulAssetType
+        }}
+        pageContext={{
+          systemPageId,
+          siteId
+        }}
+      />
+    );
+
+    const layersRelatedProducts = container.querySelector(
+      "Zanda Protector normalstein"
+    );
+    expect(container).toMatchSnapshot();
+    expect(layersRelatedProducts).not.toBeInTheDocument();
+  });
+
   describe("should have function to", () => {
     it("filter and sort technical Spec features correctly", async () => {
       const valueText = "accordion item value 1";

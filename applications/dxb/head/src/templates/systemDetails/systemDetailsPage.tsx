@@ -232,9 +232,11 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
           <Grid item xs={12} md={12} lg={8}>
             <ImageGallerySection images={images || []} />
           </Grid>
-          <Grid item xs={12} md={12} lg={4}>
-            <SystemLayersSection systemLayers={systemLayers || []} />
-          </Grid>
+          {systemLayers && (
+            <Grid item xs={12} md={12} lg={4}>
+              <SystemLayersSection systemLayers={systemLayers || []} />
+            </Grid>
+          )}
         </Grid>
       </Section>
       <TabLeadBlock

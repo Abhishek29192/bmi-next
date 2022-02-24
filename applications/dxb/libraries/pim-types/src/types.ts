@@ -45,7 +45,7 @@ export type System = {
   name: string;
   shortDescription: string;
   systemBenefits?: string[];
-  systemLayers: SystemLayer[];
+  systemLayers?: SystemLayer[] | null;
   systemReferences: SystemReference[];
   description: HTML;
 };
