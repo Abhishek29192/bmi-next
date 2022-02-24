@@ -1,9 +1,9 @@
 import "@testing-library/jest-dom";
 import React from "react";
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import axios from "axios";
 import * as Gatsby from "gatsby";
-import FormSection, { Data, InputWidthType, FormInputs } from "../FormSection";
+import FormSection, { Data, FormInputs, InputWidthType } from "../FormSection";
 import { DataTypeEnum } from "../Link";
 import { SiteContextProvider } from "../Site";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
@@ -495,15 +495,14 @@ describe("FormSection component", () => {
         type: "select"
       }
     ];
-    const { container, getByTestId, queryAllByRole } = render(
-      <FormInputs inputs={specificData} isNative />
-    );
-    const select = getByTestId("form-section-select");
+    render(<FormInputs inputs={specificData} />);
+    const select = screen.getByRole("button");
     fireEvent.mouseDown(select);
 
-    expect(queryAllByRole("menuitem")).toHaveLength(2);
-    expect(select).toHaveTextContent("MC: form.none.selection");
-    expect(container).toMatchSnapshot();
+    const options = screen.getAllByRole("option");
+    expect(options).toHaveLength(2);
+    expect(options[0]).toHaveTextContent("MC: form.none.selection");
+    expect(options[1]).toHaveTextContent("Option1");
   });
 });
 

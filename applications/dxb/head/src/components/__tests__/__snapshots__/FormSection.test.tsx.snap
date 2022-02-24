@@ -288,7 +288,6 @@ exports[`FormSection component renders correctly 1`] = `
                 </label>
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root Select MuiInputBase-formControl"
-                  data-testid="form-section-select"
                 >
                   <div
                     aria-haspopup="listbox"
@@ -1185,85 +1184,6 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
            apply.
         </p>
       </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`FormSection component test options in a Select 1`] = `
-<div>
-  <div
-    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
-  >
-    <div
-      class="MuiFormControl-root MuiFormControl-fullWidth"
-    >
-      <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-        data-shrink="false"
-      >
-        Select
-      </label>
-      <div
-        class="MuiInputBase-root MuiOutlinedInput-root Select MuiInputBase-formControl"
-        data-testid="form-section-select"
-      >
-        <select
-          aria-invalid="false"
-          class="MuiSelect-root MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
-          name="select"
-        >
-          <li
-            aria-disabled="false"
-            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
-            role="menuitem"
-            tabindex="-1"
-            value="form.none.selection"
-          >
-            MC: form.none.selection
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </li>
-          <li
-            aria-disabled="false"
-            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
-            role="menuitem"
-            tabindex="-1"
-            value="Option1"
-          >
-            Option1
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </li>
-        </select>
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M7 10l5 5 5-5z"
-          />
-        </svg>
-        <fieldset
-          aria-hidden="true"
-          class="PrivateNotchedOutline-root-313 MuiOutlinedInput-notchedOutline"
-        >
-          <legend
-            class="PrivateNotchedOutline-legendLabelled-315"
-          >
-            <span>
-              Select
-            </span>
-          </legend>
-        </fieldset>
-      </div>
-      <p
-        class="MuiFormHelperText-root MuiFormHelperText-contained"
-      />
     </div>
   </div>
 </div>
