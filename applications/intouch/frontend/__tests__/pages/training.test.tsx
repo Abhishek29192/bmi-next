@@ -281,7 +281,7 @@ describe("Training Page", () => {
         </AccountContextWrapper>
       </ApolloProvider>
     );
-    const filterButton = container.querySelectorAll(".filterButtons > button");
+    const filterButton = container.querySelectorAll(".filterButton .Chip");
 
     fireEvent.click(filterButton[1]);
     expect(queryByTestId("courseDescription")).toBeFalsy();

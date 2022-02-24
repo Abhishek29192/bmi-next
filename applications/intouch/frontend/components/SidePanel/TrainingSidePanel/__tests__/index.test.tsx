@@ -56,7 +56,7 @@ describe("TrainingSidePanel component", () => {
     );
     expect(container).toMatchSnapshot();
     expect(getAllByTestId("filterResult").length).toBe(3);
-    const filterButton = container.querySelectorAll(".filterButtons > button");
+    const filterButton = container.querySelectorAll(".filterButton .Chip");
 
     fireEvent.click(filterButton[1]);
     expect(filterChangeSpy).toHaveBeenCalledTimes(1);
