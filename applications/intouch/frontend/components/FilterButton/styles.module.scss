@@ -4,6 +4,10 @@
   border-radius: 50%;
 }
 
+.filterButton {
+  display: inline-block;
+}
+
 :export {
   color-pearl: $color-pearl;
   color-cyan: $color-cyan-100;

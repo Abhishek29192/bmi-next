@@ -217,7 +217,7 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                   />
                 </button>
                 <div
-                  class="makeStyles-root-53"
+                  class="makeStyles-root-25"
                 >
                   <div>
                     <button
@@ -328,10 +328,10 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                         </div>
                         <fieldset
                           aria-hidden="true"
-                          class="PrivateNotchedOutline-root-55 MuiOutlinedInput-notchedOutline"
+                          class="PrivateNotchedOutline-root-27 MuiOutlinedInput-notchedOutline"
                         >
                           <legend
-                            class="PrivateNotchedOutline-legendLabelled-57"
+                            class="PrivateNotchedOutline-legendLabelled-29"
                           >
                             <span>
                               search.inputLabel
@@ -348,90 +348,114 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                       Show me
                       :
                     </span>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-59 makeStyles-root-60 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        filters.labels.ALL
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-59 makeStyles-root-61 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.ALL
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        filters.labels.NOT_STARTED
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-59 makeStyles-root-62 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.NOT_STARTED
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        filters.labels.IN_PROGRESS
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-59 makeStyles-root-63 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.IN_PROGRESS
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        filters.labels.COMPLETED
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-59 makeStyles-root-64 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.COMPLETED
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        filters.labels.FLAT
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-59 makeStyles-root-65 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.FLAT
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        filters.labels.PITCHED
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.PITCHED
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -929,90 +953,114 @@ exports[`Projects Page render correctly 1`] = `
                       Show me
                       :
                     </span>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-7 makeStyles-root-8 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        filters.labels.ALL
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-7 makeStyles-root-9 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.ALL
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        filters.labels.NOT_STARTED
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-7 makeStyles-root-10 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.NOT_STARTED
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        filters.labels.IN_PROGRESS
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-7 makeStyles-root-11 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.IN_PROGRESS
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        filters.labels.COMPLETED
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-7 makeStyles-root-12 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.COMPLETED
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        filters.labels.FLAT
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-7 makeStyles-root-13 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.FLAT
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        filters.labels.PITCHED
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.PITCHED
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div

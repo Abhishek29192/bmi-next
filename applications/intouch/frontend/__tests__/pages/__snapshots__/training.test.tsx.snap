@@ -348,62 +348,78 @@ exports[`Training Page render correctly 1`] = `
                       Show me
                       :
                     </span>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-7 makeStyles-root-8 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        filter.labels.all
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-7 makeStyles-root-9 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filter.labels.all
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        certifications.flat
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-7 makeStyles-root-10 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                        <span
+                          class="MuiChip-label"
+                        >
+                          certifications.flat
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        certifications.pitched
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-7 makeStyles-root-11 MuiButton-disableElevation"
-                      tabindex="0"
-                      type="button"
+                        <span
+                          class="MuiChip-label"
+                        >
+                          certifications.pitched
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
                     >
-                      <span
-                        class="MuiButton-label"
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
                       >
-                        certifications.other
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
+                        <span
+                          class="MuiChip-label"
+                        >
+                          certifications.other
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -598,7 +614,7 @@ exports[`Training Page render correctly 1`] = `
                           </div>
                           <a
                             aria-disabled="false"
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-12 MuiButton-outlined buttonStyles-outlinedDarkBg-18 cta MuiButton-outlinedPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-7 MuiButton-outlined buttonStyles-outlinedDarkBg-13 cta MuiButton-outlinedPrimary"
                             href="/api/docebo-sso"
                             label="lmsCtaLabel"
                             rel="noopener noreferrer"
@@ -606,7 +622,7 @@ exports[`Training Page render correctly 1`] = `
                             target="_blank"
                           >
                             <span
-                              class="MuiButton-label buttonStyles-label-15"
+                              class="MuiButton-label buttonStyles-label-10"
                             >
                               lmsCtaLabel
                             </span>
@@ -998,7 +1014,7 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
                   />
                 </button>
                 <div
-                  class="makeStyles-root-34"
+                  class="makeStyles-root-29"
                 >
                   <div>
                     <button
@@ -1305,7 +1321,7 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
                   />
                 </button>
                 <div
-                  class="makeStyles-root-32"
+                  class="makeStyles-root-27"
                 >
                   <div>
                     <button
