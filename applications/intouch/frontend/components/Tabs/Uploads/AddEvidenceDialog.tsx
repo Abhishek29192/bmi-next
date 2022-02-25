@@ -22,7 +22,7 @@ type AddEvidenceDialogProps = {
   ) => void;
 };
 //You cannot upload  files larger than <MAX_FILE_SIZE> MB (It's megabyte)
-const MAX_FILE_SIZE = 25;
+const MAX_FILE_SIZE = 40;
 
 type EvidenceCategoryKey = CustomEvidenceCategoryKey | "MISCELLANEOUS";
 
