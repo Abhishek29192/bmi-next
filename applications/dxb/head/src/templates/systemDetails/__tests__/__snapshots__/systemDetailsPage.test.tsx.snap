@@ -25532,7 +25532,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
             >
               <div
-                class="ImageGallery gallery"
+                class="MediaGallery gallery"
               >
                 <div
                   class="image-wrapper"
@@ -25593,24 +25593,13 @@ exports[`SystemDetailsPage template component should render without systemLayers
                       style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
                       tabindex="0"
                       type="button"
-                    >
-                      <img
-                        alt="490189 wireløper"
-                        class="Media"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
-                      />
-                    </button>
+                    />
                     <button
                       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
                       style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
                       tabindex="0"
                       type="button"
                     >
-                      <img
-                        alt="Print_490189 wireløper"
-                        class="Media"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
-                      />
                       <span
                         class="MuiTouchRipple-root"
                       />

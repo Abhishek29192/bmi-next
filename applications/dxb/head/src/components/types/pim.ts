@@ -241,11 +241,3 @@ export enum FileContentTypeEnum {
   FILE_NOT_AN_IMAGE = "file/not-an-image",
   APPLICATION_OCTET_STREAM = "application/octet-stream"
 }
-
-export type PIMVideoDataWithTypename = Omit<
-  Asset,
-  "fileSize" | "format" | "realFileName"
-> & {
-  __typename: "PimVideo";
-  youtubeId: string;
-};

@@ -1,7 +1,7 @@
 import React from "react";
 import { generateHeroLevel, generateHeroProps } from "../heroLevelUtils";
 import { Data as LinkData, DataTypeEnum } from "../../components/Link";
-import { Data as VideoData } from "../../components/Video";
+import { ContentfulVideoData } from "../../components/Video";
 import { Data as ImageData } from "../../components/Image";
 
 const mockBreadCrumbs = [
@@ -36,7 +36,7 @@ const featuredMedia: ImageData = {
   }
 };
 
-const featureVideo: VideoData = {
+const featureVideo: ContentfulVideoData = {
   __typename: "ContentfulVideo",
   title: "video title",
   label: "video label",

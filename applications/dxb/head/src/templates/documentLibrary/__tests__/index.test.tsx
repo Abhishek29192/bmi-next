@@ -13,7 +13,7 @@ import createClassification from "../../../__tests__/ClassificationHelper";
 import * as devLog from "../../../utils/devLog";
 import * as filterUtils from "../../../utils/filters";
 import * as documentResultsFooter from "../../../components/DocumentResultsFooter";
-import { Data as VideoData } from "../../../components/Video";
+import { ContentfulVideoData } from "../../../components/Video";
 
 const executeRecaptchaSpy = jest.fn().mockResolvedValue("RECAPTCHA");
 jest.mock("react-google-recaptcha-v3", () => {
@@ -40,7 +40,7 @@ describe("Document Library page", () => {
     process.env = OLD_ENV;
   });
 
-  const videoData: VideoData = {
+  const videoData: ContentfulVideoData = {
     __typename: "ContentfulVideo",
     title: "BMI Group - We see further",
     label: "BMI Group VIDEO LABEL",
@@ -438,12 +438,12 @@ describe("Document Library page", () => {
     fireEvent.click(checkbox);
     fireEvent.mouseOver(checkbox2);
     expect(
-      container.querySelector("[title='MC: documents.download.maxReached'")
+      container.querySelector("[title='MC: documents.download.maxReached']")
     ).toBeFalsy();
     fireEvent.click(checkbox2);
     fireEvent.mouseOver(checkbox2);
     expect(
-      container.querySelector("[title='MC: documents.download.maxReached'")
+      container.querySelector("[title='MC: documents.download.maxReached']")
     ).toBeTruthy();
   });
 });

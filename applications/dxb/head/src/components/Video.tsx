@@ -2,10 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import { YoutubeVideo } from "@bmi/components";
 import Image, { Data as ImageData } from "./Image";
-import { AssetAssetType, Mime } from "./types/pim";
 
 export type Data = {
-  __typename: "ContentfulVideo";
   title: string;
   label: string;
   subtitle: string | null;
@@ -14,28 +12,15 @@ export type Data = {
   videoRatio: { width: number; height: number } | null;
 };
 
-type videoTypeName = "ContentfulVideo" | "PimVideo";
-
-type MediaVideoData = {
-  __typename: videoTypeName;
-  title?: string;
-  label?: string;
-  subtitle?: string | null;
-  youtubeId: string;
-  previewMedia?: ImageData | null;
-  videoRatio?: { width?: number; height?: number } | null;
-  allowedToDownload?: boolean;
-  assetType?: AssetAssetType;
-  mime?: Mime;
-  name?: string;
-  url?: string;
+export type ContentfulVideoData = Data & {
+  __typename: "ContentfulVideo";
 };
 
-const Video = ({ data }: { data: MediaVideoData }) => {
+const Video = ({ data }: { data: Data }) => {
   return renderVideo(data);
 };
 
-export const renderVideo = (data: MediaVideoData) => {
+export const renderVideo = (data: Data) => {
   const { label, subtitle, youtubeId, previewMedia, videoRatio } = data;
   return (
     <YoutubeVideo

@@ -12,7 +12,7 @@ Is worth checking if [`react-string-clamp`](https://www.npmjs.com/package/react-
 ### Default
 
 ```jsx
-<Truncate lines="2">
+<Truncate lines={2}>
   Nulla quis adipisicing fugiat amet occaecat qui quis exercitation elit enim.
   Culpa nostrud dolore ea ipsum sit non id ullamco aliquip adipisicing Lorem
   non. Velit nulla adipisicing pariatur adipisicing esse veniam laborum eiusmod

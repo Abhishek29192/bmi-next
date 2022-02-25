@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
 import { graphql } from "gatsby";
-import { Section } from "@bmi/components";
-import { Grid } from "@bmi/components";
+import { Grid, MediaGallery, Section } from "@bmi/components";
 import Page from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {
@@ -12,17 +11,17 @@ import { Data as TitleWithContentData } from "../../components/TitleWithContent"
 import RelatedSystems from "../../components/RelatedSystems";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import {
-  System,
   Asset,
-  Feature,
   Classification,
-  PIMVideoDataWithTypename
+  Feature,
+  System
 } from "../../components/types/pim";
 import { iconMap } from "../../components/Icon";
 import {
   filterAndTransformVideoData,
+  GalleryPimVideo,
   transformMediaSrc
-} from "../../utils/images";
+} from "../../utils/media";
 import {
   mapGalleryImages,
   transformImages
@@ -31,7 +30,6 @@ import LeadBlockSection from "./leadBlockSection";
 import { DocumentData } from "./types";
 import TabLeadBlock, { BimContent } from "./tabLeadBlock";
 import SystemLayersSection from "./systemLayersSection";
-import MediaGallerySection from "./mediaGallerySection";
 import styles from "./styles/systemDetailsPage.module.scss";
 
 type Props = {
@@ -100,7 +98,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     );
   }, [assets]);
 
-  const videos: PIMVideoDataWithTypename[] = useMemo(() => {
+  const videos: GalleryPimVideo[] = useMemo(() => {
     return filterAndTransformVideoData(assets);
   }, [assets]);
 
@@ -248,7 +246,11 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       >
         <Grid container spacing={3}>
           <Grid item xs={12} md={12} lg={8}>
-            <MediaGallerySection media={media || []} />
+            <MediaGallery
+              className={styles["gallery"]}
+              media={media}
+              layout="short"
+            />
           </Grid>
           {systemLayers && (
             <Grid item xs={12} md={12} lg={4}>

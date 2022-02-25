@@ -10,14 +10,13 @@ type Props = {
   /**
    * The `react-lines-ellipsis` package only accepts string.
    */
-  children: string | undefined;
-  lines: number | string;
-  lineHeight?: string;
+  children: string;
+  lines: number;
   component?: React.ElementType;
   className?: string;
 };
 
-const Truncate = ({ children = "", lines, component, className }: Props) => {
+const Truncate = ({ children, lines, component, className }: Props) => {
   return (
     <ResponsiveEllipsis
       className={classnames(className, styles["Truncate"])}

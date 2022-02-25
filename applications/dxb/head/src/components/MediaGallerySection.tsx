@@ -1,36 +1,22 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Thumbnail, ThumbnailProps } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { MediaGallery, MediaData } from "@bmi/components";
-import { getDefaultPreviewImage } from "@bmi/components";
+import {
+  getDefaultPreviewImage,
+  Grid,
+  MediaData,
+  MediaGallery,
+  Section,
+  Thumbnail,
+  ThumbnailProps,
+  Typography
+} from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
-import { Data as ImageData, renderImage } from "./Image";
+import { GallerySectionMedias } from "../utils/media";
+import { renderImage } from "./Image";
+import { renderVideo } from "./Video";
 import styles from "./styles/MediaGallerySection.module.scss";
-import { Data as ContenfulVideoData, renderVideo } from "./Video";
 import RichText, { RichTextData } from "./RichText";
 
-type GallerySectionImage = Omit<ImageData, "image"> & {
-  image: ImageData["image"] & {
-    thumbnail: {
-      src: string;
-    };
-  };
-};
-
-type GallerySectionVideo = Omit<ContenfulVideoData, "previewMedia"> & {
-  previewMedia: ContenfulVideoData["previewMedia"] & {
-    image: ContenfulVideoData["previewMedia"]["image"] & {
-      thumbnail: {
-        src: string;
-      };
-    };
-  };
-};
-
-type GallerySectionMedias = GallerySectionImage | GallerySectionVideo;
 export type Data = {
   __typename: "ContentfulMediaGallerySection";
   title: string | null;

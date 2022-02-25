@@ -70,7 +70,7 @@ const ImageGallery = ({
               component="p"
               className={styles["caption-text"]}
             >
-              <Truncate lines="2">{caption}</Truncate>
+              <Truncate lines={2}>{caption}</Truncate>
             </Typography>
           </div>
         ) : null}

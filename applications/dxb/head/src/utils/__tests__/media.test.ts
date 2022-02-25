@@ -1,4 +1,9 @@
-import getJpgImage, { transformMediaSrc } from "../images";
+import {
+  filterAndTransformVideoData,
+  getJpgImage,
+  transformMediaSrc
+} from "../media";
+import createAsset from "../../__tests__/AssetHelper";
 
 describe("getJpgImage function", () => {
   it("does nothing if undefined", () => {
@@ -85,5 +90,34 @@ describe("transformMediaSrc function", () => {
         altText: "alt text"
       })
     );
+  });
+});
+
+describe("filterAndTransformVideoData", () => {
+  it("should return only PIM videos transformed to VideoData", () => {
+    const expectedVideo = createAsset({
+      assetType: "VIDEO",
+      mime: "application/octet-stream",
+      name: "testVideo",
+      url: "https://www.youtube.com/watch?v=PLLgrNGa4D4"
+    });
+    const mockMedia = [
+      createAsset({ assetType: "CERTIFICATES" }),
+      expectedVideo
+    ];
+
+    const expectResult = filterAndTransformVideoData(mockMedia);
+
+    expect(expectResult).toStrictEqual([
+      {
+        __typename: "PimVideo",
+        label: expectedVideo.name,
+        title: expectedVideo.name,
+        previewMedia: null,
+        subtitle: null,
+        videoRatio: null,
+        youtubeId: "PLLgrNGa4D4"
+      }
+    ]);
   });
 });

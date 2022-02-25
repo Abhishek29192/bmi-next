@@ -1,11 +1,10 @@
-import { MediaData } from "@bmi/components";
-import { getDefaultPreviewImage } from "@bmi/components";
+import { getDefaultPreviewImage, MediaData } from "@bmi/components";
 import { Data as ImageData, renderImage } from "../components/Image";
-import { Data as ContenfulVideoData, renderVideo } from "../components/Video";
-import { Asset, PIMVideoDataWithTypename } from "../components/types/pim";
+import { Data as VideoData, renderVideo } from "../components/Video";
+import { Asset } from "../components/types/pim";
 import { getYoutubeId } from "./product-details-transforms";
 
-const getJpgImage = (ogImageUrl: string) => {
+export const getJpgImage = (ogImageUrl: string) => {
   if (
     ogImageUrl?.includes("//images.ctfassets.net/") &&
     !ogImageUrl.includes("fm=")
@@ -15,20 +14,18 @@ const getJpgImage = (ogImageUrl: string) => {
   return ogImageUrl;
 };
 
-export default getJpgImage;
-
-type GallerySectionImage = Omit<ImageData, "image"> & {
+export type GallerySectionImage = Omit<ImageData, "image"> & {
   image: ImageData["image"] & {
-    x;
     thumbnail: {
       src: string;
     };
   };
 };
 
-type GallerySectionVideo = Omit<ContenfulVideoData, "previewMedia"> & {
-  previewMedia: ContenfulVideoData["previewMedia"] & {
-    image: ContenfulVideoData["previewMedia"]["image"] & {
+export type GallerySectionVideo = Omit<VideoData, "previewMedia"> & {
+  __typename: "ContentfulVideo";
+  previewMedia: VideoData["previewMedia"] & {
+    image: VideoData["previewMedia"]["image"] & {
       thumbnail: {
         src: string;
       };
@@ -36,10 +33,16 @@ type GallerySectionVideo = Omit<ContenfulVideoData, "previewMedia"> & {
   };
 };
 
+export type GalleryPimVideo = Omit<VideoData, "previewMedia" | "videoRatio"> & {
+  __typename: "PimVideo";
+  previewMedia: null;
+  videoRatio: null;
+};
+
 export type GallerySectionMedias =
   | GallerySectionImage
   | GallerySectionVideo
-  | PIMVideoDataWithTypename;
+  | GalleryPimVideo;
 
 export const transformMediaSrc = (
   media: GallerySectionMedias[] = []
@@ -65,8 +68,8 @@ export const transformMediaSrc = (
       case "PimVideo":
         return {
           media: renderVideo(item),
-          thumbnail: getDefaultPreviewImage(getYoutubeId(item.url)),
-          caption: item.name || undefined,
+          thumbnail: getDefaultPreviewImage(item.youtubeId),
+          caption: item.title,
           isVideo: true
         };
     }
@@ -75,13 +78,17 @@ export const transformMediaSrc = (
 
 export const filterAndTransformVideoData = (
   assets: readonly Asset[]
-): PIMVideoDataWithTypename[] => {
+): GalleryPimVideo[] => {
   return (assets || [])
     .filter((el) => el.assetType === "VIDEO")
     .map((video) => {
       return {
-        ...video,
         __typename: "PimVideo",
+        title: video.name,
+        label: video.name,
+        subtitle: null,
+        previewMedia: null,
+        videoRatio: null,
         youtubeId: getYoutubeId(video.url)
       };
     });
