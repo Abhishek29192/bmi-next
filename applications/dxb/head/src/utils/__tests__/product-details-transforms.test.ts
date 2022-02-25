@@ -11,6 +11,7 @@ import {
   getSizeLabel,
   getValidClassification,
   getValidFeatures,
+  getYoutubeId,
   groupProductsByCategory,
   mapClassificationValues,
   mapGalleryImages,
@@ -30,10 +31,10 @@ import {
 import createCategory from "../../__tests__/CategoryHelper";
 import {
   ClassificationCodeEnum,
-  ImageAssetTypesEnum,
-  Product,
   Image,
-  ImageFormatEnum
+  ImageAssetTypesEnum,
+  ImageFormatEnum,
+  Product
 } from "../../components/types/pim";
 
 describe("product-details-transforms tests", () => {
@@ -48,6 +49,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("getSizeLabel tests", () => {
     describe("When measurement is NOT provided", () => {
       describe("And withUnit is false", () => {
@@ -152,6 +154,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("mapProductClassifications tests", () => {
     describe("When product is provided with invalid classifications", () => {
       it("returns empty object", () => {
@@ -377,6 +380,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("findUniqueVariantClassifications tests", () => {
     describe("When VariantOptionWithProduct is provided", () => {
       describe("And it does not contain valid classifications", () => {
@@ -591,6 +595,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("findAllCategories tests", () => {
     describe("When list product is empty array", () => {
       it("returns empty object", () => {
@@ -695,6 +700,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   //very long function (getProductAttributes)!!
   //starting some initial tests but need to add more tests!!
   describe("getProductAttributes tests", () => {
@@ -2026,6 +2032,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("findMasterImageUrl tests", () => {
     it("returns undefined if null provided", () => {
       const result = findMasterImageUrl(null);
@@ -2097,6 +2104,7 @@ describe("product-details-transforms tests", () => {
       );
     });
   });
+
   describe("getColourThumbnailUrl tests", () => {
     describe("when master image exists", () => {
       it("returns master image url value", () => {
@@ -2137,6 +2145,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("mapGalleryImages tests", () => {
     describe("when Gallery images are empty", () => {
       it("returns empty result", () => {
@@ -2373,6 +2382,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("groupProductsByCategory tests", () => {
     describe("When Product data is NOT provided", () => {
       it("returns empty object", () => {
@@ -2448,6 +2458,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("mapClassificationValues tests", () => {
     describe("When classifiction map is empty object", () => {
       it("returns empty string", () => {
@@ -2554,6 +2565,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("findProductBrandLogoCode tests", () => {
     describe("When Product with BMI Brands is NOT provided", () => {
       it("returns brand logo code", () => {
@@ -2586,6 +2598,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("getMergedClassifications tests", () => {
     describe("When emtpy classifications are provided", () => {
       it("returns empty results", () => {
@@ -2658,6 +2671,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("getValidClassification tests", () => {
     describe("When emtpy classifications are provided", () => {
       it("returns empty results", () => {
@@ -2725,6 +2739,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("getValidFeatures tests", () => {
     describe("When emtpy features are provided", () => {
       it("returns empty results", () => {
@@ -2765,6 +2780,96 @@ describe("product-details-transforms tests", () => {
         const result = getValidFeatures("", [feature1, feature2, feature3]);
         expect(result).toEqual([feature3]);
       });
+    });
+  });
+
+  describe("getYoutubeId", () => {
+    it("returns ID for standard URL", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube.com/watch?v=${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for standard URL with start time", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube.com/watch?v=${expectedYoutubeId}&t=10s`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for share link URL", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://youtu.be/${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for share link URL with start time", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://youtu.be/${expectedYoutubeId}?t=10`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for embedded URL", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube.com/embed/${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for embedded URL with start time", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube.com/embed/${expectedYoutubeId}?start=10`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for privacy-enhanced embedded URL", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube-nocookie.com/embed/${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for privacy-enhanced embedded URL with start time", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube-nocookie.com/embed/${expectedYoutubeId}?start=10`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for URL without 'www.'", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://youtube.com/watch?v=${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for URL without protocol", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `youtube.com/watch?v=${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for URL with http protocol", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `http://youtube.com/watch?v=${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
     });
   });
 });
