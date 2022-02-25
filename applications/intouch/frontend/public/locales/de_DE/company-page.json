@@ -160,5 +160,11 @@
   },
   "supportTitle": "BMI kontaktieren",
   "titleAdmin": "Firmen",
-  "titleMember": "Firma"
+  "titleMember": "Firma",
+  "order": {
+    "labels": {
+      "ALPHABETICAL": "Alphabetical",
+      "UPDATED": "Last Updated"
+    }
+  }
 }

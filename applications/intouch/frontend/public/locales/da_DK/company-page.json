@@ -160,5 +160,11 @@
   },
   "supportTitle": "Kontakt BMI",
   "titleAdmin": "Virksomheder",
-  "titleMember": "Virksomhed"
+  "titleMember": "Virksomhed",
+  "order": {
+    "labels": {
+      "ALPHABETICAL": "Alphabetical",
+      "UPDATED": "Last Updated"
+    }
+  }
 }
