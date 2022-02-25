@@ -106,10 +106,17 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
             class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
               Your name
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -118,6 +125,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input"
                 name="name"
+                required=""
                 type="text"
                 value=""
               />
@@ -130,6 +138,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
                 >
                   <span>
                     Your name
+                     *
                   </span>
                 </legend>
               </fieldset>
@@ -143,10 +152,17 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
             class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
               Your email address
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -155,6 +171,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input"
                 name="email"
+                required=""
                 type="text"
                 value=""
               />
@@ -167,6 +184,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
                 >
                   <span>
                     Your email address
+                     *
                   </span>
                 </legend>
               </fieldset>
@@ -181,92 +199,100 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="Checkbox--asterisks_decorator"
           >
-            <label
-              class="MuiFormControlLabel-root"
+            <div
+              class="MuiFormControl-root Checkbox"
             >
-              <span
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+              <label
+                class="MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiIconButton-label"
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                 >
-                  <input
-                    class="PrivateSwitchBase-input-8"
-                    data-indeterminate="false"
-                    name="gdpr_1"
-                    type="checkbox"
-                    value=""
-                  />
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                  <span
+                    class="MuiIconButton-label"
                   >
-                    <path
-                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    <input
+                      class="PrivateSwitchBase-input-8"
+                      data-indeterminate="false"
+                      name="gdpr_1"
+                      type="checkbox"
+                      value=""
                     />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-              >
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-              </span>
-            </label>
+                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                >
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                </span>
+              </label>
+            </div>
           </div>
         </div>
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="Checkbox--asterisks_decorator"
           >
-            <label
-              class="MuiFormControlLabel-root"
+            <div
+              class="MuiFormControl-root Checkbox"
             >
-              <span
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+              <label
+                class="MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiIconButton-label"
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                 >
-                  <input
-                    class="PrivateSwitchBase-input-8"
-                    data-indeterminate="false"
-                    name="gdpr_2"
-                    type="checkbox"
-                    value=""
-                  />
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                  <span
+                    class="MuiIconButton-label"
                   >
-                    <path
-                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    <input
+                      class="PrivateSwitchBase-input-8"
+                      data-indeterminate="false"
+                      name="gdpr_2"
+                      type="checkbox"
+                      value=""
                     />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-              >
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-              </span>
-            </label>
+                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                >
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                </span>
+              </label>
+            </div>
           </div>
         </div>
         <div
@@ -397,10 +423,17 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
             class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
               Your name
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -409,6 +442,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input"
                 name="name"
+                required=""
                 type="text"
                 value=""
               />
@@ -421,6 +455,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
                 >
                   <span>
                     Your name
+                     *
                   </span>
                 </legend>
               </fieldset>
@@ -434,10 +469,17 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
             class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
               Your email address
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -446,6 +488,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input"
                 name="email"
+                required=""
                 type="text"
                 value=""
               />
@@ -458,6 +501,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
                 >
                   <span>
                     Your email address
+                     *
                   </span>
                 </legend>
               </fieldset>
@@ -472,92 +516,100 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="Checkbox--asterisks_decorator"
           >
-            <label
-              class="MuiFormControlLabel-root"
+            <div
+              class="MuiFormControl-root Checkbox"
             >
-              <span
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+              <label
+                class="MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiIconButton-label"
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                 >
-                  <input
-                    class="PrivateSwitchBase-input-36"
-                    data-indeterminate="false"
-                    name="gdpr_1"
-                    type="checkbox"
-                    value=""
-                  />
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                  <span
+                    class="MuiIconButton-label"
                   >
-                    <path
-                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    <input
+                      class="PrivateSwitchBase-input-36"
+                      data-indeterminate="false"
+                      name="gdpr_1"
+                      type="checkbox"
+                      value=""
                     />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-              >
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-              </span>
-            </label>
+                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                >
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                </span>
+              </label>
+            </div>
           </div>
         </div>
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="Checkbox--asterisks_decorator"
           >
-            <label
-              class="MuiFormControlLabel-root"
+            <div
+              class="MuiFormControl-root Checkbox"
             >
-              <span
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+              <label
+                class="MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiIconButton-label"
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                 >
-                  <input
-                    class="PrivateSwitchBase-input-36"
-                    data-indeterminate="false"
-                    name="gdpr_2"
-                    type="checkbox"
-                    value=""
-                  />
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                  <span
+                    class="MuiIconButton-label"
                   >
-                    <path
-                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    <input
+                      class="PrivateSwitchBase-input-36"
+                      data-indeterminate="false"
+                      name="gdpr_2"
+                      type="checkbox"
+                      value=""
                     />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-              >
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-              </span>
-            </label>
+                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                >
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                </span>
+              </label>
+            </div>
           </div>
         </div>
         <div
@@ -761,10 +813,17 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
             class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
               Your name
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -773,6 +832,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input"
                 name="name"
+                required=""
                 type="text"
                 value=""
               />
@@ -785,6 +845,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
                 >
                   <span>
                     Your name
+                     *
                   </span>
                 </legend>
               </fieldset>
@@ -798,10 +859,17 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
             class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
               Your email address
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -810,6 +878,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input"
                 name="email"
+                required=""
                 type="text"
                 value=""
               />
@@ -822,6 +891,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
                 >
                   <span>
                     Your email address
+                     *
                   </span>
                 </legend>
               </fieldset>
@@ -836,92 +906,100 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="Checkbox--asterisks_decorator"
           >
-            <label
-              class="MuiFormControlLabel-root"
+            <div
+              class="MuiFormControl-root Checkbox"
             >
-              <span
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-117 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+              <label
+                class="MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiIconButton-label"
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-117 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                 >
-                  <input
-                    class="PrivateSwitchBase-input-120"
-                    data-indeterminate="false"
-                    name="gdpr_1"
-                    type="checkbox"
-                    value=""
-                  />
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                  <span
+                    class="MuiIconButton-label"
                   >
-                    <path
-                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    <input
+                      class="PrivateSwitchBase-input-120"
+                      data-indeterminate="false"
+                      name="gdpr_1"
+                      type="checkbox"
+                      value=""
                     />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-              >
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-              </span>
-            </label>
+                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                >
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                </span>
+              </label>
+            </div>
           </div>
         </div>
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="Checkbox--asterisks_decorator"
           >
-            <label
-              class="MuiFormControlLabel-root"
+            <div
+              class="MuiFormControl-root Checkbox"
             >
-              <span
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-117 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+              <label
+                class="MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiIconButton-label"
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-117 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                 >
-                  <input
-                    class="PrivateSwitchBase-input-120"
-                    data-indeterminate="false"
-                    name="gdpr_2"
-                    type="checkbox"
-                    value=""
-                  />
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                  <span
+                    class="MuiIconButton-label"
                   >
-                    <path
-                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    <input
+                      class="PrivateSwitchBase-input-120"
+                      data-indeterminate="false"
+                      name="gdpr_2"
+                      type="checkbox"
+                      value=""
                     />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-              >
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-              </span>
-            </label>
+                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                >
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                </span>
+              </label>
+            </div>
           </div>
         </div>
         <div
@@ -1052,10 +1130,17 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
             class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
               Your name
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -1064,6 +1149,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input"
                 name="name"
+                required=""
                 type="text"
                 value=""
               />
@@ -1076,6 +1162,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
                 >
                   <span>
                     Your name
+                     *
                   </span>
                 </legend>
               </fieldset>
@@ -1089,10 +1176,17 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
             class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
               Your email address
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -1101,6 +1195,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input"
                 name="email"
+                required=""
                 type="text"
                 value=""
               />
@@ -1113,6 +1208,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
                 >
                   <span>
                     Your email address
+                     *
                   </span>
                 </legend>
               </fieldset>
@@ -1127,92 +1223,100 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="Checkbox--asterisks_decorator"
           >
-            <label
-              class="MuiFormControlLabel-root"
+            <div
+              class="MuiFormControl-root Checkbox"
             >
-              <span
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-89 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+              <label
+                class="MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiIconButton-label"
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-89 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                 >
-                  <input
-                    class="PrivateSwitchBase-input-92"
-                    data-indeterminate="false"
-                    name="gdpr_1"
-                    type="checkbox"
-                    value=""
-                  />
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                  <span
+                    class="MuiIconButton-label"
                   >
-                    <path
-                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    <input
+                      class="PrivateSwitchBase-input-92"
+                      data-indeterminate="false"
+                      name="gdpr_1"
+                      type="checkbox"
+                      value=""
                     />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-              >
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-              </span>
-            </label>
+                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                >
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                </span>
+              </label>
+            </div>
           </div>
         </div>
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="Checkbox--asterisks_decorator"
           >
-            <label
-              class="MuiFormControlLabel-root"
+            <div
+              class="MuiFormControl-root Checkbox"
             >
-              <span
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-89 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+              <label
+                class="MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiIconButton-label"
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-89 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                 >
-                  <input
-                    class="PrivateSwitchBase-input-92"
-                    data-indeterminate="false"
-                    name="gdpr_2"
-                    type="checkbox"
-                    value=""
-                  />
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                  <span
+                    class="MuiIconButton-label"
                   >
-                    <path
-                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    <input
+                      class="PrivateSwitchBase-input-92"
+                      data-indeterminate="false"
+                      name="gdpr_2"
+                      type="checkbox"
+                      value=""
                     />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-              >
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-              </span>
-            </label>
+                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                >
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                </span>
+              </label>
+            </div>
           </div>
         </div>
         <div
@@ -1343,10 +1447,17 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
             class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
               Your name
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -1355,6 +1466,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input"
                 name="name"
+                required=""
                 type="text"
                 value=""
               />
@@ -1367,6 +1479,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
                 >
                   <span>
                     Your name
+                     *
                   </span>
                 </legend>
               </fieldset>
@@ -1380,10 +1493,17 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
             class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
               Your email address
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -1392,6 +1512,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input"
                 name="email"
+                required=""
                 type="text"
                 value=""
               />
@@ -1404,6 +1525,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
                 >
                   <span>
                     Your email address
+                     *
                   </span>
                 </legend>
               </fieldset>
@@ -1418,92 +1540,100 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="Checkbox--asterisks_decorator"
           >
-            <label
-              class="MuiFormControlLabel-root"
+            <div
+              class="MuiFormControl-root Checkbox"
             >
-              <span
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-61 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+              <label
+                class="MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiIconButton-label"
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-61 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                 >
-                  <input
-                    class="PrivateSwitchBase-input-64"
-                    data-indeterminate="false"
-                    name="gdpr_1"
-                    type="checkbox"
-                    value=""
-                  />
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                  <span
+                    class="MuiIconButton-label"
                   >
-                    <path
-                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    <input
+                      class="PrivateSwitchBase-input-64"
+                      data-indeterminate="false"
+                      name="gdpr_1"
+                      type="checkbox"
+                      value=""
                     />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-              >
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-              </span>
-            </label>
+                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                >
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                </span>
+              </label>
+            </div>
           </div>
         </div>
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root Checkbox"
+            class="Checkbox--asterisks_decorator"
           >
-            <label
-              class="MuiFormControlLabel-root"
+            <div
+              class="MuiFormControl-root Checkbox"
             >
-              <span
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-61 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+              <label
+                class="MuiFormControlLabel-root"
               >
                 <span
-                  class="MuiIconButton-label"
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-61 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                 >
-                  <input
-                    class="PrivateSwitchBase-input-64"
-                    data-indeterminate="false"
-                    name="gdpr_2"
-                    type="checkbox"
-                    value=""
-                  />
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                  <span
+                    class="MuiIconButton-label"
                   >
-                    <path
-                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    <input
+                      class="PrivateSwitchBase-input-64"
+                      data-indeterminate="false"
+                      name="gdpr_2"
+                      type="checkbox"
+                      value=""
                     />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-              >
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-              </span>
-            </label>
+                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                >
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                </span>
+              </label>
+            </div>
           </div>
         </div>
         <div

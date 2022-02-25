@@ -11,6 +11,19 @@ export type Props = CheckboxProps & {
   error?: boolean;
   errorText?: string;
   onChange: (value: boolean) => void;
+  isRequired?: boolean;
+};
+
+const decorateWithAsterisk = (
+  component: JSX.Element,
+  isRequired: boolean | undefined
+) => {
+  if (isRequired) {
+    return (
+      <div className={styles["Checkbox--asterisks_decorator"]}>{component}</div>
+    );
+  }
+  return component;
 };
 
 export const Checkbox = ({
@@ -19,13 +32,14 @@ export const Checkbox = ({
   disabled,
   errorText,
   onChange,
+  isRequired,
   ...props
 }: Props) => {
   const handleChange = (event: React.ChangeEvent<Record<string, unknown>>) => {
     const target = event.target;
     !disabled && "checked" in target && onChange(target.checked as boolean);
   };
-  return (
+  const checkbox = (
     <FormControl
       error={!!error}
       disabled={disabled}
@@ -39,6 +53,7 @@ export const Checkbox = ({
       {error ? <FormHelperText>{errorText}</FormHelperText> : null}
     </FormControl>
   );
+  return decorateWithAsterisk(checkbox, isRequired);
 };
 
 export default withFormControl<Props, boolean>(Checkbox);

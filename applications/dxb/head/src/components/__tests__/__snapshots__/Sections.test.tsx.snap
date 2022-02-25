@@ -2758,10 +2758,17 @@ HTMLCollection [
                   class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
                   >
                     First name
+                    <span
+                      aria-hidden="true"
+                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
                   </label>
                   <div
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -2770,6 +2777,7 @@ HTMLCollection [
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
                       name="first-name"
+                      required=""
                       type="text"
                       value=""
                     />
@@ -2782,6 +2790,7 @@ HTMLCollection [
                       >
                         <span>
                           First name
+                           *
                         </span>
                       </legend>
                     </fieldset>
@@ -2795,10 +2804,17 @@ HTMLCollection [
                   class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
                   >
                     Second name
+                    <span
+                      aria-hidden="true"
+                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
                   </label>
                   <div
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -2807,6 +2823,7 @@ HTMLCollection [
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
                       name="second-names"
+                      required=""
                       type="text"
                       value=""
                     />
@@ -2819,6 +2836,7 @@ HTMLCollection [
                       >
                         <span>
                           Second name
+                           *
                         </span>
                       </legend>
                     </fieldset>
@@ -2832,10 +2850,17 @@ HTMLCollection [
                   class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
                   >
                     Email address
+                    <span
+                      aria-hidden="true"
+                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
                   </label>
                   <div
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -2844,6 +2869,7 @@ HTMLCollection [
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
                       name="email"
+                      required=""
                       type="text"
                       value=""
                     />
@@ -2856,6 +2882,7 @@ HTMLCollection [
                       >
                         <span>
                           Email address
+                           *
                         </span>
                       </legend>
                     </fieldset>
@@ -2943,10 +2970,17 @@ HTMLCollection [
                   class="MuiFormControl-root MuiFormControl-fullWidth"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
                   >
                     Type of query
+                    <span
+                      aria-hidden="true"
+                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
                   </label>
                   <div
                     class="MuiInputBase-root MuiOutlinedInput-root Select MuiInputBase-formControl"
@@ -2967,6 +3001,7 @@ HTMLCollection [
                       aria-hidden="true"
                       class="MuiSelect-nativeInput"
                       name="recipients"
+                      required=""
                       tabindex="-1"
                       value=""
                     />
@@ -2994,7 +3029,7 @@ HTMLCollection [
                     </fieldset>
                   </div>
                   <p
-                    class="MuiFormHelperText-root MuiFormHelperText-contained"
+                    class="MuiFormHelperText-root MuiFormHelperText-contained Mui-required"
                   />
                 </div>
               </div>
@@ -3058,10 +3093,17 @@ HTMLCollection [
                   class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
                   >
                     Your message
+                    <span
+                      aria-hidden="true"
+                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
                   </label>
                   <div
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
@@ -3070,6 +3112,7 @@ HTMLCollection [
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
                       name="message"
+                      required=""
                       rows="6"
                     />
                     <fieldset
@@ -3081,6 +3124,7 @@ HTMLCollection [
                       >
                         <span>
                           Your message
+                           *
                         </span>
                       </legend>
                     </fieldset>
@@ -3183,103 +3227,111 @@ HTMLCollection [
                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12"
               >
                 <div
-                  class="MuiFormControl-root Checkbox"
+                  class="Checkbox--asterisks_decorator"
                 >
-                  <label
-                    class="MuiFormControlLabel-root"
+                  <div
+                    class="MuiFormControl-root Checkbox"
                   >
-                    <span
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-51 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                    <label
+                      class="MuiFormControlLabel-root"
                     >
                       <span
-                        class="MuiIconButton-label"
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-51 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                       >
-                        <input
-                          class="PrivateSwitchBase-input-54"
-                          data-indeterminate="false"
-                          name="data-protection"
-                          type="checkbox"
-                          value=""
-                        />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiIconButton-label"
                         >
-                          <path
-                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                          <input
+                            class="PrivateSwitchBase-input-54"
+                            data-indeterminate="false"
+                            name="data-protection"
+                            type="checkbox"
+                            value=""
                           />
-                        </svg>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </span>
-                    <span
-                      class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                    >
-                      I agree with BMI's 
-                      <a
-                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                        href="https://google.co.uk"
-                        rel="noopener"
-                        target="_blank"
+                        class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
                       >
-                        <span>
-                          Data Protection Policy
-                        </span>
-                      </a>
-                      
-                    </span>
-                  </label>
+                        I agree with BMI's 
+                        <a
+                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          href="https://google.co.uk"
+                          rel="noopener"
+                          target="_blank"
+                        >
+                          <span>
+                            Data Protection Policy
+                          </span>
+                        </a>
+                        
+                      </span>
+                    </label>
+                  </div>
                 </div>
               </div>
               <div
                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12"
               >
                 <div
-                  class="MuiFormControl-root Checkbox"
+                  class="Checkbox--asterisks_decorator"
                 >
-                  <label
-                    class="MuiFormControlLabel-root"
+                  <div
+                    class="MuiFormControl-root Checkbox"
                   >
-                    <span
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-51 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                    <label
+                      class="MuiFormControlLabel-root"
                     >
                       <span
-                        class="MuiIconButton-label"
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-51 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                       >
-                        <input
-                          class="PrivateSwitchBase-input-54"
-                          data-indeterminate="false"
-                          name="gdpr"
-                          type="checkbox"
-                          value=""
-                        />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiIconButton-label"
                         >
-                          <path
-                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                          <input
+                            class="PrivateSwitchBase-input-54"
+                            data-indeterminate="false"
+                            name="gdpr"
+                            type="checkbox"
+                            value=""
                           />
-                        </svg>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </span>
-                    <span
-                      class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                    >
-                      I accept that my information may be processed and used solely for the submission of information and advertising about products, services and other activities. I have the right to revoke this agreement in writing at any time.
-                    </span>
-                  </label>
+                        class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                      >
+                        I accept that my information may be processed and used solely for the submission of information and advertising about products, services and other activities. I have the right to revoke this agreement in writing at any time.
+                      </span>
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>

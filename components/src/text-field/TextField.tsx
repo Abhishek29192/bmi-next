@@ -41,6 +41,7 @@ export const TextField = ({
   errorText,
   onChange,
   InputProps,
+  isRequired,
   ...props
 }: Props) => {
   const hasAdornment = error || leftAdornment || rightAdornment;
@@ -69,6 +70,7 @@ export const TextField = ({
   return (
     <MaterialTextField
       {...props}
+      required={isRequired}
       helperText={error ? errorText : helperText}
       id={id}
       error={error}
