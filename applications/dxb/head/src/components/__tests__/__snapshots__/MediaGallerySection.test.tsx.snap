@@ -60,7 +60,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                       type="image/webp"
                     />
                     <img
-                      alt="Lorem ipsum"
+                      alt="Lorem ipsum image alt text"
                       data-gatsby-image-ssr=""
                       data-main-image=""
                       data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
@@ -78,6 +78,92 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                   >
                     const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
                   </script>
+                </div>
+              </div>
+              <div
+                class="thumbnails"
+              >
+                <button
+                  class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root icon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+                <button
+                  class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root icon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+                <div
+                  class="scroller"
+                  style="margin-right: 0%;"
+                >
+                  <button
+                    class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                    data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Lorem ipsum image alt text\\",\\"action\\":\\"//image.asset.jpg\\"}"
+                    style="background-image: url(//image.asset.jpg);"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="accessibility-text"
+                    >
+                      Lorem ipsum image alt text
+                    </span>
+                  </button>
+                  <button
+                    class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                    data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Lorem ipsum video image alt text\\",\\"action\\":\\"//video-image.asset.jpg\\"}"
+                    style="background-image: url(//video-image.asset.jpg);"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="accessibility-text"
+                    >
+                      Lorem ipsum video image alt text
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root play-icon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M8 5v14l11-7z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
               </div>
             </div>

@@ -3,5 +3,3 @@ export const getDefaultPreviewImageSource = (videoId: string) =>
 
 export const getVideoURL = (videoId: string) =>
   `https://www.youtube.com/watch?v=${videoId}`;
-
-export default getDefaultPreviewImageSource;
