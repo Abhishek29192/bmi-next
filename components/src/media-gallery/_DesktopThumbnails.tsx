@@ -10,7 +10,7 @@ type Props = {
   /** The index to identify the active thumbnail */
   activeImageIndex: number;
   onThumbnailClick: (e: Event, index: number) => void;
-  openYoutubeVideo?: (e: React.MouseEvent<SVGElement>) => void;
+  openYoutubeVideo?: (e: React.MouseEvent<SVGElement>, index: number) => void;
   component?: React.ComponentType<any>; // TODO
 };
 
@@ -114,7 +114,9 @@ const Thumbnails = ({
               className={styles["thumbnail"]}
               size="large"
               isVideo={isVideo}
-              openYoutubeVideo={openYoutubeVideo}
+              openYoutubeVideo={(e: React.MouseEvent<SVGElement>) =>
+                openYoutubeVideo && openYoutubeVideo(e, index)
+              }
             />
           );
         })}

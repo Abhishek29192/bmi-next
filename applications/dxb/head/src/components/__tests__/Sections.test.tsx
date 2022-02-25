@@ -323,7 +323,7 @@ describe("Sections component", () => {
         backgroundColor: null
       },
       {
-        __typename: "ContentfulImageGallerySection",
+        __typename: "ContentfulMediaGallerySection",
         title: "Gallery title",
         longDescription: null,
         medias: [

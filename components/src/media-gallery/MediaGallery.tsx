@@ -58,9 +58,13 @@ const MediaGallery = ({
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
   const [showYouTubeVideo, setShowYouTubeVideo] = useState<boolean>(false);
   const Thumbnails = renderThumbnails();
-  const onPlayIconClick = (e: React.MouseEvent<SVGElement>) => {
+  const onPlayIconClick = (e: React.MouseEvent<SVGElement>, index: number) => {
     e.stopPropagation();
-    setShowYouTubeVideo(true);
+    if (index === activeImageIndex) {
+      setShowYouTubeVideo(true);
+    } else {
+      setActiveImageIndex(index);
+    }
   };
 
   const onThumbnailClick = (e: Event, index: number) => {

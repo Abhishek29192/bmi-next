@@ -10,7 +10,7 @@ type Props = {
   activeImageIndex: number;
   onThumbnailClick: (e: Event, index: number) => void;
   component?: React.ComponentType<any>; // TODO
-  openYoutubeVideo?: (e: React.MouseEvent<SVGElement>) => void;
+  openYoutubeVideo?: (e: React.MouseEvent<SVGElement>, index: number) => void;
 };
 
 const THUMBNAIL_WIDTH = 86;
@@ -87,7 +87,9 @@ const Thumbnails = ({
               size="large"
               altText={altText}
               isVideo={isVideo}
-              openYoutubeVideo={openYoutubeVideo}
+              openYoutubeVideo={(e: React.MouseEvent<SVGElement>) =>
+                openYoutubeVideo && openYoutubeVideo(e, index)
+              }
             />
           );
         })}
