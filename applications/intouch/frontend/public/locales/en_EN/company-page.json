@@ -24,7 +24,7 @@
     "registeredDetails": "Registered Details",
     "taxNumber": "Company VAT number",
     "title": "Company Details",
-    "tradingAddress": "Main office address"
+    "tradingAddress": "Trading address"
   },
   "document": {
     "addDocument": "Add Document",

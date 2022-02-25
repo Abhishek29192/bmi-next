@@ -70,34 +70,42 @@ exports[`CompaniesSidePanel component renders correctly 1`] = `
             Sort by
             :
           </span>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-6 MuiButton-disableElevation"
-            tabindex="0"
-            type="button"
+          <div
+            class="filterButton"
           >
-            <span
-              class="MuiButton-label"
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              role="button"
+              tabindex="0"
             >
-              order.labels.ALPHABETICAL
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-7 MuiButton-disableElevation"
-            tabindex="0"
-            type="button"
+              <span
+                class="MuiChip-label"
+              >
+                order.labels.ALPHABETICAL
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="filterButton"
           >
-            <span
-              class="MuiButton-label"
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              role="button"
+              tabindex="0"
             >
-              order.labels.UPDATED
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
+              <span
+                class="MuiChip-label"
+              >
+                order.labels.UPDATED
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
         </div>
       </div>
       <div

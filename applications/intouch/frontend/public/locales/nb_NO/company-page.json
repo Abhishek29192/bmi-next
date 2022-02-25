@@ -164,8 +164,8 @@
   "titleMember": "Bedrift",
   "order": {
     "labels": {
-      "ALPHABETICAL": "Alphabetical",
-      "UPDATED": "Last Updated"
+      "ALPHABETICAL": "Alfabetisk",
+      "UPDATED": "Sist oppdatert"
     }
   }
 }

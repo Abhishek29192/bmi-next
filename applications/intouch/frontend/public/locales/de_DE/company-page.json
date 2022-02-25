@@ -79,6 +79,7 @@
           "label": "Logo"
         },
         "name": "Registrierter Name",
+        "ownerFullname": "Name (optional)",
         "operationTypes": "Operationstypen",
         "ownerEmail": "E-Mail-Adresse (optional)",
         "ownerPhone": "Telefon (optional)",
@@ -90,7 +91,7 @@
             "y": "Längengrad"
           },
           "country": "Land",
-          "firstLine": "Adressezeile1",
+          "firstLine": "Adressezeile 1",
           "postcode": "Postleitzahl",
           "region": "Ort",
           "secondLine": "Adresszeile 2",
@@ -105,7 +106,7 @@
             "y": "Längengrad"
           },
           "country": "Land",
-          "firstLine": "Adressezeile1",
+          "firstLine": "Adressezeile 1",
           "postcode": "Postleitzahl",
           "region": "Ort",
           "secondLine": "Adresszeile 2",
@@ -163,8 +164,8 @@
   "titleMember": "Firma",
   "order": {
     "labels": {
-      "ALPHABETICAL": "Alphabetical",
-      "UPDATED": "Last Updated"
+      "ALPHABETICAL": "Alphabetisch",
+      "UPDATED": "Zuletzt aktualisiert"
     }
   }
 }

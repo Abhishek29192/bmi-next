@@ -164,8 +164,8 @@
   "titleMember": "Azienda",
   "order": {
     "labels": {
-      "ALPHABETICAL": "Alphabetical",
-      "UPDATED": "Last Updated"
+      "ALPHABETICAL": "Alfabetico",
+      "UPDATED": "Ultimo aggiornamento"
     }
   }
 }
