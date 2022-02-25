@@ -123,6 +123,7 @@ export const microCopy = {
   FORM_UPLOAD_SUPPORTED_FORMATS: "form.upload.supportedFormats",
   FORM_UPLOAD_MAX_SIZE: "form.upload.maxSize",
   FORM_SUBMIT: "form.submit",
+  FORM_NONE_SELECTION: "form.none.selection",
 
   MENU_LANGUAGE: "menu.language",
   MENU_OPEN: "menu.open",

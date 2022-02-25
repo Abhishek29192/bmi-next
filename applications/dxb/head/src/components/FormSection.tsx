@@ -2,19 +2,23 @@ import {
   HubspotProvider,
   useHubspotForm
 } from "@aaronhayes/react-use-hubspot-form";
-import { Button, ButtonProps } from "@bmi/components";
-import { Form } from "@bmi/components";
-import { InputValue } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { AnchorLink } from "@bmi/components";
-import { getFileSizeString } from "@bmi/components";
-import { Upload } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { RadioGroup } from "@bmi/components";
-import { Select, SelectMenuItem } from "@bmi/components";
-import { Checkbox } from "@bmi/components";
-import { TextField } from "@bmi/components";
+import {
+  AnchorLink,
+  Button,
+  ButtonProps,
+  Checkbox,
+  Form,
+  getFileSizeString,
+  Grid,
+  InputValue,
+  RadioGroup,
+  Section,
+  Select,
+  SelectMenuItem,
+  TextField,
+  Typography,
+  Upload
+} from "@bmi/components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
@@ -217,7 +221,9 @@ const Input = ({
           label={label}
           name={name}
         >
-          <SelectMenuItem value="none">None</SelectMenuItem>
+          <SelectMenuItem value={microCopy.FORM_NONE_SELECTION}>
+            {getMicroCopy(microCopy.FORM_NONE_SELECTION)}
+          </SelectMenuItem>
           {options.split(/, |,/).map((option, $i) => {
             const [select, value] = option.split(/= |=/);
             return (
@@ -283,7 +289,7 @@ type FormInputs = {
   inputs: InputType[];
 };
 
-const FormInputs = ({ inputs }: FormInputs) => {
+export const FormInputs = ({ inputs }: FormInputs) => {
   return (
     <>
       {inputs.map(({ width, ...props }, $i) => (
