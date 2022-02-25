@@ -15,10 +15,15 @@ type Props = {
   documentsPerPage: number;
 };
 
-const groupDocuments = (
-  documents: (PIMDocumentData | PIMLinkDocumentData)[]
+export const groupDocuments = (
+  documents: (PIMDocumentData | PIMLinkDocumentData)[],
+  byAssetType = false
 ): [string, (PIMDocumentData | PIMLinkDocumentData)[]][] =>
-  Object.entries(groupBy(documents, (document) => document.product.code));
+  Object.entries(
+    groupBy(documents, (document) =>
+      byAssetType ? document.assetType.code : document.product.code
+    )
+  );
 
 export const getCount = (documents: Props["documents"]): number => {
   return groupDocuments(documents).length;

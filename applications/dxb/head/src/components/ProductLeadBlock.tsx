@@ -24,7 +24,9 @@ import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { Asset, Classification } from "./types/pim";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
 import AssetsIframe from "./AssetsIframe";
-import { getClickableActionFromUrl } from "./Link";
+import { getClickableActionFromUrl, isExternalUrl } from "./Link";
+import { All_FORMATS } from "./types";
+import { groupDocuments } from "./DocumentTechnicalTableResults";
 
 const BlueCheckIcon = (
   <Icon source={CheckIcon} style={{ color: "var(--color-theme-accent-300)" }} />
@@ -77,6 +79,26 @@ const ProductLeadBlock = ({
   const [page, setPage] = useState(1);
   const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
   const resultsElement = useRef<HTMLDivElement>(null);
+  //filters formats not supported in all_formats such as tiff
+
+  const filteredDocuments: (PIMDocumentData | PIMLinkDocumentData)[] =
+    documents.filter((document) => {
+      if (
+        document.__typename === "PIMDocument" &&
+        (document.assetType.name === "Warranties" ||
+          document.assetType.name === "Guaranties")
+      ) {
+        return All_FORMATS.includes(document.format);
+      }
+      return document;
+    });
+  console.log(filteredDocuments);
+
+  //group documents by assetType
+  const documentsByAssetType = groupDocuments(filteredDocuments, true).slice(
+    (page - 1) * DOCUMENTS_PER_PAGE,
+    page * DOCUMENTS_PER_PAGE
+  );
 
   const isImageAsset = (asset: Asset) => {
     return (
@@ -84,15 +106,15 @@ const ProductLeadBlock = ({
       asset.realFileName?.indexOf(".png") > -1
     );
   };
+
   const isPDFAsset = (asset: Asset) => {
     return (
       asset.url?.indexOf(".pdf") > -1 ||
       asset.realFileName?.indexOf(".pdf") > -1
     );
   };
-
   const guaranteesAndWarrantiesLinks = (guaranteesAndWarranties || []).filter(
-    (item) => !isPDFAsset(item) && !isImageAsset(item)
+    (item) => !item.realFileName && item.url
   );
   const guaranteesImages = guaranteesAndWarranties?.filter((item) =>
     isImageAsset(item)
@@ -175,6 +197,9 @@ const ProductLeadBlock = ({
                           action: item.url
                         }}
                         iconEnd
+                        {...(isExternalUrl(item.url)
+                          ? { isExternal: true }
+                          : {})}
                         className={styles["inline-link"]}
                       >
                         {item.name}
@@ -190,7 +215,7 @@ const ProductLeadBlock = ({
                   <LeadBlock.Content.Heading>
                     {getMicroCopy(microCopy.PDP_LEAD_BLOCK_AWARDS_CERTIFICATES)}
                   </LeadBlock.Content.Heading>
-                  {awardsImages.map((item, i) => (
+                  {awardsImages?.map((item, i) => (
                     <img
                       key={`award-img-${i}`}
                       src={item.url}
@@ -299,10 +324,11 @@ const ProductLeadBlock = ({
               maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}
             >
               <DocumentSimpleTableResults
-                documents={documents}
+                documents={filteredDocuments}
                 page={page}
                 documentsPerPage={DOCUMENTS_PER_PAGE}
                 headers={["type", "download", "add"]}
+                documentsByAssetType={documentsByAssetType}
               />
               <DocumentResultsFooter
                 page={page}

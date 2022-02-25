@@ -50,6 +50,17 @@ Object {
 exports[`Link component getCTA function returns a cta object with a simple page cta 1`] = `
 Object {
   "action": Object {
+    "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://somelink.com\\",\\"label\\":\\"string\\"}",
+    "href": "https://somelink.com",
+    "model": "download",
+  },
+  "label": "string",
+}
+`;
+
+exports[`Link component getCTA function returns a cta object with asset url 1`] = `
+Object {
+  "action": Object {
     "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}",
     "href": "https://www.external.co.uk",
     "model": "htmlLink",
