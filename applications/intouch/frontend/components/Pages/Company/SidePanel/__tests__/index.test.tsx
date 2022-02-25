@@ -56,9 +56,7 @@ describe("CompaniesSidePanel component", () => {
         </AccountContextWrapper>
       </I18nProvider>
     );
-    const orderListButtons = container.querySelectorAll(
-      ".filterButtons > button"
-    );
+    const orderListButtons = container.querySelectorAll(".filterButton .Chip");
     fireEvent.click(orderListButtons[1]);
     expect(
       screen.getAllByTestId("companyCard")[0].querySelector("button")
