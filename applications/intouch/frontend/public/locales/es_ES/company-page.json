@@ -4,5 +4,11 @@
   "Registered Details": "Registered Details",
   "Registered Name": "Registered Name",
   "Registered Address": "Registered Address",
-  "Main office address": "Main office address"
+  "Main office address": "Main office address",
+  "order": {
+    "labels": {
+      "ALPHABETICAL": "Alphabetical",
+      "UPDATED": "Last Updated"
+    }
+  }
 }
