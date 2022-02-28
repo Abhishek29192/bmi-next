@@ -33,6 +33,7 @@ export type AssetAssetType =
   | "GUARANTIES"
   | "PROFESSIONAL_ARTICLES"
   | "SPECIFICATION"
+  | "VIDEO"
   | "WARRANTIES"
   | "FIXING_TOOL";
 

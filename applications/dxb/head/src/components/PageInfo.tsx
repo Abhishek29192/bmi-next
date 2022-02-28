@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 import { Data as LinkData } from "../components/Link";
 import { TagData } from "./Tag";
-import { Data as VideoData } from "./Video";
+import { ContentfulVideoData } from "./Video";
 import { Data as ImageData } from "./Image";
 
 export type ImageWithThumbnail = ImageData & {
@@ -27,7 +27,7 @@ export type Data = {
   tags: TagData[] | null;
   // TODO: Move Video as option of Media.
   featuredMedia: ImageWithThumbnail | null;
-  featuredVideo: VideoData | null;
+  featuredVideo: ContentfulVideoData | null;
   heroType?: string | null;
   cta?: LinkData | null;
 };

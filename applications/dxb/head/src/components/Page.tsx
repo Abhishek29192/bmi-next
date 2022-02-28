@@ -1,8 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
-import { BackToTop } from "@bmi/components";
-import { MicroCopy } from "@bmi/components";
+import { BackToTop, MicroCopy } from "@bmi/components";
 import { graphql, navigate } from "gatsby";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import Header from "../components/Header";
@@ -10,7 +9,7 @@ import Footer from "../components/Footer";
 import InputBanner, {
   Data as InputBannerData
 } from "../components/InputBanner";
-import getJpgImage from "../utils/images";
+import { getJpgImage } from "../utils/media";
 import { getPathWithCountryCode } from "../utils/path";
 import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";

@@ -12,7 +12,7 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
         class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
       >
         <div
-          class="ImageGallery"
+          class="MediaGallery"
         >
           <div
             class="image-wrapper"
@@ -91,6 +91,25 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
                   class="MuiTouchRipple-root"
                 />
               </button>
+              <button
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                tabindex="0"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root play-icon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8 5v14l11-7z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
             </div>
           </div>
         </div>
@@ -161,7 +180,7 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
         class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
       >
         <div
-          class="ImageGallery"
+          class="MediaGallery"
         >
           <div
             class="image-wrapper"
@@ -236,6 +255,25 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
                 tabindex="0"
                 type="button"
               >
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+              <button
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                tabindex="0"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root play-icon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8 5v14l11-7z"
+                  />
+                </svg>
                 <span
                   class="MuiTouchRipple-root"
                 />

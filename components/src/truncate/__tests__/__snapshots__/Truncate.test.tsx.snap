@@ -11,6 +11,17 @@ exports[`Truncate component renders correctly 1`] = `
 </div>
 `;
 
+exports[`Truncate component renders with custom class name 1`] = `
+<div>
+  <span
+    class="LinesEllipsis  custom-class-name Truncate"
+  >
+    Nulla quis adipisicing fugiat amet occaecat qui quis exercitation elit enim. Culpa nostrud dolore ea ipsum sit non id ullamco aliquip adipisicing Lorem non. Velit nulla adipisicing pariatur adipisicing esse veniam laborum eiusmod reprehenderit ut ipsum incididunt. Reprehenderit ipsum sint mollit officia nostrud anim anim. Veniam aliqua dolor cillum sit in commodo nulla exercitation est veniam veniam qui anim enim. Officia officia eu consectetur dolor ipsum.
+    <wbr />
+  </span>
+</div>
+`;
+
 exports[`Truncate component renders with custom component 1`] = `
 <div>
   <p

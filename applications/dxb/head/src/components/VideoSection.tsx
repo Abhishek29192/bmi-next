@@ -3,14 +3,14 @@ import { graphql } from "gatsby";
 import React from "react";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/VideoSection.module.scss";
-import { Data as VideoData, renderVideo } from "./Video";
+import { ContentfulVideoData, renderVideo } from "./Video";
 
 export type Data = {
   __typename: "ContentfulVideoSection";
   name: string;
   title: string | null;
   description: RichTextData | null;
-  video: VideoData;
+  video: ContentfulVideoData;
 };
 
 const VideoSection = ({

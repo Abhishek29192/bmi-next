@@ -1,10 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Container } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { Grid, GridSize } from "@bmi/components";
-import { CTACard } from "@bmi/components";
-import { Image as ImageGalleryImage } from "@bmi/components";
+import {
+  Container,
+  CTACard,
+  Grid,
+  GridSize,
+  Image as ImageGalleryImage,
+  Section
+} from "@bmi/components";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SiteData } from "../components/Site";
 import ProductOverview, {
@@ -13,16 +16,16 @@ import ProductOverview, {
 import ProductLeadBlock from "../components/ProductLeadBlock";
 import ShareWidgetSection from "../components/ShareWidgetSection";
 import {
+  convertImageSetToMediaFormat,
+  getMergedClassifications,
   getProductAttributes,
+  groupImage,
   mapGalleryImages,
   mapProductClassifications,
-  getMergedClassifications,
-  VariantCodeToPathMap,
   transformImages,
-  convertImageSetToMediaFormat,
-  groupImage,
   UnavailableMicroCopies,
-  UnavailableMicroCopiesEnum
+  UnavailableMicroCopiesEnum,
+  VariantCodeToPathMap
 } from "../utils/product-details-transforms";
 import RelatedProducts from "../components/RelatedProducts";
 import { getCTA } from "../components/Link";
@@ -33,9 +36,9 @@ import { renderImage } from "../components/Image";
 import {
   ClassificationCodeEnum,
   FeatureCodeEnum,
+  Image,
   ImageAssetTypesEnum,
-  Product,
-  Image
+  Product
 } from "../components/types/pim";
 import SampleOrderSection from "../components/SampleOrderSection";
 import KeyAssetTypesDownloadSection from "../components/KeyAssetTypesDownloadSection";
@@ -43,6 +46,7 @@ import { getAssetsIframeUrl } from "../components/AssetsIframe";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { combineVariantClassifications } from "../utils/filters";
 import { microCopy } from "../constants/microCopies";
+import { filterAndTransformVideoData, transformMediaSrc } from "../utils/media";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -151,6 +155,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     "SPECIFICATION"
   );
 
+  const videos = filterAndTransformVideoData(product.assets);
+
   const variantCodeToPathMap: VariantCodeToPathMap =
     product.variantOptions.reduce(
       (carry, { code, path }) => ({ ...carry, [code]: path }),
@@ -256,6 +262,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                       ...(product.images || [])
                     ])
                   ),
+                  videos: transformMediaSrc(videos),
                   attributes: getProductAttributes(
                     productClassifications,
                     selfProduct,

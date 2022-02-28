@@ -4,7 +4,6 @@ import { YoutubeVideo } from "@bmi/components";
 import Image, { Data as ImageData } from "./Image";
 
 export type Data = {
-  __typename: "ContentfulVideo";
   title: string;
   label: string;
   subtitle: string | null;
@@ -13,13 +12,16 @@ export type Data = {
   videoRatio: { width: number; height: number } | null;
 };
 
+export type ContentfulVideoData = Data & {
+  __typename: "ContentfulVideo";
+};
+
 const Video = ({ data }: { data: Data }) => {
   return renderVideo(data);
 };
 
 export const renderVideo = (data: Data) => {
   const { label, subtitle, youtubeId, previewMedia, videoRatio } = data;
-
   return (
     <YoutubeVideo
       label={label}

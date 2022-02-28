@@ -86,7 +86,7 @@ const MediaGallery = ({
               component="p"
               className={styles["caption-text"]}
             >
-              <Truncate lines="2">{currentMedia.caption}</Truncate>
+              <Truncate lines={2}>{currentMedia.caption}</Truncate>
             </Typography>
           </div>
         ) : null}
