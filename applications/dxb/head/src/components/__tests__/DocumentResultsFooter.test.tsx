@@ -54,7 +54,6 @@ describe("DocumentResultsFooter component", () => {
   });
 
   it("renders correctly", () => {
-    const handleDownloadClickMock = jest.fn();
     const handlePageChange = jest.fn();
     const { container } = render(
       <DownloadListContext.Provider
@@ -71,7 +70,6 @@ describe("DocumentResultsFooter component", () => {
         <DocumentResultsFooter
           page={1}
           count={1}
-          onDownloadClick={handleDownloadClickMock}
           onPageChange={handlePageChange}
         />
       </DownloadListContext.Provider>
@@ -80,7 +78,6 @@ describe("DocumentResultsFooter component", () => {
   });
 
   it("renders correctly if download item is array", () => {
-    const handleDownloadClickMock = jest.fn();
     const handlePageChange = jest.fn();
     const customList = {
       name1: [createPimDocument()],
@@ -101,7 +98,6 @@ describe("DocumentResultsFooter component", () => {
         <DocumentResultsFooter
           page={1}
           count={1}
-          onDownloadClick={handleDownloadClickMock}
           onPageChange={handlePageChange}
         />
       </DownloadListContext.Provider>
@@ -127,6 +123,7 @@ describe("DocumentResultsFooter component", () => {
           page={1}
           count={1}
           onPageChange={handlePageChange}
+          isDownloadButton={false}
         />
       </DownloadListContext.Provider>
     );
@@ -151,7 +148,6 @@ describe("DocumentResultsFooter component", () => {
         <DocumentResultsFooter
           page={1}
           count={1}
-          onDownloadClick={handleDownloadClickMock}
           onPageChange={handlePageChange}
         />
       </DownloadListContext.Provider>
@@ -170,7 +166,12 @@ describe("DocumentResultsFooter component", () => {
         process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT;
       delete process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT;
 
-      await handleDownloadClick(list, token, resetList);
+      await handleDownloadClick(
+        list,
+        token,
+        { isPreviewMode: false, documentDownloadEndpoint: undefined },
+        resetList
+      );
 
       expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
       expect(devLog).toHaveBeenCalledWith(
@@ -181,12 +182,17 @@ describe("DocumentResultsFooter component", () => {
     });
 
     it("should download files", async () => {
-      process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT =
-        "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT";
-
       mockedAxios.post.mockResolvedValueOnce({ data: { url: "url" } });
 
-      await handleDownloadClick(list, token, resetList);
+      await handleDownloadClick(
+        list,
+        token,
+        {
+          isPreviewMode: false,
+          documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
+        },
+        resetList
+      );
 
       expect(mockedAxios.post).toHaveBeenLastCalledWith(
         "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT",
@@ -216,16 +222,30 @@ describe("DocumentResultsFooter component", () => {
     });
 
     it("should not download empty list", async () => {
-      await handleDownloadClick({}, token, resetList);
+      await handleDownloadClick(
+        {},
+        token,
+        {
+          isPreviewMode: false,
+          documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
+        },
+        resetList
+      );
       expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
     });
 
     it("should prevent download on GATSBY_PREVIEW", async () => {
-      process.env.GATSBY_PREVIEW = "GATSBY_PREVIEW";
-
       jest.spyOn(window, "alert").mockImplementation();
 
-      await handleDownloadClick(list, token, resetList);
+      await handleDownloadClick(
+        list,
+        token,
+        {
+          isPreviewMode: true,
+          documentDownloadEndpoint: "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
+        },
+        resetList
+      );
 
       expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
       expect(window.alert).toHaveBeenCalledWith(

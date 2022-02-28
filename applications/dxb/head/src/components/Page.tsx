@@ -8,7 +8,6 @@ import Footer from "../components/Footer";
 import InputBanner, {
   Data as InputBannerData
 } from "../components/InputBanner";
-import { getJpgImage } from "../utils/media";
 import { getPathWithCountryCode } from "../utils/path";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import { useConfig } from "../contexts/ConfigProvider";

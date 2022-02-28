@@ -28,6 +28,7 @@ export interface EnvConfig {
     gcpSystemConfiguratorEndpoint?: string;
     isSampleOrderingEnabled?: boolean;
     isLegacyFiltersUsing?: boolean;
+    spaceMarketCode?: string;
   };
 }
 

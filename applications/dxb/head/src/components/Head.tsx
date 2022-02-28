@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import getJpgImage from "../utils/images";
+import { getJpgImage } from "../utils/media";
 import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { useConfig } from "../contexts/ConfigProvider";
 import EffraBold from "../../static/fonts/Effra_W_Bold.woff2";

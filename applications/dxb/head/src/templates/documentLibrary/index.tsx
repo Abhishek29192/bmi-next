@@ -35,10 +35,10 @@ import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils
 import { getCount as getCardsCount } from "../../components/DocumentCardsResults";
 import { getCount as getSimpleTableCount } from "../../components/DocumentSimpleTableResults";
 import { getCount as getTechnicalTableCount } from "../../components/DocumentTechnicalTableResults";
+import { useConfig } from "../../contexts/ConfigProvider";
 import FilterSection from "./components/FilterSection";
 import ResultSection from "./components/ResultSection";
 import { sourceToSortMap } from "./helpers/documnetLibraryHelpers";
-import { DOCUMENT_DOWNLOAD_MAX_LIMIT } from "../../constants/commonConstants";
 
 const PAGE_SIZE = 24;
 
@@ -124,14 +124,6 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const {
     config: { documentDownloadMaxLimit }
   } = useConfig();
-
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
-
-  const GTMCheckbox = withGTM<CheckboxProps>(Checkbox, {
-    label: "label"
-  });
-  const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
 
   // Largely duplicated from product-lister-page.tsx
   const [isLoading, setIsLoading] = useState(false);

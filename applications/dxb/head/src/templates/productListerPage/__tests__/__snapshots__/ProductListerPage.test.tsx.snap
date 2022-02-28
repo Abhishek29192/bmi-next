@@ -18100,6 +18100,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >

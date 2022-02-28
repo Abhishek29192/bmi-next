@@ -314,17 +314,12 @@ const renderWithStylesAndLocationProvider = (
   );
 };
 
-const OLD_ENV = process.env;
-
 afterEach(() => {
-  process.env = OLD_ENV; // Restore old environment
-
   jest.restoreAllMocks();
 });
 
 beforeEach(() => {
   jest.resetModules();
-  process.env = { ...OLD_ENV };
   mockUseDimensions({
     containerWidth: 400,
     normalTableWidth: 400,

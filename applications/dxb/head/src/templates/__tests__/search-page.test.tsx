@@ -275,7 +275,7 @@ describe("Search Page Template", () => {
     jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(2);
     jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(1);
     const { container, getByText } = renderWithRouter(
-      <ConfigProvider customConfig={{ isPreviewMode: true }}>
+      <ConfigProvider configObject={{ isPreviewMode: true }}>
         <SearchPage
           data={data}
           pageContext={{

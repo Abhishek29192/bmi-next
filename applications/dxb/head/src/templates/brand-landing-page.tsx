@@ -130,7 +130,6 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
           <>
             <Hero
               level={0}
-              isHeroKeyLine={!!brandLogo}
               breadcrumbs={
                 <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
               }

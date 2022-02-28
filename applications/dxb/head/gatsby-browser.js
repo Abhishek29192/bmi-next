@@ -1,7 +1,7 @@
 import "./src/styles/global.css";
 import React from "react";
-import { ConfigProvider } from "./src/contexts/ConfigProvider.tsx";
 import { ThemeProvider } from "@bmi/components";
+import { ConfigProvider } from "./src/contexts/ConfigProvider.tsx";
 
 export const wrapRootElement = ({ element }) => {
   return (

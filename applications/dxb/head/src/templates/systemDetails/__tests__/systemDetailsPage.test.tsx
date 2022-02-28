@@ -34,7 +34,7 @@ const withProviders = ({
   renderComponent: React.ReactElement;
 }) => {
   return renderWithRouter(
-    <ConfigProvider customConfig={customConfig}>
+    <ConfigProvider configObject={customConfig}>
       <ProvideStyles>{renderComponent}</ProvideStyles>
     </ConfigProvider>,
     routerObject
@@ -62,6 +62,7 @@ describe("SystemDetailsPage template component", () => {
 
   it("should render", () => {
     const { container } = withProviders({
+      customConfig: { spaceMarketCode: "no" },
       renderComponent: (
         <SystemDetailsPage
           data={{
@@ -83,6 +84,7 @@ describe("SystemDetailsPage template component", () => {
 
   it("should render without BrandProvider", () => {
     const { container } = withProviders({
+      customConfig: { spaceMarketCode: "no" },
       renderComponent: (
         <SystemDetailsPage
           data={{
@@ -105,22 +107,24 @@ describe("SystemDetailsPage template component", () => {
   });
 
   it("should render without systemLayers", async () => {
-    process.env.SPACE_MARKET_CODE = "no";
     const systemDetails = createSystemDetails({ systemLayers: null });
-    const { container } = renderWithRouter(
-      <SystemDetailsPage
-        data={{
-          contentfulSite: createMockSiteData(),
-          shareWidget: null,
-          systems: systemDetails,
-          allContentfulAssetType
-        }}
-        pageContext={{
-          systemPageId,
-          siteId
-        }}
-      />
-    );
+    const { container } = withProviders({
+      customConfig: { spaceMarketCode: "no" },
+      renderComponent: (
+        <SystemDetailsPage
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            systems: systemDetails,
+            allContentfulAssetType
+          }}
+          pageContext={{
+            systemPageId,
+            siteId
+          }}
+        />
+      )
+    });
 
     const layersRelatedProducts = container.querySelector(
       "Zanda Protector normalstein"
