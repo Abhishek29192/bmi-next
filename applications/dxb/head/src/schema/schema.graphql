@@ -1432,7 +1432,7 @@ type SystemLayer {
   addon: Boolean
   approvalStatus: String!
   code: String!
-  layerNumber: Int!
+  layerNumber: String!
   longDescription: String!
   name: String
   optionalProducts: [SystemProduct]

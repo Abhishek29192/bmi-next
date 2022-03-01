@@ -377,7 +377,7 @@ const mockSystemLayers = [
     addon: false,
     approvalStatus: "approved",
     code: "Layer_19",
-    layerNumber: 1,
+    layerNumber: "layerNo 19",
     longDescription: "Long Dec System 2 NO",
     optionalProducts: [
       {
@@ -397,7 +397,7 @@ const mockSystemLayers = [
     addon: false,
     approvalStatus: "approved",
     code: "Layer_20",
-    layerNumber: 2,
+    layerNumber: "layerNo 20",
     name: "SName 2",
     longDescription: "Long Dec System 2 NO",
     optionalProducts: [
@@ -418,7 +418,7 @@ const mockSystemLayers = [
     approvalStatus: "approved",
     code: "Layer_21",
     name: "SName 3",
-    layerNumber: 3,
+    layerNumber: "layerNo 3",
     longDescription: "Long Dec System 2 NO",
     optionalProducts: [
       {
@@ -438,7 +438,7 @@ const mockSystemLayers = [
     approvalStatus: "approved",
     code: "Layer_22",
     name: "SName 4",
-    layerNumber: 4,
+    layerNumber: "layerNo 4",
     longDescription: "Long Dec System 2 NO",
     optionalProducts: [
       {
@@ -458,7 +458,7 @@ const mockSystemLayers = [
     approvalStatus: "approved",
     code: "Layer_23",
     name: "SName 5",
-    layerNumber: 5,
+    layerNumber: "layerNo 5",
     longDescription: "Long Dec System 2 NO",
     optionalProducts: [
       {
@@ -478,7 +478,7 @@ const mockSystemLayers = [
     approvalStatus: "approved",
     code: "Layer_24",
     name: "SName 6",
-    layerNumber: 6,
+    layerNumber: "layerNo 6",
     longDescription: "Long Dec System 2 NO",
     optionalProducts: [
       {
@@ -498,7 +498,7 @@ const mockSystemLayers = [
     approvalStatus: "approved",
     code: "Layer_25",
     name: "SName 7",
-    layerNumber: 7,
+    layerNumber: "layerNo 7",
     longDescription: "Long Dec System 2 NO",
     optionalProducts: [
       {
@@ -518,7 +518,7 @@ const mockSystemLayers = [
     approvalStatus: "approved",
     code: "Layer_26",
     name: "SName 8",
-    layerNumber: 8,
+    layerNumber: "layerNo 8",
     longDescription: "Long Dec System 2 NO",
     optionalProducts: [
       {
@@ -541,7 +541,7 @@ const mockSystemLayers = [
     approvalStatus: "approved",
     code: "Layer_27",
     name: "SName 9",
-    layerNumber: 9,
+    layerNumber: "layerNo 9",
     longDescription: "Long Dec System 2 NO",
     optionalProducts: [
       {
@@ -561,7 +561,7 @@ const mockSystemLayers = [
     approvalStatus: "approved",
     code: "Layer_28",
     name: "SName 10",
-    layerNumber: 10,
+    layerNumber: "layerNo 10",
     longDescription: "Long Dec System 2 NO",
     optionalProducts: [
       {
@@ -580,7 +580,7 @@ const mockSystemLayers = [
     addon: false,
     approvalStatus: "approved",
     code: "Layer_29",
-    layerNumber: 11,
+    layerNumber: "layerNo 11",
     name: "SName 11",
     longDescription: "Long Dec System 2 NO",
     optionalProducts: [
@@ -600,7 +600,7 @@ const mockSystemLayers = [
     addon: false,
     approvalStatus: "approved",
     code: "Layer_30",
-    layerNumber: 12,
+    layerNumber: "layerNo 12",
     name: "SName 12",
     longDescription: "Long Dec System 2 NO",
     optionalProducts: [

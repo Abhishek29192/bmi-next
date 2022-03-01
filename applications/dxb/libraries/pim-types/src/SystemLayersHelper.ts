@@ -9,7 +9,7 @@ export const createSystemLayer = (
   addon: false,
   approvalStatus: "approved",
   code: "Layer_19",
-  layerNumber: 1,
+  layerNumber: "layerNo 1",
   longDescription: "Long Dec System 2 NO",
   optionalProducts: createSystemLayerProducts([
     "400120_Monarplan_Outside_corner_anthracite"
