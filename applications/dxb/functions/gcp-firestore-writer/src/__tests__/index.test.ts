@@ -256,7 +256,7 @@ describe("handleMessage", () => {
     try {
       await handleMessage(data, {});
     } catch (e) {
-      actualErrorMsg = e.message;
+      actualErrorMsg = (e as Error).message;
     }
     const expectedErrorMsg = `Unrecognised message type [TEST]`;
     expect(actualErrorMsg).toEqual(expectedErrorMsg);
@@ -276,7 +276,7 @@ describe("handleMessage", () => {
     try {
       await handleMessage(data, {});
     } catch (e) {
-      actualErrorMsg = e.message;
+      actualErrorMsg = (e as Error).message;
     }
     const expectedErrorMsg = `Unrecognised itemType [TEST]`;
     expect(actualErrorMsg).toEqual(expectedErrorMsg);
@@ -287,7 +287,7 @@ describe("handleMessage", () => {
     try {
       await handleMessage({ data: "" }, {});
     } catch (e) {
-      actualErrorMsg = e.message;
+      actualErrorMsg = (e as Error).message;
     }
     const expectedErrorMsg = `Unrecognised itemType [undefined]`;
     expect(actualErrorMsg).toEqual(expectedErrorMsg);

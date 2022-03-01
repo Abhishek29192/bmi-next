@@ -32,7 +32,7 @@ const publishMessage = async (
   try {
     const messageId = await getTopicPublisher().publish(messageBuffer);
     logger.info({ message: `PUB SUB MESSAGE PUBLISHED: ${messageId}` });
-  } catch (err) {
+  } catch (err: any) {
     logger.error({ message: err.message });
   }
 };
@@ -236,7 +236,7 @@ export const handleRequest: HttpFunction = async (req, res) => {
       },
       body: JSON.stringify({ data: "filler data" })
     });
-  } catch (error) {
+  } catch (error: any) {
     logger.error({ message: error.message });
   }
 

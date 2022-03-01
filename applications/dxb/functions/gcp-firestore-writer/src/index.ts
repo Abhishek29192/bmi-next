@@ -97,20 +97,44 @@ const deleteItemsFromFirestore = async (
         .where(key, "array-contains", item.code)
         .get();
 
+      logger.info({
+        message: `Deleted ${item.objType} data: ${JSON.stringify(data)}`
+      });
+
       const document = data.docs[0].data();
+
+      logger.info({
+        message: `Deleted document data: ${JSON.stringify(document)}`
+      });
 
       const updatedObjType = document[`${objType}`].filter(
         (type: any) => type.code !== item.code
       );
 
+      logger.info({
+        message: `Deleted updatedObjType data: ${JSON.stringify(
+          updatedObjType
+        )}`
+      });
+
       docPath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${document.code}`;
 
+      logger.info({
+        message: `Deleted from docPath: ${docPath}`
+      });
+
       if (updatedObjType.length) {
-        document[`${objType}`] = updatedObjType;
+        const updatedDocument = { ...document, [objType]: updatedObjType };
+
+        logger.info({
+          message: `Deleted updatedDocument data: ${JSON.stringify(
+            updatedDocument
+          )}`
+        });
 
         const docRef = db.doc(docPath);
 
-        batch.set(docRef, document);
+        batch.set(docRef, updatedDocument);
       } else {
         const docRef = db.doc(docPath);
 
@@ -128,6 +152,14 @@ export const handleMessage: EventFunction = async ({ data }: any) => {
   const message: { type: string; itemType: string; items: any } = data
     ? JSON.parse(Buffer.from(data, "base64").toString())
     : {};
+
+  logger.info({
+    message: `handleMessage: Received message ${data}`
+  });
+
+  logger.info({
+    message: `handleMessage: items ${JSON.stringify(message.items)}`
+  });
 
   logger.info({
     message: `WRITE: Received message [${message.type}][${message.itemType}]: ${
