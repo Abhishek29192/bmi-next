@@ -69,81 +69,87 @@ const deleteItemsFromFirestore = async (
 ) => {
   const batch = db.batch();
 
-  items.forEach(async (item: DeleteItemType) => {
-    let docPath = "";
+  await Promise.all(
+    items.map(async (item: DeleteItemType) => {
+      let docPath = "";
 
-    if (
-      item.objType === ObjType.Base_product ||
-      item.objType === ObjType.System
-    ) {
-      docPath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`;
+      if (
+        item.objType === ObjType.Base_product ||
+        item.objType === ObjType.System
+      ) {
+        docPath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`;
 
-      const docRef = db.doc(docPath);
-
-      batch.delete(docRef);
-    } else {
-      const objType =
-        item.objType === ObjType.Variant
-          ? objectTypes.VARIANT_OPTIONS
-          : objectTypes.SYSTEM_LAYERS;
-
-      const key =
-        item.objType === ObjType.Variant
-          ? codeTypes.VARIANT_CODES
-          : codeTypes.LAYER_CODES;
-
-      const data = await db
-        .collection(`${FIRESTORE_ROOT_COLLECTION}/${collectionPath}`)
-        .where(key, "array-contains", item.code)
-        .get();
-
-      logger.info({
-        message: `Deleted ${item.objType} data: ${JSON.stringify(data)}`
-      });
-
-      const document = data.docs[0].data();
-
-      logger.info({
-        message: `Deleted document data: ${JSON.stringify(document)}`
-      });
-
-      const updatedObjType = document[`${objType}`].filter(
-        (type: any) => type.code !== item.code
-      );
-
-      logger.info({
-        message: `Deleted updatedObjType data: ${JSON.stringify(
-          updatedObjType
-        )}`
-      });
-
-      docPath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${document.code}`;
-
-      logger.info({
-        message: `Deleted from docPath: ${docPath}`
-      });
-
-      if (updatedObjType.length) {
-        const updatedDocument = { ...document, [objType]: updatedObjType };
-
-        logger.info({
-          message: `Deleted updatedDocument data: ${JSON.stringify(
-            updatedDocument
-          )}`
-        });
-
-        const docRef = db.doc(docPath);
-
-        batch.set(docRef, updatedDocument);
-      } else {
         const docRef = db.doc(docPath);
 
         batch.delete(docRef);
-      }
+      } else {
+        const objType =
+          item.objType === ObjType.Variant
+            ? objectTypes.VARIANT_OPTIONS
+            : objectTypes.SYSTEM_LAYERS;
 
-      logger.info({ message: `Delete ${docPath}` });
-    }
-  });
+        const key =
+          item.objType === ObjType.Variant
+            ? codeTypes.VARIANT_CODES
+            : codeTypes.LAYER_CODES;
+
+        const data = await db
+          .collection(`${FIRESTORE_ROOT_COLLECTION}/${collectionPath}`)
+          .where(key, "array-contains", item.code)
+          .get();
+
+        logger.info({
+          message: `Deleted ${item.objType} data: ${JSON.stringify(data)}`
+        });
+
+        const document = data.docs[0].data();
+
+        logger.info({
+          message: `Deleted document data: ${JSON.stringify(document)}`
+        });
+
+        const updatedObjType = document[`${objType}`].filter(
+          (obj: any) => obj.code !== item.code
+        );
+
+        logger.info({
+          message: `Deleted updatedObjType data: ${JSON.stringify(
+            updatedObjType
+          )}`
+        });
+
+        docPath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${document.code}`;
+
+        logger.info({
+          message: `Deleted from docPath: ${docPath}`
+        });
+
+        if (updatedObjType.length) {
+          const updatedDocument = {
+            ...document,
+            [objType]: updatedObjType,
+            [key]: updatedObjType.map((obj: any) => obj.code)
+          };
+
+          logger.info({
+            message: `Deleted updatedDocument data: ${JSON.stringify(
+              updatedDocument
+            )}`
+          });
+
+          const docRef = db.doc(docPath);
+
+          batch.set(docRef, updatedDocument);
+        } else {
+          const docRef = db.doc(docPath);
+
+          batch.delete(docRef);
+        }
+
+        logger.info({ message: `Delete ${docPath}` });
+      }
+    })
+  );
 
   await batch.commit();
 };
