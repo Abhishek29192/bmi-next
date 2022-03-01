@@ -475,58 +475,8 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                         <h6
                           class="MuiTypography-root title Typography MuiTypography-h6"
                         >
-                          updatedProject
+                          Project 1
                         </h6>
-                        <div>
-                          <p
-                            class="MuiTypography-root Typography MuiTypography-body1"
-                          >
-                            12345
-                          </p>
-                          <p
-                            class="MuiTypography-root Typography MuiTypography-body1"
-                            style="display: flex;"
-                          >
-                            <svg
-                              class="technologyIcon"
-                            />
-                            filters.labels.IN_PROGRESS
-                          </p>
-                        </div>
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
-                          focusable="false"
-                          style="font-size: 36px;"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                          />
-                        </svg>
-                      </div>
-                      <span
-                        class="MuiCardActionArea-focusHighlight"
-                      />
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
-                  <div
-                    data-testid="projectCard"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiCardActionArea-root"
-                      tabindex="0"
-                      type="button"
-                    >
-                      <div
-                        class="MuiCardContent-root main"
-                      >
-                        <h6
-                          class="MuiTypography-root title Typography MuiTypography-h6"
-                        />
                         <div>
                           <p
                             class="MuiTypography-root Typography MuiTypography-body1"
@@ -1080,7 +1030,7 @@ exports[`Projects Page render correctly 1`] = `
                         <h6
                           class="MuiTypography-root title Typography MuiTypography-h6"
                         >
-                          Project
+                          Project 1
                         </h6>
                         <div>
                           <p

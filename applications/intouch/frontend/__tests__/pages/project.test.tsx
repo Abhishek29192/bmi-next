@@ -15,6 +15,11 @@ import ProjectPage from "../../pages/projects/[[...project]]";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
 import { generateGlobalPageData } from "../../lib/tests/factories/globalPageData";
 import { GetGlobalDataQuery } from "../../graphql/generated/operations";
+import I18nextProvider from "../../lib/tests/fixtures/i18n";
+import UserProvider from "../../lib/tests/fixtures/user";
+import ApolloProvider from "../../lib/tests/fixtures/apollo";
+import MarketContextWrapper from "../../lib/tests/fixtures/market";
+import AccountContextWrapper from "../../lib/tests/fixtures/account";
 
 jest.mock("../../lib/middleware/withPage", () => ({
   withPage: (getServerSideProps: any) => {
@@ -34,15 +39,17 @@ jest.mock("../../components/ProjectDetail", () => ({
   })
 }));
 
+const project = generateProject({ name: "Project 1" });
+const useLazyQueryOnCompleteCallback = jest.fn().mockReturnValue({
+  projectsByMarket: {
+    nodes: [project]
+  }
+});
 jest.mock("@apollo/client", () => ({
   ...jest.requireActual("@apollo/client"),
   useLazyQuery: (_, { onCompleted }) => [
     jest.fn(() => {
-      onCompleted({
-        projectsByMarket: {
-          nodes: [generateProject({ name: "updatedProject" })]
-        }
-      });
+      onCompleted(useLazyQueryOnCompleteCallback());
     })
   ]
 }));
@@ -65,14 +72,10 @@ describe("Projects Page", () => {
     res: {}
   };
 
-  const projects = [generateProject(), { id: 2, name: "Project 2" }];
+  const projects = [project, { id: 2, name: "Project 2" }];
   const projectCollection: GetProjectsQuery["projectsByMarket"] = {
     __typename: "ProjectsConnection",
-    nodes: [
-      {
-        ...generateProject()
-      }
-    ]
+    nodes: [project]
   };
   const account = generateAccount({ role: ROLES.SUPER_ADMIN });
 
@@ -325,6 +328,9 @@ describe("Projects Page", () => {
       __typename: "ProjectsConnection",
       nodes: []
     };
+    useLazyQueryOnCompleteCallback.mockReturnValueOnce({
+      projectsByMarket: { nodes: [] }
+    });
     renderWithAllProviders(
       <RouterContext.Provider value={createMockRouter({})}>
         <ProjectPage
@@ -365,13 +371,16 @@ describe("Projects Page", () => {
       onUpdateGuarantee: expect.any(Function)
     });
     projectDetailProps.onUpdateGuarantee();
-    expect(screen.getByText("updatedProject")).toBeTruthy();
+    expect(screen.getByText("Project 1")).toBeTruthy();
   });
   it("check for empty nodes array", async () => {
     const projectCollection: GetProjectsQuery["projectsByMarket"] = {
       __typename: "ProjectsConnection",
       nodes: null
     };
+    useLazyQueryOnCompleteCallback.mockReturnValueOnce({
+      projectsByMarket: { nodes: [] }
+    });
     renderWithAllProviders(
       <RouterContext.Provider value={createMockRouter({})}>
         <ProjectPage
@@ -390,11 +399,11 @@ describe("Projects Page", () => {
     const projectCollection: GetProjectsQuery["projectsByMarket"] = {
       __typename: "ProjectsConnection",
       nodes: [
+        project,
         {
-          ...generateProject()
-        },
-        {
-          ...generateProject({ id: 2, name: null })
+          ...project,
+          id: 2,
+          name: null
         }
       ]
     };
@@ -411,5 +420,60 @@ describe("Projects Page", () => {
       </RouterContext.Provider>
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it("get latest project list when browsing different projects", async () => {
+    const { rerender } = renderWithAllProviders(
+      <RouterContext.Provider value={createMockRouter({})}>
+        <ProjectPage
+          _pageError={null}
+          projects={projectCollection}
+          isPowerfulUser={true}
+          globalPageData={globalPageData}
+          account={account}
+          market={undefined}
+        />
+      </RouterContext.Provider>
+    );
+    expect(screen.getByText("Project 1")).toBeTruthy();
+    expect(screen.queryByText("Project 2")).toBeFalsy();
+    expect(screen.queryByText("Project 3")).toBeFalsy();
+
+    useLazyQueryOnCompleteCallback.mockReturnValueOnce({
+      projectsByMarket: {
+        nodes: [
+          { ...project, id: 1, name: "Project 1" },
+          { ...project, id: 2, name: "Project 2" },
+          { ...project, id: 3, name: "Project 3" }
+        ]
+      }
+    });
+    rerender(
+      <I18nextProvider>
+        <UserProvider>
+          <ApolloProvider>
+            <MarketContextWrapper>
+              <AccountContextWrapper>
+                <RouterContext.Provider
+                  value={createMockRouter({ query: { project: ["3"] } })}
+                >
+                  <ProjectPage
+                    _pageError={null}
+                    projects={projectCollection}
+                    isPowerfulUser={true}
+                    globalPageData={globalPageData}
+                    account={account}
+                    market={undefined}
+                  />
+                </RouterContext.Provider>
+              </AccountContextWrapper>
+            </MarketContextWrapper>
+          </ApolloProvider>
+        </UserProvider>
+      </I18nextProvider>
+    );
+    expect(screen.getByText("Project 1")).toBeTruthy();
+    expect(screen.getByText("Project 2")).toBeTruthy();
+    expect(screen.getByText("Project 3")).toBeTruthy();
   });
 });

@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useCallback } from "react";
+import React, { useMemo, useState, useCallback, useEffect } from "react";
 import { Grid } from "@bmi/components";
 import { Typography } from "@bmi/components";
 import { useRouter } from "next/router";
@@ -82,6 +82,10 @@ const Projects = ({
   };
 
   const getProjectsCallBack = useCallback(() => getProjects(), [getProjects]);
+
+  useEffect(() => {
+    getProjectsCallBack();
+  }, [activeProject]);
 
   return (
     <Layout title={t("common:Projects")} pageData={globalPageData}>
