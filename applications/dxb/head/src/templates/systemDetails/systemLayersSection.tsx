@@ -25,7 +25,6 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
       {systemLayers &&
         systemLayers
           .filter((layer) => layer.approvalStatus === "approved")
-          .sort((a, b) => a.layerNumber - b.layerNumber)
           .map((layer, index) => {
             const relatedProduct = layer.relatedProducts?.[0];
             const productLinkAction =
