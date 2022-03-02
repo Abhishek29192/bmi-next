@@ -14,6 +14,12 @@ The `init` command creates the content type `Migration` in your Contentful space
 yarn migrate init
 ```
 
+OR
+
+```bash
+yarn migrate init  -e <contentful environment>
+```
+
 ## Commands
 
 ### List
@@ -26,6 +32,12 @@ yarn migrate list -a -e <contentful environment>
 
 ```bash
 yarn migrate create <migration-file-name> -c <contentType>
+```
+
+### For DXB only :
+
+```bash
+yarn migrate create <migration-file-name> -c scripts
 ```
 
 ### Migrate
@@ -50,12 +62,24 @@ Run a specific content type
 yarn migrate up -c contentTypeName
 ```
 
+### For DXB only :
+
+```bash
+yarn migrate up -c scripts
+```
+
 #### Down
 
 Roll back a migration
 
 ```bash
 yarn migrate down <filename> <options>
+```
+
+### For DXB only :
+
+```bash
+yarn migrate down -c scripts
 ```
 
 #### Options
