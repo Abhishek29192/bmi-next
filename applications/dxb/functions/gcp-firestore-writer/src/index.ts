@@ -7,18 +7,18 @@ const { FIRESTORE_ROOT_COLLECTION } = process.env;
 const db = getFirestore();
 
 // TODO: I think these should start with "/", but was easier for them not to
-const COLLECTIONS = {
+export const COLLECTIONS = {
   CATEGORIES: "root/categories",
   PRODUCTS: "root/products",
   SYSTEMS: "root/systems"
 };
 
-const objectTypes = {
+export const OBJECT_TYPES = {
   VARIANT_OPTIONS: "variantOptions",
   SYSTEM_LAYERS: "systemLayers"
 };
 
-const codeTypes = {
+export const CODE_TYPES = {
   VARIANT_CODES: "variantCodes",
   LAYER_CODES: "layerCodes"
 };
@@ -38,12 +38,12 @@ const setItemsInFirestore = async (collectionPath: string, items: any) => {
       // this update will allow us to find correct base product or system in delete method if we deleting variantOption or systemLayer
       const key =
         collectionPath === COLLECTIONS.PRODUCTS
-          ? codeTypes.VARIANT_CODES
-          : codeTypes.LAYER_CODES;
+          ? CODE_TYPES.VARIANT_CODES
+          : CODE_TYPES.LAYER_CODES;
       const objType =
         collectionPath === COLLECTIONS.PRODUCTS
-          ? objectTypes.VARIANT_OPTIONS
-          : objectTypes.SYSTEM_LAYERS;
+          ? OBJECT_TYPES.VARIANT_OPTIONS
+          : OBJECT_TYPES.SYSTEM_LAYERS;
 
       if (item[`${objType}`] && item[`${objType}`].length) {
         const updatedItem = {
@@ -85,22 +85,18 @@ const deleteItemsFromFirestore = async (
       } else {
         const objType =
           item.objType === ObjType.Variant
-            ? objectTypes.VARIANT_OPTIONS
-            : objectTypes.SYSTEM_LAYERS;
+            ? OBJECT_TYPES.VARIANT_OPTIONS
+            : OBJECT_TYPES.SYSTEM_LAYERS;
 
         const key =
           item.objType === ObjType.Variant
-            ? codeTypes.VARIANT_CODES
-            : codeTypes.LAYER_CODES;
+            ? CODE_TYPES.VARIANT_CODES
+            : CODE_TYPES.LAYER_CODES;
 
         const data = await db
           .collection(`${FIRESTORE_ROOT_COLLECTION}/${collectionPath}`)
           .where(key, "array-contains", item.code)
           .get();
-
-        logger.info({
-          message: `Deleted ${item.objType} data: ${JSON.stringify(data)}`
-        });
 
         const document = data.docs[0].data();
 
@@ -112,19 +108,13 @@ const deleteItemsFromFirestore = async (
           (obj: any) => obj.code !== item.code
         );
 
-        logger.info({
-          message: `Deleted updatedObjType data: ${JSON.stringify(
-            updatedObjType
-          )}`
-        });
-
         docPath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${document.code}`;
 
         logger.info({
           message: `Deleted from docPath: ${docPath}`
         });
 
-        if (updatedObjType.length) {
+        if (updatedObjType.length || item.objType === ObjType.Layer) {
           const updatedDocument = {
             ...document,
             [objType]: updatedObjType,
@@ -132,7 +122,7 @@ const deleteItemsFromFirestore = async (
           };
 
           logger.info({
-            message: `Deleted updatedDocument data: ${JSON.stringify(
+            message: `Deleted updated document data: ${JSON.stringify(
               updatedDocument
             )}`
           });
@@ -158,14 +148,6 @@ export const handleMessage: EventFunction = async ({ data }: any) => {
   const message: { type: string; itemType: string; items: any } = data
     ? JSON.parse(Buffer.from(data, "base64").toString())
     : {};
-
-  logger.info({
-    message: `handleMessage: Received message ${data}`
-  });
-
-  logger.info({
-    message: `handleMessage: items ${JSON.stringify(message.items)}`
-  });
 
   logger.info({
     message: `WRITE: Received message [${message.type}][${message.itemType}]: ${
