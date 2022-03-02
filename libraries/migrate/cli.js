@@ -22,7 +22,7 @@ const main = async ([command = "--help", ...options]) => {
       mkdirSync(projectPath);
     }
 
-    var isWin = process.platform === "win32";
+    const isWin = process.platform === "win32";
     const sub = spawnSync(
       isWin ? "ctf-migrate.cmd" : "ctf-migrate",
       [command, "-s", SPACE_ID, "-t", MANAGEMENT_ACCESS_TOKEN, ...options],

@@ -15,7 +15,6 @@
     "dev": "yarn workspace @bmi/head run dev",
     "start": "yarn workspace @bmi/head run start",
     "clean:head": "yarn workspace @bmi/head run clean",
-    "build": "tsc",
     "build:head": "yarn workspace @bmi/head run build",
     "build:frc-website": "yarn workspace @bmi/frc-website run build",
     "build:redirects-website": "yarn workspace @bmi/redirects-website run build",

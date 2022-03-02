@@ -219,7 +219,7 @@ describe("Document Library page", () => {
         container.querySelectorAll(".DocumentSimpleTableResults .row").length
       ).toBe(1)
     );
-  });
+  }, 10000);
 
   it("clear filter correctly when click the checked filter", async () => {
     const data = createData();

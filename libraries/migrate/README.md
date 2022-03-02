@@ -1,6 +1,6 @@
 # Migrate
 
-This package uses the [`contentful-migrate`](https://github.com/deluan/contentful-migrate) lib to create content types and migrations with code. All commands run through the `start` script, which is also aliased to `migrate` in the root of the monorepo.
+This package uses the [`contentful-migrate`](https://github.com/deluan/contentful-migrate) lib to create content types and migrations with code.
 
 ## Setup
 
@@ -13,20 +13,6 @@ The `init` command creates the content type `Migration` in your Contentful space
 ```bash
 yarn migrate init
 ```
-
-The above command can also be ran with `yarn workspace @bmi/migrate start init`.
-
-### Bootstrap
-
-~~This command creates your migration files for content models already in your space. It gives you the option to squash any previous migration state.~~
-
-We have bootstrapped the contentful already so please DO NOT run it again unless you test on your own contentful account. Running bootstrap again on production account will wipe out all the migration records!
-
-```bash
-yarn migrate bootstrap -a -e <contentful environment>
-```
-
-_Note: It will delete any existing migration scripts and create a consolidated one for each specified content type._
 
 ## Commands
 
@@ -50,6 +36,12 @@ Run latest migrations that have not been updated
 
 ```bash
 yarn migrate up <options>
+```
+
+Run all changes
+
+```bash
+yarn migrate up -a
 ```
 
 Run a specific content type
@@ -89,24 +81,8 @@ The custom roles with permissions need to be specified in a JSON file, at the fo
 
 [This documentation](https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles) shows some of the accepted key value pairs for roles & permissions.
 
-### Mock Data
+## Testing changes
 
-#### Upload
+_Only test against your own space._
 
-In case you want to upload some mock data (content + assets) from your local machine into Contentful, you can run
-
-```bash
-yarn content-upload
-```
-
-Make sure you have set up the environment variables into `.env.development`.
-
-#### Download
-
-To download assets and content from Contentful into your local repo, you can run this command.
-
-```bash
-yarn content-download
-```
-
-Make sure you have set up the environment variables into `.env.development`.
+After creating the relevant scripts, make sure that you run them as an incremental change ontop of the latest set of scripts (so when it is run against the real environments, we know it will work reliably) and against a completely cleared down environment (so we know it will work reliably against a brand new environment).

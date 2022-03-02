@@ -35,6 +35,7 @@ module.exports.up = (migration) => {
   });
 
   navigation.moveField("promos").afterField("promo");
+  navigation.editField("promo").disabled(true).omitted(true);
 
   migration.transformEntries({
     contentType: "navigation",
@@ -50,8 +51,6 @@ module.exports.up = (migration) => {
       };
     }
   });
-
-  navigation.editField("promo").disabled(true).omitted(true);
 };
 
 module.exports.down = (migration) => {
