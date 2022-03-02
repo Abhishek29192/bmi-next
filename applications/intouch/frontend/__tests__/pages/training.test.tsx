@@ -1,6 +1,5 @@
 import React from "react";
 import { fireEvent } from "@testing-library/react";
-import * as nextRouter from "next/router";
 import TrainingPage, { getServerSideProps } from "../../pages/training";
 import {
   TrainingQuery,
@@ -17,8 +16,13 @@ import AccountContextWrapper from "../../lib/tests/fixtures/account";
 import ApolloProvider from "../../lib/tests/fixtures/apollo";
 import { getServerPageTraining } from "../../graphql/generated/page";
 
-nextRouter.useRouter = jest.fn();
-nextRouter.useRouter.mockImplementation(() => ({ route: "/" }));
+jest.mock("next/router", () => {
+  const original = jest.requireActual("next/router");
+  return {
+    ...original,
+    useRouter: jest.fn().mockImplementation(() => ({ route: "/" }))
+  };
+});
 
 jest.mock("../../lib/middleware/withPage", () => ({
   withPage: (fn) => {
@@ -163,7 +167,7 @@ describe("Training Page", () => {
       expect(getServerPageTraining).toBeCalledWith(
         {
           variables: {
-            catalogueId: null,
+            catalogueId: "doceboCatalogueId",
             userId: "doceboUserId"
           }
         },
