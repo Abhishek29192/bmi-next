@@ -157,7 +157,6 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
                     ["data-testid"]: "emails",
                     ...params.inputProps
                   }}
-                  isRequired
                   fullWidth
                 />
               )}
@@ -175,7 +174,7 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
             <Form.SubmitButton
               data-testid="invite-dialog-submit"
               key="btn-send-invitation"
-              disabled={loading}
+              disabled={loading || !emails.length}
             >
               {t("team-page:invitation.dialog.send")}
             </Form.SubmitButton>
