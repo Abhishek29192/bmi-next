@@ -30,3 +30,11 @@ Radio panes styled for System configurator
   expanded content
 </RadioPane>
 ```
+
+### With Collapse Feature
+
+```jsx
+<RadioPane name="f1" value="v2" title={"Value 2"} collapseFeature>
+  expanded content
+</RadioPane>
+```

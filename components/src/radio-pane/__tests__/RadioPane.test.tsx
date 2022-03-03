@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import RadioPane from "../RadioPane";
 
 describe("RadioPane component", () => {
@@ -28,6 +28,19 @@ describe("RadioPane component", () => {
         expanded content
       </RadioPane>
     );
+    expect(container).toMatchSnapshot();
+  });
+  it("renders with collapse feature", async () => {
+    const { container, queryByTestId } = render(
+      <RadioPane name="f1" value="v1" title={"Value 1"} collapseFeature>
+        expanded content
+      </RadioPane>
+    );
+    expect(queryByTestId("collapsed")).toBeTruthy();
+    fireEvent.click(container.getElementsByClassName("icon-btn")[0]);
+    expect(queryByTestId("collapsed")).not.toBeTruthy();
+    expect(queryByTestId("expanded")).toBeTruthy();
+
     expect(container).toMatchSnapshot();
   });
 });

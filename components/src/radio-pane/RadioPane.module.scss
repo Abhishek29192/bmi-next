@@ -1,4 +1,41 @@
 @import "~@bmi-digital/styles";
+.RadioPaneContainer {
+  margin-top: 8px;
+  display: block;
+  .description-container {
+    overflow: hidden;
+    transition: height 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-container {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    margin-left: 8px;
+
+    .icon-btn {
+      min-width: 42px;
+      width: 42px;
+      height: 42px;
+      border-radius: 0;
+    } 
+    .info-icon {
+      width: 24px;
+      height: 24px;
+      color: $color-cyan-500;
+    }
+    .cancel-icon {
+      width: 24px;
+      height: 24px;
+      color: #70706f;
+    }
+  }
+}
+.CollapseFeature {
+  display: flex;
+  .RadioPane {
+    flex-grow: 1;
+  }
+}
 
 .RadioPane {
   & + & {

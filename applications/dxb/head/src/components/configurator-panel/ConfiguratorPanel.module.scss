@@ -13,6 +13,7 @@
     padding-left: 32px;
     padding-right: 42px;
     color: $color-slate;
+    opacity: 1;
 
     :global {
       [class*="MuiAccordionSummary-content"] {
