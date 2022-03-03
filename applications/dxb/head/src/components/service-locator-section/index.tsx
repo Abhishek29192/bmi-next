@@ -216,11 +216,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const handleAutocompleteOnChange = (_, inputValue) => {
     setShowResultList(true);
     setActiveSearchString(inputValue || "");
-    pushToDataLayer({
-      id: "filter-service-locator",
-      label: nameSearchLabelKey,
-      action: inputValue
-    });
+    if (inputValue) {
+      pushToDataLayer({
+        event: "gtm.click",
+        id: "filter-service-locator",
+        label: nameSearchLabelKey,
+        action: inputValue
+      });
+    }
   };
 
   const onChipClick = (serviceType) => {
