@@ -129,7 +129,7 @@ export const getServerSideProps = withPage(
           ? market.doceboCatalogueId
           : market[`doceboCatalogueId${tier}`];
       }
-      return null;
+      return market.doceboCatalogueId;
     };
 
     let trainingData = {};
