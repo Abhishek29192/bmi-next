@@ -7,7 +7,7 @@ module.exports.up = (migration) => {
 
   roofer
     .createField("serviceTypes")
-    .name("services provided by this service provider")
+    .name("Services provided by this service provider")
     .type("Array")
     .required(false)
     .items({

@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import Sections, { Data } from "../Sections";
 import { SiteContextProvider } from "../Site";
-import { EntryTypeEnum, rooferTypes } from "../Service";
+import { EntryTypeEnum } from "../Service";
 import createService from "../../__tests__/ServiceHelper";
 import { DataTypeEnum } from "../Link";
 import { renderWithRouter } from "../../test/renderWithRouter";
@@ -399,12 +399,18 @@ describe("Sections component", () => {
           createService({
             id: "roofer_1",
             name: "roofer 1",
-            type: [rooferTypes[0], rooferTypes[1]]
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Pitched Roof" },
+              { __typename: "ContentfulServiceType", name: "Flat Roof" }
+            ]
           }),
           createService({
             id: "roofer_2",
             name: "roofer 2",
-            type: [rooferTypes[0], rooferTypes[1]]
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Pitched Roof" },
+              { __typename: "ContentfulServiceType", name: "Flat Roof" }
+            ]
           })
         ],
         position: 0,

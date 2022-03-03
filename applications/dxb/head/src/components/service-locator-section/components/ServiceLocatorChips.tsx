@@ -1,17 +1,17 @@
 import { Grid } from "@bmi/components";
 import { Typography } from "@bmi/components";
 import { Chip, ChipProps } from "@bmi/components";
-import camelCase from "lodash-es/camelCase";
 import React from "react";
 import styles from "../styles/ServiceLocatorSection.module.scss";
 import { useSiteContext } from "../../Site";
-import { ServiceType, ServiceTypesPrefixesEnum } from "../../Service";
+import { ServiceTypesPrefixesEnum, ServiceTypeFilter } from "../../Service";
+import { Data as ServiceType } from "../../ServiceType";
 import withGTM from "../../../utils/google-tag-manager";
 
 interface ServiceLocatorChipsProps {
   microCopyPrefix: ServiceTypesPrefixesEnum;
   onChipClick: (serviceType) => void;
-  activeFilters: Record<ServiceType, boolean>;
+  activeFilters: ServiceTypeFilter;
   uniqueRoofTypeByData: ServiceType[];
 }
 
@@ -20,7 +20,7 @@ export const ServiceLocatorChips = ({
   uniqueRoofTypeByData,
   microCopyPrefix,
   activeFilters
-}: ServiceLocatorChipsProps) => {
+}: ServiceLocatorChipsProps): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
   const GTMChip = withGTM<ChipProps>(Chip);
 
@@ -32,23 +32,20 @@ export const ServiceLocatorChips = ({
             {getMicroCopy(`${microCopyPrefix}.filtersLabel`)}
           </Typography>
           {uniqueRoofTypeByData.map((serviceType, index) => {
-            const chipMicroCopy = getMicroCopy(
-              `${microCopyPrefix}.filters.${camelCase(serviceType)}`
-            );
             return (
               <GTMChip
                 key={index}
                 type="selectable"
                 onClick={() => onChipClick(serviceType)}
                 // eslint-disable-next-line security/detect-object-injection
-                isSelected={activeFilters[serviceType]}
+                isSelected={activeFilters[serviceType.name]}
                 gtm={{
                   id: "selector-cards1",
-                  label: chipMicroCopy,
+                  label: serviceType.name,
                   action: "Selector - Cards Filter"
                 }}
               >
-                {chipMicroCopy}
+                {serviceType.name}
               </GTMChip>
             );
           })}

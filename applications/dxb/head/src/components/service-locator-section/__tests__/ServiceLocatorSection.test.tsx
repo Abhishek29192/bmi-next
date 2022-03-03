@@ -1,14 +1,8 @@
 import React from "react";
 import { act, fireEvent, screen } from "@testing-library/react";
 import { LocationProvider } from "@reach/router";
-import camelCase from "lodash-es/camelCase";
-import {
-  branchTypes,
-  EntryTypeEnum,
-  merchantTypes,
-  rooferTypes,
-  RooferTypesEnum
-} from "../../Service";
+import { EntryTypeEnum } from "../../Service";
+import { Data as ServiceType } from "../../ServiceType";
 import createService from "../../../__tests__/ServiceHelper";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import ServiceLocatorSection, {
@@ -104,7 +98,7 @@ describe("ServiceLocatorSection component", () => {
         position: 1,
         centre: null,
         zoom: 8,
-        services: [createService({ type: [] })]
+        services: [createService()]
       };
 
       const { container } = renderWithRouter(
@@ -124,7 +118,13 @@ describe("ServiceLocatorSection component", () => {
         position: 1,
         centre: null,
         zoom: 8,
-        services: [createService({ type: [rooferTypes[0]] })]
+        services: [
+          createService({
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Flat roof" }
+            ]
+          })
+        ]
       };
 
       const { container } = renderWithRouter(
@@ -144,7 +144,14 @@ describe("ServiceLocatorSection component", () => {
         position: 1,
         centre: null,
         zoom: 8,
-        services: [createService({ type: [rooferTypes[0], rooferTypes[0]] })]
+        services: [
+          createService({
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Flat roof" },
+              { __typename: "ContentfulServiceType", name: "Pitched roof" }
+            ]
+          })
+        ]
       };
 
       const { container } = renderWithRouter(
@@ -193,12 +200,16 @@ describe("ServiceLocatorSection component", () => {
           createService({
             id: "roofer_1",
             name: "roofer 1",
-            type: [rooferTypes[0]]
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Flat roof" }
+            ]
           }),
           createService({
             id: "roofer_2",
             name: "roofer 2",
-            type: [rooferTypes[0]]
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Flat roof" }
+            ]
           })
         ]
       };
@@ -225,16 +236,18 @@ describe("ServiceLocatorSection component", () => {
             entryType: EntryTypeEnum.BRANCH_TYPE,
             id: "roofer_7",
             name: "roofer 7",
-            type: [],
-            branchType: [branchTypes[0]],
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Country Offices" }
+            ],
             fax: "222222"
           }),
           createService({
             entryType: EntryTypeEnum.BRANCH_TYPE,
             id: "roofer_8",
             name: "roofer 8",
-            type: [],
-            branchType: [branchTypes[1]]
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Country Offices" }
+            ]
           })
         ]
       };
@@ -261,18 +274,24 @@ describe("ServiceLocatorSection component", () => {
             entryType: EntryTypeEnum.MERCHANT_TYPE,
             id: "roofer_7",
             name: "roofer 7",
-            type: [],
-            branchType: [],
-            merchantType: [merchantTypes[0]],
+            serviceTypes: [
+              {
+                __typename: "ContentfulServiceType",
+                name: "BMI Icopal Flat Roof Systems"
+              }
+            ],
             fax: "222222"
           }),
           createService({
             entryType: EntryTypeEnum.MERCHANT_TYPE,
             id: "roofer_8",
             name: "roofer 8",
-            type: [],
-            branchType: [],
-            merchantType: [merchantTypes[1]]
+            serviceTypes: [
+              {
+                __typename: "ContentfulServiceType",
+                name: "BMI Icopal Flat Roof Systems"
+              }
+            ]
           })
         ]
       };
@@ -363,13 +382,23 @@ describe("ServiceLocatorSection component", () => {
             entryType: EntryTypeEnum.MERCHANT_TYPE,
             id: "roofer_1",
             name: "roofer 1",
-            type: [rooferTypes[0]]
+            serviceTypes: [
+              {
+                __typename: "ContentfulServiceType",
+                name: "BMI Icopal Flat Roof Systems"
+              }
+            ]
           }),
           createService({
             entryType: EntryTypeEnum.MERCHANT_TYPE,
             id: "roofer_2",
             name: "roofer 2",
-            type: [rooferTypes[0]]
+            serviceTypes: [
+              {
+                __typename: "ContentfulServiceType",
+                name: "BMI Icopal Flat Roof Systems"
+              }
+            ]
           })
         ]
       };
@@ -395,12 +424,18 @@ describe("ServiceLocatorSection component", () => {
           createService({
             id: "roofer_1",
             name: "roofer 1",
-            type: [rooferTypes[0], rooferTypes[1]]
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Flat Roof" },
+              { __typename: "ContentfulServiceType", name: "Pitched Roof" }
+            ]
           }),
           createService({
             id: "roofer_2",
             name: "roofer 2",
-            type: [rooferTypes[0], rooferTypes[1]]
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Flat Roof 1" },
+              { __typename: "ContentfulServiceType", name: "Pitched Roof 1" }
+            ]
           })
         ]
       };
@@ -426,23 +461,21 @@ describe("ServiceLocatorSection component", () => {
           createService({
             id: "roofer_1",
             name: "roofer 1",
-            type: [
-              rooferTypes[0],
-              rooferTypes[1],
-              rooferTypes[2],
-              rooferTypes[3],
-              rooferTypes[4]
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Flat Roof" },
+              { __typename: "ContentfulServiceType", name: "Pitched Roof" },
+              { __typename: "ContentfulServiceType", name: "Flat Roof 1" },
+              { __typename: "ContentfulServiceType", name: "Pitched Roof 2" }
             ]
           }),
           createService({
             id: "roofer_2",
             name: "roofer 2",
-            type: [
-              rooferTypes[0],
-              rooferTypes[1],
-              rooferTypes[2],
-              rooferTypes[3],
-              rooferTypes[4]
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Flat Roof 3" },
+              { __typename: "ContentfulServiceType", name: "Pitched Roof 4" },
+              { __typename: "ContentfulServiceType", name: "Flat Roof 5" },
+              { __typename: "ContentfulServiceType", name: "Pitched Roof 6" }
             ]
           })
         ]
@@ -645,26 +678,29 @@ describe("ServiceLocatorSection component", () => {
           id: "roofer_1",
           name: "roofer 1",
           distance: 10,
-          type: [rooferTypes[0]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Flat Roof" }
+          ]
         }),
         createService({
           id: "roofer_2",
           name: "roofer 2",
           distance: 5,
-          type: [rooferTypes[1]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Pitched Roof" }
+          ]
         }),
         createService({
           id: "roofer_3",
           name: "roofer 3",
-          distance: 15,
-          type: [null]
+          distance: 15
         })
       ]
     };
 
     const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const chipButton = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
+      name: `Flat Roof`
     });
     chipButton.click();
     expect(wrapper.container).toMatchSnapshot();
@@ -687,21 +723,25 @@ describe("ServiceLocatorSection component", () => {
           id: "roofer_9",
           name: "roofer 9",
           distance: 10,
-          branchType: [branchTypes[0]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Country Offices" }
+          ]
         }),
         createService({
           entryType: EntryTypeEnum.BRANCH_TYPE,
           id: "roofer_10",
           name: "roofer 10",
           distance: 5,
-          branchType: [branchTypes[1]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Headquarters" }
+          ]
         })
       ]
     };
 
     const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const chipButton = wrapper.getByRole("button", {
-      name: `MC: findABranch.filters.${camelCase(branchTypes[0])}`
+      name: `Country Offices`
     });
     chipButton.click();
     expect(wrapper.container).toMatchSnapshot();
@@ -724,21 +764,28 @@ describe("ServiceLocatorSection component", () => {
           id: "roofer_9",
           name: "roofer 9",
           distance: 10,
-          merchantType: [merchantTypes[0]]
+          serviceTypes: [
+            {
+              __typename: "ContentfulServiceType",
+              name: "BMI Icopal Flat Roof Systems"
+            }
+          ]
         }),
         createService({
           entryType: EntryTypeEnum.MERCHANT_TYPE,
           id: "roofer_10",
           name: "roofer 10",
           distance: 5,
-          merchantType: [merchantTypes[1]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Merchant type 2" }
+          ]
         })
       ]
     };
 
     const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const chipButton = wrapper.getByRole("button", {
-      name: `MC: findAMerchant.filters.${camelCase(merchantTypes[0])}`
+      name: `Merchant type 2`
     });
     chipButton.click();
     expect(wrapper.container).toMatchSnapshot();
@@ -759,19 +806,23 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [rooferTypes[0]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Flat Roof" }
+          ]
         }),
         createService({
           id: "roofer_2",
           name: "roofer 2",
-          type: [rooferTypes[1]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Pitched Roof" }
+          ]
         })
       ]
     };
 
     const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const chipButton = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
+      name: `Flat Roof`
     });
     chipButton.click();
     chipButton.click();
@@ -793,46 +844,56 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [rooferTypes[0]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Flat Roof 1" }
+          ]
         }),
         createService({
           id: "roofer_2",
           name: "roofer 2",
-          type: [rooferTypes[1]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Flat Roof 2" }
+          ]
         }),
         createService({
           id: "roofer_3",
           name: "roofer 3",
-          type: [rooferTypes[2]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Flat Roof 3" }
+          ]
         }),
         createService({
           id: "roofer_4",
           name: "roofer 4",
-          type: [rooferTypes[3]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Flat Roof 4" }
+          ]
         }),
         createService({
           id: "roofer_5",
           name: "roofer 5",
-          type: [rooferTypes[4]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Flat Roof 5" }
+          ]
         })
       ]
     };
 
     const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
     const chipButton1 = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
+      name: `Flat Roof 1`
     });
     const chipButton2 = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(rooferTypes[1])}`
+      name: `Flat Roof 2`
     });
     const chipButton3 = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(rooferTypes[2])}`
+      name: `Flat Roof 3`
     });
     const chipButton4 = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(rooferTypes[3])}`
+      name: `Flat Roof 4`
     });
     const chipButton5 = wrapper.getByRole("button", {
-      name: `MC: findARoofer.filters.${camelCase(rooferTypes[4])}`
+      name: `Flat Roof 5`
     });
     chipButton1.click();
     chipButton2.click();
@@ -859,12 +920,16 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [rooferTypes[0]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Pitched roof" }
+          ]
         }),
         createService({
           id: "roofer_2",
           name: "roofer 2",
-          type: [rooferTypes[1]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Flat Roof" }
+          ]
         })
       ]
     };
@@ -898,7 +963,9 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [rooferTypes[0]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Flat Roof" }
+          ]
         })
       ]
     };
@@ -912,7 +979,13 @@ describe("ServiceLocatorSection component", () => {
     Object.defineProperty(global.window, "location", {
       value: {
         search: `?chip=${encodeURIComponent(
-          [...rooferTypes, ...branchTypes, ...merchantTypes].join(",")
+          [
+            "Flat Roof",
+            "Pitched Roof",
+            "Country Offices",
+            "Headquarters",
+            "BMI Icopal Merchant 1"
+          ].join(",")
         )}`
       }
     });
@@ -931,9 +1004,16 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [...rooferTypes],
-          branchType: [...branchTypes],
-          merchantType: [...merchantTypes]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Flat Roof" },
+            { __typename: "ContentfulServiceType", name: "Pitched Roof" },
+            { __typename: "ContentfulServiceType", name: "Country Offices" },
+            { __typename: "ContentfulServiceType", name: "Headquarters" },
+            {
+              __typename: "ContentfulServiceType",
+              name: "BMI Icopal Merchant 1"
+            }
+          ]
         })
       ]
     };
@@ -957,12 +1037,18 @@ describe("ServiceLocatorSection component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [rooferTypes[0]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Flat Roof" },
+            { __typename: "ContentfulServiceType", name: "Pitched Roof" }
+          ]
         }),
         createService({
           id: "roofer_2",
           name: "roofer 2",
-          type: [rooferTypes[0]]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Flat Roof" },
+            { __typename: "ContentfulServiceType", name: "Pitched Roof" }
+          ]
         })
       ]
     };
@@ -1014,12 +1100,16 @@ describe("ServiceLocatorSection component", () => {
     const roofer1 = {
       id: "roofer_1",
       name: "roofer 1",
-      type: [rooferTypes[0]]
+      serviceTypes: [
+        { __typename: "ContentfulServiceType", name: "Flat Roof" }
+      ] as ServiceType[]
     };
     const roofer2 = {
       id: "roofer_2",
       name: "roofer 2",
-      type: [rooferTypes[1]]
+      serviceTypes: [
+        { __typename: "ContentfulServiceType", name: "Pitched Roof" }
+      ] as ServiceType[]
     };
 
     const data: serviceLocatorDataType = {
@@ -1067,7 +1157,7 @@ describe("ServiceLocatorSection component", () => {
       expect(queryByText(roofer2.name)).toBeFalsy();
 
       const chipButton = getByRole("button", {
-        name: `MC: findARoofer.filters.${camelCase(rooferTypes[0])}`
+        name: `${roofer1.serviceTypes[0].name}`
       });
 
       chipButton.click();
@@ -1140,9 +1230,10 @@ describe("ServiceLocatorSection component", () => {
             email: "post@fasade-teknikk.no",
             website: "https://www.fkbygg.no",
             fax: null,
-            type: [RooferTypesEnum.PITCHED_ROOF, RooferTypesEnum.FLAT_ROOF],
-            branchType: null,
-            merchantType: null,
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Flat Roof" },
+              { __typename: "ContentfulServiceType", name: "Pitched Roof" }
+            ],
             certification: null,
             summary: null
           },
@@ -1160,9 +1251,9 @@ describe("ServiceLocatorSection component", () => {
             email: "ole@glbygg.no",
             website: "https://www.glbygg.no",
             fax: null,
-            type: [RooferTypesEnum.FLACHDACHSYSTEME],
-            branchType: null,
-            merchantType: null,
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Flachdach system" }
+            ],
             certification: null,
             summary:
               "GL Bygg AS har i dag 20 ansatte, 17 tømrere/snekkere, og 2 murere og 1 maler,tapetserer, gulvlegger. Av disse er en byggmester og en murmester. Alle håndverkerne har fagbrev på sine respektive fagområder",
@@ -1182,9 +1273,12 @@ describe("ServiceLocatorSection component", () => {
             email: "post@harviken-bygg.no",
             website: null,
             fax: null,
-            type: [RooferTypesEnum.PITCHED_ROOF_BITUMEN_ROOFS],
-            branchType: null,
-            merchantType: null,
+            serviceTypes: [
+              {
+                __typename: "ContentfulServiceType",
+                name: "Pitched roof Bitumen roofs"
+              }
+            ],
             certification: null,
             summary: null,
             distance: 29097.647859248013

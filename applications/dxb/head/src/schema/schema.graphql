@@ -1652,6 +1652,14 @@ type ContentfulTable implements Node {
 }
 
 """
+Represents the type of services associated with a service.
+"""
+type ContentfulServiceType implements Node {
+  "The name for this service type."
+  name: String!
+}
+
+"""
 Represents the details of a service.
 """
 type ContentfulService implements Node {
@@ -1681,14 +1689,8 @@ type ContentfulService implements Node {
   "The fax for the website of this service."
   fax: String
 
-  "The type of this service."
-  type: [String]
-
-  "The type of this branch."
-  branchType: [String]
-
-  "The type of this merchant."
-  merchantType: [String!]
+  "Sample Basket Link"
+  serviceTypes: [ContentfulServiceType] @link(from: "serviceTypes___NODE")
 
   "The certification level of this service."
   certification: String

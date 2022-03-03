@@ -12,7 +12,6 @@ import React from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 import { Service } from "../index";
-import { EVENT_CAT_ID_LINK_CLICKS } from "../constants";
 import styles from "../styles/ServiceLocatorSection.module.scss";
 import { useSiteContext } from "../../Site";
 import { getResultDataGtm } from "../helpers";
@@ -23,7 +22,6 @@ interface ResultListProps {
   roofersList: Partial<Service[]>;
   onCloseCard: () => void;
   getCompanyDetails: (
-    eventCategoryId: string,
     service: Service,
     isAddressHidden?: boolean
   ) => CompanyDetailProps[];
@@ -78,13 +76,7 @@ export const ServiceLocatorResultList = ({
               </>
             }
           >
-            <CompanyDetails
-              details={getCompanyDetails(
-                EVENT_CAT_ID_LINK_CLICKS,
-                service,
-                true
-              )}
-            >
+            <CompanyDetails details={getCompanyDetails(service, true)}>
               <Typography>{service.summary}</Typography>
             </CompanyDetails>
           </GTMIntegratedLinkCard>

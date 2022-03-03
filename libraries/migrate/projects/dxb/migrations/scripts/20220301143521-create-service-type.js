@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports.description = "Create content model for service Types";
+module.exports.description = "Create content model for Service Types";
 
 const {
   getEntriesbyContentType,
@@ -11,7 +11,7 @@ const {
 module.exports.up = (migration) => {
   const serviceType = migration
     .createContentType("serviceType")
-    .name("service Type")
+    .name("Service Type")
     .displayField("name")
     .description("This content type defines various service types");
 
