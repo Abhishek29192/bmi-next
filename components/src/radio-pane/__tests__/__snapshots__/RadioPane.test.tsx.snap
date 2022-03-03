@@ -193,6 +193,61 @@ exports[`RadioPane component renders with collapse feature 1`] = `
 </div>
 `;
 
+exports[`RadioPane component renders with collapse feature withoud description 1`] = `
+<div>
+  <div
+    class="RadioPaneContainer CollapseFeature"
+  >
+    <label
+      class="RadioPane"
+    >
+      <input
+        class="input"
+        name="f1"
+        type="radio"
+        value="v1"
+      />
+      <div
+        aria-disabled="false"
+        class="MuiButtonBase-root pane"
+        role="button"
+        tabindex="-1"
+      >
+        <div
+          class="header"
+        >
+          <h6
+            class="MuiTypography-root title Typography MuiTypography-h6"
+          >
+            Value 1
+          </h6>
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root checkedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            />
+          </svg>
+        </div>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </label>
+    <div
+      class="btn-container"
+    >
+      <div
+        class="icon-btn"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`RadioPane component renders without children 1`] = `
 <div>
   <div
