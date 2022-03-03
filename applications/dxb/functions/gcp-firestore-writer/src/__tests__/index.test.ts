@@ -1,5 +1,10 @@
 import { ObjType } from "@bmi/gcp-pim-message-handler";
-import { handleMessage } from "../index";
+import {
+  DocumentReference,
+  Firestore,
+  CollectionReference
+} from "@bmi/functions-firestore";
+import { handleMessage, CODE_TYPES, OBJECT_TYPES } from "../";
 
 const createEvent = (message = {}) => {
   if (!message) {
@@ -14,6 +19,24 @@ const set = jest.fn();
 const commit = jest.fn();
 const deleteFunc = jest.fn();
 const get = jest.fn();
+const doc = jest.fn();
+const documentRef: DocumentReference = {
+  id: "docId",
+  firestore: {} as Firestore,
+  parent: {} as CollectionReference,
+  path: "path",
+  collection: jest.fn(),
+  listCollections: jest.fn(),
+  create: jest.fn(),
+  set: jest.fn(),
+  update: jest.fn(),
+  delete: jest.fn(),
+  get: jest.fn(),
+  onSnapshot: jest.fn(),
+  isEqual: jest.fn(),
+  withConverter: jest.fn()
+};
+
 jest.mock("@bmi/functions-firestore", () => ({
   getFirestore: jest.fn(() => ({
     collection: jest.fn(() => ({
@@ -21,7 +44,7 @@ jest.mock("@bmi/functions-firestore", () => ({
         get
       }))
     })),
-    doc: jest.fn(),
+    doc: () => doc(),
     batch: jest.fn(() => ({
       set,
       commit,
@@ -35,78 +58,100 @@ describe("handleMessage", () => {
     jest.clearAllMocks();
   });
   it("should execute correctly if type is UPDATED and itemType is PRODUCTS", async () => {
+    const item = {
+      name: "Test Product 1",
+      code: "BaseProduct",
+      variantOptions: [{ code: "VariantOption" }]
+    };
     const data = createEvent({
       type: "UPDATED",
       itemType: "PRODUCTS",
-      items: [
-        {
-          name: "Test Product 1",
-          code: "BaseProduct",
-          variantOptions: [{ code: "VariantOption" }]
-        }
-      ]
+      items: [item]
     });
+
+    const updatedItem = {
+      ...item,
+      [CODE_TYPES.VARIANT_CODES]: item.variantOptions.map(
+        (obj: any) => obj.code
+      )
+    };
+
+    doc.mockReturnValue(documentRef);
 
     await handleMessage(data, {});
 
     expect(set).toBeCalledTimes(1);
+    expect(set).toBeCalledWith(documentRef, updatedItem);
     expect(commit).toBeCalledTimes(1);
   });
 
   it("should execute correctly if type is UPDATED and itemType is SYSTEMS", async () => {
+    const item = {
+      name: "Test System 1",
+      code: "System",
+      systemLayers: [{ code: "SystemLayer" }]
+    };
     const data = createEvent({
       type: "UPDATED",
       itemType: "SYSTEMS",
-      items: [
-        {
-          name: "Test System 1",
-          code: "System",
-          systemLayers: [{ code: "SystemLayer" }]
-        }
-      ]
+      items: [item]
     });
+
+    const updatedItem = {
+      ...item,
+      [CODE_TYPES.LAYER_CODES]: item.systemLayers.map((obj: any) => obj.code)
+    };
+
+    doc.mockReturnValue(documentRef);
 
     await handleMessage(data, {});
 
     expect(set).toBeCalledTimes(1);
+    expect(set).toBeCalledWith(documentRef, updatedItem);
     expect(commit).toBeCalledTimes(1);
   });
 
   it("should execute correctly if type is UPDATED and system do not have layers", async () => {
+    const item = {
+      name: "Test System 1",
+      code: "System"
+    };
     const data = createEvent({
       type: "UPDATED",
       itemType: "SYSTEMS",
-      items: [
-        {
-          name: "Test System 1",
-          code: "System"
-        }
-      ]
+      items: [item]
     });
+
+    doc.mockReturnValue(documentRef);
 
     await handleMessage(data, {});
 
     expect(set).toBeCalledTimes(1);
+    expect(set).toBeCalledWith(documentRef, item);
     expect(commit).toBeCalledTimes(1);
   });
 
   it("should execute correctly if type is UPDATED and itemType is CATEGORIES", async () => {
+    const item = {
+      name: "Test Category 1"
+    };
     const data = createEvent({
       type: "UPDATED",
       itemType: "CATEGORIES",
-      items: [
-        {
-          name: "Test Category 1"
-        }
-      ]
+      items: [item]
     });
 
     await handleMessage(data, {});
 
+    doc.mockReturnValue(documentRef);
+
     expect(set).toBeCalledTimes(1);
+    expect(set).toBeCalledWith(documentRef, item);
     expect(commit).toBeCalledTimes(1);
   });
   it("should execute correctly if type is DELETED and objType is 'base_product'", async () => {
+    const docRef1 = { ...documentRef, id: "docId1" };
+    const docRef2 = { ...documentRef, id: "docId2" };
     const data = createEvent({
       itemType: "PRODUCTS",
       type: "DELETED",
@@ -116,13 +161,19 @@ describe("handleMessage", () => {
       ]
     });
 
+    doc.mockReturnValueOnce(docRef1).mockReturnValueOnce(docRef2);
+
     await handleMessage(data, {});
 
     expect(deleteFunc).toBeCalledTimes(2);
+    expect(deleteFunc).toHaveBeenNthCalledWith(1, docRef1);
+    expect(deleteFunc).toHaveBeenNthCalledWith(2, docRef2);
     expect(commit).toBeCalledTimes(1);
   });
 
   it("should execute correctly if type is DELETED and objType is 'system'", async () => {
+    const docRef1 = { ...documentRef, id: "docId1" };
+    const docRef2 = { ...documentRef, id: "docId2" };
     const data = createEvent({
       itemType: "SYSTEMS",
       type: "DELETED",
@@ -132,9 +183,13 @@ describe("handleMessage", () => {
       ]
     });
 
+    doc.mockReturnValueOnce(docRef1).mockReturnValueOnce(docRef2);
+
     await handleMessage(data, {});
 
     expect(deleteFunc).toBeCalledTimes(2);
+    expect(deleteFunc).toHaveBeenNthCalledWith(1, docRef1);
+    expect(deleteFunc).toHaveBeenNthCalledWith(2, docRef2);
     expect(commit).toBeCalledTimes(1);
   });
 
@@ -145,24 +200,41 @@ describe("handleMessage", () => {
       items: [{ code: "Test_Variant_1", objType: ObjType.Variant }]
     });
 
+    const mockedRosolvedValue = {
+      code: "Base_Product_code",
+      variantOptions: [
+        { code: "Test_Variant_1" },
+        { code: "Test_Variant_3" },
+        { code: "Test_Variant_4" }
+      ],
+      variantCodes: ["Test_Variant_1", "Test_Variant_3", "Test_Variant_4"]
+    };
+
     get.mockResolvedValue({
       docs: [
         {
-          data: () => ({
-            code: "Base_Product_code",
-            variantOptions: [
-              { code: "Test_Variant_1" },
-              { code: "Test_Variant_3" },
-              { code: "Test_Variant_4" }
-            ]
-          })
+          data: () => mockedRosolvedValue
         }
       ]
     });
 
+    doc.mockReturnValue(documentRef);
+
+    const updatedObjType = [
+      { code: "Test_Variant_3" },
+      { code: "Test_Variant_4" }
+    ];
+
+    const updatedDocument = {
+      ...mockedRosolvedValue,
+      [OBJECT_TYPES.VARIANT_OPTIONS]: updatedObjType,
+      [CODE_TYPES.VARIANT_CODES]: updatedObjType.map((obj: any) => obj.code)
+    };
+
     await handleMessage(data, {});
 
     expect(set).toBeCalledTimes(1);
+    expect(set).toBeCalledWith(documentRef, updatedDocument);
     expect(commit).toBeCalledTimes(1);
   });
 
@@ -173,24 +245,38 @@ describe("handleMessage", () => {
       items: [{ code: "Test_Layer_1", objType: ObjType.Layer }]
     });
 
+    const mockedRosolvedValue = {
+      code: "System_code",
+      systemLayers: [
+        { code: "Test_Layer_1" },
+        { code: "Test_Layer_3" },
+        { code: "Test_Layer_4" }
+      ],
+      layerCodes: ["Test_Layer_1", "Test_Layer_3", "Test_Layer_4"]
+    };
+
     get.mockResolvedValue({
       docs: [
         {
-          data: () => ({
-            code: "System_code",
-            systemLayers: [
-              { code: "Test_Layer_1" },
-              { code: "Test_Layer_3" },
-              { code: "Test_Layer_4" }
-            ]
-          })
+          data: () => mockedRosolvedValue
         }
       ]
     });
 
+    doc.mockReturnValue(documentRef);
+
+    const updatedObjType = [{ code: "Test_Layer_3" }, { code: "Test_Layer_4" }];
+
+    const updatedDocument = {
+      ...mockedRosolvedValue,
+      [OBJECT_TYPES.SYSTEM_LAYERS]: updatedObjType,
+      [CODE_TYPES.LAYER_CODES]: updatedObjType.map((obj: any) => obj.code)
+    };
+
     await handleMessage(data, {});
 
     expect(set).toBeCalledTimes(1);
+    expect(set).toBeCalledWith(documentRef, updatedDocument);
     expect(commit).toBeCalledTimes(1);
   });
 
@@ -212,13 +298,16 @@ describe("handleMessage", () => {
       ]
     });
 
+    doc.mockReturnValue(documentRef);
+
     await handleMessage(data, {});
 
     expect(deleteFunc).toBeCalledTimes(1);
+    expect(deleteFunc).toBeCalledWith(documentRef);
     expect(commit).toBeCalledTimes(1);
   });
 
-  it("should delete system if only one layer is present", async () => {
+  it("should NOT delete system if only one layer is present", async () => {
     const data = createEvent({
       itemType: "SYSTEMS",
       type: "DELETED",
@@ -230,15 +319,24 @@ describe("handleMessage", () => {
         {
           data: () => ({
             code: "System_code",
-            systemLayers: [{ code: "Test_Layer_1" }]
+            systemLayers: [{ code: "Test_Layer_1" }],
+            layerCodes: ["Test_Layer_1"]
           })
         }
       ]
     });
 
+    doc.mockReturnValue(documentRef);
+
     await handleMessage(data, {});
 
-    expect(deleteFunc).toBeCalledTimes(1);
+    expect(deleteFunc).toBeCalledTimes(0);
+    expect(set).toBeCalledTimes(1);
+    expect(set).toBeCalledWith(documentRef, {
+      code: "System_code",
+      systemLayers: [],
+      layerCodes: []
+    });
     expect(commit).toBeCalledTimes(1);
   });
 
