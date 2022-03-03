@@ -516,6 +516,82 @@ describe("ServiceLocatorSection component", () => {
     expect(wrapper.container.parentElement).toMatchSnapshot();
   });
 
+  it("should send analytics event when user interacts with search field and its value not empty", async () => {
+    Object.defineProperty(window, "dataLayer", {
+      value: [],
+      configurable: true
+    });
+    const data: serviceLocatorDataType = {
+      __typename: "ContentfulServiceLocatorSection",
+      type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
+      title: "service locator section",
+      label: "Main",
+      body: null,
+      position: 1,
+      centre: null,
+      zoom: 8,
+      services: [
+        createService({ name: "roofer 1" }),
+        createService({ name: "some other name" })
+      ]
+    };
+
+    const { container, findByRole } = renderWithRouter(
+      <ServiceLocatorSection data={data} />
+    );
+    const nameInput = container.querySelector("#company-autocomplete");
+
+    fireEvent.change(nameInput, {
+      target: { value: EntryTypeEnum.ROOFER_TYPE }
+    });
+    const optionList = await findByRole("listbox");
+    act(() => {
+      fireEvent.click(optionList.children[0]);
+    });
+    expect(global.window["dataLayer"]).toEqual([
+      {
+        action: "roofer 1",
+        event: "gtm.click",
+        id: "filter-service-locator",
+        label: "MC: findARoofer.companyFieldLabel"
+      }
+    ]);
+    delete global.window["dataLayer"];
+  });
+  it("shouldn't send analytics event when user interacts with search field and its empty", async () => {
+    const data: serviceLocatorDataType = {
+      __typename: "ContentfulServiceLocatorSection",
+      type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
+      title: "service locator section",
+      label: "Main",
+      body: null,
+      position: 1,
+      centre: null,
+      zoom: 8,
+      services: [
+        createService({ name: "roofer 1" }),
+        createService({ name: "some other name" })
+      ]
+    };
+    Object.defineProperty(window, "dataLayer", {
+      value: [],
+      configurable: true
+    });
+    const { container } = renderWithRouter(
+      <ServiceLocatorSection data={data} />
+    );
+    const nameInput = container.querySelector("#company-autocomplete");
+
+    fireEvent.change(nameInput, {
+      target: { value: "" }
+    });
+    fireEvent.keyDown(nameInput, { key: "Enter", code: "Enter" });
+    expect(global.window["dataLayer"]).toHaveLength(0);
+    delete global.window["dataLayer"];
+  });
+
   it("sets current location", () => {
     Object.defineProperty(global.navigator, "geolocation", {
       value: {
