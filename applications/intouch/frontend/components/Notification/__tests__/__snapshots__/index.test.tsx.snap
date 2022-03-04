@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification render correctly 1`] = `
+<div>
+  <div
+    class="main"
+  >
+    <div
+      class="MuiTypography-root body Typography MuiTypography-body1"
+    >
+      <div
+        class="timeAgo"
+      >
+        <time
+          datetime="2021-01-01T00:00:00.000Z"
+          title="Friday, January 1, 2021, 12:00:00 AM"
+        >
+          1 year ago
+        </time>
+      </div>
+      <div>
+        <p>
+          message, 
+          <a
+            href="/projects/1"
+          >
+            messageLink
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

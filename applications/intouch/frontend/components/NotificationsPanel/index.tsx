@@ -63,7 +63,6 @@ const NotificationsSet = ({ notifications, title }: NotificationsSetProps) => {
             message={notification.body}
             date={notification.sendDate}
             read={notification.read}
-            id={notification.id}
           />
         ))}
       </div>
