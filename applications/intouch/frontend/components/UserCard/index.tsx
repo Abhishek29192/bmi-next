@@ -16,7 +16,7 @@ export type UserCardProps = {
   companyName: string;
   testid?: string;
   onAccountUpdate?: (id: number, role: Role) => void;
-  details: readonly CompanyDetailProps[];
+  details: CompanyDetailProps[];
   onRemoveUser: () => void;
 };
 

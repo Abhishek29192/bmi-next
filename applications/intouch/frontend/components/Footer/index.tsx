@@ -5,7 +5,7 @@ import { Link } from "../Link";
 import styles from "./styles.module.scss";
 
 export type Props = {
-  links?: ReadonlyArray<{
+  links?: Array<{
     href: string;
     label: string;
   }>;
