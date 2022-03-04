@@ -21,8 +21,10 @@
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
-    "firebase-admin": "^10.0.2",
-    "gatsby-cli": "^3.1.0"
+    "firebase-admin": "^10.0.2"
+  },
+  "peerDependencies": {
+    "gatsby-cli": "^4.10.1"
   },
   "license": "MIT"
 }

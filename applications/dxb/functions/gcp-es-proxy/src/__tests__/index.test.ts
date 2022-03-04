@@ -187,7 +187,7 @@ describe("Making a GET request", () => {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "GET",
       body: Readable.from(['{"size":0,"timeout":0}']),
-      status: Math.floor(Math.random() * 500),
+      status: Math.ceil(Math.random() * 500),
       headers: { "content-type": "application/json" }
     };
     mockResponses(fetchMock, expectedResponse);

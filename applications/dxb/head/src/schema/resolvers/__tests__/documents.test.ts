@@ -10,7 +10,7 @@ const context: Context = {
     getAllNodes: jest.fn(),
     getNodeById: jest.fn(),
     getNodesByIds: jest.fn(),
-    runQuery: jest.fn()
+    findAll: jest.fn()
   }
 };
 
@@ -43,11 +43,11 @@ describe("documents resolver utils", () => {
     };
     process.env.SPACE_MARKET_CODE = "SPACE_MARKET_CODE";
     it("should return empty array if no products found", async () => {
-      context.nodeModel.runQuery = jest.fn().mockResolvedValueOnce([]);
+      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce([]);
       expect(
         await resolveDocumentsFromProducts(assetTypes, { source, context })
       ).toEqual([]);
-      expect(context.nodeModel.runQuery).toHaveBeenCalledWith({
+      expect(context.nodeModel.findAll).toHaveBeenCalledWith({
         query: {
           filter: {
             assets: {
@@ -73,11 +73,11 @@ describe("documents resolver utils", () => {
       });
     });
     it("should run query with empty filter if no assetTypes provided", async () => {
-      context.nodeModel.runQuery = jest.fn().mockResolvedValueOnce([]);
+      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce([]);
       expect(
         await resolveDocumentsFromProducts([], { source, context })
       ).toEqual([]);
-      expect(context.nodeModel.runQuery).toHaveBeenCalledWith({
+      expect(context.nodeModel.findAll).toHaveBeenCalledWith({
         query: {
           filter: {}
         },
@@ -85,7 +85,7 @@ describe("documents resolver utils", () => {
       });
     });
     it("should run query without pimCodes or categoryCodes if no provided", async () => {
-      context.nodeModel.runQuery = jest.fn().mockResolvedValueOnce([]);
+      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce([]);
       const sourceWitoutCodes: Partial<Node> = {
         ...source,
         pimCodes: undefined,
@@ -97,7 +97,7 @@ describe("documents resolver utils", () => {
           context
         })
       ).toEqual([]);
-      expect(context.nodeModel.runQuery).toHaveBeenCalledWith({
+      expect(context.nodeModel.findAll).toHaveBeenCalledWith({
         query: {
           filter: {
             assets: {
@@ -159,7 +159,7 @@ describe("documents resolver utils", () => {
         }
       ];
 
-      context.nodeModel.runQuery = jest.fn().mockResolvedValueOnce(products);
+      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce(products);
       expect(
         await resolveDocumentsFromProducts(assetTypes, { source, context })
       ).toEqual([
@@ -256,7 +256,7 @@ describe("documents resolver utils", () => {
           ]
         }
       ];
-      context.nodeModel.runQuery = jest
+      context.nodeModel.findAll = jest
         .fn()
         .mockResolvedValueOnce(products)
         .mockResolvedValueOnce({
@@ -290,11 +290,11 @@ describe("documents resolver utils", () => {
     ];
     const documents = [{ id: "document-1" }, { id: "document-2" }];
     it("should return documents", async () => {
-      context.nodeModel.runQuery = jest.fn().mockResolvedValueOnce(documents);
+      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce(documents);
       expect(
         await resolveDocumentsFromContentful(assetTypes, { context })
       ).toEqual(documents);
-      expect(context.nodeModel.runQuery).toHaveBeenCalledWith({
+      expect(context.nodeModel.findAll).toHaveBeenCalledWith({
         query: {
           filter: {
             assetType: {
@@ -308,11 +308,11 @@ describe("documents resolver utils", () => {
       });
     });
     it("should run query with empty filter if no assetTypes provided", async () => {
-      context.nodeModel.runQuery = jest.fn().mockResolvedValueOnce(documents);
+      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce(documents);
       expect(await resolveDocumentsFromContentful([], { context })).toEqual(
         documents
       );
-      expect(context.nodeModel.runQuery).toHaveBeenCalledWith({
+      expect(context.nodeModel.findAll).toHaveBeenCalledWith({
         query: {
           filter: {}
         },

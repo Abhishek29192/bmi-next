@@ -4,7 +4,7 @@ export default {
   services: {
     type: ["ContentfulService"],
     async resolve(source: Node, args: ResolveArgs, context: Context) {
-      return context.nodeModel.runQuery(
+      const services = (await context.nodeModel.findAll(
         {
           query: {
             filter: { entryType: { eq: source.type } }
@@ -13,7 +13,11 @@ export default {
           firstOnly: false
         },
         { connectionType: "ContentfulService" }
-      );
+      )) as Node[];
+      if (!services || !services.length) {
+        return [];
+      }
+      return services;
     }
   }
 };

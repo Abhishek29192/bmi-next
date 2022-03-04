@@ -9,18 +9,20 @@
 
   // NOTE: Necessary because on production build it gets overwritten
   // by the Button styling.
-  &:global(.MuiButtonBase-root) {
+  /*   &:global(.MuiButtonBase-root) {
     border-radius: 50%;
-  }
+  } */
 
   &--left {
     left: 0;
     transform: translate(-50%, -50%);
+    border-radius: 50%;
   }
 
   &--right {
     right: 0;
     transform: translate(50%, -50%);
+    border-radius: 50%;
   }
 
   .chevron {

@@ -31,7 +31,7 @@ export default {
         categoryCodes,
         allowFilterBy
       } = args;
-      const products = (await context.nodeModel.runQuery({
+      const products = (await context.nodeModel.findAll({
         query: categoryCodes
           ? {
               filter: {
@@ -77,7 +77,7 @@ export default {
         showBrandFilter
       } = args;
 
-      const products = (await context.nodeModel.runQuery({
+      const products = (await context.nodeModel.findAll({
         query: categoryCodes
           ? {
               filter: {

@@ -12,7 +12,7 @@ const context: Context = {
     getAllNodes: jest.fn(),
     getNodeById: jest.fn(),
     getNodesByIds: jest.fn(),
-    runQuery: jest.fn().mockImplementation(({ query }) => {
+    findAll: jest.fn().mockImplementation(({ query }) => {
       const { categoryCodes } = query.filter;
 
       if (!categoryCodes.in.length) {

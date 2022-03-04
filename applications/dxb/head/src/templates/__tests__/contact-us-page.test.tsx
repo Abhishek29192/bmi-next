@@ -394,7 +394,11 @@ describe("Contact us page", () => {
         }
       },
       thumbnail: {
-        src: "//images.asset.jpg"
+        src: "//images.asset.jpg",
+        file: {
+          fileName: "Lorem ipsum",
+          url: "//images.asset.jpg"
+        }
       }
     };
     const { container } = renderWithRouter(

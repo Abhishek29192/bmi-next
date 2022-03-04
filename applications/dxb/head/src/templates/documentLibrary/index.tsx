@@ -48,7 +48,7 @@ export type Data = PageInfoData &
     allowFilterBy: string[] | null;
     source: Source;
     resultsType: ResultType;
-    documents: DocumentResultsData;
+    documents: DocumentResultsData | null;
     breadcrumbs: BreadcrumbsData;
     categoryCodes: string[];
     breadcrumbTitle: string;

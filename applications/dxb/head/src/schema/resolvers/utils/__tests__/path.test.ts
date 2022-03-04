@@ -37,7 +37,7 @@ describe("Path resolver util", () => {
         getAllNodes: jest.fn(),
         getNodeById: jest.fn(),
         getNodesByIds: jest.fn(),
-        runQuery: jest.fn()
+        findAll: jest.fn()
       }
     };
 

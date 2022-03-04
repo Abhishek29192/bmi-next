@@ -232,7 +232,11 @@ describe("Sections component", () => {
                 }
               },
               thumbnail: {
-                src: "//images.asset.jpg"
+                src: "//images.asset.jpg",
+                file: {
+                  fileName: "Lorem ipsum",
+                  url: "//images.asset.jpg"
+                }
               }
             },
             featuredVideo: null
@@ -317,7 +321,11 @@ describe("Sections component", () => {
           caption: null,
           focalPoint: null,
           thumbnail: {
-            src: "//images.asset.jpg"
+            src: "//images.asset.jpg",
+            file: {
+              fileName: "Lorem ipsum",
+              url: "//images.asset.jpg"
+            }
           }
         },
         cta: null,

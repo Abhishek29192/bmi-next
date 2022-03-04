@@ -1794,6 +1794,9 @@ type ContentfulImage implements Node {
 
   "The focal point for this Image."
   focalPoint: FocalPoint
+
+  "The thumbnail Image."
+  thumbnail: ContentfulAsset
 }
 
 type ContentfulIframe implements Node {

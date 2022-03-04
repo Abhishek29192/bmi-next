@@ -2,6 +2,8 @@ import React, { useCallback } from "react";
 import { useTranslation } from "next-i18next";
 import { Dialog } from "@bmi/components";
 import { ProjectBuildingOwnerAddressIdFkeyInput } from "@bmi/intouch-api-types";
+import { DeepPartial } from "applications/intouch/frontend/lib/utils/types";
+import { Project } from "@bmi/intouch-api-types";
 import { useUpdateProjectMutation } from "../../../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
 import { spreadObjectKeys } from "../../../../lib/utils/object";
@@ -26,7 +28,7 @@ export const BuildingOwnerDetailsEditDialog = ({
   onCompleted
 }: BuildingOwnerDetailsEditDialogProps) => {
   const { t } = useTranslation();
-  const guarantee = findProjectGuarantee(project);
+  const guarantee = findProjectGuarantee(project as DeepPartial<Project>);
 
   const [updateProject, { loading: isSubmitting }] = useUpdateProjectMutation({
     onError: (error) => {

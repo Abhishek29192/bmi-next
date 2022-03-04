@@ -94,7 +94,7 @@ export const CompanyPage = ({
           {company.certifications.length > 0 && (
             <CertificationsCard
               title={t("certificationsTitle")}
-              certifications={company.certifications}
+              certifications={[...company.certifications]}
             />
           )}
         </Grid>

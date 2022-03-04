@@ -432,7 +432,7 @@ module.exports = {
               output: useCountryCode
                 ? `/${process.env.SPACE_MARKET_CODE}/sitemap.xml`
                 : `/sitemap.xml`,
-              sitemapSize: 50000
+              entryLimit: 50000
             }
           }
         ]
@@ -445,34 +445,41 @@ module.exports = {
               output: useCountryCode
                 ? `/${process.env.SPACE_MARKET_CODE}/images.xml`
                 : `/images.xml`,
-              sitemapSize: 50000,
+              entryLimit: 50000,
               query: `
-              {
-                site {
-                  siteMetadata {
-                    siteUrl
-                  }
-                }
-                allSitePage {
-                  nodes {
-                    path
-                  }
-                }
-                allContentfulAsset {
-                  nodes {
-                    file {
-                      url
+                {
+                  site {
+                    siteMetadata {
+                      siteUrl
                     }
                   }
-                }
-              }`,
+                  allSitePage {
+                    nodes {
+                      path
+                    }
+                  }
+                  allContentfulAsset {
+                    nodes {
+                      file {
+                        url
+                      }
+                    }
+                  }
+                }`,
               resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
-              serialize: ({ allContentfulAsset }) =>
-                allContentfulAsset.nodes.map((node) => ({
-                  url: `https:${node.file.url}`,
+              serialize: ({ allContentfulAsset }) => {
+                if (!allContentfulAsset) {
+                  return [];
+                }
+                return allContentfulAsset.nodes.map((node) => ({
+                  url:
+                    node && node.file && node.file.url
+                      ? `https:${node.file.url}`
+                      : "",
                   changefreq: "daily",
                   priority: 0.7
-                }))
+                }));
+              }
             }
           }
         ]
@@ -575,6 +582,6 @@ module.exports = {
     FAST_DEV: true,
     PARALLEL_SOURCING: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
-    PRESERVE_WEBPACK_CACHE: true
+    PARALLEL_QUERY_RUNNING: true
   }
 };

@@ -11,7 +11,7 @@ const context: Context = {
       viewMode: "tile"
     }),
     getNodesByIds: jest.fn(),
-    runQuery: jest.fn()
+    findAll: jest.fn()
   }
 };
 

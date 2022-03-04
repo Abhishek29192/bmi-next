@@ -5,6 +5,8 @@ import { Form, FormProps } from "@bmi/components";
 import { TextField } from "@bmi/components";
 import { Grid } from "@bmi/components";
 import { Typography } from "@bmi/components";
+import { Project } from "@bmi/intouch-api-types";
+import { DeepPartial } from "applications/intouch/frontend/lib/utils/types";
 import { getDateOnlyString } from "../../../lib/utils/date";
 import { findProjectGuarantee } from "../../../lib/utils/project";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
@@ -78,7 +80,7 @@ type ProjectFormProps = {
 const ProjectForm = ({ project, onSubmit, isSubmitting }: ProjectFormProps) => {
   const { t } = useTranslation("project-page");
 
-  const guarantee = findProjectGuarantee(project);
+  const guarantee = findProjectGuarantee(project as DeepPartial<Project>);
 
   const getFieldPropsFn = project
     ? (t, fieldName) => {

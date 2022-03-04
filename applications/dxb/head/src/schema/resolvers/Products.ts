@@ -42,7 +42,7 @@ const resolvePathFromFamily = async (
   args: ResolveArgs,
   context: Context
 ) => {
-  const parentFamilies = await context.nodeModel.runQuery({
+  const parentFamilies = (await context.nodeModel.findAll({
     query: {
       filter: {
         categoryCodes: {
@@ -51,7 +51,7 @@ const resolvePathFromFamily = async (
       }
     },
     type: "ContentfulProductListerPage"
-  });
+  })) as Node[];
 
   if (!parentFamilies.length) {
     return [];

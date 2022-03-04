@@ -35,7 +35,7 @@ export const resolveDocumentsFromProducts = async (
       }
     : {};
 
-  const products = (await context.nodeModel.runQuery({
+  const products = (await context.nodeModel.findAll({
     query: {
       filter
     },
@@ -46,7 +46,7 @@ export const resolveDocumentsFromProducts = async (
     return [];
   }
 
-  const resources = (await context.nodeModel.runQuery({
+  const resources = (await context.nodeModel.findAll({
     query: {
       filter: {
         site: {
@@ -147,12 +147,15 @@ export const resolveDocumentsFromContentful = async (
       }
     : {};
 
-  const documents = await context.nodeModel.runQuery({
+  const documents = (await context.nodeModel.findAll({
     query: {
       filter
     },
     type: "ContentfulDocument"
-  });
+  })) as Node[];
 
+  if (!documents.length) {
+    return [];
+  }
   return documents;
 };
