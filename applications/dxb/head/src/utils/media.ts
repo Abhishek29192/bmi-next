@@ -84,7 +84,7 @@ export const filterAndTransformVideoData = (
     .map((video) => {
       return {
         __typename: "PimVideo",
-        title: video.name,
+        title: "",
         label: video.name,
         subtitle: null,
         previewMedia: null,

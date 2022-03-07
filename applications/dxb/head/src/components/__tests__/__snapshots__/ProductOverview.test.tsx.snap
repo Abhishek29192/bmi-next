@@ -26,7 +26,7 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
                 <span
                   class="LinesEllipsis  Truncate"
                 >
-                  caption
+                  caption2
                   <wbr />
                 </span>
               </p>
@@ -78,20 +78,6 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
               style="margin-right: 0%;"
             >
               <button
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                tabindex="0"
-                type="button"
-              />
-              <button
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </button>
-              <button
                 class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
                 tabindex="0"
                 type="button"
@@ -110,6 +96,20 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
                   class="MuiTouchRipple-root"
                 />
               </button>
+              <button
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+              <button
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                tabindex="0"
+                type="button"
+              />
             </div>
           </div>
         </div>
@@ -194,7 +194,7 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
                 <span
                   class="LinesEllipsis  Truncate"
                 >
-                  caption
+                  caption2
                   <wbr />
                 </span>
               </p>
@@ -246,20 +246,6 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
               style="margin-right: 0%;"
             >
               <button
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                tabindex="0"
-                type="button"
-              />
-              <button
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </button>
-              <button
                 class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
                 tabindex="0"
                 type="button"
@@ -278,6 +264,20 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
                   class="MuiTouchRipple-root"
                 />
               </button>
+              <button
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+              <button
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                tabindex="0"
+                type="button"
+              />
             </div>
           </div>
         </div>

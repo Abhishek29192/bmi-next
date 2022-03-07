@@ -17,6 +17,10 @@ type Props = {
   className?: string;
 };
 
+export const moveVideoToLast = (media: MediaData[]) => {
+  return [...media.sort((a: MediaData) => (a.isVideo ? -1 : 1))];
+};
+
 const renderThumbnails = () => {
   const isTouchDevice =
     typeof document !== `undefined` &&
@@ -55,7 +59,9 @@ const MediaGallery = ({
   if (!media.length) {
     return null;
   }
-  const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
+  const [activeImageIndex, setActiveImageIndex] = useState<number>(
+    media.length - 1
+  );
   const [showYouTubeVideo, setShowYouTubeVideo] = useState<boolean>(false);
   const Thumbnails = renderThumbnails();
   const onPlayIconClick = (e: React.MouseEvent<SVGElement>, index: number) => {
@@ -72,7 +78,9 @@ const MediaGallery = ({
     setActiveImageIndex(index);
     setShowYouTubeVideo(false);
   };
-  const currentMedia = media[Number(activeImageIndex)];
+  const sortedMedia = moveVideoToLast([...media]);
+  const currentMedia = sortedMedia[Number(activeImageIndex)];
+
   return (
     <div className={classnames(styles["MediaGallery"], className)}>
       <div className={styles["image-wrapper"]}>
@@ -91,9 +99,9 @@ const MediaGallery = ({
           </div>
         ) : null}
       </div>
-      {media.length > 1 && (
+      {sortedMedia.length > 1 && (
         <Thumbnails
-          images={media}
+          images={sortedMedia}
           component={thumbnailComponent}
           activeImageIndex={activeImageIndex}
           onThumbnailClick={onThumbnailClick}
