@@ -18,27 +18,28 @@ import RichText, { RichTextData } from "../RichText";
 import {
   Data as ServiceData,
   EntryTypeEnum,
-  ServiceType,
-  serviceTypesByEntity,
-  ServiceTypesPrefixesEnum
+  ServiceTypesPrefixesEnum,
+  ServiceTypeFilter
 } from "../Service";
+import { Data as ServiceType } from "../ServiceType";
 import { useSiteContext } from "../Site";
 import { pushToDataLayer } from "../../utils/google-tag-manager";
 import styles from "./styles/ServiceLocatorSection.module.scss";
 import {
+  createCompanyDetails,
   SearchLocationBlock,
   ServiceLocatorChips,
   ServiceLocatorMap,
   ServiceLocatorResultList
 } from "./components";
 import {
-  createCompanyDetails,
   createMarker,
   filterServices,
   getRooferTypes,
   getTypesFromServices,
   sortServices
 } from "./helpers";
+
 import {
   DEFAULT_LEVEL_ZOOM,
   PLACE_LEVEL_ZOOM,
@@ -121,26 +122,32 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     }`
   );
 
-  const serviceTypesByEntityItems: ServiceType[] =
-    serviceTypesByEntity(sectionType);
+  const serviceTypesByEntityItems: ServiceType[] = services
+    ? getTypesFromServices(services)
+    : [];
 
   const activeFilterReducer = (
-    state: Record<ServiceType, boolean>,
+    state: ServiceTypeFilter,
     filter: {
-      name: ServiceType;
+      serviceType: ServiceType;
       state?: boolean;
     }
-  ) => ({
-    ...state,
-    [filter.name]: filter.state ? filter.state : !state[filter.name]
-  });
+  ) => {
+    const result = {
+      ...state,
+      [filter.serviceType.name]: filter.state
+        ? filter.state
+        : !state[filter.serviceType.name]
+    };
+    return result;
+  };
 
   const initialActiveFilters = (
     serviceTypesByEntityItems as ServiceType[]
   ).reduce(
-    (carry, key: ServiceType) => ({ ...carry, [key]: false }),
+    (carry, key: ServiceType) => ({ ...carry, [key.name]: false }),
     {}
-  ) as Record<ServiceType, boolean>;
+  ) as ServiceTypeFilter;
 
   const [activeFilters, updateActiveFilters] = useReducer(
     activeFilterReducer,
@@ -189,7 +196,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   };
 
   const getCompanyDetails = (
-    eventCategoryId: string,
     service: Service,
     isAddressHidden?: boolean
   ): CompanyDetailProps[] => {
@@ -226,10 +232,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     }
   };
 
-  const onChipClick = (serviceType) => {
+  const onChipClick = (serviceType: ServiceType) => {
     setUserAction(true);
     setShowResultList(true);
-    updateActiveFilters({ name: serviceType });
+    updateActiveFilters({ serviceType: serviceType });
   };
 
   const initialise = async () => {
@@ -255,10 +261,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     if (!services) {
       return;
     }
-    const allServiceTypesFromServices = getTypesFromServices(services);
-    const uniqueRooferTypes: ServiceType[] = [
-      ...new Set(allServiceTypesFromServices)
-    ];
+
+    const uniqueRooferTypes: ServiceType[] = getTypesFromServices(services);
     setUniqueRoofTypeByData(uniqueRooferTypes);
 
     if (!userQueryString) {
@@ -276,7 +280,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     } else {
       // show result list panel on page load if selected chips exist
       matchingRooferTypes.forEach((serviceType: ServiceType) => {
-        updateActiveFilters({ name: serviceType, state: true });
+        updateActiveFilters({ serviceType: serviceType, state: true });
       });
       setShowResultList(true);
     }
@@ -297,6 +301,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       // eslint-disable-next-line security/detect-object-injection
       (key) => activeFilters[key]
     );
+
     if (filteredChips.length > 0) {
       const queryParams = new URLSearchParams(windowLocation.search);
       queryParams.set(QUERY_CHIP_FILTER_KEY, filteredChips.join(","));

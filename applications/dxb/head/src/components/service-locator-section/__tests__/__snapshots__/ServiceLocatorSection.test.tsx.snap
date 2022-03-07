@@ -173,14 +173,14 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                 </h6>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoof
+                    Flat Roof
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -188,14 +188,14 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.flatRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.flatRoof
+                    Pitched Roof
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -203,14 +203,14 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoofBitumenRoofs\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Country Offices\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoofBitumenRoofs
+                    Country Offices
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -218,14 +218,14 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoofTileRoofs\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Headquarters\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoofTileRoofs
+                    Headquarters
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -233,134 +233,14 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoofRoofCoaters\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"BMI Icopal Merchant 1\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoofRoofCoaters
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.flachdachsysteme\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.flachdachsysteme
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.steildachsysteme\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.steildachsysteme
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.bauwerksabdichtung\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.bauwerksabdichtung
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.verkehrsbauwerke\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.verkehrsbauwerke
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.verarbeiter\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.verarbeiter
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.topDachPartner\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.topDachPartner
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.7Dachdecker\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.7Dachdecker
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.handler\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.handler
+                    BMI Icopal Merchant 1
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -623,9 +503,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                                   class="description"
                                 >
                                   <b>
-                                    MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.flachdachsysteme | MC: findARoofer.filters.steildachsysteme | MC: findARoofer.filters.bauwerksabdichtung | MC: findARoofer.filters.verkehrsbauwerke | MC: findARoofer.filters.verarbeiter | MC: findARoofer.filters.topDachPartner | MC: findARoofer.filters.7Dachdecker | MC: findARoofer.filters.handler
-                                    MC: findABranch.filters.headquarters | MC: findABranch.filters.countryOffices | MC: findABranch.filters.manufacturingAndExport | MC: findABranch.filters.technicalCentreBmiAcademy
-                                    MC: findAMerchant.filters.bmiRedlandPitchedRoofSystems | MC: findAMerchant.filters.bmiIcopalFlatRoofSystems | MC: findAMerchant.filters.depotsDeProximiteSiplast | MC: findAMerchant.filters.distributeursSiplast | MC: findAMerchant.filters.distributeursMonier | MC: findAMerchant.filters.distributeursMonier
+                                    Flat Roof, Pitched Roof, Country Offices, Headquarters, BMI Icopal Merchant 1
                                   </b>
                                 </dd>
                               </div>
@@ -1765,62 +1643,62 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                 </h6>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 1\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoof
+                    Flat Roof 1
                   </span>
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.flatRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 2\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.flatRoof
+                    Flat Roof 2
                   </span>
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoofBitumenRoofs\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 3\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoofBitumenRoofs
+                    Flat Roof 3
                   </span>
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoofTileRoofs\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 4\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoofTileRoofs
+                    Flat Roof 4
                   </span>
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoofRoofCoaters\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 5\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoofRoofCoaters
+                    Flat Roof 5
                   </span>
                 </div>
               </div>
@@ -1912,7 +1790,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
               >
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Flat Roof 1 - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -2080,7 +1958,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                                   class="description"
                                 >
                                   <b>
-                                    MC: findARoofer.filters.pitchedRoof
+                                    Flat Roof 1
                                   </b>
                                 </dd>
                               </div>
@@ -3307,26 +3185,26 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                 </h6>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findABranch.filters.headquarters\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Country Offices\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findABranch.filters.headquarters
+                    Country Offices
                   </span>
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findABranch.filters.countryOffices\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Headquarters\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findABranch.filters.countryOffices
+                    Headquarters
                   </span>
                 </div>
               </div>
@@ -3418,7 +3296,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
               >
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 9 - address 1 - Branch - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 9 - address 1 - Country Offices - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -3780,27 +3658,27 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                   MC: findAMerchant.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findAMerchant.filters.bmiRedlandPitchedRoofSystems\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"BMI Icopal Flat Roof Systems\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findAMerchant.filters.bmiRedlandPitchedRoofSystems
+                    BMI Icopal Flat Roof Systems
                   </span>
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findAMerchant.filters.bmiIcopalFlatRoofSystems\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Merchant type 2\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findAMerchant.filters.bmiIcopalFlatRoofSystems
+                    Merchant type 2
                   </span>
                 </div>
               </div>
@@ -3892,7 +3770,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
               >
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 9 - address 1 - Merchant - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 10 - address 1 - Merchant type 2 - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -3901,7 +3779,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                     <h6
                       class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
                     >
-                      roofer 9
+                      roofer 10
                     </h6>
                     <p
                       class="MuiTypography-root subtitle Typography MuiTypography-body1"
@@ -4253,38 +4131,26 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                 </h6>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoof
+                    Flat Roof
                   </span>
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.flatRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.flatRoof
-                  </span>
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.
+                    Pitched Roof
                   </span>
                 </div>
               </div>
@@ -4376,7 +4242,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
               >
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Flat Roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -4544,7 +4410,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                                   class="description"
                                 >
                                   <b>
-                                    MC: findARoofer.filters.pitchedRoof
+                                    Flat Roof
                                   </b>
                                 </dd>
                               </div>
@@ -5007,7 +4873,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
               >
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 7 - address 1 - Branch - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 7 - address 1 - Country Offices - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -5165,7 +5031,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                 </div>
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 8 - address 1 - Branch - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 8 - address 1 - Country Offices - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -6050,7 +5916,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               >
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 7 - address 1 - Merchant - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 7 - address 1 - BMI Icopal Flat Roof Systems - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -6206,7 +6072,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                 </div>
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 8 - address 1 - Merchant - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 8 - address 1 - BMI Icopal Flat Roof Systems - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -7224,7 +7090,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
               >
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - BMI Icopal Flat Roof Systems - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -7380,7 +7246,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                 </div>
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - BMI Icopal Flat Roof Systems - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -7741,14 +7607,14 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                 </h6>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoof
+                    Flat Roof
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -7756,14 +7622,14 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.flatRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.flatRoof
+                    Pitched Roof
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -7771,14 +7637,14 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoofBitumenRoofs\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 1\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoofBitumenRoofs
+                    Flat Roof 1
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -7786,14 +7652,14 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoofTileRoofs\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof 2\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoofTileRoofs
+                    Pitched Roof 2
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -7801,14 +7667,59 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoofRoofCoaters\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 3\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoofRoofCoaters
+                    Flat Roof 3
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof 4\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Pitched Roof 4
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 5\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Flat Roof 5
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof 6\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Pitched Roof 6
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -8071,7 +7982,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                                   class="description"
                                 >
                                   <b>
-                                    MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters
+                                    Flat Roof, Pitched Roof, Flat Roof 1, Pitched Roof 2
                                   </b>
                                 </dd>
                               </div>
@@ -8277,7 +8188,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                                   class="description"
                                 >
                                   <b>
-                                    MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters
+                                    Flat Roof 3, Pitched Roof 4, Flat Roof 5, Pitched Roof 6
                                   </b>
                                 </dd>
                               </div>
@@ -9167,14 +9078,14 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                 </h6>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoof
+                    Flat Roof
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -9182,14 +9093,44 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.flatRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.flatRoof
+                    Pitched Roof
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 1\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Flat Roof 1
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof 1\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Pitched Roof 1
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -9452,7 +9393,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                                   class="description"
                                 >
                                   <b>
-                                    MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof
+                                    Flat Roof, Pitched Roof
                                   </b>
                                 </dd>
                               </div>
@@ -9658,7 +9599,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                                   class="description"
                                 >
                                   <b>
-                                    MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof
+                                    Flat Roof 1, Pitched Roof 1
                                   </b>
                                 </dd>
                               </div>
@@ -9971,7 +9912,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
               >
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Flat roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -10139,7 +10080,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                                   class="description"
                                 >
                                   <b>
-                                    MC: findARoofer.filters.pitchedRoof
+                                    Flat roof
                                   </b>
                                 </dd>
                               </div>
@@ -10177,7 +10118,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                 </div>
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 2 - address 1 - Flat roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -10345,7 +10286,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                                   class="description"
                                 >
                                   <b>
-                                    MC: findARoofer.filters.pitchedRoof
+                                    Flat roof
                                   </b>
                                 </dd>
                               </div>
@@ -11271,26 +11212,6 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                                   MC: findARoofer.websiteLabel
                                 </dd>
                               </div>
-                              <div
-                                class="row"
-                              >
-                                <dt
-                                  class="term"
-                                >
-                                  <span
-                                    class="MuiTypography-root label Typography MuiTypography-body1"
-                                  >
-                                    MC: findARoofer.roofTypeLabel
-                                  </span>
-                                </dt>
-                                <dd
-                                  class="description"
-                                >
-                                  <b>
-                                    
-                                  </b>
-                                </dd>
-                              </div>
                             </dl>
                             <p
                               class="MuiTypography-root Typography MuiTypography-body1"
@@ -11513,6 +11434,53 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                 MC: findARoofer.geolocationButton
               </span>
             </button>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
+          >
+            <div
+              class="filters"
+            >
+              <div
+                class="chips"
+              >
+                <h6
+                  class="MuiTypography-root chips-label Typography MuiTypography-h6"
+                >
+                  MC: findARoofer.filtersLabel
+                </h6>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Flat roof
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Pitched roof
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div
@@ -11768,7 +11736,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                                   class="description"
                                 >
                                   <b>
-                                    MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.pitchedRoof
+                                    Flat roof, Pitched roof
                                   </b>
                                 </dd>
                               </div>
@@ -12081,7 +12049,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
               >
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Flat roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -12249,7 +12217,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
                                   class="description"
                                 >
                                   <b>
-                                    MC: findARoofer.filters.pitchedRoof
+                                    Flat roof
                                   </b>
                                 </dd>
                               </div>
@@ -15249,14 +15217,14 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
                 </h6>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoof
+                    Flat Roof
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -15264,14 +15232,14 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.flatRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.flatRoof
+                    Pitched Roof
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -15592,14 +15560,14 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 </h6>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findAMerchant.filters.pitchedRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findAMerchant.filters.pitchedRoof
+                    Flat Roof
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -15607,14 +15575,14 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findAMerchant.filters.flatRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findAMerchant.filters.flatRoof
+                    Pitched Roof
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -15622,14 +15590,14 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findAMerchant.filters.flachdachsysteme\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flachdach system\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findAMerchant.filters.flachdachsysteme
+                    Flachdach system
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -15637,14 +15605,14 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findAMerchant.filters.pitchedRoofBitumenRoofs\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched roof Bitumen roofs\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findAMerchant.filters.pitchedRoofBitumenRoofs
+                    Pitched roof Bitumen roofs
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -15893,7 +15861,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 </div>
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"GL Bygg AS - Lundvegen 8, 2316 Hamar, Norway - Flachdachsysteme - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"GL Bygg AS - Lundvegen 8, 2316 Hamar, Norway - Flachdach system - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -16049,7 +16017,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 </div>
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"Harviken Bygg AS - Vindheiavegen 27, 2406 Elverum, Norway - Pitched roof - Bitumen roofs - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"Harviken Bygg AS - Vindheiavegen 27, 2406 Elverum, Norway - Pitched roof Bitumen roofs - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -16804,7 +16772,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
               >
                 <div
                   class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Flat Roof - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -16972,7 +16940,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                                   class="description"
                                 >
                                   <b>
-                                    MC: findARoofer.filters.pitchedRoof
+                                    Flat Roof
                                   </b>
                                 </dd>
                               </div>

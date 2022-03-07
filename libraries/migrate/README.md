@@ -28,6 +28,8 @@ yarn migrate list -a -e <contentful environment>
 yarn migrate create <migration-file-name> -c <contentType>
 ```
 
+_N.B. DXB only has the `contentType` of `scripts`_
+
 ### Migrate
 
 #### Up
@@ -50,6 +52,8 @@ Run a specific content type
 yarn migrate up -c contentTypeName
 ```
 
+_N.B. DXB only has the `contentType` of `scripts`_
+
 #### Down
 
 Roll back a migration
@@ -57,6 +61,8 @@ Roll back a migration
 ```bash
 yarn migrate down <filename> <options>
 ```
+
+_N.B. DXB only has the `contentType` of `scripts`_
 
 #### Options
 

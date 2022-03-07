@@ -11,7 +11,6 @@ import { CompanyDetails } from "@bmi/components";
 import { Typography } from "@bmi/components";
 import CloseIcon from "@material-ui/icons/Close";
 import React from "react";
-import { EVENT_CAT_ID_LINK_CLICKS } from "../constants";
 import styles from "../styles/ServiceLocatorSection.module.scss";
 import { useSiteContext } from "../../Site";
 import { Service } from "../index";
@@ -26,7 +25,6 @@ export interface MapProps {
   clearRooferAndResetMap: () => void;
   centre: GoogleLatLngLiteral;
   getCompanyDetails: (
-    eventCategoryId: string,
     service: Service,
     isAddressHidden?: boolean
   ) => CompanyDetailProps[];
@@ -41,7 +39,7 @@ export const ServiceLocatorMap = ({
   clearRooferAndResetMap,
   centre,
   getCompanyDetails
-}: MapProps) => {
+}: MapProps): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
 
   return (
@@ -69,12 +67,7 @@ export const ServiceLocatorMap = ({
               }
             />
             <CardContent>
-              <CompanyDetails
-                details={getCompanyDetails(
-                  EVENT_CAT_ID_LINK_CLICKS,
-                  selectedRoofer
-                )}
-              >
+              <CompanyDetails details={getCompanyDetails(selectedRoofer)}>
                 {selectedRoofer.summary && (
                   <Typography>{selectedRoofer.summary}</Typography>
                 )}

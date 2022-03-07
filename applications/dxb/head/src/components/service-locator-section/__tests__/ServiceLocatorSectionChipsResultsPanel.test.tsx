@@ -2,19 +2,14 @@ import React from "react";
 import ServiceLocatorSection, {
   Data as serviceLocatorDataType
 } from "../index";
-import {
-  rooferTypes,
-  branchTypes,
-  merchantTypes,
-  EntryTypeEnum
-} from "../../Service";
+import { EntryTypeEnum } from "../../Service";
 import createService from "../../../__tests__/ServiceHelper";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 
 jest.mock("@reach/router", () => ({
   ...(jest.requireActual("@reach/router") as Record<string, unknown>),
   useLocation: jest.fn(() => ({
-    search: `?chip=${rooferTypes[0]}`
+    search: `?chip=Pitched+Roof`
   }))
 }));
 
@@ -34,9 +29,12 @@ describe("ServiceLocatorSection resulst list pannel component", () => {
         createService({
           id: "roofer_1",
           name: "roofer 1",
-          type: [...rooferTypes],
-          branchType: [...branchTypes],
-          merchantType: [...merchantTypes]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Flat Roof" },
+            { __typename: "ContentfulServiceType", name: "Pitched Roof" },
+            { __typename: "ContentfulServiceType", name: "Flat Roof 1" },
+            { __typename: "ContentfulServiceType", name: "Pitched Roof 2" }
+          ]
         })
       ]
     };

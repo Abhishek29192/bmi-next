@@ -172,15 +172,30 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                   MC: findARoofer.filtersLabel
                 </h6>
                 <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Flat Roof
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoof
+                    Pitched Roof
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -188,14 +203,14 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.flatRoof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 1\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.flatRoof
+                    Flat Roof 1
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -203,164 +218,14 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 </div>
                 <div
                   class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoofBitumenRoofs\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof 2\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
                 >
                   <span
                     class="MuiChip-label"
                   >
-                    MC: findARoofer.filters.pitchedRoofBitumenRoofs
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoofTileRoofs\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.pitchedRoofTileRoofs
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.pitchedRoofRoofCoaters\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.pitchedRoofRoofCoaters
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.flachdachsysteme\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.flachdachsysteme
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.steildachsysteme\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.steildachsysteme
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.bauwerksabdichtung\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.bauwerksabdichtung
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.verkehrsbauwerke\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.verkehrsbauwerke
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.verarbeiter\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.verarbeiter
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.topDachPartner\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.topDachPartner
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.7Dachdecker\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.7Dachdecker
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"MC: findARoofer.filters.handler\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    MC: findARoofer.filters.handler
+                    Pitched Roof 2
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -623,9 +488,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                                   class="description"
                                 >
                                   <b>
-                                    MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.pitchedRoofRoofCoaters | MC: findARoofer.filters.flachdachsysteme | MC: findARoofer.filters.steildachsysteme | MC: findARoofer.filters.bauwerksabdichtung | MC: findARoofer.filters.verkehrsbauwerke | MC: findARoofer.filters.verarbeiter | MC: findARoofer.filters.topDachPartner | MC: findARoofer.filters.7Dachdecker | MC: findARoofer.filters.handler
-                                    MC: findABranch.filters.headquarters | MC: findABranch.filters.countryOffices | MC: findABranch.filters.manufacturingAndExport | MC: findABranch.filters.technicalCentreBmiAcademy
-                                    MC: findAMerchant.filters.bmiRedlandPitchedRoofSystems | MC: findAMerchant.filters.bmiIcopalFlatRoofSystems | MC: findAMerchant.filters.depotsDeProximiteSiplast | MC: findAMerchant.filters.distributeursSiplast | MC: findAMerchant.filters.distributeursMonier | MC: findAMerchant.filters.distributeursMonier
+                                    Flat Roof, Pitched Roof, Flat Roof 1, Pitched Roof 2
                                   </b>
                                 </dd>
                               </div>
