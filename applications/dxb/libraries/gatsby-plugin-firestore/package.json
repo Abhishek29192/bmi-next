@@ -17,7 +17,8 @@
     "README.md"
   ],
   "scripts": {
-    "lint": "prettier --write gatsby-node.js"
+    "lint": "prettier --write gatsby-node.js",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "firebase-admin": "^10.0.2",
