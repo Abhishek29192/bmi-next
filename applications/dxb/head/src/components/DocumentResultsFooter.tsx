@@ -19,6 +19,7 @@ import createAssetFileCountMap, {
 import { useSiteContext } from "./Site";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import styles from "./styles/DocumentResultsFooter.module.scss";
+import { Data } from "./DocumentResults";
 
 export const useGlobalDocResFooterStyles = makeStyles(
   () => ({
@@ -114,17 +115,25 @@ export const handleDownloadClick = async (
   }
 };
 
-const getAction = (list: Record<string, any>) => {
+const extractUrl = (el) => {
+  return el.__typename === "PIMDocument" ? el.url : el.asset.file.url;
+};
+
+const getListOfUrl = (item: Data) => {
+  return item
+    .map((el) => {
+      return extractUrl(el);
+    })
+    .join(",");
+};
+
+const getAction = (list: Record<string, Data>) => {
   return JSON.stringify(
     Object.values(list).map((item) => {
       if (Array.isArray(item)) {
-        return item[0].__typename === "PIMDocument"
-          ? item[0].url
-          : item[0].asset.file.url;
+        return getListOfUrl(item);
       } else {
-        return item.__typename === "PIMDocument"
-          ? item.url
-          : item.asset.file.url;
+        return extractUrl(item);
       }
     })
   );
