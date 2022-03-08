@@ -538,9 +538,10 @@ exports[`FormSection component renders correctly 1`] = `
             <button
               aria-action="Test form"
               aria-label="children"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-contained buttonStyles-contained-11 Button MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-contained buttonStyles-contained-11 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
-              tabindex="0"
+              disabled=""
+              tabindex="-1"
               type="submit"
             >
               <span
@@ -562,9 +563,6 @@ exports[`FormSection component renders correctly 1`] = `
                   </svg>
                 </span>
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
           </div>
         </form>
