@@ -60,7 +60,9 @@ export const transformMediaSrc = (
       case "ContentfulVideo":
         return {
           media: renderVideo(item),
-          thumbnail: item.previewMedia?.image?.thumbnail?.src || null,
+          thumbnail:
+            item.previewMedia?.image?.thumbnail?.src ||
+            getDefaultPreviewImage(item.youtubeId),
           caption: item.subtitle || undefined,
           altText: item.previewMedia?.altText || undefined,
           isVideo: true
