@@ -272,6 +272,9 @@ const Input = ({
           name={name}
           isRequired={required}
           errorText={getMicroCopy(microCopy.UPLOAD_FIELD_IS_REQUIRED)}
+          fieldIsRequiredError={getMicroCopy(
+            microCopy.UPLOAD_FIELD_IS_REQUIRED
+          )}
           isTextArea={type === "textarea"}
           variant="outlined"
           label={label}
