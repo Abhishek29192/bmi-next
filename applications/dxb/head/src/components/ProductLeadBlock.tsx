@@ -25,7 +25,7 @@ import { Asset, Classification } from "./types/pim";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
 import AssetsIframe from "./AssetsIframe";
 import { getClickableActionFromUrl, isExternalUrl } from "./Link";
-import { All_FORMATS } from "./types";
+import { All_FORMATS, NO_DOCUMENT_FORMAT } from "./types";
 import { groupDocuments } from "./DocumentTechnicalTableResults";
 
 const BlueCheckIcon = (
@@ -90,13 +90,11 @@ const ProductLeadBlock = ({
       ) {
         return All_FORMATS.includes(document.format);
       }
-      //remove video from filtered Doc
-      if (document.assetType.name === "Video") {
+      if (NO_DOCUMENT_FORMAT.includes(document.assetType.pimCode)) {
         return false;
       }
       return document;
     });
-
   //group documents by assetType
   const documentsByAssetType = groupDocuments(filteredDocuments, true).slice(
     (page - 1) * DOCUMENTS_PER_PAGE,
@@ -411,5 +409,4 @@ const ProductLeadBlock = ({
     </div>
   );
 };
-
 export default ProductLeadBlock;
