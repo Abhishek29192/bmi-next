@@ -126,19 +126,6 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                   style="margin-right: 0%;"
                 >
                   <button
-                    class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                    data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Lorem ipsum image alt text\\",\\"action\\":\\"//image.asset.jpg\\"}"
-                    style="background-image: url(//image.asset.jpg);"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="accessibility-text"
-                    >
-                      Lorem ipsum image alt text
-                    </span>
-                  </button>
-                  <button
                     class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
                     data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Lorem ipsum video image alt text\\",\\"action\\":\\"//video-image.asset.jpg\\"}"
                     style="background-image: url(//video-image.asset.jpg);"
@@ -163,6 +150,19 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                     <span
                       class="MuiTouchRipple-root"
                     />
+                  </button>
+                  <button
+                    class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                    data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Lorem ipsum image alt text\\",\\"action\\":\\"//image.asset.jpg\\"}"
+                    style="background-image: url(//image.asset.jpg);"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="accessibility-text"
+                    >
+                      Lorem ipsum image alt text
+                    </span>
                   </button>
                 </div>
               </div>

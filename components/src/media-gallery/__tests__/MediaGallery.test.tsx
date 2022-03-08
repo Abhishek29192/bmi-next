@@ -101,10 +101,10 @@ describe("MediaGallery component", () => {
     const previewImage = wrapper.container.querySelector(".preview-image");
     expect(previewImage).toHaveAttribute("alt", "test video 1");
     expect(thumbnails).toHaveLength(2);
-    expect(thumbnails[0]).toHaveClass("Thumbnail--selected");
-    fireEvent.click(thumbnails[1]);
     expect(thumbnails[1]).toHaveClass("Thumbnail--selected");
-    expect(thumbnails[0]).toHaveClass("Thumbnail--large");
+    fireEvent.click(thumbnails[0]);
+    expect(thumbnails[0]).toHaveClass("Thumbnail--selected");
+    expect(thumbnails[1]).toHaveClass("Thumbnail--large");
     expect(previewImage).toHaveAttribute("alt", "test video 2");
     expect(wrapper.container).toMatchSnapshot();
   });
@@ -113,7 +113,7 @@ describe("MediaGallery component", () => {
     const wrapper = render(<MediaGallery media={mockMedia} />);
     const playIcon = wrapper.container.querySelector(".play-icon");
     const thumbnails = wrapper.container.querySelectorAll(".Thumbnail");
-    expect(thumbnails[0]).toHaveClass("Thumbnail--selected");
+    expect(thumbnails[1]).toHaveClass("Thumbnail--selected");
     fireEvent.click(thumbnails[1]);
     fireEvent.click(playIcon as Element);
     waitFor(() =>

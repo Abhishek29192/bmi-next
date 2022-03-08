@@ -73,17 +73,6 @@ exports[`MediaGallery component renders correctly with full data 1`] = `
         style="margin-right: 0%;"
       >
         <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="accessibility-text"
-          >
-            test alt text
-          </span>
-        </button>
-        <button
           class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
           tabindex="0"
           type="button"
@@ -101,6 +90,17 @@ exports[`MediaGallery component renders correctly with full data 1`] = `
           <span
             class="MuiTouchRipple-root"
           />
+        </button>
+        <button
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="accessibility-text"
+          >
+            test alt text
+          </span>
         </button>
       </div>
     </div>
@@ -241,26 +241,6 @@ exports[`MediaGallery component test click on thumbnail 1`] = `
         style="margin-right: 0%;"
       >
         <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-          style="background-image: url(https://thumbnail1.jpg);"
-          tabindex="0"
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root play-icon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M8 5v14l11-7z"
-            />
-          </svg>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
           class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
           style="background-image: url(https://thumbnail2.jpg);"
           tabindex="0"
@@ -281,6 +261,26 @@ exports[`MediaGallery component test click on thumbnail 1`] = `
               d="M8 5v14l11-7z"
             />
           </svg>
+        </button>
+        <button
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+          style="background-image: url(https://thumbnail1.jpg);"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root play-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8 5v14l11-7z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </button>
       </div>
     </div>

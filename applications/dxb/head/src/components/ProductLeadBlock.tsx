@@ -90,9 +90,12 @@ const ProductLeadBlock = ({
       ) {
         return All_FORMATS.includes(document.format);
       }
+      //remove video from filtered Doc
+      if (document.assetType.name === "Video") {
+        return false;
+      }
       return document;
     });
-  console.log(filteredDocuments);
 
   //group documents by assetType
   const documentsByAssetType = groupDocuments(filteredDocuments, true).slice(

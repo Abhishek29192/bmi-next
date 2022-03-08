@@ -112,7 +112,7 @@ describe("filterAndTransformVideoData", () => {
       {
         __typename: "PimVideo",
         label: expectedVideo.name,
-        title: expectedVideo.name,
+        title: "",
         previewMedia: null,
         subtitle: null,
         videoRatio: null,
