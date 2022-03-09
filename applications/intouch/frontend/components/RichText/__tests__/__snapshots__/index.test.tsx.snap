@@ -1,5 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`RichText component check existing data from mock 1`] = `
+<div>
+  <div
+    class="main"
+  >
+    <p
+      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+    >
+      test text
+    </p>
+    <h2
+      class="MuiTypography-root title Typography MuiTypography-h2"
+    >
+      Heading 2
+    </h2>
+    <h3
+      class="MuiTypography-root title Typography MuiTypography-h3"
+    >
+      Heading 3
+    </h3>
+    <h4
+      class="MuiTypography-root title Typography MuiTypography-h4"
+    >
+      Heading 4
+    </h4>
+    <h5
+      class="MuiTypography-root title Typography MuiTypography-h5"
+    >
+      Heading 5
+    </h5>
+    <h6
+      class="MuiTypography-root title Typography MuiTypography-h6"
+    >
+      Heading 6
+    </h6>
+    <img
+      alt="Fancy appartment"
+      class="img"
+      height="1480"
+      src="https://images.ctfassets.net/opay6t6wwmup/4J9x7mPKBfkbdzNrZnfPsJ/cc06d1a9d917bcc31447b90f18687035/bmilaw.jpg"
+      width="2372"
+    />
+    <p
+      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+    >
+      Paragraph 
+      <strong>
+        bold 
+      </strong>
+      <i>
+        italic 
+      </i>
+      <u>
+        underline
+      </u>
+        
+      <a
+        class="link"
+        href="https://google.co.uk"
+      >
+        External
+      </a>
+    </p>
+  </div>
+</div>
+`;
+
 exports[`RichText component falls back with empty data 1`] = `
 <div>
   <div

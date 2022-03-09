@@ -23,7 +23,7 @@ function renderOptions(links) {
   // loop through the assets and add them to the map
   const blocks = links?.assets?.block;
   if (blocks != null) {
-    for (const asset of links?.assets?.block) {
+    for (const asset of blocks) {
       assetMap.set(asset.sys.id, asset);
     }
   }
@@ -34,10 +34,6 @@ function renderOptions(links) {
     },
     renderNode: {
       [BLOCKS.PARAGRAPH]: (_node, children) => {
-        if (!children) {
-          return null;
-        }
-
         if (
           Array.isArray(children) &&
           (!children.length || (children.length === 1 && !children[0]))
