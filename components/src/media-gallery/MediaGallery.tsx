@@ -15,6 +15,7 @@ type Props = {
   thumbnailComponent?: React.ComponentType<any>;
   layout?: "default" | "short";
   className?: string;
+  needToSort?: boolean;
 };
 
 export const moveVideoToLast = (media: MediaData[]) => {
@@ -54,7 +55,8 @@ const MediaGallery = ({
   mediaSize = "contain",
   layout = "default",
   className,
-  thumbnailComponent
+  thumbnailComponent,
+  needToSort = false
 }: Props) => {
   if (!media.length) {
     return null;
@@ -78,7 +80,7 @@ const MediaGallery = ({
     setActiveImageIndex(index);
     setShowYouTubeVideo(false);
   };
-  const sortedMedia = moveVideoToLast([...media]);
+  const sortedMedia = needToSort ? moveVideoToLast([...media]) : media;
   const currentMedia = sortedMedia[Number(activeImageIndex)];
 
   return (

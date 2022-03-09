@@ -1,9 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import {
-  getDefaultPreviewImage,
   Grid,
-  MediaData,
   MediaGallery,
   Section,
   Thumbnail,
@@ -11,9 +9,7 @@ import {
   Typography
 } from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
-import { GallerySectionMedias } from "../utils/media";
-import { renderImage } from "./Image";
-import { renderVideo } from "./Video";
+import { GallerySectionMedias, transformMediaSrc } from "../utils/media";
 import styles from "./styles/MediaGallerySection.module.scss";
 import RichText, { RichTextData } from "./RichText";
 
@@ -22,33 +18,6 @@ export type Data = {
   title: string | null;
   longDescription: null | RichTextData;
   medias: GallerySectionMedias[];
-};
-
-export const transformMediaSrc = (
-  media: GallerySectionMedias[] = []
-): MediaData[] => {
-  return media.map((item) => {
-    switch (item.__typename) {
-      case "ContentfulImage":
-        return {
-          media: renderImage(item),
-          thumbnail: item.image.thumbnail.src || null,
-          caption: item.caption?.caption || undefined,
-          altText: item.altText || undefined,
-          isVideo: false
-        };
-      case "ContentfulVideo":
-        return {
-          media: renderVideo(item),
-          thumbnail:
-            item.previewMedia?.image?.thumbnail?.src ||
-            getDefaultPreviewImage(item.youtubeId),
-          caption: item.subtitle || undefined,
-          altText: item.previewMedia?.altText || undefined,
-          isVideo: true
-        };
-    }
-  });
 };
 
 const IntegratedMediaGallerySection = ({ data }: { data: Data }) => {

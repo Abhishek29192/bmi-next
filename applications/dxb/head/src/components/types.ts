@@ -6,3 +6,10 @@ export const All_FORMATS = [
   "image/png"
 ] as const;
 export type Format = typeof All_FORMATS[number];
+
+export const NO_DOCUMENT_FORMAT = [
+  "BIM",
+  "SPECIFICATION",
+  "VIDEO",
+  "FIXING_TOOL"
+];

@@ -250,6 +250,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
               className={styles["gallery"]}
               media={media}
               layout="short"
+              needToSort={true}
             />
           </Grid>
           {systemLayers && (
