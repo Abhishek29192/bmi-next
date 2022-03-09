@@ -1498,7 +1498,8 @@ type Feature {
 }
 
 type FeatureValue {
-  value: String
+  value: String!
+  code: String
 }
 
 type FeatureUnit {
@@ -1520,33 +1521,44 @@ type SystemImage {
 }
 
 type Products implements Node {
+  approvalStatus: String!
+  assets: [PimAsset!]
+  categories: [Categories!]
+  classifications: [Classification!]
+  code: String!
+  description: String
   "The documents for this product."
   documents: [ProductDocument]! @link(from: "documents___NODE")
-
   "The external code for this product AKA NOBB number"
   externalProductCode: String
-
+  images: [PimImage!]
   "The isSampleOrderAllowed value for this product."
   isSampleOrderAllowed: Boolean
+  name: String
+  productBenefits: [String]
+  shortDescription: String
+  summary: String
+  variantOptions: [ProductsVariantOptions!]
 }
 
 type ProductsVariantOptions implements Node {
-  "The external code for this product AKA NOBB number"
-  externalProductCode: String
-
-  productBenefits: [String]
-
-  "The path for this product."
-  path: String
-
-  "The old path for this product."
-  oldPath: String
-
+  approvalStatus: String!
   "The breadcrumbs for this product."
   breadcrumbs: JSON
-
+  classifications: [Classification!]
+  code: String!
+  "The external code for this product AKA NOBB number"
+  externalProductCode: String
+  images: [PimImage!]
   "The isSampleOrderAllowed value for this product."
   isSampleOrderAllowed: Boolean
+  longDescription: String
+  "The old path for this product."
+  oldPath: String
+  "The path for this product."
+  path: String
+  productBenefits: [String]
+  shortDescription: String
 }
 
 """
@@ -1778,11 +1790,6 @@ type ContentfulImage implements Node {
 
   "The focal point for this Image."
   focalPoint: FocalPoint
-}
-
-type ProductsVariantOptionsClassificationsFeaturesFeatureValues implements Node {
-  value: String
-  code: String
 }
 
 type ContentfulIframe implements Node {
