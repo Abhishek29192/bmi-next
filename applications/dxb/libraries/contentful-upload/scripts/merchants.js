@@ -20,16 +20,19 @@ const ask = async (question) =>
 // eslint-disable-next-line security/detect-non-literal-fs-filename
 const readFile = promisify(fs.readFile);
 
-const LOCALE = process.env.LOCALE;
+let LOCALE = process.env.LOCALE;
 const SEPARATOR = "\t";
 const CONTENT_TYPE_ID = "roofer";
+const SERVICE_TYPE_CONTENT_TYPE_ID = "serviceType";
+let serviceTypeOwnKeyValueMap = {}; //this will be updated
 
 const columns = [
-  { label: "Company Name", name: "name", type: "string" },
+  { label: "Name", name: "name", type: "string" },
   { label: "Latitude", name: "lat", type: "number" },
   { label: "Longitude", name: "lon", type: "number" },
   { label: "Type of Merchant", name: "merchantType", type: "string" },
   { label: "Address", name: "address", type: "string" },
+  { label: "Country", name: "country", type: "string" },
   { label: "City", name: "city", type: "string" },
   { label: "Postcode", name: "postcode", type: "string" },
   { label: "PhoneNumber", name: "phone", type: "string" },
@@ -50,7 +53,37 @@ const parsers = {
 // eslint-disable-next-line security/detect-object-injection
 const parseValue = (type, value) => parsers[type](value.trim());
 
+const getExstingServiceTypes = async (environment) => {
+  const allServiceTypeEntries = await environment.getEntries({
+    content_type: SERVICE_TYPE_CONTENT_TYPE_ID
+  });
+  if (allServiceTypeEntries && allServiceTypeEntries.total > 0) {
+    // Populate the dictionary from values found from contentful
+    return allServiceTypeEntries.items.reduce(
+      (allEntries, serviceTypeEntry) => {
+        return {
+          ...allEntries,
+          // eslint-disable-next-line security/detect-object-injection
+          [serviceTypeEntry.fields.name[LOCALE]]: serviceTypeEntry.sys.id
+        };
+      },
+      {}
+    );
+  }
+  return {};
+};
+
 const uploadLines = async (lines, environment) => {
+  const successLoggerStream = fs.createWriteStream("log-success.txt", {
+    flags: "a"
+  });
+  const errorLoggerStream = fs.createWriteStream("log-error.txt", {
+    flags: "a"
+  });
+  const writeLine = (writeStream, message) => {
+    writeStream.write("\n");
+    writeStream.write(`${new Date().toISOString()} - ${message}`);
+  };
   for (const [index, dataLine] of lines) {
     const lineNumber = index + 1;
     if (!dataLine.trim()) {
@@ -69,12 +102,12 @@ const uploadLines = async (lines, environment) => {
         return acc;
       }, {});
 
-    console.log(`Uploading line ${lineNumber}: ${record["name"]}`);
+    console.log(`Uploading line ${lineNumber}: '${record["name"]}'`);
 
     const address =
       toTitleCase(
         record["address"] + (record["city"] ? `, ${record["city"]}` : "")
-      ) + (record["postcode"] ? `, ${record["postcode"]}` : "");
+      ) + record["postcode"];
 
     let location =
       typeof record["lat"] === "number" &&
@@ -101,9 +134,45 @@ const uploadLines = async (lines, environment) => {
           lon: geocodedLocation["lng"]
         };
       } else {
-        console.error(
-          `Address "${address}" couldn't be geocoded. Error: ${error_message}.`
+        const geoCodeErr = `'${record["name"]}' : Address "${address}" couldn't be geocoded. Error: ${error_message}.`;
+        console.error(geoCodeErr);
+        writeLine(errorLoggerStream, geoCodeErr);
+      }
+    }
+
+    //check if serviceTypeDictionary has the entry for merchant type to link id from contentful
+    const serviceTypeLinkId = serviceTypeOwnKeyValueMap[record["merchantType"]];
+    let serviceTypeEntryId = serviceTypeLinkId;
+    if (!serviceTypeLinkId) {
+      try {
+        //get Service type link record id of this merchant
+        const serviceTypeEntry = await environment.createEntry(
+          SERVICE_TYPE_CONTENT_TYPE_ID,
+          {
+            fields: {
+              name: { [LOCALE]: record["merchantType"] }
+            }
+          }
         );
+        await serviceTypeEntry.publish();
+
+        serviceTypeOwnKeyValueMap[record["merchantType"]] =
+          serviceTypeEntry.sys.id;
+
+        serviceTypeEntryId = serviceTypeEntry.sys.id;
+
+        const serviceTypeCreatedMsg = `Created and Published new Service Type - '${
+          record["merchantType"]
+        }' with id '${serviceTypeOwnKeyValueMap[record["merchantType"]]}'`;
+
+        console.log(serviceTypeCreatedMsg);
+        writeLine(successLoggerStream, serviceTypeCreatedMsg);
+      } catch (error) {
+        const errMsg = `Failed to publish Merchant type : '${record["merchantType"]}' :: source line No.: ${lineNumber}`;
+        console.error(errMsg, error);
+
+        writeLine(errorLoggerStream, errMsg);
+        writeLine(errorLoggerStream, JSON.stringify(error, null, 4));
       }
     }
 
@@ -111,7 +180,6 @@ const uploadLines = async (lines, environment) => {
       entryType: "Merchant",
       name: toTitleCase(record["name"]),
       location,
-      merchantType: [record["merchantType"]],
       address,
       phone: record["phone"],
       email: record["email"],
@@ -120,7 +188,16 @@ const uploadLines = async (lines, environment) => {
           ? record["website"]
           : "https://" + record["website"]
         : undefined,
-      summary: record["summary"]
+      summary: record["summary"],
+      serviceTypes: [
+        {
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: serviceTypeEntryId
+          }
+        }
+      ]
     };
 
     const fieldsLocalised = Object.entries(fields).reduce(
@@ -132,15 +209,31 @@ const uploadLines = async (lines, environment) => {
       {}
     );
 
+    let serviceEntryPayload = {
+      fields: fieldsLocalised
+    };
+
     try {
       const newEntry = await environment.createEntry(CONTENT_TYPE_ID, {
-        fields: fieldsLocalised
+        ...serviceEntryPayload
       });
-      await newEntry.publish();
+
+      const publishResult = await newEntry.publish();
+
+      if (publishResult && publishResult.sys && publishResult.sys.version > 0) {
+        const message = `'${record["name"]}' : was created and published with id: ${publishResult.sys.id}`;
+        writeLine(successLoggerStream, message);
+      }
     } catch (error) {
-      console.error(`Failed to upload line: ${lineNumber}`, error);
+      const errMsg = `Failed to publish '${record["name"]}' :: source line No.: ${lineNumber}`;
+      console.error(errMsg, error);
+
+      writeLine(errorLoggerStream, errMsg);
+      writeLine(errorLoggerStream, JSON.stringify(error, null, 4));
     }
   }
+  errorLoggerStream.end();
+  successLoggerStream.end();
 };
 
 const uploadFile = async (file, environment) => {
@@ -204,6 +297,22 @@ const main = async (file) => {
   const environment = await space.getEnvironment(
     process.env.CONTENTFUL_ENVIRONMENT
   );
+
+  const allLocales = await environment.getLocales();
+
+  // .env locale can be different from the environment's locale
+  // we can get envornment's locale and update variable..we do not need environment variable
+  // but keeping it for fallback purpose!
+  if (allLocales && allLocales.total > 0) {
+    const environmentLocale = allLocales.items[0].code;
+    if (environmentLocale !== LOCALE) {
+      LOCALE = environmentLocale;
+      console.log(`updated LOCALE environment Locale : ${LOCALE}`);
+    }
+  }
+
+  // Get master list of service type entries
+  serviceTypeOwnKeyValueMap = await getExstingServiceTypes(environment);
 
   console.log(
     `Uploadng to ${CONTENT_TYPE_ID}, using:` +
