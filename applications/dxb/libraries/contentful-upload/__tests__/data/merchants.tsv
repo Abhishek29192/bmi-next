@@ -1,5 +1,9 @@
 
-Company Name 	Latitude	Longitude	Type of Merchant	Address	City	Postcode	PhoneNumber	Email 	Website	Summary of Company
-
-Test company	60.0000000	23.0000000	BMI Icopal Flat roof Systems	Test address 1	London	SW1 1AA	075 0000 0000	test@someemail.com	  	Test summary
-Test company 2	60.0000000	23.0000000	BMI Icopal Flat roof Systems	Test address 1			075 0000 0000	test@someemail.com	test-website.test	Test summary
+Name	Latitude	Longitude	Type of Merchant	Address	Country	City	Postcode	PhoneNumber	Email	Website	Summary of Company
+Aarlese Bouwmaterialen	23.00000	63.00000	Hellend dak	Havenweg 17	Nederland	AARLE RIXTEL	5735 SH	0492-383300	info@aarlesebouwmaterialen.nl		Test summary
+Aberson BV	23.00000	63.00000	Hellend dak	Gouwe 1	Nederland	ZWOLLE	8032 CA	088-4553600	info@aberson.nl	www.aberson.nl	Test summary
+Aberson BV2	23.00000	63.00000	Hellend dak		Nederland	   088-4553600	info@aberson.nl	www.aberson.nl	Test summary
+Aberson BV	23.00000	63.00000	does_not_exist	Gouwe 1	Nederland	ZWOLLE	8032 CA	088-4553600	info@aberson.nl	http://www.aberson.nl	Test summary
+Aberson BV Zuid			Hellend dak	Solvayweg 2	Nederland		6049 CP	0475-333065	info@aberson.nl	www.aberson.nl	
+Aberson Zuid-West			Hellend dak	Oude Leijstraat 1	Nederland			076-5724118	info@aberson.nl	www.aberson.nl	
+Alco			Hellend dak		Nederland			045-5325524	alco@hitesh.nl		

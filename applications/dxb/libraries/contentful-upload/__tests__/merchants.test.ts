@@ -46,9 +46,54 @@ jest.mock("readline", () => {
   };
 });
 
-const publish = jest.fn();
-const createEntry = jest.fn().mockReturnValue({ publish });
-const getEnvironment = jest.fn().mockReturnValue({ createEntry });
+const getEntries = jest.fn().mockReturnValue({
+  total: 1,
+  items: [
+    {
+      fields: {
+        name: { "en-US": "BMI Icopal Flat roof Systems" }
+      },
+      sys: {
+        id: "id-1"
+      }
+    },
+    {
+      fields: {
+        name: { "en-US": "Hellend dak" }
+      },
+      sys: {
+        id: "id-2"
+      }
+    }
+  ]
+});
+const getLocales = jest
+  .fn()
+  .mockReturnValue({ total: 1, items: [{ code: "en-US" }] });
+
+const createEntry = jest.fn().mockImplementation((contentTypeId, data) => {
+  if (contentTypeId === "roofer") {
+    return {
+      publish: jest.fn().mockImplementation(() => {
+        return {
+          sys: { version: 1, id: "roofer-id" }
+        };
+      })
+    };
+  }
+  if (contentTypeId === "serviceType") {
+    return {
+      sys: { id: "merchant-type-id" },
+      publish: jest.fn()
+    };
+  }
+  return {
+    publish: jest.fn()
+  };
+});
+const getEnvironment = jest
+  .fn()
+  .mockReturnValue({ createEntry, getLocales, getEntries });
 const getSpace = jest.fn().mockReturnValue({ getEnvironment });
 const createClient = jest.fn().mockImplementation(() => ({ getSpace }));
 jest.mock("contentful-management", () => {
@@ -68,7 +113,7 @@ const validEnv = {
   MANAGEMENT_ACCESS_TOKEN: "MANAGEMENT_ACCESS_TOKEN:value",
   SPACE_ID: "SPACE_ID:value",
   CONTENTFUL_ENVIRONMENT: "CONTENTFUL_ENVIRONMENT:value",
-  LOCALE: "LOCALE:value"
+  LOCALE: "en-US"
 };
 
 const getMinimalPath = (file: string) => path.join("data", file);
@@ -110,7 +155,10 @@ describe("Merchants contentful upload", () => {
 
         // eslint-disable-next-line security/detect-non-literal-fs-filename
         return fs.readFile(path.join(__dirname, file), ...rest, callback);
-      }
+      },
+      createWriteStream: jest
+        .fn()
+        .mockReturnValue({ write: jest.fn(), end: jest.fn() })
     };
   });
 
@@ -121,6 +169,8 @@ describe("Merchants contentful upload", () => {
     await done;
     expect((console.log as jest.Mock).mock.calls).toMatchSnapshot("log");
     expect((console.error as jest.Mock).mock.calls).toMatchSnapshot("error");
+    expect(getLocales.mock.calls).toMatchSnapshot("getLocales");
+    expect(getEntries.mock.calls).toMatchSnapshot("getEntries");
   });
 
   it(`continues when answered with "y"`, async () => {
@@ -135,6 +185,8 @@ describe("Merchants contentful upload", () => {
     expect(getSpace.mock.calls).toMatchSnapshot("getSpace");
     expect(getEnvironment.mock.calls).toMatchSnapshot("getEnvironment");
     expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
+    expect(getLocales.mock.calls).toMatchSnapshot("getLocales");
+    expect(getEntries.mock.calls).toMatchSnapshot("getEntries");
   });
 
   it(`checks for first line to be empty`, async () => {
@@ -147,6 +199,8 @@ describe("Merchants contentful upload", () => {
     expect((console.error as jest.Mock).mock.calls).toMatchSnapshot("error");
 
     expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
+    expect(getLocales.mock.calls).toMatchSnapshot("getLocales");
+    expect(getEntries.mock.calls).toMatchSnapshot("getEntries");
   });
 
   it(`checks that header line matches the template`, async () => {
@@ -159,6 +213,8 @@ describe("Merchants contentful upload", () => {
     expect((console.error as jest.Mock).mock.calls).toMatchSnapshot("error");
 
     expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
+    expect(getLocales.mock.calls).toMatchSnapshot("getLocales");
+    expect(getEntries.mock.calls).toMatchSnapshot("getEntries");
   });
 
   it(`throws on missing env vars`, async () => {
@@ -195,6 +251,8 @@ describe("Merchants contentful upload", () => {
     expect((console.error as jest.Mock).mock.calls).toMatchSnapshot("error");
 
     expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
+    expect(getLocales.mock.calls).toMatchSnapshot("getLocales");
+    expect(getEntries.mock.calls).toMatchSnapshot("getEntries");
   });
 
   it(`logs error when creating entry fails`, async () => {
@@ -209,6 +267,8 @@ describe("Merchants contentful upload", () => {
     expect((console.error as jest.Mock).mock.calls).toMatchSnapshot("error");
 
     expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
+    expect(getLocales.mock.calls).toMatchSnapshot("getLocales");
+    expect(getEntries.mock.calls).toMatchSnapshot("getEntries");
   });
 
   it("geocodes address", async () => {
@@ -227,6 +287,8 @@ describe("Merchants contentful upload", () => {
     await done;
 
     expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
+    expect(getLocales.mock.calls).toMatchSnapshot("getLocales");
+    expect(getEntries.mock.calls).toMatchSnapshot("getEntries");
   });
 
   it("geocoding doesn't return results", async () => {
@@ -247,5 +309,115 @@ describe("Merchants contentful upload", () => {
 
     expect((console.error as jest.Mock).mock.calls).toMatchSnapshot("error");
     expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
+    expect(getLocales.mock.calls).toMatchSnapshot("getLocales");
+    expect(getEntries.mock.calls).toMatchSnapshot("getEntries");
+  });
+
+  it(`when merchant type does not exist returns empty dictionary`, async () => {
+    getEntries.mockReturnValue(null);
+
+    require("../scripts/merchants");
+    await expectQuestion("Continue (y/N)?");
+    answer("y");
+    await done;
+    expect((console.log as jest.Mock).mock.calls).toMatchSnapshot("log");
+    expect((console.error as jest.Mock).mock.calls).toMatchSnapshot("error");
+
+    expect(createClient.mock.calls).toMatchSnapshot("createClient");
+    expect(getSpace.mock.calls).toMatchSnapshot("getSpace");
+    expect(getEnvironment.mock.calls).toMatchSnapshot("getEnvironment");
+    expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
+    expect(getLocales.mock.calls).toMatchSnapshot("getLocales");
+    expect(getEntries.mock.calls).toMatchSnapshot("getEntries");
+  });
+
+  it(`when merchant type throws error`, async () => {
+    createEntry.mockImplementation((contentTypeId, data) => {
+      if (contentTypeId === "roofer") {
+        return {
+          publish: jest.fn().mockImplementation(() => {
+            return {
+              sys: { version: 1, id: "roofer-id" }
+            };
+          })
+        };
+      }
+      if (contentTypeId === "serviceType") {
+        throw new Error("cannot create merchant type");
+      }
+      return {
+        publish: jest.fn()
+      };
+    });
+    require("../scripts/merchants");
+    await expectQuestion("Continue (y/N)?");
+    answer("y");
+    await done;
+    expect((console.log as jest.Mock).mock.calls).toMatchSnapshot("log");
+    expect((console.error as jest.Mock).mock.calls).toMatchSnapshot("error");
+
+    expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
+    expect(getLocales.mock.calls).toMatchSnapshot("getLocales");
+    expect(getEntries.mock.calls).toMatchSnapshot("getEntries");
+  });
+
+  it(`when merchant type gets created but does not publish`, async () => {
+    createEntry.mockImplementation((contentTypeId, data) => {
+      if (contentTypeId === "roofer") {
+        return {
+          publish: jest.fn().mockImplementation(() => {
+            return null;
+          })
+        };
+      }
+      if (contentTypeId === "serviceType") {
+        return {
+          sys: { id: "merchant-type-id" },
+          publish: jest.fn()
+        };
+      }
+      return {
+        publish: jest.fn()
+      };
+    });
+    require("../scripts/merchants");
+    await expectQuestion("Continue (y/N)?");
+    answer("y");
+    await done;
+    expect((console.log as jest.Mock).mock.calls).toMatchSnapshot("log");
+    expect((console.error as jest.Mock).mock.calls).toMatchSnapshot("error");
+
+    expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
+    expect(getLocales.mock.calls).toMatchSnapshot("getLocales");
+    expect(getEntries.mock.calls).toMatchSnapshot("getEntries");
+  });
+
+  it(`when site locale is different from env variable locale`, async () => {
+    getLocales.mockReturnValue({ total: 1, items: [{ code: "en-GB" }] });
+
+    require("../scripts/merchants");
+    await expectQuestion("Continue (y/N)?");
+    answer("y");
+    await done;
+    expect((console.log as jest.Mock).mock.calls).toMatchSnapshot("log");
+    expect((console.error as jest.Mock).mock.calls).toMatchSnapshot("error");
+
+    expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
+    expect(getLocales.mock.calls).toMatchSnapshot("getLocales");
+    expect(getEntries.mock.calls).toMatchSnapshot("getEntries");
+  });
+  it(`when getLocales returns null it uses env locale`, async () => {
+    getLocales.mockReturnValue(null);
+
+    require("../scripts/merchants");
+    await expectQuestion("Continue (y/N)?");
+    answer("y");
+    await done;
+    expect((console.log as jest.Mock).mock.calls).toMatchSnapshot("log");
+    expect((console.error as jest.Mock).mock.calls).toMatchSnapshot("error");
+
+    expect(createEntry.mock.calls).toMatchSnapshot("createEntry");
+    expect(getLocales.mock.calls).toMatchSnapshot("getLocales");
+    expect(getEntries.mock.calls).toMatchSnapshot("getEntries");
   });
 });
