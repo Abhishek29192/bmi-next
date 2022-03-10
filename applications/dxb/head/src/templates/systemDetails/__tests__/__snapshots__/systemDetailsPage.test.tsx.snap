@@ -7584,6 +7584,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-440"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 19. LAYER_ACCESSORIES: SName 1\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -7697,6 +7698,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-440"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 20. LAYER_ACCESSORIES: SName 2\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -7810,6 +7812,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-440"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 3. LAYER_ACCESSORIES: SName 3\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -7923,6 +7926,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-440"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 4. LAYER_ACCESSORIES: SName 4\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -8036,6 +8040,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-440"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 5. LAYER_ACCESSORIES: SName 5\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -8149,6 +8154,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-440"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 6. LAYER_ACCESSORIES: SName 6\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -8262,6 +8268,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-440"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 7. LAYER_ACCESSORIES: SName 7\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -8375,6 +8382,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-440"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 8. LAYER_ACCESSORIES: SName 8\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -8488,6 +8496,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-440"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 9. LAYER_ACCESSORIES: SName 9\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -8601,6 +8610,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-440"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 10. LAYER_ACCESSORIES: SName 10\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -8714,6 +8724,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-440"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 11. LAYER_ACCESSORIES: SName 11\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -8827,6 +8838,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-440"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 12. LAYER_ACCESSORIES: SName 12\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -13509,6 +13521,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-48"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 19. LAYER_ACCESSORIES: SName 1\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -13622,6 +13635,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-48"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 20. LAYER_ACCESSORIES: SName 2\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -13735,6 +13749,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-48"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 3. LAYER_ACCESSORIES: SName 3\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -13848,6 +13863,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-48"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 4. LAYER_ACCESSORIES: SName 4\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -13961,6 +13977,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-48"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 5. LAYER_ACCESSORIES: SName 5\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -14074,6 +14091,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-48"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 6. LAYER_ACCESSORIES: SName 6\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -14187,6 +14205,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-48"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 7. LAYER_ACCESSORIES: SName 7\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -14300,6 +14319,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-48"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 8. LAYER_ACCESSORIES: SName 8\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -14413,6 +14433,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-48"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 9. LAYER_ACCESSORIES: SName 9\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -14526,6 +14547,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-48"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 10. LAYER_ACCESSORIES: SName 10\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -14639,6 +14661,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-48"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 11. LAYER_ACCESSORIES: SName 11\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -14752,6 +14775,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-48"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 12. LAYER_ACCESSORIES: SName 12\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -19565,6 +19589,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-165"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 19. LAYER_ACCESSORIES: SName 1\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -19678,6 +19703,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-165"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 20. LAYER_ACCESSORIES: SName 2\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -19791,6 +19817,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-165"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 3. LAYER_ACCESSORIES: SName 3\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -19904,6 +19931,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-165"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 4. LAYER_ACCESSORIES: SName 4\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -20017,6 +20045,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-165"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 5. LAYER_ACCESSORIES: SName 5\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -20130,6 +20159,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-165"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 6. LAYER_ACCESSORIES: SName 6\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -20243,6 +20273,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-165"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 7. LAYER_ACCESSORIES: SName 7\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -20356,6 +20387,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-165"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 8. LAYER_ACCESSORIES: SName 8\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -20469,6 +20501,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-165"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 9. LAYER_ACCESSORIES: SName 9\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -20582,6 +20615,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-165"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 10. LAYER_ACCESSORIES: SName 10\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -20695,6 +20729,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-165"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 11. LAYER_ACCESSORIES: SName 11\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -20808,6 +20843,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-165"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 12. LAYER_ACCESSORIES: SName 12\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -30344,6 +30380,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-557"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 19. LAYER_ACCESSORIES: SName 1\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -30457,6 +30494,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-557"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 20. LAYER_ACCESSORIES: SName 2\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -30570,6 +30608,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-557"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 3. LAYER_ACCESSORIES: SName 3\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -30683,6 +30722,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-557"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 4. LAYER_ACCESSORIES: SName 4\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -30796,6 +30836,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-557"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 5. LAYER_ACCESSORIES: SName 5\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -30909,6 +30950,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-557"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 6. LAYER_ACCESSORIES: SName 6\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -31022,6 +31064,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-557"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 7. LAYER_ACCESSORIES: SName 7\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -31135,6 +31178,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-557"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 8. LAYER_ACCESSORIES: SName 8\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -31248,6 +31292,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-557"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 9. LAYER_ACCESSORIES: SName 9\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -31361,6 +31406,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-557"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 10. LAYER_ACCESSORIES: SName 10\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -31474,6 +31520,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-557"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 11. LAYER_ACCESSORIES: SName 11\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
@@ -31587,6 +31634,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     aria-disabled="false"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-557"
+                    data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"layerNo 12. LAYER_ACCESSORIES: SName 12\\",\\"action\\":\\"Selector - Accordion\\"}"
                     role="button"
                     tabindex="0"
                   >
