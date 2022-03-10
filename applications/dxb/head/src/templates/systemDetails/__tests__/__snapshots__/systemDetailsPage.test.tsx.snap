@@ -9095,16 +9095,6 @@ exports[`SystemDetailsPage template component should have function to filter doc
                       >
                         MC: pdp.leadBlock.guaranteesWarranties
                       </h6>
-                      <img
-                        alt="1344416763"
-                        class="image"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf"
-                      />
-                      <img
-                        alt="1344416763"
-                        class="image"
-                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf"
-                      />
                     </div>
                     <div
                       class="guaranteesAndAwardsAsset LeadBlockContentSection"

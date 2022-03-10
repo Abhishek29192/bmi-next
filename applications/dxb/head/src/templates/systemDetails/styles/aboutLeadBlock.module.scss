@@ -12,6 +12,14 @@
       height: 80px;
       padding-right: 10px;
     }
+    .inline-link {
+      padding-top: 10px;
+      color: #0072b0;
+      &:hover {
+        color: #005b8c;
+      }
+      transition: color ease-out 0.25s;
+    }
   }
 
   .blueCheckIcon {

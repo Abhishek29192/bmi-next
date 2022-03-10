@@ -132,7 +132,8 @@ const getDocument = (
     if (header === "add") {
       return (
         <Table.Cell className={styles["table-cell"]} align="center" key={key}>
-          {document.__typename !== "PIMLinkDocument" ? (
+          {document.__typename !== "PIMLinkDocument" &&
+          mapAssetToFileDownload(document).size ? (
             <DownloadList.Checkbox
               name={id}
               maxLimitReachedLabel={getMicroCopy(
