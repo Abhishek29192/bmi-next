@@ -103,8 +103,8 @@ const ProductLeadBlock = ({
 
   const isImageAsset = (asset: Asset) => {
     return (
-      asset.realFileName?.indexOf(".jpg") > -1 ||
-      asset.realFileName?.indexOf(".png") > -1
+      asset.realFileName?.search(/.jpg/i) > -1 ||
+      asset.realFileName?.search(/.png/i) > -1
     );
   };
 
