@@ -466,7 +466,7 @@ describe("FormSection component", () => {
         },
         {
           label:
-            "I agree with BMI's [Data Protection Policy](http://localhost/co.uk)",
+            "I agree with BMI's [Data Protection Policy](http://www.bmigroup.com)",
           name: "checkbox-wih-link",
           type: "checkbox"
         }
@@ -479,7 +479,7 @@ describe("FormSection component", () => {
       `a[href="https://google.co.uk"]`
     );
     const InternalLinkLabel = container.querySelector(
-      `a[href="http://localhost/co.uk"]`
+      `a[href="http://www.bmigroup.com"]`
     );
     expect(ExternalLinkLabel).toHaveAttribute("rel");
     expect(InternalLinkLabel).not.toHaveAttribute("rel");
