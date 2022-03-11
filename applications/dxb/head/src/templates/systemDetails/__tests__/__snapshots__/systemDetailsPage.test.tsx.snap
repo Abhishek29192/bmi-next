@@ -2963,9 +2963,9 @@ exports[`SystemDetailsPage template component should have function to filter and
                   class="image-wrapper"
                 >
                   <img
-                    alt="Print_490189 wireløper"
+                    alt="490189 wireløper"
                     class="main-image-wrapper main-image-wrapper--short Media Media--contain"
-                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
+                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
                   />
                 </div>
                 <div
@@ -3014,8 +3014,14 @@ exports[`SystemDetailsPage template component should have function to filter and
                     style="margin-right: 0%;"
                   >
                     <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
                       style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
+                      tabindex="0"
+                      type="button"
+                    />
+                    <button
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
                       tabindex="0"
                       type="button"
                     >
@@ -3023,12 +3029,6 @@ exports[`SystemDetailsPage template component should have function to filter and
                         class="MuiTouchRipple-root"
                       />
                     </button>
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
-                      tabindex="0"
-                      type="button"
-                    />
                   </div>
                 </div>
               </div>
@@ -7501,9 +7501,9 @@ exports[`SystemDetailsPage template component should have function to filter doc
                   class="image-wrapper"
                 >
                   <img
-                    alt="Print_490189 wireløper"
+                    alt="490189 wireløper"
                     class="main-image-wrapper main-image-wrapper--short Media Media--contain"
-                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
+                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
                   />
                 </div>
                 <div
@@ -7552,8 +7552,14 @@ exports[`SystemDetailsPage template component should have function to filter doc
                     style="margin-right: 0%;"
                   >
                     <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
                       style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
+                      tabindex="0"
+                      type="button"
+                    />
+                    <button
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
                       tabindex="0"
                       type="button"
                     >
@@ -7561,12 +7567,6 @@ exports[`SystemDetailsPage template component should have function to filter doc
                         class="MuiTouchRipple-root"
                       />
                     </button>
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
-                      tabindex="0"
-                      type="button"
-                    />
                   </div>
                 </div>
               </div>
@@ -13416,9 +13416,9 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   class="image-wrapper"
                 >
                   <img
-                    alt="Print_490189 wireløper"
+                    alt="490189 wireløper"
                     class="main-image-wrapper main-image-wrapper--short Media Media--contain"
-                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
+                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
                   />
                 </div>
                 <div
@@ -13467,8 +13467,14 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     style="margin-right: 0%;"
                   >
                     <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
                       style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
+                      tabindex="0"
+                      type="button"
+                    />
+                    <button
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
                       tabindex="0"
                       type="button"
                     >
@@ -13476,12 +13482,6 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         class="MuiTouchRipple-root"
                       />
                     </button>
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
-                      tabindex="0"
-                      type="button"
-                    />
                   </div>
                 </div>
               </div>
@@ -19472,9 +19472,9 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   class="image-wrapper"
                 >
                   <img
-                    alt="Print_490189 wireløper"
+                    alt="490189 wireløper"
                     class="main-image-wrapper main-image-wrapper--short Media Media--contain"
-                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
+                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
                   />
                 </div>
                 <div
@@ -19523,8 +19523,14 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     style="margin-right: 0%;"
                   >
                     <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
                       style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
+                      tabindex="0"
+                      type="button"
+                    />
+                    <button
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
                       tabindex="0"
                       type="button"
                     >
@@ -19532,12 +19538,6 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         class="MuiTouchRipple-root"
                       />
                     </button>
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
-                      tabindex="0"
-                      type="button"
-                    />
                   </div>
                 </div>
               </div>
@@ -25528,9 +25528,9 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   class="image-wrapper"
                 >
                   <img
-                    alt="Print_490189 wireløper"
+                    alt="490189 wireløper"
                     class="main-image-wrapper main-image-wrapper--short Media Media--contain"
-                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
+                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
                   />
                 </div>
                 <div
@@ -25579,8 +25579,14 @@ exports[`SystemDetailsPage template component should render without systemLayers
                     style="margin-right: 0%;"
                   >
                     <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
                       style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
+                      tabindex="0"
+                      type="button"
+                    />
+                    <button
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
                       tabindex="0"
                       type="button"
                     >
@@ -25588,12 +25594,6 @@ exports[`SystemDetailsPage template component should render without systemLayers
                         class="MuiTouchRipple-root"
                       />
                     </button>
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
-                      tabindex="0"
-                      type="button"
-                    />
                   </div>
                 </div>
               </div>
@@ -30251,9 +30251,9 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                   class="image-wrapper"
                 >
                   <img
-                    alt="Print_490189 wireløper"
+                    alt="490189 wireløper"
                     class="main-image-wrapper main-image-wrapper--short Media Media--contain"
-                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
+                    src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
                   />
                 </div>
                 <div
@@ -30302,8 +30302,14 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                     style="margin-right: 0%;"
                   >
                     <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
                       style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
+                      tabindex="0"
+                      type="button"
+                    />
+                    <button
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
                       tabindex="0"
                       type="button"
                     >
@@ -30311,12 +30317,6 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
                         class="MuiTouchRipple-root"
                       />
                     </button>
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
-                      tabindex="0"
-                      type="button"
-                    />
                   </div>
                 </div>
               </div>
