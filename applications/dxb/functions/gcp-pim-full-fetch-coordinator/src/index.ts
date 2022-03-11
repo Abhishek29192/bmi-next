@@ -12,6 +12,49 @@ import { FirestoreCollections } from "./firestoreCollections";
 
 const { BUILD_TRIGGER_ENDPOINT, FULL_FETCH_ENDPOINT } = process.env;
 
+const triggerFullFetch = async (
+  type: PimTypes,
+  lastStartPage: number,
+  numberOfPages: number
+): Promise<Response> => {
+  let numberOfRetries = 0;
+  let response: Response;
+
+  do {
+    logger.info({
+      message: `Triggering fetch for pages ${lastStartPage} to ${
+        lastStartPage + numberOfPages
+      } of ${type}.`
+    });
+
+    try {
+      response = await fetch(FULL_FETCH_ENDPOINT!, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          type: type,
+          startPage: lastStartPage,
+          numberOfPages: numberOfPages
+        })
+      });
+
+      if (!response.ok) {
+        logger.error({
+          message: `Failed to trigger full fetch patch for ${type}: ${response.statusText}`
+        });
+      }
+    } catch (error) {
+      logger.error({ message: (error as Error).message });
+      return Promise.reject(error);
+    }
+    numberOfRetries++;
+  } while (numberOfRetries < 5 && response.status === 429);
+
+  return response;
+};
+
 const triggerFullFetchBatch = async (type: PimTypes) => {
   logger.info({ message: `Batching ${type}.` });
 
@@ -22,35 +65,8 @@ const triggerFullFetchBatch = async (type: PimTypes) => {
   for (let i = 0; i < numberOfRequests; i++) {
     const numberOfPagesLeft = response.totalPageCount - lastStartPage;
     const numberOfPages = numberOfPagesLeft > 10 ? 10 : numberOfPagesLeft;
-    logger.info({
-      message: `Triggering fetch for pages ${lastStartPage} to ${
-        lastStartPage + numberOfPages
-      } of ${type}.`
-    });
-    const systemsBatchResponse = fetch(FULL_FETCH_ENDPOINT!, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        type: type,
-        startPage: lastStartPage,
-        numberOfPages: numberOfPages
-      })
-    });
-    systemsBatchResponse
-      .then((response) => {
-        if (!response.ok) {
-          logger.error({
-            message: `Failed to trigger full fetch patch for ${type}: ${response.statusText}`
-          });
-        }
-      })
-      .catch((reason) => {
-        logger.error({ message: reason.message });
-      });
-    promises.push(systemsBatchResponse);
-
+    const batchResponse = triggerFullFetch(type, lastStartPage, numberOfPages);
+    promises.push(batchResponse);
     lastStartPage += 10;
   }
 
