@@ -717,7 +717,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                     I agree with BMI's 
                     <a
                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                      href="http://localhost/co.uk"
+                      href="http://www.bmigroup.com"
                       target="_blank"
                     >
                       <span>

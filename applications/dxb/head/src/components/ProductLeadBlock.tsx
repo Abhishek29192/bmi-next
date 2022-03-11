@@ -198,9 +198,7 @@ const ProductLeadBlock = ({
                           action: item.url
                         }}
                         iconEnd
-                        {...(isExternalUrl(item.url)
-                          ? { isExternal: true }
-                          : {})}
+                        isExternal={isExternalUrl(item.url)}
                         className={styles["inline-link"]}
                       >
                         {item.name}

@@ -28,10 +28,14 @@ export enum DataTypeEnum {
   HubSpotCta = "HubSpot CTA"
 }
 
+const internalHosts = process.env.GATSBY_INTERNAL_HOSTS?.split(",") || [
+  "www.bmigroup.com"
+];
+
 export const isExternalUrl = (url: string): boolean => {
   try {
     const linkUrl = new URL(url);
-    return linkUrl.host !== window.location.host;
+    return !internalHosts.includes(linkUrl.host);
   } catch (e) {
     return false;
   }

@@ -300,7 +300,7 @@ describe("Link component", () => {
 
     it("internal urls doesn't open in a new window", () => {
       expect(
-        getClickableActionFromUrl(undefined, "http://localhost", "en")
+        getClickableActionFromUrl(undefined, "http://www.bmigroup.com", "en")
       ).toMatchSnapshot();
     });
 
