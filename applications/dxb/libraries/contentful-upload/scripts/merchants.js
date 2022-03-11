@@ -5,7 +5,6 @@ require("dotenv").config();
 const fs = require("fs");
 const { promisify } = require("util");
 const readline = require("readline");
-const { capitalize } = require("lodash");
 const fetch = require("node-fetch");
 const contentful = require("contentful-management");
 
@@ -40,8 +39,6 @@ const columns = [
   { label: "Website", name: "website", type: "string" },
   { label: "Summary of Company", name: "summary", type: "string" }
 ];
-
-const toTitleCase = (str) => str.replace(/\w+/g, capitalize);
 
 const columnsString = columns.map(({ label }) => label).join(", ");
 
@@ -105,9 +102,9 @@ const uploadLines = async (lines, environment) => {
     console.log(`Uploading line ${lineNumber}: '${record["name"]}'`);
 
     const address =
-      toTitleCase(
-        record["address"] + (record["city"] ? `, ${record["city"]}` : "")
-      ) + record["postcode"];
+      record["address"] +
+      (record["city"] ? `, ${record["city"]}` : "") +
+      `, ${record["postcode"]}`;
 
     let location =
       typeof record["lat"] === "number" &&
@@ -178,7 +175,7 @@ const uploadLines = async (lines, environment) => {
 
     const fields = {
       entryType: "Merchant",
-      name: toTitleCase(record["name"]),
+      name: record["name"],
       location,
       address,
       phone: record["phone"],
