@@ -109,7 +109,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Havenweg 17, Aarle Rixtel5735 SH",
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
         },
         "email": Object {
           "en-US": "info@aarlesebouwmaterialen.nl",
@@ -154,7 +154,97 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Gouwe 1, Zwolle8032 CA",
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
+        },
+        "email": Object {
+          "en-US": "info@aarlesebouwmaterialen.nl",
+        },
+        "entryType": Object {
+          "en-US": "Merchant",
+        },
+        "location": Object {
+          "en-US": Object {
+            "lat": 23,
+            "lon": 63,
+          },
+        },
+        "name": Object {
+          "en-US": "BMN Bouwmaterialen",
+        },
+        "phone": Object {
+          "en-US": "0492-383300",
+        },
+        "serviceTypes": Object {
+          "en-US": Array [
+            Object {
+              "sys": Object {
+                "id": "id-2",
+                "linkType": "Entry",
+                "type": "Link",
+              },
+            },
+          ],
+        },
+        "summary": Object {
+          "en-US": "Test summary",
+        },
+        "website": Object {
+          "en-US": undefined,
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
+        },
+        "email": Object {
+          "en-US": "info@aarlesebouwmaterialen.nl",
+        },
+        "entryType": Object {
+          "en-US": "Merchant",
+        },
+        "location": Object {
+          "en-US": Object {
+            "lat": 23,
+            "lon": 63,
+          },
+        },
+        "name": Object {
+          "en-US": "BMN Zaltbommel",
+        },
+        "phone": Object {
+          "en-US": "0492-383300",
+        },
+        "serviceTypes": Object {
+          "en-US": Array [
+            Object {
+              "sys": Object {
+                "id": "id-2",
+                "linkType": "Entry",
+                "type": "Link",
+              },
+            },
+          ],
+        },
+        "summary": Object {
+          "en-US": "Test summary",
+        },
+        "website": Object {
+          "en-US": undefined,
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-US": "info@aberson.nl",
@@ -169,7 +259,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv",
+          "en-US": "Aberson BV",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -199,7 +289,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": ", 088-4553600info@aberson.nl",
+          "en-US": ", 088-4553600, info@aberson.nl",
         },
         "email": Object {
           "en-US": "Test summary",
@@ -214,7 +304,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv2",
+          "en-US": "Aberson BV2",
         },
         "phone": Object {
           "en-US": "www.aberson.nl",
@@ -254,7 +344,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Gouwe 1, Zwolle8032 CA",
+          "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-US": "info@aberson.nl",
@@ -269,7 +359,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv",
+          "en-US": "Aberson BV",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -300,7 +390,7 @@ Array [
 exports[`Merchants contentful upload continues when answered with "y": error 1`] = `
 Array [
   Array [
-    [Error: fetch-mock: No fallback response defined for GET to https://maps.googleapis.com/maps/api/geocode/json?address=Aberson%20BV%20ZuidSolvayweg%2026049%20CP&key=undefined],
+    [Error: fetch-mock: No fallback response defined for GET to https://maps.googleapis.com/maps/api/geocode/json?address=Aberson%20BV%20ZuidSolvayweg%202,%206049%20CP&key=undefined],
   ],
   Array [
     "Process failed",
@@ -354,25 +444,31 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 8 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 10 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
   ],
   Array [
-    "Uploading line 2: 'Aberson BV'",
+    "Uploading line 2: 'BMN Bouwmaterialen'",
   ],
   Array [
-    "Uploading line 3: 'Aberson BV2'",
+    "Uploading line 3: 'BMN Zaltbommel'",
   ],
   Array [
     "Uploading line 4: 'Aberson BV'",
   ],
   Array [
+    "Uploading line 5: 'Aberson BV2'",
+  ],
+  Array [
+    "Uploading line 6: 'Aberson BV'",
+  ],
+  Array [
     "Created and Published new Service Type - 'does_not_exist' with id 'merchant-type-id'",
   ],
   Array [
-    "Uploading line 5: 'Aberson BV Zuid'",
+    "Uploading line 7: 'Aberson BV Zuid'",
   ],
 ]
 `;
@@ -418,7 +514,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Havenweg 17, Aarle Rixtel5735 SH",
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
         },
         "email": Object {
           "en-US": "info@aarlesebouwmaterialen.nl",
@@ -463,7 +559,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Gouwe 1, Zwolle8032 CA",
+          "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-US": "info@aberson.nl",
@@ -478,7 +574,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv",
+          "en-US": "Aberson BV",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -529,7 +625,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Havenweg 17, Aarle Rixtel5735 SH",
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
         },
         "email": Object {
           "en-US": "info@aarlesebouwmaterialen.nl",
@@ -571,7 +667,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Gouwe 1, Zwolle8032 CA",
+          "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-US": "info@aberson.nl",
@@ -583,7 +679,7 @@ Array [
           "en-US": undefined,
         },
         "name": Object {
-          "en-US": "Aberson Bv",
+          "en-US": "Aberson BV",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -614,10 +710,10 @@ Array [
 exports[`Merchants contentful upload geocoding doesn't return results: error 1`] = `
 Array [
   Array [
-    "'Aarlese Bouwmaterialen' : Address \\"Havenweg 17, Aarle Rixtel5735 SH\\" couldn't be geocoded. Error: Test error message.",
+    "'Aarlese Bouwmaterialen' : Address \\"Havenweg 17, AARLE RIXTEL, 5735 SH\\" couldn't be geocoded. Error: Test error message.",
   ],
   Array [
-    "'Aberson BV' : Address \\"Gouwe 1, Zwolle8032 CA\\" couldn't be geocoded. Error: Test error message.",
+    "'Aberson BV' : Address \\"Gouwe 1, ZWOLLE, 8032 CA\\" couldn't be geocoded. Error: Test error message.",
   ],
 ]
 `;
@@ -690,7 +786,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Havenweg 17, Aarle Rixtel5735 SH",
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
         },
         "email": Object {
           "en-US": "info@aarlesebouwmaterialen.nl",
@@ -735,7 +831,97 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Gouwe 1, Zwolle8032 CA",
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
+        },
+        "email": Object {
+          "en-US": "info@aarlesebouwmaterialen.nl",
+        },
+        "entryType": Object {
+          "en-US": "Merchant",
+        },
+        "location": Object {
+          "en-US": Object {
+            "lat": 23,
+            "lon": 63,
+          },
+        },
+        "name": Object {
+          "en-US": "BMN Bouwmaterialen",
+        },
+        "phone": Object {
+          "en-US": "0492-383300",
+        },
+        "serviceTypes": Object {
+          "en-US": Array [
+            Object {
+              "sys": Object {
+                "id": "id-2",
+                "linkType": "Entry",
+                "type": "Link",
+              },
+            },
+          ],
+        },
+        "summary": Object {
+          "en-US": "Test summary",
+        },
+        "website": Object {
+          "en-US": undefined,
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
+        },
+        "email": Object {
+          "en-US": "info@aarlesebouwmaterialen.nl",
+        },
+        "entryType": Object {
+          "en-US": "Merchant",
+        },
+        "location": Object {
+          "en-US": Object {
+            "lat": 23,
+            "lon": 63,
+          },
+        },
+        "name": Object {
+          "en-US": "BMN Zaltbommel",
+        },
+        "phone": Object {
+          "en-US": "0492-383300",
+        },
+        "serviceTypes": Object {
+          "en-US": Array [
+            Object {
+              "sys": Object {
+                "id": "id-2",
+                "linkType": "Entry",
+                "type": "Link",
+              },
+            },
+          ],
+        },
+        "summary": Object {
+          "en-US": "Test summary",
+        },
+        "website": Object {
+          "en-US": undefined,
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-US": "info@aberson.nl",
@@ -750,7 +936,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv",
+          "en-US": "Aberson BV",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -780,7 +966,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": ", 088-4553600info@aberson.nl",
+          "en-US": ", 088-4553600, info@aberson.nl",
         },
         "email": Object {
           "en-US": "Test summary",
@@ -795,7 +981,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv2",
+          "en-US": "Aberson BV2",
         },
         "phone": Object {
           "en-US": "www.aberson.nl",
@@ -835,7 +1021,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Gouwe 1, Zwolle8032 CA",
+          "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-US": "info@aberson.nl",
@@ -850,7 +1036,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv",
+          "en-US": "Aberson BV",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -885,7 +1071,7 @@ Array [
     [Error: Connection intrrupted],
   ],
   Array [
-    [Error: fetch-mock: No fallback response defined for GET to https://maps.googleapis.com/maps/api/geocode/json?address=Aberson%20BV%20ZuidSolvayweg%2026049%20CP&key=undefined],
+    [Error: fetch-mock: No fallback response defined for GET to https://maps.googleapis.com/maps/api/geocode/json?address=Aberson%20BV%20ZuidSolvayweg%202,%206049%20CP&key=undefined],
   ],
   Array [
     "Process failed",
@@ -923,25 +1109,31 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 8 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 10 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
   ],
   Array [
-    "Uploading line 2: 'Aberson BV'",
+    "Uploading line 2: 'BMN Bouwmaterialen'",
   ],
   Array [
-    "Uploading line 3: 'Aberson BV2'",
+    "Uploading line 3: 'BMN Zaltbommel'",
   ],
   Array [
     "Uploading line 4: 'Aberson BV'",
   ],
   Array [
+    "Uploading line 5: 'Aberson BV2'",
+  ],
+  Array [
+    "Uploading line 6: 'Aberson BV'",
+  ],
+  Array [
     "Created and Published new Service Type - 'does_not_exist' with id 'merchant-type-id'",
   ],
   Array [
-    "Uploading line 5: 'Aberson BV Zuid'",
+    "Uploading line 7: 'Aberson BV Zuid'",
   ],
 ]
 `;
@@ -999,7 +1191,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Havenweg 17, Aarle Rixtel5735 SH",
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
         },
         "email": Object {
           "en-US": "info@aarlesebouwmaterialen.nl",
@@ -1044,7 +1236,97 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Gouwe 1, Zwolle8032 CA",
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
+        },
+        "email": Object {
+          "en-US": "info@aarlesebouwmaterialen.nl",
+        },
+        "entryType": Object {
+          "en-US": "Merchant",
+        },
+        "location": Object {
+          "en-US": Object {
+            "lat": 23,
+            "lon": 63,
+          },
+        },
+        "name": Object {
+          "en-US": "BMN Bouwmaterialen",
+        },
+        "phone": Object {
+          "en-US": "0492-383300",
+        },
+        "serviceTypes": Object {
+          "en-US": Array [
+            Object {
+              "sys": Object {
+                "id": "merchant-type-id",
+                "linkType": "Entry",
+                "type": "Link",
+              },
+            },
+          ],
+        },
+        "summary": Object {
+          "en-US": "Test summary",
+        },
+        "website": Object {
+          "en-US": undefined,
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
+        },
+        "email": Object {
+          "en-US": "info@aarlesebouwmaterialen.nl",
+        },
+        "entryType": Object {
+          "en-US": "Merchant",
+        },
+        "location": Object {
+          "en-US": Object {
+            "lat": 23,
+            "lon": 63,
+          },
+        },
+        "name": Object {
+          "en-US": "BMN Zaltbommel",
+        },
+        "phone": Object {
+          "en-US": "0492-383300",
+        },
+        "serviceTypes": Object {
+          "en-US": Array [
+            Object {
+              "sys": Object {
+                "id": "merchant-type-id",
+                "linkType": "Entry",
+                "type": "Link",
+              },
+            },
+          ],
+        },
+        "summary": Object {
+          "en-US": "Test summary",
+        },
+        "website": Object {
+          "en-US": undefined,
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-US": "info@aberson.nl",
@@ -1059,7 +1341,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv",
+          "en-US": "Aberson BV",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -1089,7 +1371,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": ", 088-4553600info@aberson.nl",
+          "en-US": ", 088-4553600, info@aberson.nl",
         },
         "email": Object {
           "en-US": "Test summary",
@@ -1104,7 +1386,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv2",
+          "en-US": "Aberson BV2",
         },
         "phone": Object {
           "en-US": "www.aberson.nl",
@@ -1144,7 +1426,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Gouwe 1, Zwolle8032 CA",
+          "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-US": "info@aberson.nl",
@@ -1159,7 +1441,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv",
+          "en-US": "Aberson BV",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -1190,7 +1472,7 @@ Array [
 exports[`Merchants contentful upload when getLocales returns null it uses env locale: error 1`] = `
 Array [
   Array [
-    [Error: fetch-mock: No fallback response defined for GET to https://maps.googleapis.com/maps/api/geocode/json?address=Aberson%20BV%20ZuidSolvayweg%2026049%20CP&key=undefined],
+    [Error: fetch-mock: No fallback response defined for GET to https://maps.googleapis.com/maps/api/geocode/json?address=Aberson%20BV%20ZuidSolvayweg%202,%206049%20CP&key=undefined],
   ],
   Array [
     "Process failed",
@@ -1228,7 +1510,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 8 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 10 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -1237,19 +1519,25 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Created and Published new Service Type - 'Hellend dak' with id 'merchant-type-id'",
   ],
   Array [
-    "Uploading line 2: 'Aberson BV'",
+    "Uploading line 2: 'BMN Bouwmaterialen'",
   ],
   Array [
-    "Uploading line 3: 'Aberson BV2'",
+    "Uploading line 3: 'BMN Zaltbommel'",
   ],
   Array [
     "Uploading line 4: 'Aberson BV'",
   ],
   Array [
+    "Uploading line 5: 'Aberson BV2'",
+  ],
+  Array [
+    "Uploading line 6: 'Aberson BV'",
+  ],
+  Array [
     "Created and Published new Service Type - 'does_not_exist' with id 'merchant-type-id'",
   ],
   Array [
-    "Uploading line 5: 'Aberson BV Zuid'",
+    "Uploading line 7: 'Aberson BV Zuid'",
   ],
 ]
 `;
@@ -1281,7 +1569,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Havenweg 17, Aarle Rixtel5735 SH",
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
         },
         "email": Object {
           "en-US": "info@aarlesebouwmaterialen.nl",
@@ -1326,7 +1614,97 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Gouwe 1, Zwolle8032 CA",
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
+        },
+        "email": Object {
+          "en-US": "info@aarlesebouwmaterialen.nl",
+        },
+        "entryType": Object {
+          "en-US": "Merchant",
+        },
+        "location": Object {
+          "en-US": Object {
+            "lat": 23,
+            "lon": 63,
+          },
+        },
+        "name": Object {
+          "en-US": "BMN Bouwmaterialen",
+        },
+        "phone": Object {
+          "en-US": "0492-383300",
+        },
+        "serviceTypes": Object {
+          "en-US": Array [
+            Object {
+              "sys": Object {
+                "id": "merchant-type-id",
+                "linkType": "Entry",
+                "type": "Link",
+              },
+            },
+          ],
+        },
+        "summary": Object {
+          "en-US": "Test summary",
+        },
+        "website": Object {
+          "en-US": undefined,
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
+        },
+        "email": Object {
+          "en-US": "info@aarlesebouwmaterialen.nl",
+        },
+        "entryType": Object {
+          "en-US": "Merchant",
+        },
+        "location": Object {
+          "en-US": Object {
+            "lat": 23,
+            "lon": 63,
+          },
+        },
+        "name": Object {
+          "en-US": "BMN Zaltbommel",
+        },
+        "phone": Object {
+          "en-US": "0492-383300",
+        },
+        "serviceTypes": Object {
+          "en-US": Array [
+            Object {
+              "sys": Object {
+                "id": "merchant-type-id",
+                "linkType": "Entry",
+                "type": "Link",
+              },
+            },
+          ],
+        },
+        "summary": Object {
+          "en-US": "Test summary",
+        },
+        "website": Object {
+          "en-US": undefined,
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-US": "info@aberson.nl",
@@ -1341,7 +1719,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv",
+          "en-US": "Aberson BV",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -1371,7 +1749,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": ", 088-4553600info@aberson.nl",
+          "en-US": ", 088-4553600, info@aberson.nl",
         },
         "email": Object {
           "en-US": "Test summary",
@@ -1386,7 +1764,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv2",
+          "en-US": "Aberson BV2",
         },
         "phone": Object {
           "en-US": "www.aberson.nl",
@@ -1426,7 +1804,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Gouwe 1, Zwolle8032 CA",
+          "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-US": "info@aberson.nl",
@@ -1441,7 +1819,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv",
+          "en-US": "Aberson BV",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -1472,7 +1850,7 @@ Array [
 exports[`Merchants contentful upload when merchant type does not exist returns empty dictionary: error 1`] = `
 Array [
   Array [
-    [Error: fetch-mock: No fallback response defined for GET to https://maps.googleapis.com/maps/api/geocode/json?address=Aberson%20BV%20ZuidSolvayweg%2026049%20CP&key=undefined],
+    [Error: fetch-mock: No fallback response defined for GET to https://maps.googleapis.com/maps/api/geocode/json?address=Aberson%20BV%20ZuidSolvayweg%202,%206049%20CP&key=undefined],
   ],
   Array [
     "Process failed",
@@ -1526,7 +1904,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 8 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 10 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -1535,19 +1913,25 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Created and Published new Service Type - 'Hellend dak' with id 'merchant-type-id'",
   ],
   Array [
-    "Uploading line 2: 'Aberson BV'",
+    "Uploading line 2: 'BMN Bouwmaterialen'",
   ],
   Array [
-    "Uploading line 3: 'Aberson BV2'",
+    "Uploading line 3: 'BMN Zaltbommel'",
   ],
   Array [
     "Uploading line 4: 'Aberson BV'",
   ],
   Array [
+    "Uploading line 5: 'Aberson BV2'",
+  ],
+  Array [
+    "Uploading line 6: 'Aberson BV'",
+  ],
+  Array [
     "Created and Published new Service Type - 'does_not_exist' with id 'merchant-type-id'",
   ],
   Array [
-    "Uploading line 5: 'Aberson BV Zuid'",
+    "Uploading line 7: 'Aberson BV Zuid'",
   ],
 ]
 `;
@@ -1569,7 +1953,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Havenweg 17, Aarle Rixtel5735 SH",
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
         },
         "email": Object {
           "en-US": "info@aarlesebouwmaterialen.nl",
@@ -1614,7 +1998,97 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Gouwe 1, Zwolle8032 CA",
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
+        },
+        "email": Object {
+          "en-US": "info@aarlesebouwmaterialen.nl",
+        },
+        "entryType": Object {
+          "en-US": "Merchant",
+        },
+        "location": Object {
+          "en-US": Object {
+            "lat": 23,
+            "lon": 63,
+          },
+        },
+        "name": Object {
+          "en-US": "BMN Bouwmaterialen",
+        },
+        "phone": Object {
+          "en-US": "0492-383300",
+        },
+        "serviceTypes": Object {
+          "en-US": Array [
+            Object {
+              "sys": Object {
+                "id": "merchant-type-id",
+                "linkType": "Entry",
+                "type": "Link",
+              },
+            },
+          ],
+        },
+        "summary": Object {
+          "en-US": "Test summary",
+        },
+        "website": Object {
+          "en-US": undefined,
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
+        },
+        "email": Object {
+          "en-US": "info@aarlesebouwmaterialen.nl",
+        },
+        "entryType": Object {
+          "en-US": "Merchant",
+        },
+        "location": Object {
+          "en-US": Object {
+            "lat": 23,
+            "lon": 63,
+          },
+        },
+        "name": Object {
+          "en-US": "BMN Zaltbommel",
+        },
+        "phone": Object {
+          "en-US": "0492-383300",
+        },
+        "serviceTypes": Object {
+          "en-US": Array [
+            Object {
+              "sys": Object {
+                "id": "merchant-type-id",
+                "linkType": "Entry",
+                "type": "Link",
+              },
+            },
+          ],
+        },
+        "summary": Object {
+          "en-US": "Test summary",
+        },
+        "website": Object {
+          "en-US": undefined,
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-US": "info@aberson.nl",
@@ -1629,7 +2103,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv",
+          "en-US": "Aberson BV",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -1659,7 +2133,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": ", 088-4553600info@aberson.nl",
+          "en-US": ", 088-4553600, info@aberson.nl",
         },
         "email": Object {
           "en-US": "Test summary",
@@ -1674,7 +2148,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv2",
+          "en-US": "Aberson BV2",
         },
         "phone": Object {
           "en-US": "www.aberson.nl",
@@ -1714,7 +2188,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Gouwe 1, Zwolle8032 CA",
+          "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-US": "info@aberson.nl",
@@ -1729,7 +2203,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv",
+          "en-US": "Aberson BV",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -1760,7 +2234,7 @@ Array [
 exports[`Merchants contentful upload when merchant type gets created but does not publish: error 1`] = `
 Array [
   Array [
-    [Error: fetch-mock: No fallback response defined for GET to https://maps.googleapis.com/maps/api/geocode/json?address=Aberson%20BV%20ZuidSolvayweg%2026049%20CP&key=undefined],
+    [Error: fetch-mock: No fallback response defined for GET to https://maps.googleapis.com/maps/api/geocode/json?address=Aberson%20BV%20ZuidSolvayweg%202,%206049%20CP&key=undefined],
   ],
   Array [
     "Process failed",
@@ -1798,7 +2272,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 8 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 10 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -1807,19 +2281,25 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Created and Published new Service Type - 'Hellend dak' with id 'merchant-type-id'",
   ],
   Array [
-    "Uploading line 2: 'Aberson BV'",
+    "Uploading line 2: 'BMN Bouwmaterialen'",
   ],
   Array [
-    "Uploading line 3: 'Aberson BV2'",
+    "Uploading line 3: 'BMN Zaltbommel'",
   ],
   Array [
     "Uploading line 4: 'Aberson BV'",
   ],
   Array [
+    "Uploading line 5: 'Aberson BV2'",
+  ],
+  Array [
+    "Uploading line 6: 'Aberson BV'",
+  ],
+  Array [
     "Created and Published new Service Type - 'does_not_exist' with id 'merchant-type-id'",
   ],
   Array [
-    "Uploading line 5: 'Aberson BV Zuid'",
+    "Uploading line 7: 'Aberson BV Zuid'",
   ],
 ]
 `;
@@ -1841,7 +2321,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Havenweg 17, Aarle Rixtel5735 SH",
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
         },
         "email": Object {
           "en-US": "info@aarlesebouwmaterialen.nl",
@@ -1896,7 +2376,117 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Gouwe 1, Zwolle8032 CA",
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
+        },
+        "email": Object {
+          "en-US": "info@aarlesebouwmaterialen.nl",
+        },
+        "entryType": Object {
+          "en-US": "Merchant",
+        },
+        "location": Object {
+          "en-US": Object {
+            "lat": 23,
+            "lon": 63,
+          },
+        },
+        "name": Object {
+          "en-US": "BMN Bouwmaterialen",
+        },
+        "phone": Object {
+          "en-US": "0492-383300",
+        },
+        "serviceTypes": Object {
+          "en-US": Array [
+            Object {
+              "sys": Object {
+                "id": undefined,
+                "linkType": "Entry",
+                "type": "Link",
+              },
+            },
+          ],
+        },
+        "summary": Object {
+          "en-US": "Test summary",
+        },
+        "website": Object {
+          "en-US": undefined,
+        },
+      },
+    },
+  ],
+  Array [
+    "serviceType",
+    Object {
+      "fields": Object {
+        "name": Object {
+          "en-US": "Hellend dak",
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH",
+        },
+        "email": Object {
+          "en-US": "info@aarlesebouwmaterialen.nl",
+        },
+        "entryType": Object {
+          "en-US": "Merchant",
+        },
+        "location": Object {
+          "en-US": Object {
+            "lat": 23,
+            "lon": 63,
+          },
+        },
+        "name": Object {
+          "en-US": "BMN Zaltbommel",
+        },
+        "phone": Object {
+          "en-US": "0492-383300",
+        },
+        "serviceTypes": Object {
+          "en-US": Array [
+            Object {
+              "sys": Object {
+                "id": undefined,
+                "linkType": "Entry",
+                "type": "Link",
+              },
+            },
+          ],
+        },
+        "summary": Object {
+          "en-US": "Test summary",
+        },
+        "website": Object {
+          "en-US": undefined,
+        },
+      },
+    },
+  ],
+  Array [
+    "serviceType",
+    Object {
+      "fields": Object {
+        "name": Object {
+          "en-US": "Hellend dak",
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-US": "info@aberson.nl",
@@ -1911,7 +2501,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv",
+          "en-US": "Aberson BV",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -1951,7 +2541,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": ", 088-4553600info@aberson.nl",
+          "en-US": ", 088-4553600, info@aberson.nl",
         },
         "email": Object {
           "en-US": "Test summary",
@@ -1966,7 +2556,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv2",
+          "en-US": "Aberson BV2",
         },
         "phone": Object {
           "en-US": "www.aberson.nl",
@@ -2006,7 +2596,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-US": "Gouwe 1, Zwolle8032 CA",
+          "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-US": "info@aberson.nl",
@@ -2021,7 +2611,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson Bv",
+          "en-US": "Aberson BV",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -2064,11 +2654,19 @@ Array [
     [Error: cannot create merchant type],
   ],
   Array [
-    "Failed to publish Merchant type : 'does_not_exist' :: source line No.: 4",
+    "Failed to publish Merchant type : 'Hellend dak' :: source line No.: 4",
     [Error: cannot create merchant type],
   ],
   Array [
-    [Error: fetch-mock: No fallback response defined for GET to https://maps.googleapis.com/maps/api/geocode/json?address=Aberson%20BV%20ZuidSolvayweg%2026049%20CP&key=undefined],
+    "Failed to publish Merchant type : 'Hellend dak' :: source line No.: 5",
+    [Error: cannot create merchant type],
+  ],
+  Array [
+    "Failed to publish Merchant type : 'does_not_exist' :: source line No.: 6",
+    [Error: cannot create merchant type],
+  ],
+  Array [
+    [Error: fetch-mock: No fallback response defined for GET to https://maps.googleapis.com/maps/api/geocode/json?address=Aberson%20BV%20ZuidSolvayweg%202,%206049%20CP&key=undefined],
   ],
   Array [
     "Process failed",
@@ -2106,22 +2704,28 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 8 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 10 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
   ],
   Array [
-    "Uploading line 2: 'Aberson BV'",
+    "Uploading line 2: 'BMN Bouwmaterialen'",
   ],
   Array [
-    "Uploading line 3: 'Aberson BV2'",
+    "Uploading line 3: 'BMN Zaltbommel'",
   ],
   Array [
     "Uploading line 4: 'Aberson BV'",
   ],
   Array [
-    "Uploading line 5: 'Aberson BV Zuid'",
+    "Uploading line 5: 'Aberson BV2'",
+  ],
+  Array [
+    "Uploading line 6: 'Aberson BV'",
+  ],
+  Array [
+    "Uploading line 7: 'Aberson BV Zuid'",
   ],
 ]
 `;
@@ -2143,7 +2747,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-GB": "Havenweg 17, Aarle Rixtel5735 SH",
+          "en-GB": "Havenweg 17, AARLE RIXTEL, 5735 SH",
         },
         "email": Object {
           "en-GB": "info@aarlesebouwmaterialen.nl",
@@ -2188,7 +2792,97 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-GB": "Gouwe 1, Zwolle8032 CA",
+          "en-GB": "Havenweg 17, AARLE RIXTEL, 5735 SH",
+        },
+        "email": Object {
+          "en-GB": "info@aarlesebouwmaterialen.nl",
+        },
+        "entryType": Object {
+          "en-GB": "Merchant",
+        },
+        "location": Object {
+          "en-GB": Object {
+            "lat": 23,
+            "lon": 63,
+          },
+        },
+        "name": Object {
+          "en-GB": "BMN Bouwmaterialen",
+        },
+        "phone": Object {
+          "en-GB": "0492-383300",
+        },
+        "serviceTypes": Object {
+          "en-GB": Array [
+            Object {
+              "sys": Object {
+                "id": "merchant-type-id",
+                "linkType": "Entry",
+                "type": "Link",
+              },
+            },
+          ],
+        },
+        "summary": Object {
+          "en-GB": "Test summary",
+        },
+        "website": Object {
+          "en-GB": undefined,
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "en-GB": "Havenweg 17, AARLE RIXTEL, 5735 SH",
+        },
+        "email": Object {
+          "en-GB": "info@aarlesebouwmaterialen.nl",
+        },
+        "entryType": Object {
+          "en-GB": "Merchant",
+        },
+        "location": Object {
+          "en-GB": Object {
+            "lat": 23,
+            "lon": 63,
+          },
+        },
+        "name": Object {
+          "en-GB": "BMN Zaltbommel",
+        },
+        "phone": Object {
+          "en-GB": "0492-383300",
+        },
+        "serviceTypes": Object {
+          "en-GB": Array [
+            Object {
+              "sys": Object {
+                "id": "merchant-type-id",
+                "linkType": "Entry",
+                "type": "Link",
+              },
+            },
+          ],
+        },
+        "summary": Object {
+          "en-GB": "Test summary",
+        },
+        "website": Object {
+          "en-GB": undefined,
+        },
+      },
+    },
+  ],
+  Array [
+    "roofer",
+    Object {
+      "fields": Object {
+        "address": Object {
+          "en-GB": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-GB": "info@aberson.nl",
@@ -2203,7 +2897,7 @@ Array [
           },
         },
         "name": Object {
-          "en-GB": "Aberson Bv",
+          "en-GB": "Aberson BV",
         },
         "phone": Object {
           "en-GB": "088-4553600",
@@ -2233,7 +2927,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-GB": ", 088-4553600info@aberson.nl",
+          "en-GB": ", 088-4553600, info@aberson.nl",
         },
         "email": Object {
           "en-GB": "Test summary",
@@ -2248,7 +2942,7 @@ Array [
           },
         },
         "name": Object {
-          "en-GB": "Aberson Bv2",
+          "en-GB": "Aberson BV2",
         },
         "phone": Object {
           "en-GB": "www.aberson.nl",
@@ -2288,7 +2982,7 @@ Array [
     Object {
       "fields": Object {
         "address": Object {
-          "en-GB": "Gouwe 1, Zwolle8032 CA",
+          "en-GB": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
           "en-GB": "info@aberson.nl",
@@ -2303,7 +2997,7 @@ Array [
           },
         },
         "name": Object {
-          "en-GB": "Aberson Bv",
+          "en-GB": "Aberson BV",
         },
         "phone": Object {
           "en-GB": "088-4553600",
@@ -2334,7 +3028,7 @@ Array [
 exports[`Merchants contentful upload when site locale is different from env variable locale: error 1`] = `
 Array [
   Array [
-    [Error: fetch-mock: No fallback response defined for GET to https://maps.googleapis.com/maps/api/geocode/json?address=Aberson%20BV%20ZuidSolvayweg%2026049%20CP&key=undefined],
+    [Error: fetch-mock: No fallback response defined for GET to https://maps.googleapis.com/maps/api/geocode/json?address=Aberson%20BV%20ZuidSolvayweg%202,%206049%20CP&key=undefined],
   ],
   Array [
     "Process failed",
@@ -2375,7 +3069,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 8 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 10 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -2384,19 +3078,25 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Created and Published new Service Type - 'Hellend dak' with id 'merchant-type-id'",
   ],
   Array [
-    "Uploading line 2: 'Aberson BV'",
+    "Uploading line 2: 'BMN Bouwmaterialen'",
   ],
   Array [
-    "Uploading line 3: 'Aberson BV2'",
+    "Uploading line 3: 'BMN Zaltbommel'",
   ],
   Array [
     "Uploading line 4: 'Aberson BV'",
   ],
   Array [
+    "Uploading line 5: 'Aberson BV2'",
+  ],
+  Array [
+    "Uploading line 6: 'Aberson BV'",
+  ],
+  Array [
     "Created and Published new Service Type - 'does_not_exist' with id 'merchant-type-id'",
   ],
   Array [
-    "Uploading line 5: 'Aberson BV Zuid'",
+    "Uploading line 7: 'Aberson BV Zuid'",
   ],
 ]
 `;
