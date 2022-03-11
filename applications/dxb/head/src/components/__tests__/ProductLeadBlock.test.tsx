@@ -8,7 +8,7 @@ import {
 import createSystemDetails from "../../test/systemDetailsMockData";
 import { Image } from "../types/pim";
 import { Asset } from "../types/pim";
-import { PIMDocumentData } from "../types/PIMDocumentBase";
+import { PIMDocumentData, PIMLinkDocumentData } from "../types/PIMDocumentBase";
 
 const systemDetailsMockData = createSystemDetails();
 const awardsAndCertificatesAssets: Asset[] = [
@@ -57,6 +57,47 @@ const guaranteesAndWarrantiesAssets: Asset[] = [
     url: "http://facebook.com"
   }
 ];
+const document: PIMDocumentData = {
+  __typename: "PIMDocument",
+  fileSize: 234,
+  extension: "jpg",
+  format: "image/jpg",
+  id: "dummy-id",
+  url: "https://doesnt-exist.com",
+  title: "dummy-title",
+  realFileName: null,
+  product: {
+    name: "dummy-product",
+    code: "dummy-code"
+  },
+  assetType: {
+    __typename: "ContentfulAssetType",
+    id: "some-asset-id",
+    name: "Technical Approvals",
+    code: "TALS",
+    description: null,
+    pimCode: "TECHNICAL_APPROVALS"
+  }
+};
+const linkdocument: PIMLinkDocumentData = {
+  __typename: "PIMLinkDocument",
+  id: "dummy-id",
+  url: "https://doesnt-exist.com",
+  title: "dummy-title",
+  product: {
+    name: "dummy-product",
+    code: "dummy-code"
+  },
+  assetType: {
+    __typename: "ContentfulAssetType",
+    id: "some-asset-id",
+    name: "Technical Approvals",
+    code: "TALS",
+    description: null,
+    pimCode: "TECHNICAL_APPROVALS"
+  }
+};
+
 describe("ProductLeadBlock tests", () => {
   beforeEach(() => {
     // resolve useDimensions (useState) hook in TechnicalSpecificationLeadBlock ProductFeatureTable
@@ -187,28 +228,6 @@ describe("ProductLeadBlock tests", () => {
   });
   it("should render the documents and download tab", () => {
     const specificationIframeUrl = "https://monier.service.bouwconnect.nl/";
-    const document: PIMDocumentData = {
-      __typename: "PIMDocument",
-      fileSize: 234,
-      extension: "jpg",
-      format: "image/jpg",
-      id: "dummy-id",
-      url: "https://doesnt-exist.com",
-      title: "dummy-title",
-      realFileName: null,
-      product: {
-        name: "dummy-product",
-        code: "dummy-code"
-      },
-      assetType: {
-        __typename: "ContentfulAssetType",
-        id: "some-asset-id",
-        name: "Technical Approvals",
-        code: "TALS",
-        description: null,
-        pimCode: "TECHNICAL_APPROVALS"
-      }
-    };
     const { queryByTestId } = render(
       <ProductLeadBlock
         documents={[document]}
@@ -222,5 +241,38 @@ describe("ProductLeadBlock tests", () => {
     );
     const productBlock = queryByTestId("specification");
     expect(productBlock).toMatchSnapshot();
+  });
+  it("should zip the pimDocuments if they are of same asset type", () => {
+    const specificationIframeUrl = "https://monier.service.bouwconnect.nl/";
+    const documents = [
+      document,
+      linkdocument,
+      linkdocument,
+      {
+        ...linkdocument,
+        assetType: { ...linkdocument.assetType, code: "code1" }
+      },
+      {
+        ...linkdocument,
+        assetType: { ...linkdocument.assetType, code: "code1" }
+      },
+      { ...document, filesize: 123 },
+      { ...document, assetType: { ...document.assetType, code: "code1" } },
+      { ...document, assetType: { ...document.assetType, code: "code1" } }
+    ];
+    const { container } = render(
+      <ProductLeadBlock
+        documents={documents}
+        validClassifications={[]}
+        classificationNamespace=""
+        techDrawings={[]}
+        specificationIframeUrl={specificationIframeUrl}
+        pdpSpecificationTitle="Specification title"
+        pdpSpecificationDescription={null}
+      />
+    );
+    expect(container.getElementsByClassName("row").length).toBe(6);
+    expect(container.getElementsByClassName("Checkbox").length).toBe(2);
+    expect(container).toMatchSnapshot();
   });
 });

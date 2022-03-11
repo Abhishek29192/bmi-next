@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { LeadBlock } from "@bmi/components";
 import { Button } from "@bmi/components";
 import { IconList } from "@bmi/components";
@@ -81,24 +81,31 @@ const ProductLeadBlock = ({
   const resultsElement = useRef<HTMLDivElement>(null);
   //filters formats not supported in all_formats such as tiff
 
-  const filteredDocuments: (PIMDocumentData | PIMLinkDocumentData)[] =
-    documents.filter((document) => {
-      if (
-        document.__typename === "PIMDocument" &&
-        (document.assetType.name === "Warranties" ||
-          document.assetType.name === "Guaranties")
-      ) {
-        return All_FORMATS.includes(document.format);
-      }
-      if (NO_DOCUMENT_FORMAT.includes(document.assetType.pimCode)) {
-        return false;
-      }
-      return document;
-    });
+  const filteredDocuments = useMemo(
+    () =>
+      documents.filter((document) => {
+        if (
+          document.__typename === "PIMDocument" &&
+          (document.assetType.name === "Warranties" ||
+            document.assetType.name === "Guaranties")
+        ) {
+          return All_FORMATS.includes(document.format);
+        }
+        if (NO_DOCUMENT_FORMAT.includes(document.assetType.pimCode)) {
+          return false;
+        }
+        return document;
+      }),
+    [documents]
+  );
   //group documents by assetType
-  const documentsByAssetType = groupDocuments(filteredDocuments, true).slice(
-    (page - 1) * DOCUMENTS_PER_PAGE,
-    page * DOCUMENTS_PER_PAGE
+  const documentsByAssetType = useMemo(
+    () =>
+      groupDocuments(filteredDocuments, true).slice(
+        (page - 1) * DOCUMENTS_PER_PAGE,
+        page * DOCUMENTS_PER_PAGE
+      ),
+    [filteredDocuments]
   );
 
   const isImageAsset = (asset: Asset) => {
