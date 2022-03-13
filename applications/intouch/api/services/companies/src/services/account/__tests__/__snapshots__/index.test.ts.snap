@@ -1,5 +1,263 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Account Invitation should be able to send invitation for existing user 1`] = `
+Array [
+  Array [
+    Object {
+      "logger": [Function],
+      "pgClient": Object {
+        "query": [MockFunction] {
+          "calls": Array [
+            Array [
+              "SAVEPOINT graphql_mutation",
+            ],
+            Array [
+              "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
+              Array [
+                null,
+                1,
+                "NEW",
+                "email",
+                "personalNote",
+              ],
+            ],
+            Array [
+              "RELEASE SAVEPOINT graphql_mutation",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": Object {
+                "rows": Array [],
+              },
+            },
+            Object {
+              "type": "return",
+              "value": Object {
+                "rows": Array [
+                  Object {
+                    "first_name": "First name value",
+                    "id": 2,
+                  },
+                ],
+              },
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        },
+      },
+      "pgRootPool": Object {
+        "query": [MockFunction] {
+          "calls": Array [
+            Array [
+              "SELECT * FROM account WHERE email = $1",
+              Array [
+                "email",
+              ],
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+          ],
+        },
+      },
+      "req": Object {
+        "protocol": "https",
+      },
+      "user": Object {
+        "can": [Function],
+        "company": Object {
+          "about_us": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+          "business_type": "CONTRACTOR",
+          "created_at": "2021-06-29 10:31:36.497913",
+          "facebook": "http://facebook.com/coolcompany",
+          "id": 1,
+          "linked_in": "http://linkedin.com/coolcompany",
+          "logo": "http://intouch.co.uk/images/logo.png",
+          "market_id": 1,
+          "migration_id": 1,
+          "name": "Cool company name",
+          "owner_email": "owner@email.co.uk",
+          "owner_fullname": "Elon Green",
+          "owner_phone": 7949785312,
+          "phone": 7949732635,
+          "public_email": "public@email.co.uk",
+          "reference_number": 1321321,
+          "registered_address_id": 1,
+          "registered_address_migration_id": 1,
+          "registered_by": "1",
+          "registered_date": "2021-06-29 10:31:36.497913",
+          "status": "ACTIVE",
+          "tax_number": 132134,
+          "tier": "T1",
+          "trading_address_id": 1,
+          "trading_address_migration_id": 1,
+          "updated_at": "2021-06-29 10:31:36.497913",
+          "website": "www.coolcompany.co.uk",
+        },
+        "email": "email@email.com",
+        "id": null,
+        "market": Object {
+          "domain": "en",
+          "sendMailbox": undefined,
+        },
+        "role": "INSTALLER",
+        "sub": "user-sub",
+      },
+    },
+    "NEWUSER_INVITED",
+    Object {
+      "company": "Cool company name",
+      "email": "email",
+      "firstname": "email",
+      "registerlink": "my-ticketen",
+    },
+  ],
+]
+`;
+
+exports[`Account Invitation should be able to send invitation for new user 1`] = `
+Array [
+  Array [
+    Object {
+      "logger": [Function],
+      "pgClient": Object {
+        "query": [MockFunction] {
+          "calls": Array [
+            Array [
+              "SAVEPOINT graphql_mutation",
+            ],
+            Array [
+              "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
+              Array [
+                null,
+                1,
+                "NEW",
+                "email",
+                "personalNote",
+              ],
+            ],
+            Array [
+              "RELEASE SAVEPOINT graphql_mutation",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": Object {
+                "rows": Array [],
+              },
+            },
+            Object {
+              "type": "return",
+              "value": Object {
+                "rows": Array [
+                  Object {
+                    "first_name": "First name value",
+                    "id": 2,
+                  },
+                ],
+              },
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        },
+      },
+      "pgRootPool": Object {
+        "query": [MockFunction] {
+          "calls": Array [
+            Array [
+              "SELECT * FROM account WHERE email = $1",
+              Array [
+                "email",
+              ],
+            ],
+            Array [
+              "SELECT * FROM company_member WHERE account_id = $1",
+              Array [
+                1,
+              ],
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+          ],
+        },
+      },
+      "req": Object {
+        "protocol": "https",
+      },
+      "user": Object {
+        "can": [Function],
+        "company": Object {
+          "about_us": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+          "business_type": "CONTRACTOR",
+          "created_at": "2021-06-29 10:31:36.497913",
+          "facebook": "http://facebook.com/coolcompany",
+          "id": 1,
+          "linked_in": "http://linkedin.com/coolcompany",
+          "logo": "http://intouch.co.uk/images/logo.png",
+          "market_id": 1,
+          "migration_id": 1,
+          "name": "Cool company name",
+          "owner_email": "owner@email.co.uk",
+          "owner_fullname": "Elon Green",
+          "owner_phone": 7949785312,
+          "phone": 7949732635,
+          "public_email": "public@email.co.uk",
+          "reference_number": 1321321,
+          "registered_address_id": 1,
+          "registered_address_migration_id": 1,
+          "registered_by": "1",
+          "registered_date": "2021-06-29 10:31:36.497913",
+          "status": "ACTIVE",
+          "tax_number": 132134,
+          "tier": "T1",
+          "trading_address_id": 1,
+          "trading_address_migration_id": 1,
+          "updated_at": "2021-06-29 10:31:36.497913",
+          "website": "www.coolcompany.co.uk",
+        },
+        "email": "email@email.com",
+        "id": null,
+        "market": Object {
+          "domain": "en",
+          "sendMailbox": undefined,
+        },
+        "role": "INSTALLER",
+        "sub": "user-sub",
+      },
+    },
+    "MEMBER_INVITED",
+    Object {
+      "accountId": 1,
+      "company": "Cool company name",
+      "email": "email",
+      "firstname": undefined,
+      "registerlink": "undefined://dev-en.intouch.dddev.io/api/invitation?company_id=1",
+      "sender": "undefined undefined",
+    },
+  ],
+]
+`;
+
 exports[`Account Invitation should complete an invitation 1`] = `
 Array [
   Array [
@@ -12,6 +270,47 @@ Array [
       "email@email.com",
       "Name",
       "Name",
+      "INSTALLER",
+      "ACTIVE",
+    ],
+  ],
+  Array [
+    "SELECT set_config('app.current_account_id', $1, true);",
+    Array [
+      1,
+    ],
+  ],
+  Array [
+    "SELECT * FROM market WHERE id = $1",
+    Array [
+      1,
+    ],
+  ],
+  Array [
+    "select * from link_account_to_company ($1, $2)",
+    Array [
+      1,
+      1,
+    ],
+  ],
+  Array [
+    "RELEASE SAVEPOINT graphql_mutation",
+  ],
+]
+`;
+
+exports[`Account Invitation should complete an invitation with additional checks 1`] = `
+Array [
+  Array [
+    "SAVEPOINT graphql_mutation",
+  ],
+  Array [
+    "INSERT INTO account (market_id, email, first_name, last_name, role, status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+    Array [
+      1,
+      "email@email.com",
+      undefined,
+      undefined,
       "INSTALLER",
       "ACTIVE",
     ],
@@ -159,6 +458,26 @@ Array [
     Array [
       undefined,
     ],
+  ],
+  Array [
+    "RELEASE SAVEPOINT graphql_mutation",
+  ],
+]
+`;
+
+exports[`Account Update Role extended act in case upload photo process failure 1`] = `
+Array [
+  Array [
+    "SAVEPOINT graphql_mutation",
+  ],
+  Array [
+    "select account.photo from account where id = $1",
+    Array [
+      null,
+    ],
+  ],
+  Array [
+    "ROLLBACK TO SAVEPOINT graphql_mutation",
   ],
   Array [
     "RELEASE SAVEPOINT graphql_mutation",

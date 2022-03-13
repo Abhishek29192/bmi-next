@@ -7,7 +7,8 @@ import {
   createAccount,
   invite,
   updateAccount,
-  resetPasswordImportedUsers
+  resetPasswordImportedUsers,
+  resetPassword
 } from "../";
 import * as mailerSrv from "../../../services/mailer";
 import * as trainingSrv from "../../../services/training";
@@ -21,8 +22,12 @@ const mockResolve = jest.fn();
 const mockAuth0Update = jest.fn();
 const mockAuth0GetUserByEmail = jest.fn();
 const mockAuth0CreateUser = jest.fn();
+const mockAuth0ChangePassword = jest.fn();
 const mockCreateResetPasswordTicket = jest.fn();
 const mockClientGateway = jest.fn();
+const mockUploadFileByStream = jest.fn();
+const mockDeleteFile = jest.fn();
+const loggerError = jest.fn();
 
 jest.mock("../../../services/events");
 jest.mock("../../../services/mailer");
@@ -37,7 +42,7 @@ jest.mock("crypto", () => {
 });
 
 const logger = () => ({
-  error: () => {},
+  error: loggerError,
   info: () => {}
 });
 
@@ -45,13 +50,16 @@ describe("Account", () => {
   let args;
   let pool;
   let resolveInfo;
+  let queryGraphileBuilder;
+
   const userCanMock = jest.fn();
   const userTermsToAccept = jest.fn();
   const auth0 = {
     updateUser: mockAuth0Update,
     createResetPasswordTicket: mockCreateResetPasswordTicket,
     getUserByEmail: mockAuth0GetUserByEmail,
-    createUser: mockAuth0CreateUser
+    createUser: mockAuth0CreateUser,
+    changePassword: mockAuth0ChangePassword
   };
   const queryBuilder = () => ({
     where: () => {}
@@ -62,6 +70,12 @@ describe("Account", () => {
       value: (args) => {}
     }
   };
+  const argsFactory = (input = null, patch = null) => ({
+    input: {
+      patch: { ...patch },
+      ...input
+    }
+  });
   let contextMock: any = {
     user: {
       sub: "user-sub",
@@ -73,7 +87,11 @@ describe("Account", () => {
     clientGateway: mockClientGateway,
     pgClient: { query: mockQuery },
     pgRootPool: { query: mockRootQuery },
-    logger
+    logger,
+    storageClient: {
+      uploadFileByStream: mockUploadFileByStream,
+      deleteFile: mockDeleteFile
+    }
   };
 
   beforeAll(async () => {
@@ -86,15 +104,24 @@ describe("Account", () => {
   beforeEach(() => {
     jest.clearAllMocks();
     jest.resetAllMocks();
+
+    queryGraphileBuilder = {
+      where: jest.fn()
+    };
+
     args = {
       input: {
         account: { role: "COMPANY_ADMIN" },
         marketCode: "en"
       }
     };
+
     resolveInfo = {
       graphile: {
-        selectGraphQLResultFromTable: jest.fn(),
+        selectGraphQLResultFromTable: jest.fn((_, callback) => {
+          callback(_, queryGraphileBuilder);
+          return [{}];
+        }),
         build
       }
     };
@@ -110,14 +137,7 @@ describe("Account", () => {
         contextMock.user.company = {
           id: 1
         };
-        args = {
-          input: {
-            id: 2,
-            patch: {
-              role: "COMPANY_ADMIN"
-            }
-          }
-        };
+        args = argsFactory({ id: 2 }, { role: "COMPANY_ADMIN" });
 
         (mailerSrv.sendMessageWithTemplate as jest.Mock).mockResolvedValueOnce(
           {}
@@ -129,6 +149,9 @@ describe("Account", () => {
           }))
           .mockImplementationOnce(() => ({
             rows: [{ id: 2, role: "INSTALLER" }]
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [{ id: 2, domain: undefined }]
           }));
 
         mockResolve.mockResolvedValueOnce({
@@ -176,14 +199,7 @@ describe("Account", () => {
         contextMock.user.company = {
           id: 1
         };
-        args = {
-          input: {
-            id: 2,
-            patch: {
-              role: "INSTALLER"
-            }
-          }
-        };
+        args = argsFactory({ id: 2 }, { role: "INSTALLER" });
 
         (mailerSrv.sendMessageWithTemplate as jest.Mock).mockResolvedValueOnce(
           {}
@@ -198,6 +214,9 @@ describe("Account", () => {
               { id: 2, role: "COMPANY_ADMIN" },
               { id: 2, role: "COMPANY_ADMIN" }
             ]
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [{ id: 2, domain: "en" }]
           }));
 
         mockResolve.mockResolvedValueOnce({
@@ -237,7 +256,7 @@ describe("Account", () => {
         );
       });
 
-      it("should trown an error if last admin", async () => {
+      it("should thrown an error if last admin", async () => {
         contextMock.user.can = () => true;
         contextMock.user.company = {
           id: 1
@@ -270,6 +289,321 @@ describe("Account", () => {
             $docebo_user_id: 123456
           }
         });
+
+        try {
+          await updateAccount(
+            mockResolve,
+            null,
+            args,
+            contextMock,
+            resolveInfo,
+            auth0
+          );
+        } catch (error) {
+          expect(error.message).toEqual("last_company_admin");
+        }
+      });
+    });
+
+    describe("Role extended", () => {
+      it("should throw an error if the last admin", async () => {
+        contextMock.user.can = () => false;
+        contextMock.user.company = {
+          id: 1
+        };
+        args = {
+          input: {
+            id: 2,
+            patch: {
+              role: "INSTALLER"
+            }
+          }
+        };
+
+        mockQuery
+          .mockImplementationOnce(() => ({
+            rows: []
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [{ id: 2, role: "COMPANY_ADMIN" }]
+          }));
+
+        try {
+          await updateAccount(
+            mockResolve,
+            null,
+            args,
+            contextMock,
+            resolveInfo,
+            auth0
+          );
+        } catch (error) {
+          expect(error.message).toEqual("last_company_admin");
+        }
+      });
+      it("should throw an error if unauthorized INSTALLER", async () => {
+        contextMock.user.can = () => false;
+        contextMock.user.company = {
+          id: 1
+        };
+        args = {
+          input: {
+            id: 2,
+            patch: {
+              role: "COMPANY_ADMIN"
+            }
+          }
+        };
+
+        mockQuery
+          .mockImplementationOnce(() => ({
+            rows: []
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [{ id: 2, role: "INSTALLER" }]
+          }));
+
+        try {
+          await updateAccount(
+            mockResolve,
+            null,
+            args,
+            contextMock,
+            resolveInfo,
+            auth0
+          );
+        } catch (error) {
+          expect(error.message).toEqual("unauthorized");
+        }
+      });
+      it("should throw an error if unauthorized MARKET_ADMIN", async () => {
+        contextMock.user.can = () => false;
+        contextMock.user.company = {
+          id: 1
+        };
+        args = {
+          input: {
+            id: 2,
+            patch: {
+              role: "MARKET_ADMIN"
+            }
+          }
+        };
+
+        mockQuery
+          .mockImplementationOnce(() => ({
+            rows: []
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [{ id: 2, role: "MARKET_ADMIN" }]
+          }));
+
+        try {
+          await updateAccount(
+            mockResolve,
+            null,
+            args,
+            contextMock,
+            resolveInfo,
+            auth0
+          );
+        } catch (error) {
+          expect(error.message).toEqual("unauthorized");
+        }
+      });
+      it("should throw an error if unauthorized SUPER_ADMIN", async () => {
+        contextMock.user.can = () => false;
+        contextMock.user.company = {
+          id: 1
+        };
+        args = {
+          input: {
+            id: 2,
+            patch: {
+              role: "SUPER_ADMIN"
+            }
+          }
+        };
+
+        mockQuery
+          .mockImplementationOnce(() => ({
+            rows: []
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [{ id: 2, role: "SUPER_ADMIN" }]
+          }));
+
+        try {
+          await updateAccount(
+            mockResolve,
+            null,
+            args,
+            contextMock,
+            resolveInfo,
+            auth0
+          );
+        } catch (error) {
+          expect(error.message).toEqual("unauthorized");
+        }
+      });
+      it("case with removed photo", async () => {
+        contextMock.user.can = () => true;
+        contextMock.user.company = {
+          id: 1
+        };
+        args = {
+          input: {
+            id: 2,
+            patch: {
+              role: "INSTALLER",
+              shouldRemovePhoto: true
+            }
+          }
+        };
+
+        mockQuery
+          .mockImplementationOnce(() => ({
+            rows: []
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [{ photo: "photo" }]
+          }));
+
+        try {
+          await updateAccount(
+            mockResolve,
+            null,
+            args,
+            contextMock,
+            resolveInfo,
+            auth0
+          );
+        } catch (error) {
+          expect(mockQuery.mock.calls).toMatchSnapshot();
+        }
+      });
+      it("case with uploaded photo", async () => {
+        contextMock.user.can = () => true;
+        contextMock.user.company = {
+          id: 1
+        };
+        args = {
+          input: {
+            id: 2,
+            patch: {
+              role: "INSTALLER",
+              photoUpload: "https://photo"
+            }
+          }
+        };
+
+        mockQuery
+          .mockImplementationOnce(() => ({
+            rows: []
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [{ photo: "photo" }]
+          }));
+
+        try {
+          await updateAccount(
+            mockResolve,
+            null,
+            args,
+            contextMock,
+            resolveInfo,
+            auth0
+          );
+        } catch (error) {
+          expect(mockQuery.mock.calls).toMatchSnapshot();
+        }
+      });
+      it("case with status", async () => {
+        contextMock.user.can = () => true;
+        contextMock.user.company = {
+          id: 1
+        };
+        args = {
+          input: {
+            id: 2,
+            patch: {
+              role: "INSTALLER",
+              status: "SUSPENDED"
+            }
+          }
+        };
+
+        mockQuery
+          .mockImplementationOnce(() => ({
+            rows: []
+          }))
+          .mockResolvedValueOnce({}) // set user
+          .mockResolvedValueOnce({}) // set user
+          .mockImplementationOnce(() => ({
+            rows: [{ id: 2, role: "COMPANY_ADMIN", email: "test@mail.me" }]
+          }));
+
+        mockAuth0GetUserByEmail.mockResolvedValueOnce({
+          user_id: 1
+        });
+
+        try {
+          await updateAccount(
+            mockResolve,
+            null,
+            args,
+            contextMock,
+            resolveInfo,
+            auth0
+          );
+        } catch (error) {
+          expect(mockQuery.mock.calls).toMatchSnapshot();
+        }
+      });
+      it("act in case upload photo process failure", async () => {
+        contextMock.user.can = () => true;
+        contextMock.user.company = {
+          id: 1
+        };
+        args = {
+          input: {
+            id: 2,
+            patch: {
+              role: "INSTALLER",
+              photoUpload: "https://photo"
+            }
+          }
+        };
+
+        mockUploadFileByStream.mockImplementation(() => {
+          throw new Error();
+        });
+
+        try {
+          await updateAccount(
+            mockResolve,
+            null,
+            args,
+            contextMock,
+            resolveInfo,
+            auth0
+          );
+        } catch (error) {
+          expect(mockQuery.mock.calls).toMatchSnapshot();
+        }
+      });
+      it("act in case missing user company", async () => {
+        contextMock.user.can = () => false;
+        contextMock.user.company = undefined;
+        args = argsFactory({ id: 2 }, { role: "INSTALLER" });
+
+        mockQuery
+          .mockImplementationOnce(() => ({
+            rows: []
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [{ id: 2, role: "COMPANY_ADMIN" }]
+          }));
 
         try {
           await updateAccount(
@@ -342,10 +676,6 @@ describe("Account", () => {
         }
       });
 
-      resolveInfo.graphile.selectGraphQLResultFromTable.mockResolvedValueOnce([
-        {}
-      ]);
-
       mockQuery
         .mockResolvedValueOnce({}) // savepoint
         .mockResolvedValueOnce({}) // set user
@@ -362,6 +692,7 @@ describe("Account", () => {
 
       await createAccount(mockResolve, null, args, contextMock, resolveInfo);
 
+      expect(queryGraphileBuilder.where).toBeCalledTimes(1);
       expect(mailerSrv.sendMessageWithTemplate).toBeCalledWith(
         {
           ...contextMock,
@@ -406,6 +737,28 @@ describe("Account", () => {
 
       expect(mockQuery.mock.calls).toMatchSnapshot();
     });
+    it("Should fail in case of API failure", async () => {
+      args.input.account.role = "INSTALLER";
+      mockResolve.mockResolvedValueOnce({
+        data: { $account_id: 1 }
+      });
+
+      resolveInfo.graphile.selectGraphQLResultFromTable.mockResolvedValue([{}]);
+
+      mockQuery
+        .mockResolvedValueOnce({}) // savepoint
+        .mockResolvedValueOnce({}) // set user
+        .mockResolvedValueOnce({ rows: [] }) // get company
+        .mockImplementation(() => {
+          throw new Error("Error creating a user");
+        })
+        .mockResolvedValueOnce({})
+        .mockResolvedValueOnce({});
+
+      await expect(
+        createAccount(mockResolve, null, args, contextMock, resolveInfo)
+      ).rejects.toThrowError("Error creating a user");
+    });
   });
 
   describe("Invitation", () => {
@@ -449,7 +802,10 @@ describe("Account", () => {
 
       resolveInfo = {
         graphile: {
-          selectGraphQLResultFromTable: jest.fn(),
+          selectGraphQLResultFromTable: jest.fn((_, callback) => {
+            callback(_, queryGraphileBuilder);
+            return [{}];
+          }),
           build
         }
       };
@@ -536,7 +892,7 @@ describe("Account", () => {
       expect(spy.mock.calls).toMatchSnapshot();
     });
 
-    it("should receive an error if the invetee is part of a company", async () => {
+    it("should receive an error if the invitee is part of a company", async () => {
       contextMock.user.can = () => true;
 
       mockAuth0GetUserByEmail.mockResolvedValueOnce({
@@ -583,10 +939,6 @@ describe("Account", () => {
         protocol: "https",
         clientGateway: mockClientGateway
       };
-
-      resolveInfo.graphile.selectGraphQLResultFromTable.mockResolvedValueOnce([
-        {}
-      ]);
 
       mockAuth0GetUserByEmail.mockImplementationOnce(() => ({
         user_metadata: {
@@ -650,7 +1002,7 @@ describe("Account", () => {
         auth0,
         build
       );
-      //expect(drink).toHaveBeenNthCalledWith(1, 'lemon');
+      expect(queryGraphileBuilder.where).toBeCalledTimes(1);
       expect(mailerSrv.sendMessageWithTemplate).toHaveBeenNthCalledWith(
         1,
         {
@@ -685,6 +1037,87 @@ describe("Account", () => {
         }
       );
 
+      expect(mockQuery.mock.calls).toMatchSnapshot();
+    });
+
+    it("should complete an invitation with additional checks", async () => {
+      const args = {
+        companyId: 1
+      };
+
+      contextMock = {
+        user: {
+          email: "email@email.com"
+        },
+        pgClient: { query: mockQuery },
+        pgRootPool: { query: mockRootQuery },
+        logger,
+        protocol: "https",
+        clientGateway: mockClientGateway
+      };
+
+      resolveInfo.graphile.selectGraphQLResultFromTable.mockResolvedValueOnce([
+        {}
+      ]);
+
+      mockAuth0GetUserByEmail.mockImplementationOnce(() => ({
+        user_metadata: undefined
+      }));
+
+      mockRootQuery
+        // invitation
+        .mockResolvedValueOnce({
+          rows: [
+            {
+              id: 1,
+              market_id: 1,
+              company_id: 1,
+              name: "company name",
+              tier: "T2"
+            }
+          ]
+        });
+
+      mockQuery
+        .mockResolvedValueOnce({ rows: [] }) // savepoint
+        .mockResolvedValueOnce({
+          rows: [
+            { id: 1, market_id: 1, email: "email", first_name: "first_name" }
+          ]
+        }) // account
+        .mockResolvedValueOnce({ rows: [] }) // config
+        .mockResolvedValueOnce({
+          rows: [
+            {
+              send_mailbox: "send_mailbox",
+              domain: "domain"
+            }
+          ]
+        }) // market
+        .mockResolvedValueOnce({
+          rows: [{ id: 2, account_id: 1, market_id: 1, company_id: 1 }]
+        }); // company_member
+
+      mockClientGateway.mockImplementationOnce(() => ({
+        data: {
+          tierBenefitCollection: {
+            items: [
+              {
+                shortDescription: undefined
+              }
+            ]
+          }
+        }
+      }));
+
+      await completeInvitation(
+        null,
+        args,
+        contextMock,
+        resolveInfo,
+        auth0,
+        build
+      );
       expect(mockQuery.mock.calls).toMatchSnapshot();
     });
 
@@ -812,6 +1245,203 @@ describe("Account", () => {
         completeInvitation(null, args, contextMock, resolveInfo, auth0, build)
       ).rejects.toThrow("errorAlreadyMember");
     });
+
+    it("should not complete an invitation if auth0 fails", async () => {
+      const args = {
+        companyId: 1
+      };
+
+      contextMock = {
+        user: {
+          email: "email@email.com",
+          company: {
+            id: 1
+          }
+        },
+        pgClient: { query: mockQuery },
+        pgRootPool: { query: mockRootQuery },
+        logger,
+        protocol: "https",
+        clientGateway: mockClientGateway
+      };
+
+      mockAuth0GetUserByEmail.mockResolvedValueOnce(null);
+
+      await expect(
+        completeInvitation(null, args, contextMock, resolveInfo, auth0, build)
+      ).rejects.toThrow("User missing in auth0, please contact the support");
+    });
+
+    it("should be able to send invitation for existing user", async () => {
+      contextMock.user.can = () => true;
+
+      mockAuth0CreateUser.mockResolvedValueOnce({
+        user_id: "auth0|user-id"
+      });
+      mockAuth0GetUserByEmail.mockResolvedValueOnce(null);
+      mockCreateResetPasswordTicket.mockResolvedValueOnce({
+        ticket: "my-ticket"
+      });
+
+      const spy = jest.spyOn(mailerSrv, "sendMessageWithTemplate");
+
+      mockRootQuery
+        // get user
+        .mockResolvedValueOnce({ rows: [] });
+
+      mockQuery
+        .mockImplementationOnce(() => ({
+          rows: []
+        }))
+        .mockImplementationOnce(() => ({
+          rows: [{ id: 2, first_name: "First name value" }]
+        }));
+
+      await invite(null, args, contextMock, resolveInfo, auth0);
+
+      expect(spy.mock.calls).toMatchSnapshot();
+    });
+
+    it("should be able to send invitation for new user", async () => {
+      contextMock.user.can = () => true;
+
+      mockAuth0CreateUser.mockResolvedValueOnce({
+        user_id: "auth0|user-id"
+      });
+      mockAuth0GetUserByEmail.mockResolvedValueOnce(null);
+      mockCreateResetPasswordTicket.mockResolvedValueOnce({
+        ticket: "my-ticket"
+      });
+
+      const spy = jest.spyOn(mailerSrv, "sendMessageWithTemplate");
+
+      mockRootQuery
+        // get user
+        .mockResolvedValueOnce({
+          rows: [
+            {
+              id: 1,
+              role: "INSTALLER"
+            }
+          ]
+        })
+        .mockResolvedValueOnce({
+          rows: []
+        });
+
+      mockQuery
+        .mockImplementationOnce(() => ({
+          rows: []
+        }))
+        .mockImplementationOnce(() => ({
+          rows: [{ id: 2, first_name: "First name value" }]
+        }));
+
+      await invite(null, args, contextMock, resolveInfo, auth0);
+
+      expect(spy.mock.calls).toMatchSnapshot();
+    });
+
+    it("check auth0 undefined value", async () => {
+      contextMock.user.can = () => true;
+
+      mockAuth0GetUserByEmail.mockResolvedValueOnce(null);
+      mockAuth0CreateUser.mockResolvedValueOnce(undefined);
+      mockCreateResetPasswordTicket.mockResolvedValueOnce({
+        ticket: "my-ticket"
+      });
+
+      mockRootQuery
+        // get user
+        .mockResolvedValueOnce({ rows: [] });
+
+      mockQuery
+        // insert invitation
+        .mockResolvedValueOnce({ rows: [{ id: 1 }] });
+
+      await invite(null, args, contextMock, resolveInfo, auth0);
+    });
+  });
+
+  describe("Invitation other cases", () => {
+    let args;
+    let contextMock;
+    let resolveInfo;
+
+    beforeEach(() => {
+      jest.clearAllMocks();
+      jest.resetAllMocks();
+
+      args = {
+        input: {
+          firstName: "firstName",
+          lastName: "lastName",
+          role: "INSTALLER"
+        }
+      };
+
+      contextMock = {
+        user: {
+          sub: "user-sub",
+          id: null,
+          role: "COMPANY_ADMIN",
+          email: "email@email.com",
+          market: { domain: "en" },
+          company: {
+            ...company
+          },
+          can: userCanMock.mockImplementationOnce(() => true)
+        },
+        req: {
+          protocol: "https"
+        },
+        pgClient: { query: mockQuery },
+        pgRootPool: { query: mockRootQuery },
+        logger
+      };
+
+      resolveInfo = {
+        graphile: {
+          selectGraphQLResultFromTable: jest.fn(),
+          build
+        }
+      };
+    });
+
+    it("shouldn't be able to invite a user if email is empty", async () => {
+      userCanMock.mockImplementationOnce(() => false);
+      try {
+        await invite(null, args, contextMock, resolveInfo, auth0);
+      } catch (error) {
+        expect(error.message).toEqual("email missing");
+      }
+    });
+    it("should cut emails length to be invited", async () => {
+      contextMock.user.can = () => true;
+      args.input.emails = Array(12).fill("email");
+
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      for (const invitee of args.input.emails) {
+        mockAuth0CreateUser.mockResolvedValueOnce({
+          user_id: "auth0|user-id"
+        });
+        mockAuth0GetUserByEmail.mockResolvedValueOnce(null);
+        mockCreateResetPasswordTicket.mockResolvedValueOnce({
+          ticket: "my-ticket"
+        });
+
+        mockRootQuery
+          // get user
+          .mockResolvedValueOnce({ rows: [] });
+
+        mockQuery
+          // insert invitation
+          .mockResolvedValueOnce({ rows: [{ id: 1 }] });
+      }
+
+      await invite(null, args, contextMock, resolveInfo, auth0);
+      expect(mockAuth0GetUserByEmail).toBeCalledWith(args.input.emails[0]);
+    });
   });
 
   describe("Reset Password for imported users", () => {
@@ -821,7 +1451,7 @@ describe("Account", () => {
 
     const roleMock = jest.fn();
     const auth0 = {
-      changePassword: jest.fn()
+      changePassword: mockAuth0ChangePassword
     };
 
     beforeEach(() => {
@@ -992,6 +1622,121 @@ describe("Account", () => {
           ],
         }
       `);
+    });
+
+    it("a super admin should fails password reset for imported users", async () => {
+      userCanMock.mockImplementationOnce(() => true);
+      roleMock.mockReturnValueOnce("SUPER_ADMIN");
+      mockQuery.mockResolvedValueOnce({
+        rows: [
+          { id: 1, email: "email1@email.com" },
+          { id: null, email: undefined }
+        ]
+      });
+
+      mockAuth0ChangePassword.mockImplementation(() => {
+        throw new Error();
+      });
+
+      await resetPasswordImportedUsers(
+        null,
+        args,
+        contextMock,
+        resolveInfo,
+        auth0
+      );
+      expect(mockAuth0ChangePassword).toHaveBeenCalledTimes(2);
+    });
+  });
+
+  describe("Reset Password", () => {
+    let contextMock;
+    let resolveInfo;
+
+    const roleMock = jest.fn();
+    const auth0 = {
+      changePassword: mockAuth0ChangePassword
+    };
+
+    beforeEach(() => {
+      jest.clearAllMocks();
+      jest.resetAllMocks();
+
+      contextMock = {
+        user: {
+          sub: "user-sub",
+          id: null,
+          role: roleMock,
+          email: "email@email.com",
+          market: { domain: "en" },
+          company: {
+            ...company
+          },
+          can: userCanMock
+        },
+        pgClient: { query: mockQuery },
+        pgRootPool: { query: mockRootQuery },
+        logger
+      };
+
+      resolveInfo = {
+        graphile: {
+          selectGraphQLResultFromTable: jest.fn(),
+          build
+        }
+      };
+    });
+
+    it("super admin should be able to reset password", async () => {
+      userCanMock.mockImplementationOnce(() => true);
+      roleMock.mockReturnValueOnce("SUPER_ADMIN");
+      mockQuery.mockResolvedValueOnce({
+        rows: [
+          { id: 1, email: "email1@email.com" },
+          { id: 2, email: "email2@email.com" }
+        ]
+      });
+
+      await resetPassword(
+        null,
+        { input: { market: "en" } },
+        contextMock,
+        resolveInfo,
+        auth0
+      );
+
+      expect(auth0.changePassword).toMatchInlineSnapshot(`
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              "email@email.com",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      `);
+    });
+    it("should return error in case of auth0 failure", async () => {
+      userCanMock.mockImplementationOnce(() => false);
+      roleMock.mockReturnValueOnce("SUPER_ADMIN");
+
+      mockAuth0ChangePassword.mockImplementation(() => {
+        throw new Error();
+      });
+
+      await resetPassword(
+        null,
+        { input: { market: "en" } },
+        contextMock,
+        resolveInfo,
+        auth0
+      );
+      expect(mockAuth0ChangePassword).toBeCalledWith("email@email.com");
     });
   });
 });
