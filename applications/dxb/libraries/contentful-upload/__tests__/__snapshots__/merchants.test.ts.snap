@@ -247,7 +247,7 @@ Array [
           "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
-          "en-US": "info@aberson.nl",
+          "en-US": undefined,
         },
         "entryType": Object {
           "en-US": "Merchant",
@@ -359,7 +359,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson BV",
+          "en-US": "Aberson BV3",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -444,7 +444,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 10 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 11 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -462,7 +462,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Uploading line 5: 'Aberson BV2'",
   ],
   Array [
-    "Uploading line 6: 'Aberson BV'",
+    "Uploading line 6: 'Aberson BV3'",
   ],
   Array [
     "Created and Published new Service Type - 'does_not_exist' with id 'merchant-type-id'",
@@ -924,7 +924,7 @@ Array [
           "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
-          "en-US": "info@aberson.nl",
+          "en-US": undefined,
         },
         "entryType": Object {
           "en-US": "Merchant",
@@ -1036,7 +1036,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson BV",
+          "en-US": "Aberson BV3",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -1109,7 +1109,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 10 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 11 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -1127,7 +1127,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Uploading line 5: 'Aberson BV2'",
   ],
   Array [
-    "Uploading line 6: 'Aberson BV'",
+    "Uploading line 6: 'Aberson BV3'",
   ],
   Array [
     "Created and Published new Service Type - 'does_not_exist' with id 'merchant-type-id'",
@@ -1329,7 +1329,7 @@ Array [
           "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
-          "en-US": "info@aberson.nl",
+          "en-US": undefined,
         },
         "entryType": Object {
           "en-US": "Merchant",
@@ -1441,7 +1441,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson BV",
+          "en-US": "Aberson BV3",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -1510,7 +1510,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 10 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 11 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -1531,7 +1531,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Uploading line 5: 'Aberson BV2'",
   ],
   Array [
-    "Uploading line 6: 'Aberson BV'",
+    "Uploading line 6: 'Aberson BV3'",
   ],
   Array [
     "Created and Published new Service Type - 'does_not_exist' with id 'merchant-type-id'",
@@ -1707,7 +1707,7 @@ Array [
           "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
-          "en-US": "info@aberson.nl",
+          "en-US": undefined,
         },
         "entryType": Object {
           "en-US": "Merchant",
@@ -1819,7 +1819,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson BV",
+          "en-US": "Aberson BV3",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -1904,7 +1904,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 10 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 11 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -1925,7 +1925,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Uploading line 5: 'Aberson BV2'",
   ],
   Array [
-    "Uploading line 6: 'Aberson BV'",
+    "Uploading line 6: 'Aberson BV3'",
   ],
   Array [
     "Created and Published new Service Type - 'does_not_exist' with id 'merchant-type-id'",
@@ -2091,7 +2091,7 @@ Array [
           "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
-          "en-US": "info@aberson.nl",
+          "en-US": undefined,
         },
         "entryType": Object {
           "en-US": "Merchant",
@@ -2203,7 +2203,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson BV",
+          "en-US": "Aberson BV3",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -2272,7 +2272,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 10 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 11 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -2293,7 +2293,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Uploading line 5: 'Aberson BV2'",
   ],
   Array [
-    "Uploading line 6: 'Aberson BV'",
+    "Uploading line 6: 'Aberson BV3'",
   ],
   Array [
     "Created and Published new Service Type - 'does_not_exist' with id 'merchant-type-id'",
@@ -2489,7 +2489,7 @@ Array [
           "en-US": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
-          "en-US": "info@aberson.nl",
+          "en-US": undefined,
         },
         "entryType": Object {
           "en-US": "Merchant",
@@ -2611,7 +2611,7 @@ Array [
           },
         },
         "name": Object {
-          "en-US": "Aberson BV",
+          "en-US": "Aberson BV3",
         },
         "phone": Object {
           "en-US": "088-4553600",
@@ -2704,7 +2704,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 10 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 11 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -2722,7 +2722,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Uploading line 5: 'Aberson BV2'",
   ],
   Array [
-    "Uploading line 6: 'Aberson BV'",
+    "Uploading line 6: 'Aberson BV3'",
   ],
   Array [
     "Uploading line 7: 'Aberson BV Zuid'",
@@ -2885,7 +2885,7 @@ Array [
           "en-GB": "Gouwe 1, ZWOLLE, 8032 CA",
         },
         "email": Object {
-          "en-GB": "info@aberson.nl",
+          "en-GB": undefined,
         },
         "entryType": Object {
           "en-GB": "Merchant",
@@ -2997,7 +2997,7 @@ Array [
           },
         },
         "name": Object {
-          "en-GB": "Aberson BV",
+          "en-GB": "Aberson BV3",
         },
         "phone": Object {
           "en-GB": "088-4553600",
@@ -3069,7 +3069,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 10 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 11 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -3090,7 +3090,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Uploading line 5: 'Aberson BV2'",
   ],
   Array [
-    "Uploading line 6: 'Aberson BV'",
+    "Uploading line 6: 'Aberson BV3'",
   ],
   Array [
     "Created and Published new Service Type - 'does_not_exist' with id 'merchant-type-id'",

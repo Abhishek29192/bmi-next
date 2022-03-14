@@ -179,7 +179,10 @@ const uploadLines = async (lines, environment) => {
       location,
       address,
       phone: record["phone"],
-      email: record["email"],
+      email:
+        record["email"] && record["email"].length && record["email"].length > 0
+          ? record["email"]
+          : undefined,
       website: record["website"]
         ? record["website"].indexOf("//") > -1
           ? record["website"]
