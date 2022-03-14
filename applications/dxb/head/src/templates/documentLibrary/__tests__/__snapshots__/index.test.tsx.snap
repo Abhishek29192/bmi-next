@@ -2474,8 +2474,9 @@ exports[`Document Library page renders correctly  1`] = `
       </span>
     </div>
     <div
-      class="Hero-slim Hero-lvl2 css-17es170"
+      class="Hero-slim Hero-lvl2 css-1sopae"
       data-testid="hero"
+      style="position: relative;"
     >
       <div
         class=" css-ze8cyt"
@@ -3384,11 +3385,11 @@ exports[`Document Library page renders correctly  1`] = `
 
 exports[`Document Library page should render DocumentCardsResults correctly if source === CMS and resultsType === Card Collection 1`] = `
 <div
-  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-124co8l-MuiGrid2-root"
+  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
   data-testid="document-cards-results-grid"
 >
   <div
-    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-gdzhda-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-8c4xmf-MuiGrid2-root"
     data-testid="grid-item"
   >
     <a
@@ -4083,7 +4084,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
             data-testid="document-table-size-pim-document-id"
           >
-            108.51 KB
+            111.11 kB
           </td>
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
@@ -4558,7 +4559,7 @@ exports[`Document Library page should render DocumentSimpleTableResults correctl
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"
             data-testid="document-table-size-pim-document-id"
           >
-            108.51 KB
+            111.11 kB
           </td>
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-yrvb15-MuiTableCell-root"

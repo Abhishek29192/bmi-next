@@ -1,15 +1,15 @@
 // TODO: Find another place for this file.
-import { Product } from "applications/dxb/libraries/firestore-types/src";
-import { isDefined } from "../../../../../libraries/utils/src";
+import { isDefined } from "@bmi/utils";
+import type { Product } from "@bmi/firestore-types";
 import { microCopy } from "../../../constants/microCopies";
-import { ProductFilter } from "../../../types/pim";
-import {
+import { getPlpFilters } from "./filters";
+import type { ProductFilter } from "../../../types/pim";
+import type {
   ContentfulAssetType,
   ContentfulDocument,
   ContentfulSite
 } from "../types/Contentful";
-import { Context, Node } from "../types/Gatsby";
-import { getPlpFilters } from "./filters";
+import type { Context, Node } from "../types/Gatsby";
 
 export const resolveDocumentsFiltersFromProducts = async (
   assetTypes: ContentfulAssetType[],

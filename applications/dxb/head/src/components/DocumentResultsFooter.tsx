@@ -117,7 +117,7 @@ export const handleDownloadClick = async (
       throw new Error(response.statusText);
     }
 
-    const data = await response.json();
+    const data = (await response.json()) as { url: string };
 
     await downloadAs(data.url, `BMI_${currentTime}.zip`);
 

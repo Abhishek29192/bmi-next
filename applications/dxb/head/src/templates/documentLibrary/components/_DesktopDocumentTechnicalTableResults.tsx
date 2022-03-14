@@ -141,7 +141,7 @@ const DesktopDocumentTechnicalTableResults = ({
           throw new Error(response.statusText);
         }
 
-        const data = await response.json();
+        const data = (await response.json()) as { url: string };
         await downloadAs(data.url, zipFileName);
       } catch (error) {
         console.error("Download multiple documents", error); // eslint-disable-line

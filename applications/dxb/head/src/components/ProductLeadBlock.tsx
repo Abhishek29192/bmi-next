@@ -329,7 +329,11 @@ const ProductLeadBlock = ({
             <LeadBlock justifyContent="center">
               <LeadBlock.Content>
                 <LeadBlock.Content.Section>
-                  <MediaGallery media={transformImages(product.techDrawings)} />
+                  <MediaGallery
+                    media={transformImages(product.techDrawings)}
+                    videoButtonLabel={getMicroCopy(microCopy.MEDIA_VIDEO)}
+                    visualiserButtonLabel={getMicroCopy(microCopy.MEDIA_3D)}
+                  />
                 </LeadBlock.Content.Section>
               </LeadBlock.Content>
             </LeadBlock>

@@ -1,16 +1,16 @@
-import { AssetType } from "../../templates/documentLibrary/types";
-import { ProductFilter } from "../../types/pim";
-import {
-  ContentfulAssetType,
-  ContentfulDocumentLibraryPage
-} from "./types/Contentful";
-import { DocumentsFilters } from "./types/DocumentsFilters";
-import { Context, Node, ResolveArgs } from "./types/Gatsby";
+import { transformFilterKeys } from "./utils/filters";
 import {
   resolveDocumentsFiltersFromContentful,
   resolveDocumentsFiltersFromProducts
 } from "./utils/documents";
-import { transformFilterKeys } from "./utils/filters";
+import type { AssetType } from "../../templates/documentLibrary/types";
+import type { ProductFilter } from "../../types/pim";
+import type {
+  ContentfulAssetType,
+  ContentfulDocumentLibraryPage
+} from "./types/Contentful";
+import type { DocumentsFilters } from "./types/DocumentsFilters";
+import type { Context, Node, ResolveArgs } from "./types/Gatsby";
 
 const getProductDocumentsFilters = async (
   source: ContentfulDocumentLibraryPage,

@@ -1,0 +1,25 @@
+lint_gatsby-plugin-leadoo:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
+  variables:
+    ROOT_DIR: "applications/dxb/libraries/gatsby-plugin-leadoo"
+    WORKSPACE: "@bmi/gatsby-plugin-leadoo"
+
+test_gatsby-plugin-leadoo:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - applications/dxb/libraries/gatsby-plugin-leadoo/**/*
+        - yarn.lock
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - applications/dxb/libraries/gatsby-plugin-leadoo/**/*
+        - yarn.lock
+  variables:
+    WORKSPACE: "@bmi/gatsby-plugin-leadoo"
+    ROOT_DIR: "applications/dxb/libraries/gatsby-plugin-leadoo"

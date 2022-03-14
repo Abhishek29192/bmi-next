@@ -1,0 +1,36 @@
+{
+  "name": "@bmi/gatsby-source-firestore",
+  "description": "Gatsby source plugin for building websites using the Firestore as a data source",
+  "version": "0.0.0",
+  "private": true,
+  "keywords": [
+    "firebase",
+    "firestore",
+    "gatsby-plugin",
+    "gatsby-source-plugin",
+    "gatsby-source",
+    "gatsby"
+  ],
+  "main": "gatsby-node.js",
+  "files": [
+    "gatsby-node.js",
+    "README.md"
+  ],
+  "scripts": {
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
+  },
+  "dependencies": {
+    "firebase-admin": "^11.8.0"
+  },
+  "devDependencies": {
+    "@types/gatsby-plugin-types": "workspace:*",
+    "eslint": "^8.40.0",
+    "jest": "^29.5.0",
+    "jest-node-exports-resolver": "^1.1.6"
+  },
+  "peerDependencies": {
+    "gatsby-cli": "^5.9.0"
+  },
+  "license": "MIT"
+}

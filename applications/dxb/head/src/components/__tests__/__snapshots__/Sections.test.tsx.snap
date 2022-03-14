@@ -838,12 +838,13 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="PromoSection-image css-baoeyh-Media"
+                class="PromoSection-image css-94zf8x-Media"
                 data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=abc123-Video","action":"Play"}"
                 data-testid="youtube-dialog-wrapper"
+                style="position: relative;"
               >
                 <button
-                  aria-label="Video"
+                  aria-label="media.video"
                   class="YoutubeVideo-thumbnail"
                   data-testid="thumbnail"
                   type="button"
@@ -874,10 +875,11 @@ exports[`Sections component renders correctly 1`] = `
                       />
                     </svg>
                     <p
+                      aria-label="media.video"
                       class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
                       data-testid="typography"
                     >
-                      Video
+                      media.video
                     </p>
                   </div>
                 </button>
@@ -1160,7 +1162,7 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
+                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -1439,7 +1441,7 @@ exports[`Sections component renders correctly 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
+                class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -2203,9 +2205,10 @@ exports[`Sections component renders correctly 1`] = `
             class="video"
           >
             <div
-              class="YoutubeVideo-inline css-he6nm4"
+              class="YoutubeVideo-inline css-5gpves"
               data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=A-RfHC91Ewc-Video label","action":"Play"}"
               data-testid="youtube-inline-wrapper"
+              style="position: relative;"
             >
               <div>
                 <img
@@ -2237,10 +2240,11 @@ exports[`Sections component renders correctly 1`] = `
                         />
                       </svg>
                       <p
+                        aria-label="media.video"
                         class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
                         data-testid="typography"
                       >
-                        Video
+                        media.video
                       </p>
                     </div>
                     <span
@@ -2428,11 +2432,11 @@ exports[`Sections component renders correctly 1`] = `
                       <div>
                         <div>
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1jy9zk3-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
                             data-testid="grid-container"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-1xrs7k5-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <div
@@ -2669,11 +2673,11 @@ exports[`Sections component renders correctly 1`] = `
                       <div>
                         <div>
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1jy9zk3-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
                             data-testid="grid-container"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-1xrs7k5-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <div
@@ -2751,11 +2755,11 @@ exports[`Sections component renders correctly 1`] = `
                       <div>
                         <div>
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1jy9zk3-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 Grid-justifyContent css-1a8bzh9-MuiGrid2-root"
                             data-testid="grid-container"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-1xrs7k5-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-lg-3 Grid-item css-vmc4ev-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <div
@@ -4121,6 +4125,7 @@ exports[`Sections component renders correctly with 1 villain 1`] = `
   >
     <div
       class="Villain-fullSize ColorPair-blue800 css-ui4cq5"
+      style="position: relative;"
     >
       <div
         class=" css-ze8cyt"

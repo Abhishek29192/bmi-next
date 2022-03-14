@@ -132,6 +132,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
                 type="button"
               >
                 <div
+                  aria-label="MC: media.video"
                   class="css-z7rmfo"
                 >
                   <div
@@ -156,7 +157,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
                       class="MuiTypography-root MuiTypography-body1 css-1ezfe9h-MuiTypography-root"
                       data-testid="typography"
                     >
-                      Video
+                      MC: media.video
                     </p>
                   </div>
                   <div
@@ -364,6 +365,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
                 type="button"
               >
                 <div
+                  aria-label="MC: media.video"
                   class="css-z7rmfo"
                 >
                   <div
@@ -388,7 +390,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
                       class="MuiTypography-root MuiTypography-body1 css-1ezfe9h-MuiTypography-root"
                       data-testid="typography"
                     >
-                      Video
+                      MC: media.video
                     </p>
                   </div>
                   <div

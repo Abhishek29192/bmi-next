@@ -1,0 +1,9 @@
+lint_gatsby-source-hubspot-forms:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
+  variables:
+    ROOT_DIR: "applications/dxb/libraries/gatsby-source-hubspot-forms"
+    WORKSPACE: "@bmi/gatsby-source-hubspot-forms"

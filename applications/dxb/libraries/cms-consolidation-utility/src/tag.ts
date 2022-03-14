@@ -4,10 +4,7 @@ const buildTagId = (market: string) => {
   return `market__${market.replace(/ /g, "").toLowerCase()}`;
 };
 
-export const tagEntity = async (
-  entity: Entry | Asset,
-  market: string
-): Promise<boolean> => {
+export const tagEntity = (entity: Entry | Asset, market: string): boolean => {
   const tags: Link<"Tag">[] | undefined = entity.metadata?.tags;
   if (
     tags?.some(

@@ -127,6 +127,8 @@ const ProductOverview = ({
               <GTMMediaThumbnail gtm={{ id: "media-gallery1" }} {...props} />
             )}
             layout="short"
+            videoButtonLabel={getMicroCopy(microCopy.MEDIA_VIDEO)}
+            visualiserButtonLabel={getMicroCopy(microCopy.MEDIA_3D)}
           />
         </Grid>
         <Grid xs={12} md={12} lg={4}>

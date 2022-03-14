@@ -1,14 +1,26 @@
-test_gatsby-cloud-build-proxy:
-  extends: .test_function
+lint_gatsby-cloud-build-proxy:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
+    ROOT_DIR: "applications/dxb/functions/gatsby-cloud-build-proxy"
     WORKSPACE: "@bmi/gatsby-cloud-build-proxy"
-    ROOT_DIR: "applications/functions/gatsby-cloud-build-proxy"
 
 build_gatsby-cloud-build-proxy:
   extends: .build_function
   variables:
     WORKSPACE: "@bmi/gatsby-cloud-build-proxy"
     ROOT_DIR: "applications/dxb/functions/gatsby-cloud-build-proxy"
+
+test_gatsby-cloud-build-proxy:
+  extends: .test_function
+  variables:
+    WORKSPACE: "@bmi/gatsby-cloud-build-proxy"
+    ROOT_DIR: "applications/functions/gatsby-cloud-build-proxy"
+  needs:
+    - build_gatsby-cloud-build-proxy
 
 package_gatsby-cloud-build-proxy:
   extends: .package_function

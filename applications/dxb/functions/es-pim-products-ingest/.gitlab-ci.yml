@@ -1,14 +1,26 @@
-test_es-pim-products-ingest:
-  extends: .test_function
+lint_es-pim-products-ingest:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
-    WORKSPACE: "@bmi/es-pim-products-ingest"
     ROOT_DIR: "applications/dxb/functions/es-pim-products-ingest"
+    WORKSPACE: "@bmi/es-pim-products-ingest"
 
 build_es-pim-products-ingest:
   extends: .build_function
   variables:
     WORKSPACE: "@bmi/es-pim-products-ingest"
     ROOT_DIR: "applications/dxb/functions/es-pim-products-ingest"
+
+test_es-pim-products-ingest:
+  extends: .test_function
+  variables:
+    WORKSPACE: "@bmi/es-pim-products-ingest"
+    ROOT_DIR: "applications/dxb/functions/es-pim-products-ingest"
+  needs:
+    - build_es-pim-products-ingest
 
 package_es-pim-products-ingest:
   extends: .package_function

@@ -1,13 +1,14 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { render, screen } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import createGallerySectionImage from "../../__tests__/helpers/GallerySectionImageHelper";
 import createGallerySectionVideo from "../../__tests__/helpers/GallerySectionVideo";
 import MediaGallerySection, { Data } from "../MediaGallerySection";
 import { RichTextData } from "../RichText";
 
 const raw = {
-  nodeType: "document",
+  nodeType: BLOCKS.DOCUMENT,
   data: {},
   content: [
     {
@@ -16,7 +17,7 @@ const raw = {
       data: {}
     },
     {
-      nodeType: "paragraph",
+      nodeType: BLOCKS.PARAGRAPH,
       content: [
         {
           nodeType: "text",

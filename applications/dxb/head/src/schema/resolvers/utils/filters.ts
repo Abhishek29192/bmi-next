@@ -1,12 +1,12 @@
-import { Product } from "../../../../../libraries/firestore-types/src";
-import { isDefined } from "../../../../../libraries/utils/src";
-import { ProductFilter } from "../../../types/pim";
+import { isDefined } from "@bmi/utils";
+import type { Product } from "@bmi/firestore-types";
 import { replaceDotFiltersParameter } from "../../../utils/filters";
 import {
   extractAllowedCategories,
   extractAllowedFeatures,
   generateFilters
 } from "../../../utils/product-filters";
+import type { ProductFilter } from "../../../types/pim";
 
 export type PlpFiltersArgs = {
   products: readonly Product[];

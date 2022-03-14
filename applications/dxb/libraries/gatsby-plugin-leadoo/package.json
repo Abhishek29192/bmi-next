@@ -17,9 +17,18 @@
     "index.js"
   ],
   "scripts": {
-    "lint": "prettier --write gatsby-node.js"
+    "compile": "tsc --build",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "gatsby-cli": "^5.9.0"
+  },
+  "devDependencies": {
+    "@types/gatsby-plugin-types": "workspace:*",
+    "eslint": "^8.40.0",
+    "jest": "^29.5.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.0.4"
   }
 }

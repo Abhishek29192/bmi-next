@@ -4,7 +4,7 @@ import toml from "@iarna/toml";
 import csv from "csvtojson";
 import { Redirect } from "@bmi/head/src/utils/get-redirects";
 
-const validCsvContents = (csvRedirects: any[]) =>
+const validCsvContents = (csvRedirects: { [x: string]: unknown }[]) =>
   csvRedirects.length > 0 &&
   csvRedirects.every(
     (csvRedirect) =>

@@ -27,7 +27,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
             data-testid="grid-item"
           >
             <div
-              class="MuiAutocomplete-root company-autocomplete css-l3ln04-MuiAutocomplete-root"
+              class="MuiAutocomplete-root company-autocomplete css-1h51icj-MuiAutocomplete-root"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"

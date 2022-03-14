@@ -6,4 +6,5 @@ include:
   - local: "/applications/dxb/libraries/.gitlab-ci.yml"
   - local: "/applications/dxb/redirects-checker/.gitlab-ci.yml"
   - local: "/applications/dxb/redirects-editor/.gitlab-ci.yml"
+  - local: "/applications/dxb/webtools-contentful-migrate/.gitlab-ci.yml"
   - local: "/applications/dxb/scripts/.gitlab-ci.yml"

@@ -1,14 +1,26 @@
-test_gcp-system-configurator:
-  extends: .test_function
+lint_gcp-system-configurator:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
-    WORKSPACE: "@bmi/gcp-system-configurator"
     ROOT_DIR: "applications/dxb/functions/gcp-system-configurator"
+    WORKSPACE: "@bmi/gcp-system-configurator"
 
 build_gcp-system-configurator:
   extends: .build_function
   variables:
     WORKSPACE: "@bmi/gcp-system-configurator"
     ROOT_DIR: "applications/dxb/functions/gcp-system-configurator"
+
+test_gcp-system-configurator:
+  extends: .test_function
+  variables:
+    WORKSPACE: "@bmi/gcp-system-configurator"
+    ROOT_DIR: "applications/dxb/functions/gcp-system-configurator"
+  needs:
+    - build_gcp-system-configurator
 
 package_gcp-system-configurator:
   extends: .package_function

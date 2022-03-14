@@ -1,11 +1,6 @@
-import SampleAssetsPage1 from "./resources/assets_page_1.json";
-import SampleAssetsPage2 from "./resources/assets_page_2.json";
-import SampleAssetsPage3 from "./resources/assets_page_3.json";
-import SampleEntriesPage1 from "./resources/entries_page_1.json";
-import SampleEntriesPage2 from "./resources/entries_page_2.json";
-import SampleEntriesPage3 from "./resources/entries_page_3.json";
-import SpaceLocales from "./resources/locales.json";
-import type { Asset, Entry, Environment } from "contentful-management";
+import createSampleEntry from "./helpers/entryHelper";
+import sampleAsset from "./resources/sample_asset";
+import type { Environment } from "contentful-management";
 
 const tagAndUpdate = async (environment: Partial<Environment>) =>
   (await import("../coordinate")).tagAndUpdate(environment as Environment);
@@ -30,38 +25,36 @@ jest.mock("../tag", () => {
 });
 
 const copyDefaultValues = jest.fn().mockResolvedValue(true);
-const findIrrelevantLocales = jest
-  .fn()
-  .mockResolvedValue(SpaceLocales.items.filter((i) => i.code !== "en-GB"));
+const findIrrelevantLocales = jest.fn();
 jest.mock("../locale", () => {
   return { copyDefaultValues, findIrrelevantLocales };
 });
 
-let getEntries: jest.Mock;
-let getAssets: jest.Mock;
+const getEntries = jest.fn();
+const getAssets = jest.fn();
 
 const update = jest.fn();
-const addFunctions = (object: Entry | Asset) => {
-  Object.assign(object, { update });
+
+const createEntry = () => {
+  const entry = createSampleEntry();
+  Object.assign(entry, { update });
+  return entry;
 };
 
-SampleEntriesPage1.items.forEach((i) => addFunctions(i as unknown as Entry));
-SampleEntriesPage2.items.forEach((i) => addFunctions(i as unknown as Entry));
-SampleEntriesPage3.items.forEach((i) => addFunctions(i as unknown as Entry));
-SampleAssetsPage1.items.forEach((i) => addFunctions(i as unknown as Entry));
-SampleAssetsPage2.items.forEach((i) => addFunctions(i as unknown as Entry));
-SampleAssetsPage3.items.forEach((i) => addFunctions(i as unknown as Entry));
+const createAsset = () => {
+  const entry = sampleAsset;
+  Object.assign(entry, { update });
+  return entry;
+};
 
 const waitProcessing = jest.fn().mockResolvedValue({});
 const createPublishBulkAction = jest.fn().mockReturnValue({ waitProcessing });
-const getLocales = jest.fn().mockResolvedValue(SpaceLocales);
 const mockEnvironment = (): Partial<Environment> => {
   const env: Partial<Environment> = {};
   env.createTag = jest.fn();
   env.getEntries = getEntries;
   env.getAssets = getAssets;
   env.createPublishBulkAction = createPublishBulkAction;
-  env.getLocales = getLocales;
   return env;
 };
 
@@ -82,108 +75,658 @@ afterAll(() => {
 });
 
 beforeEach(() => {
-  getEntries = jest
-    .fn()
-    .mockReturnValueOnce(SampleEntriesPage1)
-    .mockReturnValueOnce(SampleEntriesPage2)
-    .mockReturnValueOnce(SampleAssetsPage3)
-    .mockReturnValueOnce({
-      sys: {
-        type: Array
-      },
-      total: 0,
-      skip: 2000,
-      limit: 100,
-      items: []
-    });
-
-  getAssets = jest
-    .fn()
-    .mockReturnValueOnce(SampleAssetsPage1)
-    .mockReturnValueOnce(SampleAssetsPage2)
-    .mockReturnValueOnce(SampleAssetsPage3)
-    .mockReturnValueOnce({
-      sys: {
-        type: Array
-      },
-      total: 0,
-      skip: 2000,
-      limit: 100,
-      items: []
-    });
+  jest.clearAllMocks();
+  jest.resetModules();
 });
 
 describe("tagAndUpdate", () => {
   it("Tries to add a tag to all entries and assets", async () => {
+    getEntries
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 0,
+        limit: 2,
+        items: [createEntry(), createEntry()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 2,
+        limit: 2,
+        items: [createEntry(), createEntry()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 4,
+        limit: 2,
+        items: []
+      });
+    getAssets
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 0,
+        limit: 2,
+        items: [createAsset(), createAsset()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 2,
+        limit: 2,
+        items: [createAsset(), createAsset()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 4,
+        limit: 2,
+        items: []
+      });
+
     const environment = mockEnvironment();
     await tagAndUpdate(environment);
 
-    expect(update).toBeCalledTimes(600);
+    expect(getEntries).toHaveBeenCalledTimes(3);
+    expect(getEntries).toHaveBeenNthCalledWith(1, {
+      limit: 100,
+      order: "sys.createdAt",
+      skip: 0,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(getEntries).toHaveBeenNthCalledWith(2, {
+      limit: 100,
+      order: "sys.createdAt",
+      skip: 2,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(getEntries).toHaveBeenNthCalledWith(3, {
+      limit: 100,
+      order: "sys.createdAt",
+      skip: 4,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(getAssets).toHaveBeenCalledTimes(3);
+    expect(getAssets).toHaveBeenNthCalledWith(1, {
+      limit: 100,
+      order: "sys.createdAt",
+      skip: 0,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(getAssets).toHaveBeenNthCalledWith(2, {
+      limit: 100,
+      order: "sys.createdAt",
+      skip: 2,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(getAssets).toHaveBeenNthCalledWith(3, {
+      limit: 100,
+      order: "sys.createdAt",
+      skip: 4,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(update).toBeCalledTimes(8);
+  });
+
+  it("handles API request limits", async () => {
+    const originalApiRateLimit = process.env.API_RATE_LIMIT;
+    const originalWaitDurationMs = process.env.WAIT_DURATION_MS;
+    process.env.API_RATE_LIMIT = "7";
+    process.env.WAIT_DURATION_MS = "1500";
+    getEntries
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 8,
+        skip: 0,
+        limit: 8,
+        items: [
+          createEntry(),
+          createEntry(),
+          createEntry(),
+          createEntry(),
+          createEntry(),
+          createEntry(),
+          createEntry(),
+          createEntry()
+        ]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 8,
+        skip: 8,
+        limit: 8,
+        items: []
+      });
+    getAssets
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 8,
+        skip: 0,
+        limit: 8,
+        items: [
+          createAsset(),
+          createAsset(),
+          createAsset(),
+          createAsset(),
+          createAsset(),
+          createAsset(),
+          createAsset(),
+          createAsset()
+        ]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 8,
+        skip: 8,
+        limit: 8,
+        items: []
+      });
+
+    const start = new Date().getTime();
+    const environment = mockEnvironment();
+    await tagAndUpdate(environment);
+    const diff = new Date().getTime() - start;
+
+    expect(diff).toBeGreaterThan(3000);
+    expect(getEntries).toHaveBeenCalled();
+    expect(getAssets).toHaveBeenCalled();
+    expect(update).toBeCalledTimes(16);
+
+    process.env.API_RATE_LIMIT = originalApiRateLimit;
+    process.env.WAIT_DURATION_MS = originalWaitDurationMs;
   });
 });
 
 describe("publishAll", () => {
   it("Creates bulk publish action", async () => {
+    getEntries
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 0,
+        limit: 2,
+        items: [createEntry(), createEntry()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 2,
+        limit: 2,
+        items: [createEntry(), createEntry()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 4,
+        limit: 2,
+        items: []
+      });
+    getAssets
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 0,
+        limit: 2,
+        items: [createAsset(), createAsset()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 2,
+        limit: 2,
+        items: [createAsset(), createAsset()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 4,
+        limit: 2,
+        items: []
+      });
+
     const environment = mockEnvironment();
     await publishAll(environment);
 
-    expect(createPublishBulkAction).toBeCalledTimes(6);
+    expect(getEntries).toHaveBeenCalledTimes(3);
+    expect(getEntries).toHaveBeenNthCalledWith(1, {
+      limit: 200,
+      order: "sys.createdAt",
+      skip: 0,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(getEntries).toHaveBeenNthCalledWith(2, {
+      limit: 200,
+      order: "sys.createdAt",
+      skip: 2,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(getEntries).toHaveBeenNthCalledWith(3, {
+      limit: 200,
+      order: "sys.createdAt",
+      skip: 4,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(getAssets).toHaveBeenCalledTimes(3);
+    expect(getAssets).toHaveBeenNthCalledWith(1, {
+      limit: 200,
+      order: "sys.createdAt",
+      skip: 0,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(getAssets).toHaveBeenNthCalledWith(2, {
+      limit: 200,
+      order: "sys.createdAt",
+      skip: 2,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(getAssets).toHaveBeenNthCalledWith(3, {
+      limit: 200,
+      order: "sys.createdAt",
+      skip: 4,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(createPublishBulkAction).toHaveBeenCalledTimes(4);
+  });
+
+  it("only runs 5 bulk publish actions at a time", async () => {
+    const originalWaitDurationMs = process.env.WAIT_DURATION_MS;
+    process.env.WAIT_DURATION_MS = "1500";
+
+    getEntries
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 6,
+        skip: 0,
+        limit: 1,
+        items: [createEntry()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 6,
+        skip: 1,
+        limit: 1,
+        items: [createEntry()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 6,
+        skip: 2,
+        limit: 1,
+        items: [createEntry()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 6,
+        skip: 3,
+        limit: 1,
+        items: [createEntry()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 6,
+        skip: 4,
+        limit: 1,
+        items: [createEntry()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 6,
+        skip: 5,
+        limit: 1,
+        items: [createEntry()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 6,
+        skip: 6,
+        limit: 1,
+        items: []
+      });
+    getAssets
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 6,
+        skip: 0,
+        limit: 1,
+        items: [createAsset()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 6,
+        skip: 1,
+        limit: 1,
+        items: [createAsset()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 6,
+        skip: 2,
+        limit: 1,
+        items: [createAsset()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 6,
+        skip: 3,
+        limit: 1,
+        items: [createAsset()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 6,
+        skip: 4,
+        limit: 1,
+        items: [createAsset()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 6,
+        skip: 5,
+        limit: 1,
+        items: [createAsset()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 6,
+        skip: 6,
+        limit: 1,
+        items: []
+      });
+
+    const start = new Date().getTime();
+    const environment = mockEnvironment();
+    await publishAll(environment);
+    const diff = new Date().getTime() - start;
+
+    expect(diff).toBeGreaterThan(2000);
+    expect(getEntries).toHaveBeenCalled();
+    expect(getAssets).toHaveBeenCalled();
+    expect(createPublishBulkAction).toBeCalledTimes(12);
+
+    process.env.WAIT_DURATION_MS = originalWaitDurationMs;
   });
 });
 
 describe("fillDefaultValues", () => {
   it("Fills default values", async () => {
+    findIrrelevantLocales.mockResolvedValueOnce(["fi-FI"]);
+    getEntries
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 0,
+        limit: 2,
+        items: [createEntry(), createEntry()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 2,
+        limit: 2,
+        items: [createEntry(), createEntry()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 4,
+        limit: 2,
+        items: []
+      });
+    getAssets
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 0,
+        limit: 2,
+        items: [createAsset(), createAsset()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 2,
+        limit: 2,
+        items: [createAsset(), createAsset()]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 4,
+        skip: 4,
+        limit: 2,
+        items: []
+      });
+    update.mockResolvedValueOnce({});
+
     const environment = mockEnvironment();
     const marketLocales = ["en-GB"];
     const tag = "market__uk";
-    update.mockResolvedValueOnce({});
+
     await fillDefaultValues(environment, tag, marketLocales);
 
-    expect(copyDefaultValues).toBeCalledTimes(600);
+    expect(findIrrelevantLocales).toHaveBeenCalledWith(
+      environment,
+      marketLocales
+    );
+    expect(getEntries).toHaveBeenCalledTimes(3);
+    expect(getEntries).toHaveBeenNthCalledWith(1, {
+      limit: 100,
+      "metadata.tags.sys.id[in]": tag,
+      order: "sys.createdAt",
+      skip: 0,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(getEntries).toHaveBeenNthCalledWith(2, {
+      limit: 100,
+      "metadata.tags.sys.id[in]": tag,
+      order: "sys.createdAt",
+      skip: 2,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(getEntries).toHaveBeenNthCalledWith(3, {
+      limit: 100,
+      "metadata.tags.sys.id[in]": tag,
+      order: "sys.createdAt",
+      skip: 4,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(getAssets).toHaveBeenCalledTimes(3);
+    expect(getAssets).toHaveBeenNthCalledWith(1, {
+      limit: 100,
+      "metadata.tags.sys.id[in]": tag,
+      order: "sys.createdAt",
+      skip: 0,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(getAssets).toHaveBeenNthCalledWith(2, {
+      limit: 100,
+      "metadata.tags.sys.id[in]": tag,
+      order: "sys.createdAt",
+      skip: 2,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(getAssets).toHaveBeenNthCalledWith(3, {
+      limit: 100,
+      "metadata.tags.sys.id[in]": tag,
+      order: "sys.createdAt",
+      skip: 4,
+      "sys.archivedVersion[exists]": false
+    });
+    expect(copyDefaultValues).toBeCalledTimes(8);
+  });
+
+  it("handles API request limits", async () => {
+    const originalApiRateLimit = process.env.API_RATE_LIMIT;
+    const originalWaitDurationMs = process.env.WAIT_DURATION_MS;
+    process.env.API_RATE_LIMIT = "7";
+    process.env.WAIT_DURATION_MS = "1500";
+
+    findIrrelevantLocales.mockResolvedValueOnce(["fi-FI"]);
+    getEntries
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 8,
+        skip: 0,
+        limit: 8,
+        items: [
+          createEntry(),
+          createEntry(),
+          createEntry(),
+          createEntry(),
+          createEntry(),
+          createEntry(),
+          createEntry(),
+          createEntry()
+        ]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 8,
+        skip: 8,
+        limit: 8,
+        items: []
+      });
+    getAssets
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 8,
+        skip: 0,
+        limit: 8,
+        items: [
+          createAsset(),
+          createAsset(),
+          createAsset(),
+          createAsset(),
+          createAsset(),
+          createAsset(),
+          createAsset(),
+          createAsset()
+        ]
+      })
+      .mockReturnValueOnce({
+        sys: {
+          type: Array
+        },
+        total: 8,
+        skip: 8,
+        limit: 8,
+        items: []
+      });
+    update.mockResolvedValueOnce({});
+
+    const environment = mockEnvironment();
+    const marketLocales = ["en-GB"];
+    const tag = "market__uk";
+
+    const start = new Date().getTime();
+    await fillDefaultValues(environment, tag, marketLocales);
+    const diff = new Date().getTime() - start;
+
+    expect(diff).toBeGreaterThan(3000);
+    expect(findIrrelevantLocales).toHaveBeenCalled();
+    expect(getEntries).toHaveBeenCalled();
+    expect(getAssets).toHaveBeenCalled();
+    expect(copyDefaultValues).toBeCalledTimes(16);
+
+    process.env.API_RATE_LIMIT = originalApiRateLimit;
+    process.env.WAIT_DURATION_MS = originalWaitDurationMs;
   });
 
   it("Throws an error if target locales are not found", async () => {
+    findIrrelevantLocales.mockResolvedValueOnce([]);
     const environment = mockEnvironment();
     const marketLocales = ["en-GB"];
     const tag = "market__uk";
-    update.mockResolvedValueOnce({});
-    findIrrelevantLocales.mockResolvedValueOnce([]);
+
     try {
       await fillDefaultValues(environment, tag, marketLocales);
     } catch (e) {
       expect((e as Error).message).toEqual("Could not find irrelevant locales");
     }
-  });
 
-  it("adds the tag filter to the entries query", async () => {
-    const environment = mockEnvironment();
-    const marketLocales = ["en-GB"];
-    const tag = "market__uk";
-    update.mockResolvedValueOnce({});
-    await fillDefaultValues(environment, tag, marketLocales);
-
-    expect(getEntries).toBeCalledWith({
-      skip: 0,
-      limit: 100,
-      order: "sys.createdAt",
-      "sys.archivedVersion[exists]": false,
-      "metadata.tags.sys.id[in]": tag
-    });
-  });
-
-  it("adds the tag filter to the assets query", async () => {
-    const environment = mockEnvironment();
-    const marketLocales = ["en-GB"];
-    const tag = "market__uk";
-    update.mockResolvedValueOnce({});
-    await fillDefaultValues(environment, tag, marketLocales);
-
-    expect(getAssets).toBeCalledWith({
-      skip: 0,
-      limit: 100,
-      order: "sys.createdAt",
-      "sys.archivedVersion[exists]": false,
-      "metadata.tags.sys.id[in]": tag
-    });
+    expect(findIrrelevantLocales).toHaveBeenCalledWith(
+      environment,
+      marketLocales
+    );
+    expect(getEntries).not.toHaveBeenCalled();
+    expect(getAssets).not.toHaveBeenCalled();
   });
 });

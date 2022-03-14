@@ -28770,11 +28770,11 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-124co8l-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
                             data-testid="system-layer-details"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a
@@ -28789,7 +28789,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               </a>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <p
@@ -28800,7 +28800,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               </p>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <h5
@@ -28811,7 +28811,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               </h5>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a
@@ -33205,11 +33205,11 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                           class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
-                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-124co8l-MuiGrid2-root"
+                            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1qxu916-MuiGrid2-root"
                             data-testid="system-layer-details"
                           >
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a
@@ -33224,7 +33224,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               </a>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <p
@@ -33235,7 +33235,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               </p>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <h5
@@ -33246,7 +33246,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               </h5>
                             </div>
                             <div
-                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-1t1pw06-MuiGrid2-root"
+                              class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-12 Grid-item css-erfmfi-MuiGrid2-root"
                               data-testid="grid-item"
                             >
                               <a

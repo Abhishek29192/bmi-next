@@ -2090,8 +2090,9 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     </div>
   </header>
   <div
-    class="Hero-keyline Hero-lvl1 css-17es170"
+    class="Hero-keyline Hero-lvl1 css-1sopae"
     data-testid="hero"
+    style="position: relative;"
   >
     <div
       class=" css-ze8cyt"
@@ -5360,8 +5361,9 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
   </header>
   <div
-    class="Hero-keyline Hero-lvl1 css-17es170"
+    class="Hero-keyline Hero-lvl1 css-1sopae"
     data-testid="hero"
+    style="position: relative;"
   >
     <div
       class=" css-ze8cyt"
@@ -5756,12 +5758,13 @@ exports[`Simple page renders correctly with full data 1`] = `
                     type="button"
                   >
                     <div
-                      class="OverviewCard-headerPicture css-baoeyh-Media"
+                      class="OverviewCard-headerPicture css-94zf8x-Media"
                       data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL","action":"Play"}"
                       data-testid="youtube-dialog-wrapper"
+                      style="position: relative;"
                     >
                       <button
-                        aria-label="BMI Group VIDEO LABEL"
+                        aria-label="MC: media.video"
                         class="YoutubeVideo-thumbnail"
                         data-testid="thumbnail"
                         type="button"
@@ -5792,10 +5795,11 @@ exports[`Simple page renders correctly with full data 1`] = `
                             />
                           </svg>
                           <p
+                            aria-label="MC: media.video"
                             class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
                             data-testid="typography"
                           >
-                            media.video
+                            MC: media.video
                           </p>
                         </div>
                       </button>

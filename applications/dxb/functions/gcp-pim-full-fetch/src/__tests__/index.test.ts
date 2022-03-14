@@ -1,8 +1,7 @@
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
 import {
   createDocument as createContentfulDocument,
-  createEntry,
-  Document as ContentfulDocument
+  TypeDocument as ContentfulDocument
 } from "@bmi/contentful-types";
 import {
   ContentfulDocument as EsContentfulDocument,
@@ -15,7 +14,6 @@ import {
   createSystemsApiResponse,
   PimTypes
 } from "@bmi/pim-types";
-import { Entry } from "contentful";
 import { Request, Response } from "express";
 import { createFullFetchRequest } from "./helpers/fullFetchHelper";
 
@@ -39,7 +37,7 @@ jest.mock("@google-cloud/pubsub", () => {
 });
 
 const getDocuments: jest.Mock<
-  Promise<Entry<ContentfulDocument>[]>,
+  Promise<ContentfulDocument<undefined, "en-US">[]>,
   [string, number, string | undefined]
 > = jest.fn();
 jest.mock("../contentful", () => ({
@@ -49,16 +47,20 @@ jest.mock("../contentful", () => ({
 
 const transformDocuments: jest.Mock<
   EsContentfulDocument[],
-  [Entry<ContentfulDocument>[]]
+  [ContentfulDocument<undefined, "en-US">[]]
 > = jest.fn();
 jest.mock("../documentTransformer", () => ({
-  transformDocuments: (documents: Entry<ContentfulDocument>[]) =>
+  transformDocuments: (documents: ContentfulDocument<undefined, "en-US">[]) =>
     transformDocuments(documents)
 }));
 
-const indexIntoES: jest.Mock<Promise<void>, [ContentfulDocument[]]> = jest.fn();
+const indexIntoES: jest.Mock<
+  Promise<void>,
+  [ContentfulDocument<undefined, "en-US">[]]
+> = jest.fn();
 jest.mock("../elasticsearch", () => ({
-  indexIntoES: (documents: ContentfulDocument[]) => indexIntoES(documents)
+  indexIntoES: (documents: ContentfulDocument<undefined, "en-US">[]) =>
+    indexIntoES(documents)
 }));
 
 beforeEach(() => {
@@ -751,11 +753,7 @@ describe("handleRequest", () => {
   });
 
   it("should error when indexing documents into Elasticsearch throws error", async () => {
-    const contentfulDocuments = [
-      createEntry({
-        fields: createContentfulDocument()
-      })
-    ];
+    const contentfulDocuments = [createContentfulDocument()];
     getDocuments.mockResolvedValueOnce(contentfulDocuments);
     const esContentfulDocuments = [createEsContentfulDocument()];
     transformDocuments.mockReturnValueOnce(esContentfulDocuments);
@@ -787,11 +785,7 @@ describe("handleRequest", () => {
 
   it("should filter documents by TAG and index transformed documents into Elasticsearch", async () => {
     process.env.TAG = "contentful-tag";
-    const contentfulDocuments = [
-      createEntry({
-        fields: createContentfulDocument()
-      })
-    ];
+    const contentfulDocuments = [createContentfulDocument()];
     getDocuments.mockResolvedValueOnce(contentfulDocuments);
     const esContentfulDocuments = [createEsContentfulDocument()];
     transformDocuments.mockReturnValueOnce(esContentfulDocuments);

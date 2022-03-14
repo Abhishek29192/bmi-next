@@ -1,27 +1,17 @@
-test_gcp-pim-message-handler:
-  extends: .test_function
+lint_gcp-pim-message-handler:
+  extends: .lint_yarn_workspace
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-        - applications/dxb/libraries/pim-api/**/*
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-        - applications/dxb/libraries/pim-api/**/*
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
-    WORKSPACE: "@bmi/gcp-pim-message-handler"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
+    WORKSPACE: "@bmi/gcp-pim-message-handler"
 
 build_gcp-pim-message-handler:
   extends: .build_function
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
+    - !reference [  .ignore_release_mrs, rules ]
     - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - $ROOT_DIR/**/*
@@ -37,6 +27,26 @@ build_gcp-pim-message-handler:
   variables:
     WORKSPACE: "@bmi/gcp-pim-message-handler"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
+
+test_gcp-pim-message-handler:
+  extends: .test_function
+  rules:
+    - !reference [  .ignore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/pim-api/**/*
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/pim-api/**/*
+  variables:
+    WORKSPACE: "@bmi/gcp-pim-message-handler"
+    ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
+  needs:
+    - build_gcp-pim-message-handler
 
 package_gcp-pim-message-handler:
   extends: .package_function

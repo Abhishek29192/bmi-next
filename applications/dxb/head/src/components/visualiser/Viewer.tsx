@@ -1,6 +1,5 @@
 import { Icon, Tooltip } from "@bmi-digital/components";
-import { ArrowBack } from "@bmi-digital/components/icon";
-import { ArrowForward } from "@bmi-digital/components/icon";
+import { ArrowBack, ArrowForward } from "@bmi-digital/components/icon";
 import {
   Add,
   ArrowDownward,
@@ -10,7 +9,7 @@ import {
   ThreeDRotation
 } from "@mui/icons-material";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
-import clamp from "lodash/clamp";
+import clamp from "lodash-es/clamp";
 import React from "react";
 import {
   PerspectiveCamera,
@@ -78,6 +77,7 @@ export default abstract class Viewer<
    * Loads and renders the scene
    */
   abstract load(): void;
+
   /**
    * Loads the model into the scene
    * @param props properties to use for the model

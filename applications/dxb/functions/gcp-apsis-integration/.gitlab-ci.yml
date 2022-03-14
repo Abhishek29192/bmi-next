@@ -1,14 +1,26 @@
-test_gcp-apsis-integration:
-  extends: .test_function
+lint_gcp-apsis-integration:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
+    ROOT_DIR: "applications/dxb/functions/gcp-apsis-integration"
     WORKSPACE: "@bmi/gcp-apsis-integration"
-    ROOT_DIR: "applications/functions/gcp-apsis-integration"
 
 build_gcp-apsis-integration:
   extends: .build_function
   variables:
     WORKSPACE: "@bmi/gcp-apsis-integration"
     ROOT_DIR: "applications/dxb/functions/gcp-apsis-integration"
+
+test_gcp-apsis-integration:
+  extends: .test_function
+  variables:
+    WORKSPACE: "@bmi/gcp-apsis-integration"
+    ROOT_DIR: "applications/functions/gcp-apsis-integration"
+  needs:
+    - build_gcp-apsis-integration
 
 package_gcp-apsis-integration:
   extends: .package_function

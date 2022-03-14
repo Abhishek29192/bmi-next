@@ -9,10 +9,12 @@ import {
 } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
+import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
 import { GallerySectionMedias, transformMediaSrc } from "../utils/media";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/MediaGallerySection.module.scss";
+import { useSiteContext } from "./Site";
 
 export type Data = {
   __typename: "ContentfulMediaGallerySection";
@@ -23,6 +25,7 @@ export type Data = {
 
 const IntegratedMediaGallerySection = ({ data }: { data: Data }) => {
   const { title, longDescription, medias } = data;
+  const { getMicroCopy } = useSiteContext();
 
   const GTMThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
     label: "altText",
@@ -55,6 +58,8 @@ const IntegratedMediaGallerySection = ({ data }: { data: Data }) => {
             thumbnailComponent={(props: ThumbnailProps) => (
               <GTMThumbnail gtm={{ id: "media-gallery1" }} {...props} />
             )}
+            videoButtonLabel={getMicroCopy(microCopy.MEDIA_VIDEO)}
+            visualiserButtonLabel={getMicroCopy(microCopy.MEDIA_3D)}
           />
         </Grid>
       </Grid>

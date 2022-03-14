@@ -121,7 +121,7 @@ const data: Data = {
     dialogContent: null,
     hubSpotCTAID: null
   },
-  source: null,
+  source: SourceType.Contentful,
   hubSpotFormGuid: null
 };
 const dataHubSpot: Data = {

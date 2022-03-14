@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { render } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import createGallerySectionImage from "../../__tests__/helpers/GallerySectionImageHelper";
 import createImageData from "../../__tests__/helpers/ImageDataHelper";
 import createService from "../../__tests__/helpers/ServiceHelper";
@@ -31,11 +32,11 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
 };
 
 const contentMock = JSON.stringify({
-  nodeType: "document",
+  nodeType: BLOCKS.DOCUMENT,
   data: {},
   content: [
     {
-      nodeType: "paragraph",
+      nodeType: BLOCKS.PARAGRAPH,
       content: [
         {
           nodeType: "text",
@@ -740,7 +741,7 @@ describe("Sections component", () => {
         subtitle: null,
         body: {
           raw: JSON.stringify({
-            nodeType: "document",
+            nodeType: BLOCKS.DOCUMENT,
             data: {},
             content: [
               {

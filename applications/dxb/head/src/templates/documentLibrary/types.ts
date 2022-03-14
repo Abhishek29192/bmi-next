@@ -1,15 +1,15 @@
-import {
+import type {
   ContentfulDocument,
   PimProductDocument,
   PimSystemDocument
 } from "@bmi/elasticsearch-types";
-import { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
-import { Data as PageData } from "../../components/Page";
-import { Data as PageInfoData } from "../../components/PageInfo";
-import { RichTextData } from "../../components/RichText";
-import { Data as SiteData } from "../../components/Site";
-import { DocumentsFilters } from "../../schema/resolvers/types/DocumentsFilters";
-import { ResultType, Source, URLFilter } from "../../utils/filters";
+import type { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
+import type { Data as PageData } from "../../components/Page";
+import type { Data as PageInfoData } from "../../components/PageInfo";
+import type { RichTextData } from "../../components/RichText";
+import type { Data as SiteData } from "../../components/Site";
+import type { DocumentsFilters } from "../../schema/resolvers/types/DocumentsFilters";
+import type { ResultType, Source, URLFilter } from "../../utils/filters";
 
 export type QueryParams = {
   filters: URLFilter[];

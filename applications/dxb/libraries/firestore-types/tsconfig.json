@@ -1,7 +1,14 @@
 {
-  "extends": "../../../../tsconfig.json",
+  "extends": "../../../../tsconfig.common.json",
   "compilerOptions": {
+    "composite": true,
+    "declarationMap": true,
     "noEmit": false,
     "outDir": "dist"
-  }
+  },
+  "references": [
+    {
+      "path": "../pim-types"
+    }
+  ]
 }

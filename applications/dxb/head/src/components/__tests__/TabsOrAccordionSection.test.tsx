@@ -1,14 +1,15 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { render, screen } from "@testing-library/react";
 import React from "react";
+import { BLOCKS } from "@contentful/rich-text-types";
 import TabsOrAccordionSection, { Data } from "../TabsOrAccordionSection";
 
 const contentMock = JSON.stringify({
-  nodeType: "document",
+  nodeType: BLOCKS.DOCUMENT,
   data: {},
   content: [
     {
-      nodeType: "paragraph",
+      nodeType: BLOCKS.PARAGRAPH,
       content: [
         {
           nodeType: "text",

@@ -118,7 +118,7 @@ export const downloadMultipleFiles = async (
       throw new Error(response.statusText);
     }
 
-    const data = await response.json();
+    const data = (await response.json()) as { url: string };
 
     await downloadAs(data.url, zipFileName);
   } catch (error) {

@@ -1,7 +1,7 @@
 /* eslint-disable security/detect-object-injection */
-import { Filter as FirestoreFilter } from "@bmi/firestore-types";
-import { ProductFilter } from "../types/pim";
+import type { Filter as FirestoreFilter } from "@bmi/firestore-types";
 import { QUERY_FILTER_DELIMITER, replaceDotFiltersParameter } from "./filters";
+import type { ProductFilter } from "../types/pim";
 
 export interface IndexedItem<T = any> {
   [key: string]: T;

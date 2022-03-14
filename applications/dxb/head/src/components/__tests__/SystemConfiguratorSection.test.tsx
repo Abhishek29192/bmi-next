@@ -8,6 +8,7 @@ import {
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
+import { BLOCKS } from "@contentful/rich-text-types";
 import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
 import * as elasticSearch from "../../utils/elasticSearch";
 import * as GTM from "../../utils/google-tag-manager";
@@ -65,7 +66,7 @@ afterAll(() => {
 });
 
 const richTextRaw = {
-  nodeType: "document",
+  nodeType: BLOCKS.DOCUMENT,
   data: {},
   content: [
     {
@@ -81,7 +82,7 @@ const richTextRaw = {
       data: {}
     },
     {
-      nodeType: "paragraph",
+      nodeType: BLOCKS.PARAGRAPH,
       content: [
         {
           nodeType: "text",
@@ -324,7 +325,7 @@ describe("SystemConfiguratorSection component", () => {
         title: "No Result Title",
         content: {
           raw: JSON.stringify({
-            nodeType: "document",
+            nodeType: BLOCKS.DOCUMENT,
             data: {},
             content: [
               {
@@ -383,7 +384,7 @@ describe("SystemConfiguratorSection component", () => {
         title: "No Result Title",
         content: {
           raw: JSON.stringify({
-            nodeType: "document",
+            nodeType: BLOCKS.DOCUMENT,
             data: {},
             content: [
               {
@@ -442,7 +443,7 @@ describe("SystemConfiguratorSection component", () => {
         title: "No Result Title",
         content: {
           raw: JSON.stringify({
-            nodeType: "document",
+            nodeType: BLOCKS.DOCUMENT,
             data: {},
             content: [
               {

@@ -2657,12 +2657,13 @@ exports[`Home Page Template render correctly with all data 1`] = `
                       style="width: 100%;"
                     >
                       <div
-                        class="CarouselHero-image css-baoeyh-Media"
+                        class="CarouselHero-image css-94zf8x-Media"
                         data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=youtubeId-label","action":"Play"}"
                         data-testid="hero-video"
+                        style="position: relative;"
                       >
                         <button
-                          aria-label="label"
+                          aria-label="MC: media.video"
                           class="YoutubeVideo-thumbnail"
                           data-testid="thumbnail"
                           type="button"
@@ -2693,10 +2694,11 @@ exports[`Home Page Template render correctly with all data 1`] = `
                               />
                             </svg>
                             <p
+                              aria-label="MC: media.video"
                               class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
                               data-testid="typography"
                             >
-                              media.video
+                              MC: media.video
                             </p>
                           </div>
                         </button>
@@ -2942,12 +2944,13 @@ exports[`Home Page Template render correctly with all data 1`] = `
                     />
                   </a>
                   <div
-                    class="css-1dx0f0v-Media"
+                    class="css-778yut-Media"
                     data-gtm="{"id":"cta-click--video-youtube","label":"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label","action":"Play"}"
                     data-testid="overlap-cards-video"
+                    style="position: relative;"
                   >
                     <button
-                      aria-label="video label"
+                      aria-label="MC: media.video"
                       class="YoutubeVideo-thumbnail"
                       data-testid="thumbnail"
                       type="button"
@@ -3019,10 +3022,11 @@ exports[`Home Page Template render correctly with all data 1`] = `
                           />
                         </svg>
                         <p
+                          aria-label="MC: media.video"
                           class="MuiTypography-root MuiTypography-body1 css-1rzqf9i-MuiTypography-root"
                           data-testid="typography"
                         >
-                          media.video
+                          MC: media.video
                         </p>
                       </div>
                     </button>

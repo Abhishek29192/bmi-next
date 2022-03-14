@@ -1,7 +1,17 @@
+lint_pim-types:
+  extends: .lint_yarn_workspace
+  rules:
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
+  variables:
+    ROOT_DIR: "applications/dxb/libraries/pim-types"
+    WORKSPACE: "@bmi/pim-types"
+
 build_pim-types:
   extends: .build_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [ .ignore_release_mrs, rules]
     - !reference [.run_for_changes_on_mr, rules]
     - !reference [.run_for_changes_on_main, rules]
   variables:

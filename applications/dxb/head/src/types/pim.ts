@@ -1,4 +1,4 @@
-import {
+import type {
   Asset as FirestoreAsset,
   AssetAssetType as FirestoreAssetType,
   BIM as FirestoreBIM,

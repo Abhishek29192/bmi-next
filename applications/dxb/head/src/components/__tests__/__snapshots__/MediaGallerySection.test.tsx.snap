@@ -230,6 +230,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                       label
                     </span>
                     <div
+                      aria-label="MC: media.video"
                       class="css-z7rmfo"
                     >
                       <div
@@ -254,7 +255,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                           class="MuiTypography-root MuiTypography-body1 css-1ezfe9h-MuiTypography-root"
                           data-testid="typography"
                         >
-                          Video
+                          MC: media.video
                         </p>
                       </div>
                       <div

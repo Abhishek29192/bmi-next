@@ -1,46 +1,56 @@
-test_gcp-firestore-writer:
-  extends: .test_function
+lint_gcp-firestore-writer:
+  extends: .lint_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-        - applications/dxb/libraries/functions-firestore/**/*
-        - applications/dxb/libraries/pim-types/**/*
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-        - applications/dxb/libraries/functions-firestore/**/*
-        - applications/dxb/libraries/pim-types/**/*
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
-    WORKSPACE: "@bmi/gcp-firestore-writer"
     ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"
+    WORKSPACE: "@bmi/gcp-firestore-writer"
 
 build_gcp-firestore-writer:
   extends: .build_function
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [  .ignore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
         - applications/dxb/libraries/pim-types/**/*
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
         - applications/dxb/libraries/pim-types/**/*
-    - if: !reference [.run_for_preprod_release, rules, if]
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_preprod_release, rules, if ]
+    - if: !reference [ .run_for_prod_release, rules, if ]
   variables:
     WORKSPACE: "@bmi/gcp-firestore-writer"
     ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"
+
+test_gcp-firestore-writer:
+  extends: .test_function
+  rules:
+    - !reference [  .ignore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/functions-firestore/**/*
+        - applications/dxb/libraries/pim-types/**/*
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/functions-firestore/**/*
+        - applications/dxb/libraries/pim-types/**/*
+  variables:
+    WORKSPACE: "@bmi/gcp-firestore-writer"
+    ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"
+  needs:
+    - build_gcp-firestore-writer
 
 package_gcp-firestore-writer:
   extends: .package_function
@@ -48,14 +58,14 @@ package_gcp-firestore-writer:
     - job: build_gcp-firestore-writer
       artifacts: true
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
         - applications/dxb/libraries/pim-types/**/*
-    - if: !reference [.run_for_preprod_release, rules, if]
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_preprod_release, rules, if ]
+    - if: !reference [ .run_for_prod_release, rules, if ]
   variables:
     FUNCTION_NAME: "gcp-firestore-writer"
     ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"
@@ -66,7 +76,7 @@ deploy_gcp-firestore-writer:
     - job: package_gcp-firestore-writer
       artifacts: true
   rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
@@ -74,10 +84,10 @@ deploy_gcp-firestore-writer:
         - applications/dxb/libraries/pim-types/**/*
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
-    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [ .run_for_preprod_release, rules, if ]
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
-    - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [ .run_for_prod_release, rules, if ]
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   variables:

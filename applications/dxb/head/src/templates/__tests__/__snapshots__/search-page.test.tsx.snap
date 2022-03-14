@@ -2429,8 +2429,9 @@ exports[`Search Page Template render correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="Hero-light Hero-slim Hero-lvl3 css-17es170"
+      class="Hero-light Hero-slim Hero-lvl3 css-1sopae"
       data-testid="hero"
+      style="position: relative;"
     >
       <div
         class=" css-ze8cyt"

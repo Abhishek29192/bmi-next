@@ -1,30 +1,22 @@
-test_frc-website:
-  extends: .test_yarn_workspace
+lint_frc-website:
+  extends: .lint_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes:
-        - applications/frc-website/**/*
-        - jest/**/*
-        - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-      changes:
-        - applications/frc-website/**/*
-        - jest/**/*
-        - yarn.lock
+    - !reference [ .ignore_release_mrs, rules ]
+    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [ .run_for_changes_on_mr, rules ]
   variables:
+    ROOT_DIR: "applications/dxb/frc-website"
     WORKSPACE: "@bmi/frc-website"
-    ROOT_DIR: "applications/frc-website"
 
 build_frc-website:
   extends: .build_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [  .ignore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - applications/frc-website/**/*
         - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
       changes:
         - applications/frc-website/**/*
         - yarn.lock
@@ -35,3 +27,21 @@ build_frc-website:
     paths:
       - applications/frc-website/.cache/
       - applications/frc-website/public/
+
+test_frc-website:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [  .ignore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
+      changes:
+        - applications/frc-website/**/*
+        - yarn.lock
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+      changes:
+        - applications/frc-website/**/*
+        - yarn.lock
+  variables:
+    WORKSPACE: "@bmi/frc-website"
+    ROOT_DIR: "applications/frc-website"
+  needs:
+    - build_frc-website
